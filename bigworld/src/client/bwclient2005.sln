@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bwclient2005", "bwclient2005.vcproj", "{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Consumer_Release|Win32 = Consumer_Release|Win32
+		Debug|Win32 = Debug|Win32
+		Evaluation|Win32 = Evaluation|Win32
+		Hybrid|Win32 = Hybrid|Win32
+		PyModule_Hybrid|Win32 = PyModule_Hybrid|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.Consumer_Release|Win32.ActiveCfg = Consumer_Release|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.Consumer_Release|Win32.Build.0 = Consumer_Release|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.Debug|Win32.Build.0 = Debug|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.Evaluation|Win32.ActiveCfg = Evaluation|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.Evaluation|Win32.Build.0 = Evaluation|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.Hybrid|Win32.ActiveCfg = Hybrid|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.Hybrid|Win32.Build.0 = Hybrid|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.PyModule_Hybrid|Win32.ActiveCfg = PyModule_Hybrid|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.PyModule_Hybrid|Win32.Build.0 = PyModule_Hybrid|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.Release|Win32.ActiveCfg = Release|Win32
+		{BCC3E36D-DDBF-4E76-8DE4-A8C86A404F7A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

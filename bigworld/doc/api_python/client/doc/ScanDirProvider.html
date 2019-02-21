@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>ScanDirProvider - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ScanDirProvider Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>ScanDirProvider is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="MatrixProvider.html">MatrixProvider</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="MatrixProvider.html">MatrixProvider</a> whose direction oscillates around the y axis, and may be
+instructed to call a function when it hits it's leftmost and rightmost
+limits. An instance of this class can be created via the factory method
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#ScanDirProvider><a href="ScanDirProvider.html">ScanDirProvider</a></a>, wherein the amplitude, period, and period offset
+of the oscillation are specified.
+<br><br>
+It is not possible to directly access many of the internal attributes of a
+<a href="ScanDirProvider.html">ScanDirProvider</a>. To view this data it is necessary to construct a
+<a href="Matrix.html">Matrix</a> which is a copy of this, & read the values from it. For
+example:
+
+<pre># create a <a href="ScanDirProvider.html">ScanDirProvider</a>
+sdp = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#ScanDirProvider><a href="ScanDirProvider.html">ScanDirProvider</a></a>( math.pi/2, 10, 0 )
+
+# create a <a href="MatrixProvider.html">MatrixProvider</a> from the <a href="ScanDirProvider.html">ScanDirProvider</a>
+m = <a href="Math.html">Math</a>.<a href=Math.html#Matrix><a href="Matrix.html">Matrix</a></a>( sdp )
+
+# print the yaw
+print m.yaw
+</pre>
+Note that a <a href="Matrix.html">Matrix</a> constructed as a copy of a <a href="ScanDirProvider.html">ScanDirProvider</a> will
+only resemble the <a href="ScanDirProvider.html">ScanDirProvider</a> at the time that it is created. It will
+not update to reflect changes.
+<br><br>
+Instances of this class are typically used in conjunction with a <a href="Tracker.html">Tracker</a> to
+cause a nodes in a model to "scan" an area by turning left & right.
+
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

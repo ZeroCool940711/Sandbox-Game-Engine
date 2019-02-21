@@ -1,0 +1,593 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;2.&nbsp;Additional Information and Troubleshooting</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Client and Tools Build Guide">
+      <link rel="up" href="index.html" title="Client and Tools Build Guide">
+      <link rel="prev" href="ch01.html" title="Chapter&nbsp;1.&nbsp;BigWorld Technology Client &amp; Tools Build Instructions">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/client_and_tools_build_guide/ch02.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;2.&nbsp;Additional Information and Troubleshooting</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch01.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;</td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;2.&nbsp;Additional Information and Troubleshooting">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Additional_Info_Troubleshooting"></a>Chapter&nbsp;2.&nbsp;Additional Information and Troubleshooting
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch02.html#xref_Build_Configurations">2.1. Build Configurations</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#xref_Build_Configuration_Summary">2.1.1. </a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#xref_Property_Sheets">2.1.2. Property Sheets</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#xref_Precompiled_Headers">2.1.3. Precompiled Headers</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch02.html#xref_Libraries">2.2. Libraries</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#xref_C_Runtime_Library">2.2.1. The C Runtime Library</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#xref_Debugging_Dependencies">2.2.2. Debugging Dependencies</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch02.html#xref_Common_Build_Errors">2.3. Common Build Errors</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#xref_Sharing_Violation">2.3.1. Sharing Violation</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#xref_Application_Error">2.3.2. Application Error</a></span></dt>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+            <div class="section" title="2.1.&nbsp;Build Configurations">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Build_Configurations"></a>2.1.&nbsp;Build Configurations
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="2.1.1.&nbsp;">
+                  <div class="titlepage"></div>
+                  <div class="section" title="2.1.1.1.&nbsp;Client Build Configuration Summary">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="xref_Client_Build_Configuration_Summary"></a>2.1.1.1.&nbsp;Client Build Configuration Summary
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>
+                                  The client comes with the following main build configurations:
+                                
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem"><em class="emphasis">Debug</em><div class="itemizedlist">
+                                 <ul class="itemizedlist" type="circle">
+                                    <li class="listitem">
+                                                       optimisation disabled (/Od)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       linked against the debug CRT (/MDd)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       includes full debug information (/ZI)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       defines <span class="literal">_DEBUG</span></li>
+                                    <li class="listitem">
+                                                       warning level 3 (/W3),  warnings treated as errors (/WX)
+                                                     
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="listitem"><em class="emphasis">Hybrid</em><div class="itemizedlist">
+                                 <ul class="itemizedlist" type="circle">
+                                    <li class="listitem">
+                                                       full optimisation (/OX), favor fast code (/Ot)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       linked against the CRT with (/MD)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       includes some debug information (/Zi)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       defines <span class="literal">NDEBUG</span> and
+                                                       <span class="literal">_HYBRID</span></li>
+                                    <li class="listitem">
+                                                       warning level 3 (/W3), warnings treated as errors (/WX)
+                                                     
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="listitem"><em class="emphasis">Release</em><div class="itemizedlist">
+                                 <ul class="itemizedlist" type="circle">
+                                    <li class="listitem">
+                                                       full optimisation (/OX), favor fast code (/Ot)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       linked against the CRT with (/MD)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       includes some debug information (/Zi)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       defines <span class="literal">NDEBUG</span> and <span class="literal">_RELEASE</span></li>
+                                    <li class="listitem">
+                                                       warning level 3 (/W3), warnings treated as errors (/WX)
+                                                     
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="listitem"><em class="emphasis">Consumer Release</em><div class="itemizedlist">
+                                 <ul class="itemizedlist" type="circle">
+                                    <li class="listitem">
+                                                       full optimisation (/OX), favor fast code (/Ot)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       linked against the CRT with (/MD)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       no debug information
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       defines <span class="literal">NDEBUG</span>,
+                                                       <span class="literal">_RELEASE</span> and
+                                                       <span class="literal">CONSUMER_CLIENT</span></li>
+                                    <li class="listitem">
+                                                       warning level 3 (/W3), warnings treated as errors (/WX)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       debug and any remaining developer options are disabled.
+                                                       Most of this is set in <span class="literal">cstdmf/config.hpp</span>.
+                                                     
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="section" title="2.1.1.2.&nbsp;Tools Build Configuration Summary">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="xref_Tools_Build_Configuration_Summary"></a>2.1.1.2.&nbsp;Tools Build Configuration Summary
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>
+                                  The tools' build configurations are similar to the client,
+                                  except they are prefixed with
+                                  <span class="literal">Editor_</span>. There are no "release" or
+                                  "consumer release" build configurations for the tools and "hybrid"
+                                  should be used instead.
+                                
+                     </p>
+                     <p>
+                                  The tools come with the following main build configurations:
+                                
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem"><em class="emphasis">Editor_Debug</em><div class="itemizedlist">
+                                 <ul class="itemizedlist" type="circle">
+                                    <li class="listitem">
+                                                     optimisation disabled (/Od)
+                                                   
+                                    </li>
+                                    <li class="listitem">
+                                                     linked against the debug CRT with (/MDd)
+                                                   
+                                    </li>
+                                    <li class="listitem">
+                                                     includes full debug information (/ZI)
+                                                   
+                                    </li>
+                                    <li class="listitem">
+                                                     defines <span class="literal">_DEBUG</span></li>
+                                    <li class="listitem">
+                                                     warning level 3 (/W3),
+                                                     warnings treated as errors (/WX)
+                                                   
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="listitem"><em class="emphasis">Editor_Hybrid</em><div class="itemizedlist">
+                                 <ul class="itemizedlist" type="circle">
+                                    <li class="listitem">
+                                                       full optimisation (/OX), favor fast code (/Ot)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       linked against the CRT with (/MD)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       includes some debug information (/Zi)
+                                                     
+                                    </li>
+                                    <li class="listitem">
+                                                       defines <span class="literal">NDEBUG</span> and
+                                                       <span class="literal">_HYBRID</span></li>
+                                    <li class="listitem">
+                                                       warning level 3 (/W3), warnings treated as errors (/WX)
+                                                     
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <p>
+                             In addition there are some build configurations with
+                             <span class="literal">_Eval</span> and <span class="literal">_Indie</span> postfixed on
+                             their names which are for evaluation and indie BigWorld customers.
+                           
+                  </p>
+               </div>
+               <div class="section" title="2.1.2.&nbsp;Property Sheets">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Property_Sheets"></a>2.1.2.&nbsp;Property Sheets
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The project configurations use property sheets
+                           (<span class="literal">.vsprops</span> files)
+                           to set the common options for each build configuration for each project.
+                           They can be found in <span class="literal">bigworld/src/build/vsprops</span>.
+                           
+                  </p>
+               </div>
+               <div class="section" title="2.1.3.&nbsp;Precompiled Headers">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Precompiled_Headers"></a>2.1.3.&nbsp;Precompiled Headers
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The projects use precompiled headers (.pch files) to increase build speed.</p>
+                  <p>To duplicate this in a new project:
+                             
+                  </p>
+                  <div class="orderedlist">
+                     <ol class="orderedlist" type="1">
+                        <li class="listitem">
+                                       Create files called <span class="literal">pch.cpp</span> and
+                                       <span class="literal">pch.hpp</span> in the project directory.
+                                     
+                        </li>
+                        <li class="listitem">
+                                       Set the project property
+                                       <em class="emphasis">Project Properties -&gt; C/C++ -&gt; Precompiled Headers -&gt;
+                                          Create/Use Precompiled Header</em> to
+                                       "Use Precompiled Header (/Yu)".
+                                     
+                        </li>
+                        <li class="listitem">
+                                       Set the <span class="literal">pch.cpp</span> property
+                                       <em class="emphasis">Properties -&gt; C/C++ -&gt; Precompiled Headers -&gt;
+                                          Create/Use Precompiled Header</em> to
+                                       "Create Precompiled Header (/Yc)".
+                                     
+                        </li>
+                     </ol>
+                  </div>
+                  <p>
+                           
+                  </p>
+               </div>
+            </div>
+            <div class="section" title="2.2.&nbsp;Libraries">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Libraries"></a>2.2.&nbsp;Libraries
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="2.2.1.&nbsp;The C Runtime Library">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_C_Runtime_Library"></a>2.2.1.&nbsp;The C Runtime Library
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                             The client and tools must be linked against the appropriate
+                             C Runtime Library (CRT).
+                           
+                  </p>
+                  <p>
+                             BigWorld is compiled dynamically against the CRT,
+                             using the <span class="literal">/MDd</span> option for debug, and
+                             <span class="literal">/MD</span> for release.
+                             This decreases the executable size, because it does not include the
+                             CRT, but it depends on the user having
+                             <span class="literal">MSVCP80.dll</span> or
+                             <span class="literal">MSVCP90.dll</span> installed correctly, depending on
+                             which version of Visual Studio is being used.
+                           
+                  </p>
+                  <p>
+                             This requires running <span class="literal">vcredist.exe</span> during
+                             installation on end user's computers to ensure the correct DLLs
+                             are installed.
+                           
+                  </p>
+                  <p>
+                             BigWorld does not support compiling statically against the CRT,
+                             (using the <span class="literal">/MTd</span> option for debug and,
+                             and <span class="literal">/MT</span> for release).
+                             This is because care must be taken to ensure that all of
+                             the dependent libraries included are also compiled statically
+                             against the CRT and BigWorld uses third-party libraries which do not
+                             work well with the static CRT. Static linking can also cause memory
+                             problems, if for example, CRT allocations are made in the program and
+                             then deleted in a library, this is not supported by static linking.
+                           
+                  </p>
+                  <p>
+                             References:
+                             <a class="ulink" href="http://msdn.microsoft.com/en-us/library/abx4dbyh%28v=vs.80%29.aspx" target="_top">
+                                C Run-Time Libraries</a> and
+                             <a class="ulink" href="http://msdn.microsoft.com/en-us/library/2kzt1wy3%28v=vs.90%29.aspx" target="_top">
+                                MSDN Run-Time Library Flags</a>.
+                           
+                  </p>
+               </div>
+               <div class="section" title="2.2.2.&nbsp;Debugging Dependencies">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Debugging_Dependencies"></a>2.2.2.&nbsp;Debugging Dependencies
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                             Here are some tools that can be used to help debug library dependency
+                             issues.
+                           
+                  </p>
+                  <div class="section" title="2.2.2.1.&nbsp;Dumpbin">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="xref_Dumpbin"></a>2.2.2.1.&nbsp;Dumpbin
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>
+                                  To get a dump of the dependencies for an executable, you can use
+                                  the <span class="literal">DUMPBIN</span> command line utility that comes with
+                                  Visual Studio.
+                                
+                     </p>
+                     <p>For example:
+                                  
+                     </p><pre class="programlisting">&gt;dumpbin /DEPENDENTS "&lt;path_to_client&gt;bwclient.exe"
+Microsoft (R) COFF/PE Dumper Version 9.00.30729.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file &lt;path_to_client&gt;bwclient.exe
+
+File Type: EXECUTABLE IMAGE
+
+Image has the following dependencies:
+
+  WINMM.dll
+  WS2_32.dll
+  USER32.dll
+  d3dx9_42.dll
+  PSAPI.DLL
+  KERNEL32.dll
+  GDI32.dll
+  VERSION.dll
+  voip.dll
+  python26.dll
+  MSVCP90.dll
+  MSVCR90.dll
+  WININET.dll
+  IMM32.dll
+  gdiplus.dll
+  umbra.dll
+  ADVAPI32.dll
+  ole32.dll
+  SHELL32.dll
+  DINPUT8.dll
+  d3d9.dll
+  SHLWAPI.dll
+  fmodex.dll
+  fmod_event_net.dll
+  OLEAUT32.dll
+
+Summary
+
+     98000 .data
+     10000 .idata
+    24E000 .rdata
+      4000 .rsrc
+    F9C000 .text
+      B000 .tls</pre><p>
+                                
+                     </p>
+                  </div>
+                  <div class="section" title="2.2.2.2.&nbsp;Dependency Walker">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="xref_Dependency_Walker"></a>2.2.2.2.&nbsp;Dependency Walker
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>
+                                  Another helpful utility is <em class="emphasis">Dependency Walker</em>
+                                  which will give the same information as DUMPBIN, as well as
+                                  checking the dependencies of the dependencies.
+                                  See <a class="ulink" href="http://www.dependencywalker.com/" target="_top">
+                                     http://www.dependencywalker.com/</a>.
+                                
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="2.3.&nbsp;Common Build Errors">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Common_Build_Errors"></a>2.3.&nbsp;Common Build Errors
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="2.3.1.&nbsp;Sharing Violation">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Sharing_Violation"></a>2.3.1.&nbsp;Sharing Violation
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                            A build can fail if an instance of the client or tools is running
+                            while BigWorld builds, due to the Windows file system not allowing
+                            files to be modified while they are being used.
+                            You might receive an error like the following:
+                          
+                  </p><pre class="programlisting">1&gt;------ Build started: Project: bwclient, Configuration: Hybrid Win32 ------
+1&gt;Compiling...
+1&gt;script_bigworld.cpp
+1&gt;Performing Pre-Link Event...
+1&gt;..\lib\third_party\llmozlib2\llmozlib_dll\llmozlib_dll\release_2008\llmozlib_dll.dll
+1&gt;Sharing violation
+1&gt;Project : error PRJ0019: A tool returned an error code from "Performing Pre-Link Event..."
+1&gt;Project : warning PRJ0018 : The following environment variables were not found:
+1&gt;$(GFXSDK)
+1&gt;Build log was saved at "file://d:\bw_2current\bigworld\src\client\obj\Win32\Hybrid_2008\BuildLog.htm"
+1&gt;bwclient - 1 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 34 up-to-date, 0 skipped ==========</pre><p>
+                            To fix this, go into the <em class="emphasis">Task Manager</em> and
+                            stop any BigWorld client or tools processes that are running,
+                            then build.
+                          
+                  </p>
+               </div>
+               <div class="section" title="2.3.2.&nbsp;Application Error">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Application_Error"></a>2.3.2.&nbsp;Application Error
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                            If it's your first time trying to run the debug version of the
+                            client and you get an error similar to:
+                          
+                  </p>
+                  <div class="informalfigure">
+                     <div class="mediaobject" align="center"><img src="images/python_dll_error.png" align="middle"></div>
+                  </div><span class="caption">"The application was unable to start correctly..."</span><p>
+                            Additionally if you run it with the Visual Studio debugger you might
+                            see that it got up to loading the Python DLL in the output window
+                            before stopping.
+                          
+                  </p>
+                  <p>
+                            This typically happens if you have a copy of
+                            <span class="literal">python26_d.dll</span>
+                            which was compiled with an incompatible version of Visual Studio.
+                            For example, if you have a copy of the DLL which was compiled with
+                            Visual Studio 2005, but the client has been compiled with
+                            Visual Studio 2008. To fix this, try compiling
+                            the Python DLL with your version of Visual Studio, see
+                            <a href="../python_and_c/ch02.html#xref_Building_Client_Tools" class="olink">Building for the Client and Content Creation Tools</a>.
+                          
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch01.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;1.&nbsp;BigWorld Technology Client &amp; Tools Build Instructions&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,119 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;4.&nbsp;Keep-alive Messages</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Web Integration Guide">
+      <link rel="up" href="pt01.html" title="Part&nbsp;I.&nbsp;Exposing the BigWorld Server as a Web Service">
+      <link rel="prev" href="ch03.html" title="Chapter&nbsp;3.&nbsp;Remote Methods, Arguments and Return Values">
+      <link rel="next" href="pt02.html" title="Part&nbsp;II.&nbsp;Using the Web Service from Apache">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_web_integration/ch04.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;4.&nbsp;Keep-alive Messages</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch03.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">Part&nbsp;I.&nbsp;Exposing the BigWorld Server as a Web Service</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="pt02.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;4.&nbsp;Keep-alive Messages">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Keep_Alive_Messages"></a>Chapter&nbsp;4.&nbsp;Keep-alive Messages
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <p>Mailboxes to entities residing on a BaseApp should exist for as long
+               as they are needed by the web server. However, these same entities may be
+               player entities controlled by the BigWorld client. These two different
+               usages of the same entity must be reconciled when it comes to managing
+               entity lifetimes &#8212; for example, if the client disconnects while the
+               game's web interface is still using the player's base entity, this entity
+               should not be destructed until the game's web interface has finished with
+               it. Also, if the player is currently not logged in via the BigWorld client.
+                 If the player does not explicitly log out of the web server, we would want
+                 to clean up that mailbox reference after an inactivity period.
+            </p>
+            <p>The solution to this problem is for the <span class="literal">TwistedWeb</span>
+                 service to periodically inform the base entity that it is still interested
+                 in it. The entity can then stay around even if the client has disconnected
+                 (destruction of the base entity is the normal course of action).
+            </p>
+            <p>The <span class="literal">TwistedWeb</span> service keeps a cache of mailboxes.
+                 Only mailboxes to entities that have a
+                 <code class="methodname">webKeepAlivePing()</code> method are cached. Each time the
+                 service is queried that uses one of these mailboxes it is either added to
+                 this cache or marked with the time it was last queried.
+            </p>
+            <p>The service will periodically check all mailboxes in this cache. If
+                 the mailbox has not been used for a long time, it is removed from the cache.
+                 If it is still active, the <code class="methodname">webKeepAlivePing()</code>
+                 method is called on it.
+            </p>
+            <p>It is okay if the mailbox is removed from the cache too early. In this
+                 case, the database will be queried to retrieve the mailbox. This is
+                 important when running multiple <code class="code">TwistedWeb</code> service fragments on
+                 different ServiceApps. Besides a very minor performance impact on the
+                 database, it does not matter which ServiceApp is queried. Running the
+                 service on multiple ServiceApps is a way to achieve fault tolerance and also
+                 scaling beyond a single machine.
+            </p>
+            <p>This functionality is implemented in
+                 <code class="filename">bigworld/res/scripts/service/TWResources/KeepAliveMailboxes.py</code>.
+                 The frequency of the pings is specified by the
+                 <code class="varname">CHECK_PERIOD</code> constant. The amount of time before a
+                 mailbox times out is specified by the <code class="varname">TIMEOUT_PERIOD</code>
+                 constant.
+            </p>
+            <p>For game script, entities can make use of the
+                 <code class="classname">KeepAlive</code> class located in
+                 <code class="filename">fantasydemo/res/scripts/base/KeepAlive.py</code> to implement
+                 this functionality. It also has <code class="varname">CHECK_PERIOD</code> and
+                 <code class="varname">TIMEOUT_PERIOD</code> constants specifying how frequently to
+                 check for these entities timing out and how long before they time out. This
+                 timeout period should be slightly more than that of
+                 <code class="filename">KeepAliveMailboxes.py</code>.
+            </p>
+            <p>When accessing this service from a website, keep-alive intervals can
+                 be used with HTTP session timeouts so that players have to re-login after a
+                 certain inactivity period to create a new HTTP session. Keep-alive intervals
+                 should be set to be equal to or longer than session durations.
+            </p>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch03.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center"><a accesskey="u" href="pt01.html">Up</a></td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="pt02.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;3.&nbsp;Remote Methods, Arguments and Return Values&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Part&nbsp;II.&nbsp;Using the Web Service from Apache</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

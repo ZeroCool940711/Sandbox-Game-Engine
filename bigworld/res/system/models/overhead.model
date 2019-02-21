@@ -1,0 +1,8 @@
+<overhead.model>
+	<nodelessVisual>	system/models/overhead	</nodelessVisual>
+	<materialNames>	</materialNames>
+	<visibilityBox>
+		<min>	-50.000000 5.000000 -50.000000	</min>
+		<max>	50.000000 5.000000 50.000000	</max>
+	</visibilityBox>
+</overhead.model>

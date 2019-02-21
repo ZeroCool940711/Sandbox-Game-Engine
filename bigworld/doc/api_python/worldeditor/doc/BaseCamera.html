@@ -1,0 +1,245 @@
+<html>
+<head>
+<title>BaseCamera - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BaseCamera Class Reference</h1>
+<p><b>BaseCamera</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#handleKeyEvent" class="function_list" >handleKeyEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseEvent" class="function_list" >handleMouseEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#render" class="function_list" >render</a>( self, dTime ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#update" class="function_list" >update</a>( self, dTime, activeInputHandler ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#invert" class="attribute_list" >invert</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#position" class="attribute_list" >position</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#speed" class="attribute_list" >speed</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#turboSpeed" class="attribute_list" >turboSpeed</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#view" class="attribute_list" >view</a></td><td>&nbsp; <a href="Matrix.html">Matrix</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is used to keep track of the camera inside the World Editor.
+World Editor uses different camera types, and you can obtain these cameras
+by using the <a href="WorldEditor.html">WorldEditor</a>.<a href=WorldEditor.html#camera>camera</a> function, which will return a  type
+derived from this <a href="BaseCamera.html">BaseCamera</a> class.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="handleKeyEvent"></a><p class="function_definition">
+<span class="function_definition">def handleKeyEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This method handles key input events that can be handled by the camera.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;The KeyEvent object containing the information about the key event.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled by the camera, False otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This method handles mouse input events that can be handled by the camera.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;The MouseEvent object containing the information about the event.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled by the camera, False otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="render"></a><p class="function_definition">
+<span class="function_definition">def render( <i>self, dTime</i> ):</span>
+</p>
+
+<div class="function_description">This method simply sets the rendering view transform to the view
+transform of this camera.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>dTime</i></span></td><td><span class="function_parameter_description">&nbsp;The change in time since last frame
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="update"></a><p class="function_definition">
+<span class="function_definition">def update( <i>self, dTime, activeInputHandler</i> ):</span>
+</p>
+
+<div class="function_description">This method implements camera-type dependent handling, usually done
+before rendering each frame.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>dTime</i></span></td><td><span class="function_parameter_description">&nbsp;The change in time since last frame
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>activeInputHandler</i></span></td><td><span class="function_parameter_description">&nbsp;Whether or not the tool has the input focus.
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="invert"></a><p class="attribute_definition">
+<span class="attribute_definition">invert</span>
+</p>
+
+<div class="attribute_description">The invert attribute allows for inverting the direction of movement of
+the camera when the user is interacting with it.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="position"></a><p class="attribute_definition">
+<span class="attribute_definition">position</span>
+</p>
+
+<div class="attribute_description">The position attribute determines the translation component of the
+camera's view matrix.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="speed"></a><p class="attribute_definition">
+<span class="attribute_definition">speed</span>
+</p>
+
+<div class="attribute_description">The speed attribute determines how quick the camera will move when the
+user is interacting with it (via the WASD keys for example).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="turboSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">turboSpeed</span>
+</p>
+
+<div class="attribute_description">The turboSpeed attribute determines how quick the camera will move when the
+user is interacting with it in "turbo" mode (via the WASD keys for example).
+For information on how to enable turbo mode in the tool, please refer to
+the tool's help menu items and documentation.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="view"></a><p class="attribute_definition">
+<span class="attribute_definition">view</span>
+</p>
+
+<div class="attribute_description">The view attribute determines the view matrix used for the camera.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Matrix.html">Matrix</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

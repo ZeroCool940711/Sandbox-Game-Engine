@@ -1,0 +1,251 @@
+<ual_config.xml>
+<!--
+Asset Browser configuration file
+
+Please see WorldEditor's Asset Browser configuration file for more details.
+-->
+	<Config>
+		<icon> </icon>
+		<preferredWidth>	285	</preferredWidth>
+		<preferredHeight>	480	</preferredHeight>
+		<shortCaption>	Assets	</shortCaption>
+		<longCaption>	Asset Browser	</longCaption>
+		<layoutVertical>	true	</layoutVertical>
+		<filtersVisible>	false	</filtersVisible>
+		<sortVFolders>	false	</sortVFolders>
+		<sortSubFolders>	true	</sortSubFolders>
+		<maxCacheItems>	200	</maxCacheItems>
+		<initialTreeSize>	164	</initialTreeSize>
+		<pushlikeFilters>	false	</pushlikeFilters>
+		
+		<iconSpacingX>	84	</iconSpacingX>
+		<iconSpacingY>	100	</iconSpacingY>
+		<!-- Set the icon spacing of the Asset List when in big icon mode. -->
+		
+		<threadPriority> 1 </threadPriority>
+		<threadYieldMsec> 125 </threadYieldMsec>
+		<!-- Asset Browser performance fine-tunning tags. These tags work
+		together to balance the speed of the Asset Browser's loading thread
+		against the app's main thread.
+		'threadPriority' acceptable values are:
+			-1: loading thread priority low (app more responsive)
+			 0: loading thread priority normal (faster Asset Browser, app still
+				responsive)
+			 1: loading thread priority high (fastest speed, app not very
+				responsive)
+		When using thread priority 1, the loading thread might get too much
+		priority, making the application too unresponsive. To make the app more
+		responsive while keeping the Asset Browser fast, use priority 1 and set
+		the threadYieldMsec to somewhere between 20 to 250 (making the loading
+		thread yield time to the main thread every threadYieldMsec milliseconds)
+		'threadYieldMsec' should be a positive number. The higher it is, the
+		faster the Asset Browser finds files and the less responsive the app
+		will be. -->
+	</Config>
+	<Toolbar>
+		<item>
+			<name>	UalToolbar	</name>
+			<type>	GROUP	</type>
+			<item>
+				<type>	GROUP	</type>
+				<description>	</description>
+				<item>
+					<type>	ACTION	</type>
+					<description>	Refresh the item list	</description>
+					<action>	UalActionRefresh	</action>
+					<imageNormal>	resources/ual/toolbar.bmp:0,0,16,16	</imageNormal>
+				</item>
+				<item>
+					<type>	TOGGLE	</type>
+					<description>	Tree and List Layout Vertical/Horizontal	</description>
+					<imageNormal>	resources/ual/toolbar.bmp:16,0,32,16	</imageNormal>
+					<item>
+						<type>	CHILD	</type>
+						<action>	UalActionLayout	</action>
+						<updater>	UalUpdateLayout	</updater>
+					</item>
+					<item>
+						<type>	CHILD	</type>
+						<action>	UalActionLayout	</action>
+					</item>
+				</item>
+			</item>
+		</item>
+	</Toolbar>
+	<Filters>
+		<Filter>	FantasyDemo
+			<group>	Project	</group>
+			<include>	*fantasydemo/res*	</include>
+		</Filter>
+		<Filter>	Bigworld
+			<group>	Project	</group>
+			<include>	*bigworld/res*	</include>
+		</Filter>
+		<Filter>
+			<separator>	true	</separator>
+		</Filter>
+		<Filter>	Models
+			<group>	Extension	</group>
+			<include>	*.model	</include>
+			<exclude>	!*shells*	</exclude>
+			<!-- The exclamation sign indicates a case-sensitive comparison. -->
+		</Filter>
+		<Filter>	Shells
+			<group>	Extension	</group>
+			<include>	!*shells*.model	</include>
+			<!-- The exclamation sign indicates a case-sensitive comparison. -->
+		</Filter>
+		<Filter>	XML
+			<group>	Extension	</group>
+			<include>	*.xml	</include>
+		</Filter>
+	</Filters>
+	<VFolders>
+		<Favourites>	Favourites
+			<path>	resources/ual/favourites.xml	</path>
+			<icon>	resources/ual/fav.ico	</icon>
+			<iconSel>	resources/ual/favsel.ico	</iconSel>
+			<showItems>	true	</showItems>
+			<showInList>	true	</showInList>
+		</Favourites>
+		<History>	History
+			<path>	resources/ual/history.xml	</path>
+			<icon>	resources/ual/history.ico	</icon>
+			<iconSel>	resources/ual/historysel.ico	</iconSel>
+			<showItems>	true	</showItems>
+			<showInList>	true	</showInList>
+			<maxItems>	20	</maxItems>
+			<clearOnLoad>	false	</clearOnLoad>
+		</History>
+		<Files>	All
+			<path>	./	</path>
+			<folderExclude>	*modeleditor*;*.svn;*CVS;*.bwthumbs;*/spaces	</folderExclude>
+			<extension>	model	</extension>
+			<extension>	bmp;tga;dds;png;texanim	</extension>
+			<extension> mfm;fx;mvl	</extension>
+			<extension>	animation	</extension>
+			<thumbnailSize>	1	</thumbnailSize>
+			<showSubfolders>	true	</showSubfolders>
+			<showFiles>	true	</showFiles>
+		</Files>
+		<Files>	Models
+			<path>	./	</path>
+			<disableFilter>	Models;Shells;Prefabs;Trees;Py;XML	</disableFilter>
+			<folderExclude>	*.svn;*CVS;*.bwthumbs;*/spaces	</folderExclude>
+			<folderExclude>	!*shells	</folderExclude>
+			<!-- The exclamation sign indicates a case-sensitive comparison. -->
+			<extension>	model	</extension>
+			<thumbnailSize>	2	</thumbnailSize>
+			<showSubfolders>	true	</showSubfolders>
+			<showFiles>	true	</showFiles>
+		</Files>
+		<Files>	Shells
+			<path>	./	</path>
+			<type>	SHELL	</type>
+			<disableFilter>	Models;Shells;Prefabs;Trees;Py;XML	</disableFilter>
+			<folderInclude>	!*/shells*	</folderInclude>
+			<!-- The exclamation sign indicates a case-sensitive comparison. -->
+			<folderExclude>	*.svn;*CVS;*.bwthumbs;*/spaces	</folderExclude>
+			<extension>	model	</extension>
+			<thumbnailSize>	2	</thumbnailSize>
+			<showSubfolders>	true	</showSubfolders>
+			<showFiles>	true	</showFiles>
+		</Files>
+		<Files>	Textures
+			<path>	./	</path>
+			<disableFilter>	Models;Shells;Prefabs;Trees;Py;XML	</disableFilter>
+			<folderExclude>	*modeleditor*;*.svn;*CVS;*.bwthumbs;*/spaces	</folderExclude>
+			<extension>	dds;tga;bmp;png;texanim	</extension>
+			<thumbnailSize>	2	</thumbnailSize>
+			<showSubfolders>	true	</showSubfolders>
+			<showFiles>	true	</showFiles>
+		</Files>
+		<Files>	4K Textures
+			<path>	./characters/others/enviroment/Textures/	</path>
+			<disableFilter>	Models;Shells;Prefabs;Trees;Py;XML	</disableFilter>
+			<folderExclude>	*modeleditor*;*.svn;*CVS;*.bwthumbs;*/spaces	</folderExclude>
+			<extension>	dds;tga;bmp;png;texanim	</extension>
+			<thumbnailSize>	2	</thumbnailSize>
+			<showSubfolders>	true	</showSubfolders>
+			<showFiles>	true	</showFiles>
+		</Files>
+		<Files>	Effects
+			<path>	./	</path>
+			<disableFilter>	Models;Shells;Prefabs;Trees;Py;XML	</disableFilter>
+			<folderExclude>	*modeleditor*;*.svn;*CVS;*.bwthumbs;*/spaces	</folderExclude>
+			<extension>	fx	</extension>
+			<thumbnailSize>	1	</thumbnailSize>
+			<showSubfolders>	true	</showSubfolders>
+			<showFiles>	true	</showFiles>
+		</Files>
+		<Files>	MFMs
+			<path>	./	</path>
+			<disableFilter>	Models;Shells;Prefabs;Trees;Py;XML	</disableFilter>
+			<folderExclude>	*modeleditor*;*.svn;*CVS;*.bwthumbs;*/spaces	</folderExclude>
+			<extension>	mfm	</extension>
+			<thumbnailSize>	1	</thumbnailSize>
+			<showSubfolders>	true	</showSubfolders>
+			<showFiles>	true	</showFiles>
+		</Files>
+		<Files>	Lights
+			<path>	./	</path>
+			<disableFilter>	Models;Shells;Prefabs;Trees;Py;XML	</disableFilter>
+			<folderExclude>	*.svn;*CVS;*.bwthumbs;*/spaces	</folderExclude>
+			<extension>	mvl	</extension>
+			<customItems>
+				<item>	(Use game lighting...)
+					<type>	PRESET	</type>
+					<longText>	UseGameLighting    </longText>
+					<description>	Use the game lighting system	</description>
+					<thumbnail>	UseGameLighting.bmp	</thumbnail>
+					<position>	top	</position>
+				</item>
+			</customItems> 
+			<thumbnailSize>	1	</thumbnailSize>
+			<showSubfolders>	true	</showSubfolders>
+			<showFiles>	true	</showFiles>
+		</Files>
+		<Files>	Animations
+			<path>	./	</path>
+			<disableFilter>	Models;Shells;Prefabs;Trees;Py;XML	</disableFilter>
+			<folderExclude>	*modeleditor*;*.svn;*CVS;*.bwthumbs;*/spaces	</folderExclude>
+			<extension>	animation	</extension>
+			<thumbnailSize>	1	</thumbnailSize>
+			<showSubfolders>	true	</showSubfolders>
+			<showFiles>	true	</showFiles>
+			<multiItemDrag> true </multiItemDrag>
+		</Files>
+	</VFolders>
+	
+	<IconThumbnailProvider>
+		<Thumbnail>
+			<extension> prefab </extension>
+			<image> icon_prefab.bmp </image>
+		</Thumbnail>
+		<Thumbnail>
+			<extension> animation </extension>
+			<image> icon_animation.bmp </image>
+		</Thumbnail>
+		<Thumbnail>
+			<extension> texanim </extension>
+			<image> icon_texanim.bmp </image>
+		</Thumbnail>
+		<Thumbnail>
+			<extension> mvl </extension>
+			<image> icon_mvl.bmp </image>
+		</Thumbnail>
+		<Thumbnail>
+			<extension> mfm </extension>
+			<image> icon_mfm.bmp </image>
+		</Thumbnail>
+		<Thumbnail>
+			<extension> py </extension>
+			<match> *entities/editor/* </match>
+			<image> icon_entity.bmp </image>
+		</Thumbnail>
+		<Thumbnail>
+			<extension> fx </extension>
+			<image> icon_fx.bmp </image>
+		</Thumbnail>
+	</IconThumbnailProvider>
+</ual_config.xml>

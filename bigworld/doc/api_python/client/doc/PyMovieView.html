@@ -1,0 +1,395 @@
+<html>
+<head>
+<title>PyMovieView - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyMovieView Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Scaleform.html" class="module_h1">Scaleform Module</a>]</span></p><p>PyMovieView is part of the <a href="Scaleform.html">Scaleform</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Scaleform</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#gotoFrame" class="function_list" >gotoFrame</a>( self, Integer ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#gotoLabeledFrame" class="function_list" >gotoLabeledFrame</a>( self, String, Integer ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleKeyEvent" class="function_list" >handleKeyEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseButtonEvent" class="function_list" >handleMouseButtonEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseEvent" class="function_list" >handleMouseEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#hitTest" class="function_list" >hitTest</a>( self, position ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#invoke" class="function_list" >invoke</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#restart" class="function_list" >restart</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setExternalInterfaceCallback" class="function_list" >setExternalInterfaceCallback</a>( self, Callable ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setFSCommandCallback" class="function_list" >setFSCommandCallback</a>( self, Callable ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setFocussed" class="function_list" >setFocussed</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setPause" class="function_list" >setPause</a>( self, Boolean ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#backgroundAlpha" class="attribute_list" >backgroundAlpha</a></td><td>&nbsp; Read-Write Float.
+</td></tr>
+
+<tr valign=top><td><a href="#scaleMode" class="attribute_list" >scaleMode</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#userData" class="attribute_list" >userData</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#visible" class="attribute_list" >visible</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class wraps <a href="Scaleform.html">Scaleform</a>'s Movie View and provides
+lifetime control and python access to its API.
+<br><br>
+A Movie View is an instanced view of a Movie Definition,
+and can only be created via the <a href="PyMovieDef.html">PyMovieDef</a>.<a href=PyMovieDef.html#createInstance>createInstance</a>()
+method.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="gotoFrame"></a><p class="function_definition">
+<span class="function_definition">def gotoFrame( <i>self, Integer</i> ):</span>
+</p>
+
+<div class="function_description">This function moves the playahead to the specified frame. Note that
+		 * calling this function may cause ActionScript tags attached to the
+		 * frame to be bypassed.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Integer</i></span></td><td><span class="function_parameter_description">&nbsp;The frame number to go to.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="gotoLabeledFrame"></a><p class="function_definition">
+<span class="function_definition">def gotoLabeledFrame( <i>self, String, Integer</i> ):</span>
+</p>
+
+<div class="function_description">This function moves the playahead to the frame with the given label.
+		 * If the label is not found, the function will return false.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>String</i></span></td><td><span class="function_parameter_description">&nbsp;The frame label to go to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>Integer</i></span></td><td><span class="function_parameter_description">&nbsp;Offset from the label.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean	Whether or not the label was found.
+</td></tr>
+</table>
+</p>
+
+<a name="handleKeyEvent"></a><p class="function_definition">
+<span class="function_definition">def handleKeyEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">Call this method to pass a key event into the underlying flash movie. If the 
+		 *	movie handles the event, this method will return True.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyKeyEvent.html">PyKeyEvent</a> object.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it was not
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseButtonEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseButtonEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">Call this method to pass a mouse button event into the underlying flash movie. If the 
+		 *	movie handles the event, this method will return True.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyKeyEvent.html">PyKeyEvent</a> object.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it was not
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">Call this method to pass a mouse move event into the underlying flash movie. If the 
+		 *	movie handles the event, this method will return True.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyMouseEvent.html">PyMouseEvent</a> object.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it was not
+</td></tr>
+</table>
+</p>
+
+<a name="hitTest"></a><p class="function_definition">
+<span class="function_definition">def hitTest( <i>self, position</i> ):</span>
+</p>
+
+<div class="function_description">This method is used to determine if a given screen space position intersects with
+		 *	any geometry in the Flash movie (based on the last rendered viewport). It is useful
+		 *	for allowing mouse events to pass through transparent parts of a Flash based HUD.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;Position in clip space.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the position intersected with movie geometry, False if not.
+</td></tr>
+</table>
+</p>
+
+<a name="invoke"></a><p class="function_definition">
+<span class="function_definition">def invoke( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function calls a function in the movie's ActionScript. It takes a string name 
+		 * of the ActionScript method to call, and any number of arguments to be passed through.
+		 * If the second argument is a list, then that will be used as the argument list.
+<br><br>
+		 * For example:
+<br><br>
+		 * @{
+		 *	view.invoke( "_root.functionName" ) # Call function with no parameters
+		 *	view.invoke( "_root.functionName", 1, 2, 3 ) # Call function with three args
+		 *	view.invoke( "_root.functionName", [1,2,3] ) # This call is equivalent
+		 * @}
+</div>
+
+<a name="restart"></a><p class="function_definition">
+<span class="function_definition">def restart( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function restarts the flash movie.
+</div>
+
+<a name="setExternalInterfaceCallback"></a><p class="function_definition">
+<span class="function_definition">def setExternalInterfaceCallback( <i>self, Callable</i> ):</span>
+</p>
+
+<div class="function_description">This function sets up the callback function used
+		 * to handle ActionScript's external interface command.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Callable</i></span></td><td><span class="function_parameter_description">&nbsp;A callable Python object (e.g. a method or 
+		 *						function). This will be passed two parameters:
+		 *						the command name, and a tuple containing the
+		 *						command arguments.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setFSCommandCallback"></a><p class="function_definition">
+<span class="function_definition">def setFSCommandCallback( <i>self, Callable</i> ):</span>
+</p>
+
+<div class="function_description">This function sets up the callback function used
+		 * to handle ActionScript's fscommand.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Callable</i></span></td><td><span class="function_parameter_description">&nbsp;A callable Python object (e.g. a method or 
+		 *						function). This will be passed two parameters:
+		 *						the command name, and a tuple containing the
+		 *						command arguments.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setFocussed"></a><p class="function_definition">
+<span class="function_definition">def setFocussed( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function selects this movie as having IME focus, and
+		 * finalises IME support for the previously focussed movie.
+<br><br>
+		 * Once focussed, the movie will internally tell IME which
+		 * dynamic text fields are focussed, and IME will appear
+		 * accordingly.
+</div>
+
+<a name="setPause"></a><p class="function_definition">
+<span class="function_definition">def setPause( <i>self, Boolean</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the pause mode of the movie.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Boolean</i></span></td><td><span class="function_parameter_description">&nbsp;Flag specifying whether or not to pause the movie.
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="backgroundAlpha"></a><p class="attribute_definition">
+<span class="attribute_definition">backgroundAlpha</span>
+</p>
+
+<div class="attribute_description">Sets the background color alpha applied to the movie clip.
+		 * Set to 0.0f if you do not want the movie to render its background
+		 * (ex. if you are displaying a hud on top of the game scene).
+		 * The default value is 1.0f, indication full opacity.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Float.
+</td></tr>
+</table>
+</p>
+
+<a name="scaleMode"></a><p class="attribute_definition">
+<span class="attribute_definition">scaleMode</span>
+</p>
+
+<div class="attribute_description">This attribute stores the movie view scale mode,
+		 * which describes how the movie should display when the
+		 * viewing dimensions are not the same as the original
+		 * flash movie size.
+</div>
+
+<a name="userData"></a><p class="attribute_definition">
+<span class="attribute_definition">userData</span>
+</p>
+
+<div class="attribute_description">This attribute stores the User data object associated
+		 * with the movie.  The data can be any object.
+</div>
+
+<a name="visible"></a><p class="attribute_definition">
+<span class="attribute_definition">visible</span>
+</p>
+
+<div class="attribute_description">Sets the visibility state of the movie view.  Movie Views that
+		 * are invisible do not draw, and do not advance.
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

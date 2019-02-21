@@ -1,0 +1,8 @@
+<root>
+	<nodelessVisual>	system/models/clear_overhead	</nodelessVisual>
+	<materialNames>	</materialNames>
+	<visibilityBox>
+		<min>	-50.000000 5.000000 -50.000000	</min>
+		<max>	50.000000 5.000000 50.000000	</max>
+	</visibilityBox>
+</root>

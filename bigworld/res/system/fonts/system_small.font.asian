@@ -1,0 +1,10 @@
+<system_small.font>
+	<creation>
+		<sourceFont>	Lucida Console	</sourceFont>
+		<sourceFontSize>	-12	</sourceFontSize>
+		<startChar>	32	</startChar>
+		<endChar>	132	</endChar>
+		<fixedWidth>	8	</fixedWidth>
+		<textureMargin>	1.0	</textureMargin>
+	</creation>
+</system_small.font>

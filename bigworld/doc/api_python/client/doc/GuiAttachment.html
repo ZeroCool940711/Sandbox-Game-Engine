@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>GuiAttachment - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>GuiAttachment Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>GuiAttachment is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="PyAttachment.html">PyAttachment</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#component" class="attribute_list" >component</a></td><td>&nbsp; <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>	Stores the <a href="GUI.html">GUI</a> component that is to be attached to a 
+</td></tr>
+
+<tr valign=top><td><a href="#faceCamera" class="attribute_list" >faceCamera</a></td><td>&nbsp; Boolean			Turn on to make the GUIAttacment's component use the
+</td></tr>
+
+<tr valign=top><td><a href="#reflectionVisible" class="attribute_list" >reflectionVisible</a></td><td>&nbsp; Boolean			Determines whether or not this <a href="GUI.html">GUI</a> attachment will be
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is a basic adaptor between <a href="PyAttachment.html">PyAttachment</a> and <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.
+<br><br>
+If you wish to display gui elements in the 3D scene ( and sorted into the scene )
+then use this class as a container for your gui hierarchy, and attach this object
+onto a <a href="PyModel.html">PyModel</a> or other <a href="PyAttachment.html">PyAttachment</a> object.
+<br><br>
+Note that if you wish to receive input like most gui components, then you can still
+use the attached gui component's focus property as per normal.
+<br><br>
+	eg,	guiSomeImage = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>(imageFile)
+		guiAttach = <a href="GUI.html">GUI</a>.<a href=GUI.html#Attachment>Attachment</a>()
+		guiAttach.component = guiSomeImage
+		self.model.rightHand = guiAttach	# Where rightHand is <a href="PyModelNode.html">PyModelNode</a> (model hard-point)
+		<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>(guiSomeImage)
+<br><br>
+	Current Model will now run around with the image showing in its right hand...
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="component"></a><p class="attribute_definition">
+<span class="attribute_definition">component</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>	Stores the <a href="GUI.html">GUI</a> component that is to be attached to a 
+</td></tr>
+</table>
+</p>
+
+<a name="faceCamera"></a><p class="attribute_definition">
+<span class="attribute_definition">faceCamera</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean			Turn on to make the GUIAttacment's component use the
+</td></tr>
+</table>
+</p>
+
+<a name="reflectionVisible"></a><p class="attribute_definition">
+<span class="attribute_definition">reflectionVisible</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean			Determines whether or not this <a href="GUI.html">GUI</a> attachment will be
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

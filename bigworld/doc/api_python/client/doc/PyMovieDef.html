@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>PyMovieDef - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyMovieDef Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Scaleform.html" class="module_h1">Scaleform Module</a>]</span></p><p>PyMovieDef is part of the <a href="Scaleform.html">Scaleform</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Scaleform</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#createInstance" class="function_list" >createInstance</a>( self, bool ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setAsFontMovie" class="function_list" >setAsFontMovie</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class wraps <a href="Scaleform.html">Scaleform</a>'s Movie Definition and provides
+lifetime control and python access to its API.
+<br><br>
+A Movie Definition contains the resources for an .swf file,
+and allows creation of instanced views of the movie.
+<br><br>
+Movie Definitions can also be loaded for the sole purpose
+of providing fonts for other movies and for flash text components.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="createInstance"></a><p class="function_definition">
+<span class="function_definition">def createInstance( <i>self, bool</i> ):</span>
+</p>
+
+<div class="function_description">This function creates an instance of the movie definition.
+		 *	It returns a <a href="PyMovieView.html">PyMovieView</a> object.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>bool</i></span></td><td><span class="function_parameter_description">&nbsp;[optional] Specifies whether the frame1 tags of the
+		 *	swf movie are executed or not during the createInstance call.
+		 *	Default: true
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setAsFontMovie"></a><p class="function_definition">
+<span class="function_definition">def setAsFontMovie( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Set this movie as the font source for the DrawTextManager, which is
+		 *	used by FlashTextComponents to draw with.
+</div>
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

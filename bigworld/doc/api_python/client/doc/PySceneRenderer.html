@@ -1,0 +1,234 @@
+<html>
+<head>
+<title>PySceneRenderer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PySceneRenderer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PySceneRenderer is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+PyObjectPlusWithWeakReference
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#render" class="function_list" >render</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#cameras" class="attribute_list" >cameras</a></td><td>&nbsp; List of Cameras
+</td></tr>
+
+<tr valign=top><td><a href="#drawSplodges" class="attribute_list" >drawSplodges</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#dynamic" class="attribute_list" >dynamic</a></td><td>&nbsp; Integer as boolean
+</td></tr>
+
+<tr valign=top><td><a href="#fov" class="attribute_list" >fov</a></td><td>&nbsp; radian angle as float
+</td></tr>
+
+<tr valign=top><td><a href="#skipFrames" class="attribute_list" >skipFrames</a></td><td>&nbsp; Non-negative Intager
+</td></tr>
+
+<tr valign=top><td><a href="#staggered" class="attribute_list" >staggered</a></td><td>&nbsp; Integer as boolean
+</td></tr>
+
+<tr valign=top><td><a href="#texture" class="attribute_list" >texture</a></td><td>&nbsp; Read-Only <a href="PyTextureProvider.html">PyTextureProvider</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is used to render the world, as visible through specified cameras
+(which inherit from <a href="BaseCamera.html">BaseCamera</a>),
+onto a <a href="PyTextureProvider.html">PyTextureProvider</a>.  The size of the texture is specified when the
+<a href="PySceneRenderer.html">PySceneRenderer</a> is created (using the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PySceneRenderer><a href="PySceneRenderer.html">PySceneRenderer</a></a> function).
+If more than one camera is specified, then the texture is divided
+horizontally between them, with each camera getting a portion to render to.
+<br><br>
+If the dynamic attribute is non-zero (true), then the texture is updated
+every tick to reflect the scene showing in each camera.  If dynamic is
+zero (false) then the texture is only updated when the render function is
+called.
+<br><br>
+For example:
+
+<pre>psr = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PySceneRenderer><a href="PySceneRenderer.html">PySceneRenderer</a></a>( 100, 100 )
+psr.cameras = [ <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#camera>camera</a>() ]
+psr.dynamic = 1
+cmp = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "some_random_starting_texture.dds" )
+cmp.texture = psr.texture
+</pre>
+This example causes the cmp <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> to render a mini view
+in the middle of the screen similar to what is showing in the main camera.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="render"></a><p class="function_definition">
+<span class="function_definition">def render( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function causes the <a href="PySceneRenderer.html">PySceneRenderer</a> to update its texture to the
+view currently visible through the camera when the function is called.
+This function only needs to be called if the dynamic attribute is
+zero (false), otherwise it is automatically called each tick.
+</div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="cameras"></a><p class="attribute_definition">
+<span class="attribute_definition">cameras</span>
+</p>
+
+<div class="attribute_description">This attribute is the list of cameras through which the world is rendered.
+The texture is divided vertically between the cameras, with the first
+camera being rendered leftmost, and the last camera being rendered
+rightmost.
+<br><br>
+For example:
+
+<pre>psr = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PySceneRenderer><a href="PySceneRenderer.html">PySceneRenderer</a></a>( 100, 100 )
+psr.cameras = [ <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#camera>camera</a>() ]
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>List of Cameras
+</td></tr>
+</table>
+</p>
+
+<a name="drawSplodges"></a><p class="attribute_definition">
+<span class="attribute_definition">drawSplodges</span>
+</p>
+
+<div class="attribute_description">Whether or not to draw splodges in the <a href="PySceneRenderer.html">PySceneRenderer</a> view.
+Defaults to false, for performance reasons.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="dynamic"></a><p class="attribute_definition">
+<span class="attribute_definition">dynamic</span>
+</p>
+
+<div class="attribute_description">If this attribute is zero (false) then the texture will only be updated
+when the render function is called.  If this attribute is non-zero (true)
+then it will be updated every tick.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean
+</td></tr>
+</table>
+</p>
+
+<a name="fov"></a><p class="attribute_definition">
+<span class="attribute_definition">fov</span>
+</p>
+
+<div class="attribute_description">This attribute represents the field-of-view of the camera, in radians
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>radian angle as float
+</td></tr>
+</table>
+</p>
+
+<a name="skipFrames"></a><p class="attribute_definition">
+<span class="attribute_definition">skipFrames</span>
+</p>
+
+<div class="attribute_description">The number of frames to elapse between updates this texture.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Non-negative Intager
+</td></tr>
+</table>
+</p>
+
+<a name="staggered"></a><p class="attribute_definition">
+<span class="attribute_definition">staggered</span>
+</p>
+
+<div class="attribute_description">Controls the frequency of dynamic update. Staggered (true) provides more consistent performance while 
+	 * un-staggered (false) gives more consistent quality.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean
+</td></tr>
+</table>
+</p>
+
+<a name="texture"></a><p class="attribute_definition">
+<span class="attribute_definition">texture</span>
+</p>
+
+<div class="attribute_description">This attribute is the texture that the <a href="PySceneRenderer.html">PySceneRenderer</a> draws to.  It can
+be used by components which require a <a href="PyTextureProvider.html">PyTextureProvider</a>, such as the gui
+components to provide the texture to draw.
+<br><br>
+The texture will contain a render of the world for each camera in the
+cameras list.  If dynamic is true, then the texture will be updated
+each tick, otherwise it will only be updated when render is called.
+If dynamic is not set, then the render function should be called at least
+once before this is assigned, or it will not render.
+<br><br>
+The texture will be of the size specified in the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PySceneRenderer><a href="PySceneRenderer.html">PySceneRenderer</a></a>
+function that created this object.
+<br><br>
+For example:
+
+<pre>psr = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PySceneRenderer><a href="PySceneRenderer.html">PySceneRenderer</a></a>( 100, 100 )
+psr.cameras = [ <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#camera>camera</a>() ]
+psr.render()
+com.texture = psr.texture # where com is a <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="PyTextureProvider.html">PyTextureProvider</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

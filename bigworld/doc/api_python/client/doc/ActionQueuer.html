@@ -1,0 +1,562 @@
+<html>
+<head>
+<title>ActionQueuer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ActionQueuer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>ActionQueuer is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#Get_seek" class="function_list" >Get_seek</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Get_seekInv" class="function_list" >Get_seekInv</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#__call__" class="function_list" >__call__</a>( self, afterTime, callBack, promoteMotion ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#action" class="function_list" >action</a>( self, aname, errIfNotFound ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getSeek" class="function_list" >getSeek</a>( self, posYaw ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getSeekInv" class="function_list" >getSeekInv</a>( self, posYaw ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#stop" class="function_list" >stop</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#blendInTime" class="attribute_list" >blendInTime</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#blendOutTime" class="attribute_list" >blendOutTime</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#blended" class="attribute_list" >blended</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#displacement" class="attribute_list" >displacement</a></td><td>&nbsp; Read-Only <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#duration" class="attribute_list" >duration</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#filler" class="attribute_list" >filler</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#impact" class="attribute_list" >impact</a></td><td>&nbsp; Read-Only <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#rotation" class="attribute_list" >rotation</a></td><td>&nbsp; Read-Only <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+<tr valign=top><td><a href="#seek" class="attribute_list" >seek</a></td><td>&nbsp; Read-Only <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+<tr valign=top><td><a href="#seekInv" class="attribute_list" >seekInv</a></td><td>&nbsp; Read-Only <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+<tr valign=top><td><a href="#track" class="attribute_list" >track</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+An <a href="ActionQueuer.html">ActionQueuer</a> is an action that can be queued on a model.  It has many
+read only attributes which are defined in the .model file.  An
+<a href="ActionQueuer.html">ActionQueuer</a> can be obtained by either calling the <a href="PyModel.html">PyModel</a>.<a href=PyModel.html#action>action</a> function,
+or treating the name of the action as a property of a <a href="PyModel.html">PyModel</a>.
+The only two methods that actually effect the state of the <a href="ActionQueuer.html">ActionQueuer</a> are
+<a href="ActionQueuer.html">ActionQueuer</a>.<a href=ActionQueuer.html#stop>stop</a> and calling the actionqueuer as a function object, which
+makes it play.
+<br><br>
+Actions play on a track, that is specified in the .model file.
+Actions that are on different tracks play concurrently.  Actions that
+are on the same track either overwrite the current action, or queue up
+behind it.  Actions can be queued by creating subsequence <a href="ActionQueuer.html">ActionQueuer</a>'s via
+an an existing <a href="ActionQueuer.html">ActionQueuer</a> that is either queued or playing.
+<br><br>
+This class inherits from <a href="PyFashion.html">PyFashion</a>.
+<br><br>
+Example:
+
+<pre>model = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Model>Model</a>( "objects/models/characters/biped.model" )
+
+# These two lines are equivalent.
+aq = model.action( "Walk" )
+aq = model.Walk
+
+# Calling the aq object executes the action.
+model.Walk()
+
+# This gets an <a href="ActionQueuer.html">ActionQueuer</a> for the "Run" action that will be queued
+# up to start playing after the "Walk" action completes
+model.Run().Walk()
+
+# Here is an example of queueing up a set of actions by string names
+def queueActions( model, actionNames ):
+	aq = model.action( actionNames[0] )()
+	for name in actionNames[1:]:
+		aq = aq.action( name )()
+...
+queueActions( self.model, ["Walk", "Run", "Jump"] )
+
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="Get_seek"></a><p class="function_definition">
+<span class="function_definition">def Get_seek( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This attribute returns the seek position for another entity
+wishing to co-ordinate using this action's counterpart on its
+own model with this action on this model.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Vector4.html">Vector4</a> which is the position and rotation that the
+			corresponding action should be played at.
+</td></tr>
+</table>
+</p>
+
+<a name="Get_seekInv"></a><p class="function_definition">
+<span class="function_definition">def Get_seekInv( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This attribute returns the seek position for another entity
+wishing to co-ordinate using this action on its own model with
+this action's counterpart on this model (got that?).
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Vector4.html">Vector4</a> which is the position and rotation that this action
+			should be played at.
+</td></tr>
+</table>
+</p>
+
+<a name="__call__"></a><p class="function_definition">
+<span class="function_definition">def __call__( <i>self, afterTime, callBack, promoteMotion</i> ):</span>
+</p>
+
+<div class="function_description">By calling the <a href="ActionQueuer.html">ActionQueuer</a> itself as a function, you initiate the action
+that the <a href="ActionQueuer.html">ActionQueuer</a> refers to.
+<br><br>
+For example:
+
+<pre># Start the walk action immediatly.
+self.model.Walk()
+# Start the climb action after a short delay, call onClimbFinished on
+# completion, and apply animation transforms to the model transform.
+self.model.Climb(0.5, self.onClimbFinished, 1)
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>afterTime</i></span></td><td><span class="function_parameter_description">&nbsp;A float which is the time in seconds to delay before
+					starting to play the action. Default is 0.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callBack</i></span></td><td><span class="function_parameter_description">&nbsp;A script functor that will be called when the action
+					finishes playing. Default is None.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>promoteMotion</i></span></td><td><span class="function_parameter_description">&nbsp;An integer specifying a boolean value (0 or 1) that
+					determines whether the animation transforms are applied
+					to the model's transform. Default is 0 (false).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The <a href="ActionQueuer.html">ActionQueuer</a> object on success, None on failure.
+</td></tr>
+</table>
+</p>
+
+<a name="action"></a><p class="function_definition">
+<span class="function_definition">def action( <i>self, aname, errIfNotFound</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the specified action as an <a href="ActionQueuer.html">ActionQueuer</a> object. If an action is found
+that matches the action name parameter then it is added into the ActionQueue.
+<br><br>
+For example:
+
+<pre># Start the walk action.
+self.model.action("Walk")()
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>aname</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the action to return as an <a href="ActionQueuer.html">ActionQueuer</a> object.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>errIfNotFound</i></span></td><td><span class="function_parameter_description">&nbsp;An optional bool value specifying whether to return an error,
+					 if no action was found. Default value is True.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns an <a href="ActionQueuer.html">ActionQueuer</a> object of the specified action.
+</td></tr>
+</table>
+</p>
+
+<a name="getSeek"></a><p class="function_definition">
+<span class="function_definition">def getSeek( <i>self, posYaw</i> ):</span>
+</p>
+
+<div class="function_description">This method returns the seek position and yaw (in world space )for another
+entity wishing to co-ordinate using this action on the provided
+position and yaw with this action's counterpart on this model.
+<br><br>
+This method is different from the seek attribute.  The seek attribute
+specifies the position relative to this model.  This function returns
+the position relative to a specified postition.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>posYaw</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector4.html">Vector4</a> which is the position and yaw that this action will
+be played at
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Vector4.html">Vector4</a> which is the position and rotation that the
+			corresponding action should be played at.
+</td></tr>
+</table>
+</p>
+
+<a name="getSeekInv"></a><p class="function_definition">
+<span class="function_definition">def getSeekInv( <i>self, posYaw</i> ):</span>
+</p>
+
+<div class="function_description">This method returns the seek position and yaw for another entity
+wishing to co-ordinate using this action's counterpart on
+this position and yaw with this action on its own model.
+<br><br>
+This method is different from the seekInv attribute.  The seekInv attribute
+specifies the position relative to this model.  This function returns
+the position relative to a specified postition.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>posYaw</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector4.html">Vector4</a> which is the position and yaw that the corresponding
+			action will be played at
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Vector4.html">Vector4</a> which is the position and rotation that this action
+			should be played at.
+</td></tr>
+</table>
+</p>
+
+<a name="stop"></a><p class="function_definition">
+<span class="function_definition">def stop( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function stops all instances of the input action on the queue,
+by starting to blend them out (excepting matched actions)
+</div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="blendInTime"></a><p class="attribute_definition">
+<span class="attribute_definition">blendInTime</span>
+</p>
+
+<div class="attribute_description">The time, in seconds, that this action will take to blend in.  That is,
+it will start playing blendInTime before the previous action has
+finished, and gradually blend from the first to the second.  In order
+for the blending to be smooth, it is important that the blendOutTime of
+the previous action be the same as the blend in time of this action.
+<br><br>
+This attribute is read in from the model file.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="blendOutTime"></a><p class="attribute_definition">
+<span class="attribute_definition">blendOutTime</span>
+</p>
+
+<div class="attribute_description">The time, in seconds, that this action will take to blend out.  The
+system will start playing the next animation blendOutTime before this
+animation ends. In order for the blending to be smooth, it is fairly
+important that the blendOutTime of the previous action be the same as
+the blend in time of this action.
+<br><br>
+This attribute is read in from the model file.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="blended"></a><p class="attribute_definition">
+<span class="attribute_definition">blended</span>
+</p>
+
+<div class="attribute_description">If this is set to non-zero, then this action will be played on track
+-1.  The track system replaces the use of the blended attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="displacement"></a><p class="attribute_definition">
+<span class="attribute_definition">displacement</span>
+</p>
+
+<div class="attribute_description">The distance and direction that the model moves between the first and
+last frame of this action, measured relative to the models initial
+frame of reference.
+<br><br>
+This attribute is read in from the model file.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="duration"></a><p class="attribute_definition">
+<span class="attribute_definition">duration</span>
+</p>
+
+<div class="attribute_description">The time it takes to play the action (measured in seconds).  There are
+a few caveats to this:
+<br><br>
+- If the &lt;ScalePlaybackSpeed> flag is set in the .model file for
+this action, then it may play faster or slower, depending on how
+fast the model is moving.  If a model moves over the duration of its
+animation, it has a 'natural' speed which is the distance it covers,
+divided by the duration.  If the model's in game velocity is different
+from this, then the playback rate of the animation is scaled
+accordingly, to keep it synchronised with the movement rate.  This
+changing of the playback rate changes the duration.
+<br><br>
+- The blend in and blend out times are part of the duration of the
+action.  If the action is short, in particular, shorter than the blend
+times, the action will start to blend out from the moment it starts
+blending in, resulting in the action never being fully blended in.
+<br><br>
+This attribute is read in from the model file.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="filler"></a><p class="attribute_definition">
+<span class="attribute_definition">filler</span>
+</p>
+
+<div class="attribute_description">If this is set to non-zero then this action is available for the
+<a href="ActionMatcher.html">ActionMatcher</a> to choose.  See the <a href="ActionMatcher.html">ActionMatcher</a> documentation for a
+description of how it chooses which action to play.
+<br><br>
+This attribute is read in from the model file.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="impact"></a><p class="attribute_definition">
+<span class="attribute_definition">impact</span>
+</p>
+
+<div class="attribute_description">This atribute is the position that the model will end up at, in world
+coordinates, after playing this action.  This is the current models
+current position in world coordinates, plus the displacement attribute
+of this action converted to world coordinates.
+<br><br>
+This attribute is read in from the model file.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="rotation"></a><p class="attribute_definition">
+<span class="attribute_definition">rotation</span>
+</p>
+
+<div class="attribute_description">The quarternion representing the rotation of the model between the
+first and last frames of this action.
+<br><br>
+This attribute is read in from the model file.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<a name="seek"></a><p class="attribute_definition">
+<span class="attribute_definition">seek</span>
+</p>
+
+<div class="attribute_description">This attribute is the position and yaw (in world space) that another model
+should be at,
+so that when this model plays this action, and the other model plays
+the coordinated action, it all synchronises	properly.  It is a vector4,
+with the 4th element being yaw.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<a name="seekInv"></a><p class="attribute_definition">
+<span class="attribute_definition">seekInv</span>
+</p>
+
+<div class="attribute_description">This attribute is the position and yaw (in world space)that another model
+should be at,
+so that when the other model plays this action, and this model plays
+the coordinated action, it all synchronises properly.  It is a vector4,
+with the 4th element being yaw.
+<br><br>
+This attribute is read in from the model file.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<a name="track"></a><p class="attribute_definition">
+<span class="attribute_definition">track</span>
+</p>
+
+<div class="attribute_description">Which track the action plays on.  Tracks are integers from -1 up,
+with -1 having a special status.  When an action is played on a
+particular track, it stops whatever action was playing on the track
+before (blending the other one out, and itself in).  When an action is
+played on track -1, it doesn't interfere with the playing of any
+actions.  Actions which are playing concurrently on different tracks
+are weighted together using the alpha values for each node in each
+animation.
+<br><br>
+This attribute is read in from the model file.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

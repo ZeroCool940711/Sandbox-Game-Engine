@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>PyModelObstacle - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyModelObstacle Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyModelObstacle is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#attached" class="attribute_list" >attached</a></td><td>&nbsp; Read-only bool
+</td></tr>
+
+<tr valign=top><td><a href="#bounds" class="attribute_list" >bounds</a></td><td>&nbsp; Read-only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#dynamic" class="attribute_list" >dynamic</a></td><td>&nbsp; bool
+</td></tr>
+
+<tr valign=top><td><a href="#matrix" class="attribute_list" >matrix</a></td><td>&nbsp; MatrixProviderPtr
+</td></tr>
+
+<tr valign=top><td><a href="#sources" class="attribute_list" >sources</a></td><td>&nbsp; Read-only tuple of strings
+</td></tr>
+
+<tr valign=top><td><a href="#vehicleID" class="attribute_list" >vehicleID</a></td><td>&nbsp; uint32
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="PyModelObstacle.html">PyModelObstacle</a> object is a Model that is integrated into the collision scene.  They have no motors,
+attachments or fashions, like a <a href="PyModel.html">PyModel</a> and so are driven by a single <a href="MatrixProvider.html">MatrixProvider</a>, which is often linked to
+the <a href="Entity.html">Entity</a> that will use the <a href="PyModelObstacle.html">PyModelObstacle</a>.  the <a href="PyModelObstacle.html">PyModelObstacle</a> can be dynamic and move around the world,
+still engaged in the collision scene, or static, remaining in a single location.  In the latter case, it makes
+sense for the owner <a href="Entity.html">Entity</a> to be stationary in the world, otherwise the <a href="PyModelObstacle.html">PyModelObstacle</a> and <a href="Entity.html">Entity</a> position
+would be dispersed, which is undesirable.  The <a href="PyModelObstacle.html">PyModelObstacle</a> should be assigned to the self.model attribute
+of an <a href="Entity.html">Entity</a> to become part of the world and once this occurs, the dynamic or static state of the
+<a href="PyModelObstacle.html">PyModelObstacle</a> is fixed and cannot be changed.  PyModelObstacles are more expensive that standard PyModels,
+hence should only be used when completely necessary.
+<br><br>
+PyModelObstacles are constructed using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PyModelObstacle><a href="PyModelObstacle.html">PyModelObstacle</a></a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="attached"></a><p class="attribute_definition">
+<span class="attribute_definition">attached</span>
+</p>
+
+<div class="attribute_description">This flag is set to true when the <a href="PyModelObstacle.html">PyModelObstacle</a> is assigned to an <a href="Entity.html">Entity</a>.  Once this occurs, it is placed 
+in the collision scene and no further changes can be made to its dynamic nature.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only bool
+</td></tr>
+</table>
+</p>
+
+<a name="bounds"></a><p class="attribute_definition">
+<span class="attribute_definition">bounds</span>
+</p>
+
+<div class="attribute_description">Stores the bounding box of the <a href="PyModelObstacle.html">PyModelObstacle</a> as a <a href="MatrixProvider.html">MatrixProvider</a>.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="dynamic"></a><p class="attribute_definition">
+<span class="attribute_definition">dynamic</span>
+</p>
+
+<div class="attribute_description">If true, <a href="PyModelObstacle.html">PyModelObstacle</a> will be treated as dynamic, otherwise static.
+Note:  This value should be set upon creation.  Once it is attached/assigned,
+it cannot be changed.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool
+</td></tr>
+</table>
+</p>
+
+<a name="matrix"></a><p class="attribute_definition">
+<span class="attribute_definition">matrix</span>
+</p>
+
+<div class="attribute_description">This is the transform matrix for the <a href="PyModelObstacle.html">PyModelObstacle</a>.  As the 
+<a href="MatrixProvider.html">MatrixProvider</a> is updated, the <a href="PyModelObstacle.html">PyModelObstacle</a> will follow it.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>MatrixProviderPtr
+</td></tr>
+</table>
+</p>
+
+<a name="sources"></a><p class="attribute_definition">
+<span class="attribute_definition">sources</span>
+</p>
+
+<div class="attribute_description">This is the set of .model resources specified upon creation
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="BigWorld.html">BigWorld</a>.<a href="BigWorld.html#PyModelObstacle">PyModelObstacle</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only tuple of strings
+</td></tr>
+</table>
+</p>
+
+<a name="vehicleID"></a><p class="attribute_definition">
+<span class="attribute_definition">vehicleID</span>
+</p>
+
+<div class="attribute_description">To place <a href="PyModelObstacle.html">PyModelObstacle</a> on a vehicle, set the vehicleID to the EntityID of the vehicle.
+To alight from the vehicle, set it back to 0. This parameter is used to identify platforms
+when applying gravity e.g. MovingPlatform.py.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>uint32
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

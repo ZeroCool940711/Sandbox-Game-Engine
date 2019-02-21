@@ -1,0 +1,170 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Server Web Integration Guide</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Web Integration Guide">
+      <link rel="next" href="ch01.html" title="Chapter&nbsp;1.&nbsp;Overview">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_web_integration/index.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Server Web Integration Guide</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left">&nbsp;</td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch01.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="book" title="Server Web Integration Guide">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h1 class="title"><a name="Server_Web_Integration"></a>Server Web Integration Guide
+                     </h1>
+                  </div>
+                  <div>
+                     <p class="releaseinfo">BigWorld Technology 2.1. Released 2012.</p>
+                  </div>
+                  <div>
+                     <p class="copyright">Copyright &copy; 1999-2012 BigWorld Pty Ltd. All rights reserved. </p>
+                  </div>
+                  <div>
+                     <div class="legalnotice" title="Legal Notice"><a name="d0e17"></a><p>This document is proprietary commercial in confidence and access
+                           is restricted to authorised users. This document is protected by
+                           copyright laws of Australia, other countries and international treaties.
+                             Unauthorised use, reproduction or distribution of this document, or any
+                             portion of this document, may result in the imposition of civil and
+                             criminal penalties as provided by law.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <hr>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="chapter"><a href="ch01.html">1. Overview</a></span></dt>
+                  <dt><span class="part"><a href="pt01.html">I. Exposing the BigWorld Server as a Web Service</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="chapter"><a href="ch02.html">2. The TwistedWeb Service</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch02.html#d0e126">2.1. An example</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#xref_DB_Queries">2.2. Queries to <span class="literal">/db/</span></a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e204">2.3. Queries to <span class="literal">/entities_by_id/</span></a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e247">2.4. Queries to <span class="literal">/entities_by_name/</span></a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e260">2.5. Queries to <span class="literal">/global_entities/</span></a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e284">2.6. Implementation details</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#xref_TwistedWebErrorHandling">2.7. TwistedWeb Error handling</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch03.html">3. Remote Methods, Arguments and Return Values</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch03.html#d0e369">3.1. Method calls</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#d0e385">3.2. Arguments</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#d0e437">3.3. Return Values</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#d0e457">3.4. One way calls</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#d0e464">3.5. Errors</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch04.html">4. Keep-alive Messages</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="part"><a href="pt02.html">II. Using the Web Service from Apache</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="chapter"><a href="ch05.html">5. Overview</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch05.html#d0e556">5.1. Security</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch06.html">6. Configuring Apache</a></span></dt>
+                        <dt><span class="chapter"><a href="ch07.html">7. PHP</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch07.html#d0e643">7.1. Installation</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch07.html#d0e646">7.1.1. Installing PHP</a></span></dt>
+                                    <dt><span class="section"><a href="ch07.html#d0e663">7.1.2. Testing</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch07.html#d0e683">7.2. BigWorld.php</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch07.html#xref_BigWorld_php_Error_Handling">7.2.1. BigWorld.php Error handling</a></span></dt>
+                                    <dt><span class="section"><a href="ch07.html#d0e886">7.2.2. Locating the ServiceApp</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch07.html#d0e907">7.3. RemoteEntity Session Storage</a></span></dt>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+                  <dt><span class="part"><a href="pt03.html">III. Web Integration Example</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="chapter"><a href="ch08.html">8. Overview</a></span></dt>
+                        <dt><span class="chapter"><a href="ch09.html">9. Use Cases</a></span></dt>
+                        <dt><span class="chapter"><a href="ch10.html">10. PHP Presentation Layer</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch10.html#d0e1055">10.1. Overview</a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1075">10.2. Required packages</a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1091">10.3. Constants in <code class="filename">Constants.php</code></a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1111">10.4. XHTML-MP helper functions</a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1223">10.5. Debugging PHP example scripts</a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1283">10.6. <code class="classname">XHTMLMPPage</code> objects</a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1326">10.7. <code class="classname">AuthenticatedXHTMLMPPage</code> objects</a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1369">10.8. <code class="classname">BWAuthenticator</code> objects</a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1407">10.9. <code class="filename">Login.php</code></a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1435">10.10. <code class="filename">Characters.php</code></a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1477">10.11. <code class="filename">News.php</code></a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1493">10.12. <code class="filename">Character.php</code></a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1509">10.13. <code class="filename">Inventory.php</code></a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1553">10.14. <code class="filename">PlayerAuctions.php</code></a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#d0e1572">10.15. <code class="filename">SearchAuctions.php</code></a></span></dt>
+                              <dt><span class="section"><a href="ch10.html#xref_PHP_Error_Handling">10.16. PHP Error handling</a></span></dt>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left">&nbsp;</td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch01.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">&nbsp;</td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;1.&nbsp;Overview</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

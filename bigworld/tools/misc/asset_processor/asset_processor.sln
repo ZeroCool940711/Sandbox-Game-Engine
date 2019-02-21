@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		Item:1 = AssetDatabase.py
+		Item:2 = AssetProcessor.py
+		Item:3 = ChunkFileProcessor.py
+		Item:4 = EffectPropertyFix.py
+		Item:5 = FileProvider.py
+		Item:6 = FileUtils.py
+		Item:7 = FXFileProcessor.py
+		Item:8 = LogFile.py
+		Item:9 = MFMFileProcessor.py
+		Item:10 = ModelFileProcessor.py
+		Item:11 = OverlaidFXTextureStageFix.py
+		Item:12 = Queue.py
+		Item:13 = DeprecatedMaterialProperty.py
+		Item:14 = VisualFileProcessor.py
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

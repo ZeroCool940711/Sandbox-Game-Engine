@@ -1,0 +1,120 @@
+/*
+ * Navmenu stuff, mostly hijacked from python.org
+ */
+
+.navmenu
+{
+	padding:0;
+	width: 14em;
+}
+
+.navmenu ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0; 
+}
+
+.navmenu a
+{
+	text-decoration: none;
+}
+
+.navmenu a:hover
+{
+	text-decoration: underline;
+	color: #16A5DD;
+}
+
+.navmenu img
+{
+	border: 0;
+	margin-top:-5px;
+	padding-right: 5px;
+	float: left;
+}
+
+.navmenu ul.level-one a
+{
+	display: block;
+	padding: 8px 4px 8px 16px;
+	margin: 0 2px -12px 0; /* -10px to get rid of extra space in IE after display block */
+	color: #ffffff;
+	font-variant: small-caps;
+	background-color:#1284C0;
+	background-image: url(../images/navmenu_arrow_off.png);
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.navmenu ul.level-one a:hover
+{
+	background-image: url(../images/navmenu_arrow_on.png);
+	background-color:#FF8000;
+	color: #ffffff;
+}
+
+/* counter work against IE for inserting extra space after display block */
+.level-one li > a:first-child
+{ 
+	margin-bottom:4px;
+}
+
+.navmenu .current
+{
+	font-weight: bold;
+}
+
+.navmenu .not-current
+{
+	font-weight: normal;
+}
+
+.navmenu ul.level-two
+{
+	margin-top: 10px;
+}
+
+.navmenu ul.level-two li:first-child a
+{
+	border-top:0;
+	padding-top: 0;
+}
+
+.navmenu ul.level-two a
+{
+	background-image: none;
+	background-color: transparent;
+	display: block; 
+	border: 0;
+	border-bottom: 1px solid #65BFEF;
+	margin-left: 1em;
+	margin-right: 0.75em;
+	color: #104D8C;
+	padding: 4px 0px 5px 12px;
+	font-variant: normal;
+	clear:both;
+}
+
+.navmenu ul.level-two a:link, .navmenu ul.level-two a:visited
+{
+	color: #104D8C;
+}
+
+.navmenu ul.level-two a:hover
+{
+	color: #FF8000;
+	background-image: none;
+	background-color:transparent;
+}
+
+.top-level
+{
+	margin-bottom:6px;
+}
+
+li
+{
+	line-height:100%;
+}

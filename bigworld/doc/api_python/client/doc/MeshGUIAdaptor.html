@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>MeshGUIAdaptor - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>MeshGUIAdaptor Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>MeshGUIAdaptor is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#attachment" class="attribute_list" >attachment</a></td><td>&nbsp; <a href="PyAttachment.html">PyAttachment</a>	This attribute stores the attachment that is to be incorporated into the <a href="GUI.html">GUI</a>.
+</td></tr>
+
+<tr valign=top><td><a href="#transform" class="attribute_list" >transform</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>	This atttribute stores the orientation and a 
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is a basic adaptor between <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> and <a href="PyAttachment.html">PyAttachment</a>.
+<br><br>
+If you wish to display pyAttachments in the <a href="GUI.html">GUI</a> scene
+then use this class as a container for your attachment, and attach the desired
+object onto it.
+@code
+	eg,	guiSomeImage = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>(imageFile)
+		guiSomeAttachment = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Model>Model</a>(modelFile)
+		guiMesh = <a href="GUI.html">GUI</a>.<a href=GUI.html#MeshAdaptor>MeshAdaptor</a>()
+		guiMesh.attachment = guiSomeAttachment
+		guiMesh.transform = someMatrixProvider
+		guiSomeImage.addChild(guiMesh)
+		<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>(guiSomeImage)
+@endcode
+Model will now be displayed in <a href="GUI.html">GUI</a>.  someMatrixProvider can be
+updated to change the orientation of Model, and the model can
+have animations performed on it like any other.
+<br><br>
+Note that this class draws during <a href="GUI.html">GUI</a> time, meaning that the
+Z-Buffer is unavailable.  For this reason, it is only recommended
+to use this class for displaying custom-built meshes, for example
+custom shaped <a href="GUI.html">GUI</a> borders or frames that are specifically made for
+this purpose (are flat and/or draw using additive or alpha blending)
+<br><br>
+If you want to render your character in the user interface, then it
+is more appropriate to use a <a href="PyModelRenderer.html">PyModelRenderer</a> or <a href="PySceneRenderer.html">PySceneRenderer</a>.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="attachment"></a><p class="attribute_definition">
+<span class="attribute_definition">attachment</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="PyAttachment.html">PyAttachment</a>	This attribute stores the attachment that is to be incorporated into the <a href="GUI.html">GUI</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="transform"></a><p class="attribute_definition">
+<span class="attribute_definition">transform</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>	This atttribute stores the orientation and a 
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

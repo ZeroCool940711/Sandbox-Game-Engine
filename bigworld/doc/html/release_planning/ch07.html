@@ -1,0 +1,192 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;7.&nbsp;Cluster Deployment Examples</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Release Planning">
+      <link rel="up" href="index.html" title="Release Planning">
+      <link rel="prev" href="ch06.html" title="Chapter&nbsp;6.&nbsp;Communicating with the BigWorld Support Team">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/release_planning/ch07.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;7.&nbsp;Cluster Deployment Examples</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch06.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;</td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;7.&nbsp;Cluster Deployment Examples">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Cluster_Deployment_Examples"></a>Chapter&nbsp;7.&nbsp;Cluster Deployment Examples
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch07.html#d0e1191">7.1. Cluster Machines Distribution</a></span></dt>
+               </dl>
+            </div>
+            <p>Provided below are estimates on the cluster hardware required for
+                 different deployments for an RPG-style game. These estimates are based on
+                 historical cluster deployments but will change based on each specific game
+                 characteristics.
+            </p>
+            <div class="section" title="7.1.&nbsp;Cluster Machines Distribution">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e1191"></a>7.1.&nbsp;Cluster Machines Distribution
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The following calculations are used to estimate the cluster size for a
+                      specific deployment
+               </p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p><em class="emphasis">Number of Cores for
+                                      CellApps</em></p>
+                        <p>The ratio between concurrent connections and CellApps Cores ranges
+                                   between 100:1 and 300:1.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><em class="emphasis">Number of Cores for
+                                      BaseApps</em></p>
+                        <p>The ratio between CellApps and BaseApps Cores ranges between 6:1
+                                   (six times more CellApps) and 1:1 (same number of BaseApps to
+                                   CellApps).
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><em class="emphasis">Number of Cores for BaseAppMgr, CellAppMgr
+                                      and DBMgr</em></p>
+                        <p>One core should usually be used for each of the processes
+                                   BaseAppMgr, CellAppMgr and DBMgr.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><em class="emphasis">Number of Cores for
+                                      LoginApp</em></p>
+                        <p>One core should be used per LoginApp. At least one redundant
+                                   LoginApp is recommended.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><em class="emphasis">Number of Cores for MySQL</em></p>
+                        <p>At least two cores should be used for the MySQL database.</p>
+                     </li>
+                  </ul>
+               </div>
+               <p>Assuming a 3:1 ratio between CellApps and BaseApps and taking 8 cores
+                      extra for other processes including the MySQL server, The number of cores
+                      required to support 5000 concurrent users ranges between 30 and 74. If using
+                      4 cores machines this ranges between 8 and 19 machines.
+               </p>
+               <p>An example Blade setup would be as follows:</p>
+               <p>BladeCenter LS20 885051U</p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>Processor: Low Power AMD Opteron Processor Model 246
+                                   (Standard)
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Memory: 4 GB PC3200 ECC DDR RDIMM (2 x 2 GB Kit) System
+                                   Memory
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>IBM eServer BladeCenter (TM) Gigabit Ethernet Expansion
+                                   Card
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>CSI Hard disk drive 1 : 73GB Non Hot-Swap 2.5" 10K RPM Ultra320
+                                   SCSI HDD
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <p>BladeCenter 86773XU</p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>Optical device: IBM 8X Max DVD-ROM Ultrabay Slim Drive
+                                   (Standard)
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Diskette drive: IBM 1.44MB 3.5-inch Diskette Drive
+                                   (Standard)
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Power supply modules 1 and 2: BladeCenter 2000W Power Supplies one
+                                   and two (Standard)
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Management modules: BladeCenter KVM / Management Module
+                                   (Standard)
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Switch module bay 1: Nortel Networks Layer 2/3 Copper GbE Switch
+                                   Module for IBM eServer BladeCenter
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Switch module bay 2: Nortel Networks Layer 2/3 Copper GbE Switch
+                                   Module for IBM eServer BladeCenter
+                        </p>
+                        <p>A setup with 10 LS20 blades in a 86773XU BladeCenter would cost
+                                   approx $60k USD.
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch06.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;6.&nbsp;Communicating with the BigWorld Support Team&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

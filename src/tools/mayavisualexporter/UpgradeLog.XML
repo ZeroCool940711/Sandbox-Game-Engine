@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="mayavisualexporter2005">
+</Property><Property Name="Archivo de la solución" Value="D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\mayavisualexporter\mayavisualexporter2005.sln">
+</Property><Property Name="Archivo de opciones de usuario" Value="D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\mayavisualexporter\mayavisualexporter2005.suo">
+</Property><Property Name="Date" Value="Tuesday, November 20, 2018">
+</Property><Property Name="Time" Value="15:37 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="mayavisualexporter2005.sln" Description="La copia D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\mayavisualexporter\mayavisualexporter2005.sln.old del archivo se ha realizado correctamente">
+</Event><Event ErrorLevel="0" Project="" Source="mayavisualexporter2005.suo" Description="La copia D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\mayavisualexporter\mayavisualexporter2005.suo.old del archivo se ha realizado correctamente">
+</Event><Event ErrorLevel="0" Project="mayavisualexporter2005" Source="mayavisualexporter2005.vcproj" Description="Ya no se permite la implementación web en el servidor de IIS local. La herramienta de generación de implementación web se ha quitado de la configuración del proyecto.">
+</Event><Event ErrorLevel="1" Project="mayavisualexporter2005" Source="mayavisualexporter2005.vcproj" Description="Esta aplicación se ha actualizado para incluir la configuración relacionada con la característica Control de cuentas de usuario (UAC) de Windows Vista. De manera predeterminada, cuando se ejecuta en Windows Vista con el Control de cuentas de usuario habilitado, la aplicación está marcada para que se ejecute con los mismos privilegios que el proceso que la inició y para que no pueda ejecutarse con virtualización. Puede cambiar la configuración relativa al Control de cuentas de usuario desde las páginas de propiedades del proyecto.">
+</Event><Event ErrorLevel="0" Project="mayavisualexporter2005" Source="mayavisualexporter2005.vcproj" Description="Se realizó correctamente la copia de seguridad del archivo de proyecto 'D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\mayavisualexporter\mayavisualexporter2005.vcproj.8.00.old'.">
+</Event><Event ErrorLevel="0" Project="mayavisualexporter2005" Source="mayavisualexporter2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="mayavisualexporter2005" Source="mayavisualexporter2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="resmgr2005" Source="..\..\lib\resmgr\resmgr2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="resmgr2005" Source="..\..\lib\resmgr\resmgr2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="math3d2005" Source="..\..\lib\math\math3d2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="math3d2005" Source="..\..\lib\math\math3d2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="moo2005" Source="..\..\lib\moo\moo2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="moo2005" Source="..\..\lib\moo\moo2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="physics22005" Source="..\..\lib\physics2\physics22005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="physics22005" Source="..\..\lib\physics2\physics22005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="zip2005" Source="..\..\lib\zip\zip2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="zip2005" Source="..\..\lib\zip\zip2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="mayavisualexporter2005.sln" Description="La solución se convirtió correctamente">
+</Event><Event ErrorLevel="3" Project="" Source="mayavisualexporter2005.sln" Description="Converted">
+</Event></UpgradeLog>

@@ -1,0 +1,16 @@
+<xyznuviiiwwtb.xml>
+	<POSITION/> 
+	<NORMAL/>
+	<TEXCOORD>
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+	<BLENDINDICES>
+		<type> D3DCOLOR </type>
+	</BLENDINDICES>
+	<BLENDWEIGHT>
+		<type> D3DCOLOR </type>
+	</BLENDWEIGHT>
+	<TANGENT/>
+	<BINORMAL/>
+	<alias> xyznuviiiww </alias>
+</xyznuviiiwwtb.xml>

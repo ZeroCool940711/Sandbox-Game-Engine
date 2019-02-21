@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>PyTintShaderPSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyTintShaderPSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyTintShaderPSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addTintAt" class="function_list" >addTintAt</a>( self, time, colour ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#clearAllTints" class="function_list" >clearAllTints</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#fogAmount" class="attribute_list" >fogAmount</a></td><td>&nbsp; Float The amount between 0.0 and 1.0.
+</td></tr>
+
+<tr valign=top><td><a href="#modulator" class="attribute_list" >modulator</a></td><td>&nbsp; <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#period" class="attribute_list" >period</a></td><td>&nbsp; Float The period in seconds.
+</td></tr>
+
+<tr valign=top><td><a href="#repeat" class="attribute_list" >repeat</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PyTintShaderPSA.html">PyTintShaderPSA</a> is a <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> that tints a particle according
+to its age. The initial colour of a particle is ( 0.5, 0.5, 0.5, 1.0 ) in
+RGBA at time 0 and tinting occurs linearly from one tint to the next tint
+over the time interval between which they are set. Tints can be set at
+particular times using the addTintAt function.
+<br><br>
+A new <a href="PyTintShaderPSA.html">PyTintShaderPSA</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#TintShaderPSA>TintShaderPSA</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addTintAt"></a><p class="function_definition">
+<span class="function_definition">def addTintAt( <i>self, time, colour</i> ):</span>
+</p>
+
+<div class="function_description">Adds a colour (RGBA) to blend the tint to at a particular time. Particle
+colour gets changed linearly between each tint and the previous tint.
+You can think of the tint like a key frame for an animation.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>time</i></span></td><td><span class="function_parameter_description">&nbsp;Float. Time at which the tint key should be set in the colour
+cycle.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>colour</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of 4 floats. RGBA
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="clearAllTints"></a><p class="function_definition">
+<span class="function_definition">def clearAllTints( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Removes all tint values from the particles.
+</div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="fogAmount"></a><p class="attribute_definition">
+<span class="attribute_definition">fogAmount</span>
+</p>
+
+<div class="attribute_description">Specifies the amount of fog to blend in with the animated colour.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float The amount between 0.0 and 1.0.
+</td></tr>
+</table>
+</p>
+
+<a name="modulator"></a><p class="attribute_definition">
+<span class="attribute_definition">modulator</span>
+</p>
+
+<div class="attribute_description">This modulates the tint colour with an external vector 4 provider.  
+this gives python scripts the ability to fade in particles over time
+(in addition to the tint being based on the particles age).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="period"></a><p class="attribute_definition">
+<span class="attribute_definition">period</span>
+</p>
+
+<div class="attribute_description">Specifies the the tint cycle loop time.	 
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float The period in seconds.
+</td></tr>
+</table>
+</p>
+
+<a name="repeat"></a><p class="attribute_definition">
+<span class="attribute_definition">repeat</span>
+</p>
+
+<div class="attribute_description">Specifies whether the tint cycle loops over the total time sequence.
+Default is 0 (false).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

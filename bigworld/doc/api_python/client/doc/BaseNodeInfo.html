@@ -1,0 +1,183 @@
+<html>
+<head>
+<title>BaseNodeInfo - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BaseNodeInfo Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>BaseNodeInfo is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#angularHalflife" class="attribute_list" >angularHalflife</a></td><td>&nbsp; Read-Write float.
+</td></tr>
+
+<tr valign=top><td><a href="#angularThreshold" class="attribute_list" >angularThreshold</a></td><td>&nbsp; Read-Write float.
+</td></tr>
+
+<tr valign=top><td><a href="#angularVelocity" class="attribute_list" >angularVelocity</a></td><td>&nbsp; Read-Write float.
+</td></tr>
+
+<tr valign=top><td><a href="#maxPitch" class="attribute_list" >maxPitch</a></td><td>&nbsp; Read-Write float.
+</td></tr>
+
+<tr valign=top><td><a href="#maxYaw" class="attribute_list" >maxYaw</a></td><td>&nbsp; Read-Write float.
+</td></tr>
+
+<tr valign=top><td><a href="#minPitch" class="attribute_list" >minPitch</a></td><td>&nbsp; Read-Write float.
+</td></tr>
+
+<tr valign=top><td><a href="#minYaw" class="attribute_list" >minYaw</a></td><td>&nbsp; Read-Write float.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This is the abstract base class for the <a href="TrackerNodeInfo.html">TrackerNodeInfo</a> class. It holds
+information about how a <a href="Tracker.html">Tracker</a> affects <a href="PyModel.html">PyModel</a> Node instances, the yaw and
+pitch movement ranges that it permits, and the speed at which the nodes
+rotate.
+<br><br>
+Refer to the <a href="Tracker.html">Tracker</a> class documentation for an overview of the tracker
+system and related code samples.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="angularHalflife"></a><p class="attribute_definition">
+<span class="attribute_definition">angularHalflife</span>
+</p>
+
+<div class="attribute_description">The angular halflife determines the time of angular decay, specified in seconds.
+This value is to be used in conjunction with angular threshold and must be non zero
+for it to take effect.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float.
+</td></tr>
+</table>
+</p>
+
+<a name="angularThreshold"></a><p class="attribute_definition">
+<span class="attribute_definition">angularThreshold</span>
+</p>
+
+<div class="attribute_description">The angular threshold is a value used when blending the node rotation to
+switch between decay or angular modes. The decay mode blends
+the node to the new angle using a decaying function by specifying the
+halflife. The angular mode blends the node to its new angle using
+the angular velocity specified. The choice of modes depends on the difference
+between the nodes old angle and new angle, if the difference is less than the
+threshold then the decaying function else the angular velocity is used.
+The threshold is specified in radians.
+e.g.
+threshold &lt;= 0  : only use angular velocity (default value)
+threshold &lt; a (a &gt; 0)  : use angular decay if angle diff &lt; a else use angular velocity
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float.
+</td></tr>
+</table>
+</p>
+
+<a name="angularVelocity"></a><p class="attribute_definition">
+<span class="attribute_definition">angularVelocity</span>
+</p>
+
+<div class="attribute_description">The angular speed at which the nodes turn, in radians per second.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float.
+</td></tr>
+</table>
+</p>
+
+<a name="maxPitch"></a><p class="attribute_definition">
+<span class="attribute_definition">maxPitch</span>
+</p>
+
+<div class="attribute_description">The maximum pitch that this will allow a <a href="Tracker.html">Tracker</a> to apply to a Node, in
+radians, with its initial position as 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float.
+</td></tr>
+</table>
+</p>
+
+<a name="maxYaw"></a><p class="attribute_definition">
+<span class="attribute_definition">maxYaw</span>
+</p>
+
+<div class="attribute_description">The maximum yaw that this will allow a <a href="Tracker.html">Tracker</a> to apply to a Node, in
+radians, with its initial position as 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float.
+</td></tr>
+</table>
+</p>
+
+<a name="minPitch"></a><p class="attribute_definition">
+<span class="attribute_definition">minPitch</span>
+</p>
+
+<div class="attribute_description">The minimum pitch that this will allow a <a href="Tracker.html">Tracker</a> to apply to a Node, in
+radians, with its initial position as 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float.
+</td></tr>
+</table>
+</p>
+
+<a name="minYaw"></a><p class="attribute_definition">
+<span class="attribute_definition">minYaw</span>
+</p>
+
+<div class="attribute_description">The minimum yaw that this will allow a <a href="Tracker.html">Tracker</a> to apply to a Node, in
+radians, with its initial position as 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

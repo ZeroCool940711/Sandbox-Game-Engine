@@ -1,0 +1,348 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;1.&nbsp;Introduction</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Offline Patching">
+      <link rel="up" href="index.html" title="Offline Patching">
+      <link rel="prev" href="index.html" title="Offline Patching">
+      <link rel="next" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Operation">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/offline_patcher/ch01.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;1.&nbsp;Introduction</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="index.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch02.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;1.&nbsp;Introduction">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="d0e20"></a>Chapter&nbsp;1.&nbsp;Introduction
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch01.html#d0e23">1.1. Overview</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch01.html#d0e58">1.1.1. Preparing release patch archives</a></span></dt>
+                        <dt><span class="section"><a href="ch01.html#d0e158">1.1.2. Client-side patching process</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch01.html#d0e231">1.2. Requirements</a></span></dt>
+                  <dt><span class="section"><a href="ch01.html#d0e254">1.3. Layout of the offline patcher tools and libraries</a></span></dt>
+               </dl>
+            </div>
+            <div class="section" title="1.1.&nbsp;Overview">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e23"></a>1.1.&nbsp;Overview
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>This document describes the offline patching library, which allows
+                      for difference-generation and patching of resources and game binaries in a
+                      systematic manner.
+               </p>
+               <p>In development, much of the game resources exist as text XML files,
+                      for example, <span class="literal">.chunk</span> files. These are generally packed
+                      into a binary format for shipping at release time. Thus, at release time,
+                      the game resources consist of directory hierarchies of mostly binary
+                      resources and executables, and this tree of resources can be further
+                      packed into a single (or multiple) ZIP archive and used directly by the
+                      BigWorld game engine. Packing binary resources is done via the ResPacker
+                      tool<sup>[<a name="d0e33" href="#ftn.d0e33" class="footnote">1</a>]</sup>.
+               </p>
+               <p>After the game has been shipped, game logic may be modified to fix
+                      bugs or tune behaviour, or new content may be added in the form of new
+                      space geometries, new entity types, character models, and so on.
+                      Distributing these to end-users involves sending them only the changes, in
+                      the form of the new files and patches to existing files that have been
+                      modified. These changes are bundled into patch archives, and can be
+                      targeted against specific resource archives or directory trees
+                      alike.
+               </p>
+               <p>The offline patcher tools are located in
+                      <span class="literal">bigworld/tools/misc/offline_patcher</span>.
+               </p>
+               <div class="section" title="1.1.1.&nbsp;Preparing release patch archives">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e58"></a>1.1.1.&nbsp;Preparing release patch archives
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>For each released version, patch archives against previously
+                           released versions need to be created. For example, if you have released
+                           version <em class="emphasis">A</em>, <em class="emphasis">B</em> and
+                           <em class="emphasis">C</em>, and have a new version to release (say,
+                           <em class="emphasis">D</em>), then for each of <em class="emphasis">A</em>,
+                           <em class="emphasis">B</em> and <em class="emphasis">C</em>, an upgrade path will
+                           need to be available for end users with those versions
+                           (<em class="emphasis">e.g.</em>, <em class="emphasis">A <span class="symbol">&#8594;</span> D</em>, <em class="emphasis">B
+                              <span class="symbol">&#8594;</span> D</em>, <em class="emphasis">C <span class="symbol">&#8594;</span> D</em>).
+                  </p>
+                  <p>The <span class="literal">MakePatch</span> tool creates a patch archive
+                           between two directory trees or two ZIP file archives<sup>[<a name="d0e110" href="#ftn.d0e110" class="footnote">2</a>]</sup>.
+                  </p>
+                  <p>A patch archive file may contain many such sets of changes between
+                           two directory trees. Diagrammatically, a patch archive file consists of
+                           the following structure:
+                  </p>
+                  <div class="informalfigure">
+                     <div class="mediaobject"><img src="images/patch_archive_file_layout.png"><span class="caption">
+                           <p>Patch archive file layout</p></span></div>
+                  </div>
+                  <p>The above diagram illustrates a patch file intended for patching
+                           against the BigWorld demonstration package FantasyDemo. Firstly, the
+                           BigWorld resources in the intended target path
+                           <span class="literal">bigworld/res</span> have been upgraded from the 1.8.1
+                           release to the 1.9.0 release. Secondly, the game-specific resources,
+                           present in intended target path <span class="literal">fantasydemo/res</span>, are
+                           also being patched, with their versions incremented to 1.3.0 from 1.2.0.
+                           Finally, the game client itself is being upgraded, going to version
+                           1.2.0 from 1.1.0 for the intended target path
+                           <span class="literal">fantasydemo/game</span>.
+                  </p>
+                  <p>This example demonstrates that different parts of the end-user's
+                           distribution can be targeted for patching. The above intended targets
+                           (<em class="emphasis">i.e.</em>, <span class="literal">bigworld/res</span>,
+                           <span class="literal">fantasydemo/res</span>, <span class="literal">fantasydemo/game</span>)
+                           are not defined anywhere in the end-user's distribution, and are defined
+                           in the version file that is downloaded by the patching client.
+                  </p>
+                  <p>As another example, small script changes can be sent to end-users
+                           where there are only a few changes scattered around the client scripts
+                           in <span class="literal">fantasydemo/res/scripts/client</span>. Thus, this path
+                           could be a target path being patched against contained in a patch
+                           archive file, and the changeset can be added to a patch file by running
+                           MakePatch against the old and new versions of the contents of
+                           <span class="literal">fantasydemo/res/scripts/client</span>.
+                  </p>
+               </div>
+               <div class="section" title="1.1.2.&nbsp;Client-side patching process">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e158"></a>1.1.2.&nbsp;Client-side patching process
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The Python-based patching libraries are designed to be used by a
+                           game launcher application to check for updates against a
+                           <em class="emphasis">versions file</em> from a HTTP server, which specifies
+                           how to update to the current version. As part of the offline patcher
+                           feature, there is a minimal update client implemented as part of the
+                           CheckVersion tool<sup>[<a name="d0e166" href="#ftn.d0e166" class="footnote">3</a>]</sup>.
+                  </p>
+                  <div class="section" title="1.1.2.1.&nbsp;Targets and the state file">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e172"></a>1.1.2.1.&nbsp;Targets and the state file
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>A <em class="emphasis">target</em> is either a directory tree or a
+                                resource ZIP archive, and is version-controlled locally on the
+                                end-user's distribution via a <em class="emphasis">state file</em>. This
+                                file contains a list of defined targets (identified by a name string),
+                                and for each of these targets, the version of that target that is
+                                currently installed. For example, a target may be the game resource
+                                ZIP archive (<em class="emphasis">e.g.</em>, <span class="literal">/res.zip</span>),
+                                or it may be a directory tree (<em class="emphasis">e.g.</em>,
+                                <span class="literal">./game</span>).
+                     </p>
+                  </div>
+                  <div class="section" title="1.1.2.2.&nbsp;Versions file and upgrade paths">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e195"></a>1.1.2.2.&nbsp;Versions file and upgrade paths
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The versions file contains <em class="emphasis">upgrade paths</em> to
+                                the current release version for all previous release versions. Each
+                                upgrade path specifies a set of <em class="emphasis">targets</em> and patch
+                                retrieval information for those targets. Versions are identified by
+                                version strings<sup>[<a name="d0e206" href="#ftn.d0e206" class="footnote">4</a>]</sup>.
+                     </p>
+                  </div>
+                  <div class="section" title="1.1.2.3.&nbsp;Patching">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e212"></a>1.1.2.3.&nbsp;Patching
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The patching process follows this flowchart:</p>
+                     <div class="informalfigure">
+                        <div class="mediaobject"><img src="images/process_for_starting_a_game.png"><span class="caption">
+                              <p>Process for starting a game, possibly updating
+                                             before launch
+                              </p></span></div>
+                     </div>
+                     <p>Typically, when the user launches the game, they actually launch
+                                the update client, which checks whether it has the current version
+                                from the versions file. The game is launched from within the update
+                                client only if the current version matches the current version on the
+                                server's versions file.
+                     </p>
+                     <p>Note that there are potentially many patch files as part of an
+                                upgrade path targeting multiple paths. This allows you to divide up
+                                your resources into those that change often, to those that change
+                                infrequently (<em class="emphasis">e.g.</em>, the BigWorld resources would
+                                change infrequently, whereas space geometry data and script would
+                                change more frequently), and have independent versioning for each
+                                target.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="1.2.&nbsp;Requirements">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e231"></a>1.2.&nbsp;Requirements
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The offline patcher has been tested against Python version 2.5. It
+                      also makes use of a Python extension module called
+                      <span class="literal">bsdiff</span>, which is located in
+                      <span class="literal">bigworld/tools/misc/offline_patcher/patcherlib</span>. It is
+                      supplied in the form of a <span class="literal">_bsdiff.so</span> for use under
+                      Linux, and <span class="literal">_bsdiff.pyd</span> for use under Windows. Please
+                      note that you can recompile against another version of Python<sup>[<a name="d0e248" href="#ftn.d0e248" class="footnote">5</a>]</sup>.
+               </p>
+            </div>
+            <div class="section" title="1.3.&nbsp;Layout of the offline patcher tools and libraries">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e254"></a>1.3.&nbsp;Layout of the offline patcher tools and libraries
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The layout of the tools and library in the BigWorld distribution at
+                      <span class="literal">bigworld/tools/misc/offline_patcher</span> is described
+                      below:
+               </p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p><span class="literal">make_patch.py</span></p>
+                        <p>Top-level script that implements the MakePatch tool - it creates
+                                   a patch file archive between two directory trees. For details on
+                                   MakePatch, see <a class="xref" href="ch02.html#xref_MakePatch" title="2.1.&nbsp;MakePatch">MakePatch</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal">apply_patch.py</span></p>
+                        <p>Top-level script that implements the ApplyPatch tool - it
+                                   applies a patch file to either a directory hierarchy or to the
+                                   contents of a ZIP file archive. For details on ApplyPatch, see <a class="xref" href="ch02.html#xref_ApplyPatch" title="2.2.&nbsp;ApplyPatch">ApplyPatch</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal">check_version.py</span></p>
+                        <p>Top-level script that implements the CheckVersion tool - it
+                                   checks for an upgrade path on a remote server, then downloads and
+                                   applies patch files against target paths defined in the upgrade path.
+                                   For details on CheckVersion, see <a class="xref" href="ch02.html#xref_CheckVersion" title="2.3.&nbsp;CheckVersion">CheckVersion</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal">patcherlib</span></p>
+                        <p>Python module directory containing modules with functionality
+                                   useful for creating and applying patch files. For details on this
+                                   library, see <a class="xref" href="ch03.html#xref_The_patcherlib_Package" title="3.1.&nbsp;The patcherlib package">The <span class="literal">patcherlib</span> package</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal">versionslib</span></p>
+                        <p>Python module directory containing modules with functionality
+                                   useful for checking versions and applying an upgrade path. For details
+                                   on this library, see <a class="xref" href="ch03.html#xref_The_versionslib_Package" title="3.2.&nbsp;The versionslib package">The <span class="literal">versionslib</span> package</a>.
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="footnotes"><br><hr width="100" align="left">
+               <div class="footnote">
+                  <p><sup>[<a id="ftn.d0e33" href="#d0e33" class="para">1</a>] </sup>For details on ResPacker, see the <a href="../client_programming_guide/index.html" class="olink">Client Programming Guide</a>'s section <a href="../client_programming_guide/ch26.html" class="olink"><i>Releasing The Game</i></a> <span class="symbol">&#8594;</span> <a href="../client_programming_guide/ch26.html#xref_Prepare_The_Assets" class="olink">Prepare the assets</a> <span class="symbol">&#8594;</span> <a href="../client_programming_guide/ch26.html#xref_Run_res_packer" class="olink"><span class="literal">res_packer</span></a>.
+                  </p>
+               </div>
+               <div class="footnote">
+                  <p><sup>[<a id="ftn.d0e110" href="#d0e110" class="para">2</a>] </sup>For details, see <a class="xref" href="ch02.html#xref_MakePatch" title="2.1.&nbsp;MakePatch">MakePatch</a>.
+                  </p>
+               </div>
+               <div class="footnote">
+                  <p><sup>[<a id="ftn.d0e166" href="#d0e166" class="para">3</a>] </sup>For details, see <a class="xref" href="ch02.html#xref_CheckVersion" title="2.3.&nbsp;CheckVersion">CheckVersion</a>.
+                  </p>
+               </div>
+               <div class="footnote">
+                  <p><sup>[<a id="ftn.d0e206" href="#d0e206" class="para">4</a>] </sup>For details, see <a class="xref" href="ch02.html#xref_Versions_File" title="2.3.2.&nbsp;Versions file">Versions file</a>.
+                  </p>
+               </div>
+               <div class="footnote">
+                  <p><sup>[<a id="ftn.d0e248" href="#d0e248" class="para">5</a>] </sup>For details, see <a class="xref" href="ch03.html#xref_Compiling_The_bsdiff_Extension_Module" title="3.1.3.1.&nbsp;Compiling the bsdiff extension module">Compiling the <span class="literal">bsdiff</span> extension
+                                module</a>.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="index.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch02.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Offline Patching&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;2.&nbsp;Operation</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

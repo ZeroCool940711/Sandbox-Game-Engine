@@ -1,0 +1,7 @@
+/options.xml
+*.log
+*.dmp
+*.pdb
+*.ilk
+/layout.xml
+/paths.xml

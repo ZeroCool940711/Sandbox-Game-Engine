@@ -1,0 +1,1046 @@
+<html>
+<head>
+<title>Entity - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Entity Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Entity is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addModel" class="function_list" >addModel</a>( self, model ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addTrap" class="function_list" >addTrap</a>( self, radius, function ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delModel" class="function_list" >delModel</a>( self, model ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delTrap" class="function_list" >delTrap</a>( self, trapID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#hasTargetCap" class="function_list" >hasTargetCap</a>( self, targetCap ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#prints" class="function_list" >prints</a>( self, string ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setInvisible" class="function_list" >setInvisible</a>( self, invisible ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setPortalState" class="function_list" >setPortalState</a>( self, permissive, triFlags ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'callbacks' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Callback Methods</a></h2>
+<table id="callbacks" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#boidsLanded" class="function_list" >boidsLanded</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#enterWorld" class="function_list" >enterWorld</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#leaveWorld" class="function_list" >leaveWorld</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onBecomeNonPlayer" class="function_list" >onBecomeNonPlayer</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onBecomePlayer" class="function_list" >onBecomePlayer</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onControlled" class="function_list" >onControlled</a>( self, isControlled ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onEnterSpace" class="function_list" >onEnterSpace</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onEnterWorld" class="function_list" >onEnterWorld</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onGeometryMapped" class="function_list" >onGeometryMapped</a>( self, spaceName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLeaveSpace" class="function_list" >onLeaveSpace</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLeaveWorld" class="function_list" >onLeaveWorld</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onRestore" class="function_list" >onRestore</a>( self, position, direction, spaceID, vehicleID, dict ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#prerequisites" class="function_list" >prerequisites</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#reload" class="function_list" >reload</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#targetBlur" class="function_list" >targetBlur</a>( self, The ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#targetFocus" class="function_list" >targetFocus</a>( self, The ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#targetModelChanged" class="function_list" >targetModelChanged</a>( self ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#base" class="attribute_list" >base</a></td><td>&nbsp; Read-Only PyBase
+</td></tr>
+
+<tr valign=top><td><a href="#cell" class="attribute_list" >cell</a></td><td>&nbsp; Read-Only <a href="PyServer.html">PyServer</a>
+</td></tr>
+
+<tr valign=top><td><a href="#filter" class="attribute_list" >filter</a></td><td>&nbsp; <a href="Filter.html">Filter</a>
+</td></tr>
+
+<tr valign=top><td><a href="#id" class="attribute_list" >id</a></td><td>&nbsp; Read-Only float
+</td></tr>
+
+<tr valign=top><td><a href="#inWorld" class="attribute_list" >inWorld</a></td><td>&nbsp; Read-Only bool
+</td></tr>
+
+<tr valign=top><td><a href="#isClientOnly" class="attribute_list" >isClientOnly</a></td><td>&nbsp; Read-Only Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#isPoseVolatile" class="attribute_list" >isPoseVolatile</a></td><td>&nbsp; Read-Only bool
+</td></tr>
+
+<tr valign=top><td><a href="#matrix" class="attribute_list" >matrix</a></td><td>&nbsp; Read-Only <a href="EntityMProv.html">EntityMProv</a>
+</td></tr>
+
+<tr valign=top><td><a href="#model" class="attribute_list" >model</a></td><td>&nbsp; Read-Only <a href="PyModel.html">PyModel</a>
+</td></tr>
+
+<tr valign=top><td><a href="#models" class="attribute_list" >models</a></td><td>&nbsp; list of PyModels
+</td></tr>
+
+<tr valign=top><td><a href="#physics" class="attribute_list" >physics</a></td><td>&nbsp; Write-Only int/<a href="Physics.html">Physics</a>
+</td></tr>
+
+<tr valign=top><td><a href="#pitch" class="attribute_list" >pitch</a></td><td>&nbsp; Read-Only float
+</td></tr>
+
+<tr valign=top><td><a href="#position" class="attribute_list" >position</a></td><td>&nbsp; Read-Only <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#roll" class="attribute_list" >roll</a></td><td>&nbsp; Read-Only float
+</td></tr>
+
+<tr valign=top><td><a href="#server" class="attribute_list" >server</a></td><td>&nbsp; Read-Only <a href="PyServer.html">PyServer</a>
+</td></tr>
+
+<tr valign=top><td><a href="#spaceID" class="attribute_list" >spaceID</a></td><td>&nbsp; Read-Only int
+</td></tr>
+
+<tr valign=top><td><a href="#targetCaps" class="attribute_list" >targetCaps</a></td><td>&nbsp; list of integers
+</td></tr>
+
+<tr valign=top><td><a href="#targetFullBounds" class="attribute_list" >targetFullBounds</a></td><td>&nbsp; bool
+</td></tr>
+
+<tr valign=top><td><a href="#vehicle" class="attribute_list" >vehicle</a></td><td>&nbsp; Read-Only <a href="Entity.html">Entity</a>
+</td></tr>
+
+<tr valign=top><td><a href="#yaw" class="attribute_list" >yaw</a></td><td>&nbsp; Read-Only float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This is the Client component of the Distributed <a href="Entity.html">Entity</a> Model.
+It is responsible for handling the visual aspects of the <a href="Entity.html">Entity</a>,
+updates from the server, etc...
+<br><br>
+It is possible to create a client-only <a href="Entity.html">Entity</a> using
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createEntity>createEntity</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addModel"></a><p class="function_definition">
+<span class="function_definition">def addModel( <i>self, model</i> ):</span>
+</p>
+
+<div class="function_description">This function adds a <a href="PyModel.html">PyModel</a> to this <a href="Entity.html">Entity</a>'s list of usable Models
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>model</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="PyModel.html">PyModel</a>)			The <a href="PyModel.html">PyModel</a> to add to the list
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(none)
+</td></tr>
+</table>
+</p>
+
+<a name="addTrap"></a><p class="function_definition">
+<span class="function_definition">def addTrap( <i>self, radius, function</i> ):</span>
+</p>
+
+<div class="function_description">This function adds a sphere of awareness around this <a href="Entity.html">Entity</a>, invoking a callback method whenever the
+contents of the Trap changes.  The callback method is provided upon creation of the Trap and should have
+the following prototype;
+<br><br>
+	def trapCallback( self, entitiesInTrap ):
+<br><br>
+The "entitiesInTrap" argument is a list containing references to the entities contained inside the trap.
+<br><br>
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addPot>addPot</a> is a cheaper method that only works for players.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="BigWorld.html">BigWorld</a>.<a href="BigWorld.html#addPot">addPot</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>radius</i></span></td><td><span class="function_parameter_description">&nbsp;(float)				The radius of the sphere around this <a href="Entity.html">Entity</a>
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>function</i></span></td><td><span class="function_parameter_description">&nbsp;(float)				The callback function
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(integer)			The ID of the newly created Trap
+</td></tr>
+</table>
+</p>
+
+<a name="delModel"></a><p class="function_definition">
+<span class="function_definition">def delModel( <i>self, model</i> ):</span>
+</p>
+
+<div class="function_description">This function removes a <a href="PyModel.html">PyModel</a> to this <a href="Entity.html">Entity</a>'s list of usable Models
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>model</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="PyModel.html">PyModel</a>)			The <a href="PyModel.html">PyModel</a> to remove from the list
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(none)
+</td></tr>
+</table>
+</p>
+
+<a name="delTrap"></a><p class="function_definition">
+<span class="function_definition">def delTrap( <i>self, trapID</i> ):</span>
+</p>
+
+<div class="function_description">This function removes a Trap (sphere of <a href="Entity.html">Entity</a> awareness) from around the player.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>trapID</i></span></td><td><span class="function_parameter_description">&nbsp;(float)				The ID of the Trap to remove
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(none)
+</td></tr>
+</table>
+</p>
+
+<a name="hasTargetCap"></a><p class="function_definition">
+<span class="function_definition">def hasTargetCap( <i>self, targetCap</i> ):</span>
+</p>
+
+<div class="function_description">This function checks whether this <a href="Entity.html">Entity</a> has the given target capability.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>targetCap</i></span></td><td><span class="function_parameter_description">&nbsp;(int)				The targeting capability to check against
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(bool)				Returns true if capability matches, false otherwise
+</td></tr>
+</table>
+</p>
+
+<a name="prints"></a><p class="function_definition">
+<span class="function_definition">def prints( <i>self, string</i> ):</span>
+</p>
+
+<div class="function_description">This function writes the <a href="Entity.html">Entity</a>'s ID, followed by the given string to the <a href="BigWorld.html">BigWorld</a> console
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>string</i></span></td><td><span class="function_parameter_description">&nbsp;(string)			The string to display in the console
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(none)
+</td></tr>
+</table>
+</p>
+
+<a name="setInvisible"></a><p class="function_definition">
+<span class="function_definition">def setInvisible( <i>self, invisible</i> ):</span>
+</p>
+
+<div class="function_description">This function fades the visibility of the player in and out. It can only be
+called on a Player entity.
+<br><br>
+Raises a TypeError if this method is not called on the player entity.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>invisible</i></span></td><td><span class="function_parameter_description">&nbsp;(bool)	True to make <a href="Entity.html">Entity</a> invisible, False to
+							make it reappear
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setPortalState"></a><p class="function_definition">
+<span class="function_definition">def setPortalState( <i>self, permissive, triFlags</i> ):</span>
+</p>
+
+<div class="function_description">The position of the entity must be within 1 metre of the portal that is
+to be configured, otherwise the portal will probably not be found. No
+other portal may be closer.
+<br><br>
+The cell entity has an identical method. This also adds an object into the
+collision scene and disables navigation through the doorway when the portal
+is closed.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>permissive</i></span></td><td><span class="function_parameter_description">&nbsp;Whether the portal is open or not.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>triFlags</i></span></td><td><span class="function_parameter_description">&nbsp;Optional argument that sets the flags on the portal's
+	triangles as returned from collision tests.
+</span></td></tr>
+
+</table>
+</p>
+
+<hr>
+<h2>Callback Method Documentation</h2>
+
+<a name="boidsLanded"></a><p class="function_definition">
+<span class="function_definition">def boidsLanded( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This callback method is called on entities using the boids filter.
+It lets the entity know when the boids have landed. A typical response
+to this notifier is to delete the boids models.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="BigWorld.html">BigWorld</a>.<a href="BigWorld.html#BoidsFilter">BoidsFilter</a><br></td></tr>
+</table>
+</p>
+
+<a name="enterWorld"></a><p class="function_definition">
+<span class="function_definition">def enterWorld( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method is called when the entity enters into the player's AoI. On the
+client, this means that the entity has just been placed in the world.
+Most of the entity's initialisation code should be placed in this method
+instead of the entity's __init__ method because at the time that the __init__
+method is called the entity has not been placed in the world. Furthermore,
+the enterWorld method can be called multiple times for the same entity
+because the entity is reused if it exits the player's AoI and re-enters
+it within a short period of time.
+<br><br>
+This callback has been deprecated, instead use onEnterWorld.
+<br><br>
+The leaveWorld method is called when the entity leaves the AoI.
+</div>
+
+<a name="leaveWorld"></a><p class="function_definition">
+<span class="function_definition">def leaveWorld( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function is called when the entity leaves the player's AoI. On the
+client, this means that the entity is about to be removed from the world.
+The entity may not be destroyed immediately after this call. The same
+entity may be re-used if it re-enters the player's AoI a short time after
+leaving.
+<br><br>
+This callback has been deprecated, instead use onLeaveWorld.
+</div>
+
+<a name="onBecomeNonPlayer"></a><p class="function_definition">
+<span class="function_definition">def onBecomeNonPlayer( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This callback method is called in response to a call to <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#player>player</a>()
+It signals that an entity is no longer the player, and its script is just
+about to become an instance its original class, instead of the player
+avatar class.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="BigWorld.html">BigWorld</a>.<a href="BigWorld.html#player">player</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onBecomePlayer">onBecomePlayer</a><br></td></tr>
+</table>
+</p>
+
+<a name="onBecomePlayer"></a><p class="function_definition">
+<span class="function_definition">def onBecomePlayer( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This callback method is called in response to a call to <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#player>player</a>()
+It signals that an entity has become the player, and its script has become
+an instance of the player class, instead of its original avatar class.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="BigWorld.html">BigWorld</a>.<a href="BigWorld.html#player">player</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onBecomeNonPlayer">onBecomeNonPlayer</a><br></td></tr>
+</table>
+</p>
+
+<a name="onControlled"></a><p class="function_definition">
+<span class="function_definition">def onControlled( <i>self, isControlled</i> ):</span>
+</p>
+
+<div class="function_description">This callback method is called when the local entity control by the client
+has been enabled or disabled. See the <a href="Entity.html">Entity</a>.<a href=Entity.html#controlledBy>controlledBy</a>() method in the
+CellApp Python API for more information.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>isControlled</i></span></td><td><span class="function_parameter_description">&nbsp;Whether the entity is now controlled locally.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onEnterSpace"></a><p class="function_definition">
+<span class="function_definition">def onEnterSpace( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function is called when the entity changes space. This can occur, for
+example, when other entities teleport between spaces with the player
+entity.
+</div>
+
+<a name="onEnterWorld"></a><p class="function_definition">
+<span class="function_definition">def onEnterWorld( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method is called when the entity enters into the player's AoI. On the
+client, this means that the entity has just been placed in the world.
+Most of the entity's initialisation code should be placed in this method
+instead of the entity's __init__ method because at the time that the __init__
+method is called the entity has not been placed in the world. Furthermore,
+the enterWorld method can be called multiple times for the same entity
+because the entity is reused if it exits the player's AoI and re-enters
+it within a short period of time.
+<br><br>
+It has a <a href="PyResourceRefs.html">PyResourceRefs</a> object passed in as the first parameter.  This
+object holds onto the prerequisites that were loaded from the prerequisites
+method.  It is up to the script programmer to manage the lifetime of the
+prerequisites.
+<br><br>
+The leaveWorld method is called when the entity leaves the AoI.
+</div>
+
+<a name="onGeometryMapped"></a><p class="function_definition">
+<span class="function_definition">def onGeometryMapped( <i>self, spaceName</i> ):</span>
+</p>
+
+<div class="function_description">This callback method tells the player entity about changes to
+the geometry in its current space.  It is called when geometry
+is mapped into the player's current space.  The name of the
+spaces geometry is passed in as a parameter
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceName</i></span></td><td><span class="function_parameter_description">&nbsp;name describing the space's geometry
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onLeaveSpace"></a><p class="function_definition">
+<span class="function_definition">def onLeaveSpace( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function is called when the entity changes space. This can occur, for
+example, when other entities teleport between spaces with the player
+entity.
+</div>
+
+<a name="onLeaveWorld"></a><p class="function_definition">
+<span class="function_definition">def onLeaveWorld( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function is called when the entity leaves the player's AoI. On the
+client, this means that the entity is about to be removed from the world.
+The entity may not be destroyed immediately after this call. The same
+entity may be re-used if it re-enters the player's AoI a short time after
+leaving.
+</div>
+
+<a name="onRestore"></a><p class="function_definition">
+<span class="function_definition">def onRestore( <i>self, position, direction, spaceID, vehicleID, dict</i> ):</span>
+</p>
+
+<div class="function_description">This callback method informs the player entity to restore
+itself to a previous state given the description provided by the server.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;position
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>direction</i></span></td><td><span class="function_parameter_description">&nbsp;direction
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;space
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>vehicleID</i></span></td><td><span class="function_parameter_description">&nbsp;vehicle
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dict</i></span></td><td><span class="function_parameter_description">&nbsp;dictonary of attributes
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="prerequisites"></a><p class="function_definition">
+<span class="function_definition">def prerequisites( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This callback method is called before the entity enters the world.  It asks
+the entity for a list of resources that are required by the entity.  The
+entity is not added to the world until its prerequisite resources are
+loaded.
+The loading of prerequisite resources is done in a background thread,
+meaning that entities can thus enter the world without causing a loading
+pause to the main rendering thread.
+<br><br>
+The entity should return a tuple of resource IDs that represent its list
+of prerequisites.
+</div>
+
+<a name="reload"></a><p class="function_definition">
+<span class="function_definition">def reload( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This callback method is called in response to reloading scripts.
+It allows the entity to reload itself, and attach itself to its
+associated objects again.
+</div>
+
+<a name="targetBlur"></a><p class="function_definition">
+<span class="function_definition">def targetBlur( <i>self, The</i> ):</span>
+</p>
+
+<div class="function_description">This callback method is called in response to a change in the targeted
+entity.  It notifies the player that an entity has is no longer the current
+target.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>The</i></span></td><td><span class="function_parameter_description">&nbsp;orginially targetted entity.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="targetFocus"></a><p class="function_definition">
+<span class="function_definition">def targetFocus( <i>self, The</i> ):</span>
+</p>
+
+<div class="function_description">This callback method is called in response to a change in the targeted
+entity.  It notifies the player that an entity has just become the current
+target.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>The</i></span></td><td><span class="function_parameter_description">&nbsp;newly targetted entity.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="targetModelChanged"></a><p class="function_definition">
+<span class="function_definition">def targetModelChanged( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This callback method is invoked on the player entity when the primary
+model of currently targeted entity has changed.  This allows the player
+script to reset any trackers, gui components or special effects refering to
+the targets old model.
+<br><br>
+The currently targetted entity is passed as a parameter.
+</div>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="base"></a><p class="attribute_definition">
+<span class="attribute_definition">base</span>
+</p>
+
+<div class="attribute_description">Communicates with Base component if Base is Proxy, otherwise this attribute is not available.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only PyBase
+</td></tr>
+</table>
+</p>
+
+<a name="cell"></a><p class="attribute_definition">
+<span class="attribute_definition">cell</span>
+</p>
+
+<div class="attribute_description">Communicates with Cell component of this <a href="Entity.html">Entity</a>.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="PyServer.html">PyServer</a>
+</td></tr>
+</table>
+</p>
+
+<a name="filter"></a><p class="attribute_definition">
+<span class="attribute_definition">filter</span>
+</p>
+
+<div class="attribute_description">Movement interpolation filter for this <a href="Entity.html">Entity</a>.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Filter.html">Filter</a>
+</td></tr>
+</table>
+</p>
+
+<a name="id"></a><p class="attribute_definition">
+<span class="attribute_definition">id</span>
+</p>
+
+<div class="attribute_description">Unique <a href="Entity.html">Entity</a> identifier, shared across Cell, Base and Client
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only float
+</td></tr>
+</table>
+</p>
+
+<a name="inWorld"></a><p class="attribute_definition">
+<span class="attribute_definition">inWorld</span>
+</p>
+
+<div class="attribute_description">True when <a href="Entity.html">Entity</a> is in the world (ie, added to a <a href="BigWorld.html">BigWorld</a> Space), false when it is not
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only bool
+</td></tr>
+</table>
+</p>
+
+<a name="isClientOnly"></a><p class="attribute_definition">
+<span class="attribute_definition">isClientOnly</span>
+</p>
+
+<div class="attribute_description">This property is True if it is a client-only entity.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="isPoseVolatile"></a><p class="attribute_definition">
+<span class="attribute_definition">isPoseVolatile</span>
+</p>
+
+<div class="attribute_description">On initialisation, if the definition for this <a href="Entity.html">Entity</a> includes a volatile clause,
+this attribute will be true.  If the components of the volatileInfo attribute on
+the Cell entity are cleared, then this value will become false and the onPoseVolatile
+notification method will be triggered.  This is defined as follows:
+
+<pre>	def onPoseVolatile( self, isVolatile ):
+</pre>
+where isVolatile will be false (0).  The notfication method will also be called when the
+volatileInfo attribute is set after being cleared.  In this case, isVolatile will be true.
+This method is also called when control of the entity's position by this client is
+granted or withdrawn, for both server-side entities and client-side entities.
+They can be distinguished by checking if the 'physics' attribute is available.
+(It is not called in this case for the Player entity as the client always controls it)
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only bool
+</td></tr>
+</table>
+</p>
+
+<a name="matrix"></a><p class="attribute_definition">
+<span class="attribute_definition">matrix</span>
+</p>
+
+<div class="attribute_description">Current matrix representation of this <a href="Entity.html">Entity</a> in the world.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="EntityMProv.html">EntityMProv</a>
+</td></tr>
+</table>
+</p>
+
+<a name="model"></a><p class="attribute_definition">
+<span class="attribute_definition">model</span>
+</p>
+
+<div class="attribute_description">Current Model visible to user
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="PyModel.html">PyModel</a>
+</td></tr>
+</table>
+</p>
+
+<a name="models"></a><p class="attribute_definition">
+<span class="attribute_definition">models</span>
+</p>
+
+<div class="attribute_description">List of PyModels attached to <a href="Entity.html">Entity</a>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>list of PyModels
+</td></tr>
+</table>
+</p>
+
+<a name="physics"></a><p class="attribute_definition">
+<span class="attribute_definition">physics</span>
+</p>
+
+<div class="attribute_description">When this <a href="Entity.html">Entity</a> becomes controlled, this attribute becomes available to allow a <a href="Physics.html">Physics</a>
+object to be attached to this <a href="Entity.html">Entity</a>.  The physics attribute is not available if this
+<a href="Entity.html">Entity</a> is not controlled.  See <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#controlEntity>controlEntity</a>().
+<br><br>
+Assigning an int representing one of the supported physics styles to the
+physics property of an entity creates and attaches a <a href="Physics.html">Physics</a> object to
+the entity.  The constants for the different physics styles are
+accessible in the <a href="BigWorld.html">BigWorld</a> module.
+<br><br>
+Current physics styles are as follows:
+<br><br>
+	STANDARD_PHYSICS:	Suitable for player, other controlled animals, etc.
+	HOVER_PHYSICS:		Hovering vehicle physics.
+	CHASE_PHYSICS:		Causes controlled <a href="Entity.html">Entity</a> to follow exact movements
+						of <a href="Entity.html">Entity</a> being chased. Has no effect unless
+						Physics::chase() activated.
+	TURRET_PHYSICS:		Useful for controlled turrets, guns, etc.
+<br><br>
+Other custom physics can be integrated into <a href="BigWorld.html">BigWorld</a> and assigned their own integer
+creation flag.  Once set, the appropriate physics module will be created and assigned to
+this attribute.  The appropriate <a href="Physics.html">Physics</a> style can then be accessed through this attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Write-Only int/<a href="Physics.html">Physics</a>
+</td></tr>
+</table>
+</p>
+
+<a name="pitch"></a><p class="attribute_definition">
+<span class="attribute_definition">pitch</span>
+</p>
+
+<div class="attribute_description">Current pitch of <a href="Entity.html">Entity</a>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only float
+</td></tr>
+</table>
+</p>
+
+<a name="position"></a><p class="attribute_definition">
+<span class="attribute_definition">position</span>
+</p>
+
+<div class="attribute_description">Current position of <a href="Entity.html">Entity</a> in world
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="roll"></a><p class="attribute_definition">
+<span class="attribute_definition">roll</span>
+</p>
+
+<div class="attribute_description">Current roll of <a href="Entity.html">Entity</a>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only float
+</td></tr>
+</table>
+</p>
+
+<a name="server"></a><p class="attribute_definition">
+<span class="attribute_definition">server</span>
+</p>
+
+<div class="attribute_description">Communicates with Cell component of this <a href="Entity.html">Entity</a>.
+Deprecated:  The cell attribute should be used instead.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="PyServer.html">PyServer</a>
+</td></tr>
+</table>
+</p>
+
+<a name="spaceID"></a><p class="attribute_definition">
+<span class="attribute_definition">spaceID</span>
+</p>
+
+<div class="attribute_description">Stores ID of <a href="BigWorld.html">BigWorld</a> Space in which this <a href="Entity.html">Entity</a> resides
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only int
+</td></tr>
+</table>
+</p>
+
+<a name="targetCaps"></a><p class="attribute_definition">
+<span class="attribute_definition">targetCaps</span>
+</p>
+
+<div class="attribute_description">Stores the current targeting capabilities for this <a href="Entity.html">Entity</a>.  These will be compared against
+another set of targeting capabilities to determine whether this <a href="Entity.html">Entity</a> should be included
+in a list of potential targets.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>list of integers
+</td></tr>
+</table>
+</p>
+
+<a name="targetFullBounds"></a><p class="attribute_definition">
+<span class="attribute_definition">targetFullBounds</span>
+</p>
+
+<div class="attribute_description">If true, targeting uses the full bounding box of this <a href="Entity.html">Entity</a>. This, however,
+will allow the player to target an entity using the extreme corners of the
+bounding box (which may be out in the middle of open space). Setting this to
+false will shrink the bounding box used for testing, and will also only select
+the entity if two points on the bounding box (one at the top and one at the
+bottom) are visible.
+<br><br>
+See the watcher values "Client Settings/<a href="Entity.html">Entity</a> Picker/Lower Pct." and
+"Client Settings/<a href="Entity.html">Entity</a> Picker/Sides Pct." for the shrink amount control
+factors.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool
+</td></tr>
+</table>
+</p>
+
+<a name="vehicle"></a><p class="attribute_definition">
+<span class="attribute_definition">vehicle</span>
+</p>
+
+<div class="attribute_description">Stores the vehicle <a href="Entity.html">Entity</a> to which this <a href="Entity.html">Entity</a> is attached.  None if not on vehicle.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Entity.html">Entity</a>
+</td></tr>
+</table>
+</p>
+
+<a name="yaw"></a><p class="attribute_definition">
+<span class="attribute_definition">yaw</span>
+</p>
+
+<div class="attribute_description">Current yaw of <a href="Entity.html">Entity</a>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

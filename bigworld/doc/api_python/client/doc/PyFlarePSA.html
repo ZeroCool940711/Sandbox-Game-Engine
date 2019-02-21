@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>PyFlarePSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyFlarePSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyFlarePSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#colourize" class="attribute_list" >colourize</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+<tr valign=top><td><a href="#flareName" class="attribute_list" >flareName</a></td><td>&nbsp; String.
+</td></tr>
+
+<tr valign=top><td><a href="#flareStep" class="attribute_list" >flareStep</a></td><td>&nbsp; Integer. 0..n.
+</td></tr>
+
+<tr valign=top><td><a href="#useParticleSize" class="attribute_list" >useParticleSize</a></td><td>&nbsp; Integer as boolean.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PyFlarePSA.html">PyFlarePSA</a> is a <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> that draws a lens flare at
+the location of one or more particles (either the oldest particle, all
+particles or every n particles). The flare resource used to draw the flare
+is specified when the <a href="PyFlarePSA.html">PyFlarePSA</a> is created using the FlarePSA factory
+function in the <a href="Pixie.html">Pixie</a> module.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="colourize"></a><p class="attribute_definition">
+<span class="attribute_definition">colourize</span>
+</p>
+
+<div class="attribute_description">Specifies whether the flare should be colourized from the colour of the
+particle.
+Default is 0 (false).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<a name="flareName"></a><p class="attribute_definition">
+<span class="attribute_definition">flareName</span>
+</p>
+
+<div class="attribute_description">This value determines which lens effect resource to use for flares.
+Default is empty string.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String.
+</td></tr>
+</table>
+</p>
+
+<a name="flareStep"></a><p class="attribute_definition">
+<span class="attribute_definition">flareStep</span>
+</p>
+
+<div class="attribute_description">This value determines which particles have a flare drawn on them. 0 is 
+leader only, 1 is all particles, 2..x is every X particles.
+Default is 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer. 0..n.
+</td></tr>
+</table>
+</p>
+
+<a name="useParticleSize"></a><p class="attribute_definition">
+<span class="attribute_definition">useParticleSize</span>
+</p>
+
+<div class="attribute_description">Specifies whether the effect should use the size of the particle for its
+size.
+Default is 0 (false).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

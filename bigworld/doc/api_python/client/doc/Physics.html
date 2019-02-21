@@ -1,0 +1,1200 @@
+<html>
+<head>
+<title>Physics - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Physics Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Physics is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#chase" class="function_list" >chase</a>( self, entity, distance, tolerance ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#flood" class="function_list" >flood</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#movingForward" class="function_list" >movingForward</a>( self, maxDistance, destination ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#seek" class="function_list" >seek</a>( self, destination, timeout, verticalRange, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#stop" class="function_list" >stop</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#teleport" class="function_list" >teleport</a>( self, position, direction ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#teleportSpace" class="function_list" >teleportSpace</a>( self, spaceID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#teleportVehicle" class="function_list" >teleportVehicle</a>( self, vehicle ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#angular" class="attribute_list" >angular</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#angularMouse" class="attribute_list" >angularMouse</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#brake" class="attribute_list" >brake</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#buoyancy" class="attribute_list" >buoyancy</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#chasing" class="attribute_list" >chasing</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#collide" class="attribute_list" >collide</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#collideObjects" class="attribute_list" >collideObjects</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#collideTerrain" class="attribute_list" >collideTerrain</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#dcLocked" class="attribute_list" >dcLocked</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#fall" class="attribute_list" >fall</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#fallingVelocity" class="attribute_list" >fallingVelocity</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#gravity" class="attribute_list" >gravity</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#inWater" class="attribute_list" >inWater</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#isMovingNotifier" class="attribute_list" >isMovingNotifier</a></td><td>&nbsp; Callable Object, taking one argument
+</td></tr>
+
+<tr valign=top><td><a href="#joystickBackSpeed" class="attribute_list" >joystickBackSpeed</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#joystickEnabled" class="attribute_list" >joystickEnabled</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#joystickFwdSpeed" class="attribute_list" >joystickFwdSpeed</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#maximumSlope" class="attribute_list" >maximumSlope</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#modelDepth" class="attribute_list" >modelDepth</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#modelHeight" class="attribute_list" >modelHeight</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#modelWidth" class="attribute_list" >modelWidth</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#moving" class="attribute_list" >moving</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#nudge" class="attribute_list" >nudge</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#oldStyleCollision" class="attribute_list" >oldStyleCollision</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#ripperBrakeDrag" class="attribute_list" >ripperBrakeDrag</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperDesiredHeightFromGround" class="attribute_list" >ripperDesiredHeightFromGround</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperElasticity" class="attribute_list" >ripperElasticity</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperGravity" class="attribute_list" >ripperGravity</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperMaxThrust" class="attribute_list" >ripperMaxThrust</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperMinHeightFromGround" class="attribute_list" >ripperMinHeightFromGround</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperThrustDropOffHeight" class="attribute_list" >ripperThrustDropOffHeight</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperThrustDropOffRate" class="attribute_list" >ripperThrustDropOffRate</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperTurnRate" class="attribute_list" >ripperTurnRate</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperXDrag" class="attribute_list" >ripperXDrag</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperYDownDrag" class="attribute_list" >ripperYDownDrag</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperYUpDrag" class="attribute_list" >ripperYUpDrag</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ripperZDrag" class="attribute_list" >ripperZDrag</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#scrambleHeight" class="attribute_list" >scrambleHeight</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#seeking" class="attribute_list" >seeking</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#smoothingTime" class="attribute_list" >smoothingTime</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#targetDest" class="attribute_list" >targetDest</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#targetSource" class="attribute_list" >targetSource</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#thrust" class="attribute_list" >thrust</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#thrustAxis" class="attribute_list" >thrustAxis</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#turn" class="attribute_list" >turn</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#uncorrectedVelocity" class="attribute_list" >uncorrectedVelocity</a></td><td>&nbsp; Read-only <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#userDirected" class="attribute_list" >userDirected</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#userDriven" class="attribute_list" >userDriven</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#velocity" class="attribute_list" >velocity</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#velocityMouse" class="attribute_list" >velocityMouse</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#viscosity" class="attribute_list" >viscosity</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#waterSurfaceHeight" class="attribute_list" >waterSurfaceHeight</a></td><td>&nbsp; Float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class controls the movement of a controlled entity. It
+applies physics to the entity, applying its velocity, geometry checks and
+ gravity.
+<br><br>
+An entity is controlled if it is the player entity, or it has the
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#controlEntity>controlEntity</a> function called on it.
+<br><br>
+<a href="Physics.html">Physics</a> objects are created by assigning a value to an entity's physics
+attribute.  The value is an integer, indicating which physics object type to
+create.  For example
+<br><br>
+
+<pre>>>> entity.physics = 1
+>>>	entity.physics
+<a href="Physics.html">Physics</a> at 0x00eafe87
+</pre>
+causes a new physics of type 1 to be created
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="chase"></a><p class="function_definition">
+<span class="function_definition">def chase( <i>self, entity, distance, tolerance</i> ):</span>
+</p>
+
+<div class="function_description">Calling the chase function makes the entity attached to the <a href="Physics.html">Physics</a> start
+chasing the specified entity.  It faces towards it, and attempts to remain
+the specified distance away from it.  If it is within the optionally
+specified tolerance of the desired distance, then it doesn't bother trying
+to move away. Note that the entity will not move unless you also have
+physics.velocity set. The z component of velocity is the forward speed,
+and the x component of velocity is the strafe speed.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entity</i></span></td><td><span class="function_parameter_description">&nbsp;The <a href="Entity.html">Entity</a> to chase after.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>distance</i></span></td><td><span class="function_parameter_description">&nbsp;The distance to try and remain from the entity.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>tolerance</i></span></td><td><span class="function_parameter_description">&nbsp;The optional tolerance range for distance.  If the
+					entity is within this, it doesn't bother moving.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="flood"></a><p class="function_definition">
+<span class="function_definition">def flood( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function is unsupported.
+</div>
+
+<a name="movingForward"></a><p class="function_definition">
+<span class="function_definition">def movingForward( <i>self, maxDistance, destination</i> ):</span>
+</p>
+
+<div class="function_description">This method finds out how far we can go 'moving forward.'
+<br><br>
+It stops whenever a collision would slow the velocity to less than
+half the original velocity, or when the input maxDistance is reached.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxDistance</i></span></td><td><span class="function_parameter_description">&nbsp;This is a float, which specifies the maximum
+						distance to check for forward movement, in the
+						current direction the entity is facing.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>destination</i></span></td><td><span class="function_parameter_description">&nbsp;This is an optional <a href="Vector4Provider.html">Vector4Provider</a> that overrides
+						the maximum distance argument, if you specify this
+						argument the destination is used as the end point,
+						instead of current direction * maxDistance.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>			The allowable end position for movement.
+</td></tr>
+</table>
+</p>
+
+<a name="seek"></a><p class="function_definition">
+<span class="function_definition">def seek( <i>self, destination, timeout, verticalRange, callback</i> ):</span>
+</p>
+
+<div class="function_description">The seek function is called to make the entity move to a particular
+location and yaw.  It moves at the speed contained in the velocity
+attribute of <a href="Physics.html">Physics</a>.  It turns towards the destination, and moves in a
+straight line towards it until it is close, and then turns to face the
+desired yaw.  If it gets blocked by geometry, it keeps trying to move until
+it times out.
+<br><br>
+Once it either arrives or times out, it calls a callback function.
+<br><br>
+To cancel, call the seek function passing None for destination and callback.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destination</i></span></td><td><span class="function_parameter_description">&nbsp;This is a <a href="Vector4.html">Vector4</a>, with the first three elements
+						being the location to seek to, the fourth being
+						the yaw to seek to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>timeout</i></span></td><td><span class="function_parameter_description">&nbsp;The time in seconds to seek for, before timing out.
+						Use a negative value to have no time limit.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>verticalRange</i></span></td><td><span class="function_parameter_description">&nbsp;How close the entity has to be vertically to the
+						destination to be considered to have arrived.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;The callable object to call once the seek ends.  It
+						gets one argument, which is 1 if the seek
+						succeeded, 0 otherwise.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="stop"></a><p class="function_definition">
+<span class="function_definition">def stop( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method stops all movement.
+</div>
+
+<a name="teleport"></a><p class="function_definition">
+<span class="function_definition">def teleport( <i>self, position, direction</i> ):</span>
+</p>
+
+<div class="function_description">This function moves the entity to the specified location, and optionally,
+direction. The change takes effect the next time avatar or flight-mode
+<a href="Physics.html">Physics</a> is run (this frame or next, depending on when the call is made -
+usually this frame) This call can be combined with the other teleport
+calls.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> that is the position to teleport to
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>direction</i></span></td><td><span class="function_parameter_description">&nbsp;An optional <a href="Vector3.html">Vector3</a> which if specified is the direction
+					to teleport to (yaw, pitch, roll), otherwise the
+					direction is unchanged.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="teleportSpace"></a><p class="function_definition">
+<span class="function_definition">def teleportSpace( <i>self, spaceID</i> ):</span>
+</p>
+
+<div class="function_description">This function moves the entity into the specified space.
+The change takes effect the next time avatar or flight-mode <a href="Physics.html">Physics</a> is run.
+This call can be combined with the other teleport calls.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the space to teleport to
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="teleportVehicle"></a><p class="function_definition">
+<span class="function_definition">def teleportVehicle( <i>self, vehicle</i> ):</span>
+</p>
+
+<div class="function_description">This function moves the entity into the specified vehicle.
+The change takes effect the next time avatar or flight-mode <a href="Physics.html">Physics</a> is run.
+This call can be combined with the other teleport calls.
+Note that a vehicle can be a moving platform or a more
+conventional transportation device (ie, car).  Because of
+this the physics fall attribute plays a major role in
+determining whether the player remains on the vehicle.
+For moving platforms, the fall attribute should remain as
+1, so when a player steps off the edge, the will 'leave'
+the vehicle.  In other cases, such as when a player is to
+control the vehicle, the fall attribute should be set to 0.
+For controlling a vehicle, refer to <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#controlEntity>controlEntity</a>()
+and the wards attribute on the Proxy...
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>vehicle</i></span></td><td><span class="function_parameter_description">&nbsp;The vehicle entity to teleport to
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="angular"></a><p class="attribute_definition">
+<span class="attribute_definition">angular</span>
+</p>
+
+<div class="attribute_description"><a href="Entity.html">Entity</a> angular velocity, in radians per second. The entity will try
+to turn at this pace. The angular velocity will only be used if the
+entity is not chasing another entity (see chase) nor seeking a specified
+position (see seek).
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Physics.html">Physics</a>.<a href="Physics.html#chase">chase</a><br><a href="Physics.html">Physics</a>.<a href="Physics.html#seek">seek</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="angularMouse"></a><p class="attribute_definition">
+<span class="attribute_definition">angularMouse</span>
+</p>
+
+<div class="attribute_description">This attribute is no longer supported.
+</div>
+
+<a name="brake"></a><p class="attribute_definition">
+<span class="attribute_definition">brake</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="buoyancy"></a><p class="attribute_definition">
+<span class="attribute_definition">buoyancy</span>
+</p>
+
+<div class="attribute_description">This attribute affects how quickly an entity rises to the surface
+of the water (set by waterSurfaceHeight) when it is in the water
+(set by the inWater flag). Units are in m/s. You should set its value
+greater than gravity to enable the entity floating up in water.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="chasing"></a><p class="attribute_definition">
+<span class="attribute_definition">chasing</span>
+</p>
+
+<div class="attribute_description">This read only attribute is set to 1 if the entity is chasing a target,
+0 otherwise.  Chasing is a behaviour where the physics moves the entity
+towards a target entity, trying to remain a specified distance from it.
+It is initiated by calling the chase method.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="collide"></a><p class="attribute_definition">
+<span class="attribute_definition">collide</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not the entity performs collision
+testing with models in the world.  If it is non-zero, then if the
+entity collides with anything which it cannot walk up, it tries to slide
+along it.  If this fails, then it stops.  If the attribute is zero,
+then the entity's behaviour depends on the fall attribute.  If fall is
+zero, then the entity will pass through objects without colliding,
+although it glides over terrain.  If fall is non-zero, then the entity
+will glide over both objects and terrain. Note: This property is only
+active if oldStyleCollision is true.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="collideObjects"></a><p class="attribute_definition">
+<span class="attribute_definition">collideObjects</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not the entity performs collision
+with the objects (shells and models) in the world. This property is only
+active if oldStyleCollision is false.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="collideTerrain"></a><p class="attribute_definition">
+<span class="attribute_definition">collideTerrain</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not the entity performs collision
+with the terrain in the world. This property is only active if
+oldStyleCollision is false. Note: indoor shells are objects
+not terrain.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="dcLocked"></a><p class="attribute_definition">
+<span class="attribute_definition">dcLocked</span>
+</p>
+
+<div class="attribute_description">If this attribute is set to non-zero and there is a targetSource and
+targetDest attribute set, then the entity will face in the
+direction from targetSource to targetDest.  If this attribute is set to
+zero, then this behaviour is switched off.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="fall"></a><p class="attribute_definition">
+<span class="attribute_definition">fall</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether gravity effects the entity or not.
+If it is non-zero, then it will fall towards the ground at a rate
+determined using the gravity attribute.  If it is zero then the entity
+will not fall towards the ground at all.
+</div>
+
+<a name="fallingVelocity"></a><p class="attribute_definition">
+<span class="attribute_definition">fallingVelocity</span>
+</p>
+
+<div class="attribute_description">This read only attribute shows the current vertical velocity of the
+entity due to gravity and/or buoyancy. Positive means falling.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="gravity"></a><p class="attribute_definition">
+<span class="attribute_definition">gravity</span>
+</p>
+
+<div class="attribute_description">This attribute determines how quickly the entity falls towards the
+ground.  It is an acceleration measured in metres per second per second.
+It defaults to 9.8.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="inWater"></a><p class="attribute_definition">
+<span class="attribute_definition">inWater</span>
+</p>
+
+<div class="attribute_description">This attribute tells the physics module whether it should treat the
+entity as being in water or not.  If inWater is set to True, then
+the buoyancy, viscosity and waterSurfaceHeight come into effect.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="isMovingNotifier"></a><p class="attribute_definition">
+<span class="attribute_definition">isMovingNotifier</span>
+</p>
+
+<div class="attribute_description">This attribute is a callback function, which is called whenever the
+entity transitions between moving and not moving or from not moving to
+moving.  The function will be supplied with one argument, which is the
+isMoving attribute.  It will be 1 if the entity has started moving, and
+0 if it stops.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Callable Object, taking one argument
+</td></tr>
+</table>
+</p>
+
+<a name="joystickBackSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">joystickBackSpeed</span>
+</p>
+
+<div class="attribute_description">This attribute is the speed (in metres per second) at which the entity
+will move backward if the joystick is being used as a controller and is
+pressed backwards.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="joystickEnabled"></a><p class="attribute_definition">
+<span class="attribute_definition">joystickEnabled</span>
+</p>
+
+<div class="attribute_description">If True, then the physics will take input from the connected joystick.
+Defaults to False.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="joystickFwdSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">joystickFwdSpeed</span>
+</p>
+
+<div class="attribute_description">This attribute is the speed (in metres per second) at which the entity
+will move forward if the joystick is being used as a controller and is
+pressed forwards.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="maximumSlope"></a><p class="attribute_definition">
+<span class="attribute_definition">maximumSlope</span>
+</p>
+
+<div class="attribute_description">This attribute is the angle, in degrees, of the maximum slope the entity
+can move onto.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="modelDepth"></a><p class="attribute_definition">
+<span class="attribute_definition">modelDepth</span>
+</p>
+
+<div class="attribute_description">This attribute is used to override the bounding box depth of the model,
+which is used for physics collision tests.  If this is set to zero,
+then the value from the bounding box of the model is used instead,
+otherwise this attribute is.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="modelHeight"></a><p class="attribute_definition">
+<span class="attribute_definition">modelHeight</span>
+</p>
+
+<div class="attribute_description">This attribute is used to override the bounding box height of the
+model, which is used for physics collision tests.  If this is set to
+zero, then the value from the bounding box of the model is used instead,
+otherwise this attribute is.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="modelWidth"></a><p class="attribute_definition">
+<span class="attribute_definition">modelWidth</span>
+</p>
+
+<div class="attribute_description">This attribute is used to override the bounding box width of the
+model, which is used for physics collision tests.  If this is set to
+zero, then the value from the bounding box of the model is used
+instead, otherwise this attribute is.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="moving"></a><p class="attribute_definition">
+<span class="attribute_definition">moving</span>
+</p>
+
+<div class="attribute_description">This read only attribute is set to 1 by the system if the entity moved
+during the last tick, and to 0 otherwise.  If velocity is non-zero, but
+it is unable to move due to geometry constraints, then the attribute
+will be zero.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="nudge"></a><p class="attribute_definition">
+<span class="attribute_definition">nudge</span>
+</p>
+
+<div class="attribute_description">Setting this attribute to a particular <a href="Vector3.html">Vector3</a> adds that vector to the
+entity's position in the next tick. The value is set back to the zero
+vector after every tick. It can be read from but, unless it is read
+immediately after setting it, it will always read as the zero vector.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="oldStyleCollision"></a><p class="attribute_definition">
+<span class="attribute_definition">oldStyleCollision</span>
+</p>
+
+<div class="attribute_description">This attribute determines if the old style collision flags,
+or the new style collision flags are used. Note: in <a href="BigWorld.html">BigWorld</a> 3, old style
+collision behaviour will be deprecated.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="ripperBrakeDrag"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperBrakeDrag</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperDesiredHeightFromGround"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperDesiredHeightFromGround</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperElasticity"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperElasticity</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperGravity"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperGravity</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperMaxThrust"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperMaxThrust</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperMinHeightFromGround"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperMinHeightFromGround</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperThrustDropOffHeight"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperThrustDropOffHeight</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperThrustDropOffRate"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperThrustDropOffRate</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperTurnRate"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperTurnRate</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperXDrag"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperXDrag</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperYDownDrag"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperYDownDrag</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperYUpDrag"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperYUpDrag</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="ripperZDrag"></a><p class="attribute_definition">
+<span class="attribute_definition">ripperZDrag</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="scrambleHeight"></a><p class="attribute_definition">
+<span class="attribute_definition">scrambleHeight</span>
+</p>
+
+<div class="attribute_description">This attribute is the height of the step up which the entity can climb.
+When moving, it performs a collision test this high above the bottom of
+the entity, in the direction of motion. If it hits anything, then the
+entity is unable to move, otherwise it moves.
+<br><br>
+If it is set to zero, then <a href="Physics.html">Physics</a> will use 1/3 of the height of the
+model instead.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="seeking"></a><p class="attribute_definition">
+<span class="attribute_definition">seeking</span>
+</p>
+
+<div class="attribute_description">This read only attribute is set to 1 by the system while seeking
+towards a particular point, initiated by calling the seek function.
+Once the entity has arrived or failed, seeking is set to 0 again.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="smoothingTime"></a><p class="attribute_definition">
+<span class="attribute_definition">smoothingTime</span>
+</p>
+
+<div class="attribute_description">For the Player entity, changes in velocity are smoothed over a
+set amount of time to simulate momentum.  This smoothing time is
+specified in seconds.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="targetDest"></a><p class="attribute_definition">
+<span class="attribute_definition">targetDest</span>
+</p>
+
+<div class="attribute_description">If the dcLocked attribute is set to non-zero, then the entity will face
+in the yaw from the location of	targetSource to the location of
+targetDest.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="targetSource"></a><p class="attribute_definition">
+<span class="attribute_definition">targetSource</span>
+</p>
+
+<div class="attribute_description">If the dcLocked attribute is set to non-zero, then the entity will face
+in the yaw from the location of	targetSource to the location of
+targetDest.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="thrust"></a><p class="attribute_definition">
+<span class="attribute_definition">thrust</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="thrustAxis"></a><p class="attribute_definition">
+<span class="attribute_definition">thrustAxis</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="turn"></a><p class="attribute_definition">
+<span class="attribute_definition">turn</span>
+</p>
+
+<div class="attribute_description">In avatar style physics, setting this attribute to a particular value
+adds that value to the entity's yaw in the next tick. The value is set
+back to zero after every tick. It can be read from but, unless it is
+read immediately after setting it, it will always read as zero.
+<br><br>
+This attribute is not supported on physics styles other than avatar.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="uncorrectedVelocity"></a><p class="attribute_definition">
+<span class="attribute_definition">uncorrectedVelocity</span>
+</p>
+
+<div class="attribute_description">The velocity in metres per second that the entity actually moved at.
+This takes into account the intended velocity, slowing down for
+moving up slopes, gravity, etc.  It does not take into account
+physics corrections for horizontal collisions or hitting the maximum
+slope limit. Note that the vertical velocity does take collision due
+to gravity into account.
+<br><br>
+The uncorrectVelocity is a <a href="Vector4Provider.html">Vector4Provider</a> and its main raison d'etre
+is to be used as a velocityProvider for the <a href="ActionMatcher.html">ActionMatcher</a>.  Hooking up
+these two can provide action matching that is slightly less twitchy
+when colliding with objects, depending on how your actions are setup.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="userDirected"></a><p class="attribute_definition">
+<span class="attribute_definition">userDirected</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether the user is controlling the entity, or
+it is being controlled by script.  If it is set to non-zero, then the
+direction cursor is used to determine direction, otherwise yaw and
+pitch can be directly set.
+<br><br>
+If this is set to non-zero on an entity which is not the player entity,
+it also will use the direction cursor to determine direction.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="userDriven"></a><p class="attribute_definition">
+<span class="attribute_definition">userDriven</span>
+</p>
+
+<div class="attribute_description">This attribute is designed for use with a joystick, rather than a
+keyboard.  When using a joystick if this is set to zero, then the user
+is not controlling the entity, otherwise they are.  When a keyboard is
+the primary form of input, this has no effect.
+<br><br>
+This can be used on any entity, regardless of whether it is the player
+entity or not.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="velocity"></a><p class="attribute_definition">
+<span class="attribute_definition">velocity</span>
+</p>
+
+<div class="attribute_description">The velocity in metres per second that the entity is trying to move at.
+Forces acting on the entity do not change its velocity attribute.
+If the entity collides with a wall, It will stop moving, but the
+velocity attribute will remain set to its previous value.
+<br><br>
+The <a href="ActionMatcher.html">ActionMatcher</a> doesn't use this attribute when choosing an action.
+Instead, it matches using the displacement of the model from its
+previous position.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="velocityMouse"></a><p class="attribute_definition">
+<span class="attribute_definition">velocityMouse</span>
+</p>
+
+<div class="attribute_description">The velocity mouse determines what role the mouse has in determining
+the velocity of the entity.	It is a string, which can take three
+(case sensative) possible values:
+<br><br>
+- "Direction"  which means that the mouse affects the direction of the
+velocity only.  The	magnitude is as specified in the velocity
+attribute, in the direction specified in the velocity attribute, as
+applied relative to the frame of reference of the directioncursor.
+<br><br>
+- "MouseX" which means that horizontal movement of the mouse is used to
+scale the magnitude	of the velocity attribute.  Direction is entirely
+specified by the velocity attribute.  In order for this to be useful
+the velocity attribute needs to have a scaling factor built in to it,
+meaning	it is no longer specified in m/s, and in general needs to be
+considerably bigger than it would normally be.  For example, (0,0,100)
+moves the entity at roughly a walking pace.
+<br><br>
+- "MouseY" which means that vertical movement of the mouse is used to
+scale the magnitude	of the velocity attribute.  Direction is entirely
+specified by the velocity attribute.  In order for this to be useful
+the velocity attribute needs to have a scaling factor built in to it
+meaning	it is no longer specified in m/s, and in general needs to be
+considerably bigger than it would normally be.  For example, (0,0,100)
+moves the entity at roughly a walking pace.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="viscosity"></a><p class="attribute_definition">
+<span class="attribute_definition">viscosity</span>
+</p>
+
+<div class="attribute_description">This attribute affects how quickly an entities falling speed is
+damped when it has entered water (set by the inWater flag). Units
+are in m/s.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="waterSurfaceHeight"></a><p class="attribute_definition">
+<span class="attribute_definition">waterSurfaceHeight</span>
+</p>
+
+<div class="attribute_description">This attribute tells the physics module where the surface of the
+water is.  It is used to make the entity float up to the appropriate
+height.  It is only used if inWater is set to True.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

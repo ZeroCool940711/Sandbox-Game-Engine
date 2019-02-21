@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>VectorGenerator - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>VectorGenerator Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>VectorGenerator is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="VectorGenerator.html">VectorGenerator</a> is a class that is used by some actions in the
+ParticleSystem (most notably SourcePSA and JitterPSA) to specify possible
+(or modifications to) positions and velocities for particles.
+<br><br>
+This class is not instantiated directly, but uses a python sequence to pass
+through creation parameters for this class to the underlying C++ objects.
+The C++ object looks at the string specifying the type of vector generator
+and passes the arguments to the appropriate factory function for that type
+of <a href="VectorGenerator.html">VectorGenerator</a>.
+<br><br>
+Example (see also SourcePSA):
+
+<pre>source = <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#SourcePSA>SourcePSA</a>( [ "Point", ( 0, 0, 0 ) ],
+					      [ "Sphere", ( 0, 0, 0 ), 0.4, 0.2 ] )
+</pre>
+<br><br>
+Possible initial generators are:
+<br><br>
+Format: [ "Point", location of the point ]
+Point: [ "Point", ( 0, 0, 0 ) ]
+Format: [ "Line", start of line, end of line ]
+Line: [ "Line", ( 0, 0, 0 ), ( 0, 0.1, 0 ) ]
+Format: [ "Sphere", center of sphere, maxRadius, minRadius ]
+Sphere: [ "Sphere", ( 0, 0, 0 ), 0.4, 0.2 ]
+Box: Format: [ "Box", corner, opposite corner ]
+[ "Box", ( 0, 0, 0 ), ( 0.1, 0.1, 0.1 ) ]
+Format: [ "Cylinder", center of the first circle endpoint
+, center of the second circle endpoint, radius of first circle endpoint
+, radius of second circle endpoint ]
+Cylinder: [ "Cylinder", ( 0, 0, 0 ), ( 0, 0.1, 0 ), 0.2, 0.4 ]
+
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<html>
+<head>
+<title>OANamedOptionWrapper - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>OANamedOptionWrapper Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="OpenAutomateWrapper.html" class="module_h1">OpenAutomateWrapper Module</a>]</span></p><p>OANamedOptionWrapper is part of the <a href="OpenAutomateWrapper.html">OpenAutomateWrapper</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import OpenAutomateWrapper</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#setComparison" class="function_list" >setComparison</a>( self, optionType, comparisonValArg ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#comparisonOp" class="attribute_list" >comparisonOp</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#dataType" class="attribute_list" >dataType</a></td><td>&nbsp; BWOpenAutomate::eOAOptionDataType
+</td></tr>
+
+<tr valign=top><td><a href="#enumValue" class="attribute_list" >enumValue</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#maxValueFloat" class="attribute_list" >maxValueFloat</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#maxValueInt" class="attribute_list" >maxValueInt</a></td><td>&nbsp; int
+</td></tr>
+
+<tr valign=top><td><a href="#minValueFloat" class="attribute_list" >minValueFloat</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#minValueInt" class="attribute_list" >minValueInt</a></td><td>&nbsp; int
+</td></tr>
+
+<tr valign=top><td><a href="#name" class="attribute_list" >name</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#numSteps" class="attribute_list" >numSteps</a></td><td>&nbsp; int
+</td></tr>
+
+<tr valign=top><td><a href="#parentName" class="attribute_list" >parentName</a></td><td>&nbsp; String
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class wraps an oaNamedOptionStruct which send information about a named option to the OpenAutomate program
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="setComparison"></a><p class="function_definition">
+<span class="function_definition">def setComparison( <i>self, optionType, comparisonValArg</i> ):</span>
+</p>
+
+<div class="function_description">Set the value compared to the dependent parent option in order to see if this option is actionve
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>optionType</i></span></td><td><span class="function_parameter_description">&nbsp;a String specifying the option type
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>comparisonValArg</i></span></td><td><span class="function_parameter_description">&nbsp;a value being compared to the parent option
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="comparisonOp"></a><p class="attribute_definition">
+<span class="attribute_definition">comparisonOp</span>
+</p>
+
+<div class="attribute_description">Stores the operation used to compare the parent value with ComparisonVal
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="dataType"></a><p class="attribute_definition">
+<span class="attribute_definition">dataType</span>
+</p>
+
+<div class="attribute_description">Stores the data type of this option
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>BWOpenAutomate::eOAOptionDataType
+</td></tr>
+</table>
+</p>
+
+<a name="enumValue"></a><p class="attribute_definition">
+<span class="attribute_definition">enumValue</span>
+</p>
+
+<div class="attribute_description">Stores the value of this option if its type is enum
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="maxValueFloat"></a><p class="attribute_definition">
+<span class="attribute_definition">maxValueFloat</span>
+</p>
+
+<div class="attribute_description">Stores the maximal value for this option
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="maxValueInt"></a><p class="attribute_definition">
+<span class="attribute_definition">maxValueInt</span>
+</p>
+
+<div class="attribute_description">Stores the maximal value for this option
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>int
+</td></tr>
+</table>
+</p>
+
+<a name="minValueFloat"></a><p class="attribute_definition">
+<span class="attribute_definition">minValueFloat</span>
+</p>
+
+<div class="attribute_description">Stores the minimal value for this option
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="minValueInt"></a><p class="attribute_definition">
+<span class="attribute_definition">minValueInt</span>
+</p>
+
+<div class="attribute_description">Stores the minimal value for this option
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>int
+</td></tr>
+</table>
+</p>
+
+<a name="name"></a><p class="attribute_definition">
+<span class="attribute_definition">name</span>
+</p>
+
+<div class="attribute_description">Stores the name of this option
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="numSteps"></a><p class="attribute_definition">
+<span class="attribute_definition">numSteps</span>
+</p>
+
+<div class="attribute_description">Stores the number of steps between the minimal and maximal value
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>int
+</td></tr>
+</table>
+</p>
+
+<a name="parentName"></a><p class="attribute_definition">
+<span class="attribute_definition">parentName</span>
+</p>
+
+<div class="attribute_description">Stores the name of the parent option for options dependencies
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

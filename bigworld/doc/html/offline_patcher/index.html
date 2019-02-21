@@ -1,0 +1,155 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Offline Patching</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Offline Patching">
+      <link rel="next" href="ch01.html" title="Chapter&nbsp;1.&nbsp;Introduction">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/offline_patcher/index.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Offline Patching</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left">&nbsp;</td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch01.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="book" title="Offline Patching">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h1 class="title"><a name="Offline_Updating"></a>Offline Patching
+                     </h1>
+                  </div>
+                  <div>
+                     <p class="releaseinfo">BigWorld Technology 2.1. Released 2012.</p>
+                  </div>
+                  <div>
+                     <p class="copyright">Copyright &copy; 1999-2012 BigWorld Pty Ltd. All rights reserved. </p>
+                  </div>
+                  <div>
+                     <div class="legalnotice" title="Legal Notice"><a name="d0e17"></a><p>This document is proprietary commercial in confidence and access
+                           is restricted to authorised users. This document is protected by
+                           copyright laws of Australia, other countries and international treaties.
+                           Unauthorised use, reproduction or distribution of this document, or any
+                             portion of this document, may result in the imposition of civil and
+                             criminal penalties as provided by law.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <hr>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="chapter"><a href="ch01.html">1. Introduction</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch01.html#d0e23">1.1. Overview</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch01.html#d0e58">1.1.1. Preparing release patch archives</a></span></dt>
+                              <dt><span class="section"><a href="ch01.html#d0e158">1.1.2. Client-side patching process</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="ch01.html#d0e231">1.2. Requirements</a></span></dt>
+                        <dt><span class="section"><a href="ch01.html#d0e254">1.3. Layout of the offline patcher tools and libraries</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="chapter"><a href="ch02.html">2. Operation</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#xref_MakePatch">2.1. MakePatch</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch02.html#d0e326">2.1.1. Command-line usage</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e472">2.1.2. Patch archives</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e519">2.1.3. Multi-source support</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e530">2.1.4. Example usage</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="ch02.html#xref_ApplyPatch">2.2. ApplyPatch</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch02.html#d0e608">2.2.1. Command line usage</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e694">2.2.2. Example usage</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="ch02.html#xref_CheckVersion">2.3. CheckVersion</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch02.html#d0e766">2.3.1. Command line usage</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#xref_Versions_File">2.3.2. Versions file</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e863">2.3.3. State file</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e894">2.3.4. Deployment notes</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e913">2.3.5. Patch transport schemes</a></span></dt>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+                  <dt><span class="chapter"><a href="ch03.html">3. Application Programmers Interface</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch03.html#xref_The_patcherlib_Package">3.1. The <span class="literal">patcherlib</span> package</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch03.html#d0e964">3.1.1. The <span class="literal">patch_file_builder</span> module</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#xref_patch_apply_Module">3.1.2. The <span class="literal">patch_apply</span> module</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#d0e1269">3.1.3. The <span class="literal">bsdiff</span> module</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#d0e1463">3.1.4. Other modules</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="ch03.html#xref_The_versionslib_Package">3.2. The <span class="literal">versionslib</span> package</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch03.html#xref_The_Versions_Module">3.2.1. The <span class="literal">versions</span> module</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#xref_The_State_Module">3.2.2. The <span class="literal">state</span> module</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#xref_The_transfer_Module">3.2.3. The <span class="literal">transfer</span> module</a></span></dt>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+                  <dt><span class="chapter"><a href="ch04.html">4. Offline Patcher Terminology</a></span></dt>
+                  <dt><span class="appendix"><a href="apa.html">A. Acknowledgements</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="apa.html#xref_bsdiff_Binary_diff_path_Utility">A.1. <span class="literal">bsdiff</span> - Binary diff/patch utility</a></span></dt>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left">&nbsp;</td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch01.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">&nbsp;</td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;1.&nbsp;Introduction</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

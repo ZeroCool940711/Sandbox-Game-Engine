@@ -1,0 +1,14 @@
+# Blender MTL File: 'Tileset_combined_binary.blend'
+# Material Count: 1
+
+newmtl Claimed
+Ns 109.803922
+Ka 0.000000 0.000000 0.000000
+Kd 0.522773 0.522773 0.522773
+Ks 0.589963 0.589963 0.589963
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:\Games\RawMedia\Models\OD_Tilesets\Tileset_combined_binary\textures\ClaimedE.png
+map_Bump E:\\Games\\RawMedia\\Models\\OD_Tilesets\\Tileset_combined_binary\\textures\\Claimed_nor2.png
+map_Ks E:\\Games\\RawMedia\\Models\\OD_Tilesets\\Tileset_combined_binary\\textures\\Claimed_spec.png

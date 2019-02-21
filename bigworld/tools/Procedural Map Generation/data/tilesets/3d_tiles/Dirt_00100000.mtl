@@ -1,0 +1,14 @@
+# Blender MTL File: 'Tileset_combined_binary.blend'
+# Material Count: 1
+
+newmtl Dirt
+Ns 158.823529
+Ka 0.000000 0.000000 0.000000
+Kd 0.508267 0.508267 0.508267
+Ks 0.180480 0.180480 0.180480
+Ni 1.000000
+d 1.000000
+illum 2
+map_Bump E:\\Games\\RawMedia\\Models\\OD_Tilesets\\Tileset_combined_binary\\textures\\Dirt_dark_nor3.png
+map_Kd E:\\Games\\RawMedia\\Models\\OD_Tilesets\\Tileset_combined_binary\\textures\\Dirt_darkE.png
+map_Ks E:\\Games\\RawMedia\\Models\\OD_Tilesets\\Tileset_combined_binary\\textures\\Dirt_spec4.png

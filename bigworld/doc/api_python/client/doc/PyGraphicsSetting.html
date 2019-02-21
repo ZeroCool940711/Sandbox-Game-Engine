@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>PyGraphicsSetting - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyGraphicsSetting Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyGraphicsSetting is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addOption" class="function_list" >addOption</a>( self, label, desc, isSupported ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#registerSetting" class="function_list" >registerSetting</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#callback" class="attribute_list" >callback</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is a graphics setting that calls into python
+to allow arbitrary script code implementation.
+<br><br>
+Each GraphicsSetting object offers a number of options.
+There is always one and only one active option at any one time.
+<br><br>
+The callback function is called whenever the option
+is changed.  It takes one parameter, which is the newly selected
+option for this graphics setting.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addOption"></a><p class="function_definition">
+<span class="function_definition">def addOption( <i>self, label, desc, isSupported</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>label</i></span></td><td><span class="function_parameter_description">&nbsp;UI label to display for the option
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>desc</i></span></td><td><span class="function_parameter_description">&nbsp;More detailed help string for the option.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>isSupported</i></span></td><td><span class="function_parameter_description">&nbsp;Whether the current host system supports this option.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>int			Index to the newly added option.
+</td></tr>
+</table>
+</p>
+
+<a name="registerSetting"></a><p class="function_definition">
+<span class="function_definition">def registerSetting( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="callback"></a><p class="attribute_definition">
+<span class="attribute_definition">callback</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

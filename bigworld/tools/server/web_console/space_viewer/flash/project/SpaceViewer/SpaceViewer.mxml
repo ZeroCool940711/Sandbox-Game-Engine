@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--borderSkin="ApplicationBackground"-->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" layout="absolute"
+	
+	backgroundGradientAlphas="[]"
+	backgroundImage=""
+	backgroundAlpha="0"
+	backgroundColor="#ffffff"
+	creationComplete="OnLoad()" width="90%" height="90%" resize="onResize()">
+	<mx:HTTPService id="catalogue" url="static/assets/catalogue.xml" result="onCatalogueResult()"/>    
+	<mx:HTTPService id="currentImages" result="onImageResult()"/>    
+	<mx:states>
+		<mx:State name="config">
+			<mx:SetProperty target="{cmbSpace}" name="enabled" value="false"/>
+			<mx:SetProperty target="{sldZoom}" name="enabled" value="false"/>
+			<mx:SetProperty target="{btnZoomIn}" name="enabled" value="false"/>
+			<mx:SetProperty target="{btnZoomOut}" name="enabled" value="false"/>
+			<mx:SetProperty target="{chkEntities}" name="enabled" value="false"/>
+			<mx:SetProperty target="{button1}" name="enabled" value="false"/>
+			<mx:SetProperty target="{button2}" name="enabled" value="false"/>
+			<mx:SetProperty target="{svtile}" name="enabled" value="false"/>
+			<mx:SetProperty target="{svtile}" name="visible" value="false"/>
+			
+			<mx:AddChild position="lastChild">
+				<mx:Panel id="ConfigPanel" label="Configuration Data"
+					y="56" x="16" width="96%" height="82%" 
+					fontFamily="Verdana" fontSize="12" color="#000000" themeColor="#ff8000"
+					borderStyle="none" headerHeight="0" borderThickness="0" cornerRadius="6" 
+					alpha="0.65" horizontalAlign="center" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+					<mx:Spacer height="2"/>
+					<mx:Label text="Configuration Data" fontSize="12" fontFamily="Verdana" textAlign="center" color="#0000a0" width="154"/> 
+					<mx:Spacer height="{ConfigPanel.width/30}"/>
+					<mx:TabNavigator id="tn" width="{ConfigPanel.width/1.5}" height="{ConfigPanel.height/1.3}"
+						borderSkin="ConfigurationBackground"  tabIndex="0"
+						backgroundImage=""
+						backgroundAlpha="0" 
+						backgroundColor="#ffffff"
+						borderColor="#ff8000" fontSize="12" x="200" y="150"  borderThickness="2"  focusEnabled="true">
+						<!-- Define each Tab using a VBox container. -->
+						<!--                    View Tab                              -->
+						<mx:VBox label="View" fontSize="12" height="{ConfigPanel.height/1.3}" width="{ConfigPanel.width/1.5}" 
+							borderSkin="ConfigurationBackground" 
+							backgroundImage=""
+							backgroundAlpha="0" 
+							backgroundColor="#ffffff"
+							borderColor="#ff8000"
+							borderStyle="none"
+							themeColor="#ff8000" borderThickness="2">
+							<mx:Spacer width="100%" height="10%"/>
+							<mx:HBox borderColor="#d3e3f1" width="100%">
+								<mx:Spacer width="{ConfigPanel.width/40}"/>
+								<mx:Label text="Cell App Update Frequency" fontSize="12" color="#000000"/>
+								<mx:Spacer width="60"/>
+								<mx:TextInput id="CellAppUpdateFreq" text="1.00" width="20%" fontSize="12"/>
+								<mx:Label text="seconds"/>
+							</mx:HBox>
+							<mx:Spacer width="100%" height="13%"/>
+							<mx:HBox width="100%">
+								<mx:Spacer width="{ConfigPanel.width/40}"/>
+								<mx:Label text="Cell App Manager Update Frequency" fontSize="12" color="#000000"/>
+								<mx:Spacer width="1"/>
+								<mx:TextInput id="CellAppManagerUpdateFreq" text="1.00" width="20%" fontSize="12"/>
+								<mx:Label text="seconds"/>
+							</mx:HBox>
+							<mx:Spacer height="41.5%" width="100%"/>
+							<mx:HBox width="100%" horizontalAlign="right" paddingRight="70">
+								<mx:Button id="OkView" label="OK" click="onClickOk()" keyUp="{if(event.keyCode==13) onClickOk()}"/>
+								<mx:Button label="Cancel" click="onCancel()" keyUp="{if(event.keyCode==13) onCancel()}"/>
+							</mx:HBox>
+						</mx:VBox>
+						<!--                   Colour Tab                           -->
+						<mx:VBox label="Colour" fontSize="12" height="{ConfigPanel.height/1.3}" width="{ConfigPanel.width/1.5}" 
+							borderSkin="ConfigurationBackground" 
+							backgroundImage=""
+							backgroundAlpha="0" 
+							backgroundColor="#ffffff"
+							borderColor="#ff8000"
+							borderStyle="outset"
+							themeColor="#ff8000" borderThickness="3">
+							<mx:Spacer height="{ConfigPanel.height/20}"/>
+							<mx:HBox width="100%" height="9.5%">
+								<mx:Spacer width="{ConfigPanel.width/17}"/>
+								<mx:Label text="Cell App ID" fontSize="12" color="#000000"/>
+								<mx:Spacer width="32" height="10"/>
+								<mx:ColorPicker  id="CellAppID" selectedColor="#000000" fontSize="12"/>
+								<mx:Spacer width="{ConfigPanel.width/17}"/>
+								<mx:Label text="IP Address" fontSize="12" color="#000000"/>
+								<mx:Spacer width="34" height="10"/>
+								<mx:ColorPicker id="IPAddress" selectedColor="#000000"/>
+							</mx:HBox>
+							<mx:Spacer height="{ConfigPanel.height/250}"/>
+							<mx:HBox width="100%" height="9.5%">
+								<mx:Spacer width="{ConfigPanel.width/17}"/>
+								<mx:Label text="Cell Load" fontSize="12" color="#000000"/>
+								<mx:Spacer width="43" height="10"/>
+								<mx:ColorPicker id="CellLoad" selectedColor="#ff0000"/>
+								<mx:Spacer width="{ConfigPanel.width/17}"/>
+								<mx:CheckBox label="Partition Load" id="PartitionLoadEnable" width="116"/>
+								<mx:ColorPicker id="PartitionLoad" selectedColor="#004080" enabled="{PartitionLoadEnable.selected}"/>
+							</mx:HBox>
+							<mx:Spacer height="{ConfigPanel.height/250}"/>
+							<mx:HBox width="100%" height="9.5%">
+								<mx:Spacer width="{ConfigPanel.width/17}"/>
+								<mx:CheckBox label="Entity Bounds" id="EntityBoundsEnable" width="114"/>
+								<mx:ColorPicker id="EntityBounds" selectedColor="#000000" enabled="{EntityBoundsEnable.selected}"/>
+								<mx:Spacer width="{ConfigPanel.width/17}"/>
+								<mx:Label text="Space Bounds" fontSize="12" color="#000000"/>
+								<mx:Spacer width="14" height="10"/>
+								<mx:ColorPicker id="SpaceBounds" selectedColor="#590679"/>
+							</mx:HBox>
+							<mx:Spacer height="{ConfigPanel.height/250}"/>
+							<mx:HBox width="100%" height="9.5%">
+								<mx:Spacer width="{ConfigPanel.width/17}"/>
+								<mx:Label text="Grid" fontSize="12" color="#000000"/>
+								<mx:Spacer width="76" height="10"/>
+								<mx:ColorPicker id="Grid" selectedColor="#00ff00"/>
+								<mx:Spacer width="{ConfigPanel.width/17}"/>
+								<mx:Label text="Ghost Entity" fontSize="12" color="#000000"/>
+								<mx:Spacer width="26" height="10"/>
+								<mx:ColorPicker id="GhostEntity" selectedColor="#c0c0c0"/>
+							</mx:HBox>
+							<mx:Spacer height="{ConfigPanel.height/250}"/>
+							<mx:HBox width="100%" height="9.5%">
+								<mx:Spacer width="{ConfigPanel.width/17}"/>
+								<mx:Label text="Cell Boundary" fontSize="12" color="#000000"/>
+								<mx:Spacer width="14" height="10"/>
+								<mx:ColorPicker id="CellBoundary" selectedColor="#0000ff"/>
+							</mx:HBox>
+							<mx:Spacer height="{ConfigPanel.height/250}"/>
+							<mx:HRule width="100%" height="1" strokeColor="#ff8000"/>
+							<mx:Spacer height="{ConfigPanel.height/250}"/>
+							<mx:HBox width="100%" height="11%">
+								<mx:Spacer width="{ConfigPanel.width/17}"/>
+								<mx:CheckBox id="RelativeColour" label="Relative Colouring" fontSize="12" color="#000000"/>
+							</mx:HBox>
+							<mx:HBox width="100%" horizontalAlign="right" paddingRight="70">
+								<mx:Button label="OK" click="onClickOk()" keyUp="{if(event.keyCode==13) onClickOk()}"/>
+								<mx:Button label="Cancel" click="onCancel()" keyUp="{if(event.keyCode==13) onCancel()}"/>
+							</mx:HBox>
+						</mx:VBox>				  		
+						<!--                    Image Overlay Tab                        -->
+						<mx:VBox label="Image Overlay" fontSize="12" height="{ConfigPanel.height/1.3}" width="{ConfigPanel.width/1.5}" 
+							borderSkin="ConfigurationBackground" 
+							backgroundImage=""
+							backgroundAlpha="0" 
+							backgroundColor="#ffffff"
+							borderColor="#ff8000"
+							borderStyle="none"
+							themeColor="#ff8000" borderThickness="2">
+							<mx:Spacer width="100%" height="20%"/>
+							<mx:HBox width="100%">
+								<mx:Spacer width="20" height="20"/>
+								<mx:Label text="Select Space"/>
+								<mx:ComboBox dataProvider="{SpaceArray}" change="onChangeSpaceCmb()" id="SpaceCmb"/>
+							</mx:HBox>
+							<mx:HBox width="100%" color="#000000">
+								<mx:Spacer width="20"/>
+								<mx:CheckBox label="Enable Image Overlay" fontSize="12" id="imgChk" enabled="true" selected="false" color="#000000" click="myList.selectedIndex=0,onChangeImgChk()"/>
+							</mx:HBox> 
+							<mx:HBox width="100%">
+								<mx:Spacer width="18" height="10"/>             					
+								<mx:HorizontalList id="myList"  columnCount="4" columnWidth="{tn.width/5}"
+									height="{tn.height/3.5}" selectedIndex="0"  
+									dataProvider="{catalogue.lastResult.catalogue.image}"  
+									itemRenderer="myComponents.Thumbnail" enabled="{imgChk.selected}" change="onChangeImageList()"/>
+							</mx:HBox>
+							<mx:Spacer width="100%" height="15%"/>
+							<mx:HBox width="100%" horizontalAlign="right" paddingRight="70">
+								<mx:Button  id="OkImageOverlay" label="OK"  click="onClickOk()" keyUp="{if(event.keyCode==13) onClickOk()}" />
+								<mx:Button  id="CancelIcon" label="Cancel" click="onCancel()" keyUp="{if(event.keyCode==13) onCancel()}" />
+							</mx:HBox>
+						</mx:VBox>						
+					</mx:TabNavigator>
+				</mx:Panel>
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	<mx:Script>
+	<![CDATA[
+		import mx.events.SliderEvent;
+		import mx.events.IndexChangedEvent;
+	import mx.rpc.events.FaultEvent;
+	import mx.events.ResizeEvent;
+	import mx.managers.ToolTipManager;
+	import mx.controls.Alert;	
+	import com.adobe.serialization.json.JSON;
+	import mx.collections.ArrayCollection;
+	
+	[Bindable]
+	private var SpaceArray:ArrayCollection;
+	private var currentImagesList:Array;				
+			
+	// declaration of some variables for adding config screen 
+	public var config:ConfigurationData = new ConfigurationData();	
+	public function onResize():void	
+	{
+		try
+		{
+			this.validateNow();
+			hbox1.width=screen.width-30;
+			svtile.onResize();
+			ConfigPanel.width = screen.width-30;
+			ConfigPanel.height = screen.height-80;			
+		}
+		catch(error:Error)
+		{
+		}
+	}
+	
+	private function OnLoad():void
+	{
+		var serviceURL:String = String(Application.application.parameters.serviceURL);
+		if(serviceURL == "undefined")
+		{
+			Alert.show("service Url is undefined spaceviewer cannot get any server data");
+			return;
+		}
+		currentImages.url=serviceURL+"/sv/currentImages?tg_format=json";
+		var request:Object=new Object();
+		request.i=Math.random();
+		currentImages.send(request);
+		catalogue.send();
+		
+		
+		// reading the default user name from the application parameter set in svmain.Kid file
+		var strUser:String=String(Application.application.parameters.UserIn);			
+		ToolTipManager.enabled = true;
+		catalogue.addEventListener(FaultEvent.FAULT,
+			function (event:FaultEvent):void
+			{
+				Alert.show("No Images for overlay Upload any image if you want ImageOverlay");
+			}
+		);
+		
+		// if no user is selected select space for default user			
+		if(strUser != "undefined")
+		{
+			var param:Object = new Object();
+			param.UserIn = strUser;					
+			// reading the url requested from the application parameter set in svmain.Kid file
+			
+			
+			var serviceURLForPrefs:String=String(Application.application.parameters.serviceURL);
+			serviceURLForPrefs += "/sv/getPref?tg_format=json";
+			
+			// This httpservice is used for getting the userlevel preferences
+			getPrefs.url=serviceURLForPrefs;
+			var serviceURLForSetPrefs:String=String(Application.application.parameters.serviceURL);
+			serviceURLForSetPrefs += "/sv/setPref?tg_format=json";
+			
+			// This httpservice is used to save user level preferences
+			setPrefs.url=serviceURLForSetPrefs;
+			
+			// This httpservice is used to get the spaces for that user		
+			getSpaces.url = serviceURL+"/sv/getSpaces?tg_format=json";
+			
+			// This httpservice is used to get the global preferences
+			getGlobalPrefs.url = serviceURL+"/sv/getGlobalPref?tg_format=json";
+			getGlobalPrefs.send();
+			getSpaces.send(param);
+			svtile.SetUser(strUser);
+			getPrefs.send();
+			delete param.UserIn;
+			param = null;
+		}
+		else
+		{
+			Alert.show("User undefined");				
+		}
+	}
+	
+	private function ShowPanel():void
+	{
+		if(cmbSpace.text != "")
+		{
+			svtile.CreateSpaceViewerPanel(cmbSpace.text,config,sldZoom);
+			svtile.SetDisplayEntities(chkEntities.selected);
+			//sldZoom.value=0;
+		}
+	}			
+	
+	/**
+	 * This is handler for getSpaces httpservice.This function reads the values got
+	 * from result and populate the spaces comboBox
+	 */
+	private function handleGetSpaces():void
+	{
+		var decoded:Object;
+		try
+		{
+			decoded=JSON.decode(getSpaces.lastResult.toString());
+		}
+		catch(error:Error)
+		{
+			//Alert.show("error while decoding http result of getSpaces "+error.message,"HttpError");
+			return;
+		}
+				
+		var tempArray:ArrayCollection = new ArrayCollection(decoded.spaces);
+		SpaceArray = new ArrayCollection();
+		SpaceArray.removeAll();
+		for(var i:Number=0;i<tempArray.length; i++)
+		{
+			SpaceArray.addItem(/*"Space "+*/tempArray.getItemAt(i));
+		}				
+		// Show the first panel
+		ShowPanel();
+	
+		tempArray = null;
+	}
+				
+	/**Function for Zoom In or Zoom Out the Image depending upon the ZoomImage flag
+	 * ZoomImage = True : Zoom out
+	 * ZoomImage = Flase : Zoom In
+	 * actual functionality is done in svimage which called in svpanel this just calls
+	 * that
+	 */	
+	private function OnZoom(zoomFlag:Boolean):void
+	{
+		svtile.ZoomImage(zoomFlag);
+	}
+	
+	/**
+	 * Handler for zoomToSpaceBounds button 
+	 */
+	private function onZoomToBounds():void
+	{
+		svtile.zoomToBounds();
+	}
+	
+	/**
+	 * Handler on display toggle checkBox	
+	 */
+	private function OnDisplayEntites():void
+	{
+		svtile.SetDisplayEntities(chkEntities.selected);	
+	}	
+	
+	/**
+	 * Handler for sliderbar
+	 */
+	public function onSliderChange():void
+	{
+		svtile.sliderChange();
+	}
+	
+	public function setUserPref():void		
+	{
+		var decoded1:Object;
+		try
+		{
+			decoded1=JSON.decode(getPrefs.lastResult.toString());        		
+		}
+		catch(error:Error)
+		{
+			//Alert.show("error while decoding httpresult of getPref "+error.message,"HttpError");
+			return;
+		}
+		
+		var spaceList:Array=decoded1.space_list;
+		var imagePaths:Array=decoded1.image_paths;
+				
+		config.imageOverlayArray=new Array();
+		config.imageSpaceDict=new Dictionary();
+		for(var i:int=0;i<spaceList.length;i++)
+		{
+			if(currentImagesList!=null && imagePaths[i].toString()!="None")
+			{
+				for(var j:int=0;j<currentImagesList.length;j++)
+				{
+					if(imagePaths[i].toString()=="../assets/images/"+currentImagesList[j].toString())
+					{
+						config.imageSpaceDict[spaceList[i].toString()]=imagePaths[i].toString();
+						break;
+					}
+				}
+				if(j>=currentImagesList.length)
+				{
+					Alert.show("The image for space '"+ spaceList[i].toString() +"' has been deleted. Please select a different image.");
+					config.imageSpaceDict[spaceList[i].toString()]="None";										
+				}
+			}
+			else
+			{
+				//Alert.show("inside else");
+				config.imageSpaceDict[spaceList[i].toString()]=imagePaths[i].toString();
+			}
+		}
+		// Release the memory
+		spaceList = null;
+		imagePaths= null;		
+	}
+	/**
+	 * this function sets the config screen with current settings
+	 */
+	public function handleGetPref():void
+	{
+		if(currentImages.lastResult)
+		{
+			setUserPref();
+		}
+	}
+	public function onImageResult():void
+	{
+		var decoder:Object=JSON.decode(currentImages.lastResult.toString());
+		config.currentIcons=decoder.currentIcons;
+		currentImagesList=decoder.currentImages;
+		if(getGlobalPrefs.lastResult)
+		{
+			setGlobalResult();
+		}
+		if(getPrefs.lastResult)
+		{
+			setUserPref();
+		}		
+		
+	}
+	
+	public function setGlobalResult():void
+	{
+		var decoded1:Object;
+		try
+		{
+			decoded1=JSON.decode(getGlobalPrefs.lastResult.toString());
+		}
+		catch(error:Error)
+		{
+			//Alert.show("error while decoding httpresult of getGlobalPref "+error.message,"HttpError");
+			return;
+		}
+		var entitySize:String=decoded1.entitysize;
+		var typeArray:Array=decoded1.entity_type;
+		var pathArray:Array=decoded1.entity_path;
+		var EntitySize:Number=0.75;
+		if (entitySize)
+			EntitySize=Number(entitySize);
+		var iconentity:Object=decoded1.iconentity;
+		var iconpath:Object=decoded1.iconpath;
+		
+		config.EntitySize=EntitySize;
+		
+		//create a iconarray mapping entityType to iconpath previously saved one
+		//used to store iconsetting type of objects
+		config.iconarray=new Array();
+		for(var i:int=0;i<typeArray.length;i++)
+		{
+			var temp:IconSetting=new IconSetting();
+			temp.entity_type=typeArray[i].toString();
+			//If the selected icon is deleted. Display Alert message icon deletion 			
+			if(config.currentIcons && (pathArray[i].toString()!="None"))
+			{	
+				for(var j:int=0;j<config.currentIcons.length;j++)
+				{
+					
+					if(pathArray[i].toString()=="../assets/icons/"+config.currentIcons[j].toString())
+					{
+						temp.icon_path=pathArray[i].toString();
+						break;
+					}
+				}
+				if(j>=config.currentIcons.length)
+				{
+					temp.icon_path="None";
+					Alert.show("The Icon selected for displaying the entity type '"+ temp.entity_type +"' has been deleted.Select a different icon");
+				}
+			}
+			else
+				temp.icon_path=pathArray[i].toString();
+			config.iconarray.push(temp);
+		}
+	}
+	/**
+	 * This function handles result of global preference     
+	 */
+	public function onGlobalResult():void
+	{
+		if(currentImages.lastResult)
+		{
+			setGlobalResult();
+		}		
+	}
+	]]>
+	</mx:Script>
+	<mx:Script source="ConfigurationManager.as" />	
+	<mx:HTTPService id="getSpaces" resultFormat="text" result="handleGetSpaces()" />
+	<mx:HTTPService id="getPrefs" resultFormat="text" result="handleGetPref()" />
+	<mx:HTTPService id="setPrefs" resultFormat="text"  />
+	<mx:HTTPService id="getGlobalPrefs" result="onGlobalResult()" />
+	<mx:HBox x="16" y="10"  width="97%" height="4%" fontSize="12"  horizontalAlign="left" verticalAlign="middle"
+		borderSkin="TopPanelBackground" 
+		backgroundImage=""
+		backgroundAlpha="0"
+		backgroundColor="#000000"
+		paddingLeft="10" id="hbox1" horizontalScrollPolicy="off">
+		<mx:Label text="Space :" id="lblSpace" fontWeight="bold" width="{hbox1.width/13}"  fontFamily="Verdana" fontSize="12" color="#ffffff"/>
+		<mx:ComboBox id="cmbSpace" width="{hbox1.width/8}" labelField="@label"  change="ShowPanel()" fillColors="[#ffffff, #ffffff]" fontFamily="Verdana" fontSize="12" color="#000000" themeColor="#ff8000" dataProvider="{SpaceArray}"/>
+		<mx:Label text="Zoom :" id="lblZoom" fontWeight="bold" width="{hbox1.width/13}" height="6%" fontFamily="Verdana" fontSize="12" color="#ffffff"/>
+		<mx:Image source="../images/zoomout.png" id="btnZoomOut"  toolTip="ZoomOut" width="16" height="16" click="OnZoom(false)"/>
+		<mx:Image source="../images/zoomin.png" id="btnZoomIn" toolTip="ZoomIn" width="16" height="16" click="OnZoom(true)"/>
+		<mx:Image source="../images/zoomtobounds.png" id="button1" toolTip="ZoomToSpaceBounds" click="onZoomToBounds()"/>
+		<mx:HSlider showDataTip="false" height="100%" width="{hbox1.width/7}" minimum="1" maximum="257"  value="1" allowTrackClick="false" id="sldZoom" snapInterval="1" fillColors="[#ffffff, #ffffff]" liveDragging="true" change="onSliderChange()"/>
+		<!--minimum="1" maximum="257" -->
+		<!--mx:Button label="-" id="btnZoomOut" click="OnZoom(false)" width="{hbox1.width/25}" height="10%"/>
+		<mx:Button label="+" id="btnZoomIn" click="OnZoom(true)" width="{hbox1.width/25}" height="10%"/-->
+		<mx:CheckBox label="Display Entities" id="chkEntities" selected="true" height="10%" fontFamily="Verdana" fontWeight="bold" fontSize="12" color="#ffffff" click="OnDisplayEntites()" width="{hbox1.width/5}"/>
+		<!--mx:Button label="ZoomToBounds" click="onZoomToBounds()" id="button1" width="{hbox1.width/6}" height="3%"/-->
+		<mx:Button label="Config" click="currentState='config',configClick()" id="button2" width="{hbox1.width/12}" height="3%"/>
+	</mx:HBox>
+	<SVTile id="svtile"  y="46" x="16" width="100%" height="100%" color="#400040">	 	
+	</SVTile>
+<!--	<mx:HBox x="16" y="{svtile.height+svtile.y+10}">
+		
+	</mx:HBox>-->
+	<mx:Label id="cellIDlbl" x="35" fontSize="11" color="#5155ec" y="{svtile.height+svtile.y-30}" text=""/> 
+	<mx:Label id="cellIPlbl" x="100" fontSize="11" color="#5155ec" y="{svtile.height+svtile.y-30}" text=""/> 
+	<mx:Label id="cellLoadlbl" x="220" fontSize="11" color="#5155ec" y="{svtile.height+svtile.y-30}" text=""/> 
+	<mx:Label id="entitieslbl" fontSize="11" color="#5155ec" x="300" y="{svtile.height+svtile.y-30}" text=""/>
+	<mx:Label id="ghostEntitieslbl" fontSize="11" color="#5155ec" x="380" y="{svtile.height+svtile.y-30}" text=""/>
+	<mx:Label id="cursorlbl" x="{svtile.width+svtile.x-400}"  fontSize="11" color="#5155ec" y="{svtile.height+svtile.y-30}" text=""/>
+</mx:Application>

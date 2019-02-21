@@ -1,0 +1,504 @@
+<html>
+<head>
+<title>PySourcePSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PySourcePSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PySourcePSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#create" class="function_list" >create</a>( self, number ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#force" class="function_list" >force</a>( self, number ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getPositionSourceMaxRadius" class="function_list" >getPositionSourceMaxRadius</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setPositionSource" class="function_list" >setPositionSource</a>( self, generator ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setVelocitySource" class="function_list" >setVelocitySource</a>( self, generator ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#activePeriod" class="attribute_list" >activePeriod</a></td><td>&nbsp; Float in seconds.
+</td></tr>
+
+<tr valign=top><td><a href="#dropDistance" class="attribute_list" >dropDistance</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#forcedUnitSize" class="attribute_list" >forcedUnitSize</a></td><td>&nbsp; Integer. 
+</td></tr>
+
+<tr valign=top><td><a href="#grounded" class="attribute_list" >grounded</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+<tr valign=top><td><a href="#ignoreRotation" class="attribute_list" >ignoreRotation</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+<tr valign=top><td><a href="#inheritVelocity" class="attribute_list" >inheritVelocity</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#initialColour" class="attribute_list" >initialColour</a></td><td>&nbsp; Sequence of 4 floats.
+</td></tr>
+
+<tr valign=top><td><a href="#initialRotation" class="attribute_list" >initialRotation</a></td><td>&nbsp; Sequence of 2 floats.
+</td></tr>
+
+<tr valign=top><td><a href="#maxSpin" class="attribute_list" >maxSpin</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#maximumSize" class="attribute_list" >maximumSize</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#minSpin" class="attribute_list" >minSpin</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#minimumSize" class="attribute_list" >minimumSize</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#motionTriggered" class="attribute_list" >motionTriggered</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+<tr valign=top><td><a href="#randomInitialRotation" class="attribute_list" >randomInitialRotation</a></td><td>&nbsp; Sequence of 2 floats.
+</td></tr>
+
+<tr valign=top><td><a href="#randomSpin" class="attribute_list" >randomSpin</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#rate" class="attribute_list" >rate</a></td><td>&nbsp; Float. Particles per second.
+</td></tr>
+
+<tr valign=top><td><a href="#sensitivity" class="attribute_list" >sensitivity</a></td><td>&nbsp; Float. Must be greater than or equal to 0.0001f.
+</td></tr>
+
+<tr valign=top><td><a href="#sleepPeriod" class="attribute_list" >sleepPeriod</a></td><td>&nbsp; Float in seconds.
+</td></tr>
+
+<tr valign=top><td><a href="#sleepPeriodMax" class="attribute_list" >sleepPeriodMax</a></td><td>&nbsp; Float in seconds.
+</td></tr>
+
+<tr valign=top><td><a href="#timeTriggered" class="attribute_list" >timeTriggered</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PySourcePSA.html">PySourcePSA</a> is a <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> that creates particles within
+a ParticleSystem. Particles can be created at a rate over time, on demand
+or in response to movement (see the sensitivity attribute) by the node to
+which the particle system is attached.
+<br><br>
+A new <a href="PySourcePSA.html">PySourcePSA</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#SourcePSA>SourcePSA</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="create"></a><p class="function_definition">
+<span class="function_definition">def create( <i>self, number</i> ):</span>
+</p>
+
+<div class="function_description">Queue number particles into the particle creation queue. Particles will 
+be created using the normal creation algorithms for the SourcePSA.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>number</i></span></td><td><span class="function_parameter_description">&nbsp;Integer. Number of particles to add to creation queue.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="force"></a><p class="function_definition">
+<span class="function_definition">def force( <i>self, number</i> ):</span>
+</p>
+
+<div class="function_description">Force creation of number units (see forcedUnitSize attribute) of 
+particles on the next update.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>number</i></span></td><td><span class="function_parameter_description">&nbsp;Integer. Nomber of units to create.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="getPositionSourceMaxRadius"></a><p class="function_definition">
+<span class="function_definition">def getPositionSourceMaxRadius( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Gets the maximum radius for the position source <a href="VectorGenerator.html">VectorGenerator</a>.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Maximum radius.
+</td></tr>
+</table>
+</p>
+
+<a name="setPositionSource"></a><p class="function_definition">
+<span class="function_definition">def setPositionSource( <i>self, generator</i> ):</span>
+</p>
+
+<div class="function_description">Sets a new <a href="VectorGenerator.html">VectorGenerator</a> as a position source for the particles.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>generator</i></span></td><td><span class="function_parameter_description">&nbsp;<a href="VectorGenerator.html">VectorGenerator</a>. Position source for the particles.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setVelocitySource"></a><p class="function_definition">
+<span class="function_definition">def setVelocitySource( <i>self, generator</i> ):</span>
+</p>
+
+<div class="function_description">Sets a new <a href="VectorGenerator.html">VectorGenerator</a> as a velocity source for the particles.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>generator</i></span></td><td><span class="function_parameter_description">&nbsp;<a href="VectorGenerator.html">VectorGenerator</a>. Velocity source for the particles.
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="activePeriod"></a><p class="attribute_definition">
+<span class="attribute_definition">activePeriod</span>
+</p>
+
+<div class="attribute_description">activePeriod along with sleepPeriod determine an on/off cycle for time 
+created particles.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float in seconds.
+</td></tr>
+</table>
+</p>
+
+<a name="dropDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">dropDistance</span>
+</p>
+
+<div class="attribute_description">Distance downwards to check for a grounded particle (see grounded
+attribute). Default is 15.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="forcedUnitSize"></a><p class="attribute_definition">
+<span class="attribute_definition">forcedUnitSize</span>
+</p>
+
+<div class="attribute_description">The unit size for determining number of particles created when forcing
+particle creation (see force method).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer. 
+</td></tr>
+</table>
+</p>
+
+<a name="grounded"></a><p class="attribute_definition">
+<span class="attribute_definition">grounded</span>
+</p>
+
+<div class="attribute_description">This attribute if set specifies that the source position's y coordinate
+if within dropDistance of the ground is set to the ground's y value. Ie
+it starts on the ground. Default is 0 (false).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<a name="ignoreRotation"></a><p class="attribute_definition">
+<span class="attribute_definition">ignoreRotation</span>
+</p>
+
+<div class="attribute_description">If set particle systems ignore the rotation of the particle system's
+world tranform's rotation. Default is 0 (false).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<a name="inheritVelocity"></a><p class="attribute_definition">
+<span class="attribute_definition">inheritVelocity</span>
+</p>
+
+<div class="attribute_description">Specifies how much velocity particles should inherit from SourcePSA when spawned, eg, 
+a value of 0.0 will add no extra velocity to spawning particles and a value of 2.0
+will add double the SourcePSA's velocity to the spawning particles.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="initialColour"></a><p class="attribute_definition">
+<span class="attribute_definition">initialColour</span>
+</p>
+
+<div class="attribute_description">RGBA quad of floats for particle colour. Interpreted by mesh particle 
+systems as spin. Default is (0.5, 0.5, 0.5, 1.0).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Sequence of 4 floats.
+</td></tr>
+</table>
+</p>
+
+<a name="initialRotation"></a><p class="attribute_definition">
+<span class="attribute_definition">initialRotation</span>
+</p>
+
+<div class="attribute_description">Used by Mesh particle systems. Initial Pitch/Yaw. Default is (0.0, 0.0).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Sequence of 2 floats.
+</td></tr>
+</table>
+</p>
+
+<a name="maxSpin"></a><p class="attribute_definition">
+<span class="attribute_definition">maxSpin</span>
+</p>
+
+<div class="attribute_description">When randomSpin is set, the particle is given a random amount of spin, between
+minSpin and maxSpin.  [The units are 20 radians per second]
+</div>
+
+<a name="maximumSize"></a><p class="attribute_definition">
+<span class="attribute_definition">maximumSize</span>
+</p>
+
+<div class="attribute_description">Largest scale for generated particle size. Default 1.0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="minSpin"></a><p class="attribute_definition">
+<span class="attribute_definition">minSpin</span>
+</p>
+
+<div class="attribute_description">When randomSpin is set, the particle is given a random amount of spin, between
+minSpin and maxSpin.  [The units are 20 radians per second]
+</div>
+
+<a name="minimumSize"></a><p class="attribute_definition">
+<span class="attribute_definition">minimumSize</span>
+</p>
+
+<div class="attribute_description">Smallest scale for generated particle size. Default 1.0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="motionTriggered"></a><p class="attribute_definition">
+<span class="attribute_definition">motionTriggered</span>
+</p>
+
+<div class="attribute_description">Flag for motion triggered particle creation. Particles are created when
+the speed of movement for the particle system exceeds the sensitivity
+value. The number of particles created is dependant upon the difference
+between speed and sensitivity divided by the sensitivity.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<a name="randomInitialRotation"></a><p class="attribute_definition">
+<span class="attribute_definition">randomInitialRotation</span>
+</p>
+
+<div class="attribute_description">Used by Mesh particle systems. Randomise the initial Pitch/Yaw. Default is (0.0, 0.0).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Sequence of 2 floats.
+</td></tr>
+</table>
+</p>
+
+<a name="randomSpin"></a><p class="attribute_definition">
+<span class="attribute_definition">randomSpin</span>
+</p>
+
+<div class="attribute_description">If set particle systems will be imbued with a random amount of angular velocity,
+and a random rotation axis.  This property is exclusively for mesh particles.
+</div>
+
+<a name="rate"></a><p class="attribute_definition">
+<span class="attribute_definition">rate</span>
+</p>
+
+<div class="attribute_description">Rate of particle creation for time triggered particle creation.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Particles per second.
+</td></tr>
+</table>
+</p>
+
+<a name="sensitivity"></a><p class="attribute_definition">
+<span class="attribute_definition">sensitivity</span>
+</p>
+
+<div class="attribute_description">Sensitivity to movement for motion triggered particle creation. Forced
+minimum value of 0.0001f. If the speed of movement of the particle
+system exceeds the sensitivity, then particles are generated (see
+motionTriggered for more information).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Must be greater than or equal to 0.0001f.
+</td></tr>
+</table>
+</p>
+
+<a name="sleepPeriod"></a><p class="attribute_definition">
+<span class="attribute_definition">sleepPeriod</span>
+</p>
+
+<div class="attribute_description">activePeriod along with sleepPeriod determine an on/off cycle for time 
+created particles.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float in seconds.
+</td></tr>
+</table>
+</p>
+
+<a name="sleepPeriodMax"></a><p class="attribute_definition">
+<span class="attribute_definition">sleepPeriodMax</span>
+</p>
+
+<div class="attribute_description">sleepPeriodMax facilitates a random behaviour to sleepPeriod
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float in seconds.
+</td></tr>
+</table>
+</p>
+
+<a name="timeTriggered"></a><p class="attribute_definition">
+<span class="attribute_definition">timeTriggered</span>
+</p>
+
+<div class="attribute_description">Flag for time triggered particle creation.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

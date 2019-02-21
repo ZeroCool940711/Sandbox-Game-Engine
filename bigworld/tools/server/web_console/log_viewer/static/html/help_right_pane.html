@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link href="/static/css/top.css" rel="stylesheet" type="text/css"/>
+	<link href="/static/css/help.css" rel="stylesheet" type="text/css"/>
+	
+	<script src="/static/js/help_title.js" language="JavaScript"
+		type="text/javascript"></script>
+
+	<!-- Note: this isn't the IE method of controlling cache -->
+	<meta http-equiv="cache-control" content="no-cache"/>
+
+</head>
+
+<body onload="HelpTitle.update( 'WebConsole Help: Log Viewer' );">
+<a name="Top"></a>
+	<div class="help">
+
+	<p>The <b>Log Viewer</b> module provides an interface to the server message
+	logs. It can be used to perform static searches through log data, as well
+	as provide live views of log activity. Summaries of per-user log size and
+	other information can also be generated.</p>
+
+	<p>This module replaces the CGI script <code>bw_log_viewer.cgi</code> from
+	BigWorld Technology version 1.7 and earlier.</p>
+
+	<h2><a name="DisplayingOutput">1. Displaying output</a></h2>
+
+	<p>If you just want to start using the tools and see some server output,
+	click the <b>Live Output</b> link in the left-hand side navigation menu
+	(this assumes you are currently running a server). The output from the
+	server will be continuously updated in the log window.</p>
+
+	<p>The default filter settings on the <b>Search</b> page will also give you
+	the log output for the currently running server. Just click the <b>Fetch</b>
+	button to run the query.</p>
+
+	<h2><a name="Searching">2. Searching</a></h2>
+
+	<p>Most of the functionality of the <b>Log Viewer</b> module is provided by
+	the <b>Search</b> page. It provides a set of filters with which users can
+	restrict the log results to be displayed, as well as check boxes that
+	control the format of the output. All settings can be saved and restored
+	to repeat common searches at a later time.</p>
+
+	<p>Log results can be displayed as static searches or as continuously
+	updated live output, using the <b>Fetch</b> and <b>Live Output</b> buttons,
+	respectively.</p>
+
+	<h3><a name="LogFilters">2.1. Log filters</a></h3>
+
+	<p>The table of filters at the top of the page allows the user to restrict
+	the kinds of log results that will be returned by a query. Fields that are
+	regular-text entry widgets, if left blank, will not be used to filter
+	results.</p>
+
+	<p>Where appropriate, filters have a <b>Show</b> check box that controls
+	whether that field will be displayed in the log output. A filter can still
+	be used for filtering out results, even if it is not displayed.</p>
+
+	<p>The following filters are available:</p>
+
+	<table class="alternate" cellspacing="0">
+	<tbody>
+	<tr>	<th class="FirstCol">Filter</th>
+			<th>Description</th>
+	</tr>
+
+	<tr><td class="oddRow1stCol">Time</td>
+	<td class="oddRow">Time range over which the logs will be searched.  The
+	time range is defined in a point-offset manner &ndash; the <b>Time</b>
+	control is used to enter the time the user is interested in, and the
+	<b>Period</b> is used to designate the period and direction the log should
+	be searched in, relative to the nominated time.
+	
+	<p>Time can be entered as either a literal time, or as one of a set of
+	supported meta-times.</p>
+	
+	<p>If it is entered literally, then it must follow the exact datetime
+	format that is seen in the log output (<i>e.g.</i>, <code>"Mon 09 Oct 2006
+	17:18:11.217"</code> &ndash; the milliseconds at the end are optional,
+	everything else is mandatory).</p>
+	 
+	<p>Clicking the small calendar icon on the right displays a calendar widget
+	that can be used to easily enter times in the correct format.</p>
+
+	<p>All supported meta-times can be selected by clicking the images to the
+	right of the text entry field. Currently supported meta-times are:</p>
+
+	<ul>
+		<li>the beginning of the log</li>
+		<li>the time of the last server startup</li>
+		<li>the time of the last occurrence of a particular message</li>
+		<li>present time</li>
+	</ul>
+	
+	</td></tr>
+
+	<tr><td class="evnRow1stCol">Period</td>
+	<td class="evnRow">Period is defined by both a magnitude and direction
+	&ndash; the first two fields are used to enter a multiple of common time
+	units (seconds, minutes, hours, or days) and the third field is used to
+	indicate the direction (forwards, backwards, either side, to beginning,
+	or to present).
+	
+	<p>When <b>to beginning</b> or <b>to present</b> is selected, the first two
+	fields are disregarded.</p>
+	
+	<p><b>NOTE</b>: If there are too many log results to display at once, they
+	will be split onto multiple pages, much like a Google search. The results
+	on each page are always displayed in chronological order (earliest results
+	at the top), however, the ordering of the pages is determined by the
+	direction of the search:</p>
+
+	<ul>
+		<li>When <b>Period</b> is <b>forwards</b>, <b>either side</b>, or <b>to
+		present</b>, then result pages are returned in chronological
+		order.</li>
+		<li>When <b>Period</b> is <b>backwards</b> or <b>to beginning</b>, then
+		result pages are returned in reverse order (most recent result page
+		first).</li>
+	</ul>
+	</td></tr>
+
+	<tr><td class="oddRow1stCol">Machine</td>
+	<td class="oddRow">Log results can be displayed for all machines, or for a
+	single machine.
+
+	<p>Currently, it is not possible to filter based on a substring of the
+	hostname or a netmask.</p>
+	
+	<p>Note that only machines that have sent at least one log message will
+	appear in the filter list; not all machines running <code>bwmachined</code>
+	will necessarily appear.</p>
+	</td></tr>
+
+	<tr><td class="evnRow1stCol">Username</td>
+	<td class="evnRow">Log results are displayed for only one user at a time.
+	As with the list of machines, only users who have sent at least one log
+	message will appear in this list.
+	</td></tr>
+
+	<tr><td class="oddRow1stCol">PID</td>
+	<td class="oddRow">Standard UNIX PID assigned by the operating system.
+	</td></tr>
+
+
+	<tr><td class="evnRow1stCol">AppID</td>
+	<td class="evnRow">Incremental counter assigned by some of the server
+	"manager" components to the processes they manage (<i>e.g.</i>,
+	<code>cellapp01</code>, <code>baseapp02</code>, etc...).
+	</td></tr>
+
+	<tr><td class="oddRow1stCol">Process</td>
+	<td class="oddRow">Processes to be displayed.
+	
+	<p>More than one selection can be made, by using <code>Shift</code> or
+	<code>Ctrl</code>, or by drag selecting.</p>
+	</td></tr>
+
+	<tr><td class="evnRow1stCol">Severity</td>
+	<td class="evnRow">Log levels to be displayed.
+	
+	<p>More than one selection can be made, by using <code>Shift</code> or
+	<code>Ctrl</code>, or by drag selecting.</p>
+	</td></tr>
+
+	<tr><td class="oddRow1stCol">Message</td>
+	<td class="oddRow">
+		Text to <i>pattern match</i> against the log message itself.  Two text
+		fields are provided to allow the user to specify both inclusion and
+		exclusion patterns.
+	
+	<p>This filter has three independent options:</p>
+	
+	<table class="alternate" cellspacing="0">
+	<tbody>
+		<tr>
+			<th class="FirstCol">Option</th>
+			<th>Description</th>
+		</tr>
+		
+		<tr><td class="oddRow1stCol">Case-Sensitive</td>
+		<td class="oddRow">Toggles case-sensitive pattern matching.
+		</td></tr>
+		
+		<tr><td class="evnRow1stCol">Regex Match</td>
+		<td class="evnRow">Toggles use of regular expressions (for details on
+		regular expressions, see <code>`man 7 regex`</code>).
+		</td></tr>
+		
+		<tr><td class="oddRow1stCol">Pre-Interpolate</td>
+		<td class="oddRow">Controls whether format strings (<i>i.e.</i>,
+		<code>%s</code>, <code>%d</code>, etc...) are interpolated before or
+		after the filter stage of the query.
+
+		<p>If you are not familiar with format strings or
+		<code>printf()</code>, then you should leave this option checked.  When
+		checked, all log entries have their format strings interpolated
+		<b>before</b> filtering takes place.</p>
+
+		<p>For example, if a server component calls <code>INFO_MSG( "Foo %d",
+		12 )</code> and interpolate is <b>on</b>, then a search for the string
+		<code>'12'</code> will be successful.  If interpolate is <b>off</b>,
+		then the same search would not match that particular entry.</p>
+		
+		<p>Turning interpolate off results in faster queries, but may omit some
+		wanted search results if you do not understand this mechanism.</p>
+		
+		<p>Also, be aware that messages with severity <code>SCRIPT</code> and
+		higher are stored as <code>"%s"</code>, so you will not be able to
+		match against any text from these messages unless pre-interpolate is
+		switched <b>on</b>.</p>
+		</td></tr>
+
+	</tbody>
+	</table>
+	</td></tr>
+	
+	</tbody>
+	</table>
+
+	<h3><a name="QueryModes">2.2. Query modes</a></h3>
+
+	<p>The <b>Log Viewer</b> module supports running queries in either
+	<b>static</b> or <b>live</b> mode:</p>
+	
+	<ul>
+		<li>A static query (triggered with the <b>Fetch</b> button) will not
+		update with new results that might become available after its execution.
+		
+		<p>There is a hard-coded limit to the number of results (10000 lines)
+		that can be returned at one time; results may be paged through if more
+		than this amount is returned from the query.</p>
+		</li>
+		
+		<li>Live queries continuously update as new entries are written to the
+		logs, much like calling <code>`tail -f`</code> on a log file.
+		
+		<p>The <b>Time</b> and <b>Period</b> controls are ignored in live mode
+		&ndash; when live mode is activated, the last 20 lines of output from
+		the last hour are immediately displayed, and then new results are
+		displayed as they are written to the logs.</p></li>
+	</ul>
+
+	<h3><a name="LinesOfContext">2.3. Lines of context</a></h3>
+
+	<p>Lines of context around matching results can be displayed.  This works in
+	exactly the same way as <code>`grep -C`</code>, and separates chunks of
+	contiguous context with a <code>--</code> line.
+	</p>
+
+	<h3><a name="SavedFilterSettings">2.4. Saved filter settings</a></h3>
+
+	<p>The <b>Action</b> drop-down list box located at the bottom
+	right of the <b>Log Filters</b> table is used for saving, restoring, and
+	deleting filter settings.</p>
+	
+	<p>This is useful for saving common searches, and the default filter
+	settings can be set here too.</p>
+
+	<p>The <b>Action</b> drop-down list box also allows users to manually 
+	send a message to the log.  The message will be logged as sent from 
+	the Tools process.
+
+	<h3><a name="ConservingScreenRealEstate">2.5. Conserving screen real estate</a></h3>
+
+	<p>The <b>Log Filters</b> table can be <i>rolled-up</i> by clicking the
+	<b>up arrow</b> icon in the top right corner &ndash; this is especially
+	useful on smaller displays.</p>
+	
+	<p>If the <b>Auto-Hide Settings</b> check box at the bottom of the table is
+	checked, then the table automatically hides itself when either the
+	<b>Fetch</b> or <b>Live Output</b> button is clicked.</p>
+
+	<h2><a name="LiveOutputPage">3. Live Output page</a></h2>
+
+	<p>The <b>Live Output</b> page is a simplified version of the search page
+	running a live output query, with no filters applied, and with the log
+	output for the currently logged in user continuously displayed.</p>
+
+	<h2><a name="UsageSummaryPage">4. Usage Summary page</a></h2>
+
+	<p>The <b>Usage Summary</b> page provides an overview of the size and
+	period of each user's log.</p>
+		
+	<p>Clicking a particular username takes you to a page displaying detailed
+	statistics on each segment of that user's log.</p>
+
+	<h2><a name="SeeAlso">5. See also</a></h2>
+
+	<p>The <code>bigworld/tools/server/message_logger</code> folder contains
+	(amongst other things) a collection of utilities that allow you to work
+	with message logs stored on a locally-accessible file system in a similar
+	manner to standard UNIX shell utilities.</p>
+	
+	<p>The following are currently provided:</p>
+	<ul>
+		<li><code>mlcat.py</code></li>
+		<li><code>mlls.py</code></li>
+		<li><code>mltar.py</code></li>
+		<li><code>mlrm.py</code></li>
+	</ul>
+	
+	<p>Refer to the <code>--help</code> output for details on each utility.</p>
+		
+	</div>
+
+</body>
+</html>

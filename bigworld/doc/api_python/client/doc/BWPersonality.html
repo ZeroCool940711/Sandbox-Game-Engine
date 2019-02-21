@@ -1,0 +1,321 @@
+<html>
+<head>
+<title>BWPersonality - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BWPersonality Module Reference</h1>
+The name of this module is actually specified by the personality option in
+the configuration file. This module should be implemented by the user.
+It should contain callback methods that will be called when specific events
+occur.
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#expandMacros" class="function_list" >expandMacros</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#fini" class="function_list" >fini</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleIMEEvent" class="function_list" >handleIMEEvent</a>( event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleKeyEvent" class="function_list" >handleKeyEvent</a>( event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleLangChangeEvent" class="function_list" >handleLangChangeEvent</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseEvent" class="function_list" >handleMouseEvent</a>( event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#init" class="function_list" >init</a>( scriptConfig, engineConfig, preferences, loadingScreenGUI ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onChangeEnvironments" class="function_list" >onChangeEnvironments</a>( isInside ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onRecreateDevice" class="function_list" >onRecreateDevice</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onStreamComplete" class="function_list" >onStreamComplete</a>( id, desc, data ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onTimeOfDayLocalChange" class="function_list" >onTimeOfDayLocalChange</a>( gameTime, secondsPerGameHour ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#start" class="function_list" >start</a>(  ):</span>
+</td></tr>
+
+</table>
+
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="expandMacros"></a><p class="function_definition">
+<span class="function_definition">def expandMacros( <i></i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is used to process input on the Python console
+before it is fed to the Python interpreter.  It should accept a string and
+return a string formed by processing macros in whatever manner you desire.
+In FantasyDemo, this function is used to expand single character $
+expressions like '$p' into '<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#player>player</a>()'.
+<br><br>
+See the implementation of expandMacros() in
+fantasydemo/res/scripts/client/FantasyDemo.py for a sample implementation.
+</div>
+
+<a name="fini"></a><p class="function_definition">
+<span class="function_definition">def fini( <i></i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when the client engine shuts down. Usually,
+this function does any cleanup required before the client exits e.g.
+log out of the server.
+</div>
+
+<a name="handleIMEEvent"></a><p class="function_definition">
+<span class="function_definition">def handleIMEEvent( <i>event</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever the IME system changes
+state internally. The event object can be inspected to determine what
+part actually changed so that the scripts can update the IME interface
+that is currently being shown to the user.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyIMEEvent.html">PyIMEEvent</a> object.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>This function should return False if the event was not handled and
+True if the key event was handled.
+</td></tr>
+</table>
+</p>
+
+<a name="handleKeyEvent"></a><p class="function_definition">
+<span class="function_definition">def handleKeyEvent( <i>event</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever a key is pressed, released,
+or repeated due to operating system auto-repeat settings.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyKeyEvent.html">PyKeyEvent</a> object.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>This function should return False if the key event was not handled
+and True if the key event was handled.
+</td></tr>
+</table>
+</p>
+
+<a name="handleLangChangeEvent"></a><p class="function_definition">
+<span class="function_definition">def handleLangChangeEvent( <i></i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever the user changes the input
+language for the client (e.g. via the language bar).
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>This function should return False if the event was not handled
+and True if the event was handled.
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseEvent( <i>event</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever the mouse moves. 
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyMouseEvent.html">PyMouseEvent</a> object.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>This function should return False if the mouse event was not
+handled and True if the mouse event was handled.
+</td></tr>
+</table>
+</p>
+
+<a name="init"></a><p class="function_definition">
+<span class="function_definition">def init( <i>scriptConfig, engineConfig, preferences, loadingScreenGUI</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when the engine initialises. Usually,
+this function initialises script objects from the configuration data.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>scriptConfig</i></span></td><td><span class="function_parameter_description">&nbsp;Is a PyDataSection object refering to the root section
+of script_config.xml.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>engineConfig</i></span></td><td><span class="function_parameter_description">&nbsp;Is a PyDataSection object refering to the root section
+of engine_config.xml.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>preferences</i></span></td><td><span class="function_parameter_description">&nbsp;Is a PyDataSection object refering to the scriptsPreference 
+section of the preferences fils (defined in engine_config.xml).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>loadingScreenGUI</i></span></td><td><span class="function_parameter_description">&nbsp;(optional) a <a href="GUI.html">GUI</a>.<a href="SimpleGUIComponent.html">SimpleGUIComponent</a> refering to loading
+screen <a href="GUI.html">GUI</a> component shown during the startup procees, if one was defined in
+resources.xml.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onChangeEnvironments"></a><p class="function_definition">
+<span class="function_definition">def onChangeEnvironments( <i>isInside</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when the type of environment that the 
+player is in changes. Currently there are only two types of environments:
+inside and outside.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>isInside</i></span></td><td><span class="function_parameter_description">&nbsp;This boolean indicates whether the player is in an 
+inside environment.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onRecreateDevice"></a><p class="function_definition">
+<span class="function_definition">def onRecreateDevice( <i></i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when the Direct3D device is recreated e.g.
+when the screen resolution changes. Usually, this function re-layouts the
+<a href="GUI.html">GUI</a> components and recreates any static <a href="PyModelRenderer.html">PyModelRenderer</a> textures.
+</div>
+
+<a name="onStreamComplete"></a><p class="function_definition">
+<span class="function_definition">def onStreamComplete( <i>id, desc, data</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when a download from the proxy triggered
+with either streamStringToClient() or streamFileToClient() has completed.
+<br><br>
+See Proxy.streamStringToClient in BaseApp Python API documentation
+See Proxy.streamFileToClient in BaseApp Python API documentation
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;A unique ID associated with the download.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>desc</i></span></td><td><span class="function_parameter_description">&nbsp;A short string description of the download.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>data</i></span></td><td><span class="function_parameter_description">&nbsp;The downloaded data, as a string.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onTimeOfDayLocalChange"></a><p class="function_definition">
+<span class="function_definition">def onTimeOfDayLocalChange( <i>gameTime, secondsPerGameHour</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when:
+	a) the game time is changed manually i.e. not due to the natural
+progression of time; or
+	b) The ratio of game time to real time is changed.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>gameTime</i></span></td><td><span class="function_parameter_description">&nbsp;The new game time.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>secondsPerGameHour</i></span></td><td><span class="function_parameter_description">&nbsp;The new number of real time seconds per game 
+time hour.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="start"></a><p class="function_definition">
+<span class="function_definition">def start( <i></i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when the engine has initialised. Usually,
+this function starts the game e.g. by bringing up a menu or log-in
+screen.
+</div>
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

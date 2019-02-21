@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>PyOutputWriter - BigWorld cell Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyOutputWriter Class Reference</h1>
+<p><b>PyOutputWriter</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#write" class="function_list" >write</a>( self, string ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#softspace" class="attribute_list" >softspace</a></td><td>&nbsp; Read-Write String
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is used by <a href="BigWorld.html">BigWorld</a> to implement a Python object that redirects
+Python's stdout and stderr streams to Dev Studio's output window and a log
+file which defaults to Python.log. The <a href="BigWorld.html">BigWorld</a> client actually uses an
+instance of a subclass of this called BWOutputWriter, which also sends
+stdout and stderr to the <a href="BigWorld.html">BigWorld</a> Python colsole. This is automatically set
+up by the engine, and neither of these classes nor any instances of them
+can be accessed via script.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="write"></a><p class="function_definition">
+<span class="function_definition">def write( <i>self, string</i> ):</span>
+</p>
+
+<div class="function_description">Write a string to this writer's outputs. The Python io system calls this.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>string</i></span></td><td><span class="function_parameter_description">&nbsp;The string to write.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="softspace"></a><p class="attribute_definition">
+<span class="attribute_definition">softspace</span>
+</p>
+
+<div class="attribute_description">This is required for use by the Python io system so
+that instances of <a href="PyOutputWriter.html">PyOutputWriter</a> can be used as streams.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write String
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<root>
+	<!--
+	this file contains the presets for graphics settings.
+	The presets are organised in the same way as the options.xml 
+	file in the game folder.
+	You can have as many presets as you want. 
+	The presets consist of graphics settings and matching criteria for auto-detecting what settings to use.
+	The tags are organised like this:
+	<graphicsPreferences> HIGH <=== Name of the preset, if no name is present, the preset will not appear in the list of settings, 
+							but it will still be used when auto-detecting settings for the graphics card
+		<entry> <=== a graphics setting to change 
+			<label> CLASSIC_TERRAIN_QUALITY </label> <=== the name of the graphics setting
+			<activeOption> 0 </activeOption> <=== the selected option
+		</entry>
+		<GUIDMatch>  01234567.89abcdef.01234567.89abcdef </GUIDMatch>  
+			<===  Combined GUID of device and driver version, this is the value from DeviceIdentifier in the 
+				D3DADAPTER_IDENTIFIER9 structure saved out using the BigWorld UniqueID class.
+				If this value matches, the setting will be used.
+		<VendorDeviceIDMatch>
+			<VendorID> 4318 </VendorID> <=== the VendorId from D3DADAPTER_IDENTIFIER9
+			<DeviceID> 1554 </DeviceID> <=== the DeviceId from D3DADAPTER_IDENTIFIER9
+		</VendorDeviceIDMatch> <=== If these two values match the current device, the setting will be selected
+							unless there is a GUIDMatch with the current device
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string> <=== Any number of strings that will be matched agains the 
+			<string> 6800 </string> <=== Description orioerty from D3DADAPTER_IDENTIFIER9
+		</DeviceDescriptionMatch>  <=== If these values match the current device, the setting will be selected
+							unless there is a GUIDMatch or VendorDeviceIDMatch with the 
+							current device
+		<defaultSetting> true </defaultSetting> <=== this value is true for the value to be used as the default setting,
+									the default setting is used when no other settings match.
+	</graphicsPreferences>
+	-->
+
+	<graphicsPreferences> Very High
+		<entry>
+			<label>	MRT_DEPTH	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	SKY_LIGHT_MAP	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	CLASSIC_TERRAIN_QUALITY	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADER_VERSION_CAP	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_QUALITY	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_COMPRESSION	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_FILTERING	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	MORPH_VERTICES	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADOWS_QUALITY	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADOWS_COUNT	</label>
+			<activeOption>	4	</activeOption>
+		</entry>
+		<entry>
+			<label>	HEAT_SHIMMER	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	BLOOM_FILTER	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TERRAIN_LOD	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TERRAIN_MESH_RESOLUTION	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+	    <entry>
+	      <label>	SPEEDTREE_QUALITY	</label>
+	      <activeOption>	0	</activeOption>
+	    </entry>
+	    <entry>
+			<label>	WATER_QUALITY	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	WATER_SIMULATION	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	FOOT_PRINTS	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	FAR_PLANE	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	FLORA_DENSITY	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	OBJECT_LOD	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+	</graphicsPreferences>
+	<graphicsPreferences> High
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 8800 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 9800 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 280 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> radeon </string>
+			<string> 2600 </string>
+		</DeviceDescriptionMatch>
+		<entry>
+			<label>	MRT_DEPTH	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	SKY_LIGHT_MAP	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	CLASSIC_TERRAIN_QUALITY	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADER_VERSION_CAP	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_QUALITY	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_COMPRESSION	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_FILTERING	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	MORPH_VERTICES	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADOWS_QUALITY	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADOWS_COUNT	</label>
+			<activeOption>	4	</activeOption>
+		</entry>
+		<entry>
+			<label>	HEAT_SHIMMER	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	BLOOM_FILTER	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TERRAIN_LOD	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TERRAIN_MESH_RESOLUTION	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+	    <entry>
+	      <label>	SPEEDTREE_QUALITY	</label>
+	      <activeOption>	1	</activeOption>
+	    </entry> 
+		<entry>
+			<label>	WATER_QUALITY	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	WATER_SIMULATION	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	FOOT_PRINTS	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	FAR_PLANE	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	FLORA_DENSITY	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	OBJECT_LOD	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+	</graphicsPreferences>
+	<graphicsPreferences> Medium
+		<defaultSetting> true </defaultSetting>
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 8600 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 7900 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 7950 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 7800 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 260 </string>
+		</DeviceDescriptionMatch>
+		<entry>
+			<label>	MRT_DEPTH	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	SKY_LIGHT_MAP	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	CLASSIC_TERRAIN_QUALITY	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADER_VERSION_CAP	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_QUALITY	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_COMPRESSION	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_FILTERING	</label>
+			<activeOption>	4	</activeOption>
+		</entry>
+		<entry>
+			<label>	MORPH_VERTICES	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADOWS_QUALITY	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADOWS_COUNT	</label>
+			<activeOption>	5	</activeOption>
+		</entry>
+		<entry>
+			<label>	HEAT_SHIMMER	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	BLOOM_FILTER	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TERRAIN_LOD	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	TERRAIN_MESH_RESOLUTION	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+	    <entry>
+	      <label>	SPEEDTREE_QUALITY	</label>
+	      <activeOption>	2	</activeOption>
+	    </entry> 
+		<entry>
+			<label>	WATER_QUALITY	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	WATER_SIMULATION	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	FOOT_PRINTS	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	FAR_PLANE	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	FLORA_DENSITY	</label>
+			<activeOption>	2	</activeOption>
+		</entry>
+		<entry>
+			<label>	OBJECT_LOD	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+	</graphicsPreferences>
+	<graphicsPreferences> Low
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 6800 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 7600 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 6600 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> nvidia </string>
+			<string> 4400 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> radeon </string>
+			<string> 1600 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> radeon </string>
+			<string> 1550 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> radeon </string>
+			<string> 7200 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> radeon </string>
+			<string> 7500 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> radeon </string>
+			<string> 9500 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> radeon </string>
+			<string> 9600 </string>
+		</DeviceDescriptionMatch>
+		<DeviceDescriptionMatch> 
+			<string> radeon </string>
+			<string> 9800 </string>
+		</DeviceDescriptionMatch>
+		<entry>
+			<label>	MRT_DEPTH	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	SKY_LIGHT_MAP	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	CLASSIC_TERRAIN_QUALITY	</label>
+			<activeOption>	2	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADER_VERSION_CAP	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_QUALITY	</label>
+			<activeOption>	2	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_COMPRESSION	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TEXTURE_FILTERING	</label>
+			<activeOption>	4	</activeOption>
+		</entry>
+		<entry>
+			<label>	MORPH_VERTICES	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADOWS_QUALITY	</label>
+			<activeOption>	3	</activeOption>
+		</entry>
+		<entry>
+			<label>	SHADOWS_COUNT	</label>
+			<activeOption>	7	</activeOption>
+		</entry>
+		<entry>
+			<label>	HEAT_SHIMMER	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	BLOOM_FILTER	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	TERRAIN_LOD	</label>
+			<activeOption>	2	</activeOption>
+		</entry>
+		<entry>
+			<label>	TERRAIN_MESH_RESOLUTION	</label>
+			<activeOption>	1	</activeOption>
+		</entry>
+	    <entry>
+	      <label>	SPEEDTREE_QUALITY	</label>
+	      <activeOption>	3	</activeOption>
+	    </entry> 
+		<entry>
+			<label>	WATER_QUALITY	</label>
+			<activeOption>	2	</activeOption>
+		</entry>
+		<entry>
+			<label>	WATER_SIMULATION	</label>
+			<activeOption>	2	</activeOption>
+		</entry>
+		<entry>
+			<label>	FOOT_PRINTS	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+		<entry>
+			<label>	FAR_PLANE	</label>
+			<activeOption>	2	</activeOption>
+		</entry>
+		<entry>
+			<label>	FLORA_DENSITY	</label>
+			<activeOption>	3	</activeOption>
+		</entry>
+		<entry>
+			<label>	OBJECT_LOD	</label>
+			<activeOption>	0	</activeOption>
+		</entry>
+	</graphicsPreferences>
+</root>

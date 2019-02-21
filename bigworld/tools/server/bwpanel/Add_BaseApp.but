@@ -1,0 +1,5 @@
+#!/bin/sh
+#BWPANEL 1.5 ""
+# start the cell up in a terminal.
+cd $MF_ROOT/bigworld/tools/server/misc
+./start.sh term baseapp -

@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>PyTrailParticleRenderer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyTrailParticleRenderer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyTrailParticleRenderer is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemRenderer.html">PyParticleSystemRenderer</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#skip" class="attribute_list" >skip</a></td><td>&nbsp; Integer.
+</td></tr>
+
+<tr valign=top><td><a href="#steps" class="attribute_list" >steps</a></td><td>&nbsp; Integer.
+</td></tr>
+
+<tr valign=top><td><a href="#textureName" class="attribute_list" >textureName</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#useFog" class="attribute_list" >useFog</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#width" class="attribute_list" >width</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+TrailParticleRenderer is a ParticleSystemRenderer that lofts out a trail
+based on the cached history of particles.  The trail is a textured 3D
+line that looks good from most angles, except when going straight into/out
+of the screen, in which case you will see a thin cross.
+<br><br>
+Because the history of a particles position is cached, the trail of each
+particle may bend ( as opposed to the BlurParticleRenderer, which will
+always have straight-line trails )
+<br><br>
+The TrailParticleRenderer should be used judiciously, because of the memory
+overhead of the particle history cache.  However, it can create great effects
+using just a small amount of particles.
+<br><br>
+This renderer will use an extra n * s memory, where n is the capacity of the
+particle system, and s is the number of steps in each trail.
+<br><br>
+A new <a href="PyTrailParticleRenderer.html">PyTrailParticleRenderer</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#TrailParticleRenderer>TrailParticleRenderer</a>
+function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="skip"></a><p class="attribute_definition">
+<span class="attribute_definition">skip</span>
+</p>
+
+<div class="attribute_description">The attribute skip is used to skip the render caching of trail elements
+every skip-1 frames. Thus if skip is 5, TrailParticleRenderer only
+caches render elements every 5 frames - based off the formula
+(frame % skip) == 0. Default value is 0 (no skipping).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer.
+</td></tr>
+</table>
+</p>
+
+<a name="steps"></a><p class="attribute_definition">
+<span class="attribute_definition">steps</span>
+</p>
+
+<div class="attribute_description">The step attribute specifies the number of old particle positions
+to remember for each of the particles. These are points which the
+TrailParticleRenderer uses to render the trail lines for each particle.
+Default value is 5.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer.
+</td></tr>
+</table>
+</p>
+
+<a name="textureName"></a><p class="attribute_definition">
+<span class="attribute_definition">textureName</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the name of the texture used to render the
+trails of the particles.
+</div>
+
+<a name="useFog"></a><p class="attribute_definition">
+<span class="attribute_definition">useFog</span>
+</p>
+
+<div class="attribute_description">Specifies whether the renderer should enable scene fogging or not.  You
+may want to turn off scene fogging if you are using particle systems in
+the sky box, or if you want to otherwise explicitly control the amount
+of fogging via the tint shader fog blend control.
+</div>
+
+<a name="width"></a><p class="attribute_definition">
+<span class="attribute_definition">width</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the width of the line renderer as the trail
+on the particles.
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

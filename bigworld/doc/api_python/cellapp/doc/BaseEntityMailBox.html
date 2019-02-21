@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>BaseEntityMailBox - BigWorld cell Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BaseEntityMailBox Class Reference</h1>
+<p><b>BaseEntityMailBox</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+CommonBaseEntityMailBox
+ &rarr; <a href="ServerEntityMailBox.html">ServerEntityMailBox</a>
+ &rarr; PyEntityMailBox
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#cell" class="attribute_list" >cell</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#client" class="attribute_list" >client</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#ownClient" class="attribute_list" >ownClient</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="BaseEntityMailBox.html">BaseEntityMailBox</a> inherits from <a href="ServerEntityMailBox.html">ServerEntityMailBox</a>.
+<br><br>
+A <a href="BaseEntityMailBox.html">BaseEntityMailBox</a> is used by a Cell <a href="Entity.html">Entity</a> to communicate with its
+associated Base <a href="Entity.html">Entity</a>.  This allows the Cell <a href="Entity.html">Entity</a> to call the methods on
+the Base <a href="Entity.html">Entity</a>.
+<br><br>
+For example:
+<br><br>
+	self.base.baseMethod()
+<br><br>
+where baseMethod() is described in the .def file.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="cell"></a><p class="attribute_definition">
+<span class="attribute_definition">cell</span>
+</p>
+
+<div class="attribute_description">For example, to call the cell methods via a base mailbox 'baseMB', use:
+<br><br>
+baseMB.cell.cellMethod()
+<br><br>
+The method call will first be sent to the base this mailbox belongs to and
+then redirected to the cell counterpart.
+</div>
+
+<a name="client"></a><p class="attribute_definition">
+<span class="attribute_definition">client</span>
+</p>
+
+<div class="attribute_description">For example, to call the client methods via a base mailbox 'baseMB', use:
+<br><br>
+baseMB.client.clientMethod()
+<br><br>
+The method call will first be sent to the base this mailbox belongs to and
+then redirected to the client counterpart.
+</div>
+
+<a name="ownClient"></a><p class="attribute_definition">
+<span class="attribute_definition">ownClient</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

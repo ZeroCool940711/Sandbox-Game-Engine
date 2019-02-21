@@ -1,0 +1,712 @@
+<html>
+<head>
+<title>BigWorld - BigWorld bots Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BigWorld Module Reference</h1>
+The <a href="BigWorld.html">BigWorld</a> module provides python script access to parts of the Bots.
+
+<h2><a href="#" onClick="obj=document.getElementById( 'classes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Class List</a></h2>
+<table id="classes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="class_list"><a href="ClientApp.html" class="class_list" >ClientApp</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="Entity.html" class="class_list" >Entity</a></span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addBots" class="function_list" >addBots</a>( num ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addBotsSlowly" class="function_list" >addBotsSlowly</a>( num, delay, groupSize ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addBotsWithName" class="function_list" >addBotsWithName</a>( PyObject ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addFunctionWatcher" class="function_list" >addFunctionWatcher</a>( path, function, argumentList, exposedHint, desc ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addWatcher" class="function_list" >addWatcher</a>( path, getFunction, setFunction ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delBots" class="function_list" >delBots</a>( num ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delWatcher" class="function_list" >delWatcher</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getDefaultControllerData" class="function_list" >getDefaultControllerData</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getDefaultControllerType" class="function_list" >getDefaultControllerType</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getDefaultPassword" class="function_list" >getDefaultPassword</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getDefaultServer" class="function_list" >getDefaultServer</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getDefaultTag" class="function_list" >getDefaultTag</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getDefaultUsername" class="function_list" >getDefaultUsername</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getWatcher" class="function_list" >getWatcher</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getWatcherDir" class="function_list" >getWatcherDir</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setDefaultControllerData" class="function_list" >setDefaultControllerData</a>( controllerData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setDefaultControllerType" class="function_list" >setDefaultControllerType</a>( controllerType ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setDefaultPassword" class="function_list" >setDefaultPassword</a>( password ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setDefaultServer" class="function_list" >setDefaultServer</a>( host ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setDefaultTag" class="function_list" >setDefaultTag</a>( tag ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setDefaultUsername" class="function_list" >setDefaultUsername</a>( username ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setLoginMD5Digest" class="function_list" >setLoginMD5Digest</a>( digest ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setWatcher" class="function_list" >setWatcher</a>( path, val ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#bots" class="attribute_list" >bots</a></td><td>&nbsp; Read-only <a href="PyBots.html">PyBots</a>
+</td></tr>
+
+<tr valign=top><td><a href="#component" class="attribute_list" >component</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addBots"></a><p class="function_definition">
+<span class="function_definition">def addBots( <i>num</i> ):</span>
+</p>
+
+<div class="function_description">This function immediately creates a specified number of simulated clients. 
+These clients will log into an existing <a href="BigWorld.html">BigWorld</a> server known to the
+Bots application.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>num</i></span></td><td><span class="function_parameter_description">&nbsp;Number of simulated clients to be added.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addBotsSlowly"></a><p class="function_definition">
+<span class="function_definition">def addBotsSlowly( <i>num, delay, groupSize</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a specified number of simulated clients (similar to 
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addBots>addBots</a>) in a slower and controlled fashion (in groups) to
+prevent sudden surge of load that would overwhelm the server.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>num</i></span></td><td><span class="function_parameter_description">&nbsp;Number of simulated clients to be added (will be broken up 
+				into groups of size groupSize).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>delay</i></span></td><td><span class="function_parameter_description">&nbsp;a delay (in seconds) between groups
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>groupSize</i></span></td><td><span class="function_parameter_description">&nbsp;group size. default is 1.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addBotsWithName"></a><p class="function_definition">
+<span class="function_definition">def addBotsWithName( <i>PyObject</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a number of simulated clients with specific
+login names and passwords.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>PyObject</i></span></td><td><span class="function_parameter_description">&nbsp;list of tuples of login name and password
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addFunctionWatcher"></a><p class="function_definition">
+<span class="function_definition">def addFunctionWatcher( <i>path, function, argumentList, exposedHint, desc</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+creation of watcher variables.
+<br><br>
+The addFunctionWatcher function in Python allows the creation of a watcher
+path that can be queried as well as set with a variable length argument
+list.
+<br><br>
+For example:
+<br><br>
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addFunctionWatcher>addFunctionWatcher</a>( "command/addGuards", util.patrollingGuards,
+      [("Number of guards to add", int)], <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#EXPOSE_LEAST_LOADED>EXPOSE_LEAST_LOADED</a>,
+      "Add an arbitrary number of patrolling guards into the world.")
+<br><br>
+Raises a TypeError if the "function" argument is not callable.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path the watcher will be created as. Function watchers
+				are	generally placed under the "command/" path structure.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>function</i></span></td><td><span class="function_parameter_description">&nbsp;The function to call to with the provided argument list.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>argumentList</i></span></td><td><span class="function_parameter_description">&nbsp;The argument list (provided as a tuple) of types and
+						descriptions that the function accepts. See the
+						example for more details about its structure.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>exposedHint</i></span></td><td><span class="function_parameter_description">&nbsp;The default exposure hint to be used when forwarding
+                    the watcher call from Managers to Components.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>desc</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) A description of the function watcher behaviour
+				and usage. While this field is optional, it is strongly
+				recommended to provide this description in order to allow
+				usage through WebConsole to be more intuitive.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addWatcher"></a><p class="function_definition">
+<span class="function_definition">def addWatcher( <i>path, getFunction, setFunction</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+creation of watcher variables.
+<br><br>
+The addWatcher function in Python allows the creation of a particular
+watcher variable.
+For example:
+<br><br>
+
+<pre>>>> maxBandwidth = 20000
+>>> def getMaxBps( ):
+>>>     return str(maxBandwidth)
+>>> def setMaxBps( bps ):
+>>>     maxBandwidth = int(bps)
+>>>     setBandwidthPerSecond( int(bps) )
+>>>
+>>> <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addWatcher>addWatcher</a>( "Comms/Max bandwidth per second", getMaxBps, setMaxBps )
+</pre>
+<br><br>
+This adds a watcher variable under "Comms" watcher directory. The function getMaxBps
+is called to obtain the watcher value and setMaxBps is called when the watcher is modified.
+<br><br>
+Raises a TypeError if getFunction or setFunction is not callable.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>getFunction</i></span></td><td><span class="function_parameter_description">&nbsp;the function to call when retrieving the watcher variable.
+					This function takes no argument and returns a string representing
+					the watcher value.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>setFunction</i></span></td><td><span class="function_parameter_description">&nbsp;(optional)the function to call when setting the watcher variable
+					This function takes a string argument as the new watcher value.
+					This function does not return a value. If this function does not
+					exist the created watcher is a read-only watcher variable.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delBots"></a><p class="function_definition">
+<span class="function_definition">def delBots( <i>num</i> ):</span>
+</p>
+
+<div class="function_description">This function immediately removes a specified number of simulated
+clients from the Bots application. These clients will be logged
+off the server gracefully.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>num</i></span></td><td><span class="function_parameter_description">&nbsp;Number of simulated clients to be removed.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delWatcher"></a><p class="function_definition">
+<span class="function_definition">def delWatcher( <i>path</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path of the watcher to delete.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="getDefaultControllerData"></a><p class="function_definition">
+<span class="function_definition">def getDefaultControllerData( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the default movement controller to
+be used by the simulated clients.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>controllerData		string.
+</td></tr>
+</table>
+</p>
+
+<a name="getDefaultControllerType"></a><p class="function_definition">
+<span class="function_definition">def getDefaultControllerType( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the default movement controller to
+be used by the simulated clients.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>controllerType		string.
+</td></tr>
+</table>
+</p>
+
+<a name="getDefaultPassword"></a><p class="function_definition">
+<span class="function_definition">def getDefaultPassword( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the default login password for 
+the simulated clients to use.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>password		string.
+</td></tr>
+</table>
+</p>
+
+<a name="getDefaultServer"></a><p class="function_definition">
+<span class="function_definition">def getDefaultServer( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the name of the default login server for 
+the simulated clients.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>host		string in format of 'host:port'.
+</td></tr>
+</table>
+</p>
+
+<a name="getDefaultTag"></a><p class="function_definition">
+<span class="function_definition">def getDefaultTag( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the default tag name for the simulated
+clients.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>tag		string.
+</td></tr>
+</table>
+</p>
+
+<a name="getDefaultUsername"></a><p class="function_definition">
+<span class="function_definition">def getDefaultUsername( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the default login user name for 
+the simulated clients to use.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>username		string.
+</td></tr>
+</table>
+</p>
+
+<a name="getWatcher"></a><p class="function_definition">
+<span class="function_definition">def getWatcher( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+retrieval of watcher variables.
+<br><br>
+The watcher debugging system allows various variables to be displayed and
+updated from within the runtime.
+<br><br>
+Watchers are specified in the C-code using the MF_WATCH macro.  This takes
+three arguments, the first is a string specifying the path (parent groups
+followed by the item name, separated by forward slashes),
+the second is the expression to watch.  The third argument specifies such
+things as whether it is read only or not, and has a default of read-write.
+<br><br>
+The getWatcher function in Python allows the getting of a particular value.
+For example:
+<br><br>
+
+<pre>>>>	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#getWatcher>getWatcher</a>( "Client Settings/Terrain/draw" )
+1
+</pre>
+<br><br>
+Raises a TypeError if the watcher was not found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the value of that watcher variable.
+</td></tr>
+</table>
+</p>
+
+<a name="getWatcherDir"></a><p class="function_definition">
+<span class="function_definition">def getWatcherDir( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+inspection of a directory watcher.
+<br><br>
+Raises a TypeError if not found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a list containing an entry for each child watcher. Each
+				entry is a tuple of child type, label and value. The child
+				type is 1 for read-only, 2 for read-write and 3 for a
+				directory.
+</td></tr>
+</table>
+</p>
+
+<a name="setDefaultControllerData"></a><p class="function_definition">
+<span class="function_definition">def setDefaultControllerData( <i>controllerData</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the default data file used by the current
+default movement controller. The input parameter should be the
+relative path (with respect to the <a href="BigWorld.html">BigWorld</a> res path) to a data
+file. Make sure the data file is can be understood by your
+movement controller, otherwise the movement controller may cause
+an error and bring down the Bots application.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerData</i></span></td><td><span class="function_parameter_description">&nbsp;string.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setDefaultControllerType"></a><p class="function_definition">
+<span class="function_definition">def setDefaultControllerType( <i>controllerType</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the default movement controller to be used by
+the simulated clients. The input parameter should be the name of a
+compiled shared object file (with .so extension) containing a
+movement controller, residing under the bot-extensions
+subdirectory of your Bots installation.  Note: we recommend you to
+use the builtin default movement controller and create custom data
+for it instead of creating your own movement controller.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerType</i></span></td><td><span class="function_parameter_description">&nbsp;string.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setDefaultPassword"></a><p class="function_definition">
+<span class="function_definition">def setDefaultPassword( <i>password</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the default login password for 
+the simulated clients to use.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>password</i></span></td><td><span class="function_parameter_description">&nbsp;string.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setDefaultServer"></a><p class="function_definition">
+<span class="function_definition">def setDefaultServer( <i>host</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the default login server for the simulated
+clients.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>host</i></span></td><td><span class="function_parameter_description">&nbsp;string in format of 'host:port'.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setDefaultTag"></a><p class="function_definition">
+<span class="function_definition">def setDefaultTag( <i>tag</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the default tag name for simulated clients.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>tag</i></span></td><td><span class="function_parameter_description">&nbsp;string.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setDefaultUsername"></a><p class="function_definition">
+<span class="function_definition">def setDefaultUsername( <i>username</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the default login user name for 
+the simulated clients to use.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>username</i></span></td><td><span class="function_parameter_description">&nbsp;string.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setLoginMD5Digest"></a><p class="function_definition">
+<span class="function_definition">def setLoginMD5Digest( <i>digest</i> ):</span>
+</p>
+
+<div class="function_description">This function set the specific MD5 digest (in readable hex format)
+required for simulated clients log into a <a href="BigWorld.html">BigWorld</a> server. The
+digest must be 32 characters long. A corrupted input digest will
+set the digest to null.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>digest</i></span></td><td><span class="function_parameter_description">&nbsp;string.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setWatcher"></a><p class="function_definition">
+<span class="function_definition">def setWatcher( <i>path, val</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+setting of watcher variables.
+<br><br>
+The watcher debugging system allows various variables to be displayed and
+updated from within the runtime.
+<br><br>
+Watchers are specified in the C-code using the MF_WATCH macro.  This takes
+three arguments, the first is a string specifying the path (parent groups
+followed by the item name, separated by forward slashes), the second is the
+expression to watch.  The third argument specifies such things as whether
+it is read only or not, and has a default of read-write.
+<br><br>
+The setWatcher function in Python allows the setting of a particular
+read-write value.
+For example:
+<br><br>
+
+<pre>>>>	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#setWatcher>setWatcher</a>( "Client Settings/Terrain/draw", 0 )
+</pre>
+<br><br>
+Raises a TypeError if the watcher failed to be set.
+Raises a TypeError if args cannot be converted into a string.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the new value for the item.
+</span></td></tr>
+
+</table>
+</p>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="bots"></a><p class="attribute_definition">
+<span class="attribute_definition">bots</span>
+</p>
+
+<div class="attribute_description">bots contains a list of all simulated clients currently instanced on the
+Bots application.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only <a href="PyBots.html">PyBots</a>
+</td></tr>
+</table>
+</p>
+
+<a name="component"></a><p class="attribute_definition">
+<span class="attribute_definition">component</span>
+</p>
+
+<div class="attribute_description">This is the component that is executing the present python environment.
+Possible values are (so far) 'cell', 'base', 'client', 'database', 'bot'
+and 'editor'.
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

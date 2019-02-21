@@ -1,0 +1,243 @@
+<html>
+<head>
+<title>Propellor - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Propellor Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Propellor is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="Motor.html">Motor</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#actualTurn" class="attribute_list" >actualTurn</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#maxThrust" class="attribute_list" >maxThrust</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#momentum" class="attribute_list" >momentum</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#throttle" class="attribute_list" >throttle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#timeScale" class="attribute_list" >timeScale</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#turnHalflife" class="attribute_list" >turnHalflife</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#turnRate" class="attribute_list" >turnRate</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#wheelPosition" class="attribute_list" >wheelPosition</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#xDrag" class="attribute_list" >xDrag</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#yDrag" class="attribute_list" >yDrag</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#zDrag" class="attribute_list" >zDrag</a></td><td>&nbsp; float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class moves an object with the effect of a propellor or other point source of force.
+A throttle value is used to determine the desired level of force.  A wheelPosition is used
+to determine a desired turn rate, which is then adjusted over time for smoother transition.
+With the throttle and WheelPosition driving the motor, other values can be set, such as drag,
+etc, to affect the overall behaviour of the motor.
+<br><br>
+A new <a href="Propellor.html">Propellor</a> <a href="Motor.html">Motor</a> is created using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Propellor><a href="Propellor.html">Propellor</a></a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="actualTurn"></a><p class="attribute_definition">
+<span class="attribute_definition">actualTurn</span>
+</p>
+
+<div class="attribute_description">Used to dampen the wheel's response.  Each update, the actualTurn rate will be 'decayed' from
+wheelPosition to this value based upon the turnHalfLife and current time step (which can be
+adjusted with timeScale) and stored for the next update.  Defaults to 0.0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="maxThrust"></a><p class="attribute_definition">
+<span class="attribute_definition">maxThrust</span>
+</p>
+
+<div class="attribute_description">This is the maximum thrust that can be applied to the model.  Defaults to 0.075.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="momentum"></a><p class="attribute_definition">
+<span class="attribute_definition">momentum</span>
+</p>
+
+<div class="attribute_description">The current momentum being applied to the model.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="throttle"></a><p class="attribute_definition">
+<span class="attribute_definition">throttle</span>
+</p>
+
+<div class="attribute_description">Determines the current level of force for this motor.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="timeScale"></a><p class="attribute_definition">
+<span class="attribute_definition">timeScale</span>
+</p>
+
+<div class="attribute_description">Can be used to scale the integration time of the motor.  Defaults to 1.0 (no change - using real-time).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="turnHalflife"></a><p class="attribute_definition">
+<span class="attribute_definition">turnHalflife</span>
+</p>
+
+<div class="attribute_description">How quickly the desired turn is approached.  Defaults to 10.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="turnRate"></a><p class="attribute_definition">
+<span class="attribute_definition">turnRate</span>
+</p>
+
+<div class="attribute_description">The degree to which the motor can turn over time.  Defaults to 0.005.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="wheelPosition"></a><p class="attribute_definition">
+<span class="attribute_definition">wheelPosition</span>
+</p>
+
+<div class="attribute_description">This value represents the desired rate of turn.
+Higher values will turn more, lower values turn less.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="xDrag"></a><p class="attribute_definition">
+<span class="attribute_definition">xDrag</span>
+</p>
+
+<div class="attribute_description">Drag along the x-axis.  Defaults to 0.2.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="yDrag"></a><p class="attribute_definition">
+<span class="attribute_definition">yDrag</span>
+</p>
+
+<div class="attribute_description">Drag along the y-axis.  Defaults to 1.0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="zDrag"></a><p class="attribute_definition">
+<span class="attribute_definition">zDrag</span>
+</p>
+
+<div class="attribute_description">Drag along the z-axis.  Defaults to 0.01.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

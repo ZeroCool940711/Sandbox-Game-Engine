@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>FlashGUIComponent - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>FlashGUIComponent Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>FlashGUIComponent is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#movie" class="attribute_list" >movie</a></td><td>&nbsp; <a href="PyMovieView.html">PyMovieView</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="FlashGUIComponent.html">FlashGUIComponent</a> is a <a href="GUI.html">GUI</a> component used to display a flash
+movie on the screen.  It inherits from <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.
+<br><br>
+It delegates all drawing, input handling to flash.  It can have
+an associated python script, like any gui components.
+<br><br>
+The flash movie will draw within the bounds of this gui component.
+<br><br>
+A new <a href="FlashGUIComponent.html">FlashGUIComponent</a> is created using the <a href="GUI.html">GUI</a>.<a href=GUI.html#Flash>Flash</a> function.
+<br><br>
+For example:
+
+<pre>mvDef = <a href="Scaleform.html">Scaleform</a>.<a href=Scaleform.html#createMovie>createMovie</a>( "scaleform/flash_ui.swf" )
+g = <a href="GUI.html">GUI</a>.<a href=GUI.html#Flash>Flash</a>( mvDef.createInstance() )
+<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>( g )
+setattr( g.movie, "_root.actionScriptVariable", "hello world" )
+g.movie.invoke( "_root.OpenMenuLevel2" )
+</pre>
+<br><br>
+This example creates and displays a <a href="FlashGUIComponent.html">FlashGUIComponent</a>, sets
+and action script text variable to "hello world" then calls
+an action script function via the invoke() call.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="movie"></a><p class="attribute_definition">
+<span class="attribute_definition">movie</span>
+</p>
+
+<div class="attribute_description">The <a href="Scaleform.html">Scaleform</a> movie view used by this <a href="GUI.html">GUI</a> component.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="PyMovieView.html">PyMovieView</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

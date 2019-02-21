@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>FrameGUIComponent - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>FrameGUIComponent Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>FrameGUIComponent is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#cornerTextureName" class="attribute_list" >cornerTextureName</a></td><td>&nbsp; A string, which must be the filename of a texture.
+</td></tr>
+
+<tr valign=top><td><a href="#edgeTextureName" class="attribute_list" >edgeTextureName</a></td><td>&nbsp; A string, which must be the filename of a texture.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class inherits from <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  In addition to the basic
+(tiled) image displayed by the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>, it adds extra images on
+ top to form a frame around the image.
+<br><br>
+It uses two extra textures.  The first is the corner texture, which is
+split into four quarters, which are rendered in the corresponding corners
+of the overall component.  The width and height of the corners is based on
+the tiledWidth and tiledHeight attributes of the component.
+<br><br>
+The second extra texture is the edge texture.  This is assumed to be
+oriented correctly to display along the bottom edge of the
+<a href="FrameGUIComponent.html">FrameGUIComponent</a>.  It is then mirrored to display along the top, and
+rotated to display along either side edge.
+<br><br>
+The height of the top and bottom edges is specified by the tiledHeight
+attribute, and the texture is tiled along the top and bottom using the
+tiledWidth attribute.
+<br><br>
+The width of the side edges is specified by the tiledWidth attribute, and
+the texture is tiled long the side edges using the tiledHeight attribute.
+<br><br>
+The background image is always displayed tiled, using the tiledWidth and
+tiledHeight attributes.  It is rendered across the entire surface of the
+<a href="FrameGUIComponent.html">FrameGUIComponent</a>, with the corners and edges rendered on top of it.
+<br><br>
+A new <a href="FrameGUIComponent.html">FrameGUIComponent</a> is created using <a href="GUI.html">GUI</a>.<a href=GUI.html#Frame>Frame</a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="cornerTextureName"></a><p class="attribute_definition">
+<span class="attribute_definition">cornerTextureName</span>
+</p>
+
+<div class="attribute_description">This attribute is the name of the texture used on the corners of the
+<a href="FrameGUIComponent.html">FrameGUIComponent</a>.  Assigning a filename to this causes the corners to
+load the named texture.
+<br><br>
+The specified texture is split into 4 equal quarters, each being a
+corner.  These corners are rendered in the corresponding corner of the
+<a href="FrameGUIComponent.html">FrameGUIComponent</a>.  The size of each corner is specified by the
+tiledWidth and tiledHeight attributes.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A string, which must be the filename of a texture.
+</td></tr>
+</table>
+</p>
+
+<a name="edgeTextureName"></a><p class="attribute_definition">
+<span class="attribute_definition">edgeTextureName</span>
+</p>
+
+<div class="attribute_description">This attribute is the name of the texture used on the edges of the
+<a href="FrameGUIComponent.html">FrameGUIComponent</a>.  Assigning a filename to this causes the edges to
+load the named texture.
+<br><br>
+The specified image is assumed to be oriented correctly to be displayed
+on the bottom edge.  It is mirrored	to be displayed on the top edge,
+and rotated to be displayed on the side edges.
+<br><br>
+The edge's height on the top and bottom is specified using the
+tiledHeight attribute, and it is tiled along the top and bottom using
+the tiledWidth attribute.
+<br><br>
+The edge's width on the sides is specified using the tiledWidth
+attribute, and it is tiled along the sides using the tiledHeight
+attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A string, which must be the filename of a texture.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

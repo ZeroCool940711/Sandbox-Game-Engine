@@ -1,0 +1,1916 @@
+<html>
+<head>
+<title>BigWorld - BigWorld cell Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BigWorld Module Reference</h1>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'classes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Class List</a></h2>
+<table id="classes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="class_list"><a href="Entity.html" class="class_list" >Entity</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="UserDataObject.html" class="class_list" >UserDataObject</a></span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addEventListener" class="function_list" >addEventListener</a>( eventName, callback, level ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addFrequentTask" class="function_list" >addFrequentTask</a>( callback, level ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addFunctionWatcher" class="function_list" >addFunctionWatcher</a>( path, function, argumentList, exposedHint, desc ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addSpaceData" class="function_list" >addSpaceData</a>( spaceID, key, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addSpaceGeometryMapping" class="function_list" >addSpaceGeometryMapping</a>( spaceID, mapper, path, shouldLoadOnServer ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addTimer" class="function_list" >addTimer</a>( callback, initialOffset, repeatOffset=0, userArg=0 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addWatcher" class="function_list" >addWatcher</a>( path, getFunction, setFunction ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#address" class="function_list" >address</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#chunkTransform" class="function_list" >chunkTransform</a>( chunkNMapping, spaceID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#collide" class="function_list" >collide</a>( spaceID, src, dst ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#configureConnection" class="function_list" >configureConnection</a>( spaceID, point1, point2, isOpen ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createEntity" class="function_list" >createEntity</a>( class, spaceID, position, direction, state ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createEntityOnBaseApp" class="function_list" >createEntityOnBaseApp</a>( class, state, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#debugDump" class="function_list" >debugDump</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delBaseAppData" class="function_list" >delBaseAppData</a>( key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delSpaceData" class="function_list" >delSpaceData</a>( spaceID, entryID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delSpaceDataForKey" class="function_list" >delSpaceDataForKey</a>( spaceID, key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delTimer" class="function_list" >delTimer</a>( id ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delWatcher" class="function_list" >delWatcher</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#deregisterFileDescriptor" class="function_list" >deregisterFileDescriptor</a>( fileDescriptor ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#deregisterWriteFileDescriptor" class="function_list" >deregisterWriteFileDescriptor</a>( fileDescriptor ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#executeRawDatabaseCommand" class="function_list" >executeRawDatabaseCommand</a>( command, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#fetchURL" class="function_list" >fetchURL</a>( url, callback, headers, timeout, method ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#findChunkFromPoint" class="function_list" >findChunkFromPoint</a>( point, spaceID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#findRandomNeighbourPoint" class="function_list" >findRandomNeighbourPoint</a>( spaceID, position, radius, girth ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#findRandomNeighbourPoint" class="function_list" >findRandomNeighbourPoint</a>( position, radius, girth ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#findRandomNeighbourPointWithRange" class="function_list" >findRandomNeighbourPointWithRange</a>( spaceID, position, minRadius, maxRadius, girth ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#findRandomNeighbourPointWithRange" class="function_list" >findRandomNeighbourPointWithRange</a>( position, minRadius, maxRadius, girth ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getLoad" class="function_list" >getLoad</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getMaterialKinds" class="function_list" >getMaterialKinds</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getSpaceData" class="function_list" >getSpaceData</a>( spaceID, entryID, key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getSpaceDataFirstForKey" class="function_list" >getSpaceDataFirstForKey</a>( spaceID, key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getSpaceDataForKey" class="function_list" >getSpaceDataForKey</a>( spaceID, key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getSpaceGeometryMappings" class="function_list" >getSpaceGeometryMappings</a>( spaceID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getWatcher" class="function_list" >getWatcher</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getWatcherDir" class="function_list" >getWatcherDir</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#hasStarted" class="function_list" >hasStarted</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isNextTickPending" class="function_list" >isNextTickPending</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isShuttingDown" class="function_list" >isShuttingDown</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#load" class="function_list" >load</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#maxCellAppLoad" class="function_list" >maxCellAppLoad</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#navigatePathPoints" class="function_list" >navigatePathPoints</a>( spaceID, src, dst, maxSearchDistance, girth ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#navigatePathPoints" class="function_list" >navigatePathPoints</a>( src, dst, maxSearchDistance, girth ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#registerFileDescriptor" class="function_list" >registerFileDescriptor</a>( fileDescriptor, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#registerWriteFileDescriptor" class="function_list" >registerWriteFileDescriptor</a>( fileDescriptor, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#reloadScript" class="function_list" >reloadScript</a>( fullReload ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#removeEventListener" class="function_list" >removeEventListener</a>( eventName, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setBaseAppData" class="function_list" >setBaseAppData</a>( key, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setSpaceData" class="function_list" >setSpaceData</a>( spaceID, key, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setSpaceTimeOfDay" class="function_list" >setSpaceTimeOfDay</a>( spaceID, initialTimeOfDay, gameSecondsPerSecond ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setWatcher" class="function_list" >setWatcher</a>( path, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#time" class="function_list" >time</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#timeInTicks" class="function_list" >timeInTicks</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#timeOfDay" class="function_list" >timeOfDay</a>( spaceID ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#INVALID_POSITION" class="attribute_list" >INVALID_POSITION</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#NEXT_ONLY" class="attribute_list" >NEXT_ONLY</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#VOLATILE_ALWAYS" class="attribute_list" >VOLATILE_ALWAYS</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#VOLATILE_NEVER" class="attribute_list" >VOLATILE_NEVER</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#cellAppData" class="attribute_list" >cellAppData</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#component" class="attribute_list" >component</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#entities" class="attribute_list" >entities</a></td><td>&nbsp; <a href="PyEntities.html">PyEntities</a>
+</td></tr>
+
+<tr valign=top><td><a href="#globalData" class="attribute_list" >globalData</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addEventListener"></a><p class="function_definition">
+<span class="function_definition">def addEventListener( <i>eventName, callback, level</i> ):</span>
+</p>
+
+<div class="function_description">The function addEventListener associates a callback with an event. The
+callback will be called whenever the event is triggered.
+<br><br>
+The events that can be listened to are all of the <a href="BWPersonality.html">BWPersonality</a> callbacks
+that do not have a return value. For example, "onInit", "onFini" etc.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>eventName</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the event to listen for.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;A callable object that will be called on this event.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>level</i></span></td><td><span class="function_parameter_description">&nbsp;An optional integer level. Listeners with a higher level are
+	called later. The default value is 0.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addFrequentTask"></a><p class="function_definition">
+<span class="function_definition">def addFrequentTask( <i>callback, level</i> ):</span>
+</p>
+
+<div class="function_description">The function addFrequentTask registers a callback function to be
+called periodically (at game tick frequency). If the callback ever
+returns True, it is deregistered and will not be called again.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the callable to be used. This is a function that
+takes no parameters.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>level</i></span></td><td><span class="function_parameter_description">&nbsp;Optional argument for the level to run the task at. This higher
+the level, the later the task is executed. Currently the only valid levels
+are 0 and 1.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addFunctionWatcher"></a><p class="function_definition">
+<span class="function_definition">def addFunctionWatcher( <i>path, function, argumentList, exposedHint, desc</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+creation of watcher variables.
+<br><br>
+The addFunctionWatcher function in Python allows the creation of a watcher
+path that can be queried as well as set with a variable length argument
+list.
+<br><br>
+For example:
+<br><br>
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addFunctionWatcher>addFunctionWatcher</a>( "command/addGuards", util.patrollingGuards,
+      [("Number of guards to add", int)], <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#EXPOSE_LEAST_LOADED>EXPOSE_LEAST_LOADED</a>,
+      "Add an arbitrary number of patrolling guards into the world.")
+<br><br>
+Raises a TypeError if the "function" argument is not callable.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path the watcher will be created as. Function watchers
+				are	generally placed under the "command/" path structure.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>function</i></span></td><td><span class="function_parameter_description">&nbsp;The function to call to with the provided argument list.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>argumentList</i></span></td><td><span class="function_parameter_description">&nbsp;The argument list (provided as a tuple) of types and
+						descriptions that the function accepts. See the
+						example for more details about its structure.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>exposedHint</i></span></td><td><span class="function_parameter_description">&nbsp;The default exposure hint to be used when forwarding
+                    the watcher call from Managers to Components.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>desc</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) A description of the function watcher behaviour
+				and usage. While this field is optional, it is strongly
+				recommended to provide this description in order to allow
+				usage through WebConsole to be more intuitive.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addSpaceData"></a><p class="function_definition">
+<span class="function_definition">def addSpaceData( <i>spaceID, key, value</i> ):</span>
+</p>
+
+<div class="function_description">If the given key is not in the valid user range of 256 to 32767, or if the
+spaceID does not refer to a valid space, then a ValueError is raised.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;the space in which to add the data
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;the key under which to add the space data (between 256 and
+					32767)
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;the string data to add for this key
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the new space data entry id for the added data
+</td></tr>
+</table>
+</p>
+
+<a name="addSpaceGeometryMapping"></a><p class="function_definition">
+<span class="function_definition">def addSpaceGeometryMapping( <i>spaceID, mapper, path, shouldLoadOnServer</i> ):</span>
+</p>
+
+<div class="function_description">On the server, the geometry from all chunks in the given directory is loaded
+into the specified space. The chunk files are loaded asynchronously,
+and when the geometry is fully loaded the following notification method is
+called on the personality module:
+
+<pre>	def onAllSpaceGeometryLoaded( self, spaceID, mappingName ):
+</pre>
+<br><br>
+The server only loads the data it needs. For example, it only loads the BSP
+for each model, it does not load textures or the model's full mesh.
+<br><br>
+Terrain height data is loaded, but not terrain texturing data.
+To save memory, the server can load lower resolutions of the terrain height
+data.  This is specified in the space.settings file in the space directory.
+The tag <terrain/lodInfo/server/heightMapLod> governs which LOD level is
+chosen. The tag value can be set from 0 to 6.  Each level is half the
+resolution of the previous one, so 0 is the full mesh resolution, 1 is
+half the resolution, etc.
+<br><br>
+There is a possibility that onAllSpaceGeometryLoaded() will not be
+called if the CellAppMgr crashes at the precise moment multiple CellApps
+simultaneously call this method to add geometry to the same space.
+<br><br>
+The given transform must be aligned to the chunk grid. That is, it should
+be a translation matrix whose position is in multiples of 100 on the
+X and Z axis. Any other transform will result in undefined behaviour.
+<br><br>
+Any extra space mapped in must use the same terrain system as the first,
+with the same settings, the behaviour of anything else is undefined.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;the space in which to operate
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>mapper</i></span></td><td><span class="function_parameter_description">&nbsp;the matrix to map the chunks in at (or None = identity)
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the directory that contains the chunks
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>shouldLoadOnServer</i></span></td><td><span class="function_parameter_description">&nbsp;Optional boolean argument indicates whether to
+	load the geometry on the server. Defaults to True.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the new space data entry id for the added data
+</td></tr>
+</table>
+</p>
+
+<a name="addTimer"></a><p class="function_definition">
+<span class="function_definition">def addTimer( <i>callback, initialOffset, repeatOffset=0, userArg=0</i> ):</span>
+</p>
+
+<div class="function_description">The function addTimer registers a function to be called after
+"initialOffset" seconds. Optionally it can be repeated every "repeatOffset"
+seconds, and have optional user data (an integer that is simply passed to
+the timer function) "userArg".
+<br><br>
+The callback function must accept 2 arguments; the internal id of the timer
+(useful to remove the timer via the "delTimer" method), and the optional
+user supplied integer "userArg".
+<br><br>
+Example:
+
+<pre>import <a href="BigWorld.html">BigWorld</a>
+
+# Callback function that accepts 2 parameters; the id of the timer,
+# and the specified user argument.
+
+# id is the internal id of the timer, and can be used to remove the
+# timer via the use of the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#delTimer>delTimer</a> function
+def onTimer( self, id, userArg ):
+    print "onTimer called: id %i, userArg: %i" % ( id, userArg )
+    # if this is a repeating timer then call:
+    #     <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#delTimer>delTimer</a>( id )
+    # to remove the timer when it is no longer needed
+
+# call onTimer after 5 seconds, and then every 1 second with a userArg of 9
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addTimer>addTimer</a>( onTimer, 5, 1, 9 )
+
+# call onTimer after 1 second with no repeat and userArg defaulting to a
+# value of 0
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addTimer>addTimer</a>( onTimer, 1 )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the timer handler to be used. This is a function
+that takes 2 integer parameters.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>initialOffset</i></span></td><td><span class="function_parameter_description">&nbsp;initialOffset is a float and specifies the interval (in
+seconds) between registration of the timer, and the time of first execution.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>repeatOffset</i></span></td><td><span class="function_parameter_description">&nbsp;repeatOffset is an optional float and specifies the
+interval (in seconds) between repeated executions after the first execution.
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#delTimer>delTimer</a> must be used to remove the timer or this will repeat
+continuously.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userArg</i></span></td><td><span class="function_parameter_description">&nbsp;userArg is an optional integer which specifies an optional
+user supplied value to be passed to the callback method.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer. This function returns the internal id of the timer. This
+can be used with <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#delTimer>delTimer</a> to remove the timer.
+</td></tr>
+</table>
+</p>
+
+<a name="addWatcher"></a><p class="function_definition">
+<span class="function_definition">def addWatcher( <i>path, getFunction, setFunction</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+creation of watcher variables.
+<br><br>
+The addWatcher function in Python allows the creation of a particular
+watcher variable.
+For example:
+<br><br>
+
+<pre>>>> maxBandwidth = 20000
+>>> def getMaxBps( ):
+>>>     return str(maxBandwidth)
+>>> def setMaxBps( bps ):
+>>>     maxBandwidth = int(bps)
+>>>     setBandwidthPerSecond( int(bps) )
+>>>
+>>> <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addWatcher>addWatcher</a>( "Comms/Max bandwidth per second", getMaxBps, setMaxBps )
+</pre>
+<br><br>
+This adds a watcher variable under "Comms" watcher directory. The function getMaxBps
+is called to obtain the watcher value and setMaxBps is called when the watcher is modified.
+<br><br>
+Raises a TypeError if getFunction or setFunction is not callable.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>getFunction</i></span></td><td><span class="function_parameter_description">&nbsp;the function to call when retrieving the watcher variable.
+					This function takes no argument and returns a string representing
+					the watcher value.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>setFunction</i></span></td><td><span class="function_parameter_description">&nbsp;(optional)the function to call when setting the watcher variable
+					This function takes a string argument as the new watcher value.
+					This function does not return a value. If this function does not
+					exist the created watcher is a read-only watcher variable.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="address"></a><p class="function_definition">
+<span class="function_definition">def address( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method returns the address of the internal network interface.
+</div>
+
+<a name="chunkTransform"></a><p class="function_definition">
+<span class="function_definition">def chunkTransform( <i>chunkNMapping, spaceID</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunkNMapping</i></span></td><td><span class="function_parameter_description">&nbsp;chunkNMapping is a string containing the name of the
+chunk whose transform is to be returned.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;spaceID is the id of the space in which the chunk resides.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Matrix.html">Matrix</a> which describes the chunk's transform.
+</td></tr>
+</table>
+</p>
+
+<a name="collide"></a><p class="function_definition">
+<span class="function_definition">def collide( <i>spaceID, src, dst</i> ):</span>
+</p>
+
+<div class="function_description">This function performs a collision test along a line segment from one
+point to another through the collision scene. If the line intersects nothing
+then the function returns None. Otherwise, it returns a tuple
+consisting of the point the first collision occurred at, the triangle that
+was hit (specified by its three points, as Vector3s), and the material
+type of the poly that was hit (an integer between 0 and 255).  This
+material type corresponds to the material or object Kind specified in
+ModelViewer (see Object->Properties and Material->Material Properties panes).
+<br><br>
+For example:
+
+<pre>	>>> <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#collide>collide</a>( spaceID, (0, 10, 0), (0,-10,0) )
+	((0.0000, 0.0000, 0.0000), ( (0.0000, 0.0000, 0.0000),
+	(4.0000, 0.0000, 0.0000), (4.0000, 0.0000, 4.0000)), 0)
+</pre>
+In this example the line goes from 10 units above the origin to 10 units
+below it. It intersects with a triangle at the origin, where the triangles
+three points are (0,0,0), (4,0,0) and (4,0,4). The material is of type 0.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;The space in which to perform the collision.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>src</i></span></td><td><span class="function_parameter_description">&nbsp;The point to project from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dst</i></span></td><td><span class="function_parameter_description">&nbsp;The point to project to.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A 3-tuple of the hit point, the triangle it hit, and the material
+		type or None if nothing was hit.
+</td></tr>
+</table>
+</p>
+
+<a name="configureConnection"></a><p class="function_definition">
+<span class="function_definition">def configureConnection( <i>spaceID, point1, point2, isOpen</i> ):</span>
+</p>
+
+<div class="function_description">This function configures the connection between two demonstrative points
+that straddle a portal. The connection may be either open or closed.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the space in which to operate.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>point1</i></span></td><td><span class="function_parameter_description">&nbsp;The first demonstrative point.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>point2</i></span></td><td><span class="function_parameter_description">&nbsp;The second demonstrative point.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>isOpen</i></span></td><td><span class="function_parameter_description">&nbsp;A boolean value indicating whether or not the portal is
+				open.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="createEntity"></a><p class="function_definition">
+<span class="function_definition">def createEntity( <i>class, spaceID, position, direction, state</i> ):</span>
+</p>
+
+<div class="function_description">Example:
+
+<pre># create an open door entity at the same position as entity "thing"
+direction = ( 0, 0, thing.yaw )
+properties = { "open":1 }
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createEntity>createEntity</a>( "Door", thing.space, thing.position, direction,
+                       properties )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>class</i></span></td><td><span class="function_parameter_description">&nbsp;class is the name of the class to instantiate. Note that this
+must be an entity class, as declared in the entities.xml file.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;spaceID is the id of the space in which to place the entity.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;position is a sequence of 3 floats containing the position
+at which the new entity is to be spawned, in world coordinates.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>direction</i></span></td><td><span class="function_parameter_description">&nbsp;direction is a sequence of 3 floats containing the initial
+orientation of the new entity (roll, pitch, yaw), relative to the world
+frame.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>state</i></span></td><td><span class="function_parameter_description">&nbsp;state is a dictionary describing the initial states of the
+entity's properties. A property will take on its default value from the
+.def file if it is not listed here.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The new entity.
+</td></tr>
+</table>
+</p>
+
+<a name="createEntityOnBaseApp"></a><p class="function_definition">
+<span class="function_definition">def createEntityOnBaseApp( <i>class, state, callback</i> ):</span>
+</p>
+
+<div class="function_description">This method creates an entity on a BaseApp.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>class</i></span></td><td><span class="function_parameter_description">&nbsp;class is the name of the class to instantiate. Note that this
+must be an entity class, as declared in the entities.xml file.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>state</i></span></td><td><span class="function_parameter_description">&nbsp;state is a dictionary describing the initial states of the
+entity's properties. A property will take on its default value from the
+.def file if it is not listed here.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;(optional) callback function taking a single argument
+of the newly created Base mailbox on success, or None on error.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="debugDump"></a><p class="function_definition">
+<span class="function_definition">def debugDump( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method is for debugging only.
+</div>
+
+<a name="delBaseAppData"></a><p class="function_definition">
+<span class="function_definition">def delBaseAppData( <i>key</i> ):</span>
+</p>
+
+<div class="function_description">This function deletes a data value that is accessible from all BaseApps.
+This can be accessed on BaseApps via <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#baseAppData>baseAppData</a>.
+<br><br>
+The BaseAppMgr is the authoritative copy of this data. If two or more
+components try to set the same value, the last one to reach the BaseAppMgr
+will be the one that is kept.
+<br><br>
+Note: Care should be taken using this functionality. It does not scale well
+and should be used sparingly.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;The key of the value to be deleted.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delSpaceData"></a><p class="function_definition">
+<span class="function_definition">def delSpaceData( <i>spaceID, entryID</i> ):</span>
+</p>
+
+<div class="function_description">Deletes the space data entry of the given id in the given space. Note that
+only the data known by the current CellApp is deleted from other CellApps.
+<br><br>
+A ValueError is raised if the space ID is invalid, or the entry ID does not
+refer to a mapped entry.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;the space in which to operate
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>entryID</i></span></td><td><span class="function_parameter_description">&nbsp;the entry to delete
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delSpaceDataForKey"></a><p class="function_definition">
+<span class="function_definition">def delSpaceDataForKey( <i>spaceID, key</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;the space in which to operate
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;the key to delete space data for
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delTimer"></a><p class="function_definition">
+<span class="function_definition">def delTimer( <i>id</i> ):</span>
+</p>
+
+<div class="function_description">See <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addTimer>addTimer</a> for an example of timer usage.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;id is an integer that specifies the internal id of the timer to
+be removed.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delWatcher"></a><p class="function_definition">
+<span class="function_definition">def delWatcher( <i>path</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path of the watcher to delete.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="deregisterFileDescriptor"></a><p class="function_definition">
+<span class="function_definition">def deregisterFileDescriptor( <i>fileDescriptor</i> ):</span>
+</p>
+
+<div class="function_description">This function deregisters a callback that has been registered with
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#registerFileDescriptor>registerFileDescriptor</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fileDescriptor</i></span></td><td><span class="function_parameter_description">&nbsp;An object that has a fileno method such as a socket
+or file, or an integer representing a file descriptor.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="deregisterWriteFileDescriptor"></a><p class="function_definition">
+<span class="function_definition">def deregisterWriteFileDescriptor( <i>fileDescriptor</i> ):</span>
+</p>
+
+<div class="function_description">This function deregisters a callback that has been registered with
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#registerWriteFileDescriptor>registerWriteFileDescriptor</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fileDescriptor</i></span></td><td><span class="function_parameter_description">&nbsp;An object that has a fileno method such as a socket
+or file, or an integer representing a file descriptor.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="executeRawDatabaseCommand"></a><p class="function_definition">
+<span class="function_definition">def executeRawDatabaseCommand( <i>command, callback</i> ):</span>
+</p>
+
+<div class="function_description">Please note that the entity data in the database may not be up to date,
+especially when secondary databases are enabled. It is highly
+recommended that this function is not used to read or modify entity
+data.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>command</i></span></td><td><span class="function_parameter_description">&nbsp;The command string specific to the present database layer.
+For MySQL database it is an SQL query.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;The object to call back (e.g. a function) with the
+result of the command execution.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="fetchURL"></a><p class="function_definition">
+<span class="function_definition">def fetchURL( <i>url, callback, headers, timeout, method</i> ):</span>
+</p>
+
+<div class="function_description">Keyword arguments are supported for this function.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>url</i></span></td><td><span class="function_parameter_description">&nbsp;The URL to retrieve.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;The callable object that receives the response object. The
+	response object has <i>body</i> and <i>responseCode</i> properties.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>headers</i></span></td><td><span class="function_parameter_description">&nbsp;An optional sequence of strings to be added to the request's
+		HTTP headers.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>timeout</i></span></td><td><span class="function_parameter_description">&nbsp;Option argument for the number of seconds before this call
+		should time out.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>method</i></span></td><td><span class="function_parameter_description">&nbsp;"GET" or "PUT" to indicate the HTTP method.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="findChunkFromPoint"></a><p class="function_definition">
+<span class="function_definition">def findChunkFromPoint( <i>point, spaceID</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>point</i></span></td><td><span class="function_parameter_description">&nbsp;point is a <a href="Vector3.html">Vector3</a> describing the location to search for a
+chunk, in world space.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;spaceID is the id of the space to search in.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The name of the chunk found, as a string.
+</td></tr>
+</table>
+</p>
+
+<a name="findRandomNeighbourPoint"></a><p class="function_definition">
+<span class="function_definition">def findRandomNeighbourPoint( <i>spaceID, position, radius, girth</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;(int) The ID of the space in which to operate.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>) The position of the point
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>radius</i></span></td><td><span class="function_parameter_description">&nbsp;(float) The radius to search, in metres.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float)  Which navigation girth to use (optional
+				and defaults to 0.5).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(<a href="Vector3.html">Vector3</a>) The random point found.
+</td></tr>
+</table>
+</p>
+
+<a name="findRandomNeighbourPoint"></a><p class="function_definition">
+<span class="function_definition">def findRandomNeighbourPoint( <i>position, radius, girth</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>)			The position of the point
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>radius</i></span></td><td><span class="function_parameter_description">&nbsp;(float) 			The radius to search
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) 	Which navigation girth to use
+									(optional and default to 0.5)
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(<a href="Vector3.html">Vector3</a>)			The random point found
+</td></tr>
+</table>
+</p>
+
+<a name="findRandomNeighbourPointWithRange"></a><p class="function_definition">
+<span class="function_definition">def findRandomNeighbourPointWithRange( <i>spaceID, position, minRadius, maxRadius, girth</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;(int) The ID of the space in which to operate.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>) The position of the point to find a random
+					point around.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>minRadius</i></span></td><td><span class="function_parameter_description">&nbsp;(float) The minimum radius to search.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxRadius</i></span></td><td><span class="function_parameter_description">&nbsp;(float) The maximum radius to search.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Which navigation girth to use
+					(defaults to 0.5).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(<a href="Vector3.html">Vector3</a>) The random point found.
+</td></tr>
+</table>
+</p>
+
+<a name="findRandomNeighbourPointWithRange"></a><p class="function_definition">
+<span class="function_definition">def findRandomNeighbourPointWithRange( <i>position, minRadius, maxRadius, girth</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>)			The position of the point
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>minRadius</i></span></td><td><span class="function_parameter_description">&nbsp;(float) 			The minimum radius to search
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxRadius</i></span></td><td><span class="function_parameter_description">&nbsp;(float) 			The maximum radius to search
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) 	Which navigation girth to use
+											(optional and default to 0.5)
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(<a href="Vector3.html">Vector3</a>)			The random point found
+</td></tr>
+</table>
+</p>
+
+<a name="getLoad"></a><p class="function_definition">
+<span class="function_definition">def getLoad( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method returns the current CellApp load.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The current CellApp load as a float.
+</td></tr>
+</table>
+</p>
+
+<a name="getMaterialKinds"></a><p class="function_definition">
+<span class="function_definition">def getMaterialKinds( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method returns a list of id and section tuples of the
+material kind list, in the order in which they appear in the XML file
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The list of (id, <a href="DataSection.html">DataSection</a>) tuples of material kinds
+</td></tr>
+</table>
+</p>
+
+<a name="getSpaceData"></a><p class="function_definition">
+<span class="function_definition">def getSpaceData( <i>spaceID, entryID, key</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;the space in which to operate
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>entryID</i></span></td><td><span class="function_parameter_description">&nbsp;the entry to get data for
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;the key of the entry. Pass -1 if the key is not known, to
+perform a slower query.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a tuple of (key, value) for the entry if found
+</td></tr>
+</table>
+</p>
+
+<a name="getSpaceDataFirstForKey"></a><p class="function_definition">
+<span class="function_definition">def getSpaceDataFirstForKey( <i>spaceID, key</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;the space in which to operate
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;the key to get data for
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the value of the first entry for the key
+</td></tr>
+</table>
+</p>
+
+<a name="getSpaceDataForKey"></a><p class="function_definition">
+<span class="function_definition">def getSpaceDataForKey( <i>spaceID, key</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;the space in which to operate
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;the key to get data for
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a tuple of (entryID, value) for each entry under the given key
+</td></tr>
+</table>
+</p>
+
+<a name="getSpaceGeometryMappings"></a><p class="function_definition">
+<span class="function_definition">def getSpaceGeometryMappings( <i>spaceID</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a list of the client-server geometry mappings of the
+space with the given space ID. Each list element consists of a tuple of the
+mapping, its transform matrix and a boolean indicating whether it is client
+only.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the space to query.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="getWatcher"></a><p class="function_definition">
+<span class="function_definition">def getWatcher( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+retrieval of watcher variables.
+<br><br>
+The watcher debugging system allows various variables to be displayed and
+updated from within the runtime.
+<br><br>
+Watchers are specified in the C-code using the MF_WATCH macro.  This takes
+three arguments, the first is a string specifying the path (parent groups
+followed by the item name, separated by forward slashes),
+the second is the expression to watch.  The third argument specifies such
+things as whether it is read only or not, and has a default of read-write.
+<br><br>
+The getWatcher function in Python allows the getting of a particular value.
+For example:
+<br><br>
+
+<pre>>>>	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#getWatcher>getWatcher</a>( "Client Settings/Terrain/draw" )
+1
+</pre>
+<br><br>
+Raises a TypeError if the watcher was not found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the value of that watcher variable.
+</td></tr>
+</table>
+</p>
+
+<a name="getWatcherDir"></a><p class="function_definition">
+<span class="function_definition">def getWatcherDir( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+inspection of a directory watcher.
+<br><br>
+Raises a TypeError if not found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a list containing an entry for each child watcher. Each
+				entry is a tuple of child type, label and value. The child
+				type is 1 for read-only, 2 for read-write and 3 for a
+				directory.
+</td></tr>
+</table>
+</p>
+
+<a name="hasStarted"></a><p class="function_definition">
+<span class="function_definition">def hasStarted( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="isNextTickPending"></a><p class="function_definition">
+<span class="function_definition">def isNextTickPending( <i></i> ):</span>
+</p>
+
+<div class="function_description">This can be controlled by the cellApp/reservedTickFraction setting in bw.xml.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>isNextTickPending returns True if the next tick is pending, False
+otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isShuttingDown"></a><p class="function_definition">
+<span class="function_definition">def isShuttingDown( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="load"></a><p class="function_definition">
+<span class="function_definition">def load( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the current load of this CellApp. This can be useful
+for deciding to disallow some script actions when the server is overloaded.
+</div>
+
+<a name="maxCellAppLoad"></a><p class="function_definition">
+<span class="function_definition">def maxCellAppLoad( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the maximum current load of any CellApp. This can be
+useful for deciding to disallow some script actions when the server is
+overloaded.
+</div>
+
+<a name="navigatePathPoints"></a><p class="function_definition">
+<span class="function_definition">def navigatePathPoints( <i>spaceID, src, dst, maxSearchDistance, girth</i> ):</span>
+</p>
+
+<div class="function_description">Return a path of points between the given source and destination points in
+the space of the given space ID. The space must be loaded on this CellApp.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;(int)		The space ID.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>src</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>)		The source point in the space.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dst</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>)		The destination point in the space.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSearchDistance</i></span></td><td><span class="function_parameter_description">&nbsp;(float)
+							The maximum search distance, defaults to
+							maxAoIRadius.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(float) 		The navigation girth grid to use, defaults to
+							0.5m.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(list) 	A list of <a href="Vector3.html">Vector3</a> points between the source point to the
+				destination point.
+</td></tr>
+</table>
+</p>
+
+<a name="navigatePathPoints"></a><p class="function_definition">
+<span class="function_definition">def navigatePathPoints( <i>src, dst, maxSearchDistance, girth</i> ):</span>
+</p>
+
+<div class="function_description">Return a path of points between the given source and destination points in
+the camera space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>src</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>)		The source point in the space.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dst</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>)		The destination point in the space.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSearchDistance</i></span></td><td><span class="function_parameter_description">&nbsp;(float)
+							The maximum search distance, defaults to 500m.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(float) 		The navigation girth grid to use, defaults to
+							0.5m.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(list) 	A list of <a href="Vector3.html">Vector3</a> points between the source point to the
+				destination point.
+</td></tr>
+</table>
+</p>
+
+<a name="registerFileDescriptor"></a><p class="function_definition">
+<span class="function_definition">def registerFileDescriptor( <i>fileDescriptor, callback</i> ):</span>
+</p>
+
+<div class="function_description">This function registers a callback that will be called whenever there is
+data for reading on the input file descriptor.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fileDescriptor</i></span></td><td><span class="function_parameter_description">&nbsp;An object that has a fileno method such as a socket
+or file, or an integer representing a file descriptor.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;A callable object that expects the fileDescriptor object as
+	its only argument.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="registerWriteFileDescriptor"></a><p class="function_definition">
+<span class="function_definition">def registerWriteFileDescriptor( <i>fileDescriptor, callback</i> ):</span>
+</p>
+
+<div class="function_description">This function registers a callback that will be called when the input file
+descriptor is available for writing.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fileDescriptor</i></span></td><td><span class="function_parameter_description">&nbsp;An object that has a fileno method such as a socket
+or file, or an integer representing a file descriptor.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;A callable object that expects the fileDescriptor object as
+	its only argument.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="reloadScript"></a><p class="function_definition">
+<span class="function_definition">def reloadScript( <i>fullReload</i> ):</span>
+</p>
+
+<div class="function_description">This method reloads Python modules related to entities and custom
+data types. The class of current entities are set to the newly loaded
+classes. This method should be used for development only and is not
+suitable for production use. The following points should be noted:
+<br><br>
+1) Scripts are only reloaded on the component cellapp that
+this method is called on. The user is responsible for making sure that
+reloadScript is called on all server components.
+<br><br>
+2) The client doesn't have equivalent functionality in Python. Each
+<a href="BigWorld.html">BigWorld</a> client needs to use CapsLock + F11 in order to reload the scripts.
+<br><br>
+3) Doesn't handle custom data types transparently. Instances of custom
+data types must have their __class__ reassigned to the proper class type
+after reloadScript() completes. For example, if we have a custom data type
+named "CustomClass":
+<br><br>
+
+<pre>for e in <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#entities>entities</a>.values():
+   if type( e ) is Avatar.Avatar:
+      e.customData.__class__ = CustomClass
+</pre>
+<a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onInit>onInit</a>( True ) is called when this method completes (where
+<a href="BWPersonality.html">BWPersonality</a> is the name of the personality module specified in
+&lt;root&gt;/&lt;personality&gt; in bw.xml).
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fullReload</i></span></td><td><span class="function_parameter_description">&nbsp;Optional boolean parameter that specifies whether to
+reload entity definitions as well. If this parameter is False, then
+entities definitions are not reloaded. Default is True.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if reload successful, False otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="removeEventListener"></a><p class="function_definition">
+<span class="function_definition">def removeEventListener( <i>eventName, callback</i> ):</span>
+</p>
+
+<div class="function_description">The function removeEventListener removes an event listener associated with
+an event previously added using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addEventListener>addEventListener</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>eventName</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the event that was listened for.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;The callable object that should be removed.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setBaseAppData"></a><p class="function_definition">
+<span class="function_definition">def setBaseAppData( <i>key, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets a data value that is accessible from all BaseApps. This
+can be accessed on BaseApps via <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#baseAppData>baseAppData</a>.
+<br><br>
+The BaseAppMgr is the authoritative copy of this data. If two or more
+components try to set the same value, the last one to reach the BaseAppMgr
+will be the one that is kept.
+<br><br>
+Note: Care should be taken using this functionality. It does not scale well
+and should be used sparingly.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;The key of the value to be set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The new value.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setSpaceData"></a><p class="function_definition">
+<span class="function_definition">def setSpaceData( <i>spaceID, key, value</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;the space in which to add the data
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;the key under which to add the space data (between 256 and
+32767). Keys between 256 and 16383 are sent to the client. Keys between
+16384 and 32767 are not sent to the client; they are only available to the
+CellApps. Keys 0 to 255 are reserved for internal use.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;the string data to add for this key
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the new space data entry id for the added data
+</td></tr>
+</table>
+</p>
+
+<a name="setSpaceTimeOfDay"></a><p class="function_definition">
+<span class="function_definition">def setSpaceTimeOfDay( <i>spaceID, initialTimeOfDay, gameSecondsPerSecond</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;the space in which to operate
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>initialTimeOfDay</i></span></td><td><span class="function_parameter_description">&nbsp;the time of day at <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#time>time</a>() 0
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>gameSecondsPerSecond</i></span></td><td><span class="function_parameter_description">&nbsp;the game seconds that pass for each real second
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the new space data entry id for the added data
+</td></tr>
+</table>
+</p>
+
+<a name="setWatcher"></a><p class="function_definition">
+<span class="function_definition">def setWatcher( <i>path, val</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+setting of watcher variables.
+<br><br>
+The watcher debugging system allows various variables to be displayed and
+updated from within the runtime.
+<br><br>
+Watchers are specified in the C-code using the MF_WATCH macro.  This takes
+three arguments, the first is a string specifying the path (parent groups
+followed by the item name, separated by forward slashes), the second is the
+expression to watch.  The third argument specifies such things as whether
+it is read only or not, and has a default of read-write.
+<br><br>
+The setWatcher function in Python allows the setting of a particular
+read-write value.
+For example:
+<br><br>
+
+<pre>>>>	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#setWatcher>setWatcher</a>( "Client Settings/Terrain/draw", 0 )
+</pre>
+<br><br>
+Raises a TypeError if the watcher failed to be set.
+Raises a TypeError if args cannot be converted into a string.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the new value for the item.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="time"></a><p class="function_definition">
+<span class="function_definition">def time( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method returns the current game time in seconds as a floating
+point number.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The current game time in seconds as a double.
+</td></tr>
+</table>
+</p>
+
+<a name="timeInTicks"></a><p class="function_definition">
+<span class="function_definition">def timeInTicks( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method returns the current game time in ticks.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The current game time in ticks.
+</td></tr>
+</table>
+</p>
+
+<a name="timeOfDay"></a><p class="function_definition">
+<span class="function_definition">def timeOfDay( <i>spaceID</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;the space to get the time of day for
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the time of day in seconds since midnight, or -1 if unset
+</td></tr>
+</table>
+</p>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="INVALID_POSITION"></a><p class="attribute_definition">
+<span class="attribute_definition">INVALID_POSITION</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<a name="NEXT_ONLY"></a><p class="attribute_definition">
+<span class="attribute_definition">NEXT_ONLY</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<a name="VOLATILE_ALWAYS"></a><p class="attribute_definition">
+<span class="attribute_definition">VOLATILE_ALWAYS</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<a name="VOLATILE_NEVER"></a><p class="attribute_definition">
+<span class="attribute_definition">VOLATILE_NEVER</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<a name="cellAppData"></a><p class="attribute_definition">
+<span class="attribute_definition">cellAppData</span>
+</p>
+
+<div class="attribute_description">For example:
+
+<pre><a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#cellAppData>cellAppData</a>[ "hello" ] = "there"
+</pre>
+<br><br>
+Another CellApp can access this as follows:
+
+<pre>print <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#cellAppData>cellAppData</a>[ "hello" ]
+</pre>
+<br><br>
+The key and value can be any type that can be pickled and unpickled on all
+destination components.
+<br><br>
+When a value is changed or deleted, a callback function is called on all
+components.
+See: <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onCellAppData>onCellAppData</a> and <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onDelCellAppData>onDelCellAppData</a>.
+<br><br>
+NOTE: Only top-level values are propagated, if you have a value that is
+mutable (for example, a list) and it changed internally (for example,
+changing just one member), this information is NOT propagated.
+<br><br>
+Do NOT do the following:
+
+<pre><a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#cellAppData>cellAppData</a>[ "list" ] = [1, 2, 3]
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#cellAppData>cellAppData</a>[ "list" ][1] = 7
+</pre>
+Locally, this would look like [1, 7, 3] and remotely [1, 2, 3].
+</div>
+
+<a name="component"></a><p class="attribute_definition">
+<span class="attribute_definition">component</span>
+</p>
+
+<div class="attribute_description">This is the component that is executing the present python environment.
+Possible values are (so far) 'cell', 'base', 'client', 'database', 'bot'
+and 'editor'.
+</div>
+
+<a name="entities"></a><p class="attribute_definition">
+<span class="attribute_definition">entities</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="PyEntities.html">PyEntities</a>
+</td></tr>
+</table>
+</p>
+
+<a name="globalData"></a><p class="attribute_definition">
+<span class="attribute_definition">globalData</span>
+</p>
+
+<div class="attribute_description">For example:
+
+<pre><a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>[ "hello" ] = "there"
+</pre>
+<br><br>
+Another CellApp or BaseApp can access this as follows:
+
+<pre>print <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>[ "hello" ]
+</pre>
+<br><br>
+The key and value can be any type that can be pickled and unpickled on all
+destination components.
+<br><br>
+When a value is changed or deleted, a callback function is called on all
+components.
+See: <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onGlobalData>onGlobalData</a> and <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onDelGlobalData>onDelGlobalData</a>.
+<br><br>
+NOTE: Only top-level values are propagated, if you have a value that is
+mutable (for example, a list) and it changed internally (for example,
+changing just one member), this information is NOT propagated.
+<br><br>
+Do NOT do the following:
+
+<pre><a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>[ "list" ] = [1, 2, 3]
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>[ "list" ][1] = 7
+</pre>
+Locally, this would look like [1, 7, 3] and remotely [1, 2, 3].
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

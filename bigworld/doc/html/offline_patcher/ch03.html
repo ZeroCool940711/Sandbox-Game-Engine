@@ -1,0 +1,1137 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;3.&nbsp;Application Programmers Interface</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Offline Patching">
+      <link rel="up" href="index.html" title="Offline Patching">
+      <link rel="prev" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Operation">
+      <link rel="next" href="ch04.html" title="Chapter&nbsp;4.&nbsp;Offline Patcher Terminology">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/offline_patcher/ch03.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;3.&nbsp;Application Programmers Interface</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;3.&nbsp;Application Programmers Interface">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="d0e948"></a>Chapter&nbsp;3.&nbsp;Application Programmers Interface
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch03.html#xref_The_patcherlib_Package">3.1. The <span class="literal">patcherlib</span> package</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch03.html#d0e964">3.1.1. The <span class="literal">patch_file_builder</span> module</a></span></dt>
+                        <dt><span class="section"><a href="ch03.html#xref_patch_apply_Module">3.1.2. The <span class="literal">patch_apply</span> module</a></span></dt>
+                        <dt><span class="section"><a href="ch03.html#d0e1269">3.1.3. The <span class="literal">bsdiff</span> module</a></span></dt>
+                        <dt><span class="section"><a href="ch03.html#d0e1463">3.1.4. Other modules</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch03.html#xref_The_versionslib_Package">3.2. The <span class="literal">versionslib</span> package</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch03.html#xref_The_Versions_Module">3.2.1. The <span class="literal">versions</span> module</a></span></dt>
+                        <dt><span class="section"><a href="ch03.html#xref_The_State_Module">3.2.2. The <span class="literal">state</span> module</a></span></dt>
+                        <dt><span class="section"><a href="ch03.html#xref_The_transfer_Module">3.2.3. The <span class="literal">transfer</span> module</a></span></dt>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+            <p>This chapter describes the API that the offline patcher tool is
+                 constructed from. This part is of interest to developers wishing to automate
+                 some part of the patch packaging process, write extensions to the offline
+                 patcher, or write their own patching client.
+            </p>
+            <div class="section" title="3.1.&nbsp;The patcherlib package">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_The_patcherlib_Package"></a>3.1.&nbsp;The <span class="literal">patcherlib</span> package
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>This section describes the <span class="literal">patcherlib</span> package,
+                      which contains functionality to compute differences between two directory
+                      trees, generate patch file archives for those changes, and apply patch
+                      file archives to directory trees.
+               </p>
+               <div class="section" title="3.1.1.&nbsp;The patch_file_builder module">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e964"></a>3.1.1.&nbsp;The <span class="literal">patch_file_builder</span> module
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>This section pertains to the
+                           <span class="literal">patcherlib.patch_file_builder module</span>, which is used
+                           by MakePatch to generate patch files. Developers wishing to integrate
+                           automated release tools can reuse functionality in this module to
+                           generate patch files readable by the
+                           <span class="package">patcherlib.apply_patch</span> library module and the
+                           ApplyPatch command line program (for details on ApplyPatch, see <a class="xref" href="ch02.html#xref_ApplyPatch" title="2.2.&nbsp;ApplyPatch">ApplyPatch</a>).
+                  </p>
+                  <p>This module implements the <span class="literal">PatchFileBuilder</span>
+                           class, which is used to build a patch file archive containing changes
+                           between two directory hierarchies. It has the following methods:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">PatchFileBuilder( sourcePath,
+                                              destPath, outFilePath, sourceVersion, useChecksumsIfUnmod=False,
+                                              ignorePatterns=DEFAULT_IGNORE_PATTERNS )</span></em></p>
+                           <p>The arguments of <span class="literal">PatchFileBuilder</span>'s
+                                        constructor are described below:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><span class="literal">sourcePath</span></p>
+                                    <p>One of the directory trees (the other is specified by
+                                                     <span class="literal">destPath</span>) to take changes between for storing
+                                                     in the patch archive that will be written out to
+                                                     <span class="literal">outFilePath</span>.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">destPath</span></p>
+                                    <p>See <span class="literal">sourcePath</span>.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">outFilePath</span></p>
+                                    <p>Patch archive to which the changes will be written.</p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">sourceVersion</span></p>
+                                    <p>The source version name label under which these sets of
+                                                     changes will be added to the patch file archive.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">useChecksumsIfUnmod=False</span></p>
+                                    <p>Determines whether files that are not modified will also
+                                                     have their checksums computed and stored in the manifest file
+                                                     for checking against when the patch file is applied.
+                                    </p>
+                                    <p>By default this is <span class="literal">False</span>, which means
+                                                     that only checksums for files that have been modified will have
+                                                     their checksums computed and checked.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">ignorePatterns=DEFAULT_IGNORE_PATTERNS</span></p>
+                                    <p>A list of patterns for which files which have a
+                                                     successfully matching relative path will be ignored. This
+                                                     defaults to <span class="literal">DEFAULT_IGNORE_PATTERNS</span> which is
+                                                     defined in
+                                                     <code class="filename">offline_patcher/patcherlib/treediff.py</code>.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">run()</span></em></p>
+                           <p>Creates the patch file archive.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="3.1.2.&nbsp;The patch_apply module">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_patch_apply_Module"></a>3.1.2.&nbsp;The <span class="literal">patch_apply</span> module
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The functions defined in the
+                           <span class="literal">patcherlib.patch_apply</span> module are used in the
+                           ApplyPatch script to apply a patch against a directory hierarchy, and
+                           are described below.
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">PatchApply</span>
+                                           class</em></p>
+                           <p>This class implements the patching process, and has the
+                                        following methods:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">PatchApply( sourceVersion,
+                                                           sourcePath, patchFilePath,
+                                                           callback=PatchApplyCallbackInterface()
+                                                           )</span></em></p>
+                                    <p>The arguments are described below:</p>
+                                    <div class="itemizedlist">
+                                       <ul class="itemizedlist" type="square">
+                                          <li class="listitem">
+                                             <p><span class="literal">sourceVersion</span></p>
+                                             <p>Name of the version.</p>
+                                          </li>
+                                          <li class="listitem">
+                                             <p><span class="literal">sourcePath</span></p>
+                                             <p>Directory against which the patch will be
+                                                                  applied.
+                                             </p>
+                                          </li>
+                                          <li class="listitem">
+                                             <p><span class="literal">patchFilePath</span></p>
+                                             <p>The patch archive file.</p>
+                                          </li>
+                                          <li class="listitem">
+                                             <p><span class="literal">callback=PatchApplyCallbackInterface()</span></p>
+                                             <p>Object that implements the
+                                                                  <span class="literal">PatchApplyCallbackInterface</span>, and that
+                                                                  will be called back with the progress of the patching
+                                                                  process.
+                                             </p>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">run()</span></em></p>
+                                    <p>Applies the patch.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">PatchApplyCallbackInterface</span>
+                                           interface</em></p>
+                           <p>The patching process implemented by the
+                                        <span class="literal">PatchApply</span> class can be monitored for progress by
+                                        means of a callback interface that calls back on certain events,
+                                        which are described below. This is useful for updating GUIs on what
+                                        exactly is being patched, and the progress of the overall patching
+                                        effort.
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onStart( numOperations
+                                                           )</span></em></p>
+                                    <p>Called when the patching process has started, it receives
+                                                     as argument the number of operations taken from the patch
+                                                     archive file. This gives the number of additions, modifications
+                                                     and deletion operations in this patch
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onDirAddStart( path
+                                                           )</span></em></p>
+                                    <p>Called when the patching process has to add a directory -
+                                                     it calls <span class="literal">onDirAddStart</span> before executing the
+                                                     addition, then <span class="literal">onDirAddFinish</span> when it has
+                                                     finished.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onDirAddFinish( path
+                                                           )</span></em></p>
+                                    <p>See <em class="emphasis"><span class="literal">onDirAddStart( path
+                                                           )</span></em>.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onDirDelStart( path
+                                                           )</span></em></p>
+                                    <p>Called when the patching process has to delete a directory
+                                                     - it calls <span class="literal">onDirDelStart</span> before executing the
+                                                     addition, then <span class="literal">onDirDelFinish</span> when it has
+                                                     finished.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onDirDelFinish( path
+                                                           )</span></em></p>
+                                    <p>See <em class="emphasis"><span class="literal">onDirDelStart( path
+                                                           )</span></em>.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onFileAddStart( path
+                                                           )</span></em></p>
+                                    <p>Called when the patching process has to add a file - it
+                                                     calls <span class="literal">onFileAddStart</span> before executing the
+                                                     addition, then <span class="literal">onFileAddFinish</span> when it has
+                                                     finished.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onFileAddFinish( path
+                                                           )</span></em></p>
+                                    <p>See <em class="emphasis"><span class="literal">onFileAddStart( path
+                                                           )</span></em>.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onFileDelStart( path
+                                                           )</span></em></p>
+                                    <p>Called when the patching process has to delete a file - it
+                                                     calls <span class="literal">onFileDelStart</span> before executing the
+                                                     addition, then <span class="literal">onFileDelFinish</span> when it has
+                                                     finished.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onFileDelFinish( path
+                                                           )</span></em></p>
+                                    <p>See <em class="emphasis"><span class="literal">onFileDelStart( path
+                                                           )</span></em>.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onFileModStart( path
+                                                           )</span></em></p>
+                                    <p>Called when the patching process has to patch an
+                                                     individual file - it calls <span class="literal">onFileModStart</span>
+                                                     before executing the patch, then
+                                                     <span class="literal">onFileModFinish</span> when it has finished.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onFileModFinish( path
+                                                           )</span></em></p>
+                                    <p>See <em class="emphasis"><span class="literal">onFileModStart( path
+                                                           )</span></em>.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">onFinish()</span></em></p>
+                                    <p>Called when the patching process has finished.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="3.1.3.&nbsp;The bsdiff module">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e1269"></a>3.1.3.&nbsp;The <span class="literal">bsdiff</span> module
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>This section describes the functions defined in the
+                           <span class="literal">patcherlib.bsdiff</span> module, which provides the
+                           functionality to compute binary differences between two individual
+                           files.
+                  </p>
+                  <p>This module is implemented as a Python extension module, written
+                           in C++, and is derived from Colin Percival's <span class="literal">bsdiff</span>
+                           utility (for details, see <a class="xref" href="apa.html#xref_bsdiff_Binary_diff_path_Utility" title="A.1.&nbsp;bsdiff - Binary diff/patch utility"><span class="literal">bsdiff</span> - Binary diff/patch utility</a>). The actual library is
+                           loaded from an architecture-specific package directory under the
+                           <code class="filename">bigworld/tools/misc/offline_patcher/patcherlib/bin</code>
+                           directory containing a version of <span class="literal">_bsdiff.so</span> under
+                           Linux, and <span class="literal">_bsdiff.pyd</span> under Windows. The module has
+                           been compiled against Python 2.5 - the source is provided so that it can
+                           be compiled against another version of Python.
+                  </p>
+                  <div class="section" title="3.1.3.1.&nbsp;Compiling the bsdiff extension module">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="xref_Compiling_The_bsdiff_Extension_Module"></a>3.1.3.1.&nbsp;Compiling the <span class="literal">bsdiff</span> extension
+                                         module
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The source to the <span class="literal">bsdiff</span> extension module can
+                                be found in <span class="literal">src/tools/offline_patcher/bsdiff</span>. To
+                                compile, follow the instructions below:
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><em class="emphasis">Under Linux</em></p>
+                              <p>Under Linux, the Python development package needs to be
+                                             installed to recompile <span class="literal">bsdiff</span> - under Fedora
+                                             and CentOS, this is called <span class="literal">python-devel</span>, and in
+                                             Debian, this is called <span class="literal">python-dev</span>.
+                              </p>
+                              <p>Compile the module using the following
+                                             commands:
+                              </p><pre class="programlisting">$ make clean all</pre><p>This will build the Python extension module into an
+                                             architecture-specific directory in
+                                             <code class="filename">bigworld/tools/misc/offline_patcher/patcherlib/bin</code>.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><em class="emphasis">Under Windows</em></p>
+                              <p>The Visual Studio solution file
+                                             <span class="literal">bsdiff_2005.sln</span> has been tested for use with
+                                             Visual Studio 2005. Developers should ensure that they have a copy
+                                             of the Python sources, and that they link against the compiled
+                                             library file (<em class="emphasis">e.g.</em>,
+                                             <span class="literal">python25.lib</span>), which needs to be built from the
+                                             sources (usually using the <span class="literal">pythoncore</span> project).
+                                             Please refer to the Python documentation for how to build under VS
+                                             2005.
+                              </p>
+                              <p>Developers need to set the environment variable
+                                             <span class="literal">PYTHONHOME</span> to point to the Python source
+                                             distribution that they wish to link against, or edit the relevant
+                                             properties where the variable <code class="varname">$(PYTHONHOME)</code> is
+                                             used to point to the built Python distribution.
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="section" title="3.1.3.2.&nbsp;The bsdiff module interface">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e1361"></a>3.1.3.2.&nbsp;The <span class="literal">bsdiff</span> module interface
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The <span class="literal">bsdiff</span> module uses the
+                                <span class="literal">bslib</span> C++ library to do its work. The
+                                <span class="literal">bslib</span> sources are located in
+                                <span class="literal">src/tools/offline_patcher/bsdiff</span>, and implemented
+                                in the files <span class="literal">bslib.hpp</span> and
+                                <span class="literal">bslib.cpp</span>. Those functions are exposed to Python by
+                                the following Python methods:
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><em class="emphasis"><span class="literal">haveDiffs( path1, path2,
+                                                   bufSize = 4096 )</span></em></p>
+                              <p>Returns <span class="literal">True</span> if files at
+                                             <em class="emphasis">path1</em> and <em class="emphasis">path2</em> have
+                                             differences, and <span class="literal">False</span> otherwise. The
+                                             <span class="literal">bufSize</span> parameter specifies how much data to
+                                             read and compare at a time. It raises <span class="literal">IOError</span>
+                                             if either of the files at those paths cannot be read, or
+                                             <span class="literal">TypeError</span> if the files at those paths are not
+                                             regular files.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><em class="emphasis"><span class="literal">diffFilesToFile( srcPath,
+                                                   dstPath, patchPath )</span></em></p>
+                              <p>Computes the binary differences between the files at
+                                             <span class="literal">srcPath</span> and <span class="literal">dstPath</span>, and
+                                             writes them to a file at <span class="literal">patchPath</span> in a format
+                                             recognised by <span class="literal">patchFromFile</span>, as well as the
+                                             original <span class="literal">bspatch</span> command line utility.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><em class="emphasis"><span class="literal">patchFilesFromFile( srcPath,
+                                                   dstPath, patchPath )</span></em></p>
+                              <p>Patches a file created from the
+                                             <span class="literal">diffToFile</span> function at
+                                             <span class="literal">srcPath</span> from a patch file at
+                                             <span class="literal">patchPath</span> (created by
+                                             <span class="literal">diffFilesToFile</span>), and writes it to
+                                             <span class="literal">dstPath</span> (which can be the same as
+                                             <span class="literal">srcPath</span> to overwrite the original source
+                                             file).
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="3.1.4.&nbsp;Other modules">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e1463"></a>3.1.4.&nbsp;Other modules
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>A brief description of the other utility modules in
+                           <span class="literal">patcherlib</span> are given here.
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal">command_line</span>: Used for implementing the
+                                          commands used by the top level MakePatch and ApplyPatch command
+                                          line tools.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">manifest</span>: Used for parsing and creating
+                                          patch manifests.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">md5_interface</span>: Module abstracting
+                                          different MD5 libraries across different versions of
+                                          Python.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">temp_dir_list</span>: A module for creating
+                                          temporary directories and deleting them when no longer
+                                          needed.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">treediff</span>: A module for traversing two
+                                          directory trees and determining the differences.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">utils</span>: A general utility module.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="3.2.&nbsp;The versionslib package">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_The_versionslib_Package"></a>3.2.&nbsp;The <span class="literal">versionslib</span> package
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>This package is used to query a remote server and download patches
+                      to be applied against a local distribution using the
+                      <span class="package">patcherlib</span> package.
+               </p>
+               <p>It is composed of the following modules:</p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p><span class="literal">versions</span></p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal">state</span></p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal">transfer</span></p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal">simple_config</span></p>
+                     </li>
+                  </ul>
+               </div>
+               <p>The <span class="literal">version</span>, <span class="literal">state</span>, and
+                      <span class="literal">transfer</span> modules contain the main classes dealing with
+                      how to check against a remote server and download patches, and are
+                      described in the following sections.
+               </p>
+               <p>The <span class="literal">simple_config</span> module contains a simple
+                      configuration file parser, which CheckVersion uses to read a configuration
+                      containing a URL to the versions file.
+               </p>
+               <div class="section" title="3.2.1.&nbsp;The versions module">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_The_Versions_Module"></a>3.2.1.&nbsp;The <span class="literal">versions</span> module
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The interfaces and classes implemented by this module are
+                           described below:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">VersionsInterface</span>
+                                           interface</em></p>
+                           <p>The Python <span class="literal">Versions</span> interface is used by
+                                        <span class="literal">CheckVersion</span> to extract the patching instructions
+                                        contained within a versions file. It is defined in the
+                                        <span class="literal">versionslib.versions</span> module. For alternate
+                                        implementations of a versions file, developers can implement this
+                                        interface and pass it to <span class="literal">CheckVersion</span> in the same
+                                        way that it currently passes the <span class="literal">VersionsXML</span>
+                                        class instances around.
+                           </p>
+                           <p><span class="literal">VersionInterface</span> implements the following
+                                        methods:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">getUpgradePath( versionName
+                                                           )</span></em></p>
+                                    <p>Returns the version upgrade path for a named version in
+                                                     the form of an <span class="literal">UpgradePath</span> object, or
+                                                     <span class="literal">None</span> if no such path exists.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">getCurrentVersion()</span></em></p>
+                                    <p>Returns the remote current version name.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">VersionsXML</span>
+                                           class</em></p>
+                           <p>This is the default implementation of
+                                        <span class="literal">VersionsInterface</span> - it uses XML as the format,
+                                        and is also defined in the <span class="literal">versionslib.versions</span>
+                                        module, and implements the following methods:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">VersionsXML(
+                                                           versionsDocument )</span></em></p>
+                                    <p>Constructs a <span class="literal">VersionsXML</span> instance. The
+                                                     <span class="literal">versionsDocument</span> parameter is an XML DOM
+                                                     object of the versions file.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>An example on how to use the <span class="literal">VersionXML</span>
+                                        class is displayed below:
+                           </p><pre class="programlisting">from versionslib import versions
+from xml.dom import minidom
+import urllib
+
+conn = urllib.urlopen( "http://example.com/versions.xml" )
+versionsContent = conn.read()
+conn.close()
+
+versionsDoc = minidom.parseString( versionsContent )
+versions = versions.VersionsXML( versionsDoc )
+
+if localVersion != versions.getCurrentVersion():
+  upgradePath = versions.getUpgradePath( localVersion )</pre><p><span class="citetitle">Using the <span class="literal">VersionsXML</span>
+                                           class</span></p>
+                        </li>
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">UpgradePath</span>
+                                           class</em></p>
+                           <p>This class is defined in the
+                                        <span class="literal">versionslib.versions</span> module - it is an upgrade
+                                        path for a particular older release version, and holds target
+                                        patches (in the form of <span class="literal">Target</span> objects required
+                                        to patch to the new release version. For details, see
+                                        <code class="classname">Target</code> class defined below.
+                           </p>
+                           <p>This class has the following attributes:</p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">name</span></em></p>
+                                    <p>The name of the upgrade path's source version.</p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">targets</span></em></p>
+                                    <p>A Python list of <span class="literal">Target</span>
+                                                     instances.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>This class has the following methods:</p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">getProperties()</span></em></p>
+                                    <p>Return the accumulated properties from the root-level to
+                                                       the upgrade-path level.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">setUpgradePathProperties()</span></em></p>
+                                    <p>This methods is called as part of the parsing process,
+                                                       and is not intended to be used by applications.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">Target</span>
+                                           class</em></p>
+                           <p>A <span class="literal">Target</span> object specifies a method of
+                                        transferring the patch file using a transfer handler, and which
+                                        target path to apply the patch against.
+                           </p>
+                           <p>This class has the following attributes:</p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">name</span></em></p>
+                                    <p>The name of the target.</p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">path</span></em></p>
+                                    <p>The path to the target to patch.</p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">sourceVersion</span></em></p>
+                                    <p>The source version name of the target (what its current
+                                                     version should be).
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">destVersion</span></em></p>
+                                    <p>The destination version name of the target (what its new
+                                                     version will be after successful patching).
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">transferType</span></em></p>
+                                    <p>The transfer type string, which specifies what transfer
+                                                     handler to use. For details, see <a class="xref" href="ch03.html#xref_The_transfer_Module" title="3.2.3.&nbsp;The transfer module">The <span class="literal">transfer</span> module</a>.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">patchName</span></em></p>
+                                    <p>The file name of the patch archive file.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>Additionally, it has the following method:</p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">getProperties()</span></em></p>
+                                    <p>Return a Python dictionary containing the accumulated
+                                                     root-level, upgrade path-level to partch-level
+                                                     properties.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="3.2.2.&nbsp;The state module">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_The_State_Module"></a>3.2.2.&nbsp;The <span class="literal">state</span> module
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>This module contains definitions for
+                           <span class="literal">StateInterface</span> and the default implementing interface
+                           <span class="literal">StateXML</span>, both of which are used to read the local
+                           game version state.
+                  </p>
+                  <p>The interfaces and classes implemented by this module are
+                           described below:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">StateInterface</span>
+                                           interface</em></p>
+                           <p>Objects implementing this interface must support the following
+                                        methods:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">getCurrentVersion()</span></em></p>
+                                    <p>Returns the current local version of this
+                                                     distribution.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">getTargetVersion(
+                                                           targetName )</span></em></p>
+                                    <p>Returns the current local version of the given
+                                                     target.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">setCurrentVersion(
+                                                           versionName )</span></em></p>
+                                    <p>Changes the current local version of this distribution to
+                                                     <span class="literal">versionName</span>.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">setTargetVersion(
+                                                           targetName, versionName )</span></em></p>
+                                    <p>Changes the current local version of the given
+                                                     target.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">StateXML</span>
+                                           class</em></p>
+                           <p>Like the <span class="literal">VersionsXML</span> class, the default
+                                        implementation of the <span class="literal">State</span> interface uses XML as
+                                        the format, and is defined in the
+                                        <span class="literal">versionslib.state</span> module.
+                           </p>
+                           <p>The classes implemented by this module are described
+                                        below:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal"> StateXML( path
+                                                           )</span></em></p>
+                                    <p>Constructs an instance of the <span class="literal">StateXML</span>
+                                                     class, where <span class="literal">path</span> is a path to the XML
+                                                     document.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>An example on how to use the <span class="literal">StateXML</span> class
+                                        is displayed below:
+                           </p><pre class="programlisting">state = StateXML( "state.xml" )
+if state.getCurrentVersion() != versions.getCurrentVersion():
+ upgradePath = versions.getUpgradePath( state.getCurrentVersion() )
+ ...
+ for target in upgradePath.targets:
+    localTargetVersion = state.getTargetVersion( target.name )
+    ...
+    # finished target upgrade, update state
+    state.setTargetVersion( target.name, target.destVersion )
+
+ # finished upgrade, set state version
+ state.setCurrentVersion( upgradePath.destVersion )</pre><p><span class="citetitle">Using the StateXML class</span></p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="3.2.3.&nbsp;The transfer module">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_The_transfer_Module"></a>3.2.3.&nbsp;The <span class="literal">transfer</span> module
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>This module contains the interface for a
+                           <span class="literal">PatchTransferHandler</span>, which defines a method of
+                           retrieving a patch from a some location, for example via HTTP.
+                  </p>
+                  <p>This section has some guidance on how to add a sub-class of a
+                           <span class="literal">PatchTransferHandler</span> when creating new transfer
+                           methods.
+                  </p>
+                  <p>The interfaces and classes implemented by this module are
+                           described below:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">PatchTransferHandler</span>
+                                           interface</em></p>
+                           <p>Implementors of this interface define a method of retrieving a
+                                        patch file from a remote source (<em class="emphasis">e.g.</em>, through
+                                        HTTP or BitTorrent). It implements the following static
+                                        methods:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">PatchTransferHandler.create( transferType,
+                                                           destPath, **properties) )</span></em></p>
+                                    <p>Creates an appropriate instance of a
+                                                     <span class="literal">PatchTransferHandler</span> object that can handle
+                                                     the given <span class="literal">transferType</span>. The properties
+                                                     parameter is a keyword argument dictionary which is used when
+                                                     constructing the appropriate instance of the transfer handler,
+                                                     and is passed to the appropriate subclass' constructor as
+                                                     keyword arguments.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">PatchTransferHandler.register(
+                                                           transferType, klass )</span></em></p>
+                                    <p>Registers a <span class="literal">PatchTransferHandler</span>
+                                                     sub-class (given as the <span class="literal">klass</span> parameter) with
+                                                     the given <span class="literal">transferType</span> string.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>Implementors of this interface should implement the following
+                                        methods:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><code class="function">retrieve</code>()</em></p>
+                                    <p>Retrieve the patch now.</p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis">addProgressListener()</em></p>
+                                    <p>Attach a progress listener object. See <a class="xref" href="ch03.html#xref_Progress_listeners" title="3.2.3.3.&nbsp;Progress listeners">Progress listeners</a></p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><em class="emphasis">removeProgressLIstener()</em></p>
+                                    <p>Detach a progress listener object.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="listitem">
+                           <p><em class="emphasis"><span class="literal">HTTPTransferHandler</span>
+                                           class</em></p>
+                           <p>This class implements a transfer handler for transferring a
+                                        patch from a HTTP server, and implements the following
+                                        methods:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><em class="emphasis"><span class="literal">HTTPTransferHandler(
+                                                           destPath, baseURL, url, md5sum, **extraProps
+                                                           )</span></em></p>
+                                    <p>The HTTP transfer handler downloads the file located at
+                                                     <span class="literal">url</span> (which may be a relative from
+                                                     <span class="literal">baseURL</span>, or an absolute HTTP URL), and the
+                                                     file should have a MD5 sum equal to that in the
+                                                     <span class="literal">md5sum</span> parameter.
+                                    </p>
+                                    <p>The baseURL, url and md5sum parameters are passed in as a
+                                                     keyword arguments dictionary from
+                                                     PatchTransferHandler.create().
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="section" title="3.2.3.1.&nbsp;Creating the appropriate instance of transfer handler">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e1981"></a>3.2.3.1.&nbsp;Creating the appropriate instance of transfer handler
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>Recall from the definition of the versions file that the
+                                transfer type and transfer properties are defined as part of the
+                                targets in the upgrade path's target list (for details, see <a class="xref" href="ch02.html#xref_Versions_File" title="2.3.2.&nbsp;Versions file">Versions file</a>). An example is displayed below.
+                     </p><pre class="programlisting">&lt;root&gt;
+ ...
+ &lt;property name="gameInfoURL"&gt;     http://www.yourgame.com/game_info.php
+ ...
+ &lt;supportedVersions&gt;
+    &lt;supportedVersion&gt;
+       &lt;name&gt; 1.0 &lt;/name&gt;
+       ...
+       &lt;property name="baseURL"&gt;   http://update.yourgame.com/patches/1.0
+       ...
+       &lt;target&gt;
+       &lt;patch&gt;
+          &lt;transferType&gt;           http                                 &lt;/transferType&gt;
+          &lt;patchName&gt;              bw_res-1.9.4.0-1.9.x.y.patch         &lt;/patchName&gt;
+          &lt;property name="url"&gt;    patches/bw_res-1.9.4.0-1.9.x.y.patch &lt;/property&gt;
+          &lt;property name="md5sum"&gt; aabbccddeeff00112233445566778899     &lt;/property&gt;
+       &lt;/patch&gt;
+    &lt;/supportedVersion&gt;
+    ...
+ &lt;/supportedVersions&gt;
+&lt;/root&gt;</pre><p><span class="citetitle">Example versions file excerpt</span></p>
+                     <p>As seen above, a patch XML definition consists of a
+                                <span class="literal">transferType</span> tag, which is mapped to a transfer
+                                handler class. Transfer handlers are registered with the base class
+                                <span class="literal">PatchTransferHandler</span>, so that instances are created
+                                using the <span class="literal">PatchTransferHandler.create</span> static
+                                method.
+                     </p>
+                     <p>The <span class="literal">property</span> tags are parsed and placed into
+                                a Python dictionary, which can be passed to the transfer handler as
+                                part of the keyword arguments in the
+                                <span class="literal">PatchTransferHandler.create</span> method. The constructor
+                                for the appropriate <span class="literal">PatchTransferHandler</span> sub-class
+                                must accept these arguments or allow for general keyword
+                                parameters.
+                     </p>
+                     <p>Each transfer handler class is registered with the
+                                <span class="literal">PatchTransferHandler</span> static method
+                                <span class="literal">PatchTransferHandler.register</span>.
+                     </p>
+                  </div>
+                  <div class="section" title="3.2.3.2.&nbsp;Adding another PatchTransferHandler sub-class">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e2023"></a>3.2.3.2.&nbsp;Adding another <span class="literal">PatchTransferHandler</span>
+                                         sub-class
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>New methods of transferring patches are implemented by adding
+                                another PatchTransferHandler object that subclasses the
+                                <span class="literal">PatchTransferHandler</span> abstract class, and it must be
+                                registered with the <span class="literal">PatchTransferHandler</span> class
+                                using its <span class="literal">register()</span> static method with an
+                                appropriate string tag, which is specified as part of the
+                                <span class="literal">transferType</span> element.
+                     </p>
+                     <p>PatchTransferHandler sub-classes are expected to periodically
+                                notify of their progress using
+                                <code class="classname">PatchTransferHandler</code>'s
+                                <code class="methodname">_notifyProgress()</code> method:
+                     </p><pre class="programlisting">def _notifyProgress( self, progress, description ):</pre><p>The progress parameter is an integer indicating percentage
+                                progress from 0 to 100. The description parameter is a dictionary
+                                containing key-value pairs that provide progress reports that are
+                                specific to the type of transfer handler used.
+                     </p>
+                  </div>
+                  <div class="section" title="3.2.3.3.&nbsp;Progress listeners">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="xref_Progress_listeners"></a>3.2.3.3.&nbsp;Progress listeners
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>Progress listeners are objects that listen to the progress of a
+                                patch transfer. They can be used to notify the end user of the
+                                progress of a particular transfer. They should be callable and they
+                                are passed the following parameters:
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><em class="emphasis"><span class="literal">progress</span></em>
+                                             (float)
+                              </p>
+                              <p>A floating point number from 0 to 100 indicating the
+                                             percentage progress of the transfer. A special value of -1.0
+                                             indicates that the transfer failed.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><em class="emphasis"><span class="literal">description</span></em>
+                                             (dict)
+                              </p>
+                              <p>A dictionary containing key-value pairs describing the
+                                             context of the transfer. Different transfer methods will define
+                                             different keys. The
+                                             <code class="classname">HTTPPatchTransferHandler</code> defines the
+                                             following keys:
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="section" title="3.2.3.3.1.&nbsp;HTTPPatchTransferHandler progress listener description keys">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h5 class="title"><a name="d0e2080"></a>3.2.3.3.1.&nbsp;HTTPPatchTransferHandler progress listener description
+                                              keys
+                                 </h5>
+                              </div>
+                           </div>
+                        </div>
+                        <p>The <code class="classname">HTTPPatchTransferHandler</code> defines
+                                     the following keys:
+                        </p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="disc">
+                              <li class="listitem">
+                                 <p><span class="literal">url</span></p>
+                                 <p>The URL being retrieved.</p>
+                              </li>
+                              <li class="listitem">
+                                 <p><span class="literal">bytesReceived</span></p>
+                                 <p>The number of bytes downloaded.</p>
+                              </li>
+                              <li class="listitem">
+                                 <p><span class="literal">bytesTotal</span></p>
+                                 <p>The total number of bytes to download.</p>
+                              </li>
+                              <li class="listitem">
+                                 <p><span class="literal">status</span></p>
+                                 <p>The HTTP status code of the most recent attempt to
+                                                  download this patch.
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p><span class="literal">errorMsg</span></p>
+                                 <p>If progress is set to -1, then this is an error message
+                                                  indicating what the failure was.
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;2.&nbsp;Operation&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;4.&nbsp;Offline Patcher Terminology</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,86 @@
+.legend
+{
+	font-size: 0.8em;
+}
+
+.legend th
+{
+	border-color: #5FC8EF;
+}
+
+.legend td
+{
+	padding: 		2px;
+	border-color: 	#5FC8EF;
+}
+
+.legend .value
+{
+	font-family: monospace;
+}
+
+.legend table
+{
+	width: 99%;
+}
+
+.legend .selected
+{
+	background-color:	#95DAF4;
+}
+
+.legend .enabled
+{
+	background-color:	#EAF8FD;
+}
+
+/* StatGrapher */
+.nologdbs
+{
+	color:			red;
+	font-weight: 	bold;
+}
+
+#graphtable
+{
+	border: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+#flashCell
+{
+	border: 0;
+	width: 100%; 
+	height: 100%;
+}
+
+#legendCell
+{
+	border: 0;
+	display: none;
+	height: 100%;
+	overflow: auto;
+}
+
+#flashDiv
+{
+	height:100%;
+	width:100%;
+	/*overflow:hidden;*/
+	/*border: 1px solid green;*/
+}
+
+#legendDiv
+{
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	padding: 2px;
+}
+
+.legendTable
+{
+	margin-top:		1em;
+}

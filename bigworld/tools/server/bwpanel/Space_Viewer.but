@@ -1,0 +1,9 @@
+#!/bin/sh
+#BWPANEL 2 ""
+
+cd $MF_ROOT/bigworld/tools/server/space_viewer
+if [ -f space_viewer.py ]; then
+python space_viewer.py
+else
+python space_viewer.pyc
+fi

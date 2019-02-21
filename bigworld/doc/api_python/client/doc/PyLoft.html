@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>PyLoft - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyLoft Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyLoft is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyAttachment.html">PyAttachment</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#endPoint" class="attribute_list" >endPoint</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>. Default is None.
+</td></tr>
+
+<tr valign=top><td><a href="#maxAge" class="attribute_list" >maxAge</a></td><td>&nbsp; float. Default is 0.1.
+</td></tr>
+
+<tr valign=top><td><a href="#textureName" class="attribute_list" >textureName</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#threshold" class="attribute_list" >threshold</a></td><td>&nbsp; float. Default is 0.1
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+ * The <a href="PyLoft.html">PyLoft</a> is a <a href="PyAttachment.html">PyAttachment</a>.  It lofts a shape along a path, drawing a
+ * single texture over the resultant mesh with no repeats.
+<br><br>
+ * Shape : A line between the particle where it is first created, and the
+ * position of a <a href="MatrixProvider.html">MatrixProvider</a>.
+<br><br>
+ * Path : The line between each particle in turn, in order from youngest to
+ * oldest.
+<br><br>
+ * The path is progressively refined down to a threshold level, meaning that
+ * the longest distance between points is no more than threshold metres. 
+<br><br>
+Example:
+
+<pre>loft  = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Loft>Loft</a>( "optional_texture_name" )
+m = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#player>player</a>().model
+m.node( "biped Head" ).attach( loft )
+loft.endPoint = m.node( "biped R Clavicle" )
+</pre>
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="endPoint"></a><p class="attribute_definition">
+<span class="attribute_definition">endPoint</span>
+</p>
+
+<div class="attribute_description">This is a <a href="MatrixProvider.html">MatrixProvider</a> that gives shape to the loft.
+If an endpoint is provided, the loft is created using a shape,
+where the shape is a line connecting the attachment point
+and the endpoint matrix.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>. Default is None.
+</td></tr>
+</table>
+</p>
+
+<a name="maxAge"></a><p class="attribute_definition">
+<span class="attribute_definition">maxAge</span>
+</p>
+
+<div class="attribute_description">This specifies how long into the past the loft should draw.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float. Default is 0.1.
+</td></tr>
+</table>
+</p>
+
+<a name="textureName"></a><p class="attribute_definition">
+<span class="attribute_definition">textureName</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the name of the texture used to render the
+loft trail.  The texture is stretched once along the entire loft,
+with the u-axis of the texture mapped along the path, and the v-axis
+mapped along the shape.
+</div>
+
+<a name="threshold"></a><p class="attribute_definition">
+<span class="attribute_definition">threshold</span>
+</p>
+
+<div class="attribute_description">This specifies how far the source points must move before a path point
+is output.  It filters out minute movements causing rendering anomalies.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float. Default is 0.1
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

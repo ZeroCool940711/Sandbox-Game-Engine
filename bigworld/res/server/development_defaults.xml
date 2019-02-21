@@ -1,0 +1,47 @@
+<root>
+
+	<!-- This file contains the default development options for
+		configuring the server.
+		These are documented in the Server Operations Guide
+		(bigworld/doc/server_operations_guide.pdf). -->
+
+	<parentFile> server/production_defaults.xml </parentFile>
+	<production> false </production> <!-- Type: Boolean -->
+
+	<hasDevelopmentAssertions> true </hasDevelopmentAssertions> <!-- Type: Boolean -->
+
+	<maxChannelOverflow>
+		<isAssert> true </isAssert> <!-- Type: Boolean -->
+	</maxChannelOverflow>
+
+	<baseApp>
+		<shouldResolveMailBoxes> false </shouldResolveMailBoxes> <!-- Type: Boolean -->
+	</baseApp>
+
+	<baseAppMgr>
+		<!-- <baseAppOverloadLevel>	1.0	</baseAppOverloadLevel> --> <!-- Type: Float -->
+	</baseAppMgr>
+
+	<cellApp>
+		<enforceGhostDecorators> true </enforceGhostDecorators> <!-- Type: Boolean -->
+		<shouldResolveMailBoxes> false </shouldResolveMailBoxes> <!-- Type: Boolean -->
+		<treatAllOtherEntitiesAsGhosts> true </treatAllOtherEntitiesAsGhosts> <!-- Type: Boolean -->
+	</cellApp>
+
+	<cellAppMgr>
+		<!--  <cellAppOverloadLevel> 1.0 </cellAppOverloadLevel> --> <!-- Type: Float -->
+	</cellAppMgr>
+
+	<dbMgr>
+		<allowEmptyDigest> true </allowEmptyDigest> <!-- Type: Boolean -->
+		<type> xml </type> <!-- Type: String -->
+	</dbMgr>
+
+	<loginApp>
+		<shouldShutDownIfPortUsed> false </shouldShutDownIfPortUsed> <!-- Type: Boolean -->
+		<allowLogin> true </allowLogin> <!-- Type: Boolean -->
+		<allowProbe> true </allowProbe> <!-- Type: Boolean -->
+		<logProbes> false </logProbes> <!-- Type: Boolean -->
+	</loginApp>
+
+</root>

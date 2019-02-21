@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>MatrixProduct - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>MatrixProduct Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Math.html" class="module_h1">Math Module</a>]</span></p><p>MatrixProduct is part of the <a href="Math.html">Math</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Math</pre>
+<h2>Parent Classes</h2>
+<a href="MatrixProvider.html">MatrixProvider</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#a" class="attribute_list" >a</a></td><td>&nbsp; Read-Write <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#b" class="attribute_list" >b</a></td><td>&nbsp; Read-Write <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A subclass of <a href="MatrixProvider.html">MatrixProvider</a>. This provides the result of the expression
+'a x b', where a and b are it's <a href="MatrixProvider.html">MatrixProvider</a> arguments.
+An instance of this class can be created via the factory method
+<a href="Math.html">Math</a>.<a href="MatrixProduct.html">MatrixProduct</a>.
+<br><br>
+It is not possible to directly access many of the internal attributes of a
+<a href="MatrixProduct.html">MatrixProduct</a>. To view this data it is necessary to construct a
+<a href="Matrix.html">Matrix</a> which is a copy of this, & read the values from it. For
+example:
+
+<pre># import <a href="Math.html">Math</a> module
+import <a href="Math.html">Math</a>
+
+# create a <a href="MatrixProduct.html">MatrixProduct</a> which provides the product of matrix1 and matrix2
+mprod = <a href="Math.html">Math</a>.<a href="MatrixProduct.html">MatrixProduct</a>()
+mprod.a = matrix1
+mprod.b = matrix2
+
+# create a <a href="MatrixProvider.html">MatrixProvider</a> from the <a href="MatrixProduct.html">MatrixProduct</a>
+m = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>( mprod )
+
+# print the yaw
+print m.yaw
+</pre>
+Note that a <a href="Matrix.html">Matrix</a> constructed as a copy of a <a href="MatrixProduct.html">MatrixProduct</a> will
+only resemble the <a href="MatrixProduct.html">MatrixProduct</a> at the time that it is created. It will
+not update to reflect changes.
+<br><br>
+Where a and/or b are not assigned, they are treated as if they were the
+equal to the identity matrix.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="a"></a><p class="attribute_definition">
+<span class="attribute_definition">a</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="b"></a><p class="attribute_definition">
+<span class="attribute_definition">b</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

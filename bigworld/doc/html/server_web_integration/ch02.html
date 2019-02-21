@@ -1,0 +1,309 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;2.&nbsp;The TwistedWeb Service</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Web Integration Guide">
+      <link rel="up" href="pt01.html" title="Part&nbsp;I.&nbsp;Exposing the BigWorld Server as a Web Service">
+      <link rel="prev" href="pt01.html" title="Part&nbsp;I.&nbsp;Exposing the BigWorld Server as a Web Service">
+      <link rel="next" href="ch03.html" title="Chapter&nbsp;3.&nbsp;Remote Methods, Arguments and Return Values">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_web_integration/ch02.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;2.&nbsp;The TwistedWeb Service</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="pt01.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">Part&nbsp;I.&nbsp;Exposing the BigWorld Server as a Web Service</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch03.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;2.&nbsp;The TwistedWeb Service">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_TwistedWeb_Service"></a>Chapter&nbsp;2.&nbsp;The TwistedWeb Service
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch02.html#d0e126">2.1. An example</a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#xref_DB_Queries">2.2. Queries to <span class="literal">/db/</span></a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#d0e204">2.3. Queries to <span class="literal">/entities_by_id/</span></a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#d0e247">2.4. Queries to <span class="literal">/entities_by_name/</span></a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#d0e260">2.5. Queries to <span class="literal">/global_entities/</span></a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#d0e284">2.6. Implementation details</a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#xref_TwistedWebErrorHandling">2.7. TwistedWeb Error handling</a></span></dt>
+               </dl>
+            </div>
+            <p>It is often useful to create a Web Service interface to a BigWorld
+                 server. This allows other standard services to be used to access game
+                 functionality via standard HTTP requests.
+            </p>
+            <p>One way to expose a web service interface is to use the TwistedWeb
+                 Service provided. This uses the Twisted Python framework and its Twisted.Web
+                 module to map HTTP requests to script calls on game entities. Any of an
+                 entity's methods can be called on it in this way.
+            </p>
+            <p>See <a class="ulink" href="http://twistedmatrix.com/documents/current/web" target="_top">http://twistedmatrix.com/documents/current/web</a>
+                 for more detailed information on Twisted.Web.
+            </p>
+            <p>A BigWorld Service is a scripted object like a Base-only entity. See
+                 <a href="../server_overview/index.html" class="olink">Server Overview</a>'s section <a href="../server_overview/ch04.html" class="olink"><i>Design Introduction</i></a> for more
+                 information.
+            </p>
+            <p>BigWorld provides a standard TwistedWeb Service located at
+                 <code class="filename">bigworld/res/scripts/service/TwistedWeb.py</code>. This
+                 service listens for HTTP requests on port 8000. It supports four types of
+                 URL paths.
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><span class="literal">db/<em class="replaceable"><code>&lt;dbCommand&gt;</code></em>?<em class="replaceable"><code>&lt;arguments&gt;</code></em></span>
+                                - This is used to invoke a command on the database such as logging on
+                                a player's entity.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><span class="literal">entities_by_id/<em class="replaceable"><code>&lt;entityType&gt;</code></em>/<em class="replaceable"><code>&lt;databaseID&gt;</code></em>/<em class="replaceable"><code>&lt;methodName&gt;</code></em>?<em class="replaceable"><code>&lt;arguments&gt;</code></em></span>
+                                - This calls a method on an entity.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><span class="literal">entities_by_name/<em class="replaceable"><code>&lt;entityType&gt;</code></em>/<em class="replaceable"><code>&lt;entityName&gt;</code></em>/<em class="replaceable"><code>&lt;methodName&gt;</code></em>?<em class="replaceable"><code>&lt;arguments&gt;</code></em></span>
+                                - This calls a method on a named entity.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><span class="literal">global_entities/<em class="replaceable"><code>&lt;globalName&gt;</code></em>/<em class="replaceable"><code>&lt;methodName&gt;</code></em>?<em class="replaceable"><code>&lt;arguments&gt;</code></em></span>
+                                - This calls a method on an entity in
+                                <code class="code">BigWorld.globalBases</code>.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+            <p>The responses to these requests are structured as JSON
+                 documents.
+            </p>
+            <div class="section" title="2.1.&nbsp;An example">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e126"></a>2.1.&nbsp;An example
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>For example, in FantasyDemo, the method <code class="code">webTestMethod</code>
+                      for the global entity <code class="code">AuctionHouse</code> is used to test the
+                      functionality of method calls using Twisted.Web.
+               </p>
+               <p>In
+                      <code class="filename">fantasydemo/res/scripts/entity_defs/AuctionHouse.def</code>,
+                      the method is declared as:
+               </p><pre class="programlisting">...
+&lt;BaseMethods&gt;
+  ...
+  &lt;webTestMethod&gt;
+
+    &lt;Args&gt;
+      &lt;first_arg&gt; INT32 &lt;/first_arg&gt;
+      &lt;second_arg&gt; STRING &lt;/second_arg&gt;
+    &lt;/Args&gt;
+
+    &lt;ReturnValues&gt;
+      &lt;first_result&gt; INT32 &lt;/first_result&gt;
+      &lt;second_result&gt; STRING &lt;/second_result&gt;
+    &lt;/ReturnValues&gt;
+
+  &lt;/webTestMethod&gt;
+  ...</pre><p>And in fantasydemo/res/scripts/base/AuctionHouse.py as:</p><pre class="programlisting">class AuctionHouse( ... ):
+    ...
+    def webTestMethod( self, first_arg, second_arg ):
+        return (2 * first_arg, second_arg.upper())</pre><p>An instance of AuctionHouse has been registered with
+                      <code class="code">BigWorld.globalBases</code> as <code class="code">'AuctionHouse'</code>.
+               </p>
+               <p>Therefore, requesting:</p><pre class="programlisting"><span class="literal">http://<em class="replaceable"><code>machine_name</code></em>:8000/global_entities/AuctionHouse/webTestMethod?first_arg=5&amp;second_arg=Test</span></pre><p>
+                      returns the JSON object:
+               </p><pre class="programlisting">{ "first_result": 10, "second_result": "TEST" }</pre></div>
+            <div class="section" title="2.2.&nbsp;Queries to /db/">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_DB_Queries"></a>2.2.&nbsp;Queries to <span class="literal">/db/</span></h2>
+                     </div>
+                  </div>
+               </div>
+               <p>There is currently only one command supported by the
+                      <span class="literal">/db/</span> path. This has the form:
+               </p><pre class="programlisting">http://<em class="replaceable"><code>machine_name</code></em>:8000/db/logOn?username=<em class="replaceable"><code>username</code></em>&amp;password=<em class="replaceable"><code>password</code></em></pre><p>This attempts to log on the user. On success it returns the new
+                      entity's type and database id. For example,
+               </p><pre class="programlisting">{ "type": "Account", "id": 2 }</pre><p>This information can then be used to make queries on this entity
+                      using the path starting with
+                      <span class="literal">/entities_by_id/<em class="replaceable"><code>&lt;entity_type&gt;</code></em>/<em class="replaceable"><code>&lt;database_id&gt;</code></em>/<em class="replaceable"><code>&lt;methodName&gt;</code></em></span>.
+               </p>
+            </div>
+            <div class="section" title="2.3.&nbsp;Queries to /entities_by_id/">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e204"></a>2.3.&nbsp;Queries to <span class="literal">/entities_by_id/</span></h2>
+                     </div>
+                  </div>
+               </div>
+               <p>Queries of the form
+                      <span class="literal">/entities_by_id/<em class="replaceable"><code>&lt;entity_type&gt;</code></em>/<em class="replaceable"><code>&lt;database_id&gt;</code></em>/<em class="replaceable"><code>&lt;methodName&gt;</code></em>?<em class="replaceable"><code>&lt;args&gt;</code></em></span>
+                      can be used to call methods on a specific entity.
+               </p>
+               <p>For example, requesting:</p><pre class="programlisting"><span class="literal">http://<em class="replaceable"><code>machine_name</code></em>:8000/entities_by_id/Account/2/webGetCharacterList</span></pre><p>might return:</p><pre class="programlisting">{ "characters": [{"type": "Avatar", "databaseID": 1, "realm": "fantasy", "charClass": "ranger", "name": "MyChar"}] }</pre><p>The details of one of the characters on this account can be
+                      retrieved using
+                      <span class="literal">http://<em class="replaceable"><code>machine_name</code></em>:8000/entities_by_id/Account/2/webChooseCharacter?name=MyChar&amp;type=Avatar</span>:
+               </p><pre class="programlisting">{ "type": "Avatar", "id": 1 }</pre></div>
+            <div class="section" title="2.4.&nbsp;Queries to /entities_by_name/">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e247"></a>2.4.&nbsp;Queries to <span class="literal">/entities_by_name/</span></h2>
+                     </div>
+                  </div>
+               </div>
+               <p>These queries are similar to <span class="literal">entities_by_id</span>
+                      expect that the database string identifier is expected instead of the
+                      database id. The <span class="literal">entities_by_id</span> form is preferred as
+                      queries by name need to query the database each time while repeated
+                      queries via database id will likely hit a local cache of the entity's
+                      mailbox on the ServiceApp. See KeepAlive messages below.
+               </p>
+            </div>
+            <div class="section" title="2.5.&nbsp;Queries to /global_entities/">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e260"></a>2.5.&nbsp;Queries to <span class="literal">/global_entities/</span></h2>
+                     </div>
+                  </div>
+               </div>
+               <p>These queries allow calling methods on a base entity that has been
+                      registered with <code class="code">BigWorld.globalBases</code>. The base entity must be
+                      registered with a single string as the key. These queries have the
+                      form:
+               </p><pre class="programlisting"><span class="literal">http://<em class="replaceable"><code>machine_name</code></em>:8000/global_entities/<em class="replaceable"><code>&lt;global_key&gt;</code></em>/<em class="replaceable"><code>&lt;methodName&gt;</code></em>?<em class="replaceable"><code>&lt;args&gt;</code></em></span></pre></div>
+            <div class="section" title="2.6.&nbsp;Implementation details">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e284"></a>2.6.&nbsp;Implementation details
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The TwistedWeb service is defined in
+                      <code class="filename">bigworld/res/scripts/service_defs/TwistedWeb.def</code>, and
+                      its methods are implemented in
+                      <code class="filename">bigworld/res/scripts/service/TwistedWeb.py</code>. Here, the
+                      resource tree is built up using Twisted.Web's <code class="code">putChild</code>
+                      function, which takes as arguments the name of the path segment and the
+                      type of the resource that will be returned by a request for it:
+               </p><pre class="programlisting">from TWResources.EntitiesResource import EntitiesByNameResource, EntitiesByIDResource
+from TWResources.GlobalEntitiesResource import GlobalEntitiesResource
+from TWResources.DBResource import DBResource
+
+class TwistedWeb( BigWorld.Service ):
+    def __init__( self ):
+        root = resource.Resource()
+        root.putChild( "entities_by_name", EntitiesByNameResource() )
+        root.putChild( "entities_by_id", EntitiesByIDResource() )
+        root.putChild( "global_entities", GlobalEntitiesResource() )
+        root.putChild( "db", DBResource() )
+
+        reactor.listenTCP( 8000, server.Site( root ) )
+        reactor.startRunning()
+  
+    def onDestroy( self ):
+        reactor.stop()</pre><p>The various resources used by the TwistedWeb service are implemented
+                      in the <span class="package">TWResources</span> package, which is located at
+                      <code class="filename">bigworld/res/scripts/service/TWResources</code>.
+               </p>
+               <p>In order to make use of the TwistedWeb service, it must be given an
+                      entry in the
+                      <code class="filename"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/services.xml</code>
+                      file in your project directory:
+               </p><pre class="programlisting">&lt;root&gt;
+    ...
+    &lt;TwistedWeb/&gt;
+&lt;/root&gt;</pre><p>This file contains a list of all Services that will be initialised
+                      when a ServiceApp process is started.
+               </p>
+               <p>See <a class="ulink" href="http://twistedmatrix.com/documents/current/web" target="_top">http://twistedmatrix.com</a>
+                      for more detailed information on the Twisted Python framework.
+               </p>
+            </div>
+            <div class="section" title="2.7.&nbsp;TwistedWeb Error handling">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_TwistedWebErrorHandling"></a>2.7.&nbsp;TwistedWeb Error handling
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>Two-way calls to the game server using the TwistedWeb service will
+                      always return a JSON object. If an error occurs, the object that is
+                      returned will have a specific error format. It will consist of two fields:
+                      a string named <code class="varname">excType</code> containing the error type, and
+                      an array of strings named <code class="varname">args</code> containing the
+                      arguments. The returned document also uses the HTTP error code 403
+                      (Forbidden).
+               </p>
+               <p>For example, the sample <span class="literal">/db/</span> queries given in
+                      section <a class="xref" href="ch02.html#xref_DB_Queries" title="2.2.&nbsp;Queries to /db/">Queries to <span class="literal">/db/</span></a> could fail in a number of ways.
+                      If the account does not exist on the server, the call will
+                      return:
+               </p><pre class="programlisting">{ "excType": "BWAuthenticateError", "args": [ "No such user" ] }</pre><p>If the password is invalid, it will return:</p><pre class="programlisting">{ "excType": "BWAuthenticateError", "args": [ "Invalid password" ] }</pre><p>The
+                      regular format of error objects returned from TwistedWeb means that
+                      differentiating them from successful return objects only requires the
+                      caller to check for the existence of the <code class="varname">excType</code>
+                      key.
+               </p>
+               <p>For details about the different types of errors that can be returned
+                      by a two-way call, refer to the<a href="../server_programming_guide/index.html" class="olink">Server Programming Guide</a>'s section<a href="../server_programming_guide/ch06.html#xref_BWStandardError" class="olink">BWStandardError</a>.
+               </p>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="pt01.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center"><a accesskey="u" href="pt01.html">Up</a></td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch03.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Part&nbsp;I.&nbsp;Exposing the BigWorld Server as a Web Service&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;3.&nbsp;Remote Methods, Arguments and Return Values</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

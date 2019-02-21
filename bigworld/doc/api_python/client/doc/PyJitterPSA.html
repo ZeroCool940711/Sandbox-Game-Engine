@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>PyJitterPSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyJitterPSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyJitterPSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#setPositionSource" class="function_list" >setPositionSource</a>( self, generator ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setVelocitySource" class="function_list" >setVelocitySource</a>( self, generator ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#affectPosition" class="attribute_list" >affectPosition</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+<tr valign=top><td><a href="#affectVelocity" class="attribute_list" >affectVelocity</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PyJitterPSA.html">PyJitterPSA</a> is a <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> that adds random motion to the
+particles. JitterPSA can affect the position and/or veclocity of the
+particles.
+<br><br>
+The position source and/or velocity source will need to be set before this
+ParticleSystemAction will produce a visible effect - both default to
+( 0, 0, 0 ).
+<br><br>
+Position and Velocity "jitter" are calculated each frame.
+<br><br>
+A new <a href="PyJitterPSA.html">PyJitterPSA</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#JitterPSA>JitterPSA</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="setPositionSource"></a><p class="function_definition">
+<span class="function_definition">def setPositionSource( <i>self, generator</i> ):</span>
+</p>
+
+<div class="function_description">Sets a new <a href="VectorGenerator.html">VectorGenerator</a> as a jitter position source for the
+particles.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>generator</i></span></td><td><span class="function_parameter_description">&nbsp;<a href="VectorGenerator.html">VectorGenerator</a>. Jitter position source for the
+particles.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setVelocitySource"></a><p class="function_definition">
+<span class="function_definition">def setVelocitySource( <i>self, generator</i> ):</span>
+</p>
+
+<div class="function_description">Sets a new <a href="VectorGenerator.html">VectorGenerator</a> as a jitter velocity source for the
+particles.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>generator</i></span></td><td><span class="function_parameter_description">&nbsp;<a href="VectorGenerator.html">VectorGenerator</a>. Jitter velocity source for the
+particles.
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="affectPosition"></a><p class="attribute_definition">
+<span class="attribute_definition">affectPosition</span>
+</p>
+
+<div class="attribute_description">This is a flag to determine whether JitterPSA affects position. Default
+value is 0 (false).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<a name="affectVelocity"></a><p class="attribute_definition">
+<span class="attribute_definition">affectVelocity</span>
+</p>
+
+<div class="attribute_description">This is a flag to determine whether JitterPSA affects velocity. Default
+is 0 (false).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

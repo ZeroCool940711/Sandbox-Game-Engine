@@ -1,0 +1,6 @@
+*.sbr
+*.idb
+*.htm
+*.bsc
+*.pdb
+/BuildLog.htm

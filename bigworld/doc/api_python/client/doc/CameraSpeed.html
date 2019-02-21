@@ -1,0 +1,257 @@
+<html>
+<head>
+<title>CameraSpeed - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>CameraSpeed Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>CameraSpeed is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#accelerateEnd" class="attribute_list" >accelerateEnd</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#accelerateRate" class="attribute_list" >accelerateRate</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#accelerateStart" class="attribute_list" >accelerateStart</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#accelerateWhileTargetting" class="attribute_list" >accelerateWhileTargetting</a></td><td>&nbsp; boolean (0 or 1)
+</td></tr>
+
+<tr valign=top><td><a href="#cameraPitchSpeed" class="attribute_list" >cameraPitchSpeed</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#cameraYawSpeed" class="attribute_list" >cameraYawSpeed</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#lookAxisMax" class="attribute_list" >lookAxisMax</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#lookAxisMin" class="attribute_list" >lookAxisMin</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#lookTable" class="attribute_list" >lookTable</a></td><td>&nbsp; list of tuple2
+</td></tr>
+
+<tr valign=top><td><a href="#turningHalfLife" class="attribute_list" >turningHalfLife</a></td><td>&nbsp; float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="CameraSpeed.html">CameraSpeed</a> object stores current camera movement settings.  Defaults
+can be specified in engine_config.xml through the &lt;camera&gt; data section.
+<br><br>
+<a href="CameraSpeed.html">CameraSpeed</a> object can be accessed through <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#cameraSpeed>cameraSpeed</a> attribute.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="accelerateEnd"></a><p class="attribute_definition">
+<span class="attribute_definition">accelerateEnd</span>
+</p>
+
+<div class="attribute_description">This is the time in seconds at which acceleration stops, and the movement has reached it maximum speed.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="accelerateRate"></a><p class="attribute_definition">
+<span class="attribute_definition">accelerateRate</span>
+</p>
+
+<div class="attribute_description">Acceleration is linear, and the maximum speed multiplier is given by this value.
+The speed increases linearly between the time acceleration starts and ends.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="accelerateStart"></a><p class="attribute_definition">
+<span class="attribute_definition">accelerateStart</span>
+</p>
+
+<div class="attribute_description">The delay, in seconds, before acceleration can start.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="accelerateWhileTargetting"></a><p class="attribute_definition">
+<span class="attribute_definition">accelerateWhileTargetting</span>
+</p>
+
+<div class="attribute_description">If true, the camera speed is permitted to accelerate if targeting, otherwise it won't.  Defaults to false (0).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>boolean (0 or 1)
+</td></tr>
+</table>
+</p>
+
+<a name="cameraPitchSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">cameraPitchSpeed</span>
+</p>
+
+<div class="attribute_description">This is the basic turning speed (in degrees per second) for vertical turning.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="cameraYawSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">cameraYawSpeed</span>
+</p>
+
+<div class="attribute_description">This is the basic turning speed (in degrees per second) for horizonal turning.
+Horizontal turning can be accelerated.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="lookAxisMax"></a><p class="attribute_definition">
+<span class="attribute_definition">lookAxisMax</span>
+</p>
+
+<div class="attribute_description">The maximum value used for camera control with axis oriented devices.  In addition,
+if the position is less than the minimum, it is ignored (the deadzone).
+If the position is more than the maximum, it is considered "pinned", i.e. at the extreme.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="lookAxisMin"></a><p class="attribute_definition">
+<span class="attribute_definition">lookAxisMin</span>
+</p>
+
+<div class="attribute_description">The minimum value used for camera control with axis oriented devices.  In addition,
+if the position is less than the minimum, it is ignored (the deadzone).
+If the position is more than the maximum, it is considered "pinned", i.e. at the extreme.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="lookTable"></a><p class="attribute_definition">
+<span class="attribute_definition">lookTable</span>
+</p>
+
+<div class="attribute_description">This is a table that provides values for basic, non-linear camera movement.
+Rather than just have the camera speed be a multiple of the axis control,
+it is also multiplied by a number from this table.  The table is made up of
+Vector2s, with the first item in the vector being an index, and the second
+being the value.  The item in the table with the highest index less than the
+current value of the axis control is used.  The value associated with that
+item is used to mulitply the camera speed.
+<br><br>
+The table defaults to:
+
+<pre>	( 0.00, 0.00 )
+	( 0.10, 0.05 )
+	( 0.30, 0.10 )
+	( 0.50, 0.25 )
+	( 0.70, 0.58 )
+	( 0.84, 1.00 )
+</pre>
+For example, An axis value of 0.55 would pick the 4th item, giving a value of 0.25.
+The camera speed would then be:
+
+<pre>	base camera speed * 0.55 * 0.25
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>list of tuple2
+</td></tr>
+</table>
+</p>
+
+<a name="turningHalfLife"></a><p class="attribute_definition">
+<span class="attribute_definition">turningHalfLife</span>
+</p>
+
+<div class="attribute_description">The time the camera should take to move half the distance required to meet its objective.
+If this is zero, there is no momentum, and the camera always point exactly where it's told.
+A value of 1.0 would mean than each second the camera would get half-way to the desired direction.
+A value of 0.5 would mean that each second the camera would get 70% of the wat to the desired direction.
+Other values would be:
+
+<pre>	0.25  84%
+	0.10  93%
+	0.08  95%
+	0.05  97%
+	0.03  98%
+	0.01  99%
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

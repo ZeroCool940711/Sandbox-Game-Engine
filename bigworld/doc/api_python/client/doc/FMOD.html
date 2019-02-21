@@ -1,0 +1,370 @@
+<html>
+<head>
+<title>FMOD - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>FMOD Module Reference</h1>
+The <a href="FMOD.html">FMOD</a> module provides access to the <a href="FMOD.html">FMOD</a> Ex integration, if
+it is enabled.
+
+<h2><a href="#" onClick="obj=document.getElementById( 'classes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Class List</a></h2>
+<table id="classes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="class_list"><a href="EventCategory.html" class="class_list" >EventCategory</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="EventGroup.html" class="class_list" >EventGroup</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="EventProject.html" class="class_list" >EventProject</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="EventReverb.html" class="class_list" >EventReverb</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="MusicSystem.html" class="class_list" >MusicSystem</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="Sound.html" class="class_list" >Sound</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="SoundParameter.html" class="class_list" >SoundParameter</a></span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#getMusicSystem" class="function_list" >getMusicSystem</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getSound" class="function_list" >getSound</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getSoundBanks" class="function_list" >getSoundBanks</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#loadEventProject" class="function_list" >loadEventProject</a>( filename ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#loadSoundBankIntoMemory" class="function_list" >loadSoundBankIntoMemory</a>( soundbank ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#loadSoundGroup" class="function_list" >loadSoundGroup</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#playSound" class="function_list" >playSound</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#reloadEventProject" class="function_list" >reloadEventProject</a>( name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setDefaultSoundProject" class="function_list" >setDefaultSoundProject</a>( name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setMasterVolume" class="function_list" >setMasterVolume</a>( vol ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#unloadEventProject" class="function_list" >unloadEventProject</a>( name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#unloadSoundBankFromMemory" class="function_list" >unloadSoundBankFromMemory</a>( soundbank ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#unloadSoundGroup" class="function_list" >unloadSoundGroup</a>( path ):</span>
+</td></tr>
+
+</table>
+
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="getMusicSystem"></a><p class="function_definition">
+<span class="function_definition">def getMusicSystem( <i></i> ):</span>
+</p>
+
+<div class="function_description">Returns the music system object associated with the 
+<a href="FMOD.html">FMOD</a> EventSystem.
+</div>
+
+<a name="getSound"></a><p class="function_definition">
+<span class="function_definition">def getSound( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">Returns a sound handle.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path to the sound event you want to trigger (see
+				<a href="FMOD.html">FMOD</a>.<a href=FMOD.html#playSound>playSound</a>() for syntax)
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The PySound for the sound event.
+</td></tr>
+</table>
+</p>
+
+<a name="getSoundBanks"></a><p class="function_definition">
+<span class="function_definition">def getSoundBanks( <i></i> ):</span>
+</p>
+
+<div class="function_description">Returns a list of sound banks that are referenced by FMod.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>list of sound bank names
+</td></tr>
+</table>
+</p>
+
+<a name="loadEventProject"></a><p class="function_definition">
+<span class="function_definition">def loadEventProject( <i>filename</i> ):</span>
+</p>
+
+<div class="function_description">Load the specified event project file.  Note that the argument to this 
+function is the name of the project, *not* its filename.  So basically you
+are passing in the filename minus the .fev extension.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>filename</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the soundbank.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="loadSoundBankIntoMemory"></a><p class="function_definition">
+<span class="function_definition">def loadSoundBankIntoMemory( <i>soundbank</i> ):</span>
+</p>
+
+<div class="function_description">Loads a sound bank into memory.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>soundbank</i></span></td><td><span class="function_parameter_description">&nbsp;name of soundbank
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="loadSoundGroup"></a><p class="function_definition">
+<span class="function_definition">def loadSoundGroup( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">Loads the wave data for the specified event group (and all descendant
+groups) into memory, so that the sounds will play instantly when triggered.
+<br><br>
+If called with just a project name as the argument, all sound groups in that
+project will be loaded.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path to the event group
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="playSound"></a><p class="function_definition">
+<span class="function_definition">def playSound( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">Plays a sound.
+<br><br>
+The semantics for sound naming are similar to filesystem paths, in that
+there is support for both 'relative' and 'absolute' paths.  If a path is
+passed without a leading '/', the sound is considered to be part of the
+default project (see <a href="FMOD.html">FMOD</a>.<a href=FMOD.html#setDefaultProject>setDefaultProject</a>), for example 'guns/fire'
+would refer to the 'guns/fire' event from the default project.  If your game
+uses only a single <a href="FMOD.html">FMOD</a> project, you should refer to events using relative
+paths, as it is (slightly) more efficient than the absolute method.
+<br><br>
+If your game uses multiple projects and you want to refer to a sample in a
+project other than the default, you can say '/project2/guns/fire' instead.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path to the sound event you want to trigger.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The PySound for the sound event.
+</td></tr>
+</table>
+</p>
+
+<a name="reloadEventProject"></a><p class="function_definition">
+<span class="function_definition">def reloadEventProject( <i>name</i> ):</span>
+</p>
+
+<div class="function_description">Reload the named event project.  Use this if you have created or deleted 
+events in a project using the <a href="FMOD.html">FMOD</a> Designer tool and you want to get the
+changes in your app.  If you are just tweaking properties on existing sound
+events you can audition them using the network audition mode of the <a href="FMOD.html">FMOD</a>
+Designer tool without needing to call this function.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the project
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setDefaultSoundProject"></a><p class="function_definition">
+<span class="function_definition">def setDefaultSoundProject( <i>name</i> ):</span>
+</p>
+
+<div class="function_description">Sets the default sound project that relatively-named events will be read
+from.
+<br><br>
+See <a href="FMOD.html">FMOD</a>.<a href=FMOD.html#playSound>playSound</a>() for more information about sound event naming
+conventions.
+<br><br>
+See the 'soundMgr' section of engine_config.xml for how to load sound
+projects into your game.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the project to be set as the default.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setMasterVolume"></a><p class="function_definition">
+<span class="function_definition">def setMasterVolume( <i>vol</i> ):</span>
+</p>
+
+<div class="function_description">Sets the master volume applied to all sounds.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>vol</i></span></td><td><span class="function_parameter_description">&nbsp;A float in the range [0.0, 1.0].
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="unloadEventProject"></a><p class="function_definition">
+<span class="function_definition">def unloadEventProject( <i>name</i> ):</span>
+</p>
+
+<div class="function_description">Unload the named event project.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the project
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="unloadSoundBankFromMemory"></a><p class="function_definition">
+<span class="function_definition">def unloadSoundBankFromMemory( <i>soundbank</i> ):</span>
+</p>
+
+<div class="function_description">Unloads a sound bank from memory.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>soundbank</i></span></td><td><span class="function_parameter_description">&nbsp;name of soundbank
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="unloadSoundGroup"></a><p class="function_definition">
+<span class="function_definition">def unloadSoundGroup( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">Unloads the wave data for the specified event group (and all descendant
+groups) from memory.  Note that sounds can still be played from this group
+later on, however the first playback for each event will block whilst the
+wave data is loaded from disk.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path to the event group
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<html>
+<head>
+<title>Oscillator - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Oscillator Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Oscillator is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="Motor.html">Motor</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#canSee" class="function_list" >canSee</a>( self, position ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#amplitude" class="attribute_list" >amplitude</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#offset" class="attribute_list" >offset</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#period" class="attribute_list" >period</a></td><td>&nbsp; Float.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="Oscillator.html">Oscillator</a> class is a <a href="Motor.html">Motor</a> that "oscillates" a model. It applies
+an oscillating rotational component to the models world transform.
+<br><br>
+A sine function is applied across the period of oscillation, producing
+oscillations in radians from -1 to 1. Amplitude is applied as a scaling
+factor to this result, producing an oscillation from -amplitude to
++amplitude in radians. Offset is applied as an addition to offset the start
+of the period (in seconds).
+<br><br>
+Example:
+
+<pre>model = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Model>Model</a>( "path/to/model/mymodel.model" )
+oscillator = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Oscillator><a href="Oscillator.html">Oscillator</a></a>( 0, 4, -1 )
+model.addMotor( oscillator )
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="canSee"></a><p class="function_definition">
+<span class="function_definition">def canSee( <i>self, position</i> ):</span>
+</p>
+
+<div class="function_description">The canSee function determines whether the input position is within
+"line of sight" of the object being oscillated. Line of sight is defined
+as within +/- 0.5 radians of yaw in the viewing direction and within a
+distance of 60 units.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of 3 floats ( x, y, z ).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 1 (true) if the position is within "line of
+sight", 0 (false) otherwise.
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="amplitude"></a><p class="attribute_definition">
+<span class="attribute_definition">amplitude</span>
+</p>
+
+<div class="attribute_description">The attribute amplitude is a scaling factor to the magnitude
+of the oscillation, resulting in a rotational oscillation from
+-amplitude to +amplitude in radians. If amplitude is negative then
+the <a href="Oscillator.html">Oscillator</a> will make the object rotate instead of oscillate.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="offset"></a><p class="attribute_definition">
+<span class="attribute_definition">offset</span>
+</p>
+
+<div class="attribute_description">The attribute offset is applied as an addition to the start of the
+period, effectively offsetting the starting angle of oscillation.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="period"></a><p class="attribute_definition">
+<span class="attribute_definition">period</span>
+</p>
+
+<div class="attribute_description">The attribute period specifies the period of oscillation (in seconds).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

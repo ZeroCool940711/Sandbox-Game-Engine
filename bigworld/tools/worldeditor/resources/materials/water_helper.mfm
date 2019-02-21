@@ -1,0 +1,11 @@
+<water_helper.mfm>
+	<fx>	shaders/std_effects/lightonly.fx	</fx>
+	<property>	selfIllumination
+		<Float>	1.0	</Float>
+	</property>
+	<property>	diffuseMap
+		<Texture>	resources/maps/gizmo/square.dds	</Texture>
+	</property>
+	<collisionFlags>	0	</collisionFlags>
+	<materialKind>	0	</materialKind>
+</water_helper.mfm>

@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>MatrixProvider - BigWorld bots Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>MatrixProvider Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Math.html" class="module_h1">Math Module</a>]</span></p><p>MatrixProvider is part of the <a href="Math.html">Math</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Math</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A matrix provider is the base class for all matrices used as transforms.
+In many cases when the attribute of a particular object has a
+<a href="MatrixProvider.html">MatrixProvider</a> assigned to it, it stores a reference to the original
+<a href="MatrixProvider.html">MatrixProvider</a>, rather than creating a copy.
+<br><br>
+For example, in the CursorCamera, its target could be an <a href="Entity.html">Entity</a>'s world
+transformation matrix.  As the entity moves around and updates its matrix,
+the Camera, which stores a reference to this matrix, automatically follows
+along.
+<br><br>
+In addition, sometimes the original <a href="MatrixProvider.html">MatrixProvider</a> doesn't actually store
+the matrix but calculates it on the fly.  For example, the DiffDirProvider
+provides the matrix to move from a source position to a destination
+position.
+<br><br>
+The base class has no attributes or methods.
+<br><br>
+The easiest way to examine the actual elements of the matrix is to create a
+<a href="Matrix.html">Matrix</a> based on the <a href="MatrixProvider.html">MatrixProvider</a>.  This can be done with the following
+code:
+
+<pre>matrix = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>( matrixProvider )
+</pre>
+matrix can then be interrogated using all the <a href="Matrix.html">Matrix</a> methods and
+functions.  Updating matrix	will not update matrixProvider, however.
+
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

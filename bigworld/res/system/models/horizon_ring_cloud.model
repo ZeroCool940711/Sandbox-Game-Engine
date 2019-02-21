@@ -1,0 +1,8 @@
+<root>
+	<nodelessVisual>	system/models/horizon_ring_cloud	</nodelessVisual>
+	<materialNames>	</materialNames>
+	<visibilityBox>
+		<min>	-10.000000 -5.158130 -9.848079	</min>
+		<max>	10.000000 4.576266 9.848077	</max>
+	</visibilityBox>
+</root>

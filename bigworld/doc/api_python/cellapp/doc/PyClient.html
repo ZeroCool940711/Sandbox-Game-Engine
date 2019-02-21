@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>PyClient - BigWorld cell Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyClient Class Reference</h1>
+<p><b>PyClient</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="PyClient.html">PyClient</a> is the device through which a real cell <a href="Entity.html">Entity</a> is able to call
+methods on its client instances. A new <a href="PyClient.html">PyClient</a> object is created by
+<a href="BigWorld.html">BigWorld</a> each time an entity's "client", "otherClients" or "allClients"
+attributes are accessed, and each time an entity's "clientEntity" function
+is called. Objects of this type cannot otherwise be created via script.
+<br><br>
+A <a href="PyClient.html">PyClient</a> can be used to send method calls to either the client which owns
+the entity, all clients except the one which owns the entity, or all
+clients. It can also be used to call methods on a different entity which is
+owned by the same client. These options are set when the <a href="PyClient.html">PyClient</a> is
+created, and cannot be altered afterwards via python. The <a href="PyClient.html">PyClient</a> objects
+provided by the entity members client, otherClients, allClients and
+clientEntity are each set up differently in these respects, as described in
+the <a href="Entity.html">Entity</a> class documentation.
+<br><br>
+<a href="PyClient.html">PyClient</a> objects have no default attributes or methods, however <a href="BigWorld.html">BigWorld</a>
+populates them with <a href="ClientCaller.html">ClientCaller</a> objects which represent the methods that
+can be called. These are built using information provided in the entity
+def files. A <a href="ClientCaller.html">ClientCaller</a> object can then be called as if it were the
+method that it represents, which causes it to add a request to call the
+appropriate function on the next bundles that are sent to the appropriate
+clients.
+<br><br>
+Example:
+<br><br>
+If the .def file "myEntityClass.def" contained the following
+
+<pre>    &lt;ClientMethods&gt;
+        &lt;pointAt&gt;
+            &lt;Arg&gt; OBJECT_ID &lt;/Arg&gt; &lt;!-- entity to point at --&gt;
+        &lt;/pointAt&gt;
+    &lt;/ClientMethods&gt;
+</pre>
+then where "myEntity" is an instance of "myEntityClass", the following
+python code would be valid.
+
+<pre># This example tells myEntity to point at the entity with ID #100, on a
+# range of clients.
+
+# the client which owns myEntity
+myEntity.client.pointAt( 100 )
+
+# all clients other than the one which owns myEntity
+myEntity.otherClient.pointAt( 100 )
+
+# all clients
+myEntity.allClients.pointAt( 100 )
+</pre>
+
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,5 @@
+*.log
+*.dmp
+*.pdb
+/layout.xml
+/paths.xml

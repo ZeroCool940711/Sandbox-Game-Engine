@@ -1,0 +1,401 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Installation Guide">
+      <link rel="up" href="index.html" title="Server Installation Guide">
+      <link rel="prev" href="apc.html" title="Appendix&nbsp;C.&nbsp;Copying files to Linux">
+      <link rel="next" href="ape.html" title="Appendix&nbsp;E.&nbsp;Understanding the BigWorld Machine Daemon (BWMachineD)">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_installation_guide/apd.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="apc.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ape.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="appendix" title="Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Customising_Installation"></a>Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="apd.html#d0e1990">D.1. Customising RPMs</a></span></dt>
+                  <dt><span class="section"><a href="apd.html#d0e2004">D.2. Manual Installation</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="apd.html#d0e2007">D.2.1. BWMachined</a></span></dt>
+                        <dt><span class="section"><a href="apd.html#d0e2058">D.2.2. Server</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="apd.html#d0e2074">D.3. Server Tools</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="apd.html#xref_Requirements_And_Caveats">D.3.1. Requirements and Caveats</a></span></dt>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+               <h3 class="title">Note</h3>
+               <p>This appendix does not apply to Indie package customers.</p>
+            </div>
+            <p>As a game advances through its development process it may become
+                 nescessary to perform a custom installation of the BigWorld server. This may
+                 be due to BigWorld server binaries having been regenerated, or production
+                 environment machines needing to alter the installation location from the
+                 default provided in the RPM files.
+            </p>
+            <p>This chapter outlines some of the approaches that can be used to
+                 customise the installation of each BigWorld server component. Whichever
+                 approach you choose to use, we assume that you have obtained the BigWorld
+                 Technology package correctly. This is to ensure that there are no line
+                 ending issues, such as having Windows CRLF line endings when attempting to
+                 use scripts from Linux, which assume LF only line endings.
+            </p>
+            <p>This chapter will also assume that you have a solid understanding of
+                 Linux (in particular the CentOS file system heirachy) and are confident in
+                 navigating the environment on the command line to locate files as
+                 required.
+            </p>
+            <div class="section" title="D.1.&nbsp;Customising RPMs">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e1990"></a>D.1.&nbsp;Customising RPMs
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>BigWorld distributes the RPM <code class="filename">.spec</code> files and Python scripts that are used
+                      for building the officially shipped RPMs. This enables you to customise
+                      the RPMs for your own environment should you need to.
+               </p>
+               <p>Should you wish to use this approach of customisation, please refer
+                      to the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s chapter <a href="../server_operations_guide/ch12.html" class="olink"><i>RPM</i></a> which fully
+                      outlines both how the BigWorld RPM build scripts work, and approaches that
+                      can be used for automating the distribution of the RPMs within a large
+                      network environment.
+               </p>
+            </div>
+            <div class="section" title="D.2.&nbsp;Manual Installation">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e2004"></a>D.2.&nbsp;Manual Installation
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="D.2.1.&nbsp;BWMachined">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e2007"></a>D.2.1.&nbsp;BWMachined
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Out of all the BigWorld server components, BWMachined is perhaps
+                           the easiest to customise the installation of due to its
+                           simplicity.
+                  </p>
+                  <p>To install BWMachined manually you can run the
+                           <code class="filename">bwmachined2.sh</code> script as the root user in the
+                           <code class="filename">bigworld/tools/server/install</code>
+                           directory as follows:
+                  </p><pre class="programlisting"># ./bwmachined2.sh install</pre><p>This operation will perform the following steps:</p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p>Stop any existing installed BWMachined daemon, and uninstall
+                                        it if it does exist. This will not uninstall an RPM package of
+                                        BWMachined however.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>Create the BWMachined init script in <code class="filename">/etc/rc.d/init.d/</code>.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>Create the symbolic links in <code class="filename">/etc/rc[1-5].d/</code>. It is setup to stop in
+                                        <code class="filename">rc1.d/</code> and start in <code class="filename">rc[2-5].d/</code>. These can be changed
+                                        manually if desired.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>Copy the BWMachined executable to the directory <code class="filename">/usr/sbin/</code>.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>Launch the executable in daemon mode as if the init script
+                                        were called with the <code class="option">start</code> argument.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="D.2.2.&nbsp;Server">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e2058"></a>D.2.2.&nbsp;Server
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>A custom installation of the BigWorld server is not constrained by
+                           any installation scripts or file system locations. All that is
+                           nescessary is that the user(s) that will run the BigWorld server on each
+                           machine in the cluster have access to the server binaries and the game
+                           resources. This means that it is possible to install the BigWorld server
+                           binaries either in a user's home directory, or in any other location on
+                           a host.
+                  </p>
+                  <p>Because it is generally enforced that the
+                           <code class="filename">.bwmachined.conf</code> file is the same between machines
+                           for an individual user in a BigWorld network cluster, it is preferable
+                           to ensure that the installation location of the BigWorld server binaries
+                           is consistent on each machined. This also ensures that ongoing
+                           maintenance of the machines is much easier.
+                  </p>
+                  <p>If you choose to manage your own BigWorld server binary
+                           installation you may wish to refer to some of the options mentioned in
+                           the document <a href="../release_planning/index.html" class="olink">Release Planning</a>'s section <a href="../release_planning/ch05.html#xref_DistributingGameResources" class="olink">Distributing Game Resources</a>.
+                  </p>
+               </div>
+            </div>
+            <div class="section" title="D.3.&nbsp;Server Tools">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e2074"></a>D.3.&nbsp;Server Tools
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The server tools perhaps benefit the most from being installed from
+                      an RPM due to the complexity of subsystems and configuration that is
+                      involved in installing them correctly. The following instructions describe
+                      dependancy list as well as a basic installation guide although we no
+                      longer support a manual installation of the server tools.
+               </p>
+               <div class="section" title="D.3.1.&nbsp;Requirements and Caveats">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Requirements_And_Caveats"></a>D.3.1.&nbsp;Requirements and Caveats
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="section" title="D.3.1.1.&nbsp;Requirements">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e2082"></a>D.3.1.1.&nbsp;Requirements
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p>BWMachined installed and operational on the server tools
+                                             machine
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Dedicated user account for the server tools</p>
+                           </li>
+                           <li class="listitem">
+                              <p>MySQL Database</p>
+                           </li>
+                           <li class="listitem">
+                              <p>Python 2.4 or higher (default for RedHat / CentOS)</p>
+                           </li>
+                           <li class="listitem">
+                              <p>TurboGears v1.x (default for RedHat / CentOS)</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="section" title="D.3.1.2.&nbsp;Dependencies">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="xref_Dependencies"></a>D.3.1.2.&nbsp;Dependencies
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>WebConsole by default uses an SQLite database for managing all
+                                persistent data such as user information, preferences, etc.
+                     </p>
+                     <p>The statistics-collecting process, StatLogger, relies on a MySQL
+                                database server for storing process and machine statistics.
+                     </p>
+                  </div>
+                  <div class="section" title="D.3.1.3.&nbsp;Installation process">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e2108"></a>D.3.1.3.&nbsp;Installation process
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The installation process will not be outlined in a step-by-step
+                                manner as has been done for the RPM installation process. If you are
+                                attempting a custom installation of the BigWorld server tools it is
+                                assumed that you have enough system understanding and experience with
+                                BigWorld to perform each step described below.
+                     </p>
+                     <p>A custom installation of the BigWorld server tools requires you
+                                to perform the following steps:
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p>Install the EPEL repository as outlined in <a class="xref" href="ch02.html#xref_Installing_EPEL" title="2.2.2.&nbsp;Installing the EPEL Repository">Installing the EPEL Repository</a>.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Install the <span class="literal">MySQL-python</span> RPM package as
+                                             distributed with the BigWorld package to prevent any WebConsole
+                                             and StatLogger connection issues.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Install all dependencies.</p>
+                              <p>Even when performing a custom installation we recommend that
+                                             you install the dependency chain via the default CentOS
+                                             repositories used for the BigWorld RPMs, as it will ensure that
+                                             the versions of installed packages are correct.
+                              </p>
+                              <p>The following yum packages should be installed:</p>
+                              <div class="itemizedlist">
+                                 <ul class="itemizedlist" type="circle">
+                                    <li class="listitem">
+                                       <p>python-setuptools</p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p>python-sqlobject</p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p>TurboGears</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="listitem">
+                              <p><span class="literal">yum update</span> your distribution to ensure
+                                             all security and bug fixes have been applied.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Create a user account within your domain which will be used
+                                             to run the tools.
+                              </p>
+                              <p>For example, create the user <span class="literal">bwtools</span> that
+                                             is able to be resolved on all machines in the server cluster and
+                                             has a unique user ID on all cluster machines.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Ensure the MySQL server is running and enabled for all
+                                             appropriate runlevels.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Create a MySQL server account for the BigWorld server
+                                             tools.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Install the BigWorld server tools into the BigWorld tools
+                                             users directory.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Set the SELinux security context for
+                                             <code class="filename">bwlog.so</code>.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Update the WebConsole configuration file.</p>
+                           </li>
+                           <li class="listitem">
+                              <p>Update the StatLogger configuration file.</p>
+                           </li>
+                           <li class="listitem">
+                              <p>Update the MessageLogger configuration file.</p>
+                           </li>
+                           <li class="listitem">
+                              <p>Copy the service scripts from <code class="filename">bigworld/tools/server/install</code> into
+                                             the directory <code class="filename">/etc/init.d</code>
+                                             and set the service runlevels.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Start MessageLogger, StatLogger and WebConsole.</p>
+                           </li>
+                           <li class="listitem">
+                              <p>Configure log rotation for the server tools log
+                                             files.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Verify that all services are running after a server
+                                             restart.
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="apc.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ape.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Appendix&nbsp;C.&nbsp;Copying files to Linux&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Appendix&nbsp;E.&nbsp;Understanding the BigWorld Machine Daemon (BWMachineD)</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

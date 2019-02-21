@@ -1,0 +1,5 @@
+*.idb
+*.htm
+/BuildLog.htm
+*.exp
+*.dep

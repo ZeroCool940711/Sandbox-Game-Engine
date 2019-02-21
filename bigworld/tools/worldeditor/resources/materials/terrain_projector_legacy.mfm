@@ -1,0 +1,3 @@
+<material>
+	<fx> resources/materials/terrain_projector_legacy.fx </fx>
+</material>

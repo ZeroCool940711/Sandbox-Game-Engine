@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>Plane - BigWorld cell Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Plane Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Math.html" class="module_h1">Math Module</a>]</span></p><p>Plane is part of the <a href="Math.html">Math</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Math</pre>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#init" class="function_list" >init</a>( self, p0, p1, p2 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#intersectRay" class="function_list" >intersectRay</a>( self, src, dst ):</span>
+</td></tr>
+
+</table>
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="Plane.html">Plane</a> class is a 3d plane
+<br><br>
+A <a href="Plane.html">Plane</a> can be created using the <a href="Math.html">Math</a>.<a href=Math.html#Plane><a href="Plane.html">Plane</a></a>() function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="init"></a><p class="function_definition">
+<span class="function_definition">def init( <i>self, p0, p1, p2</i> ):</span>
+</p>
+
+<div class="function_description">This method initialises the plane equation so that the input points
+lie on it. The points should be in a clockwise order when looked at from the
+front of the plane. The points must not be colinear.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>p0</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> point on the plane.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>p1</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> point on the plane.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>p2</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> point on the plane.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The location of the intersection
+</td></tr>
+</table>
+</p>
+
+<a name="intersectRay"></a><p class="function_definition">
+<span class="function_definition">def intersectRay( <i>self, src, dst</i> ):</span>
+</p>
+
+<div class="function_description">This method calculates the intersection of a ray with 
+This plane
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>src</i></span></td><td><span class="function_parameter_description">&nbsp;A point of the source ray
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dst</i></span></td><td><span class="function_parameter_description">&nbsp;The direction of the ray
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The location of the intersection
+</td></tr>
+</table>
+</p>
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

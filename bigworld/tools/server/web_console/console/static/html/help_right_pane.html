@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link href="/static/css/top.css" rel="stylesheet" type="text/css" />
+	<link href="/static/css/help.css" rel="stylesheet" type="text/css" />
+	
+	<script src="/static/js/help_title.js" language="JavaScript" 
+		type="text/javascript"></script>
+
+	<!-- Note: this isn't the IE method of controlling cache -->
+	<meta http-equiv="cache-control" content="no-cache"/>
+
+</head>
+
+<body onload="HelpTitle.update( 'WebConsole Help: Python Console' );">
+
+<a name="Top"></a>
+<div class="help">
+
+	<p>The <b>Python Console</b> module provides the ability to access Python
+	functionality (and even exposed C++ methods) from the <b>WebConsole</b> 
+	without needing to connect to a linux machine and use developer / systems 
+	operator oriented tools.</p>
+
+
+	<h2><a name="pyConsole">1. Python console</a></h2>
+	<p>The <b>Python Console</b> page provides a simple web interface to the
+	Python telnet port of BaseApps and CellApps. Using the Python console,
+	users can interactively call script commands on a server process, or
+	inspect the state of the server.</p>
+	
+	<p>Previously, developers would have to use <code>`control_cluster.py
+	pyconsole`</code>, or run telnet from the command line to access this
+	functionality.</p>
+
+	<h3><a name="Usage">1.1. Usage</a></h3> 
+	<p>Opening the <b>Python Console</b> page presents the user with a list
+	of active server components owned by the current user that have an exposed
+	Python console.</p>
+
+	<p>Each process has a <b>Connect</b> link which links to a terminal
+	like page that is connected to the associated server component. The
+	console page can also be accessed via the <b>Cluster Control</b> module's
+	<b>Manage Servers</b> page, and in the process <b>Action</b>
+	drop-down list box selecting <b>Console</b> entry.</p>
+
+	<p>The Python console page is designed to be similar to an interactive
+	command line python console that most python developers should have
+	encountered.</p>
+</div>
+
+</body>
+</html>

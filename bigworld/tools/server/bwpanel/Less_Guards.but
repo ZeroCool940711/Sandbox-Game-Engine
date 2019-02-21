@@ -1,0 +1,4 @@
+#!/bin/sh
+#BWPANEL 6 "Remove 100 Guards"
+$MF_ROOT/bigworld/tools/server/runscript -base $MF_ROOT/fantasydemo/res/server/scripts/lessGuards.py
+

@@ -1,0 +1,4 @@
+#!/bin/sh
+#BWPANEL 0 "Start the World - Detailed"
+cd $MF_ROOT/bigworld/tools/server/misc
+./startsingle.sh

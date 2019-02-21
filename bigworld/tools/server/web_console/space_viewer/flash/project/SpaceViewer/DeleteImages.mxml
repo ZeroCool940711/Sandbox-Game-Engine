@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" borderSkin="ApplicationBackground" backgroundColor="#000000" backgroundGradientAlphas="[]"  
+    backgroundImage="" backgroundAlpha="0"  layout="absolute" creationComplete="onLoad()">
+<mx:HorizontalList  id="myList" columnCount="4" selectedIndex="0" dataProvider="{catalogue.lastResult.catalogue.image}" itemRenderer="myComponents.Thumbnail"  x="147" y="104" width="400" height="90"/>
+<mx:HorizontalList id="myIconList"  columnCount="8" selectedIndex="0" dataProvider="{catalogueForIcons.lastResult.catalogue.image}" itemRenderer="myComponents.ThumbnailForIcon"  x="147" y="279"/>	
+	<mx:Button x="279" y="375" click="onClickDeleteIcons()" label="DeleteIcon" />
+	<!-- <mx:Button x="228" y="285" label="DeleteAll"/> -->
+	<mx:HTTPService id="catalogueForIcons" url="static/assets/catalogueforicons.xml" />
+	<mx:HTTPService id="catalogue" url="static/assets/catalogue.xml" />
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			private function onLoad():void
+			{
+				var request:Object = new Object();
+				request.s		   = Math.random();
+				var serviceURL:String   = String(Application.application.parameters.serviceURL);				
+				deleteRequest.url=serviceURL+"/sv/deleteFile?tg_format=json";
+				catalogueForIcons.send(request);
+				catalogue.send(request);
+			}	
+			private function onClickDeleteIcons():void
+			{
+				if(catalogueForIcons.lastResult)
+				{
+				var request:Object = new Object();
+				
+				request.deleteFileName=myIconList.selectedItem.name.toString();
+				
+				request.IsImage="icon";
+				request.s=Math.random();				
+				deleteRequest.send(request);				
+				}
+			}
+			private function onClickDeleteImage():void
+			{
+				if(catalogue.lastResult)
+				{
+				var request:Object = new Object();
+				
+				request.deleteFileName=myList.selectedItem.name.toString();
+				request.IsImage="image";
+				request.s=Math.random();				
+				deleteRequest.send(request);				
+				}
+			}
+			/*private function onClickDeleteAllIcons():void
+			{
+				if(catalogueForIcons.lastResult)
+				{
+				var request:Object = new Object();
+				
+				request.deleteFileName=myIconList.selectedItem.name.toString();
+				
+				request.IsImage="icon";
+				request.s=Math.random();
+				deleteRequest.send(request);				
+				}
+			}*/
+			private function onDeleteRequestResult():void
+			{
+				var request:Object=new Object();
+				request.s=Math.random();
+				catalogueForIcons.send(request);
+				catalogue.send(request);
+			}	
+		]]>
+	</mx:Script>
+	<mx:HTTPService id="deleteRequest" result="onDeleteRequestResult()" />
+	<mx:Button x="267" y="222" label="DeleteImage" click="onClickDeleteImage()"/>
+	<mx:Label x="229" y="10" text="Delete Images or Icons" fontSize="16" color="#ffffff" fontWeight="bold" fontFamily="Verdana"/>
+</mx:Application>

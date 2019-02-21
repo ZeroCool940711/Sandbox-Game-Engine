@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>PyBlurParticleRenderer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyBlurParticleRenderer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyBlurParticleRenderer is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemRenderer.html">PyParticleSystemRenderer</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#textureName" class="attribute_list" >textureName</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#time" class="attribute_list" >time</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#useFog" class="attribute_list" >useFog</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#width" class="attribute_list" >width</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+BlurParticleRenderer is a ParticleSystemRenderer that draws a trail
+for each particle, but does so in a more efficient manner than the
+TrailParticleRenderer.
+<br><br>
+The BlurParticleRenderer draws a single straight trail for each
+particle, by drawing a textured line using the particle's current
+velocity negated.
+<br><br>
+Due to this, the trails drawn by the BlurParticleRenderer will not
+exhibit bends - however, there is no memory overhead for using this
+renderer.
+<br><br>
+A new <a href="PyBlurParticleRenderer.html">PyBlurParticleRenderer</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#BlurParticleRenderer>BlurParticleRenderer</a>
+function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="textureName"></a><p class="attribute_definition">
+<span class="attribute_definition">textureName</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the name of the texture used to render the
+trails of the particles.
+</div>
+
+<a name="time"></a><p class="attribute_definition">
+<span class="attribute_definition">time</span>
+</p>
+
+<div class="attribute_description">The time attribute specifies the length of the trail, in seconds.
+The length of the tail is (particle velocity * time)
+Default value is 0.25.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="useFog"></a><p class="attribute_definition">
+<span class="attribute_definition">useFog</span>
+</p>
+
+<div class="attribute_description">Specifies whether the renderer should enable scene fogging or not.  You
+may want to turn off scene fogging if you are using particle systems in
+the sky box, or if you want to otherwise explicitly control the amount
+of fogging via the tint shader fog blend control.
+</div>
+
+<a name="width"></a><p class="attribute_definition">
+<span class="attribute_definition">width</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the width of the line renderer as the trail
+on the particles.
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

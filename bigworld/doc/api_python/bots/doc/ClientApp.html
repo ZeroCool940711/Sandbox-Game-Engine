@@ -1,0 +1,550 @@
+<html>
+<head>
+<title>ClientApp - BigWorld bots Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ClientApp Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>ClientApp is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addTimer" class="function_list" >addTimer</a>( self, interval, callback, repeat ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delTimer" class="function_list" >delTimer</a>( self, id ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#dropConnection" class="function_list" >dropConnection</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#faceTowards" class="function_list" >faceTowards</a>( self, direction ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#logOff" class="function_list" >logOff</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#logOn" class="function_list" >logOn</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#moveTo" class="function_list" >moveTo</a>( self, destination ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setConnectionLatency" class="function_list" >setConnectionLatency</a>( self, minLatency, maxLatency ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setConnectionLossRatio" class="function_list" >setConnectionLossRatio</a>( self, lostRatio ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setMovementController" class="function_list" >setMovementController</a>( self, movementController ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#snapTo" class="function_list" >snapTo</a>( self, position ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#stop" class="function_list" >stop</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#autoMove" class="attribute_list" >autoMove</a></td><td>&nbsp; boolean
+</td></tr>
+
+<tr valign=top><td><a href="#entities" class="attribute_list" >entities</a></td><td>&nbsp; Read-only <a href="PyEntities.html">PyEntities</a>
+</td></tr>
+
+<tr valign=top><td><a href="#id" class="attribute_list" >id</a></td><td>&nbsp; Read-only integer
+</td></tr>
+
+<tr valign=top><td><a href="#isDestroyed" class="attribute_list" >isDestroyed</a></td><td>&nbsp; Read-only boolean
+</td></tr>
+
+<tr valign=top><td><a href="#isMoving" class="attribute_list" >isMoving</a></td><td>&nbsp; Read-only boolean
+</td></tr>
+
+<tr valign=top><td><a href="#isOnline" class="attribute_list" >isOnline</a></td><td>&nbsp; Read-only boolean
+</td></tr>
+
+<tr valign=top><td><a href="#loginName" class="attribute_list" >loginName</a></td><td>&nbsp; Read-only string
+</td></tr>
+
+<tr valign=top><td><a href="#loginPassword" class="attribute_list" >loginPassword</a></td><td>&nbsp; Read-only string
+</td></tr>
+
+<tr valign=top><td><a href="#pitch" class="attribute_list" >pitch</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#position" class="attribute_list" >position</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#roll" class="attribute_list" >roll</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#spaceID" class="attribute_list" >spaceID</a></td><td>&nbsp; Read-only integer
+</td></tr>
+
+<tr valign=top><td><a href="#speed" class="attribute_list" >speed</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#tag" class="attribute_list" >tag</a></td><td>&nbsp; string
+</td></tr>
+
+<tr valign=top><td><a href="#yaw" class="attribute_list" >yaw</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+Instances of the <a href="ClientApp.html">ClientApp</a> class represent simulated clients
+running on the Bots application.
+<br><br>
+An instance of <a href="ClientApp.html">ClientApp</a> behaves exactly as a normal <a href="BigWorld.html">BigWorld</a>
+client in terms of data exchange with <a href="BigWorld.html">BigWorld</a> server. After a
+<a href="ClientApp.html">ClientApp</a> is created, it performs standard login procedure with
+either randomn or specfied name/password. It creates a simplified
+version of player entity under instructions from the server. From
+here on the player entity ID becomes the <a href="ClientApp.html">ClientApp</a> ID. The
+<a href="ClientApp.html">ClientApp</a> receives all data within the player AOI, remote
+procedure calls from the server as a normal <a href="BigWorld.html">BigWorld</a> client would.
+However, it only process limited amount of these data, as most
+data is ignored. The default behaviour of the <a href="ClientApp.html">ClientApp</a> (while it
+is connected with a server) is to send new player entity positions
+to the server. The player entity motion is driven either randomnly
+or by the movement controller that the Bots application is
+using. Additional game logic can be implemented in Python script
+to make simulation closer to the scenarios found in the real world
+gameplay. The <a href="ClientApp.html">ClientApp</a> can also simulate realistic inter-network
+environment where network delay and dropoff often occur.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addTimer"></a><p class="function_definition">
+<span class="function_definition">def addTimer( <i>self, interval, callback, repeat</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>interval</i></span></td><td><span class="function_parameter_description">&nbsp;(float)		time interval for triggering the timer.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;(PyObject)	Callback function.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>repeat</i></span></td><td><span class="function_parameter_description">&nbsp;(boolean)	Should the timer be triggered repeatly.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>id		(integer)		The ID for the newly added timer.
+</td></tr>
+</table>
+</p>
+
+<a name="delTimer"></a><p class="function_definition">
+<span class="function_definition">def delTimer( <i>self, id</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;(integer)	Timer ID.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="dropConnection"></a><p class="function_definition">
+<span class="function_definition">def dropConnection( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="faceTowards"></a><p class="function_definition">
+<span class="function_definition">def faceTowards( <i>self, direction</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>direction</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>)	Direction for the player entity
+									to face.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="logOff"></a><p class="function_definition">
+<span class="function_definition">def logOff( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="logOn"></a><p class="function_definition">
+<span class="function_definition">def logOn( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="moveTo"></a><p class="function_definition">
+<span class="function_definition">def moveTo( <i>self, destination</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destination</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>)	Destination for the player entity 
+									to move to.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setConnectionLatency"></a><p class="function_definition">
+<span class="function_definition">def setConnectionLatency( <i>self, minLatency, maxLatency</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>minLatency</i></span></td><td><span class="function_parameter_description">&nbsp;(float)		Minimum latency between packets.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxLatency</i></span></td><td><span class="function_parameter_description">&nbsp;(float)		Maximum latency between packets.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setConnectionLossRatio"></a><p class="function_definition">
+<span class="function_definition">def setConnectionLossRatio( <i>self, lostRatio</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>lostRatio</i></span></td><td><span class="function_parameter_description">&nbsp;(float)		Packet loss ratio.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setMovementController"></a><p class="function_definition">
+<span class="function_definition">def setMovementController( <i>self, movementController</i> ):</span>
+</p>
+
+<div class="function_description">BW provides only few elementary movement controllers with simple patrol
+paths. We recommend you use default movement controller. It reads in
+custom designed patrol paths which you should create specifically for
+your game world environment. For details of how to custom desige patrol
+path, check the server operation guide section 8.4.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>movementController</i></span></td><td><span class="function_parameter_description">&nbsp;(string)Name of the movement controller.
+									Note: The movement controller must
+									have been compiled and visible to
+									the Bots app.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(boolean)	True if successful, otherwise, False.
+</td></tr>
+</table>
+</p>
+
+<a name="snapTo"></a><p class="function_definition">
+<span class="function_definition">def snapTo( <i>self, position</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>)	New position for the player entity.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="stop"></a><p class="function_definition">
+<span class="function_definition">def stop( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="autoMove"></a><p class="attribute_definition">
+<span class="attribute_definition">autoMove</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>boolean
+</td></tr>
+</table>
+</p>
+
+<a name="entities"></a><p class="attribute_definition">
+<span class="attribute_definition">entities</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only <a href="PyEntities.html">PyEntities</a>
+</td></tr>
+</table>
+</p>
+
+<a name="id"></a><p class="attribute_definition">
+<span class="attribute_definition">id</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only integer
+</td></tr>
+</table>
+</p>
+
+<a name="isDestroyed"></a><p class="attribute_definition">
+<span class="attribute_definition">isDestroyed</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only boolean
+</td></tr>
+</table>
+</p>
+
+<a name="isMoving"></a><p class="attribute_definition">
+<span class="attribute_definition">isMoving</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only boolean
+</td></tr>
+</table>
+</p>
+
+<a name="isOnline"></a><p class="attribute_definition">
+<span class="attribute_definition">isOnline</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only boolean
+</td></tr>
+</table>
+</p>
+
+<a name="loginName"></a><p class="attribute_definition">
+<span class="attribute_definition">loginName</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only string
+</td></tr>
+</table>
+</p>
+
+<a name="loginPassword"></a><p class="attribute_definition">
+<span class="attribute_definition">loginPassword</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only string
+</td></tr>
+</table>
+</p>
+
+<a name="pitch"></a><p class="attribute_definition">
+<span class="attribute_definition">pitch</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="position"></a><p class="attribute_definition">
+<span class="attribute_definition">position</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="roll"></a><p class="attribute_definition">
+<span class="attribute_definition">roll</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="spaceID"></a><p class="attribute_definition">
+<span class="attribute_definition">spaceID</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only integer
+</td></tr>
+</table>
+</p>
+
+<a name="speed"></a><p class="attribute_definition">
+<span class="attribute_definition">speed</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="tag"></a><p class="attribute_definition">
+<span class="attribute_definition">tag</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>string
+</td></tr>
+</table>
+</p>
+
+<a name="yaw"></a><p class="attribute_definition">
+<span class="attribute_definition">yaw</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

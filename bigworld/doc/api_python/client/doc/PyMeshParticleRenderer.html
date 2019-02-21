@@ -1,0 +1,149 @@
+<html>
+<head>
+<title>PyMeshParticleRenderer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyMeshParticleRenderer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyMeshParticleRenderer is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemRenderer.html">PyParticleSystemRenderer</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#doubleSided" class="attribute_list" >doubleSided</a></td><td>&nbsp; Bool.
+</td></tr>
+
+<tr valign=top><td><a href="#materialFX" class="attribute_list" >materialFX</a></td><td>&nbsp; String.
+</td></tr>
+
+<tr valign=top><td><a href="#sortType" class="attribute_list" >sortType</a></td><td>&nbsp; String.
+</td></tr>
+
+<tr valign=top><td><a href="#visual" class="attribute_list" >visual</a></td><td>&nbsp; String.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+MeshParticleRenderer is a ParticleSystemRenderer which renders each particle
+as a mesh object.  MeshParticles are exported from 3D Studio Max using
+mesh particle option in Visual Exporter.  A MeshParticle .visual file contains
+up to 15 unique simple pieces of mesh.  The mesh particle renderer will use each
+one of these pieces as a single particle.
+<br><br>
+From <a href="BigWorld.html">BigWorld</a> 1.8 and on, the MeshParticleRenderer can not render standard
+visuals.  You should use VisualParticleRenderer instead.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="doubleSided"></a><p class="attribute_definition">
+<span class="attribute_definition">doubleSided</span>
+</p>
+
+<div class="attribute_description">Specifies whether or not to draw the mesh pieces double sided.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Bool.
+</td></tr>
+</table>
+</p>
+
+<a name="materialFX"></a><p class="attribute_definition">
+<span class="attribute_definition">materialFX</span>
+</p>
+
+<div class="attribute_description">Specifies the MaterialFX to use to draw the meshes into the scene.
+Each value specifies either a special effect, or a source and destination
+alpha-blend setting for the material. If no value is specified, materialFX
+defaults to 'SOLID'. The possible values are listed below:
+<br><br>
+SOLID: not alpha blended. source = ONE, destination = ZERO
+<br><br>
+ADDITIVE: alpha blended. source = SRC_ALPHA, destination = ONE
+<br><br>
+BLENDED: alpha blended. source = SRC_ALPHA, destination = INV_SRC_ALPHA
+<br><br>
+Refer to the DirectX documentation for a description of how material
+settings affect alpha blending.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String.
+</td></tr>
+</table>
+</p>
+
+<a name="sortType"></a><p class="attribute_definition">
+<span class="attribute_definition">sortType</span>
+</p>
+
+<div class="attribute_description">Specifies the sort type.  The possible values are listed below:
+<br><br>
+NONE: minimal sorting.  Choose this method if speed is paramount and
+the visual artifacts introduced are not noticeable.  The particle
+system as a whole will be rendered in order with respect to other
+sorted objects, and the triangles contained within will be sorted
+back to front, however the particles themselves will render out
+of order.
+<br><br>
+QUICK: sorting is done in a way that allows the renderer to still
+draw in groups of 15, which introduced some sorting inaccuracies but
+maintains most of the speed of unsorted mesh particles.  This method
+is highly recommended if you cannot notice the sorting innacuracies.
+<br><br>
+ACCURATE: sorting of individual objects and triangles is performed,
+which provides the most accurate sorting but breaks the ability of
+the renderer to perform fast 15-at-a-time rendering, thus decreasing
+rendering performance.  If you choose this sorting method, make
+sure you double check the performance hit induced.
+<br><br>
+Refer to the DirectX documentation for a description of how material
+settings affect alpha blending.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String.
+</td></tr>
+</table>
+</p>
+
+<a name="visual"></a><p class="attribute_definition">
+<span class="attribute_definition">visual</span>
+</p>
+
+<div class="attribute_description">This is the name of the mesh particle type to use for the particles.
+Default value is "".
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Vector4Provider - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Vector4Provider Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Math.html" class="module_h1">Math Module</a>]</span></p><p>Vector4Provider is part of the <a href="Math.html">Math</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Math</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#value" class="attribute_list" >value</a></td><td>&nbsp; Read-Only <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="Vector4Provider.html">Vector4Provider</a> is the abstract base class for all objects which supply a
+dynamic <a href="Vector4.html">Vector4</a>. In many cases when the attribute of a particular object
+has a <a href="Vector4Provider.html">Vector4Provider</a> assigned to it, it stores a reference to the original
+<a href="Vector4Provider.html">Vector4Provider</a> rather than creating a copy.
+<br><br>
+Code Example:
+
+<pre># This example creates a flashing light at ( 0, 10, 0 ).
+# The light flashes because the <a href="Vector4Provider.html">Vector4Provider</a> assigned to its shader
+# attribute provides a dynamic <a href="Vector4.html">Vector4</a>, and the light uses this to
+# determine its colour.
+
+# Import <a href="Math.html">Math</a> module
+import <a href="Math.html">Math</a>
+
+# Create a light at positions ( 0, 10, 0 )
+newLight = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PyChunkLight>PyChunkLight</a>()
+newLight.position = ( i * 20, 10, 0 )
+newLight.outerRadius = 10
+newLight.visible = 1
+
+# Set up a <a href="Vector4Animation.html">Vector4Animation</a>, & apply it to the light.
+fadeV4 = <a href="Math.html">Math</a>.<a href="Vector4Animation.html">Vector4Animation</a>()
+fadeV4.duration = 1.5
+fadeV4.keyframes = [ ( 0.0, ( 200, 0, 0, 0 ) ),    # red at 0.0s
+                     ( 0.5, ( 0, 200, 0, 0 ) ),    # green at 0.5s
+                     ( 1.0, ( 0, 0, 200, 0 ) ),    # blue at 1.0s
+                     ( 1.5, ( 200, 0, 0, 0 ) ) ]   # red at 1.5s
+newLight.shader = fadeV4
+</pre>
+<br><br>
+When a tuple of four floats or a <a href="Vector4.html">Vector4</a> is used in place of a
+<a href="Vector4Provider.html">Vector4Provider</a> it is cast to a <a href="Vector4Basic.html">Vector4Basic</a>, which is a simple static
+subclass of <a href="Vector4Provider.html">Vector4Provider</a>. See the documentation for <a href="Vector4Basic.html">Vector4Basic</a> for an
+example.
+<br><br>
+Vector4Providers can be used to provide dynamic input to PyChunkLight
+objects, <a href="GUI.html">GUI</a> shaders, TintShaderPSA objects, and the PyModel dye system.
+<br><br>
+This base class provides no methods, and only one attribute, which is the
+<a href="Vector4.html">Vector4</a> currently being provided.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="value"></a><p class="attribute_definition">
+<span class="attribute_definition">value</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

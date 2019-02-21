@@ -1,0 +1,207 @@
+<html>
+<head>
+<title>ColourGUIShader - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ColourGUIShader Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>ColourGUIShader is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="GUIShader.html">GUIShader</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#reset" class="function_list" >reset</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#colourProvider" class="attribute_list" >colourProvider</a></td><td>&nbsp; ColourProvider
+</td></tr>
+
+<tr valign=top><td><a href="#end" class="attribute_list" >end</a></td><td>&nbsp; <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+<tr valign=top><td><a href="#middle" class="attribute_list" >middle</a></td><td>&nbsp; <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+<tr valign=top><td><a href="#speed" class="attribute_list" >speed</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#start" class="attribute_list" >start</a></td><td>&nbsp; <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+<tr valign=top><td><a href="#value" class="attribute_list" >value</a></td><td>&nbsp; Float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class modifies the colours of the <a href="GUI.html">GUI</a> components it is applied to.  It
+is a subclass of <a href="GUIShader.html">GUIShader</a>.
+<br><br>
+There are two ways it can specify which colour to shade the components.
+The first is to have a ColourProvider (which is a <a href="Vector4Provider.html">Vector4Provider</a>, with
+its components interpreted as ( red, green, blue, alpha ),
+assigned to its colourProvider attribute.  If this is not None it
+overrides the interpolation.
+<br><br>
+The second is to interpolate between the colour specified by
+its start, middle and end attributes.  Interpolation is based on the value
+attribute.  If value is between 0.0 and 0.5, interpolation is between
+start and middle.  If it is from 0.5 to 1.0, it is between middle and end.
+<br><br>
+A new <a href="ColourGUIShader.html">ColourGUIShader</a> is created using the <a href="GUI.html">GUI</a>.<a href=GUI.html#ColourShader>ColourShader</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="reset"></a><p class="function_definition">
+<span class="function_definition">def reset( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method resets the colour of the shader to be
+exactly the destination.  It bypasses any inherent
+animation to the target colour.
+</div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="colourProvider"></a><p class="attribute_definition">
+<span class="attribute_definition">colourProvider</span>
+</p>
+
+<div class="attribute_description">This attribute can be assigned a ColourProvider, which then specifies
+the colour for the shader, overriding the colour derived using value to
+interpolate between start, middle and end.  By default, colourProvider
+is None.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>ColourProvider
+</td></tr>
+</table>
+</p>
+
+<a name="end"></a><p class="attribute_definition">
+<span class="attribute_definition">end</span>
+</p>
+
+<div class="attribute_description">The end attribute is the colour to associate with a value of 1.0.  The
+colour of the shader is linearly interpolated between the start, middle
+and end attributes, using the value attribute.  When value is between
+0.5 and 1.0, it is interpolated between middle and end.
+<br><br>
+The value is a <a href="Vector4.html">Vector4</a>, with the components (red, green, blue, alpha),
+each between 0 and 255.  Alpha is ignored
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<a name="middle"></a><p class="attribute_definition">
+<span class="attribute_definition">middle</span>
+</p>
+
+<div class="attribute_description">The middle attribute is the colour to associate with a value of 0.5.
+The colour of the shader is linearly interpolated between the start,
+middle and end attributes, using the value attribute.  When value is
+between 0.0 and 0.5, it is interpolated between start and middle.  When
+value is between 0.5 and 1.0, it is interpolated between middle and end.
+<br><br>
+The value is a <a href="Vector4.html">Vector4</a>, with the components (red, green, blue, alpha),
+each between 0 and 255.  Alpha is ignored
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<a name="speed"></a><p class="attribute_definition">
+<span class="attribute_definition">speed</span>
+</p>
+
+<div class="attribute_description">This attribute specifies how many seconds the colour of the shader
+takes to adjust when the value attribute is assigned to.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="start"></a><p class="attribute_definition">
+<span class="attribute_definition">start</span>
+</p>
+
+<div class="attribute_description">The start attribute is the colour to associate with a value of zero.
+The colour of the shader is linearly interpolated between the start,
+middle and end attributes, using the value attribute.  When value is
+between 0.0 and 0.5, it is interpolated between start and middle.
+<br><br>
+The value is a <a href="Vector4.html">Vector4</a>, with the components (red, green, blue, alpha),
+each between 0 and 255.  Alpha is ignored.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<a name="value"></a><p class="attribute_definition">
+<span class="attribute_definition">value</span>
+</p>
+
+<div class="attribute_description">The value attribute is used to linearly interpolate the colour of the
+shader between the start, middle and end colours. Values between 0.0
+and 0.5 are interpolated between start and middle, values between 0.5
+and 1.0 are interpolated between middle and end.
+<br><br>
+If speed is non-zero, then when value is assigned to, the colour takes
+speed seconds to move from its	current colour to the interpolated
+colour chosen by the new value.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

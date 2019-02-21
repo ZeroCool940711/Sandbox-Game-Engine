@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>PyCopyBackBuffer - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyCopyBackBuffer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="PostProcessing.html" class="module_h1">PostProcessing Module</a>]</span></p><p>PyCopyBackBuffer is part of the <a href="PostProcessing.html">PostProcessing</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import PostProcessing</pre>
+<h2>Parent Classes</h2>
+Phase
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#name" class="attribute_list" >name</a></td><td>&nbsp; String.
+</td></tr>
+
+<tr valign=top><td><a href="#renderTarget" class="attribute_list" >renderTarget</a></td><td>&nbsp; <a href="PyRenderTarget.html">PyRenderTarget</a>.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class derives from PostProcessing::Phase, and
+provides a way to get a copy of the back buffer in
+a render target.
+<br><br>
+It uses a draw cookie to know when the back buffer
+has been updated.  If backBufferCopy.draw is called
+but the render target already has the latest copy
+of the render target then it optimises out the draw call.
+Note this optimisation only works if you reuse the same
+<a href="PyCopyBackBuffer.html">PyCopyBackBuffer</a> phase instance.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="name"></a><p class="attribute_definition">
+<span class="attribute_definition">name</span>
+</p>
+
+<div class="attribute_description">Arbitrary name identifying this phase.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String.
+</td></tr>
+</table>
+</p>
+
+<a name="renderTarget"></a><p class="attribute_definition">
+<span class="attribute_definition">renderTarget</span>
+</p>
+
+<div class="attribute_description">The render target in which a copy of the back buffer will be placed.
+Internally the DirectX function StretchRect is used, so please refer
+to the DirectX documentation for information on restrictions regarding
+pairs of back buffer formats and render target formats.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="PyRenderTarget.html">PyRenderTarget</a>.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

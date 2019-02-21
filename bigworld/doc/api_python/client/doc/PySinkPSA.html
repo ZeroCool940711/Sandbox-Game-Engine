@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>PySinkPSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PySinkPSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PySinkPSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#maximumAge" class="attribute_list" >maximumAge</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#minimumSpeed" class="attribute_list" >minimumSpeed</a></td><td>&nbsp; Float.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PySinkPSA.html">PySinkPSA</a> is a <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> that destroys particles within
+a ParticleSystem. Particles can be destroyed if they are over a certain
+age or under or over a particular speed.
+<br><br>
+A new <a href="PySinkPSA.html">PySinkPSA</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#SinkPSA>SinkPSA</a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="maximumAge"></a><p class="attribute_definition">
+<span class="attribute_definition">maximumAge</span>
+</p>
+
+<div class="attribute_description">Particles whose time in existence is greater then maximumAge are
+removed from the ParticleSystem. Default -1.0. This attribute is ignored
+if value is < 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="minimumSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">minimumSpeed</span>
+</p>
+
+<div class="attribute_description">Particles with a speed of less than minimumSpeed are removed from the
+ParticleSystem. Default -1.0. This attribute is ignored if value is < 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

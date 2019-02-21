@@ -1,0 +1,3696 @@
+<html>
+<head>
+<title>Entity - BigWorld cell Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Entity Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Entity is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#accelerateAlongPath" class="function_list" >accelerateAlongPath</a>( self, waypoints, acceleration, maxSpeed, facing, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#accelerateToEntity" class="function_list" >accelerateToEntity</a>( self, destinationEntity, acceleration, maxSpeed, range, facing, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#accelerateToPoint" class="function_list" >accelerateToPoint</a>( self, destination, acceleration, maxSpeed, facing, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addProximity" class="function_list" >addProximity</a>( self, range, userArg ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addScanVision" class="function_list" >addScanVision</a>( self, angle, range, seeingHeight, amplitude, scanPeriod, phaseOffset, updatePeriod, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addTimer" class="function_list" >addTimer</a>( self, start, interval=0.0, userData=0 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addVisibility" class="function_list" >addVisibility</a>( self, visibleHeight, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addVision" class="function_list" >addVision</a>( self, angle, range, seeingHeight, period ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addYawRotator" class="function_list" >addYawRotator</a>( self, targetYaw, velocity, userArg=0 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#alightVehicle" class="function_list" >alightVehicle</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#boardVehicle" class="function_list" >boardVehicle</a>( self, vehicleID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#canNavigateTo" class="function_list" >canNavigateTo</a>( self, destination, maxSearchDistance, girth ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#cancel" class="function_list" >cancel</a>( self, controllerID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#clientEntity" class="function_list" >clientEntity</a>( self, destID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#debug" class="function_list" >debug</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#destroy" class="function_list" >destroy</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#destroySpace" class="function_list" >destroySpace</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#dumpAoI" class="function_list" >dumpAoI</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#entitiesInAoI" class="function_list" >entitiesInAoI</a>( self, withheld ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#entitiesInRange" class="function_list" >entitiesInRange</a>( self, range, entityType=None, position ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#entitiesInView" class="function_list" >entitiesInView</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getAoIUpdateScheme" class="function_list" >getAoIUpdateScheme</a>( self, entity ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getDict" class="function_list" >getDict</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getGroundPosition" class="function_list" >getGroundPosition</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getStopPoint" class="function_list" >getStopPoint</a>( self, destination, ignoreFirstStopPoint, maxSearchDistance, girth, stopDist, nearPortalDist ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isInAoI" class="function_list" >isInAoI</a>( self, entityOrID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isReal" class="function_list" >isReal</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isRealToScript" class="function_list" >isRealToScript</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isWithheldFromClient" class="function_list" >isWithheldFromClient</a>( self, entityOrID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#makeNoise" class="function_list" >makeNoise</a>( self, noiseLevel, event, info=0 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#moveToEntity" class="function_list" >moveToEntity</a>( self, destEntityID, velocity, range, userData, faceMovement, moveVertically ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#moveToPoint" class="function_list" >moveToPoint</a>( self, destination, velocity, userData, faceMovement, moveVertically ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#navigate" class="function_list" >navigate</a>( self, destination, velocity, faceMovement, maxSearchDistance, girth, closeEnough, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#navigateFollow" class="function_list" >navigateFollow</a>( self, destEntity, angle, distance, velocity, maxMoveDistance, maxSearchDistance, faceMovement, girth, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#navigatePathPoints" class="function_list" >navigatePathPoints</a>( self, destination, maxSearchDistance, girth ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#navigateStep" class="function_list" >navigateStep</a>( self, destination, velocity, maxMoveDistance, maxSearchDistance, faceMovement, girth, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setAoIRadius" class="function_list" >setAoIRadius</a>( self, radius, hyst=5 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setAoIUpdateScheme" class="function_list" >setAoIUpdateScheme</a>( self, entity, scheme ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setPortalState" class="function_list" >setPortalState</a>( self, permissive, triFlags ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setVisionRange" class="function_list" >setVisionRange</a>( self, visionAngle, range ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#teleport" class="function_list" >teleport</a>( self, nearbyMBRef, position, direction ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#trackEntity" class="function_list" >trackEntity</a>( self, entityID, velocity=2*pi, period=10, userArg=0 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#waySetPathLength" class="function_list" >waySetPathLength</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#withholdFromClient" class="function_list" >withholdFromClient</a>( self, entityOrID, isWithheld ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeToDB" class="function_list" >writeToDB</a>( self ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'callbacks' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Callback Methods</a></h2>
+<table id="callbacks" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#__init__" class="function_list" >__init__</a>( self, nearbyEntity ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onDestroy" class="function_list" >onDestroy</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onEnterTrap" class="function_list" >onEnterTrap</a>( self, entity, range, controllerID, userArg ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onEnteredAoI" class="function_list" >onEnteredAoI</a>( self, entity ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onEnteredCell" class="function_list" >onEnteredCell</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onEnteringCell" class="function_list" >onEnteringCell</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onGetWitness" class="function_list" >onGetWitness</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onGhostCreated" class="function_list" >onGhostCreated</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onGhostDestroyed" class="function_list" >onGhostDestroyed</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLeaveTrap" class="function_list" >onLeaveTrap</a>( self, entity, range, controllerID, userArg ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLeaveTrapID" class="function_list" >onLeaveTrapID</a>( self, entityID, range, controllerID, userArg ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLeavingCell" class="function_list" >onLeavingCell</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLeftAoI" class="function_list" >onLeftAoI</a>( self, entity ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLeftAoIID" class="function_list" >onLeftAoIID</a>( self, entityID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLeftCell" class="function_list" >onLeftCell</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLoseControlledBy" class="function_list" >onLoseControlledBy</a>( self, id ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLoseWitness" class="function_list" >onLoseWitness</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onMove" class="function_list" >onMove</a>( self, controllerID, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onMoveFailure" class="function_list" >onMoveFailure</a>( self, controllerID, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onNavigate" class="function_list" >onNavigate</a>( self, controllerID, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onNavigateFailed" class="function_list" >onNavigateFailed</a>( self, controllerID, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onNoise" class="function_list" >onNoise</a>( self, entity, propRange, distance, event, info ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onPassengerAlightAttempt" class="function_list" >onPassengerAlightAttempt</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onPassengerBoardAttempt" class="function_list" >onPassengerBoardAttempt</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onRestore" class="function_list" >onRestore</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onSpaceGone" class="function_list" >onSpaceGone</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onStartSeeing" class="function_list" >onStartSeeing</a>( self, entity, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onStopSeeing" class="function_list" >onStopSeeing</a>( self, entity, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onStopSeeingID" class="function_list" >onStopSeeingID</a>( self, entityID, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onTeleport" class="function_list" >onTeleport</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onTeleportFailure" class="function_list" >onTeleportFailure</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onTeleportSuccess" class="function_list" >onTeleportSuccess</a>( self, nearbyEntity ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onTimer" class="function_list" >onTimer</a>( self, timerHandle, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onTurn" class="function_list" >onTurn</a>( self, controllerID, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onWindowOverflow" class="function_list" >onWindowOverflow</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onWitnessed" class="function_list" >onWitnessed</a>( self, isWitnessed ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onWriteToDB" class="function_list" >onWriteToDB</a>( self ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#allClients" class="attribute_list" >allClients</a></td><td>&nbsp; Read-only <a href="PyClient.html">PyClient</a>
+</td></tr>
+
+<tr valign=top><td><a href="#aoiUpdateScheme" class="attribute_list" >aoiUpdateScheme</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#artificialLoad" class="attribute_list" >artificialLoad</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#base" class="attribute_list" >base</a></td><td>&nbsp; Read-only <a href="BaseEntityMailBox.html">BaseEntityMailBox</a>
+</td></tr>
+
+<tr valign=top><td><a href="#canBeSeen" class="attribute_list" >canBeSeen</a></td><td>&nbsp; bool
+</td></tr>
+
+<tr valign=top><td><a href="#className" class="attribute_list" >className</a></td><td>&nbsp; Read-only string
+</td></tr>
+
+<tr valign=top><td><a href="#client" class="attribute_list" >client</a></td><td>&nbsp; Read-only <a href="PyClient.html">PyClient</a>
+</td></tr>
+
+<tr valign=top><td><a href="#controlledBy" class="attribute_list" >controlledBy</a></td><td>&nbsp; <a href="BaseEntityMailBox.html">BaseEntityMailBox</a>
+</td></tr>
+
+<tr valign=top><td><a href="#debug_numTimesRealOffloaded" class="attribute_list" >debug_numTimesRealOffloaded</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#direction" class="attribute_list" >direction</a></td><td>&nbsp; Tuple of 3 floats as (roll, pitch, yaw)
+</td></tr>
+
+<tr valign=top><td><a href="#fieldOfView" class="attribute_list" >fieldOfView</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#hasWitness" class="attribute_list" >hasWitness</a></td><td>&nbsp; boolean
+</td></tr>
+
+<tr valign=top><td><a href="#id" class="attribute_list" >id</a></td><td>&nbsp; Read-only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#isDestroyed" class="attribute_list" >isDestroyed</a></td><td>&nbsp; Read-only bool
+</td></tr>
+
+<tr valign=top><td><a href="#isIndoors" class="attribute_list" >isIndoors</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#isOnGround" class="attribute_list" >isOnGround</a></td><td>&nbsp; Read-write bool
+</td></tr>
+
+<tr valign=top><td><a href="#isOutdoors" class="attribute_list" >isOutdoors</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#isWitnessed" class="attribute_list" >isWitnessed</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#localPitch" class="attribute_list" >localPitch</a></td><td>&nbsp; Read-only Float.
+</td></tr>
+
+<tr valign=top><td><a href="#localPosition" class="attribute_list" >localPosition</a></td><td>&nbsp; Tuple of 3 floats as (x, y, z).
+</td></tr>
+
+<tr valign=top><td><a href="#localRoll" class="attribute_list" >localRoll</a></td><td>&nbsp; Read-only Float.
+</td></tr>
+
+<tr valign=top><td><a href="#localYaw" class="attribute_list" >localYaw</a></td><td>&nbsp; Read-only Float.
+</td></tr>
+
+<tr valign=top><td><a href="#otherClients" class="attribute_list" >otherClients</a></td><td>&nbsp; Read-only <a href="PyClient.html">PyClient</a>
+</td></tr>
+
+<tr valign=top><td><a href="#ownClient" class="attribute_list" >ownClient</a></td><td>&nbsp; Read-only <a href="PyClient.html">PyClient</a>
+</td></tr>
+
+<tr valign=top><td><a href="#pitch" class="attribute_list" >pitch</a></td><td>&nbsp; Read-only Float
+</td></tr>
+
+<tr valign=top><td><a href="#position" class="attribute_list" >position</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#roll" class="attribute_list" >roll</a></td><td>&nbsp; Read-only Float
+</td></tr>
+
+<tr valign=top><td><a href="#seeingHeight" class="attribute_list" >seeingHeight</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#shouldAutoBackup" class="attribute_list" >shouldAutoBackup</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#shouldDropVision" class="attribute_list" >shouldDropVision</a></td><td>&nbsp; bool
+</td></tr>
+
+<tr valign=top><td><a href="#spaceID" class="attribute_list" >spaceID</a></td><td>&nbsp; Read-only Integer.
+</td></tr>
+
+<tr valign=top><td><a href="#stealthFactor" class="attribute_list" >stealthFactor</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#topSpeed" class="attribute_list" >topSpeed</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#topSpeedY" class="attribute_list" >topSpeedY</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#vehicle" class="attribute_list" >vehicle</a></td><td>&nbsp; <a href="Entity.html">Entity</a>
+</td></tr>
+
+<tr valign=top><td><a href="#velocity" class="attribute_list" >velocity</a></td><td>&nbsp; Read-only tuple of 3 floats, as (x, y, z)
+</td></tr>
+
+<tr valign=top><td><a href="#visibleHeight" class="attribute_list" >visibleHeight</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#visionAngle" class="attribute_list" >visionAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#visionRange" class="attribute_list" >visionRange</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#volatileInfo" class="attribute_list" >volatileInfo</a></td><td>&nbsp; A sequence of 4 floats (or None objects)
+</td></tr>
+
+<tr valign=top><td><a href="#yaw" class="attribute_list" >yaw</a></td><td>&nbsp; Read-only Float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+Instances of the <a href="Entity.html">Entity</a> class represent generic game objects on the cell.
+An <a href="Entity.html">Entity</a> may be "real" or "ghosted", where a "ghost" <a href="Entity.html">Entity</a> is a copy of
+of a "real" <a href="Entity.html">Entity</a> that lives on an adjacent cell. For each entity there is
+one authoritative "real" <a href="Entity.html">Entity</a> instance, and 0 or more "ghost" <a href="Entity.html">Entity</a>
+instances which copy it.
+<br><br>
+An <a href="Entity.html">Entity</a> instance handles the entity's positional data, including its
+space and rotation. It also controls how frequently (if ever) this data is
+sent to clients. Positional data can be altered by updates from an
+authoritative client, by controller objects, and by the teleport member
+function. Controllers are non-python objects that can be applied to
+cell entities to change their positional data over time. They are added
+to an <a href="Entity.html">Entity</a> via member functions like "trackEntity" and "turnToYaw", and can
+be removed via "cancel".
+<br><br>
+Area of Interest, or "AoI" is an important concept for all <a href="BigWorld.html">BigWorld</a>
+entities which belong to clients. The AoI of an entity is the area around
+it which the entity's client (if it has one) is aware of. This is used for
+culling the amount of data that the client is sent. The actual shape of an
+AoI is defined by a range of equal length on both the x and z axis, with a
+hysteresis area of similar shape extending out further. An <a href="Entity.html">Entity</a> enters
+another <a href="Entity.html">Entity</a>'s AoI when it enters the AoI area, but doesn't leave it
+until it has moved outside the hysteresis area. An <a href="Entity.html">Entity</a> can change its
+AoI size via "setAoIRadius".
+Entities within a particular distance can be found via "entitiesInRange",
+and changes to the set of entities within a given range can be observed via
+"addProximity".
+<br><br>
+The basis for a stealth system resides in <a href="Entity.html">Entity</a> with noise event
+being handled by "makeNoise", and a movement noise handling system
+being accessible through "getStealthFactor" and "setStealthFactor".
+<br><br>
+A new <a href="Entity.html">Entity</a> on a cellApp can be created using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createEntity>createEntity</a> or
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createEntityFromFile>createEntityFromFile</a> function. An entity could also be spawned
+from remote baseApp <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createCellEntity>createCellEntity</a> function call.
+<br><br>
+An <a href="Entity.html">Entity</a> can access the equivalent entity on base and client applications
+via a BaseEntityMailbox and a series of <a href="PyClient.html">PyClient</a> objects. These allow
+a set of function calls (which are specified in the entity's .def file) to
+be called remotely.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="accelerateAlongPath"></a><p class="function_definition">
+<span class="function_definition">def accelerateAlongPath( <i>self, waypoints, acceleration, maxSpeed, facing, userData</i> ):</span>
+</p>
+
+<div class="function_description">This function moves the <a href="Entity.html">Entity</a> through a series of given waypoints by
+applying an acceleration. For a given <a href="Entity.html">Entity</a> only one movement controller
+can be active and so this function will replace any existing controller.
+<br><br>
+The notification methods are defined as follows:
+
+<pre>	def onMove( self, controllerId, userData ):
+</pre>
+<br><br>
+The points inside the waypoints argument for accelerateAlongPath() are
+specified relative to the entity's local space, which may differ from
+global space if the entity is currently aboard a vehicle. If the entity is
+aboard a vehicle, and waypoints in global coordinates are desired, the
+entity should alight from the vehicle first before calling
+accelerateAlongPath().
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>waypoints</i></span></td><td><span class="function_parameter_description">&nbsp;([<a href="Vector3.html">Vector3</a>])	 The waypoints, in local space, to pass
+						through.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>acceleration</i></span></td><td><span class="function_parameter_description">&nbsp;(float) The rate at which the entity will
+						accelerate, in metres / second / second.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSpeed</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	The maximum speed the entity will
+						accelerate to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>facing</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Defines direction the entity should
+						face while it moves. Should be one of:
+							0	Disabled
+							1	Face velocity (default)
+							2	Face acceleration
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Data that will be passed to
+						notification method.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(int)	The ID of the newly created	controller.
+</td></tr>
+</table>
+</p>
+
+<a name="accelerateToEntity"></a><p class="function_definition">
+<span class="function_definition">def accelerateToEntity( <i>self, destinationEntity, acceleration, maxSpeed, range, facing, userData</i> ):</span>
+</p>
+
+<div class="function_description">This function moves the entity towards the given target entity by applying
+an acceleration. For a given <a href="Entity.html">Entity</a> only one movement controller can be
+active and so this function will replace any existing controller.
+<br><br>
+The notification methods are defined as follows;
+
+<pre>	def onMove( self, controllerId, userData ):
+	def onMoveFailure( self, controllerId, userData ):
+</pre>
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destinationEntity</i></span></td><td><span class="function_parameter_description">&nbsp;(int) The ID of the entity to accelerate
+							towards.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>acceleration</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	The rate at which the entity will
+							accelerate, in metres / second / second.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSpeed</i></span></td><td><span class="function_parameter_description">&nbsp;(float) The maximum speed the entity will
+							accelerate to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>range</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	Range within destination to stop.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>facing</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Defines direction the entity
+							should face while it moves. Should be one of:
+								0	Disabled
+								1	Face velocity (default)
+								2	Face acceleration
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Data that will be passed to
+							notification method.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(int)	The ID of the newly created	controller.
+</td></tr>
+</table>
+</p>
+
+<a name="accelerateToPoint"></a><p class="function_definition">
+<span class="function_definition">def accelerateToPoint( <i>self, destination, acceleration, maxSpeed, facing, userData</i> ):</span>
+</p>
+
+<div class="function_description">This function is equivalent to calling:
+
+<pre>	entity.accelerateAlongPath( [destination], ... )
+</pre>
+<br><br>
+Similar to how accelerateAlongPath() treats the points inside the
+waypoints parameter, the destination parameter for accelerateToPoint() is
+specified relative to the entity's local space, which may differ from
+global space if the entity is currently aboard a vehicle. If the entity is
+aboard a vehicle, and a destination in global coordinates is desired, the
+entity should alight from the vehicle first before calling
+accelerateToPoint().
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#accelerateAlongPath">accelerateAlongPath</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destination</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>) The destination to move to in local
+						space.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>acceleration</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	The rate at which the entity will
+						accelerate, in metres / second / second.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSpeed</i></span></td><td><span class="function_parameter_description">&nbsp;(float) The maximum speed the entity will
+accelerate to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>facing</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Defines direction the entity should
+						face while it moves. Valid values are:
+							0	Disabled
+							1	Face velocity (default)
+							2	Face acceleration
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Data that will be passed to
+						notification method.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(int) The ID of the newly created controller.
+</td></tr>
+</table>
+</p>
+
+<a name="addProximity"></a><p class="function_definition">
+<span class="function_definition">def addProximity( <i>self, range, userArg</i> ):</span>
+</p>
+
+<div class="function_description">Since the trap is a controller, use <a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a> with the controller ID 
+to delete the trap.
+<br><br>
+Note that it is possible for the callbacks to be triggered immediately,
+even before the addProximity() call has returned.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>range</i></span></td><td><span class="function_parameter_description">&nbsp;range is a float which gives the new size of the trap area. The
+range must be greater than or equal to 0.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userArg</i></span></td><td><span class="function_parameter_description">&nbsp;userArg is an optional integer common to all controllers.
+This is only passed to the callbacks if the value is not 0. It is
+recommended to set a default value of 0 for userArg in the callback
+prototypes.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>addProximity returns the id of the created controller.
+</td></tr>
+</table>
+</p>
+
+<a name="addScanVision"></a><p class="function_definition">
+<span class="function_definition">def addScanVision( <i>self, angle, range, seeingHeight, amplitude, scanPeriod, phaseOffset, updatePeriod, userData</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a controller that allows the <a href="Entity.html">Entity</a> to scan left and
+right to (virtually) visualise other nearby Entities, invoking a
+notification method when an <a href="Entity.html">Entity</a> becomes seen and not seen.  For a given
+<a href="Entity.html">Entity</a>, only one vision controller should be active at any one time.
+Returns a ControllerID that can be used to cancel() the 'vision'.  The
+notification methods are not called when 'vision' is cancelled...  The
+notification methods are defined as follows;
+<br><br>
+
+<pre>	def onStartSeeing( self, entityNowSeen ):
+	def onStopSeeing( self, entityNoLongerSeen ):
+	def onStopSeeingID( self, entityIDNoLongerSeen ):
+</pre>
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>angle</i></span></td><td><span class="function_parameter_description">&nbsp;(float)				The angle of the vision cone in
+										radians. The field of view is
+										double this value.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>range</i></span></td><td><span class="function_parameter_description">&nbsp;(float)			The range of the vision
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>seeingHeight</i></span></td><td><span class="function_parameter_description">&nbsp;(float)			The height on the <a href="Entity.html">Entity</a> to use as
+										the source of the field of view, eg,
+										eye-level of current Model
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>amplitude</i></span></td><td><span class="function_parameter_description">&nbsp;(float)			The maximum yaw offset, in radians,
+							that the entity scans. That is, the scan range
+							is [yaw - amplitude, yaw + amplitude].
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>scanPeriod</i></span></td><td><span class="function_parameter_description">&nbsp;(float)			The time it takes to make each scan
+										in seconds
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>phaseOffset</i></span></td><td><span class="function_parameter_description">&nbsp;(float)			Offset (phase) of the scan as a
+										fraction.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>updatePeriod</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int)		How often the vision is updated in
+										ticks (defaults to 1 == 1/10 sec)
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;(optional object)	Data that is passed to notification
+										method
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(integer)			The ID of the newly created
+										controller
+</td></tr>
+</table>
+</p>
+
+<a name="addTimer"></a><p class="function_definition">
+<span class="function_definition">def addTimer( <i>self, start, interval=0.0, userData=0</i> ):</span>
+</p>
+
+<div class="function_description">A timer can be cancelled with <a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a>( controllerID ).
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>start</i></span></td><td><span class="function_parameter_description">&nbsp;Number of seconds until the first callback.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>interval</i></span></td><td><span class="function_parameter_description">&nbsp;Duration in seconds between subsequent callbacks.
+Set to zero for single timed event.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;userData is an optional integer to be passed to the onTimer function.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The id of the newly created controller.
+</td></tr>
+</table>
+</p>
+
+<a name="addVisibility"></a><p class="function_definition">
+<span class="function_definition">def addVisibility( <i>self, visibleHeight, userData</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#addScanVision">addScanVision</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>visibleHeight</i></span></td><td><span class="function_parameter_description">&nbsp;visibleHeight is a float which gives the current height of the model.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;userData is not used in this controller.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The id of the created controller.
+</td></tr>
+</table>
+</p>
+
+<a name="addVision"></a><p class="function_definition">
+<span class="function_definition">def addVision( <i>self, angle, range, seeingHeight, period</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a controller that allows the <a href="Entity.html">Entity</a> to (virtually)
+visualise other nearby Entities that have their <a href="Entity.html">Entity</a>.<a href=Entity.html#canBeSeen>canBeSeen</a> attribute
+set to True, invoking a notification method when an <a href="Entity.html">Entity</a> becomes seen and
+not seen.  For a given <a href="Entity.html">Entity</a>, only one vision controller should be active
+at any one time.  Returns a ControllerID that can be used to cancel() the
+'vision'.
+<br><br>
+The notification methods are not called when 'vision' is cancelled...
+The notification methods are defined as follows;
+<br><br>
+
+<pre>	def onStartSeeing( self, entityNowSeen ):
+	def onStopSeeing( self, entityNoLongerSeen ):
+	def onStopSeeingID( self, entityIDNoLongerSeen ):
+</pre>
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#canBeSeen">canBeSeen</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#addScanVision">addScanVision</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>angle</i></span></td><td><span class="function_parameter_description">&nbsp;(float)				The angle of the vision cone in
+											radians. The field of view is
+											double this value.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>range</i></span></td><td><span class="function_parameter_description">&nbsp;(float)				The range of the vision
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>seeingHeight</i></span></td><td><span class="function_parameter_description">&nbsp;(float)				The height on the <a href="Entity.html">Entity</a> to use
+											as the source of the field of
+											view, eg, eye-level of current
+											Model
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>period</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int)		How often the vision is updated
+											in ticks (defaults to 10 == 1
+											sec)
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(integer)			The ID of the newly created
+											controller
+</td></tr>
+</table>
+</p>
+
+<a name="addYawRotator"></a><p class="function_definition">
+<span class="function_definition">def addYawRotator( <i>self, targetYaw, velocity, userArg=0</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>targetYaw</i></span></td><td><span class="function_parameter_description">&nbsp;targetYaw is a float representing the yaw to which the
+entity is to be turned, in radians and world space.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>velocity</i></span></td><td><span class="function_parameter_description">&nbsp;velocity is a float specifying the rate at which the entity
+should turn, in radians per second.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userArg</i></span></td><td><span class="function_parameter_description">&nbsp;userArg is an integer which is passed as the second
+parameter to onTurn.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The ID of the new controller. This can later be used with the
+<a href="Entity.html">Entity</a>'s cancel function to remove the controller and stop the <a href="Entity.html">Entity</a>
+from turning. <a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a>( "Movement" ) can also be used to stop this
+controller.
+</td></tr>
+</table>
+</p>
+
+<a name="alightVehicle"></a><p class="function_definition">
+<span class="function_definition">def alightVehicle( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function removes an NPC <a href="Entity.html">Entity</a> as a passenger of its currently boarded
+vehicle. It should only be used for Entities controlled by a Cell, not
+Player Entities (see <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#controlEntity>controlEntity</a>() and
+<a href="Entity.html">Entity</a>.<a href=Entity.html#physics>physics</a>.teleportVehicle() in the Client documentation). Any <a href="Entity.html">Entity</a>
+can be used as a vehicle, eg, car, bus, moving platform, animal. The
+position and movement of the Entities are linked so they move in unison.
+The Model on the Client should support the animations required to board,
+alight from and ride the <a href="Entity.html">Entity</a>, as necessary. AI Control can be transferred
+to the vehicle in script if required, or left with the another <a href="Entity.html">Entity</a> (eg,
+inside bus as passenger) or the vehicle itself (eg, moving platform). An
+<a href="Entity.html">Entity</a> may only use one vehicle at a time. However, many Entities can be a
+passenger of the same vehicle.  If the vehicle is destroyed, all passengers
+will be forced to alight.
+</div>
+
+<a name="boardVehicle"></a><p class="function_definition">
+<span class="function_definition">def boardVehicle( <i>self, vehicleID</i> ):</span>
+</p>
+
+<div class="function_description">This function adds an NPC <a href="Entity.html">Entity</a> as a passenger of the entity with the
+given ID.  It should only be used for Entities controlled by a Cell, not
+Player Entities (see <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#controlEntity>controlEntity</a>() and
+<a href="Entity.html">Entity</a>.<a href=Entity.html#physics>physics</a>.teleportVehicle() in the Client documentation).
+<br><br>
+Any <a href="Entity.html">Entity</a> can be used as a vehicle, eg, car, bus, moving platform, animal.
+The position and movement of the Entities are linked so they move in
+unison.  The Model on the Client should support the animations required to
+board, alight from and ride the <a href="Entity.html">Entity</a>, as necessary.
+<br><br>
+AI Control can be transferred to the vehicle in script if required, or left
+with the another <a href="Entity.html">Entity</a> (eg, inside bus as passenger) or the vehicle itself
+(eg, moving platform).
+<br><br>
+An <a href="Entity.html">Entity</a> may only use one vehicle at a time.  However, many Entities can
+be a passenger of the same vehicle. If the vehicle is destroyed, all
+passengers will be forced to alight.
+<br><br>
+This method raises a TypeError if the entity is not a real entity, or if
+an entity is attempting to board its own passenger.
+<br><br>
+This method raises a ValueError if the entity is already on a vehicle, or
+if the vehicleID refers to a non-existent entity.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>vehicleID</i></span></td><td><span class="function_parameter_description">&nbsp;(entityID) ID of <a href="Entity.html">Entity</a> to be used as a vehicle
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="canNavigateTo"></a><p class="function_definition">
+<span class="function_definition">def canNavigateTo( <i>self, destination, maxSearchDistance, girth</i> ):</span>
+</p>
+
+<div class="function_description">This function uses the <a href="BigWorld.html">BigWorld</a> navigation system to determine whether the
+<a href="Entity.html">Entity</a> can move to the given destination.  <a href="BigWorld.html">BigWorld</a> can have several
+pre-generated navigation systems, each with a different girth (resulting in
+different navigation paths).
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destination</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>) The destination point for the
+							navigation test.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSearchDistance</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Maximum distance to search
+							(default maxAoIRadius).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Which navigation girth to use
+							for the test (defaults to 0.5).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(<a href="Vector3.html">Vector3</a>) The closest position that the entity can
+						navigate to, or None if no path is found.
+</td></tr>
+</table>
+</p>
+
+<a name="cancel"></a><p class="function_definition">
+<span class="function_definition">def cancel( <i>self, controllerID</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerID</i></span></td><td><span class="function_parameter_description">&nbsp;controllerID is an integer which is the index of the
+controller to cancel. Alternatively, a string of an exclusive controller
+category can be passed to cancel the controller of that category. For
+example, only one movement/navigation controller can be active at once.
+This can be cancelled with entity.cancel( "Movement" ).
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="clientEntity"></a><p class="function_definition">
+<span class="function_definition">def clientEntity( <i>self, destID</i> ):</span>
+</p>
+
+<div class="function_description">For example, playerEntity.clientEntity( buttonEntityID ).flash() will
+call the flash() method on the button entity only on this player's
+application. Any other player with the button in their AoI will not have
+this method called.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#ownClient">ownClient</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#allClients">allClients</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#otherClients">otherClients</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destID</i></span></td><td><span class="function_parameter_description">&nbsp;destID is the ID number of the entity to which the new
+<a href="PyClient.html">PyClient</a> is to be associated.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="PyClient.html">PyClient</a> for the specified entity.
+</td></tr>
+</table>
+</p>
+
+<a name="debug"></a><p class="function_definition">
+<span class="function_definition">def debug( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Sample Output:
+
+<pre>107.9 DEBUG: RangeListNode::debugX: me.PosX=-347.4982910, me=[<a href="Entity.html">Entity</a> 16777218], prevX=[Head], nextX=[<a href="Entity.html">Entity</a> 16777216]
+107.9 DEBUG: RangeListNode::debugZ: me.PosZ=369.6944580, me=[<a href="Entity.html">Entity</a> 16777218], prevZ=[<a href="Entity.html">Entity</a> 16777216], nextZ=[Tail]
+</pre>
+</div>
+
+<a name="destroy"></a><p class="function_definition">
+<span class="function_definition">def destroy( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="destroySpace"></a><p class="function_definition">
+<span class="function_definition">def destroySpace( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="dumpAoI"></a><p class="function_definition">
+<span class="function_definition">def dumpAoI( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">A sample message follows:
+
+<pre>451.8 DEBUG: Dumping AoI for entity 1000. Seen = 2, Pending=0. AoIRadius =  5.000 AoIHyst = 50.000
+451.8 DEBUG: 16777218 vut 0 lut 1 curpri 0.000000
+451.8 DEBUG: 16778216 vut 0 lut 4 curpri 0.000000
+451.8 DEBUG: Entities marked as left AoI for entity 1000. left= 2
+451.8 DEBUG: <a href="Entity.html">Entity</a> 16777218 left AoI
+451.8 DEBUG: <a href="Entity.html">Entity</a> 16778216 left AoI
+</pre>
+The first line of this message tells us:
+<ul>
+<li>the data is for entity #1000</li>
+<li>it is watching 2 entities in its AoI</li>
+<li>there are 0 entities in its AoI for which the <a href="Entity.html">Entity</a>'s client is
+awaiting initial data</li>
+<li>the AoI radius is 5.000</li>
+<li>the AoI hysteresis area extends 50.000 beyond the AoI radius</li>
+</ul>
+The following set of lines provide information for each of the entities
+that the <a href="Entity.html">Entity</a> is watching. In this example line 2 tells us:
+<ul>
+<li>the <a href="Entity.html">Entity</a> is watching entity #16777218</li>
+<li>the last volatile information update that the <a href="Entity.html">Entity</a>'s client received
+for #16777218 was its update #0</li>
+<li>the last event that the client received for #16777218 was its event #1
+</li>
+<li>in the <a href="Entity.html">Entity</a>'s AoI entity #16777218 currently has an update priority
+of 0.000000</li>
+</ul>
+The fourth line in this example tells us that there are two entities in the
+hysteresis area for entity #1000.
+<br><br>
+Each of the following lines each list one of the entities which is
+currently in the <a href="Entity.html">Entity</a>'s hysteresis area. Although these entities have left
+the AoI, they are still updated for the client.
+</div>
+
+<a name="entitiesInAoI"></a><p class="function_definition">
+<span class="function_definition">def entitiesInAoI( <i>self, withheld</i> ):</span>
+</p>
+
+<div class="function_description">This method returns a list of the entities in this entity's Area of
+Interest.
+<br><br>
+Examples:
+
+<pre>self.entitiesInAoI() # All entities in AoI
+
+self.entitiesInAoI( withheld = True ) # All entities in AoI being withheld
+
+self.entitiesInAoI( withheld = False ) # All entities in AoI not being withheld
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>withheld</i></span></td><td><span class="function_parameter_description">&nbsp;The optional keyword argument indicates whether only the
+withheld entities or only the entities not withheld should be included.
+If this is not passed, all entities are included.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="entitiesInRange"></a><p class="function_definition">
+<span class="function_definition">def entitiesInRange( <i>self, range, entityType=None, position</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>range</i></span></td><td><span class="function_parameter_description">&nbsp;range is the distance around this entity to search, as a float.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;An optional string argument of entity type name that
+will be used in matching entities. If entityType is a valid class name then only
+entities of that class will be returned, otherwise all entities in range are returned.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;An optional <a href="Vector3.html">Vector3</a> argument to be used as the centre of
+the searching radius.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A list of <a href="Entity.html">Entity</a> objects that are within the given range.
+</td></tr>
+</table>
+</p>
+
+<a name="entitiesInView"></a><p class="function_definition">
+<span class="function_definition">def entitiesInView( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a list of all the Entities that can be seen with
+the current field of view and vision range.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(list)	List of Entities currently in view
+</td></tr>
+</table>
+</p>
+
+<a name="getAoIUpdateScheme"></a><p class="function_definition">
+<span class="function_definition">def getAoIUpdateScheme( <i>self, entity</i> ):</span>
+</p>
+
+<div class="function_description">getAoIUpdateScheme returns the scheme used by an entity in this entity's
+Area of Interest.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity (or entity id) that is in the AoI.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="getDict"></a><p class="function_definition">
+<span class="function_definition">def getDict( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This is a useful debugging method but should be avoided in production.
+</div>
+
+<a name="getGroundPosition"></a><p class="function_definition">
+<span class="function_definition">def getGroundPosition( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The position of the ground below the entity (or the entity itself,
+if no ground is found), expressed as 3 floats (x, y, z), in worldspace.
+</td></tr>
+</table>
+</p>
+
+<a name="getStopPoint"></a><p class="function_definition">
+<span class="function_definition">def getStopPoint( <i>self, destination, ignoreFirstStopPoint, maxSearchDistance, girth, stopDist, nearPortalDist</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destination</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>) The final destination point for
+								the <a href="Entity.html">Entity</a>.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>ignoreFirstStopPoint</i></span></td><td><span class="function_parameter_description">&nbsp;(bool) Set to True to determine next
+								stopping point past current stopping point,
+								otherwise the current stopping point would
+								get triggered again.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSearchDistance</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Set the max distance of
+								search (default to maxAoIRadius metres).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Which navigation girth to
+								use (defaults to 0.5).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>stopDist</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Distance before portal to
+								stop (default 1.5 metres).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>nearPortalDist</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Distance back from portal
+								that the entity should be to be considered
+								next to model blocking portal (eg, door)
+								(default 1.8 metres).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(<a href="Vector3.html">Vector3</a>, bool) Returns None if the entity
+								can't navigate to destination.
+								Otherwise, returns the point stopDist back
+								along the navigation path from the
+								activated portal and True if it reached the
+								destination, False otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isInAoI"></a><p class="function_definition">
+<span class="function_definition">def isInAoI( <i>self, entityOrID</i> ):</span>
+</p>
+
+<div class="function_description">This method returns whether an entity is in the current entity's Area of
+Interest.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityOrID</i></span></td><td><span class="function_parameter_description">&nbsp;An entity or entity ID to check.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="isReal"></a><p class="function_definition">
+<span class="function_definition">def isReal( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method should be rarely used but can be helpful for debugging.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(bool) True if the entity is real, False if it is not.
+</td></tr>
+</table>
+</p>
+
+<a name="isRealToScript"></a><p class="function_definition">
+<span class="function_definition">def isRealToScript( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method should be rarely used but can be helpful for debugging.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(bool) True if the entity is real to script, otherwise False.
+</td></tr>
+</table>
+</p>
+
+<a name="isWithheldFromClient"></a><p class="function_definition">
+<span class="function_definition">def isWithheldFromClient( <i>self, entityOrID</i> ):</span>
+</p>
+
+<div class="function_description">This method returns whether an entity in the AoI is currently being
+withheld from being sent to the client. This is modified with
+<a href="Entity.html">Entity</a>.<a href=Entity.html#withholdFromClient>withholdFromClient</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityOrID</i></span></td><td><span class="function_parameter_description">&nbsp;An entity or entity ID to check
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if currently withheld, otherwise false. If the entity does
+not exist, a ValueError is raised.
+</td></tr>
+</table>
+</p>
+
+<a name="makeNoise"></a><p class="function_definition">
+<span class="function_definition">def makeNoise( <i>self, noiseLevel, event, info=0</i> ):</span>
+</p>
+
+<div class="function_description">It does this by calling the onNoise function of each of these entities.
+onNoise must take five arguments, and is not defined by default. Errors
+thrown by the attempt to call onNoise are silently ignored. The
+arguments with which onNoise is called are the ID of the entity which
+made the noise, the distance from the source entity at which the noise
+can still be heard (as a float), the distance at which the noise was
+heard (as a float), an integer indicating the event which caused the
+sound, and an arbitrary user supplied integer which can be used to
+provide more information.
+<br><br>
+The distance between entities for noise propagation purposes is
+calculated as the shortest route of travel via chunk portals. This means
+that, for instance, if two chunks represent long parallel corridors,
+then a noise made in one may not be heard by an entity standing close by
+in the other.
+<br><br>
+This function can only be called on a real entity, a TypeError is raised
+if this is not the case.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>noiseLevel</i></span></td><td><span class="function_parameter_description">&nbsp;The noiseLevel parameter is a float which is
+					multiplied by the value found in
+					server/bw.xml/cellApp/noise/standardRange to
+					determine the maximum distance at which the noise
+					can be heard.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;The event argument is an integer which indicates
+					the type of event that caused the sound. This is 0
+					for movement related noise (see setStealthFactor),
+					and is otherwise unrestricted.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>info</i></span></td><td><span class="function_parameter_description">&nbsp;The info argument is optional, and can be used to
+					supply further information regarding a sound to the
+					entities which hear it, as an integer. This is used
+					as the fifth argument in all calls to onNoise that
+					this makes.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="moveToEntity"></a><p class="function_definition">
+<span class="function_definition">def moveToEntity( <i>self, destEntityID, velocity, range, userData, faceMovement, moveVertically</i> ):</span>
+</p>
+
+<div class="function_description">This function moves the <a href="Entity.html">Entity</a> in a straight line towards another <a href="Entity.html">Entity</a>,
+invoking a notification method on success or failure.  For a given <a href="Entity.html">Entity</a>,
+only one navigation/movement controller is active at any one time.
+Returns a ControllerID that can be used to cancel the movement. For example,
+<a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a>( movementID ).  Movement can also be led with
+<a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a>( "Movement" ). The notification methods are not called when
+movement is cancelled.
+<br><br>
+
+<pre>	def onMove( self, controllerId, userData ):
+	def onMoveFailure( self, controllerId, userData ):
+</pre>
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destEntityID</i></span></td><td><span class="function_parameter_description">&nbsp;(int) The ID of the target <a href="Entity.html">Entity</a>.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>velocity</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	The speed to move the <a href="Entity.html">Entity</a> in metres /
+						second.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>range</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	Maxmimum range from destination to stop.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Data that can be passed to
+						the notification method.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>faceMovement</i></span></td><td><span class="function_parameter_description">&nbsp;(optional bool) True if entity is to face in
+						direction of movement (default).
+						Should be False if another mechanism is to provide
+						direction.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>moveVertically</i></span></td><td><span class="function_parameter_description">&nbsp;(optional bool) True if <a href="Entity.html">Entity</a> is allowed to move
+						vertically, that is, to fly.
+						Set to false if <a href="Entity.html">Entity</a> is to remain on ground
+						(default).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(int) The ID of the newly created controller.
+</td></tr>
+</table>
+</p>
+
+<a name="moveToPoint"></a><p class="function_definition">
+<span class="function_definition">def moveToPoint( <i>self, destination, velocity, userData, faceMovement, moveVertically</i> ):</span>
+</p>
+
+<div class="function_description">This function moves the <a href="Entity.html">Entity</a> in a straight line towards a given point,
+invoking a notification method on success or failure.  For a given <a href="Entity.html">Entity</a>,
+only one navigation/movement controller is active at any one time.
+Returns a ControllerID that can be used to cancel the movement. For example,
+<a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a>( movementID ).  Movement can also be led with
+<a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a>( "Movement" ). The notification methods are not called when
+movement is cancelled.
+<br><br>
+The notification methods are defined as follows:
+
+<pre>	def onMove( self, controllerId, userData ):
+</pre>
+<br><br>
+Note that the destination point is specified relative to the entity's local
+space, which may differ from global space if the entity is currently
+aboard a vehicle. If the entity is aboard a vehicle, and a destination in
+global coordinates is desired, the entity should alight from the vehicle
+first before calling moveToPoint().
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destination</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>) The destination point for the <a href="Entity.html">Entity</a>, in
+						local space.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>velocity</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	The speed to move the <a href="Entity.html">Entity</a> in	
+						metres / second.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Data that can be passed to
+						notification method.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>faceMovement</i></span></td><td><span class="function_parameter_description">&nbsp;(optional bool) True if entity is to face in
+						direction of movement (default).
+						Should be False if another mechanism is to provide
+						direction.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>moveVertically</i></span></td><td><span class="function_parameter_description">&nbsp;(optional bool) True if <a href="Entity.html">Entity</a> is allowed to move
+						vertically, that is, to fly. Set to false if <a href="Entity.html">Entity</a>
+						is to remain on ground (default).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(int) The ID of the newly created controller.
+</td></tr>
+</table>
+</p>
+
+<a name="navigate"></a><p class="function_definition">
+<span class="function_definition">def navigate( <i>self, destination, velocity, faceMovement, maxSearchDistance, girth, closeEnough, userData</i> ):</span>
+</p>
+
+<div class="function_description">This function uses the <a href="BigWorld.html">BigWorld</a> navigation system to move the <a href="Entity.html">Entity</a> to a
+destination point, invoking a notification method on success or failure.
+<a href="BigWorld.html">BigWorld</a> can have several pre-generated navigation systems, each with a
+different girth (resulting in different navigation paths).
+Currently we don't support an entity which is on a vehicle to navigate,
+if you want to do so, you have to alight the vehicle first,
+or do navigate on the vehicle entity. For a given
+<a href="Entity.html">Entity</a>, only one navigation/movement controller can be active at any one
+time.
+Returns a ControllerID that can be used to cancel the movement. For example,
+<a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a>( movementID ).  Movement can also be led with
+<a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a>( "Movement" ). The notification methods are not called when
+movement is cancelled.
+<br><br>
+The notification methods are defined as follows;
+
+<pre>	def onNavigate( self, controllerId, userData ):
+	def onNavigateFailed( self, controllerId, userData ):
+</pre>
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destination</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>) The destination point for the entity.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>velocity</i></span></td><td><span class="function_parameter_description">&nbsp;(float) The speed to move the <a href="Entity.html">Entity</a> in
+							metres / second.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>faceMovement</i></span></td><td><span class="function_parameter_description">&nbsp;(optional bool) True if entity is to face in
+							direction of movement (default).
+							Should be False if another mechanism is to
+							provide direction.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSearchDistance</i></span></td><td><span class="function_parameter_description">&nbsp;(float) Maximum distance to search.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Which navigation girth to use
+							(defaults to 0.5).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>closeEnough</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Maximum distance from
+							destination to stop.
+							Note:  A value of 0 should never be used.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Data that is passed to
+							notification method.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(int) The ID of the newly created controller
+</td></tr>
+</table>
+</p>
+
+<a name="navigateFollow"></a><p class="function_definition">
+<span class="function_definition">def navigateFollow( <i>self, destEntity, angle, distance, velocity, maxMoveDistance, maxSearchDistance, faceMovement, girth, userData</i> ):</span>
+</p>
+
+<div class="function_description">This function uses the <a href="BigWorld.html">BigWorld</a> navigation system to move the <a href="Entity.html">Entity</a>
+towards another <a href="Entity.html">Entity</a>,	stopping at the next waypoint or given distance,
+invoking a notification method on success or failure.
+<br><br>
+<a href="BigWorld.html">BigWorld</a> can have several pre-generated navigation systems, each with a
+different girth (resulting in different navigation paths).  For a given
+<a href="Entity.html">Entity</a>, only one navigation / movement controller is active at any one
+time.
+<br><br>
+Returns a ControllerID that can be used to cancel the movement. For
+example; <a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a>( movementID ).  Movement can also be led with
+<a href="Entity.html">Entity</a>.<a href=Entity.html#cancel>cancel</a>( "Movement" ).
+<br><br>
+The notification method is not called when movement is cancelled.
+<br><br>
+The notification method is defined as follows;
+
+<pre>	def onMove( self, controllerId, userData ):
+</pre>
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destEntity</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Entity.html">Entity</a>) The target <a href="Entity.html">Entity</a>
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>angle</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	The angle at which the <a href="Entity.html">Entity</a> should
+							attempt to follow (in radians)
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>distance</i></span></td><td><span class="function_parameter_description">&nbsp;(float) The distance at which the <a href="Entity.html">Entity</a> should
+							attempt to follow
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>velocity</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	The speed to move the <a href="Entity.html">Entity</a> in
+							metres / second.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxMoveDistance</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	Maximum distance to move
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSearchDistance</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) The maximum search distance
+							(default maxAoIRadius metres)
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>faceMovement</i></span></td><td><span class="function_parameter_description">&nbsp;(optional bool) True if entity is to face in
+							direction of movement (default).
+							Should be False if another mechanism is to
+							provide direction.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Which navigation girth to use
+							(defaults to 0.5)
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Data that can be passed to
+							notification method
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(int) 				The ID of the newly created controller.
+</td></tr>
+</table>
+</p>
+
+<a name="navigatePathPoints"></a><p class="function_definition">
+<span class="function_definition">def navigatePathPoints( <i>self, destination, maxSearchDistance, girth</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the points along a path from this entity position 
+to the given destination position.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destination</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>) 	The destination point.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSearchDistance</i></span></td><td><span class="function_parameter_description">&nbsp;(float)		The maximum distance to search, in
+										metres.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(float)		The navigation girth (defaults to
+							0.5).
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="navigateStep"></a><p class="function_definition">
+<span class="function_definition">def navigateStep( <i>self, destination, velocity, maxMoveDistance, maxSearchDistance, faceMovement, girth, userData</i> ):</span>
+</p>
+
+<div class="function_description">This function uses the <a href="BigWorld.html">BigWorld</a> navigation system to move the <a href="Entity.html">Entity</a>
+towards a destination point, stopping at the next waypoint or given
+distance, invoking the onMove notification method on success.
+<br><br>
+When the <a href="Entity.html">Entity</a>.<a href=Entity.html#onMove>onMove</a> notification method is called, have it call
+<a href="Entity.html">Entity</a>.<a href=Entity.html#navigateStep>navigateStep</a> again to allow the entity to continue to move toward the
+target position.
+<br><br>
+If the <a href="Entity.html">Entity</a>.<a href=Entity.html#onMove>onMove</a> notification method calls <a href="Entity.html">Entity</a>.<a href=Entity.html#navigateStep>navigateStep</a> more than
+100 times without moving the distance required for a single tick at the
+velocity specified, then the onMoveFailure notification method is invoked.
+<br><br>
+Currently <a href="BigWorld.html">BigWorld</a> does not support using navigate methods on an entity
+which is on a vehicle. If you want to do so, you have to alight the vehicle
+first, or use the navigate methods on the vehicle entity.
+<br><br>
+For a given <a href="Entity.html">Entity</a>, only one navigation/movement controller is active at
+any one time.
+<br><br>
+Returns a Controller ID that can be used to cancel the movement. For
+example:
+
+<pre>	self.cancel( movementID )
+</pre>
+<br><br>
+Movement can also be cancelled with:
+
+<pre>	self.cancel( "Movement" )
+</pre>
+<br><br>
+The notification method is not called when movement is cancelled.
+<br><br>
+The notification methods are defined as follows;
+
+<pre>	def onMove( self, controllerId, userData ):
+	def onMoveFailure( self, controllerId, userData ):
+</pre>
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onMove">onMove</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onMoveFailure">onMoveFailure</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>destination</i></span></td><td><span class="function_parameter_description">&nbsp;(<a href="Vector3.html">Vector3</a>) The destination point for the <a href="Entity.html">Entity</a>
+							to move towards.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>velocity</i></span></td><td><span class="function_parameter_description">&nbsp;(float) The speed to move the <a href="Entity.html">Entity</a> in
+							metres / second.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxMoveDistance</i></span></td><td><span class="function_parameter_description">&nbsp;(float) Maximum distance to move, in metres.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxSearchDistance</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) The maximum search distance
+							(default maxAoIRadius metres)
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>faceMovement</i></span></td><td><span class="function_parameter_description">&nbsp;(optional bool)	True if entity is to face in
+							direction of movement (default).
+							Should be False if another mechanism is to
+							provide direction.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>girth</i></span></td><td><span class="function_parameter_description">&nbsp;(optional float) Which navigation girth to
+							use (defaults to 0.5).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;(optional int) Data that can be passed to
+							notification method.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(int) The ID of the newly created controller.
+</td></tr>
+</table>
+</p>
+
+<a name="setAoIRadius"></a><p class="function_definition">
+<span class="function_definition">def setAoIRadius( <i>self, radius, hyst=5</i> ):</span>
+</p>
+
+<div class="function_description">This function is only available on the entity that has an associated
+witness.
+<br><br>
+By default an <a href="Entity.html">Entity</a>'s AoI area extends 500 metres along both the x and
+z axis of the world, and its hysteresis area extends another 5 metre
+further.
+<br><br>
+Note: If you set this to be greater than the bw.xml configuration option
+'cellApp/maxAoIRadius', the AoI radius will be clamped to this value.
+<br><br>
+You can set the default AoI radius by setting the bw.xml configuration
+option 'cellApp/defaultAoIRadius'.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>radius</i></span></td><td><span class="function_parameter_description">&nbsp;radius specifies the size of the AoI area, as a float.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>hyst</i></span></td><td><span class="function_parameter_description">&nbsp;hyst specifies the size of the hysteresis area beyond the
+AoI area, as a float.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="setAoIUpdateScheme"></a><p class="function_definition">
+<span class="function_definition">def setAoIUpdateScheme( <i>self, entity, scheme</i> ):</span>
+</p>
+
+<div class="function_description">setAoIUpdateScheme allows an entity in this entity's Area of Interest to
+have a specialised scheme for its update rate in that AoI.
+<br><br>
+When an entity enters another's AoI, the initial update scheme is taken
+from the viewed entity's <a href="Entity.html">Entity</a>.<a href=Entity.html#aoiUpdateScheme>aoiUpdateScheme</a> property.
+<br><br>
+This value is reset if the entity leaves and then re-enters an AoI. If
+used, this would commonly appear in onEnteredAoI.
+<br><br>
+For example,
+
+<pre>self.setAoIUpdateScheme( otherEntity, "sniper" )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity (or entity id) that is in the AoI.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>scheme</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the scheme to use. These are specified in the
+	cellApp/aoiUpdateSchemes section of bw.xml
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setPortalState"></a><p class="function_definition">
+<span class="function_definition">def setPortalState( <i>self, permissive, triFlags</i> ):</span>
+</p>
+
+<div class="function_description">The position of the entity must be within 1 metre of the portal that is
+to be configured, otherwise the portal will probably not be found. No
+other portal may be closer.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>permissive</i></span></td><td><span class="function_parameter_description">&nbsp;Whether the portal is open or not.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>triFlags</i></span></td><td><span class="function_parameter_description">&nbsp;Optional argument that sets the flags on the portal's
+	triangles as returned from collision tests.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setVisionRange"></a><p class="function_definition">
+<span class="function_definition">def setVisionRange( <i>self, visionAngle, range</i> ):</span>
+</p>
+
+<div class="function_description">This function alters the range and field of view of currently
+active vision controller.
+<br><br>
+A TypeError is raised if it is not called on a real entity and if the
+entity does not have a vision controller.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>visionAngle</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	The angle of the vision cone in radians. The
+							field of view is double this value.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>range</i></span></td><td><span class="function_parameter_description">&nbsp;(float)	The new range of the vision
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="teleport"></a><p class="function_definition">
+<span class="function_definition">def teleport( <i>self, nearbyMBRef, position, direction</i> ):</span>
+</p>
+
+<div class="function_description">Note that Entities which have a volatileInfo that does not allow
+transmission of position data will send their updated position to clients
+in an inefficient way. Care should be taken not to call this method
+continuously on a non-volatile entity.
+<br><br>
+The teleport function can only be called on real entities.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>nearbyMBRef</i></span></td><td><span class="function_parameter_description">&nbsp;A Mailbox that determines which Space and CellApp the
+<a href="Entity.html">Entity</a> is teleporting to, as it is assumed to be near the teleport
+destination. This can be set to None, in which case it will remain
+on the current cell until cell migration occurs via normal means.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;The position argument is the location to which the <a href="Entity.html">Entity</a> is
+to be teleported, as a sequence of three floats (x, y, z), in world space.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>direction</i></span></td><td><span class="function_parameter_description">&nbsp;The direction argument is the direction to which the <a href="Entity.html">Entity</a>
+is to be facing after the teleport, as a sequence of three floats ( roll,
+pitch, yaw), in world space.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Always returns None.
+</td></tr>
+</table>
+</p>
+
+<a name="trackEntity"></a><p class="function_definition">
+<span class="function_definition">def trackEntity( <i>self, entityID, velocity=2*pi, period=10, userArg=0</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#cancel">cancel</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityID</i></span></td><td><span class="function_parameter_description">&nbsp;The ID of the entity that this should turn towards. This
+entity must be known by the cell.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>velocity</i></span></td><td><span class="function_parameter_description">&nbsp;velocity is the speed at which the <a href="Entity.html">Entity</a> will turn, in
+radians per second.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>period</i></span></td><td><span class="function_parameter_description">&nbsp;ticks ticks is the number of ticks that occur between
+updates. This affects how accurately the <a href="Entity.html">Entity</a> will track its target.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userArg</i></span></td><td><span class="function_parameter_description">&nbsp;userArg is an integer, and is not currently used.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>trackEntity returns the ID of the new controller. This can later be
+used with the <a href="Entity.html">Entity</a>'s cancel function to remove the controller and stop
+the <a href="Entity.html">Entity</a> from tracking.
+</td></tr>
+</table>
+</p>
+
+<a name="waySetPathLength"></a><p class="function_definition">
+<span class="function_definition">def waySetPathLength( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Returns the length of the most recently determined navigation path, in
+chunks.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>(float)	The length of the most recently determined
+						navigation path.
+</td></tr>
+</table>
+</p>
+
+<a name="withholdFromClient"></a><p class="function_definition">
+<span class="function_definition">def withholdFromClient( <i>self, entityOrID, isWithheld</i> ):</span>
+</p>
+
+<div class="function_description">withholdFromClient allows an entity in an entity's Area of Interest to
+be withheld from being sent to the client.
+<br><br>
+This is often used with <a href="Entity.html">Entity</a>.<a href=Entity.html#onEnteredAoI>onEnteredAoI</a> and <a href="Entity.html">Entity</a>.<a href=Entity.html#entitiesInAoI>entitiesInAoI</a>.
+<br><br>
+Example:
+
+<pre># Identify and withhold entities that should be withheld.
+def onEnteredAoI( self, entity ):
+    if entity.shouldBeWithheldFrom( self ):
+        self.withholdFromClient( entity, True )
+
+# No longer withhold entities we now have the ability to send.
+def adjustForExtraPowers( self ):
+    for entity in self.entitiesInAoI( withheld = True ):
+        if not entity.shouldBeWithheldFrom( self ):
+            self.withholdFromClient( entity, False )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityOrID</i></span></td><td><span class="function_parameter_description">&nbsp;An entity or entity ID.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>isWithheld</i></span></td><td><span class="function_parameter_description">&nbsp;A boolean indicating whether the entity should be
+  withheld. That is, it is not sent to the client.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None. If the entity does not exist, a ValueError is raised.
+</td></tr>
+</table>
+</p>
+
+<a name="writeToDB"></a><p class="function_definition">
+<span class="function_definition">def writeToDB( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">The cell entity's data is also backed up to the base entity to ensure
+that the fault tolerance data is at least as up-to-date as the disaster
+recovery data.
+<br><br>
+This method can only be called on a real entity that has a base entity.
+</div>
+
+<hr>
+<h2>Callback Method Documentation</h2>
+
+<a name="__init__"></a><p class="function_definition">
+<span class="function_definition">def __init__( <i>self, nearbyEntity</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#onTeleportSuccess">onTeleportSuccess</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>nearbyEntity</i></span></td><td><span class="function_parameter_description">&nbsp;This optional argument accepts the entity that was used
+	in the Base.createCellEntity call. This is useful for setting the
+	initial position of the entity. This argument is guaranteed to be a
+	real entity.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onDestroy"></a><p class="function_definition">
+<span class="function_definition">def onDestroy( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onEnterTrap"></a><p class="function_definition">
+<span class="function_definition">def onEnterTrap( <i>self, entity, range, controllerID, userArg</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity that has entered.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>range</i></span></td><td><span class="function_parameter_description">&nbsp;The range of the trigger.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the proximity trap controller.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userArg</i></span></td><td><span class="function_parameter_description">&nbsp;If userArg is not 0, this is also passed to the
+	callback. The prototype should assign a default value of 0 if it is
+	possible that addProximity() can be called with a userArg value of 0.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onEnteredAoI"></a><p class="function_definition">
+<span class="function_definition">def onEnteredAoI( <i>self, entity</i> ):</span>
+</p>
+
+<div class="function_description">Note: Any persistent entity tracking performed as a result of this callback
+must be cleared in <a href="Entity.html">Entity</a>.<a href=Entity.html#onRestore>onRestore</a> as the AoI is not restored during a
+CellApp failure.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#onLeftAoI">onLeftAoI</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onLeftAoIID">onLeftAoIID</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity that entered the AoI.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onEnteredCell"></a><p class="function_definition">
+<span class="function_definition">def onEnteredCell( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">On the source cell, onLeavingCell is called on the real before it is
+offloaded.
+onLeftCell is then called on this entity after being converted to a ghost.
+<br><br>
+On the destination cell, onEnteringCell is called on the ghost entity. This
+ghost is then converted to a real entity and onEnteredCell is called.
+<br><br>
+Note: Think twice before using this callback. These can often be avoided by
+using smarter data types.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#onEnteringCell">onEnteringCell</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onLeavingCell">onLeavingCell</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onLeftCell">onLeftCell</a><br></td></tr>
+</table>
+</p>
+
+<a name="onEnteringCell"></a><p class="function_definition">
+<span class="function_definition">def onEnteringCell( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">On the source cell, onLeavingCell is called on the real before it is
+offloaded. onLeftCell is then called on this entity after being converted
+to a ghost.
+<br><br>
+On the destination cell, onEnteringCell is called on the ghost entity. This
+ghost is then converted to a real entity and onEnteredCell is called.
+<br><br>
+This method should be decorated with @bwdecorators.callableOnGhost since
+it will only be called on ghost entities.
+<br><br>
+Note: Think twice before using this callback. These can often be avoided by
+using smarter data types.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#onEnteredCell">onEnteredCell</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onLeavingCell">onLeavingCell</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onLeftCell">onLeftCell</a><br></td></tr>
+</table>
+</p>
+
+<a name="onGetWitness"></a><p class="function_definition">
+<span class="function_definition">def onGetWitness( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onGhostCreated"></a><p class="function_definition">
+<span class="function_definition">def onGhostCreated( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Note: This callback must have the decorator @bwdecorators.callableOnGhost in
+order to be successfully called.
+</div>
+
+<a name="onGhostDestroyed"></a><p class="function_definition">
+<span class="function_definition">def onGhostDestroyed( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Note: This callback must have the decorator @bwdecorators.callableOnGhost in
+order to be successfully called.
+</div>
+
+<a name="onLeaveTrap"></a><p class="function_definition">
+<span class="function_definition">def onLeaveTrap( <i>self, entity, range, controllerID, userArg</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity that has left.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>range</i></span></td><td><span class="function_parameter_description">&nbsp;The range of the trigger.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the proximity trap controller.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userArg</i></span></td><td><span class="function_parameter_description">&nbsp;If userArg is not 0, this is also passed to the
+	callback. The prototype should assign a default value of 0 if it is
+	possible that addProximity() can be called with a userArg value of 0.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onLeaveTrapID"></a><p class="function_definition">
+<span class="function_definition">def onLeaveTrapID( <i>self, entityID, range, controllerID, userArg</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the entity that has left.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>range</i></span></td><td><span class="function_parameter_description">&nbsp;The range of the trigger.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the proximity trap controller.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userArg</i></span></td><td><span class="function_parameter_description">&nbsp;If userArg is not 0, this is also passed to the
+	callback. The prototype should assign a default value of 0 if it is
+	possible that addProximity() can be called with a userArg value of 0.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onLeavingCell"></a><p class="function_definition">
+<span class="function_definition">def onLeavingCell( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">On the source cell, onLeavingCell is called on the real before it is
+offloaded. onLeftCell is then called on this entity after being converted
+to a ghost.
+<br><br>
+On the destination cell, onEnteringCell is called on the ghost entity. This
+ghost is then converted to a real entity and onEnteredCell is called.
+<br><br>
+Note: Think twice before using this callback. These can often be avoided by
+using smarter data types.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#onEnteringCell">onEnteringCell</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onEnteredCell">onEnteredCell</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onLeftCell">onLeftCell</a><br></td></tr>
+</table>
+</p>
+
+<a name="onLeftAoI"></a><p class="function_definition">
+<span class="function_definition">def onLeftAoI( <i>self, entity</i> ):</span>
+</p>
+
+<div class="function_description">NB: It is possible that the entity passed into this callback may already be
+destroyed, ie: entity.isDestroyed is True
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#onEnteredAoI">onEnteredAoI</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onLeftAoIID">onLeftAoIID</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity that left the AoI.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onLeftAoIID"></a><p class="function_definition">
+<span class="function_definition">def onLeftAoIID( <i>self, entityID</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#onEnteredAoI">onEnteredAoI</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onLeftAoI">onLeftAoI</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityID</i></span></td><td><span class="function_parameter_description">&nbsp;The ID of the entity that left the AoI.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onLeftCell"></a><p class="function_definition">
+<span class="function_definition">def onLeftCell( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">On the source cell, onLeavingCell is called on the real before it is
+offloaded. onLeftCell is then called on this entity after being converted
+to a ghost.
+<br><br>
+On the destination cell, onEnteringCell is called on the ghost entity. This
+ghost is then converted to a real entity and onEnteredCell is called.
+<br><br>
+This method should be decorated with @bwdecorators.callableOnGhost since
+it will only be called on ghost entities.
+<br><br>
+Note: Think twice before using this callback. These can often be avoided by
+using smarter data types.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#onEnteringCell">onEnteringCell</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onEnteredCell">onEnteredCell</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onLeavingCell">onLeavingCell</a><br></td></tr>
+</table>
+</p>
+
+<a name="onLoseControlledBy"></a><p class="function_definition">
+<span class="function_definition">def onLoseControlledBy( <i>self, id</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the controlledBy entity.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onLoseWitness"></a><p class="function_definition">
+<span class="function_definition">def onLoseWitness( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onMove"></a><p class="function_definition">
+<span class="function_definition">def onMove( <i>self, controllerID, userData</i> ):</span>
+</p>
+
+<div class="function_description">It is called when the entity has reached its destination or
+for <a href="Entity.html">Entity</a>.<a href=Entity.html#navigateStep>navigateStep</a> when the entity reaches the next waypoint.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the controller that triggered this callback.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;The user data that was passed to the navigation method
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onMoveFailure"></a><p class="function_definition">
+<span class="function_definition">def onMoveFailure( <i>self, controllerID, userData</i> ):</span>
+</p>
+
+<div class="function_description">It is called if the entity fails to reach its destination entity due to 
+it no longer being avaliable, and is also called when the entity has not
+moved enough during a single tick from <a href="Entity.html">Entity</a>.<a href=Entity.html#navigateStep>navigateStep</a>.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#accelerateToEntity">accelerateToEntity</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#moveToEntity">moveToEntity</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#navigateStep">navigateStep</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the controller that triggered this callback.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;The user data that was passed to the navigation method
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onNavigate"></a><p class="function_definition">
+<span class="function_definition">def onNavigate( <i>self, controllerID, userData</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the controller that triggered this
+						callback.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;The user data that was passed to <a href="Entity.html">Entity</a>.<a href=Entity.html#navigate>navigate</a>.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onNavigateFailed"></a><p class="function_definition">
+<span class="function_definition">def onNavigateFailed( <i>self, controllerID, userData</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the controller that triggered this
+						callback.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;The user data that was passed to <a href="Entity.html">Entity</a>.<a href=Entity.html#navigate>navigate</a>.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onNoise"></a><p class="function_definition">
+<span class="function_definition">def onNoise( <i>self, entity, propRange, distance, event, info</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity that made the noise.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>propRange</i></span></td><td><span class="function_parameter_description">&nbsp;The propagation range of the noise.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>distance</i></span></td><td><span class="function_parameter_description">&nbsp;This is how far away the noise was made.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;The integer event number that was passed to <a href="Entity.html">Entity</a>.<a href=Entity.html#makeNoise>makeNoise</a>.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>info</i></span></td><td><span class="function_parameter_description">&nbsp;The integer info argument that was passed to <a href="Entity.html">Entity</a>.<a href=Entity.html#makeNoise>makeNoise</a>.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onPassengerAlightAttempt"></a><p class="function_definition">
+<span class="function_definition">def onPassengerAlightAttempt( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onPassengerBoardAttempt"></a><p class="function_definition">
+<span class="function_definition">def onPassengerBoardAttempt( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method is not a good place to synchronise boarding of a
+single-seated vehicle, since it may be called simultaneously
+from two different cells. If you need to enforce such a rule,
+you should have a separate reservation step which sets a ghosted
+property to the (id of the) entity that has permission to ride it.
+This method can then check that the entity attempting to board
+does indeed hold the reservation.
+</div>
+
+<a name="onRestore"></a><p class="function_definition">
+<span class="function_definition">def onRestore( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onSpaceGone"></a><p class="function_definition">
+<span class="function_definition">def onSpaceGone( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onStartSeeing"></a><p class="function_definition">
+<span class="function_definition">def onStartSeeing( <i>self, entity, userData</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity that has just entered this entity's vision.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;</span></td></tr>
+
+</table>
+</p>
+
+<a name="onStopSeeing"></a><p class="function_definition">
+<span class="function_definition">def onStopSeeing( <i>self, entity, userData</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onStopSeeingID">onStopSeeingID</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity that has just left this entity's vision.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;</span></td></tr>
+
+</table>
+</p>
+
+<a name="onStopSeeingID"></a><p class="function_definition">
+<span class="function_definition">def onStopSeeingID( <i>self, entityID, userData</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#onStopSeeing">onStopSeeing</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the entity that has just left this entity's
+					vision.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;</span></td></tr>
+
+</table>
+</p>
+
+<a name="onTeleport"></a><p class="function_definition">
+<span class="function_definition">def onTeleport( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#teleport">teleport</a><br></td></tr>
+</table>
+</p>
+
+<a name="onTeleportFailure"></a><p class="function_definition">
+<span class="function_definition">def onTeleportFailure( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#teleport">teleport</a><br></td></tr>
+</table>
+</p>
+
+<a name="onTeleportSuccess"></a><p class="function_definition">
+<span class="function_definition">def onTeleportSuccess( <i>self, nearbyEntity</i> ):</span>
+</p>
+
+<div class="function_description">When the teleport has been caused by a call from the base entity, the
+position of the entity will be <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#INVALID_POSITION>INVALID_POSITION</a>. The desired
+position should be set in this callback. This will typically be the
+position of the nearby entity or a close offset.
+<br><br>
+The nearby entity argument is guaranteed to be a real entity. Two-way
+methods that modify state can be called on this argument. This can be useful
+if the nearby entity contains state for where the entity should be
+positioned.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#teleport">teleport</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>nearbyEntity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity associated with the mailbox passed to
+	<a href="Entity.html">Entity</a>.<a href=Entity.html#teleport>teleport</a> or Base.. This is guaranteed to be a real
+	entity.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onTimer"></a><p class="function_definition">
+<span class="function_definition">def onTimer( <i>self, timerHandle, userData</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>timerHandle</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the timer.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;The user data passed in to <a href="Entity.html">Entity</a>.<a href=Entity.html#addTimer>addTimer</a>.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onTurn"></a><p class="function_definition">
+<span class="function_definition">def onTurn( <i>self, controllerID, userData</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>controllerID</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the controller.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;The user data passed in to the <a href="Entity.html">Entity</a>.<a href=Entity.html#addYawRotator>addYawRotator</a> call.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onWindowOverflow"></a><p class="function_definition">
+<span class="function_definition">def onWindowOverflow( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onWitnessed"></a><p class="function_definition">
+<span class="function_definition">def onWitnessed( <i>self, isWitnessed</i> ):</span>
+</p>
+
+<div class="function_description">When entities are created, their initial witness state is unwitnessed. If
+they are created within the AoI of a witness, then they will have
+<a href="Entity.html">Entity</a>.<a href=Entity.html#onWitnessed>onWitnessed</a>( True ) called as soon as the witness is notified of
+this entity.
+<br><br>
+This can be useful as an optimisation. For example, CPU intensive entities
+may be able to pause their AI while they are not being watched.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#isWitnessed">isWitnessed</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>isWitnessed</i></span></td><td><span class="function_parameter_description">&nbsp;A boolean indicating whether or not the entity is now
+witnessed.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onWriteToDB"></a><p class="function_definition">
+<span class="function_definition">def onWriteToDB( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="allClients"></a><p class="attribute_definition">
+<span class="attribute_definition">allClients</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#ownClient">ownClient</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#clientEntity">clientEntity</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#otherClients">otherClients</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only <a href="PyClient.html">PyClient</a>
+</td></tr>
+</table>
+</p>
+
+<a name="aoiUpdateScheme"></a><p class="attribute_definition">
+<span class="attribute_definition">aoiUpdateScheme</span>
+</p>
+
+<div class="attribute_description">The available schemes are specified in bw.xml's cellApp/aoiUpdateSchemes
+section.
+</div>
+
+<a name="artificialLoad"></a><p class="attribute_definition">
+<span class="attribute_definition">artificialLoad</span>
+</p>
+
+<div class="attribute_description">This attribute allows this entity to report an additional amount of
+artificial load. It is useful as a hint to the load balancing if it is
+expected that this entity's load may increase by this amount in the
+future.
+<br><br>
+The value is added directly to the load of the local CellApp process.
+This means that the units are the fraction of the entire CellApp load
+that should be artificially accounted. This does assume that the CellApp
+machines are fairly compatible.
+<br><br>
+The value should generally be small, say 0.1 or less.
+<br><br>
+This feature should be used with care. Setting this value too large, for
+example, could adversely affect the load balancing.
+</div>
+
+<a name="base"></a><p class="attribute_definition">
+<span class="attribute_definition">base</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only <a href="BaseEntityMailBox.html">BaseEntityMailBox</a>
+</td></tr>
+</table>
+</p>
+
+<a name="canBeSeen"></a><p class="attribute_definition">
+<span class="attribute_definition">canBeSeen</span>
+</p>
+
+<div class="attribute_description">If set to True, this attribute indicates that this <a href="Entity.html">Entity</a> should be
+included in vision updates.
+<br><br>
+If set to False, the <a href="Entity.html">Entity</a> will be 'invisible' to any <a href="Entity.html">Entity</a>'s vision
+controller.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool
+</td></tr>
+</table>
+</p>
+
+<a name="className"></a><p class="attribute_definition">
+<span class="attribute_definition">className</span>
+</p>
+
+<div class="attribute_description">The class name of this <a href="Entity.html">Entity</a>.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only string
+</td></tr>
+</table>
+</p>
+
+<a name="client"></a><p class="attribute_definition">
+<span class="attribute_definition">client</span>
+</p>
+
+<div class="attribute_description">This attribute is an alias for <a href="Entity.html">Entity</a>.<a href=Entity.html#ownClient>ownClient</a>.
+It provides a <a href="PyClient.html">PyClient</a> object. This can be
+used to call functions on the client <a href="Entity.html">Entity</a>. Function calls that are made
+via this <a href="PyClient.html">PyClient</a> object are only passed to the client that owns the
+entity.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#clientEntity">clientEntity</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#allClients">allClients</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#otherClients">otherClients</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only <a href="PyClient.html">PyClient</a>
+</td></tr>
+</table>
+</p>
+
+<a name="controlledBy"></a><p class="attribute_definition">
+<span class="attribute_definition">controlledBy</span>
+</p>
+
+<div class="attribute_description">If a script makes changes to the pose of an entity, e.g. sets its
+direction directly, or teleports it to another space, then those
+changes are sent down to the client as a forced pose change. Future
+pose updates from the client are ignored until the forced change is
+acknowledged. This same mechanism is used if the physics checking
+system rules a client-initiated movement illegal.
+<br><br>
+Scripts may set this on any (real) entity to grant a client control
+of that entity - or revoke it. It is even possible to revoke or redirect
+the client's control of its own entity, in which case its position
+(if volatile) will be sent to the client in every update. (Any volatile
+positions of vehicles the client is on will also be sent every update.)
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="BaseEntityMailBox.html">BaseEntityMailBox</a>
+</td></tr>
+</table>
+</p>
+
+<a name="debug_numTimesRealOffloaded"></a><p class="attribute_definition">
+<span class="attribute_definition">debug_numTimesRealOffloaded</span>
+</p>
+
+<div class="attribute_description">This is a 16 bit unsigned value and is expected to wrap at 65535.
+</div>
+
+<a name="direction"></a><p class="attribute_definition">
+<span class="attribute_definition">direction</span>
+</p>
+
+<div class="attribute_description">Changes to this data will not be propagated to clients if the
+volatileInfo for this <a href="Entity.html">Entity</a> specifies that position is not to be
+updated.
+<br><br>
+This property is roll, pitch and yaw combined (in that order). All
+values are in radians.
+<br><br>
+Like <a href="Entity.html">Entity</a>.<a href=Entity.html#position>position</a>, this value is mutable.
+<br><br>
+If you want a copy of the current value, you should cast to a <a href="Vector3.html">Vector3</a>.
+<br><br>
+For example,
+
+<pre>self.startDirection = <a href="Math.html">Math</a>.<a href="Vector3.html">Vector3</a>( self.direction )
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Tuple of 3 floats as (roll, pitch, yaw)
+</td></tr>
+</table>
+</p>
+
+<a name="fieldOfView"></a><p class="attribute_definition">
+<span class="attribute_definition">fieldOfView</span>
+</p>
+
+<div class="attribute_description">This attribute stores the angle of the vision cone in radians.  Entities
+that are greater than this angle, in radians, from this entity's
+direction will not be seen. The field of view is double this number. For
+example, a field of view of 180 degrees (pi radians) would be equivalent
+to a vision cone angle of 90 degrees (pi/2 radians).
+<br><br>
+This attribute is deprecated due to the confusion it can cause. It is
+identical to the visionAngle attribute.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="hasWitness"></a><p class="attribute_definition">
+<span class="attribute_definition">hasWitness</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>boolean
+</td></tr>
+</table>
+</p>
+
+<a name="id"></a><p class="attribute_definition">
+<span class="attribute_definition">id</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="isDestroyed"></a><p class="attribute_definition">
+<span class="attribute_definition">isDestroyed</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only bool
+</td></tr>
+</table>
+</p>
+
+<a name="isIndoors"></a><p class="attribute_definition">
+<span class="attribute_definition">isIndoors</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<a name="isOnGround"></a><p class="attribute_definition">
+<span class="attribute_definition">isOnGround</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-write bool
+</td></tr>
+</table>
+</p>
+
+<a name="isOutdoors"></a><p class="attribute_definition">
+<span class="attribute_definition">isOutdoors</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<a name="isWitnessed"></a><p class="attribute_definition">
+<span class="attribute_definition">isWitnessed</span>
+</p>
+
+<div class="attribute_description">An entity is considered as being witnessed if it in a client-controlled
+entity's Area of Interest (AoI). This attribute is False when the
+entity is first created and will be set to True immediately upon
+entering the AoI of a client-controlled entity. However, <a href="BigWorld.html">BigWorld</a> uses
+a lazy algorithm to change this attribute from True to False.
+Currently, it can take between 8 to 12 minutes after leaving the AoI of
+the last client-controlled entity before this attribute is set to
+False.
+</div>
+
+<a name="localPitch"></a><p class="attribute_definition">
+<span class="attribute_definition">localPitch</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Float.
+</td></tr>
+</table>
+</p>
+
+<a name="localPosition"></a><p class="attribute_definition">
+<span class="attribute_definition">localPosition</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Tuple of 3 floats as (x, y, z).
+</td></tr>
+</table>
+</p>
+
+<a name="localRoll"></a><p class="attribute_definition">
+<span class="attribute_definition">localRoll</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Float.
+</td></tr>
+</table>
+</p>
+
+<a name="localYaw"></a><p class="attribute_definition">
+<span class="attribute_definition">localYaw</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Float.
+</td></tr>
+</table>
+</p>
+
+<a name="otherClients"></a><p class="attribute_definition">
+<span class="attribute_definition">otherClients</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#ownClient">ownClient</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#allClients">allClients</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#clientEntity">clientEntity</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only <a href="PyClient.html">PyClient</a>
+</td></tr>
+</table>
+</p>
+
+<a name="ownClient"></a><p class="attribute_definition">
+<span class="attribute_definition">ownClient</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#clientEntity">clientEntity</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#allClients">allClients</a><br><a href="Entity.html">Entity</a>.<a href="Entity.html#otherClients">otherClients</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only <a href="PyClient.html">PyClient</a>
+</td></tr>
+</table>
+</p>
+
+<a name="pitch"></a><p class="attribute_definition">
+<span class="attribute_definition">pitch</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Float
+</td></tr>
+</table>
+</p>
+
+<a name="position"></a><p class="attribute_definition">
+<span class="attribute_definition">position</span>
+</p>
+
+<div class="attribute_description">It is also important to consider the volatileInfo of the entity. If the
+position is not volatile, each change to this value will be sent down to
+all client applications within range.
+<br><br>
+Note: This property is mutable which means that you can change individual
+elements of the position. It also means if you keep a reference to it and
+the entity moves, this property will change.
+
+<pre>self.position.y = 50.0
+</pre>
+<br><br>
+If you want a copy of the current value, you should cast to a <a href="Vector3.html">Vector3</a>.
+<br><br>
+For example,
+
+<pre>self.startPosition = <a href="Math.html">Math</a>.<a href="Vector3.html">Vector3</a>( self.position )
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="roll"></a><p class="attribute_definition">
+<span class="attribute_definition">roll</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Float
+</td></tr>
+</table>
+</p>
+
+<a name="seeingHeight"></a><p class="attribute_definition">
+<span class="attribute_definition">seeingHeight</span>
+</p>
+
+<div class="attribute_description">This attribute stores the height on the <a href="Entity.html">Entity</a> to use as the source of
+the current field of view, eg, eye-level of current Model.  This should
+be changed as the point of vision changes, eg, if the Model crouches,
+but not when jumping because the height from the base of the Model is
+the same.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="shouldAutoBackup"></a><p class="attribute_definition">
+<span class="attribute_definition">shouldAutoBackup</span>
+</p>
+
+<div class="attribute_description">This can be set to True, False or <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#NEXT_ONLY>NEXT_ONLY</a>.
+</div>
+
+<a name="shouldDropVision"></a><p class="attribute_definition">
+<span class="attribute_definition">shouldDropVision</span>
+</p>
+
+<div class="attribute_description">If set to True, this attribute indicates that this <a href="Entity.html">Entity</a>'s seeingHeight
+and visibleHeight should be dropped by 2 metres or to the terrain
+surface, if within that 2m range.  This is because on the Cell, the
+<a href="Entity.html">Entity</a> moves on the <a href="BigWorld.html">BigWorld</a> navPoly system.  No part of any navPoly
+will be beneath the terrain or more than 2 metres higher, so by dropping
+these seeingHeight and visibleHeight by 2m, we ensure that the heights
+are relative to the terrain.
+<br><br>
+If set to False, the heights will remain relative to the navPoly, rather
+than the terrain.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool
+</td></tr>
+</table>
+</p>
+
+<a name="spaceID"></a><p class="attribute_definition">
+<span class="attribute_definition">spaceID</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Integer.
+</td></tr>
+</table>
+</p>
+
+<a name="stealthFactor"></a><p class="attribute_definition">
+<span class="attribute_definition">stealthFactor</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="topSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">topSpeed</span>
+</p>
+
+<div class="attribute_description">If set to 0 (the default) no physics checking is done. If set to greater
+than zero, entity movements are checked against chunk portals, and speed
+is checked against the value of this property.
+<br><br>
+Setting this value to a negative value is undefined.
+<br><br>
+Additionally, if this attribute value is greater than zero and if the
+value of the attribute topSpeedY is also greater than zero, then this
+attribute's value enforces the magnitude of the velocity along the x-
+and z-axes only, and value of the attribute topSpeedY restricts the
+magnitude of the velocity along the y-axis.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#topSpeedY">topSpeedY</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="topSpeedY"></a><p class="attribute_definition">
+<span class="attribute_definition">topSpeedY</span>
+</p>
+
+<div class="attribute_description">If value of topSpeed attribute is not greater than zero, then the value
+of the topSpeedY attribute has no effect.
+<br><br>
+This attribute is only available on the real entity and reading/writing
+to this value on a ghost is not defined.
+<br><br>
+If set to zero, then the value of the attribute topSpeed applies to the
+magnitude of the velocity along x-, y- and z-axes.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#topSpeed">topSpeed</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="vehicle"></a><p class="attribute_definition">
+<span class="attribute_definition">vehicle</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>
+</td></tr>
+</table>
+</p>
+
+<a name="velocity"></a><p class="attribute_definition">
+<span class="attribute_definition">velocity</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only tuple of 3 floats, as (x, y, z)
+</td></tr>
+</table>
+</p>
+
+<a name="visibleHeight"></a><p class="attribute_definition">
+<span class="attribute_definition">visibleHeight</span>
+</p>
+
+<div class="attribute_description">This attribute stores the height that the vision controllers will use to
+determine whether this <a href="Entity.html">Entity</a> can be seen.  It should correspond to the
+height of the current Model and be updated if the Model changes height,
+eg, when crouched, but not when jumping because the height from the base
+of the Model is the same.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="visionAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">visionAngle</span>
+</p>
+
+<div class="attribute_description">This attribute stores the angle of the vision cone in radians.  Entities
+that are greater than this angle, in radians, from this entity's
+direction will not be seen. The field of view is double this number. For
+example, a field of view of 180 degrees (pi radians) would be equivalent
+to a vision cone angle of 90 degrees (pi/2 radians).
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="visionRange"></a><p class="attribute_definition">
+<span class="attribute_definition">visionRange</span>
+</p>
+
+<div class="attribute_description">This attribute stores the range, in metres, of the entity's
+vision. Entities further away than this distance will not be
+seen by this entity.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Entity.html">Entity</a>.<a href="Entity.html#addVision">addVision</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="volatileInfo"></a><p class="attribute_definition">
+<span class="attribute_definition">volatileInfo</span>
+</p>
+
+<div class="attribute_description">Sample .def Excerpt:
+
+<pre>&lt;Volatile&gt;
+    &lt;position/&gt;           &lt;!-- always --&gt;
+    &lt;yaw/&gt;                &lt;!-- always --&gt;
+    &lt;pitch&gt;20&lt;/pitch&gt;     &lt;!-- 20     --&gt;
+&lt;/Volatile&gt;               &lt;!-- roll never  --&gt;
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A sequence of 4 floats (or None objects)
+</td></tr>
+</table>
+</p>
+
+<a name="yaw"></a><p class="attribute_definition">
+<span class="attribute_definition">yaw</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>BaseEntityMailBox - BigWorld base Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BaseEntityMailBox Class Reference</h1>
+<p><b>BaseEntityMailBox</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+CommonBaseEntityMailBox
+ &rarr; <a href="ServerEntityMailBox.html">ServerEntityMailBox</a>
+ &rarr; PyEntityMailBox
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#cell" class="attribute_list" >cell</a></td><td>&nbsp; { mailbox }
+</td></tr>
+
+<tr valign=top><td><a href="#client" class="attribute_list" >client</a></td><td>&nbsp; { mailbox }
+</td></tr>
+
+<tr valign=top><td><a href="#ownClient" class="attribute_list" >ownClient</a></td><td>&nbsp; { mailbox }
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="BaseEntityMailBox.html">BaseEntityMailBox</a> inherits from <a href="ServerEntityMailBox.html">ServerEntityMailBox</a>.
+<br><br>
+On a <a href="Base.html">Base</a>, the <a href="BaseEntityMailBox.html">BaseEntityMailBox</a> can be used to communicate with other
+<a href="Base.html">Base</a> Entity components, even if on different machines.
+<br><br>
+For example, to befriend an entity you meet, use:
+<br><br>
+	self.befriend( friendEntity )
+<br><br>
+The friend Entity will automatically be converted to a <a href="BaseEntityMailBox.html">BaseEntityMailBox</a>,
+so is identical to:
+<br><br>
+	self.befriend( friendEntity.base )
+<br><br>
+In either case, the befriend function definition could look like:
+<br><br>
+	def befriend( self, friendMailbox ):
+		self.myFriend = friendMailbox
+<br><br>
+To communicate with the friend, you could:
+<br><br>
+	def talkToFriend( self ):
+		self.myFriend.chat( "Hi Friend..." )
+<br><br>
+where the chat method is implemented on the <a href="Base.html">Base</a> of the friend Entity.
+The stored <a href="BaseEntityMailBox.html">BaseEntityMailBox</a> will directly communicate with the <a href="Base.html">Base</a>
+Entity it represents, regardless of which machine it is on.
+<br><br>
+Unlike direct Cell entity mailboxes, these mailboxes may be stored and used
+later.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="cell"></a><p class="attribute_definition">
+<span class="attribute_definition">cell</span>
+</p>
+
+<div class="attribute_description">For example, to call the cell methods via a base mailbox 'baseMB', use:
+<br><br>
+baseMB.cell.cellMethod()
+<br><br>
+The method call will first be sent to the base this mailbox belongs to and
+then redirected to the cell counterpart.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>{ mailbox }
+</td></tr>
+</table>
+</p>
+
+<a name="client"></a><p class="attribute_definition">
+<span class="attribute_definition">client</span>
+</p>
+
+<div class="attribute_description">For example, to call the client methods via a base mailbox 'baseMB', use:
+<br><br>
+baseMB.client.clientMethod()
+<br><br>
+The method call will first be sent to the base this mailbox belongs to and
+then redirected to the client counterpart.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>{ mailbox }
+</td></tr>
+</table>
+</p>
+
+<a name="ownClient"></a><p class="attribute_definition">
+<span class="attribute_definition">ownClient</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>{ mailbox }
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

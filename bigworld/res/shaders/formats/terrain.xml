@@ -1,0 +1,10 @@
+<yn_uv.xml>
+	<POSITION>
+		<type> FLOAT2 </type>
+	</POSITION>
+	<TEXCOORD>
+		<stream> 1 </stream>
+		<offset> 0 </offset>
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+</yn_uv.xml>

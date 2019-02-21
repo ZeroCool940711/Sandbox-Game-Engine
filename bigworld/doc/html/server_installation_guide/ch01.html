@@ -1,0 +1,202 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;1.&nbsp;Overview</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Installation Guide">
+      <link rel="up" href="index.html" title="Server Installation Guide">
+      <link rel="prev" href="index.html" title="Server Installation Guide">
+      <link rel="next" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Simple Installation">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_installation_guide/ch01.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;1.&nbsp;Overview</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="index.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch02.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;1.&nbsp;Overview">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Overview"></a>Chapter&nbsp;1.&nbsp;Overview
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch01.html#d0e32">1.1. Requirements</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch01.html#d0e35">1.1.1. Hardware Requirements</a></span></dt>
+                        <dt><span class="section"><a href="ch01.html#d0e62">1.1.2. Software Requirements</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch01.html#d0e71">1.2. Reading this document</a></span></dt>
+               </dl>
+            </div>
+            <p>This document describes how to quickly install the BigWorld Server and
+                 Tools in order to see an operational environment up and running in the
+                 shortest possible time. This document assumes you have read the <a href="../server_overview/index.html" class="olink">Server Overview</a> and understand the basic interaction between
+                 BigWorld server processes.
+            </p>
+            <p>As the majority of this installation procedure is automated, this
+                 mechanism of installation may not be suited for more advanced users who are
+                 experienced with BigWorld and wish to customise the installation process.
+                 For more advanced installation documentation, please refer to <a class="xref" href="apd.html" title="Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation">Appendix&nbsp;D, <i>Creating a custom BigWorld server installation</i></a>.
+            </p>
+            <div class="section" title="1.1.&nbsp;Requirements">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e32"></a>1.1.&nbsp;Requirements
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="1.1.1.&nbsp;Hardware Requirements">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e35"></a>1.1.1.&nbsp;Hardware Requirements
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The BigWorld server will run on most mainstream PC desktop
+                           hardware providing it is 64 bit (x86_64). For a detailed description of
+                           hardware requirements and recommendations for the BigWorld server please
+                           refer to <a class="xref" href="apa.html" title="Appendix&nbsp;A.&nbsp;Hardware Requirements">Appendix&nbsp;A, <i>Hardware Requirements</i></a>.
+                  </p>
+                  <p>The BigWorld server tools have a recommended minimum hardware
+                           configuration as follows:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p>1GHz CPU</p>
+                        </li>
+                        <li class="listitem">
+                           <p>1GB RAM</p>
+                        </li>
+                        <li class="listitem">
+                           <p>30GB Hard disk (for main OS install)</p>
+                        </li>
+                        <li class="listitem">
+                           <p>120GB Hard disk (for logging)</p>
+                        </li>
+                        <li class="listitem">
+                           <p>100Mbit NIC</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>If an external machine is hosting the MySQL server for use with
+                           WebConsole and StatLogger, we recommend that machine to have similar
+                           specifications. We also recommend that the network link between the
+                           machine hosting the WebConsole and/or StatLogger and the link to the
+                           MySQL server be low-latency and high capacity for best
+                           performance.
+                  </p>
+               </div>
+               <div class="section" title="1.1.2.&nbsp;Software Requirements">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e62"></a>1.1.2.&nbsp;Software Requirements
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>CentOS 5 64 bit is the recommended platform for development and
+                           production environments, however both RedHat Enterprise Linux 5 and
+                           CentOS 5 are supported. For instructions on installing CentOS 5, please
+                           refer to <a class="xref" href="apb.html" title="Appendix&nbsp;B.&nbsp;Installing CentOS 5">Appendix&nbsp;B, <i>Installing CentOS 5</i></a>.
+                  </p>
+                  <p>Other software dependencies should automatically be met by the RPM
+                           dependency list when installing packages from an RPM
+                  </p>
+               </div>
+            </div>
+            <div class="section" title="1.2.&nbsp;Reading this document">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e71"></a>1.2.&nbsp;Reading this document
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>While reading this document there are some subtle conventions we use
+                      to distinguish between different situations. One of these conventions is
+                      the difference we use between commands that are intended to be run as the
+                      root user as opposed to a command to be run in a normal user account. This
+                      difference is signficant in the same way as requiring Administrator access
+                      on a Windows machine.
+               </p>
+               <p>Commands to be run as root will be prefixed with a
+                      "<span class="literal">#</span>" symbol, while commands to be run as a regular user
+                      will be prefixed with a "<span class="literal">$</span>" symbol.
+               </p>
+               <p>For example, if we wanted to run the command '<span class="literal">cat
+                         /proc/1/mem</span>' as the root user we would express it as:
+               </p><pre class="programlisting"><em class="emphasis">#</em> cat /proc/1/mem</pre><p>Whereas if it were to be run as a regular user it would look
+                      like:
+               </p><pre class="programlisting"><em class="emphasis">$</em> cat /proc/1/mem</pre><p>Where possible we try and be explicit with regard to how a command
+                      should be run, however this visual indication should assist you if there
+                      is any confusion.
+               </p>
+               <p>IBM provides a useful Linux tutorial, which explains the root user
+                      and details the methods of switching between accounts. If you are new to
+                      Linux, you should read this tutorial before continuing. It is available at
+                      <a class="ulink" href="http://www.ibm.com/developerworks/linux/tutorials/l-basics/section5.html" target="_top">http://www.ibm.com/developerworks/linux/tutorials/l-basics/section5.html</a>.
+               </p>
+               <p>Another convention we use is to italicise parts of commands that you
+                      should substitute for the value relevant to your situation or
+                      needs.
+               </p>
+               <p>For example, if we wanted to use the command
+                      '<span class="literal">useradd</span>', which is followed by a new username, we
+                      would express it as:
+               </p><pre class="programlisting">$ useradd <em class="emphasis"><em class="replaceable"><code>username</code></em></em></pre><p>This can help to prevent ambiguity in some complex or unfamiliar
+                      commands that are used in this document.
+               </p>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="index.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch02.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Server Installation Guide&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;2.&nbsp;Simple Installation</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

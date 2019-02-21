@@ -1,0 +1,358 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;7.&nbsp;PHP</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Web Integration Guide">
+      <link rel="up" href="pt02.html" title="Part&nbsp;II.&nbsp;Using the Web Service from Apache">
+      <link rel="prev" href="ch06.html" title="Chapter&nbsp;6.&nbsp;Configuring Apache">
+      <link rel="next" href="pt03.html" title="Part&nbsp;III.&nbsp;Web Integration Example">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_web_integration/ch07.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;7.&nbsp;PHP</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch06.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">Part&nbsp;II.&nbsp;Using the Web Service from Apache</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="pt03.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;7.&nbsp;PHP">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_PHP"></a>Chapter&nbsp;7.&nbsp;PHP
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch07.html#d0e643">7.1. Installation</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch07.html#d0e646">7.1.1. Installing PHP</a></span></dt>
+                        <dt><span class="section"><a href="ch07.html#d0e663">7.1.2. Testing</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch07.html#d0e683">7.2. BigWorld.php</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch07.html#xref_BigWorld_php_Error_Handling">7.2.1. BigWorld.php Error handling</a></span></dt>
+                        <dt><span class="section"><a href="ch07.html#d0e886">7.2.2. Locating the ServiceApp</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch07.html#d0e907">7.3. RemoteEntity Session Storage</a></span></dt>
+               </dl>
+            </div>
+            <p>As a functional example, a PHP module is provided to interface with a
+                 BigWorld server through script. PHP is a very popular open-source scripting
+                 language for web development.
+            </p>
+            <p>This sample module is designed to be used under Linux with Apache and
+                 mod_php (the PHP module for Apache). The module also works with the PHP
+                 Linux command-line interpreter. While the BigWorld sample implementations
+                 use PHP, it is possible to implement a web integration system using any such
+                 scripting language or web server. As the <span class="literal">TwistedWeb</span>
+                 service services HTTP requests, any mechanism that can perform HTTP requests
+                 can integrate with the <span class="literal">TwistedWeb</span> sample.
+            </p>
+            <div class="section" title="7.1.&nbsp;Installation">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e643"></a>7.1.&nbsp;Installation
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="7.1.1.&nbsp;Installing PHP">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e646"></a>7.1.1.&nbsp;Installing PHP
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>You will need to be able to run PHP. It is possible to install it
+                           using <span class="command"><strong>yum</strong></span>:
+                  </p><pre class="programlisting"># yum install php</pre><p>You will also need to download and install PHP's libcurl module,
+                           which you can also do using <span class="command"><strong>yum</strong></span>:
+                  </p><pre class="programlisting"># yum install curl</pre></div>
+               <div class="section" title="7.1.2.&nbsp;Testing">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e663"></a>7.1.2.&nbsp;Testing
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The easiest way to test that PHP is supported is to create a PHP
+                           script as illustrated below and use a browser to view it:
+                  </p><pre class="programlisting">&lt;?php
+  phpinfo();
+?&gt;</pre><p><span class="citetitle">Testing PHP configuration changes</span></p>
+                  <div class="informalfigure">
+                     <div class="mediaobject"><img src="images/example_phpinfo_output.png"><span class="caption">
+                           <p>Example <span class="literal">phpinfo</span>
+                                        output
+                           </p></span></div>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="7.2.&nbsp;BigWorld.php">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e683"></a>7.2.&nbsp;BigWorld.php
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>To implement a website that can access the game server, the PHP
+                      script needs to make HTTP requests to the TwistedWeb service. To help
+                      achieve this, <code class="filename">BigWorld.php</code> implements a PHP class,
+                      called <code class="classname">RemoteEntity</code>, that represents a game entity
+                      on which you can call methods. This is analogous to a BigWorld server
+                      Entity mailbox.
+               </p>
+               <p>A <code class="classname">RemoteEntity</code> is created using the start of
+                      the URL path as the argument to its constructor. The path does not include
+                      the machine name and port or the method to call and method arguments. For
+                      more information about Twisted.Web and instructions on how to request
+                      entity mailboxes using the TwistedWeb service, see <a class="xref" href="ch02.html" title="Chapter&nbsp;2.&nbsp;The TwistedWeb Service"><i>The TwistedWeb Service</i></a>. For example, to obtain a
+                      <code class="classname">RemoteEntity</code> to FantasyDemo's
+                      <span class="literal">AuctionHouse</span> global base entity, you would call:
+               </p><pre class="programlisting">$this-&gt;auctionHouse = new RemoteEntity( "global_entities/AuctionHouse" );</pre><p>The variable to which the <code class="classname">RemoteEntity</code> was
+                      assigned can subsequently be used like an Entity mailbox for the target
+                      entity.
+               </p>
+               <p>When calling an entity's methods through a
+                      <code class="classname">RemoteEntity</code>, arguments are provided in the form of
+                      an array. In PHP, an array is an associated map of key/value pairs. The
+                      keys are argument names, and the values are the corresponding argument
+                      values. For example, consider the <span class="literal">AuctionHouse</span> entity's
+                      <code class="methodname">webCreateBidRangeCriteria()</code> method, which takes
+                      two arguments, representing the minimum and maximum bids for an item, and
+                      returns a criteria object. This method has the following definition in
+                      <code class="filename">AuctionHouse.def</code>:
+               </p><pre class="programlisting">&lt;webCreateBidRangeCriteria&gt;
+   &lt;Args&gt;
+      &lt;minBid&gt;   GOLDPIECES   &lt;/minBid&gt;
+      &lt;maxBid&gt;   GOLDPIECES   &lt;/maxBid&gt;
+   &lt;/Args&gt;
+   &lt;ReturnValues&gt;
+      &lt;criteria&gt;   STRING   &lt;/criteria&gt;  &lt;!-- Search criteria object, pickled --&gt;
+   &lt;/ReturnValues&gt;
+&lt;/webCreateBidRangeCriteria&gt;</pre><p>To invoke this method from the <code class="classname">RemoteEntity</code>
+                      for the <span class="literal">AuctionHouse</span> entity, you will need to create a
+                      PHP array of the arguments. The following code illustrates how this would
+                      be performed:
+               </p><pre class="programlisting">$res = $this-&gt;auctionHouse-&gt;webCreateBidRangeCriteria( array(
+    "minBid" =&gt; $searchMinBid,
+    "maxBid" =&gt; $searchMaxBid ) );</pre><p>where the values of <code class="varname">$searchMinBid</code> and
+                      <code class="varname">$searchMaxBid</code> are defined before the call. The return
+                      values will be stored in <code class="varname">$res</code>. In this example,
+                      <code class="varname">$res[ "criteria" ]</code> will contain the string describing
+                      the criteria.
+               </p>
+               <p>The <code class="classname">RemoteEntity</code> instance converts this call
+                      into a HTTP request on an appropriate <span class="literal">TwistedWeb</span>
+                      service fragment. It adds the method name and any arguments. It then
+                      blocks waiting for the JSON response. On success, this response is
+                      converted into a PHP object.
+               </p>
+               <p>In addition to calling entity methods on a
+                      <code class="classname">RemoteEntity</code> in order to access the entity on the
+                      game server, it is possible to access the same entities directly, by
+                      instead using a <code class="classname">RemoteEntity</code> to access the
+                      database, using the TwistedWeb service's <span class="literal">db</span> URL option,
+                      for example:
+               </p><pre class="programlisting">$db = new RemoteEntity( "db" );</pre><p>Using this <code class="classname">RemoteEntity</code>, it is possible to
+                      invoke commands directly on the game server. For example, to directly log
+                      an account on to the game server, you could make the following
+                      call:
+               </p><pre class="programlisting">$result = $db-&gt;logOn( array(
+    "username" =&gt; $username,
+    "password" =&gt; $pass ) );</pre><div class="section" title="7.2.1.&nbsp;BigWorld.php Error handling">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_BigWorld_php_Error_Handling"></a>7.2.1.&nbsp;BigWorld.php Error handling
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>It is possible for remote method calls to fail for a number of
+                           reasons, including invalid arguments or methods, or the requested entity
+                           not existing. When a call on a RemoteEntity instance fails, the
+                           TwistedWeb service will return a specially-formatted error object
+                           instead of the expected JSON object. As described in <a class="xref" href="ch02.html#xref_TwistedWebErrorHandling" title="2.7.&nbsp;TwistedWeb Error handling">TwistedWeb Error handling</a>, this JSON error object will
+                           have the format:
+                  </p><pre class="programlisting">{ "excType": "<em class="replaceable"><code>ErrorType</code></em>", "args": [ "<em class="replaceable"><code>Arg1</code></em>", "<em class="replaceable"><code>Arg2</code></em>" ... ] }</pre><p>If such an error object is encountered,
+                           <code class="filename">BigWorld.php</code> will raise it as a PHP exception. This
+                           exception type will use the <code class="varname">excType</code> field as the type
+                           name, and the first item in the <code class="varname">args</code> list as the
+                           exception's message:
+                  </p><pre class="programlisting">throw new $excType( $args );</pre><p>For example, a JSON object representing a BWInvalidArgsError
+                           object will be raised as a BWInvalidArgsError exception, whose message
+                           will be the first argument contained in the original JSON object.
+                  </p>
+                  <p>Any error object encountered by BigWorld.php will have originated
+                           as one of two categories of exception objects:
+                  </p>
+                  <div class="orderedlist">
+                     <ol class="orderedlist" type="1">
+                        <li class="listitem">
+                           <p>Built-in BigWorld errors -
+                                        <code class="classname">BWStandardError</code></p>
+                           <p>These are defined in
+                                        <code class="filename">bigworld/res/scripts/server_common/BWTwoWay.py</code>,
+                                        and are explained in the <a href="../server_programming_guide/index.html" class="olink">Server Programming Guide</a>'s section<a href="../server_programming_guide/ch06.html#xref_BWStandardError" class="olink">BWStandardError</a>. They originate in the server
+                                        binaries, and are propagated to the TwistedWeb service.
+                           </p>
+                           <p>In order for them to be raised as exceptions, they are
+                                        declared as PHP exception objects in
+                                        <code class="filename">BWError.php</code>, sharing the class name of their
+                                        python counterparts.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>Custom errors - <code class="classname">BWCustomError</code></p>
+                           <p>These are the error types specific to the game scripts, and
+                                        are described in detail in <a class="xref" href="ch10.html#xref_PHP_Error_Handling" title="10.16.&nbsp;PHP Error handling">PHP Error handling</a>. Like the classes derived from
+                                        <code class="classname">BWStandardError</code>, these must be declared as
+                                        php exception objects in order for them to be handled by normal
+                                        exception-handling procedures. This is to be done in
+                                        <code class="filename">CustomErrors.php</code>. For example, if there is a
+                                        custom error called <code class="classname">MyCustomError</code> declared in
+                                        <code class="filename"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/server_common/CustomErrors.py</code>,
+                                        there should be a matching php object declared in
+                                        <code class="filename">CustomErrors.php</code>:
+                           </p><pre class="programlisting">//CustomErrors.php
+
+&lt;?php
+require_once( "BWError.php" );
+class BWCustomError extends BWFirstArgError {}
+
+<em class="emphasis">class MyCustomError extends BWCustomError {}</em>
+?&gt;</pre><p>If an error object is encountered by
+                                        <code class="filename">BigWorld.php</code> that has not been declared as its
+                                        own PHP exception type, it will be thrown instead as a
+                                        <code class="classname">BWGenericError</code>, maintaining the
+                                        <code class="varname">excType</code> field as part of its exception
+                                        message:
+                           </p><pre class="programlisting">throw new BWGenericError( $excType, $args );</pre></li>
+                     </ol>
+                  </div>
+                  <p>For details on handling these errors, refer to <a class="xref" href="ch10.html#xref_PHP_Error_Handling" title="10.16.&nbsp;PHP Error handling">PHP Error handling</a>.
+                  </p>
+               </div>
+               <div class="section" title="7.2.2.&nbsp;Locating the ServiceApp">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e886"></a>7.2.2.&nbsp;Locating the ServiceApp
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The <code class="classname">Service</code> Singleton class in
+                           <code class="filename">BigWorld.php</code> contains a hard-coded list of possible
+                           ServiceApp locations. When a web client starts a new session, the
+                           <code class="classname">RemoteEntity</code> associated with the session is given
+                           the mailbox of a random ServiceApp that is currently online and
+                           providing a fragment of the desired service. You will need to modify
+                           this list to reflect the addresses of your ServiceApp machines:
+                  </p><pre class="programlisting">class Service
+{
+    private function __construct()
+    {
+        // *** EDIT THIS WITH YOUR ServiceApp ADDRESSES ***
+        $this-&gt;urlList = array(
+            "http://someMachine:8000",
+            "http://localHost:8000",
+            "http://someOtherMachine:8000"
+        );
+    }
+
+    ...
+}</pre><p>A web client will access a Service through the same ServiceApp for
+                           the duration of their session. If this ServiceApp fails during that
+                           time, the <code class="classname">RemoteEntity</code> will find a different
+                           ServiceApp providing the same service, and store its address for the
+                           remainder of the session.
+                  </p>
+               </div>
+            </div>
+            <div class="section" title="7.3.&nbsp;RemoteEntity Session Storage">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e907"></a>7.3.&nbsp;RemoteEntity Session Storage
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>It is possible to store a mailbox to an entity for the duration of a
+                      HTTP session. For example, the <code class="classname">BWAuthenticator</code>
+                      class' <code class="methodname">authenticateUserPass()</code> method, mentioned
+                      in the previous section, is used not only to invoke the
+                      <code class="methodname">logOn</code> command on the game server, but also to
+                      hold onto the resulting entity for the duration of the session. By storing
+                      the URL of this entity in PHP session variables, whose values are
+                      persistent for the entirety of a HTTP session, this allows the web server
+                      to require authentication from a web client only once per session.
+               </p>
+               <p>To store an entity reference:</p><pre class="programlisting">$_SESSION['mailbox'] = "entities_by_id/Avatar/37"; <em class="emphasis">// store details to create mailbox later.</em></pre><p>To later retrieve it:</p><pre class="programlisting">$mailbox = new RemoteEntity( $_SESSION['mailbox'] );</pre><p>For example, to log on and store the result:</p><pre class="programlisting">$db = new RemoteEntity( "db" );
+
+try
+{
+  $result = $db-&gt;logOn( array( "username" =&gt; $username, "password" =&gt; $pass ) );
+}
+catch( BWAuthenticateError $e )
+{
+  // Handle error
+  ...
+  return;
+}
+
+$_SESSION[ "mailbox" ] = "entities_by_id/" . $result[ "type" ] . '/' . $result[ "id" ];</pre></div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch06.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center"><a accesskey="u" href="pt02.html">Up</a></td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="pt03.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;6.&nbsp;Configuring Apache&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Part&nbsp;III.&nbsp;Web Integration Example</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

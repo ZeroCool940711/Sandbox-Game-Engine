@@ -1,0 +1,1635 @@
+<html>
+<head>
+<title>BigWorld - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BigWorld Module Reference</h1>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'classes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Class List</a></h2>
+<table id="classes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="class_list"><a href="PyAxisEvent.html" class="class_list" >PyAxisEvent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyFont.html" class="class_list" >PyFont</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyGraphicsSetting.html" class="class_list" >PyGraphicsSetting</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyKeyEvent.html" class="class_list" >PyKeyEvent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyMouseEvent.html" class="class_list" >PyMouseEvent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyResourceRefs.html" class="class_list" >PyResourceRefs</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyShimmerCountProvider.html" class="class_list" >PyShimmerCountProvider</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyTextureProvider.html" class="class_list" >PyTextureProvider</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyWaterVolume.html" class="class_list" >PyWaterVolume</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="Weather.html" class="class_list" >Weather</a></span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#AxisEvent" class="function_list" >AxisEvent</a>( axis, value, dTime ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Font" class="function_list" >Font</a>( name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#GraphicsSetting" class="function_list" >GraphicsSetting</a>( String, String, Int, Boolean, Boolean, PyObject ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#InvViewMatrix" class="function_list" >InvViewMatrix</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#KeyEvent" class="function_list" >KeyEvent</a>( key, state, modifiers, character, cursorPos ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Material" class="function_list" >Material</a>( effectName, diffuseMap, DataSection ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#MouseEvent" class="function_list" >MouseEvent</a>( dx, dy, dz, cursorPos ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#PyShimmerCountProvider" class="function_list" >PyShimmerCountProvider</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#PyTextureProvider" class="function_list" >PyTextureProvider</a>( resourceId ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#PyWaterVolume" class="function_list" >PyWaterVolume</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#RenderTarget" class="function_list" >RenderTarget</a>( name, width, height, reuseZ, format ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addFogEmitter" class="function_list" >addFogEmitter</a>( position, density, innerRadius, outerRadius, colour, localised ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addFunctionWatcher" class="function_list" >addFunctionWatcher</a>( path, function, argumentList, exposedHint, desc ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addSkyBox" class="function_list" >addSkyBox</a>( a, p ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addTextureFeed" class="function_list" >addTextureFeed</a>( identifier, texture ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addWatcher" class="function_list" >addWatcher</a>( path, getFunction, setFunction ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#ambientController" class="function_list" >ambientController</a>( p ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#autoDetectGraphicsSettings" class="function_list" >autoDetectGraphicsSettings</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#axisDirection" class="function_list" >axisDirection</a>( axis ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#commitPendingGraphicsSettings" class="function_list" >commitPendingGraphicsSettings</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#darkenConsoleBackground" class="function_list" >darkenConsoleBackground</a>( enable ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delFogEmitter" class="function_list" >delFogEmitter</a>( id ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delSkyBox" class="function_list" >delSkyBox</a>( m, p ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delStaticSkyBoxes" class="function_list" >delStaticSkyBoxes</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delTextureFeed" class="function_list" >delTextureFeed</a>( identifier ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delWatcher" class="function_list" >delWatcher</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#floraReset" class="function_list" >floraReset</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#floraVBSize" class="function_list" >floraVBSize</a>( Number ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#fogController" class="function_list" >fogController</a>( p ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getGraphicsSetting" class="function_list" >getGraphicsSetting</a>( label ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getTextureFeed" class="function_list" >getTextureFeed</a>( identifier ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getWatcher" class="function_list" >getWatcher</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getWatcherDir" class="function_list" >getWatcherDir</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#graphicsSettings" class="function_list" >graphicsSettings</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#graphicsSettingsNeedRestart" class="function_list" >graphicsSettingsNeedRestart</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#hasPendingGraphicsSettings" class="function_list" >hasPendingGraphicsSettings</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isKeyDown" class="function_list" >isKeyDown</a>( key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#keyToString" class="function_list" >keyToString</a>( key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#loadResourceListBG" class="function_list" >loadResourceListBG</a>( resourceList, callbackFn, priority ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#localeInfo" class="function_list" >localeInfo</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#rollBackPendingGraphicsSettings" class="function_list" >rollBackPendingGraphicsSettings</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#saveFontCacheMap" class="function_list" >saveFontCacheMap</a>( identifier ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setGraphicsSetting" class="function_list" >setGraphicsSetting</a>( label, optionIndex ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setWatcher" class="function_list" >setWatcher</a>( path, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#stringToKey" class="function_list" >stringToKey</a>( string ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#sunlightController" class="function_list" >sunlightController</a>( p ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#weather" class="function_list" >weather</a>( spaceID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#weatherController" class="function_list" >weatherController</a>( p ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#component" class="attribute_list" >component</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="AxisEvent"></a><p class="function_definition">
+<span class="function_definition">def AxisEvent( <i>axis, value, dTime</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="PyAxisEvent.html">PyAxisEvent</a> object. This can be used
+to create artificial events which did not originate from the
+engine's input system itself.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>axis</i></span></td><td><span class="function_parameter_description">&nbsp;The axis index, as defined in Keys.py
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;A float value between -1.0 and +1.0.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dTime</i></span></td><td><span class="function_parameter_description">&nbsp;A value representing the time since the last 
+					time the axis was processed.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the newly created axis event.
+</td></tr>
+</table>
+</p>
+
+<a name="Font"></a><p class="function_definition">
+<span class="function_definition">def Font( <i>name</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;the resource id.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyFont.html">PyFont</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="GraphicsSetting"></a><p class="function_definition">
+<span class="function_definition">def GraphicsSetting( <i>String, String, Int, Boolean, Boolean, PyObject</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a <a href="PyGraphicsSetting.html">PyGraphicsSetting</a>.
+<br><br>
+For example:
+
+<pre>def onOptionSelected( idx ):
+	print "graphics setting option %d selected" % (idx,)
+
+gs = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#GraphicsSetting>GraphicsSetting</a>( "label", "description", -1, False, False, onOptionSelected )
+gs.addOption( "High", "High Quality", True )
+gs.addOption( "Low", "Low Quality", True )
+gs.registerSetting()	#always add after the options have been added.
+
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>String</i></span></td><td><span class="function_parameter_description">&nbsp;Short label to display in the UI.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>String</i></span></td><td><span class="function_parameter_description">&nbsp;Longer description to display in the UI.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>Int</i></span></td><td><span class="function_parameter_description">&nbsp;Active option index.	When this setting is added
+						to the registry, the active option will be either
+						reset to the first supported option or to the one
+						restored from the options file, if the provided
+						active option index is -1.  If, instead, the
+						provided activeOption is a non negative value, it
+						will either be reset to the one restored from the
+						options file (if this happens to be different from
+						the value passed as parameter) or not be reset at
+						all.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>Boolean</i></span></td><td><span class="function_parameter_description">&nbsp;Delayed - apply immediately on select, or batched up.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>Boolean</i></span></td><td><span class="function_parameter_description">&nbsp;Requires Restart - game needs a restart to take effect.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>PyObject</i></span></td><td><span class="function_parameter_description">&nbsp;Callback function.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a new <a href="PyGraphicsSetting.html">PyGraphicsSetting</a>
+</td></tr>
+</table>
+</p>
+
+<a name="InvViewMatrix"></a><p class="function_definition">
+<span class="function_definition">def InvViewMatrix( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns a new InvViewMatrixProvider which is a <a href="MatrixProvider.html">MatrixProvider</a>
+that can be used to access the rendering engine's inverse view matrix.
+</div>
+
+<a name="KeyEvent"></a><p class="function_definition">
+<span class="function_definition">def KeyEvent( <i>key, state, modifiers, character, cursorPos</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="PyKeyEvent.html">PyKeyEvent</a> object. This can be used
+to create artificial events which did not originate from the
+engine's input system itself.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;The key code.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>state</i></span></td><td><span class="function_parameter_description">&nbsp;The state of the key, where -1 indicates up and
+					>= 0 indicates the repeat count (so 0 means the key
+					has just been pressed).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>modifiers</i></span></td><td><span class="function_parameter_description">&nbsp;The state of the modifier keys (ALT, CONTROL, SHIFT).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>character</i></span></td><td><span class="function_parameter_description">&nbsp;A unicode string or None.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>cursorPos</i></span></td><td><span class="function_parameter_description">&nbsp;The clip-space position of the mouse cursor.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the newly created key event.
+</td></tr>
+</table>
+</p>
+
+<a name="Material"></a><p class="function_definition">
+<span class="function_definition">def Material( <i>effectName, diffuseMap, DataSection</i> ):</span>
+</p>
+
+<div class="function_description">Note that the parameter list is complicated, so although
+three parameters are listed below, the PyMaterial constructor takes :
+Either the name of an .fx file, (and optionally the name of a diffuse map.)
+Or a PyDataSection containing a material section.
+<br><br>
+There are no listed attributes for a PyMaterial, however on creation,
+the attribute dictionary will be filled with all the "artist editable"
+variables contained in the effect file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>effectName</i></span></td><td><span class="function_parameter_description">&nbsp;Name of the effect file (*.fx)
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>diffuseMap</i></span></td><td><span class="function_parameter_description">&nbsp;Name of the diffuse map for the .fx file
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>DataSection</i></span></td><td><span class="function_parameter_description">&nbsp;<a href="DataSection.html">DataSection</a> for a material section.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new PyMaterial object.
+</td></tr>
+</table>
+</p>
+
+<a name="MouseEvent"></a><p class="function_definition">
+<span class="function_definition">def MouseEvent( <i>dx, dy, dz, cursorPos</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="PyMouseEvent.html">PyMouseEvent</a> object. This can be used
+to create artificial events which did not originate from the
+engine's input system itself.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>dx</i></span></td><td><span class="function_parameter_description">&nbsp;A signed integer representing the delta movement on the X-axis.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dy</i></span></td><td><span class="function_parameter_description">&nbsp;A signed integer representing the delta movement on the Y-axis.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dz</i></span></td><td><span class="function_parameter_description">&nbsp;A signed integer representing the mouse wheel.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>cursorPos</i></span></td><td><span class="function_parameter_description">&nbsp;The clip-space position of the mouse cursor.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the newly created mouse event.
+</td></tr>
+</table>
+</p>
+
+<a name="PyShimmerCountProvider"></a><p class="function_definition">
+<span class="function_definition">def PyShimmerCountProvider( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates a <a href="PyShimmerCountProvider.html">PyShimmerCountProvider</a>.  It records
+the number of shimmer objects currently visible.  It can be
+used to optimise Post-Processing effects that use the shimmer
+channel (alpha of the back buffer).
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a new <a href="PyShimmerCountProvider.html">PyShimmerCountProvider</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="PyTextureProvider"></a><p class="function_definition">
+<span class="function_definition">def PyTextureProvider( <i>resourceId</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a <a href="PyTextureProvider.html">PyTextureProvider</a>.  It takes a texture filename
+as an argument.  A <a href="PyTextureProvider.html">PyTextureProvider</a> is used to supply a texture to
+classes which need a texture, such as <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.
+<br><br>
+For example:
+
+<pre>tex = <a href="BigWorld.html">BigWorld</a>.<a href="PyTextureProvider.html">PyTextureProvider</a>( "maps/fx/picture.bmp" )
+</pre>
+In the example, tex is set to be a <a href="PyTextureProvider.html">PyTextureProvider</a> which exposes the
+picture.bmp texture.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>resourceId</i></span></td><td><span class="function_parameter_description">&nbsp;the filename of the texture to load.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a new <a href="PyTextureProvider.html">PyTextureProvider</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="PyWaterVolume"></a><p class="function_definition">
+<span class="function_definition">def PyWaterVolume( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyWaterVolume.html">PyWaterVolume</a> object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyWaterVolume.html">PyWaterVolume</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="RenderTarget"></a><p class="function_definition">
+<span class="function_definition">def RenderTarget( <i>name, width, height, reuseZ, format</i> ):</span>
+</p>
+
+<div class="function_description">Note that width and height can be specified either in absolute pixels,
+or they can represents multipliers of the screen size.  These dimensions
+automatically adjust when the screen size changes.
+<br><br>
+w,h = 0  : use the screen size
+w,h = -1 : screen size / 2
+w,h = -2 : screen size / 4
+w,h = -n : screen size / pow(2,n)
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;Name of the render target
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>width</i></span></td><td><span class="function_parameter_description">&nbsp;Desired Width.  0, ... -n have special meaning (see above)
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>height</i></span></td><td><span class="function_parameter_description">&nbsp;Desired Height.  0, ... -n have special meaning (see above)
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>reuseZ</i></span></td><td><span class="function_parameter_description">&nbsp;(optional)Re-use the back-buffer's Z-buffer, or False to
+create a unique z-buffer for this render target.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>format</i></span></td><td><span class="function_parameter_description">&nbsp;(optional)D3DFORMAT enum value.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyRenderTarget.html">PyRenderTarget</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="addFogEmitter"></a><p class="function_definition">
+<span class="function_definition">def addFogEmitter( <i>position, density, innerRadius, outerRadius, colour, localised</i> ):</span>
+</p>
+
+<div class="function_description">This function adds a fog emitter to the world at the specified location,
+with the specified density, radii and colour.
+<br><br>
+There are two types of emitters, non-localised and localised.  A
+non-localised fog emitter adds fog to the entire world, causing
+all cameras to render their views with fog of the specified density.
+The emitters position, innerRadius and outerRadius values are ignored.
+<br><br>
+A localised fog emitter causes a camera to add fog to a scene if it is
+within the outer radius of the fog emitter.  The density of the fog
+(try numbers between 2 and 10, with 10 being denser) tapers off linearly
+between the specified density at the inner radius to zero at the outer
+radius.  Note that a localised fog emitter does not actually
+appear in the camera as a patch of fog, if the camera is outside it. It
+merely applies a uniform fog to any cameras which are within it.
+<br><br>
+Fog emitters are identified by an integer id, which is returned by this
+function.  This can be passed to the delFogEmitter function to remove that
+emitter.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;a <a href="Vector3.html">Vector3</a>.  This is the position for the fogEmitter.
+					Ignored if localised is zero (false).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>density</i></span></td><td><span class="function_parameter_description">&nbsp;a float.  This is how dense to make the fog.  Try
+					numbers between 2 and 10, with 10 being denser.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>innerRadius</i></span></td><td><span class="function_parameter_description">&nbsp;a float.  This is the inner radius for the fog emitter.
+					Ignored if localised is zero (false).  If the camera
+					is within this radius of the emitter, then this emitter
+					will apply fog of the specified density.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>outerRadius</i></span></td><td><span class="function_parameter_description">&nbsp;a float.  This is the outer radius for the fog emitter.
+					Ignored if localised is zero (false).  If the camera is
+					between the inner radius and the outer radius then the
+					density of the fog applied to the camera will be
+					linearly interpolated between the specified density and
+					zero.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>colour</i></span></td><td><span class="function_parameter_description">&nbsp;an integer. This is the colour of the fog to apply.  It
+					is in packed rgb format.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>localised</i></span></td><td><span class="function_parameter_description">&nbsp;An integer, treated as a boolean.  If this is true,
+					then the fogEmitter will be localised, otherwise
+					it will be non-localised.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>an integer.  This is the id of this fog emitter.
+</td></tr>
+</table>
+</p>
+
+<a name="addFunctionWatcher"></a><p class="function_definition">
+<span class="function_definition">def addFunctionWatcher( <i>path, function, argumentList, exposedHint, desc</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+creation of watcher variables.
+<br><br>
+The addFunctionWatcher function in Python allows the creation of a watcher
+path that can be queried as well as set with a variable length argument
+list.
+<br><br>
+For example:
+<br><br>
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addFunctionWatcher>addFunctionWatcher</a>( "command/addGuards", util.patrollingGuards,
+      [("Number of guards to add", int)], <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#EXPOSE_LEAST_LOADED>EXPOSE_LEAST_LOADED</a>,
+      "Add an arbitrary number of patrolling guards into the world.")
+<br><br>
+Raises a TypeError if the "function" argument is not callable.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path the watcher will be created as. Function watchers
+				are	generally placed under the "command/" path structure.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>function</i></span></td><td><span class="function_parameter_description">&nbsp;The function to call to with the provided argument list.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>argumentList</i></span></td><td><span class="function_parameter_description">&nbsp;The argument list (provided as a tuple) of types and
+						descriptions that the function accepts. See the
+						example for more details about its structure.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>exposedHint</i></span></td><td><span class="function_parameter_description">&nbsp;The default exposure hint to be used when forwarding
+                    the watcher call from Managers to Components.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>desc</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) A description of the function watcher behaviour
+				and usage. While this field is optional, it is strongly
+				recommended to provide this description in order to allow
+				usage through WebConsole to be more intuitive.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addSkyBox"></a><p class="function_definition">
+<span class="function_definition">def addSkyBox( <i>a, p</i> ):</span>
+</p>
+
+<div class="function_description">This function registers a PyAttachment and <a href="Vector4Provider.html">Vector4Provider</a> pair.
+The output of the provider sets various values on the sky box, in
+particular the alpha value controls the blend in/out amount.
+<br><br>
+The <a href="Vector4Provider.html">Vector4Provider</a> is set onto the sky box's effect file using the
+SkyBoxController semantic.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>a</i></span></td><td><span class="function_parameter_description">&nbsp;the PyAttchment to use as a python sky box
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>p</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="Vector4Provider.html">Vector4Provider</a> to set on the sky box
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addTextureFeed"></a><p class="function_definition">
+<span class="function_definition">def addTextureFeed( <i>identifier, texture</i> ):</span>
+</p>
+
+<div class="function_description">This adds a new TextureProvider to <a href="BigWorld.html">BigWorld</a>, identified by a given label.  This label can then be used to refer 
+to the TextureProvider in other parts of <a href="BigWorld.html">BigWorld</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>identifier</i></span></td><td><span class="function_parameter_description">&nbsp;A string label to identify this TextureProvider
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>texture</i></span></td><td><span class="function_parameter_description">&nbsp;A PyTextureProviderPtr that is the TextureProvider to link to this label
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addWatcher"></a><p class="function_definition">
+<span class="function_definition">def addWatcher( <i>path, getFunction, setFunction</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+creation of watcher variables.
+<br><br>
+The addWatcher function in Python allows the creation of a particular
+watcher variable.
+For example:
+<br><br>
+
+<pre>>>> maxBandwidth = 20000
+>>> def getMaxBps( ):
+>>>     return str(maxBandwidth)
+>>> def setMaxBps( bps ):
+>>>     maxBandwidth = int(bps)
+>>>     setBandwidthPerSecond( int(bps) )
+>>>
+>>> <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addWatcher>addWatcher</a>( "Comms/Max bandwidth per second", getMaxBps, setMaxBps )
+</pre>
+<br><br>
+This adds a watcher variable under "Comms" watcher directory. The function getMaxBps
+is called to obtain the watcher value and setMaxBps is called when the watcher is modified.
+<br><br>
+Raises a TypeError if getFunction or setFunction is not callable.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>getFunction</i></span></td><td><span class="function_parameter_description">&nbsp;the function to call when retrieving the watcher variable.
+					This function takes no argument and returns a string representing
+					the watcher value.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>setFunction</i></span></td><td><span class="function_parameter_description">&nbsp;(optional)the function to call when setting the watcher variable
+					This function takes a string argument as the new watcher value.
+					This function does not return a value. If this function does not
+					exist the created watcher is a read-only watcher variable.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="ambientController"></a><p class="function_definition">
+<span class="function_definition">def ambientController( <i>p</i> ):</span>
+</p>
+
+<div class="function_description">This function registers a vector4 provider to provide further control
+over the ambient lighting. It is interpreted as an (r,g,b,reserved)
+multiplier on the existing time-of-day ambient colour.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>p</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="Vector4Provider.html">Vector4Provider</a> to set
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="autoDetectGraphicsSettings"></a><p class="function_definition">
+<span class="function_definition">def autoDetectGraphicsSettings( <i></i> ):</span>
+</p>
+
+<div class="function_description">Automatically detect the graphics settings
+based on the client's system properties.
+</div>
+
+<a name="axisDirection"></a><p class="function_definition">
+<span class="function_definition">def axisDirection( <i>axis</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the direction the specified joystick is pointing in.
+<br><br>
+The return value indicates which direction the joystick is facing, as
+follows:
+<br><br>
+
+<pre>- 0 down and left
+- 1 down
+- 2 down and right
+- 3 left
+- 4 centred
+- 5 right
+- 6 up and left
+- 7 up
+- 8 up and right
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>axis</i></span></td><td><span class="function_parameter_description">&nbsp;This is one of AXIS_LX, AXIS_LY, AXIS_RX, AXIS_RY, with the
+				first letter being L or R meaning left thumbstick or right
+				thumbstick, the second, X or Y being the direction.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>An integer representing the direction of the specified
+				thumbstick, as listed above.
+</td></tr>
+</table>
+</p>
+
+<a name="commitPendingGraphicsSettings"></a><p class="function_definition">
+<span class="function_definition">def commitPendingGraphicsSettings( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function commits any pending graphics settings. Some graphics
+settings, because they may block the game for up to a few minutes when
+coming into effect, are not committed immediately. Instead, they are
+flagged as pending and require commitPendingGraphicsSettings to be called
+to actually apply them.
+</div>
+
+<a name="darkenConsoleBackground"></a><p class="function_definition">
+<span class="function_definition">def darkenConsoleBackground( <i>enable</i> ):</span>
+</p>
+
+<div class="function_description">Sets the dark-console-background flag. When true, a dark background will be 
+rendered underneat the current active console (if any), making the console
+text easier to read. If false, console text will be rendered directly over
+the current contents of the color buffer. Some console may inhibit the
+renderting of the dark background (e.g. the histogram console).
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>enable</i></span></td><td><span class="function_parameter_description">&nbsp;(optional) new value to be assigned to the 
+				dark-console-background flag.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the current value (before the call is processed).
+</td></tr>
+</table>
+</p>
+
+<a name="delFogEmitter"></a><p class="function_definition">
+<span class="function_definition">def delFogEmitter( <i>id</i> ):</span>
+</p>
+
+<div class="function_description">This function removes a fog emitter which was previously created by
+addFogEmitter.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;An integer.  The id of the fog emitter to delete.  This is
+				returned by addFogEmitter when a fog emitter is created.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delSkyBox"></a><p class="function_definition">
+<span class="function_definition">def delSkyBox( <i>m, p</i> ):</span>
+</p>
+
+<div class="function_description">This function registers a PyAttachment and <a href="Vector4Provider.html">Vector4Provider</a> pair.
+The output of the provider sets various values on the sky box, in
+particular the alpha value controls the blend in/out amount.
+<br><br>
+The <a href="Vector4Provider.html">Vector4Provider</a> is set onto the sky box's effect file using the
+SkyBoxController semantic.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>m</i></span></td><td><span class="function_parameter_description">&nbsp;the PyAttachment to use as a python sky box
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>p</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="Vector4Provider.html">Vector4Provider</a> to set on the sky box
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delStaticSkyBoxes"></a><p class="function_definition">
+<span class="function_definition">def delStaticSkyBoxes( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function removes the static sky boxes added via Worldeditor.
+This is usually used when you want script control and dynamic sky boxes,
+in which case you'd use this method as well as addSkyBox / delSkyBox.
+</div>
+
+<a name="delTextureFeed"></a><p class="function_definition">
+<span class="function_definition">def delTextureFeed( <i>identifier</i> ):</span>
+</p>
+
+<div class="function_description">This function removes a previously added TextureProvider.  The TextureProvider can still be used in script, but 
+cannot be referred to by its previously associated label anymore.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>identifier</i></span></td><td><span class="function_parameter_description">&nbsp;A string label to identity the TextureProvider to remove
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delWatcher"></a><p class="function_definition">
+<span class="function_definition">def delWatcher( <i>path</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path of the watcher to delete.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="floraReset"></a><p class="function_definition">
+<span class="function_definition">def floraReset( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method will re-initialise the flora vertex buffer, i.e. repopulating
+all flora objects in the vicinity of the camera.  This needs to be called
+if for example you have changed the height map and need the flora to be
+re-seeded onto the new terrain mesh.
+</div>
+
+<a name="floraVBSize"></a><p class="function_definition">
+<span class="function_definition">def floraVBSize( <i>Number</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the vertex buffer size for the Flora.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Number</i></span></td><td><span class="function_parameter_description">&nbsp;of bytes as an integer.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="fogController"></a><p class="function_definition">
+<span class="function_definition">def fogController( <i>p</i> ):</span>
+</p>
+
+<div class="function_description">This function registers a vector4 provider to provide further control
+over the fogging. (x,y,z) is a multiplier on the existing fog colour.
+(w) is a multiplier on the fog density.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>p</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="Vector4Provider.html">Vector4Provider</a> to set
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="getGraphicsSetting"></a><p class="function_definition">
+<span class="function_definition">def getGraphicsSetting( <i>label</i> ):</span>
+</p>
+
+<div class="function_description">Gets graphics setting option.
+<br><br>
+Raises a ValueError if the given label does not name a graphics setting, if
+the option index is out of range, or if the option is not supported.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>label</i></span></td><td><span class="function_parameter_description">&nbsp;string - label of setting to be retrieved.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>optionIndex		int - index of option.
+</td></tr>
+</table>
+</p>
+
+<a name="getTextureFeed"></a><p class="function_definition">
+<span class="function_definition">def getTextureFeed( <i>identifier</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a previously added TextureProvider.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>identifier</i></span></td><td><span class="function_parameter_description">&nbsp;A string label to identity the TextureProvider to return
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="getWatcher"></a><p class="function_definition">
+<span class="function_definition">def getWatcher( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+retrieval of watcher variables.
+<br><br>
+The watcher debugging system allows various variables to be displayed and
+updated from within the runtime.
+<br><br>
+Watchers are specified in the C-code using the MF_WATCH macro.  This takes
+three arguments, the first is a string specifying the path (parent groups
+followed by the item name, separated by forward slashes),
+the second is the expression to watch.  The third argument specifies such
+things as whether it is read only or not, and has a default of read-write.
+<br><br>
+The getWatcher function in Python allows the getting of a particular value.
+For example:
+<br><br>
+
+<pre>>>>	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#getWatcher>getWatcher</a>( "Client Settings/Terrain/draw" )
+1
+</pre>
+<br><br>
+Raises a TypeError if the watcher was not found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the value of that watcher variable.
+</td></tr>
+</table>
+</p>
+
+<a name="getWatcherDir"></a><p class="function_definition">
+<span class="function_definition">def getWatcherDir( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+inspection of a directory watcher.
+<br><br>
+Raises a TypeError if not found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a list containing an entry for each child watcher. Each
+				entry is a tuple of child type, label and value. The child
+				type is 1 for read-only, 2 for read-write and 3 for a
+				directory.
+</td></tr>
+</table>
+</p>
+
+<a name="graphicsSettings"></a><p class="function_definition">
+<span class="function_definition">def graphicsSettings( <i></i> ):</span>
+</p>
+
+<div class="function_description">Returns list of registered graphics settings
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>list of 4-tuples in the form (label : string, index to active
+		option in options list: int, options : list, desc : string). Each option entry is a
+		3-tuple in the form (option label : string, support flag : boolean, desc : string).
+</td></tr>
+</table>
+</p>
+
+<a name="graphicsSettingsNeedRestart"></a><p class="function_definition">
+<span class="function_definition">def graphicsSettingsNeedRestart( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns true if any recent graphics setting change
+requires the client to be restarted to take effect. If that's the
+case, restartGame can be used to restart the client. The need restart
+flag is reset when this method is called.
+</div>
+
+<a name="hasPendingGraphicsSettings"></a><p class="function_definition">
+<span class="function_definition">def hasPendingGraphicsSettings( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns true if there are any pending graphics settings.
+Some graphics settings, because they may block the game for up to a few
+minutes when coming into effect, are not committed immediately. Instead,
+they are flagged as pending and require commitPendingGraphicsSettings to be
+called to actually apply them.
+</div>
+
+<a name="isKeyDown"></a><p class="function_definition">
+<span class="function_definition">def isKeyDown( <i>key</i> ):</span>
+</p>
+
+<div class="function_description">The 'isKeyDown' method allows the script to check if a particular key has
+been pressed and is currently still down. The term key is used here to refer
+to any control with an up/down status; it can refer to the keys of a
+keyboard, the buttons of a mouse or even that of a joystick. The complete
+list of keys recognised by the client can be found in the Keys module,
+defined in Keys.py.
+<br><br>
+The return value is zero if the key is not being held down, and a non-zero
+value is it is being held down.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;An integer value indexing the key of interest.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True (1) if the key is down, false (0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="keyToString"></a><p class="function_definition">
+<span class="function_definition">def keyToString( <i>key</i> ):</span>
+</p>
+
+<div class="function_description">The 'keyToString' method converts from a key index to its corresponding
+string name. The string names returned by the integer index can be found in
+the keys.py file. If the index supplied is out of bounds, an empty string
+will be returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;An integer representing a key index value.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A string containing the name of the key supplied.
+</td></tr>
+</table>
+</p>
+
+<a name="loadResourceListBG"></a><p class="function_definition">
+<span class="function_definition">def loadResourceListBG( <i>resourceList, callbackFn, priority</i> ):</span>
+</p>
+
+<div class="function_description">This function loads a list of resources in the background thread and
+is designed to be use as an extension to the Entity prerequisites
+mechanism, for times when you don't know ahead if time what resources
+an entity requires, or if the entity changes in such a way that requires
+new resources to load.
+<br><br>
+The function takes a tuple of resource IDs, a callback function and an optional
+priority number as arguments.  The resource list is loaded in the background thread
+and then the callback function is called with a new ResourceRefs instance
+as the argument.  You can use the resources immediately, or you can hold
+onto the ResourceRefs object; the loaded objects are tied to its lifetime.
+Nothing is returned from this function call immediately. The priority number defines
+which resources are need to be loaded before others where a higher number indicates a
+higher priority.
+<br><br>
+<br><br>
+For example:
+
+<pre>
+# In the example, a new item is obtained; the item is one of many available
+# and thus there is no way to know before-hand what resources will be
+# required.  When the item is obtained, a ResourceRefs object is
+# constructed; it loads the resources in the background, and calls back the
+# function when done.  While the resourceRefs object is in existence, it
+# will hold onto the resources making sure they aren't unloaded.  In this
+# case a model is immediately constructed and a gui texture is immediately
+# set - thus it is unnecessary to hold onto the extra resource refs at all.
+# There is an alternative example not being called, onLoad2, which does not
+# use the resources immediately, it uses the ResourceRefs object to hold
+# onto them until needed later.
+
+self.obtainItem( "maps/items/icon_item4.tga","models/items/item4.model" )
+
+def obtainItem( self, iconName, modelName ):
+	resName = (iconName, modelName)
+	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#loadResourceListBG>loadResourceListBG</a>(resources, partial(self.onLoad, resName))
+
+# In this case we will construct the objects we needed, so we don't
+# have to keep a hold of the resource refs object.  Note we check
+# isDestroyed, as in this example self is an entity, and the entity
+# may have left the world during our resource loading.
+def onLoad( self, resName, resourceRefs ):
+	assert isinstance( self, <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Entity>Entity</a> )
+	if self.inWorld:
+		failed = resourceRefs.failedIDs
+		guiName = resourceRefs[ resName[0] ]
+		modelName = resourceRefs[ resName[1] ]
+
+		#now you can construct models or set gui textures or whatever
+		#without causing resource loads in the main thread.
+
+		if guiName not in failed:
+			self.itemGUI.textureName = guiName
+		else:
+			ERROR_MSG( "Could not load gui texture %s" % (guiName,) )
+
+		if modelName not in failed:
+			self.newItemModel = resourceRefs[modelName]
+		else:
+			ERROR_MSG( "Could not load model %s" % (modelName,) )
+
+# In this case we won't use the resources straight away, so
+# we keep a hold of the resource refs until we need them.
+def onLoad2( self, resourceRefs ):
+	if not self.inWorld:
+		self.resourcesHolder = resourceRefs
+
+def discardItem( self ):
+	#release the ResourceRefs object, freeing the references
+	#to all associated resources.  If nobody else is using these
+	#resources they will be freed.
+	del self.resourcesHolder
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>resourceList</i></span></td><td><span class="function_parameter_description">&nbsp;a list of resources to load.  This is similar to
+the list returned by entity prerequisites.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callbackFn</i></span></td><td><span class="function_parameter_description">&nbsp;a function to be called back when the load of all
+resources is complete.  The callback function takes no arguments.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>priority</i></span></td><td><span class="function_parameter_description">&nbsp;[optional] integer to indicate the priority number (defaults to 64).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="localeInfo"></a><p class="function_definition">
+<span class="function_definition">def localeInfo( <i></i> ):</span>
+</p>
+
+<div class="function_description">Returns a tuple containing information about the currently activated input. 
+locale. The locale changes when the user selects a new language from the language
+bar in the operating system. Use the  BWPersonality.handleInputLangChange
+event handler to determine when this happens.
+<br><br>
+The tuple returned is of the form:
+<br><br>
+
+<pre>(country, abbreviatedCountry, language, abbreviatedLanguage)
+</pre>
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A 4-tuple of unicode strings that contain containing locale information..
+</td></tr>
+</table>
+</p>
+
+<a name="rollBackPendingGraphicsSettings"></a><p class="function_definition">
+<span class="function_definition">def rollBackPendingGraphicsSettings( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function rolls back any pending graphics settings.
+</div>
+
+<a name="saveFontCacheMap"></a><p class="function_definition">
+<span class="function_definition">def saveFontCacheMap( <i>identifier</i> ):</span>
+</p>
+
+<div class="function_description">This saves the current cache texture map for the given font out to disk as 
+a .dds file with the same name as the font file.
+<br><br>
+Additionally it saves out a .generated file of the same name, which is a
+binary file with the dimensions and positions of each glyph in that map
+(note that the font will continue to operate dynamically until it is next
+loaded).
+<br><br>
+Finally it saves another DDS file that has colour-coded blocks representing
+glyph dimensions, the effect margin and texture margin to aid artists with
+generating their own font texture maps.
+<br><br>
+Please see the client programming guide for more information.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>identifier</i></span></td><td><span class="function_parameter_description">&nbsp;A string label to identify the font
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setGraphicsSetting"></a><p class="function_definition">
+<span class="function_definition">def setGraphicsSetting( <i>label, optionIndex</i> ):</span>
+</p>
+
+<div class="function_description">Sets graphics setting option.
+<br><br>
+Raises a ValueError if the given label does not name a graphics setting, if
+the option index is out of range, or if the option is not supported.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>label</i></span></td><td><span class="function_parameter_description">&nbsp;string - label of setting to be adjusted.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>optionIndex</i></span></td><td><span class="function_parameter_description">&nbsp;int - index of option to set.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setWatcher"></a><p class="function_definition">
+<span class="function_definition">def setWatcher( <i>path, val</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+setting of watcher variables.
+<br><br>
+The watcher debugging system allows various variables to be displayed and
+updated from within the runtime.
+<br><br>
+Watchers are specified in the C-code using the MF_WATCH macro.  This takes
+three arguments, the first is a string specifying the path (parent groups
+followed by the item name, separated by forward slashes), the second is the
+expression to watch.  The third argument specifies such things as whether
+it is read only or not, and has a default of read-write.
+<br><br>
+The setWatcher function in Python allows the setting of a particular
+read-write value.
+For example:
+<br><br>
+
+<pre>>>>	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#setWatcher>setWatcher</a>( "Client Settings/Terrain/draw", 0 )
+</pre>
+<br><br>
+Raises a TypeError if the watcher failed to be set.
+Raises a TypeError if args cannot be converted into a string.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the new value for the item.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="stringToKey"></a><p class="function_definition">
+<span class="function_definition">def stringToKey( <i>string</i> ):</span>
+</p>
+
+<div class="function_description">The 'stringToKey' method converts from the name of a key to its
+corresponding key index as used by the 'isKeyDown' method. The string names
+for a key can be found in the keys.py file. If the name supplied is not on
+the list defined, the value returned is zero, indicating an error. This
+method has a inverse method, 'keyToString' which does the exact opposite.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>string</i></span></td><td><span class="function_parameter_description">&nbsp;A string argument containing the name of the key.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>An integer value for the key with the supplied name.
+</td></tr>
+</table>
+</p>
+
+<a name="sunlightController"></a><p class="function_definition">
+<span class="function_definition">def sunlightController( <i>p</i> ):</span>
+</p>
+
+<div class="function_description">This function registers a vector4 provider to provide further control
+over the sunlight.  It is interpreted as an (r,g,b,reserved) multiplier
+on the existing time-of-day sunlight colour.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>p</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="Vector4Provider.html">Vector4Provider</a> to set
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="weather"></a><p class="function_definition">
+<span class="function_definition">def weather( <i>spaceID</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the unique <a href="Weather.html">Weather</a> object which is used to control
+the weather on the client.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spaceID</i></span></td><td><span class="function_parameter_description">&nbsp;[optional] The id of the space to retrieve the weather object from,
+or the current camera space if no argument is passed in.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the unique <a href="Weather.html">Weather</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="weatherController"></a><p class="function_definition">
+<span class="function_definition">def weatherController( <i>p</i> ):</span>
+</p>
+
+<div class="function_description">This function registers a vector4 provider to provide further control
+over the weather.  It is interpreted as (extraRain, reserved, reserved, reserved)
+The output of the provider sets various values on the weather.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>p</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="Vector4Provider.html">Vector4Provider</a> to set
+</span></td></tr>
+
+</table>
+</p>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="component"></a><p class="attribute_definition">
+<span class="attribute_definition">component</span>
+</p>
+
+<div class="attribute_description">This is the component that is executing the present python environment.
+Possible values are (so far) 'cell', 'base', 'client', 'database', 'bot'
+and 'editor'.
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

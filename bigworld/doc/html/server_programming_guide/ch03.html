@@ -1,0 +1,254 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;3.&nbsp;Directory Structure for Service Scripting</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Programming Guide">
+      <link rel="up" href="pt01.html" title="Part&nbsp;I.&nbsp;Server Scripting Guide">
+      <link rel="prev" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Directory Structure for Entity Scripting">
+      <link rel="next" href="ch04.html" title="Chapter&nbsp;4.&nbsp;Directory Structure for User Data Object Scripting">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_programming_guide/ch03.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;3.&nbsp;Directory Structure for Service Scripting</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">Part&nbsp;I.&nbsp;Server Scripting Guide</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;3.&nbsp;Directory Structure for Service Scripting">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Physical_Service_Structure_For_Scripting"></a>Chapter&nbsp;3.&nbsp;Directory Structure for Service Scripting
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch03.html#xref_The_services_xml_File">3.1. The services.xml File</a></span></dt>
+                  <dt><span class="section"><a href="ch03.html#xref_The_service_definition_File">3.2. The Service Definition File</a></span></dt>
+                  <dt><span class="section"><a href="ch03.html#xref_The_Service_Script_Files">3.3. The Service Script Files</a></span></dt>
+               </dl>
+            </div>
+            <p>Services are scripted objects that are similar to base-only entities.
+                 They are designed to integrate additional functionality with the game
+                 server. This functionality typically involves external processes.
+            </p>
+            <p>Each service type is implemented as a collection of Python scripts,
+                 and an XML-based definition file that ties the scripts together. These
+                 scripts are located in the resource tree under the folder <code class="filename">scripts</code> (<em class="emphasis">i.e.</em>, <code class="filename"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts
+                    </code>, where <em class="replaceable"><code>&lt;res&gt;</code></em> is the virtual
+                 tree defined <code class="filename">~/.bwmachined.conf</code>).
+            </p>
+            <p>The list below summarises the important files and directories for
+                 services in <em class="replaceable"><code>&lt;res&gt;</code></em>:
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="emphasis"><em class="replaceable"><code>&lt;res&gt;</code></em>
+                                 </em> <span class="symbol">&#8208;</span> Resource tree defined
+                              in <code class="filename">~/.bwmachined.conf </code>.
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="circle">
+                           <li class="listitem">
+                              <p><em class="emphasis"><span class="literal">scripts</span></em>
+                                           <span class="symbol">&#8208;</span> Folder containing all service
+                                           files.
+                              </p>
+                              <div class="itemizedlist">
+                                 <ul class="itemizedlist" type="square">
+                                    <li class="listitem">
+                                       <p><em class="emphasis"><code class="filename">services.xml</code></em> <span class="symbol">&#8208;</span> Lists all services to load into
+                                                        the server at start-up time.
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><em class="emphasis"><span class="literal">base</span></em>
+                                                        <span class="symbol">&#8208;</span> Folder contains Python
+                                                        scripts for entities with a base component.
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><em class="emphasis"><span class="literal">common</span></em>
+                                                        <span class="symbol">&#8208;</span> Folder listed in the
+                                                        Python search path for all components. Used for common game
+                                                        code.
+                                       </p>
+                                       <div class="itemizedlist">
+                                          <ul class="itemizedlist" type="disc">
+                                             <li class="listitem">
+                                                <p><em class="emphasis"><span class="literal">lib</span></em> <span class="symbol">&#8208;</span> Folder listed in the Python
+                                                                       search path for all components. Used for common game
+                                                                       code.
+                                                </p>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><em class="emphasis"><span class="literal">service</span></em> <span class="symbol">&#8208;</span> Folder contains Python scripts for
+                                                        services to be run on ServiceApps.
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><em class="emphasis"><span class="literal">service_defs</span></em> <span class="symbol">&#8208;</span> Contains an XML <code class="filename">.def</code> file for each service listed
+                                                        in file
+                                                        <code class="filename"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/services.xml</code>.
+                                       </p>
+                                       <div class="itemizedlist">
+                                          <ul class="itemizedlist" type="disc">
+                                             <li class="listitem">
+                                                <p><em class="emphasis"><code class="filename"><em class="replaceable"><code>&lt;service&gt;</code></em>.def</code></em>
+                                                                     <span class="symbol">&#8208;</span> Service definition
+                                                                     file. There is one such file for each service defined in
+                                                                     <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/services.xml</span>.
+                                                </p>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+            <div class="section" title="3.1.&nbsp;The services.xml File">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_The_services_xml_File"></a>3.1.&nbsp;The services.xml File
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The file
+                      <code class="filename"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/services.xml</code>
+                      is used by the BigWorld engine to determine the types of services
+                      available for use.
+               </p>
+               <p>The file contains a list of Services as elements, as children of the
+                      <code class="code">root</code> node:
+               </p><pre class="programlisting">&lt;root&gt;
+    &lt;Service1/&gt;
+    &lt;Service2/&gt;
+&lt;/root&gt;</pre></div>
+            <div class="section" title="3.2.&nbsp;The Service Definition File">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_The_service_definition_File"></a>3.2.&nbsp;The Service Definition File
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The service definition file
+                      <code class="filename"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/service_defs/<em class="replaceable"><code>&lt;service&gt;</code></em>.def</code>
+                      determines how your scripts communicate in BigWorld. This allows the
+                      BigWorld system to abstract the tasks of sending and receiving messages
+                      into simply calling different script methods on your services. In a sense,
+                      the definition file provides an interface to your service, and the Python
+                      scripts provide the implementation.
+               </p>
+               <p>Each service type has a corresponding definition file, named after
+                      the service's type name followed by the extension '<code class="filename">.def</code>'. For example, a
+                      <code class="classname">NoteStore</code> service type would have a file called
+                      <code class="filename">NoteStore.def</code>.
+               </p>
+               <p>The following file is a 'minimal' service definition file, to aid in
+                      quickly defining a new service:
+               </p><pre class="programlisting">&lt;root&gt;
+  <em class="emphasis">&lt;Methods&gt;</em> <a class="co" name="co212" href="ch03.html#co212_desc"><img src="../images/callouts/1.png" alt="1" border="0"></a>
+     &lt;!-- declaration --&gt; 
+   &lt;/Methods&gt;
+&lt;/root&gt;</pre><p><span class="citetitle"><code class="filename"><em class="replaceable"><code>&lt;res&gt;/</code></em>scripts/service_defs/<em class="replaceable"><code>&lt;service&gt;</code></em>.def</code>
+                         <span class="symbol">&#8208;</span> Minimal service definition
+                         file</span></p>
+               <div class="calloutlist">
+                  <table border="0" summary="Callout list">
+                     <tr>
+                        <td width="5%" valign="top" align="left">
+                           <p><a name="co212_desc"></a><a href="#co212"><img src="../images/callouts/1.png" alt="1" border="0"></a> 
+                           </p>
+                        </td>
+                        <td valign="top" align="left">
+                           <p>For details, see <a class="xref" href="ch06.html" title="Chapter&nbsp;6.&nbsp;Methods"><i>Methods</i></a>.
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+            </div>
+            <div class="section" title="3.3.&nbsp;The Service Script Files">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_The_Service_Script_Files"></a>3.3.&nbsp;The Service Script Files
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>BigWorld Technology handles the processing of all services in the
+                      Service execution context. Therefore, a script file for each service type
+                      is provided for this context.
+               </p>
+               <p>For example, a <code class="classname">NoteStore</code> service will have
+                      one script file with the implementation of the class, located at
+                      <code class="filename"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/service/NoteStore.py</code></p>
+               <p>The service's base class defined in the script file is
+                      <code class="classname">BigWorld.Service</code>, since the file represents the
+                      Service execution context.
+               </p>
+               <p>The start of the script for a <code class="classname">NoteStore</code>
+                      service could be implemented as below:
+               </p><pre class="programlisting">import BigWorld
+
+class <em class="emphasis">NoteStore</em>( <em class="emphasis">BigWorld.Service</em> ):
+  def __init__( self ):
+    BigWorld.Service.__init__( self )</pre><p><span class="citetitle"><code class="filename"><em class="replaceable"><code>&lt;res&gt;/</code></em>scripts/service/</code>NoteStore.py
+                         <span class="symbol">&#8208;</span> Service script
+                         file</span></p>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center"><a accesskey="u" href="pt01.html">Up</a></td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;2.&nbsp;Directory Structure for Entity Scripting&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;4.&nbsp;Directory Structure for User Data Object Scripting</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,10 @@
+<xyznuvtb.xml>
+	<POSITION/> 
+	<NORMAL/>
+	<TEXCOORD>
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+	<TANGENT/>
+	<BINORMAL/>
+	<alias> xyznuv </alias>
+</xyznuvtb.xml>

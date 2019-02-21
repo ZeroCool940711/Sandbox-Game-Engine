@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cstdmf_unit_test", "cstdmf_unit_test2005.vcproj", "{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Consumer_Release|Win32 = Consumer_Release|Win32
+		Debug|Win32 = Debug|Win32
+		Evaluation|Win32 = Evaluation|Win32
+		Hybrid|Win32 = Hybrid|Win32
+		PyModule_Hybrid|Win32 = PyModule_Hybrid|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.Consumer_Release|Win32.ActiveCfg = Consumer_Release|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.Consumer_Release|Win32.Build.0 = Consumer_Release|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.Debug|Win32.Build.0 = Debug|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.Evaluation|Win32.ActiveCfg = Evaluation|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.Evaluation|Win32.Build.0 = Evaluation|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.Hybrid|Win32.ActiveCfg = Hybrid|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.Hybrid|Win32.Build.0 = Hybrid|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.PyModule_Hybrid|Win32.ActiveCfg = PyModule_Hybrid|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.PyModule_Hybrid|Win32.Build.0 = PyModule_Hybrid|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.Release|Win32.ActiveCfg = Release|Win32
+		{52DB7A7B-87E5-4E0A-9A7C-CEFA24CD4B5E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

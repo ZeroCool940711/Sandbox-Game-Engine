@@ -1,0 +1,6 @@
+#!/bin/sh
+#BWPANEL 9.3 "Start Storm"
+
+BIN=$MF_ROOT/bigworld/tools/server
+
+$BIN/eload server/projects/storm.chunk

@@ -1,0 +1,139 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;16.&nbsp;girths.xml</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="File Grammar Guide">
+      <link rel="up" href="index.html" title="File Grammar Guide">
+      <link rel="prev" href="ch15.html" title="Chapter&nbsp;15.&nbsp;.font">
+      <link rel="next" href="ch17.html" title="Chapter&nbsp;17.&nbsp;.gui">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/file_grammar_guide/ch16.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;16.&nbsp;<span class="literal">girths.xml</span></th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch15.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch17.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;16.&nbsp;girths.xml">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_girths_xml"></a>Chapter&nbsp;16.&nbsp;<span class="literal">girths.xml</span></h2>
+                  </div>
+               </div>
+            </div>
+            <p>Contains settings used by NavGen and Offline Processor for the
+                 generation of navigation meshes.
+            </p>
+            <p>The location and name of this file are determined by the value of
+                 <span class="literal">editor/girthSettings</span> in <span class="literal">resources.xml</span>,
+                 which defaults to <span class="literal">helpers/girths.xml</span>.
+            </p>
+            <p>Mentioned in document <a href="../content_tools_reference_guide/index.html" class="olink">Content Tools Reference Guide</a>'s sections <a href="../content_tools_reference_guide/ch10.html" class="olink"><i>Offline Processor</i></a> and <a href="../content_tools_reference_guide/ch11.html" class="olink"><i>NavGen</i></a>, and
+                 <a href="../server_programming_guide/index.html" class="olink">Server Programming Guide</a>'s section <a href="../server_programming_guide/ch13.html#xref_girth_information" class="olink">Configuring Girth Information for Navmesh Generation</a>.
+            </p>
+            <p>The grammar for <code class="filename">girths.xml</code> is described
+                 below:
+            </p><pre class="programlisting">&lt;root&gt;
+  +&lt;girth&gt;  <em class="replaceable"><code>float</code></em>
+     ?&lt;always&gt;           &lt;/always&gt;
+     ?&lt;width&gt;     <em class="replaceable"><code>float</code></em>  &lt;/width&gt;
+     ?&lt;height&gt;    <em class="replaceable"><code>float</code></em>  &lt;/height&gt;
+     ?&lt;depth&gt;     <em class="replaceable"><code>float</code></em>  &lt;/depth&gt;
+     ?&lt;maxSlope&gt;  <em class="replaceable"><code>float</code></em>  &lt;/maxSlope&gt;
+     ?&lt;maxClimb&gt;  <em class="replaceable"><code>float</code></em>  &lt;/maxClimb&gt;
+   &lt;/girth&gt;
+&lt;/root&gt;</pre><p><span class="citetitle">Grammar of <span class="literal">girths.xml</span></span></p>
+            <p>The list below describes the tags in
+                 <span class="literal">girths.xml</span>:
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="emphasis"><span class="literal">always</span> (section
+                                 <span class="literal">girth</span>)</em></p>
+                     <p>Determines if this girth should always be included into waypoint.
+                              If set to false, it is up to the marker to determine whether to include
+                              a girth.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="emphasis"><span class="literal">depth</span> (section
+                                 <span class="literal">girth</span>)</em></p>
+                     <p>Depth of the entity for which to generate navigation mesh.</p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="emphasis"><span class="literal">girth</span></em></p>
+                     <p>Tag for section defining entity girth for which to generate
+                              navigation mesh. Default is 0.5.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="emphasis"><span class="literal">height</span> (section
+                                 <span class="literal">girth</span>)</em></p>
+                     <p>Height of the entity for which to generate navigation mesh.</p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="emphasis"><span class="literal">maxClimb</span> (section
+                                 <span class="literal">girth</span>)</em></p>
+                     <p>The largest climb distance in a single step. Default is
+                              0.65.
+                     </p>
+                     <p>This value is only used by Recast.</p>
+                     <p>For more details, see the document <a href="../content_tools_reference_guide/index.html" class="olink">Content Tools Reference Guide</a>'s chapter <a href="../content_tools_reference_guide/ch10.html" class="olink"><i>Offline Processor</i></a>.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="emphasis"><span class="literal">maxSlope</span> (section
+                                 <span class="literal">girth</span>)</em></p>
+                     <p>The steepest walkable slope in degrees. Default is 45.</p>
+                     <p>This value is only used by Recast.</p>
+                     <p>For more details, see the document <a href="../content_tools_reference_guide/index.html" class="olink">Content Tools Reference Guide</a>'s chapter <a href="../content_tools_reference_guide/ch10.html" class="olink"><i>Offline Processor</i></a>.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="emphasis"><span class="literal">width</span> (section
+                                 <span class="literal">girth</span>)</em></p>
+                     <p>Width of the entity for which to generate navigation mesh.</p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch15.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch17.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;15.&nbsp;<span class="literal">.font</span>&nbsp;
+                  </td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;17.&nbsp;<span class="literal">.gui</span></td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

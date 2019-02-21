@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>CellEntityMailBox - BigWorld base Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>CellEntityMailBox Class Reference</h1>
+<p><b>CellEntityMailBox</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+<a href="ServerEntityMailBox.html">ServerEntityMailBox</a>
+ &rarr; PyEntityMailBox
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#base" class="attribute_list" >base</a></td><td>&nbsp; { mailbox }
+</td></tr>
+
+<tr valign=top><td><a href="#client" class="attribute_list" >client</a></td><td>&nbsp; { mailbox }
+</td></tr>
+
+<tr valign=top><td><a href="#ownClient" class="attribute_list" >ownClient</a></td><td>&nbsp; { mailbox }
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="CellEntityMailBox.html">CellEntityMailBox</a> inherits from <a href="ServerEntityMailBox.html">ServerEntityMailBox</a>.
+<br><br>
+A <a href="CellEntityMailBox.html">CellEntityMailBox</a> is used by a <a href="Base.html">Base</a> Entity to communicate with its
+associated Cell Entity.  This allows the <a href="Base.html">Base</a> Entity to call the methods
+on the Cell Entity.
+<br><br>
+For example:
+<br><br>
+	self.cell.cellMethod()
+<br><br>
+where cellMethod() is described in the .def file.
+<br><br>
+These mailboxes have the same restrictions as Cell mailboxes and should not
+be stored, they should be used immediately then discarded.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="base"></a><p class="attribute_definition">
+<span class="attribute_definition">base</span>
+</p>
+
+<div class="attribute_description">An indirect mailbox to the base representitive this cell mailbox is
+associated with.
+<br><br>
+For example, to call the base methods via a cell mailbox 'cellMB', use:
+<br><br>
+cellMB.base.baseMethod()
+<br><br>
+The method call will first be sent to the cell this mailbox belongs to and
+then redirected to the base counterpart.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>{ mailbox }
+</td></tr>
+</table>
+</p>
+
+<a name="client"></a><p class="attribute_definition">
+<span class="attribute_definition">client</span>
+</p>
+
+<div class="attribute_description">An indirect mailbox to the client representitive this cell mailbox is
+associated with.
+<br><br>
+For example, to call the client methods via a cell mailbox 'cellMB', use:
+<br><br>
+cellMB.client.clientMethod()
+<br><br>
+The method call will first be sent to the cell this mailbox belongs to and
+then redirected to the client counterpart.
+<br><br>
+You can only call the methods on own client.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>{ mailbox }
+</td></tr>
+</table>
+</p>
+
+<a name="ownClient"></a><p class="attribute_definition">
+<span class="attribute_definition">ownClient</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>{ mailbox }
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

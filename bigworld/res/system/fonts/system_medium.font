@@ -1,0 +1,9 @@
+<root>
+	<creation>
+		<sourceFont>	Courier New	</sourceFont>
+		<sourceFontSize>	-13	</sourceFontSize>
+		<startChar>	32	</startChar>
+		<endChar>	132	</endChar>
+		<textureMargin>	1.0	</textureMargin>
+	</creation>
+</root>

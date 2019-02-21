@@ -1,0 +1,16 @@
+# Blender v2.72 (sub 0) OBJ File: 'Tileset_combined_binary.blend'
+# www.blender.org
+mtllib Claimed_11111111.mtl
+o Claimed_11111111
+v 1.250005 2.829832 -1.250005
+v -1.250007 2.829833 1.250004
+v 1.250005 2.829832 1.250004
+v -1.250009 2.829834 -1.250005
+vt 1.000000 0.000000
+vt 1.000000 1.000000
+vt 0.000000 1.000000
+vt 0.000000 0.000000
+usemtl Claimedwall
+s off
+f 3/1 1/2 4/3
+f 2/4 3/1 4/3

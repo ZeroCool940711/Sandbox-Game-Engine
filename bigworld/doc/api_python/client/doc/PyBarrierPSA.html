@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>PyBarrierPSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyBarrierPSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyBarrierPSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#allowParticles" class="function_list" >allowParticles</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#bounceParticles" class="function_list" >bounceParticles</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#box" class="function_list" >box</a>( self, corner, oppositeCorner ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#removeParticles" class="function_list" >removeParticles</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#sphere" class="function_list" >sphere</a>( self, center, radius ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#verticalCylinder" class="function_list" >verticalCylinder</a>( self, axisPoint, radius ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#wrapParticles" class="function_list" >wrapParticles</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PyBarrierPSA.html">PyBarrierPSA</a> is a <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> that acts as an invisible barrier
+to particles. It can take the form of a plane, box, vertical cylinder, or
+sphere. The barrier is "weak" in the sense that particles could possibly
+penetrate the barrier for a short period of time (the barrier only acts
+once the particle has penetrated the barrier), before being pushed
+back into the interior or removed.
+<br><br>
+The barrier can remove particles that hit the barrier, or bounce them off
+the barrier. Only one shape, and collision action can be active at one time
+for each BarrierPSA.
+<br><br>
+A new <a href="PyBarrierPSA.html">PyBarrierPSA</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#BarrierPSA>BarrierPSA</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="allowParticles"></a><p class="function_definition">
+<span class="function_definition">def allowParticles( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Set the BarrierPSA to allow particles to collide with it (effectively 
+turns it off).
+</div>
+
+<a name="bounceParticles"></a><p class="function_definition">
+<span class="function_definition">def bounceParticles( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Set the BarrierPSA to bounce particles that collide with it.
+</div>
+
+<a name="box"></a><p class="function_definition">
+<span class="function_definition">def box( <i>self, corner, oppositeCorner</i> ):</span>
+</p>
+
+<div class="function_description">Specifies that the BarrierPSA should take the shape of a Box. 
+Coordinates are in world space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>corner</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of 3 floats. One corner of the box.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>oppositeCorner</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of 3 floats. Opposite corner of the box.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="removeParticles"></a><p class="function_definition">
+<span class="function_definition">def removeParticles( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Set the BarrierPSA to remove particles that collide with it.
+</div>
+
+<a name="sphere"></a><p class="function_definition">
+<span class="function_definition">def sphere( <i>self, center, radius</i> ):</span>
+</p>
+
+<div class="function_description">Specifies that the BarrierPSA should take the shape of a sphere.
+Coordinates are in world space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>center</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of 3 floats. Center of the sphere.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>radius</i></span></td><td><span class="function_parameter_description">&nbsp;Float. Radius of the sphere.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="verticalCylinder"></a><p class="function_definition">
+<span class="function_definition">def verticalCylinder( <i>self, axisPoint, radius</i> ):</span>
+</p>
+
+<div class="function_description">Specifies that the BarrierPSA should take the shape of a vertical
+cylinder. Coordinates are in world space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>axisPoint</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of 3 floats. Point on axis of cylinder.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>radius</i></span></td><td><span class="function_parameter_description">&nbsp;Float. Radius of cylinder.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="wrapParticles"></a><p class="function_definition">
+<span class="function_definition">def wrapParticles( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Set the BarrierPSA to allow particles to wrap around it.
+</div>
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

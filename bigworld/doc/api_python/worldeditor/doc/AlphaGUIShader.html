@@ -1,0 +1,281 @@
+<html>
+<head>
+<title>AlphaGUIShader - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>AlphaGUIShader Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>AlphaGUIShader is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="GUIShader.html">GUIShader</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#reset" class="function_list" >reset</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#alpha" class="attribute_list" >alpha</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#currentAlpha" class="attribute_list" >currentAlpha</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#mode" class="attribute_list" >mode</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#speed" class="attribute_list" >speed</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#start" class="attribute_list" >start</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#stop" class="attribute_list" >stop</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#value" class="attribute_list" >value</a></td><td>&nbsp; Float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+An <a href="AlphaGUIShader.html">AlphaGUIShader</a> is used to change the alpha values of the components
+(instances of <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> or its subclasses) it
+is applied to.  <a href="AlphaGUIShader.html">AlphaGUIShader</a> is a subclass of <a href="GUIShader.html">GUIShader</a>.
+<br><br>
+It can apply alpha either evenly over the component, or fading from one
+edge towards the opposite edge.
+<br><br>
+A new <a href="AlphaGUIShader.html">AlphaGUIShader</a> is created using the <a href="GUI.html">GUI</a>.<a href=GUI.html#AlphaShader>AlphaShader</a> function.
+<br><br>
+For example:
+
+<pre># create a component to apply the shader to
+comp = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "maps/scroll.dds" )
+<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>( comp )
+
+# now create the shader.  It will be fully transparent on the left
+# and fully opaque on the right.
+shad = <a href="GUI.html">GUI</a>.<a href=GUI.html#AlphaShader>AlphaShader</a>()
+shad.start = -0.5
+shad.stop = 0.5
+shad.mode = "RIGHT"
+shad.alpha = 1.0
+
+# now add the shader to the component
+comp.addShader( shad )
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="reset"></a><p class="function_definition">
+<span class="function_definition">def reset( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function resets the interpolation of alpha to start at the current
+value and go for a number of seconds specified by the speed attribute
+moving linearly to the value specified by the alpha attribute.
+<br><br>
+This can be useful if you want to reset the interpolation without actually
+changing the initial alpha value.
+</div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="alpha"></a><p class="attribute_definition">
+<span class="attribute_definition">alpha</span>
+</p>
+
+<div class="attribute_description">The alpha attribute specifies the alpha value for the component.  
+<br><br>
+If the mode attribute is anything other than "ALL", then this will be
+the upper limit for the gradient, which fades to zero over the
+width/height specified by the start and stop attributes.
+<br><br>
+If the speed attribute is non-zero,	then the currentAlpha attribute
+will move from its current value to alpha over speed seconds, in a
+linear fashion.  The currentAlpha attribute specifies what alpha is
+actually applied to the component at this moment in time.
+<br><br>
+This attribute is synonymous with the value attribute.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="AlphaGUIShader.html">AlphaGUIShader</a>.<a href="AlphaGUIShader.html#mode">mode</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="currentAlpha"></a><p class="attribute_definition">
+<span class="attribute_definition">currentAlpha</span>
+</p>
+
+<div class="attribute_description">This attribute is the instantaneous value of alpha that is applied to
+the component.  If speed is non-zero then, when a new value is assigned
+to the alpha or value attributes, currentValue will move linearly over
+speed seconds, from	whatever value it had at the moment of assignment
+to the newly assigned value.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="mode"></a><p class="attribute_definition">
+<span class="attribute_definition">mode</span>
+</p>
+
+<div class="attribute_description">An <a href="AlphaGUIShader.html">AlphaGUIShader</a> can apply an alpha gradient, which is where the
+alpha applied to the component varies linearly either horizontally
+or vertically.
+<br><br>
+The mode attribute specifies which direction the alpha gradient runs in.
+It can take two settings:
+<br><br>
+- "ALL" - There is no gradient.  The entire component has the alpha
+specified by the alpha attribute.
+<br><br>
+- "RIGHT" - The gradient starts from the alpha attribute on the
+right and fades to zero on the left.  The alpha gradient begins
+at the location specified by the start attribute or the edge of
+the affected <a href="GUI.html">GUI</a> component(s), whichever occurs first.  The
+gradient then linearly decreases to the point specified by the
+stop attribute, or the edge of the affected <a href="GUI.html">GUI</a> component(s),
+whichever occurs last.  In this mode, start should always be a
+higher value than stop.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="speed"></a><p class="attribute_definition">
+<span class="attribute_definition">speed</span>
+</p>
+
+<div class="attribute_description">The speed attribute is the time in seconds that it takes the
+currentAlpha attribute to move from its current value to the new alpha
+value, when either the alpha attribute or the value attribute is set.
+<br><br>
+If speed is zero, then the assignment is instantaneous.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="start"></a><p class="attribute_definition">
+<span class="attribute_definition">start</span>
+</p>
+
+<div class="attribute_description">The start attribute specifies the point on the screen (measured in 
+clip coordinates, with (-1,-1) being the bottom left and (1,1) being
+the top right), at which the alpha gradient will be the value
+specified by the alpha attribute.
+<br><br>
+It is a float, and is interpreted as either the x or y component of a
+<a href="Vector2.html">Vector2</a>, depending on mode.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="stop"></a><p class="attribute_definition">
+<span class="attribute_definition">stop</span>
+</p>
+
+<div class="attribute_description">The stop attribute specifies the point on the screen (measured in 
+clip coordinates, with (-1,-1) being the bottom left and (1,1) being
+the top right), at which the alpha gradient will be zero.
+<br><br>
+It is a float, and is interpreted as either the x or y component of a
+<a href="Vector2.html">Vector2</a>, depending on mode.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="value"></a><p class="attribute_definition">
+<span class="attribute_definition">value</span>
+</p>
+
+<div class="attribute_description">The value attribute specifies the alpha value for the component.  
+<br><br>
+If the mode attribute is anything other than "ALL", then this will be
+the upper limit for the gradient, which fades to zero over the
+width/height specified by the start and stop attributes.
+<br><br>
+If the speed attribute is non-zero,	then the currentAlpha attribute
+will move from its current value to alpha over speed seconds, in a
+linear fashion.  The currentAlpha attribute specifies what alpha is
+actually applied to the component at this moment in time.
+<br><br>
+This attribute is synonymous with the alpha attribute.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="AlphaGUIShader.html">AlphaGUIShader</a>.<a href="AlphaGUIShader.html#mode">mode</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

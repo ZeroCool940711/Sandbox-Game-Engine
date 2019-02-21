@@ -1,0 +1,252 @@
+<html>
+<head>
+<title>AvatarFilter - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>AvatarFilter Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>AvatarFilter is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="Filter.html">Filter</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#callback" class="function_list" >callback</a>( self, whence, fn, extra, passMissedBy ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#debugMatrixes" class="function_list" >debugMatrixes</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#latency" class="attribute_list" >latency</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#latencyCurvePower" class="attribute_list" >latencyCurvePower</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#latencyFrames" class="attribute_list" >latencyFrames</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#minLatency" class="attribute_list" >minLatency</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#velLatency" class="attribute_list" >velLatency</a></td><td>&nbsp; float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class inherits from <a href="Filter.html">Filter</a>.  It implements a filter which tracks
+the last 8 entity updates from the server, and linearly interpolates
+between them.
+<br><br>
+Linear interpolation is done at ( time - latency ), where time is the
+current engine time, and latency is how far in the past the entity
+currently is.
+<br><br>
+Latency moves from its current value in seconds to the "ideal latency"
+which is the time between the two most recent updates if an update
+has just arrived, otherwise it is 2 * minLatency.  Lantency moves at
+velLatency seconds per second.
+<br><br>
+An <a href="AvatarFilter.html">AvatarFilter</a> is created using the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#AvatarFilter><a href="AvatarFilter.html">AvatarFilter</a></a> function.
+The constructor takes in an optional <a href="AvatarFilter.html">AvatarFilter</a> to copy for example:
+<br><br>
+
+<pre># create an avatar filter
+filter = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#AvatarFilter><a href="AvatarFilter.html">AvatarFilter</a></a>()
+
+# create an avatar filter from another avatar filter
+filter = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#AvatarFilter><a href="AvatarFilter.html">AvatarFilter</a></a>(oldFilter)
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="callback"></a><p class="function_definition">
+<span class="function_definition">def callback( <i>self, whence, fn, extra, passMissedBy</i> ):</span>
+</p>
+
+<div class="function_description">This method adds a callback function to the filter.  This function will
+be called at a time after the event specified by the whence argument.
+The amount of time after the event is specified, in seconds, by the
+extra argument.
+<br><br>
+If whence is -1, then the event is when the filter's
+timeline reaches the penultimate update (i.e. just before the current
+update position starts influencing the entity).  If whence is 0, then
+the event is when the current update is reached.  If whence is 1
+then the event is when the timeline reaches the time that
+the callback was specified.
+<br><br>
+The function will get one argument, which will be zero if the
+passMissedBy argumenty is zero, otherwise it will be the amount
+of time that passed between the time specified for the callback
+and the time it was actually called at.
+<br><br>
+<b>Note:</b> When the callback is made, the entity position will already
+		have been set for the frame (so it'll be at some spot after the
+		desired callback time), but the motors will not yet have been run
+		on the model to move it. The positions of other entities may or
+		may not yet have been updated for the frame.
+<br><br>
+<b>Note:</b>	If a callback function returns '1', the entity position
+		will be snapped to the position that the entity would have had at
+		the exact time the callback should have been called.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>whence</i></span></td><td><span class="function_parameter_description">&nbsp;an integer (-1, 0, 1).  Which event to base the callback
+				on.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>fn</i></span></td><td><span class="function_parameter_description">&nbsp;a callable object.  The function to call.  It should take
+				one integer argument.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>extra</i></span></td><td><span class="function_parameter_description">&nbsp;a float.  The time after the event specified by whence
+				tha the function should be called at.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>passMissedBy</i></span></td><td><span class="function_parameter_description">&nbsp;whether or not to pass to the function the time
+				it missed its ideal call-time by.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="debugMatrixes"></a><p class="function_definition">
+<span class="function_definition">def debugMatrixes( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a tuple of matrix providers that when applied to
+a unit cube visualises the received position data being used by the
+filter.
+<br><br>
+Note: These matrix providers hold references to the filter that
+issued them.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>tuple([<a href="MatrixProvider.html">MatrixProvider</a>,])	A tuple of newly created matrix
+									providers
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="latency"></a><p class="attribute_definition">
+<span class="attribute_definition">latency</span>
+</p>
+
+<div class="attribute_description">This attribute is the current latency applied to the entity.  That is,
+how far in the past that entity is, relative to the current game time.
+<br><br>
+Latency always moves towards the "ideal" latency with a velocity of
+velLatency, measured in seconds per second.
+<br><br>
+If an update has just come in from the server, then the ideal latency is
+the time between the two most recent updates, otherwise it is
+two times minLatency.
+<br><br>
+The position and yaw of the entity are linearly interpolated between
+the positions and yaws in the last 8 updates using (time - latency).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="latencyCurvePower"></a><p class="attribute_definition">
+<span class="attribute_definition">latencyCurvePower</span>
+</p>
+
+<div class="attribute_description">The power used to scale the latency velocity |latency - idealLatency|^power
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="latencyFrames"></a><p class="attribute_definition">
+<span class="attribute_definition">latencyFrames</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="minLatency"></a><p class="attribute_definition">
+<span class="attribute_definition">minLatency</span>
+</p>
+
+<div class="attribute_description">This attribute is the minimum bound for latency.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="velLatency"></a><p class="attribute_definition">
+<span class="attribute_definition">velLatency</span>
+</p>
+
+<div class="attribute_description">This attribute is the speed, in seconds per second, that the latency
+attribute can change at, as it moves towards its ideal latency.
+If an update has just come in from the server, then the ideal latency is
+the time between the two most recent updates, otherwise it is
+two times minLatency.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

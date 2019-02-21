@@ -1,0 +1,125 @@
+#!/usr/bin/wish
+
+set MF_ROOT [lindex [array get env MF_ROOT] 1]
+set BW_RES_PATH [lindex [array get env BW_RES_PATH] 1]
+
+# The resource path can be specified on the command line using --res or -r.
+set resIndex [lsearch $argv --res]
+
+if {$resIndex == -1} {
+	set resIndex [lsearch $argv -r]
+}
+
+if {$resIndex != -1} {
+	set BW_RES_PATH [lindex $argv [expr $resIndex + 1]]
+	set env(BW_RES_PATH) $BW_RES_PATH
+}
+
+# If MF_ROOT or BW_RES_PATH is not set as an environment variable, read them
+# from ~/.bwmachined.conf
+if { $MF_ROOT == "" || $BW_RES_PATH == "" } {
+	set configFile "$env(HOME)/.bwmachined.conf"
+	catch {set infile [open $configFile "r"]}
+	if {$errorCode == ""} {
+		set line [gets $infile]
+
+		while { [string index $line 0] == "#" } {
+			set line [gets $infile]
+		}
+
+		set split [string first ";" $line]
+		if {$split != -1} {
+			if { $MF_ROOT == "" } {
+				set MF_ROOT [string range $line 0 [expr $split-1] ]
+				set env(MF_ROOT) $MF_ROOT
+				puts "MF_ROOT     (from ~/.bwmachined.conf): $MF_ROOT"
+			}
+
+			if { $BW_RES_PATH == "" } {
+				set BW_RES_PATH [string range $line [expr $split+1] [string length $line]]
+				set env(BW_RES_PATH) $BW_RES_PATH
+				puts "BW_RES_PATH (from ~/.bwmachined.conf):"
+				puts "    $BW_RES_PATH"
+			}
+		}
+	}
+}
+
+# Move to the executable directory
+if { $MF_ROOT == "" } {
+	cd [file dirname $argv0]
+	set fullPath [pwd]
+	set split [string last /bigworld/tools/server/bwpanel $fullPath]
+	if { $split != -1} {
+		set MF_ROOT [string range [pwd] 0 [expr $split - 1] ]
+		set env(MF_ROOT) $MF_ROOT
+		puts "MF_ROOT (from executable): $MF_ROOT"
+	} else {
+		puts "WARNING: Could not calculate MF_ROOT"
+	}
+} else {
+	cd $MF_ROOT/bigworld/tools/server/bwpanel
+}
+
+if { $BW_RES_PATH == "" } {
+	puts "WARNING: Could not calculate BW_RES_PATH"
+}
+
+if { [lindex [array get env MF_CONFIG] 1] == "" } {
+	set env(MF_CONFIG) Hybrid
+}
+
+array set env {TERM ""}
+
+set buttons [concat [exec bash -c "ls *.but | sed 's/\\..*//' | xargs"]]
+
+wm title "." "BWPanel (deprecated)"
+
+array set super {}
+
+# first see if any have BWPANEL info in them
+foreach but $buttons {
+	set fy [open "$but.but" "r"]
+	# skip first line
+	gets $fy
+	# get second
+	set mfline [gets $fy]
+	# see if it matches
+	if {[lindex $mfline 0] == "#BWPANEL"} {
+		# chop off first elt
+		set mfline [lreplace $mfline 0 0]
+		# set up the array
+		array set super [list [lindex $mfline 0] [ list \
+			$but [lindex $mfline 1] ]]
+	} else {
+		array set super [list "999$but" [list $but ""]]
+	}
+	close $fy
+}
+
+# could print it out here
+#puts [array get super]
+
+# sort it in order
+set butorder [lsort [array names super]]
+
+# print it out
+foreach butplace $butorder {
+	set butstuff [lindex [array get super $butplace] 1]
+	set but [lindex $butstuff 0]
+
+	if {[set butnom [lindex $butstuff 1]] == ""} {
+		regsub -all "_" $but " " butnom
+	}
+
+#	if {[set buticonname [lindex $butstuff 2]] != ""} {
+#		set buticon [image create photo -file $buticonname]
+#		canvas ".bicon$but"
+#		".bicon$but" create image 40 40 -image $buticon
+#		pack ".bicon$but"
+#	}
+
+	button ".but$but" -text $butnom -width 25
+	bind ".but$but" <Button-1> "exec [pwd]/$but.but 2>/dev/null &"
+	pack ".but$but" -fill both
+}

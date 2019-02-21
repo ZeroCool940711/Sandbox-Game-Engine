@@ -1,0 +1,10 @@
+<xyznds.xml>
+	<POSITION/> 
+	<NORMAL/>
+	<COLOR>
+		<type> D3DCOLOR </type>
+	</COLOR>
+	<COLOR> 1
+		<type> D3DCOLOR </type>
+	</COLOR>
+</xyznds.xml>

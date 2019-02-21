@@ -1,0 +1,280 @@
+<html>
+<head>
+<title>Homer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Homer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Homer is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="Motor.html">Motor</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#arrivalCountLimit" class="attribute_list" >arrivalCountLimit</a></td><td>&nbsp; Integer. Default is 1.
+</td></tr>
+
+<tr valign=top><td><a href="#goneTime" class="attribute_list" >goneTime</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#proximity" class="attribute_list" >proximity</a></td><td>&nbsp; Float. Default is 0.1.
+</td></tr>
+
+<tr valign=top><td><a href="#proximityCallback" class="attribute_list" >proximityCallback</a></td><td>&nbsp; Callback Function (python function model, or an instance of a
+</td></tr>
+
+<tr valign=top><td><a href="#scale" class="attribute_list" >scale</a></td><td>&nbsp; Float. Default is 0.
+</td></tr>
+
+<tr valign=top><td><a href="#scaleTime" class="attribute_list" >scaleTime</a></td><td>&nbsp; Float. Default is 1.
+</td></tr>
+
+<tr valign=top><td><a href="#speed" class="attribute_list" >speed</a></td><td>&nbsp; Float (units/s). Default is 0.1.
+</td></tr>
+
+<tr valign=top><td><a href="#target" class="attribute_list" >target</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>.
+</td></tr>
+
+<tr valign=top><td><a href="#tripTime" class="attribute_list" >tripTime</a></td><td>&nbsp; Float. Default is 0.
+</td></tr>
+
+<tr valign=top><td><a href="#turnAxis" class="attribute_list" >turnAxis</a></td><td>&nbsp; A sequence of 3 floats ( x, y, z ). Default is ( 1, 0, 0 ).
+</td></tr>
+
+<tr valign=top><td><a href="#turnRate" class="attribute_list" >turnRate</a></td><td>&nbsp; Float. Default is 0.f.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="Homer.html">Homer</a> is a <a href="Motor.html">Motor</a> that moves a model towards a target (<a href="MatrixProvider.html">MatrixProvider</a>).
+Additionally an optional proximity callback can be set for the <a href="Homer.html">Homer</a> to call
+once the model it is moving gets within a specified (proximity) distance of
+its target.
+<br><br>
+A new <a href="Homer.html">Homer</a> <a href="Motor.html">Motor</a> is created using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Homer><a href="Homer.html">Homer</a></a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="arrivalCountLimit"></a><p class="attribute_definition">
+<span class="attribute_definition">arrivalCountLimit</span>
+</p>
+
+<div class="attribute_description">The attribute arrivalCountLimit is used to limit the number of times an
+model may need to move a smaller distance than that required by the
+frame duration and speed to reach the target (ie the last frame before
+it reaches the target). This acts to trigger the proximity callback,
+even if the model is not within proximity distance of the target. This
+is a failsafe so that if the proximity is too small it acts to stop the
+<a href="Homer.html">Homer</a> from "buzzing" around its target - in effect never reaching it
+target because the model's position cannot move close enough to the
+target to get inside its proximity radius.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer. Default is 1.
+</td></tr>
+</table>
+</p>
+
+<a name="goneTime"></a><p class="attribute_definition">
+<span class="attribute_definition">goneTime</span>
+</p>
+
+<div class="attribute_description">The attribute goneTime is the cumulative amount of time that the <a href="Homer.html">Homer</a>
+has been acting on the model (in seconds). It is increased by the frame
+duration at
+the end of every frame, provided that tripTime > 0. It is 0 otherwise.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="proximity"></a><p class="attribute_definition">
+<span class="attribute_definition">proximity</span>
+</p>
+
+<div class="attribute_description">Proximity specifies how close to the "target" the model must get before
+the <a href="Homer.html">Homer</a> <a href="Motor.html">Motor</a> calls proximityCallback.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0.1.
+</td></tr>
+</table>
+</p>
+
+<a name="proximityCallback"></a><p class="attribute_definition">
+<span class="attribute_definition">proximityCallback</span>
+</p>
+
+<div class="attribute_description">The attribute proximityCallback is used to assign a callback function
+to the <a href="Homer.html">Homer</a> <a href="Motor.html">Motor</a> that is triggered once the model that the <a href="Homer.html">Homer</a>
+is moving gets within "proximity" distance of "target".
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Callback Function (python function model, or an instance of a
+</td></tr>
+</table>
+</p>
+
+<a name="scale"></a><p class="attribute_definition">
+<span class="attribute_definition">scale</span>
+</p>
+
+<div class="attribute_description">The attribute scale is used to apply a scaling factor to the model over
+time. If scale > 1 then the model will start at its original size and
+be scaled linearly over scaleTime seconds to reach the specified scale.
+When the model reaches half-way point of its trip (based on its
+movement duration as a fraction of tripTime), it scales back to its
+original size, regardless of whether or not it has reach its maximum
+scale.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0.
+</td></tr>
+</table>
+</p>
+
+<a name="scaleTime"></a><p class="attribute_definition">
+<span class="attribute_definition">scaleTime</span>
+</p>
+
+<div class="attribute_description">The attribute scaleTime is the duration over which the model will be
+scaled linearly to the relative size of "scale".
+When the model reaches half-way (based on its
+movement duration as a fraction of tripTime), it scales back to its
+original size, regardless of whether or not it has reach its maximum
+scale.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 1.
+</td></tr>
+</table>
+</p>
+
+<a name="speed"></a><p class="attribute_definition">
+<span class="attribute_definition">speed</span>
+</p>
+
+<div class="attribute_description">The attribute speed specifies the speed at which the <a href="Homer.html">Homer</a> will move the
+model towards its destination.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float (units/s). Default is 0.1.
+</td></tr>
+</table>
+</p>
+
+<a name="target"></a><p class="attribute_definition">
+<span class="attribute_definition">target</span>
+</p>
+
+<div class="attribute_description">This attribute specifies a target <a href="MatrixProvider.html">MatrixProvider</a>. The <a href="Homer.html">Homer</a> <a href="Motor.html">Motor</a> will
+trigger an optional callback when the model comes within proximity
+distance of the target.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="tripTime"></a><p class="attribute_definition">
+<span class="attribute_definition">tripTime</span>
+</p>
+
+<div class="attribute_description">The attribute tripTime specifies how long (in seconds) the <a href="Homer.html">Homer</a> will
+take to reach its target. If the speed and tripTime are not in agreement
+for the time it should take travelling directly towards the target, then
+the <a href="Homer.html">Homer</a> will arc the model towards its target, keeping the speed and
+tripTime valid by effectively increasing the distance the <a href="Homer.html">Homer</a> has to
+travel towards the target.
+<br><br>
+If tripTime &lt;= 0 then it is ignored and the <a href="Homer.html">Homer</a> makes the model
+travel directly towards its target.
+<br><br>
+If tripTime &gt; 0 then it is reduced by the frame duration at the end of
+each frame.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0.
+</td></tr>
+</table>
+</p>
+
+<a name="turnAxis"></a><p class="attribute_definition">
+<span class="attribute_definition">turnAxis</span>
+</p>
+
+<div class="attribute_description">The attribute turnAxis specifies the axis that will be be pointed
+towards the model as the <a href="Homer.html">Homer</a> turns and moves towards its target.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A sequence of 3 floats ( x, y, z ). Default is ( 1, 0, 0 ).
+</td></tr>
+</table>
+</p>
+
+<a name="turnRate"></a><p class="attribute_definition">
+<span class="attribute_definition">turnRate</span>
+</p>
+
+<div class="attribute_description">The attribute turnRate specifies the maximum rate (rad/s) at which the
+<a href="Homer.html">Homer</a> can turn to face "turnAxis" at the "target".
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0.f.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

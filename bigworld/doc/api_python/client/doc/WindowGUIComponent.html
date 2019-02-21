@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>WindowGUIComponent - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>WindowGUIComponent Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>WindowGUIComponent is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#maxScroll" class="attribute_list" >maxScroll</a></td><td>&nbsp; <a href="Vector2.html">Vector2</a>
+</td></tr>
+
+<tr valign=top><td><a href="#minScroll" class="attribute_list" >minScroll</a></td><td>&nbsp; <a href="Vector2.html">Vector2</a>
+</td></tr>
+
+<tr valign=top><td><a href="#scroll" class="attribute_list" >scroll</a></td><td>&nbsp; <a href="Vector2.html">Vector2</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class forms the basis of windowing functionality for the <a href="GUI.html">GUI</a>.
+Children added to a window are clipped and scrolled inside it.
+Children of Window components inherit the translation of the window.
+<br><br>
+If a child has either of its position modes set to "CLIP" then
+then this window is used as the basis for that child's clip space.
+In other words (-1,-1) is the bottom left of this window, and (1,1)
+is the top right of this window, and (0,0) is the centre of this
+window.
+<br><br>
+If a child has either of its position modes set to "PIXEL" then
+the position coordinate will be relative to the top left of this
+window.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="maxScroll"></a><p class="attribute_definition">
+<span class="attribute_definition">maxScroll</span>
+</p>
+
+<div class="attribute_description">This attribute is the upper bound for the scroll attribute, which
+specifies an offset for the position of all child components of this
+window.  It is a <a href="Vector2.html">Vector2</a> specified in clip space coordinates( (-1,-1)
+in the bottom left of the screen, (1,1) in the top right).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector2.html">Vector2</a>
+</td></tr>
+</table>
+</p>
+
+<a name="minScroll"></a><p class="attribute_definition">
+<span class="attribute_definition">minScroll</span>
+</p>
+
+<div class="attribute_description">This attribute is the minimum bound for the scroll attribute, which 
+specifies an offset for the position of all child components of this
+window.  It is a <a href="Vector2.html">Vector2</a> specified in clip space coordinates( (-1,-1)
+in the bottom left of the screen, (1,1) in the top right).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector2.html">Vector2</a>
+</td></tr>
+</table>
+</p>
+
+<a name="scroll"></a><p class="attribute_definition">
+<span class="attribute_definition">scroll</span>
+</p>
+
+<div class="attribute_description">The offset that will be applied to the position attribute of all the 
+children of this window.  It is a <a href="Vector2.html">Vector2</a> which is specified in clip
+space coordinates( (-1,-1) in the bottom left of the screen, (1,1) in
+the top right).  It is bounded between the minScroll and maxScroll
+attributes.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector2.html">Vector2</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

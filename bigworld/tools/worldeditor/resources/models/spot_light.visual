@@ -1,0 +1,37 @@
+<root>
+	<node>
+		<identifier>	Scene Root	</identifier>
+		<transform>
+			<row0>	1.000000 0.000000 0.000000	</row0>
+			<row1>	0.000000 1.000000 0.000000	</row1>
+			<row2>	0.000000 0.000000 1.000000	</row2>
+			<row3>	0.000000 0.000000 0.000000	</row3>
+		</transform>
+	</node>
+	<renderSet>
+		<treatAsWorldSpaceObject>	false	</treatAsWorldSpaceObject>
+		<node>	Scene Root	</node>
+		<geometry>
+			<vertices>	vertices	</vertices>
+			<primitive>	indices	</primitive>
+			<primitiveGroup>	0
+				<material>
+					<identifier>	cone	</identifier>
+					<fx>	shaders/std_effects/lightonly.fx	</fx>
+					<property>	diffuseMap
+						<Texture>	resources/maps/system/col_orange.bmp	</Texture>
+					</property>
+					<property>	selfIllumination
+						<Float>	0.5	</Float>
+					</property>
+					<collisionFlags>	0	</collisionFlags>
+					<materialKind>	0	</materialKind>
+				</material>
+			</primitiveGroup>
+		</geometry>
+	</renderSet>
+	<boundingBox>
+		<min>	-0.244500 0.000000 -0.248600	</min>
+		<max>	0.250000 1.000000 0.248600	</max>
+	</boundingBox>
+</root>

@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>GoboComponent - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>GoboComponent Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>GoboComponent is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#freeze" class="attribute_list" >freeze</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#secondaryTexture" class="attribute_list" >secondaryTexture</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This <a href="GoboComponent.html">GoboComponent</a> acts like other gui components, but blends the gui
+component texture with another specified <a href="PyTextureProvider.html">PyTextureProvider</a>, using
+the alpha channel of the component's texture.
+<br><br>
+If you associate a render target with the gobo component, you can also
+freeze and unfreeze the secondary <a href="PyTextureProvider.html">PyTextureProvider</a>.
+<br><br>
+A recommended use of the gobo component is to create a post-processing
+effect, and use the output of that effect as the second texture stage
+in the gobo component.
+<br><br>
+This is for example perfect for binoculars and sniper scopes.
+<br><br>
+For example, in the following code:
+<br><br>
+
+<pre>comp = <a href="GUI.html">GUI</a>.<a href=GUI.html#Gobo>Gobo</a>( "gui/maps/gobo_binoculars.dds" )
+comp.materialFX="SOLID"
+comp.secondTexture=myBlurredRenderTarget.texture
+<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>( comp )
+</pre>
+<br><br>
+This example will display a binocular gobo, and where the alpha channel is
+relatively opaque in the binocular texture map, a blurred version of the scene
+is drawn.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="freeze"></a><p class="attribute_definition">
+<span class="attribute_definition">freeze</span>
+</p>
+
+<div class="attribute_description">This attribute, when set to a <a href="PyRenderTarget.html">PyRenderTarget</a>, stows the current
+state of the secondary TextureProvider and displays it; essentially
+freezing the current state.  To unfreeze, set the render target
+to None.
+</div>
+
+<a name="secondaryTexture"></a><p class="attribute_definition">
+<span class="attribute_definition">secondaryTexture</span>
+</p>
+
+<div class="attribute_description">This attribute provides the second texture that is blended with
+the component's texture attribute.
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

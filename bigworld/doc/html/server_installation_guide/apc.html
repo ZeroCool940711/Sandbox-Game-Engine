@@ -1,0 +1,225 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Appendix&nbsp;C.&nbsp;Copying files to Linux</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Installation Guide">
+      <link rel="up" href="index.html" title="Server Installation Guide">
+      <link rel="prev" href="apb.html" title="Appendix&nbsp;B.&nbsp;Installing CentOS 5">
+      <link rel="next" href="apd.html" title="Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_installation_guide/apc.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Appendix&nbsp;C.&nbsp;Copying files to Linux</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="apb.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="apd.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="appendix" title="Appendix&nbsp;C.&nbsp;Copying files to Linux">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Copying_Files_To_Linux"></a>Appendix&nbsp;C.&nbsp;Copying files to Linux
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="apc.html#d0e1910">C.1. USB Thumb Drive / External Hard Disk</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="apc.html#xref_Installing_NTFS_Packages">C.1.1. Installing NTFS Support</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="apc.html#d0e1933">C.2. Python <code class="classname">SimpleHTTPServer</code> hosted on
+                               Windows</a></span></dt>
+                  <dt><span class="section"><a href="apc.html#d0e1964">C.3. Windows network share</a></span></dt>
+               </dl>
+            </div>
+            <p>For people unfamiliar with using Linux, even a simple task such as
+                 copying files from a Windows machine to a Linux machine can be daunting.
+                 This section aims to assist this process by providing a number of
+                 (hopefully) convenient alternatives that can be used to assist in
+                 transferring files between machines.
+            </p>
+            <p>There a number of approaches that can be used for copying files from
+                 Windows to Linux. These include but are not limited to:
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p>USB Thumb Drive / External Hard Disk</p>
+                  </li>
+                  <li class="listitem">
+                     <p>Python <code class="classname">SimpleHTTPServer</code> hosted on
+                              Windows
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>Windows network share</p>
+                  </li>
+               </ul>
+            </div>
+            <p>Below is a brief outline of each of the mentioned methods. We
+                 encourage you to investigate each approach independently in order to feel
+                 comfortable performing these operations whenever required without assistance
+                 from BigWorld.
+            </p>
+            <p>The following examples will assume you are copying the RPM files from
+                 a standard BigWorld package which are located in the <code class="filename">rpm</code> directory at the top level of your
+                 package.
+            </p>
+            <p>It doesn't matter where you copy the files on the Linux machine.
+                 However, the commands listed in the <a class="xref" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Simple Installation"><i>Simple Installation</i></a> section are given under the assumption
+                 that you copy the files to <code class="filename">/root</code>.
+            </p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+               <h3 class="title">Note</h3>
+               <p>In Linux the entire file system is organised in a single hierarchy.
+                      The location <code class="filename">/</code> refers to the root
+                      level and subdirectories are listed after that. For example, to switch to
+                      the <code class="filename">/usr/include</code> directory, you can
+                      use the <span class="command"><strong>cd</strong></span>, or 'change directory' command in the
+                      following way:
+               </p><pre class="programlisting">$ cd /usr/include</pre><p>If you are new to Linux, you should read the article at <a class="ulink" href="www.freeos.com/articles/3102" target="_top">www.freeos.com/articles/3102</a>,
+                      which describes the Linux file system in more detail.
+               </p>
+            </div>
+            <div class="section" title="C.1.&nbsp;USB Thumb Drive / External Hard Disk">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e1910"></a>C.1.&nbsp;USB Thumb Drive / External Hard Disk
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>When using this approach you may need to pay attention to the
+                      filesystem type of the drive you are using. A FAT32 filesystem is natively
+                      supported by Linux, while NTFS is not. Quite often, drives that have been
+                      formatted under Windows will have an NTFS filesystem rather than FAT32. If
+                      this occurs in your drive, see <a class="xref" href="apc.html#xref_Installing_NTFS_Packages" title="C.1.1.&nbsp;Installing NTFS Support">Installing NTFS Support</a>.
+               </p>
+               <p>This approach is perhaps the easiest for copying a small number of
+                      files between machines on a once-off basis. Once you have copied the files
+                      from your Windows machine to the USB device and inserted it into the Linux
+                      machine the device should be auto-mounted. If you are logged into a
+                      graphical account you should see the device appear as a new icon on your
+                      desktop.
+               </p>
+               <p>Command line only users may need to perform more steps to discover
+                      where the device was mounted. The <span class="command"><strong>mount</strong></span> command should
+                      provide you with a list of all device-to-directory mappings to enable you
+                      to discover the directory in which the files are located.
+               </p>
+               <div class="section" title="C.1.1.&nbsp;Installing NTFS Support">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Installing_NTFS_Packages"></a>C.1.1.&nbsp;Installing NTFS Support
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>To install NTFS support for your CentOS installation, firstly
+                           ensure that you have installed the EPEL repository as outlined in <a class="xref" href="ch02.html#xref_Installing_EPEL" title="2.2.2.&nbsp;Installing the EPEL Repository">Installing the EPEL Repository</a> and then run the following command as
+                           root:
+                  </p><pre class="programlisting"># yum install ntfs-3g ntfsprogs</pre></div>
+            </div>
+            <div class="section" title="C.2.&nbsp;Python SimpleHTTPServer hosted on Windows">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e1933"></a>C.2.&nbsp;Python <code class="classname">SimpleHTTPServer</code> hosted on
+                               Windows
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>This approach assumes that you have installed Python on your Windows
+                      machine and have the Python executables in your <code class="envar">$PATH</code>
+                      environment variable.
+               </p>
+               <p>After installing or downloading your Bigworld Technology package,
+                      open a command line window by clicking on Run in the Start menu, and
+                      typing <span class="command"><strong>cmd</strong></span> into the prompt. Navigate to the <code class="filename">rpm</code> directory in your new installation and
+                      type:
+               </p><pre class="programlisting">C:\BigWorld\rpm&gt; python.exe -m SimpleHTTPServer
+rving HTTP on 0.0.0.0 port 8000 ...</pre><p>You can now use the <span class="command"><strong>wget</strong></span> program or a Web browser
+                      on your Linux machine to copy files via HTTP. If you are unsure of your
+                      Windows machine IP address you can use the <span class="command"><strong>ipconfig</strong></span>
+                      program on the command line. For example, to copy the 2.1 bwmachined RPM
+                      file you would use the following command, replacing 10.40.3.145 with your
+                      own IP address:
+               </p><pre class="programlisting">$ wget http://10.40.3.145:8000/bigworld-bwmachined-2.1.0.x86_64.rpm
+
+--2011-11-05 11:16:28--  http://10.40.3.145:8000/bigworld-bwmachined-2.1.0.x86_64.rpm
+Connecting to 10.40.3.145:8000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1096149 (1.0M) [application/octet-stream]
+Saving to: `bigworld-bwmachined-2.1.0.x86_64.rpm'
+
+100%[======================================&gt;] 1,096,149   4.93M/s   in 0.3s    
+
+2011-11-05 11:16:29 (11.8 MB/s) - `bigworld-bwmachined-2.1.0.x86_64.rpm' saved [1096149/1096149]</pre></div>
+            <div class="section" title="C.3.&nbsp;Windows network share">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e1964"></a>C.3.&nbsp;Windows network share
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>Copying files from a Windows network share can be extremely
+                      convenient, but depending on your network setup it may be problematic to
+                      initially setup. In order to use this file-copying mechanism, ensure that
+                      you share your windows files using Advanced network file sharing, not the
+                      default simple file sharing. More detailed instructions on configuring a
+                      network share on Windows can be found in the <a href="../server_programming_guide/index.html" class="olink">Server Programming Guide</a>'s chapter <a href="../server_programming_guide/ch24.html" class="olink"><i>Shared Development Environments</i></a>.
+               </p>
+               <p>For simplicity's sake, to retrieve the files on the Linux machine
+                      you should use a graphical login and navigate to your Windows machine
+                      using the Places<span class="symbol">&#8594;</span>Network Servers menu
+                      options.
+               </p>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="apb.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="apd.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Appendix&nbsp;B.&nbsp;Installing CentOS 5&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

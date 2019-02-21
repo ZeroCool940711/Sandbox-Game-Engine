@@ -1,0 +1,222 @@
+<html>
+<head>
+<title>SkeletonCollider - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>SkeletonCollider Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>SkeletonCollider is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addCollider" class="function_list" >addCollider</a>( self, collider ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#doCollide" class="function_list" >doCollide</a>( self, start, direction ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getCollider" class="function_list" >getCollider</a>( self, n ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#load" class="function_list" >load</a>( self, pSection ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#nColliders" class="function_list" >nColliders</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#save" class="function_list" >save</a>( self, pSection ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#impactCollider" class="attribute_list" >impactCollider</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#impactPoint" class="attribute_list" >impactPoint</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#impactReflection" class="attribute_list" >impactReflection</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is a utility class designed to help
+implement collisions on dynamic skeletal objects.
+<br><br>
+It has a list of <a href="BoxAttachment.html">BoxAttachment</a> objects, and provides
+a C++ and python interface to coordinate collision
+testing for that list as a whole.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addCollider"></a><p class="function_definition">
+<span class="function_definition">def addCollider( <i>self, collider</i> ):</span>
+</p>
+
+<div class="function_description">This method adds a box attachment to the skeleton collider
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>collider</i></span></td><td><span class="function_parameter_description">&nbsp;the box attachment to add
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="doCollide"></a><p class="function_definition">
+<span class="function_definition">def doCollide( <i>self, start, direction</i> ):</span>
+</p>
+
+<div class="function_description">Attempts to collide with this collider. Tests the collection of colliders 
+against the ray that begins at the position defined by the "start" argument,
+and goes all the way down to the far plane in the direction defined by the
+"dir" argument.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>start</i></span></td><td><span class="function_parameter_description">&nbsp;the start point of the collision ray
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>direction</i></span></td><td><span class="function_parameter_description">&nbsp;the direction of the collision ray. 
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if a hit was detected, false otherwise. Check the
+				impactCollider, impactPoint and impactReflection
+				attibutes for details on the intersection detected.
+</td></tr>
+</table>
+</p>
+
+<a name="getCollider"></a><p class="function_definition">
+<span class="function_definition">def getCollider( <i>self, n</i> ):</span>
+</p>
+
+<div class="function_description">This method gets a <a href="BoxAttachment.html">BoxAttachment</a> from the skeleton collider
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>n</i></span></td><td><span class="function_parameter_description">&nbsp;the index of the <a href="BoxAttachment.html">BoxAttachment</a>
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="BoxAttachment.html">BoxAttachment</a>
+</td></tr>
+</table>
+</p>
+
+<a name="load"></a><p class="function_definition">
+<span class="function_definition">def load( <i>self, pSection</i> ):</span>
+</p>
+
+<div class="function_description">load this collider
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pSection</i></span></td><td><span class="function_parameter_description">&nbsp;the datasection to load from
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="nColliders"></a><p class="function_definition">
+<span class="function_definition">def nColliders( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">returns the number of BoxAttachments in this skeleton collider
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the number of BoxAttachments in the skeleton collider
+</td></tr>
+</table>
+</p>
+
+<a name="save"></a><p class="function_definition">
+<span class="function_definition">def save( <i>self, pSection</i> ):</span>
+</p>
+
+<div class="function_description">save this collider
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pSection</i></span></td><td><span class="function_parameter_description">&nbsp;the datasection to save to
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="impactCollider"></a><p class="attribute_definition">
+<span class="attribute_definition">impactCollider</span>
+</p>
+
+<div class="attribute_description">The last collider object that was hit
+</div>
+
+<a name="impactPoint"></a><p class="attribute_definition">
+<span class="attribute_definition">impactPoint</span>
+</p>
+
+<div class="attribute_description">The point in world space of the impact between the last collision ray 
+and the skeleton collider
+</div>
+
+<a name="impactReflection"></a><p class="attribute_definition">
+<span class="attribute_definition">impactReflection</span>
+</p>
+
+<div class="attribute_description">The collision ray reflected off the last hit object
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

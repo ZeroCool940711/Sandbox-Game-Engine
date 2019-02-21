@@ -1,0 +1,15 @@
+<space.settings>
+	<timeOfDay>	system/data/sky.xml	</timeOfDay>
+	<skyGradientDome>	system/data/sky.xml	</skyGradientDome>
+	<bounds>
+		<minX>	-5	</minX>
+		<maxX>	4	</maxX>
+		<minY>	-5	</minY>
+		<maxY>	4	</maxY>
+	</bounds>
+	<farPlane>	1000.000000	</farPlane>
+	<flora>	helpers/flora/flora.xml	</flora>
+	<terrain>
+		<version>	100	</version>
+	</terrain>
+</space.settings>

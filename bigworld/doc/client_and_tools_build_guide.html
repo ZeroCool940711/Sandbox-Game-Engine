@@ -1,0 +1,469 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Client and Tools Build Guide</title><link rel="stylesheet" type="text/css" href="bigworld.css"><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/client_and_tools_build_guide.html $" alt="bw logo"></div><div id="content"><div class="book" title="Client and Tools Build Guide"><div class="titlepage"><div><div><h1 class="title"><a name="Client_and_Tools_Build_Guide"></a>Client and Tools Build Guide</h1></div><div><p class="releaseinfo">BigWorld Technology 2.1. Released 2012.</p></div><div><p class="copyright">Copyright &copy; 1999-2012 BigWorld Pty Ltd. All rights reserved. </p></div><div><div class="legalnotice" title="Legal Notice"><a name="d0e17"></a><p>This document is proprietary commercial in confidence and access
+  is restricted to authorised users. This document is protected by
+  copyright laws of Australia, other countries and international treaties.
+  Unauthorised use, reproduction or distribution of this document, or any
+  portion of this document, may result in the imposition of civil and
+  criminal penalties as provided by law.</p></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="chapter"><a href="#xref_Build_Instructions">1. BigWorld Technology Client &amp; Tools Build Instructions</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Overview">1.1. Overview</a></span></dt><dt><span class="section"><a href="#xref_Client_Requirements">1.2. Client and Tools Machine Requirements</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Client_Tools_Requirements">1.2.1. </a></span></dt></dl></dd><dt><span class="section"><a href="#xref_Client_Tools_System_Requirements">1.3. Client and Tools Build Requirements</a></span></dt><dt><span class="section"><a href="#xref_Installing_BigWorld">1.4. Installing BigWorld Client and Tools</a></span></dt><dt><span class="section"><a href="#xref_Installing_Dependencies">1.5. Installing and Configuring Required Software</a></span></dt><dt><span class="section"><a href="#xref_Compiling_Client">1.6. Compiling the Client</a></span></dt><dt><span class="section"><a href="#xref_Compiling_Tools">1.7. Compiling the Tools</a></span></dt></dl></dd><dt><span class="chapter"><a href="#xref_Additional_Info_Troubleshooting">2. Additional Information and Troubleshooting</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Build_Configurations">2.1. Build Configurations</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Build_Configuration_Summary">2.1.1. </a></span></dt><dt><span class="section"><a href="#xref_Property_Sheets">2.1.2. Property Sheets</a></span></dt><dt><span class="section"><a href="#xref_Precompiled_Headers">2.1.3. Precompiled Headers</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_Libraries">2.2. Libraries</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_C_Runtime_Library">2.2.1. The C Runtime Library</a></span></dt><dt><span class="section"><a href="#xref_Debugging_Dependencies">2.2.2. Debugging Dependencies</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_Common_Build_Errors">2.3. Common Build Errors</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Sharing_Violation">2.3.1. Sharing Violation</a></span></dt><dt><span class="section"><a href="#xref_Application_Error">2.3.2. Application Error</a></span></dt></dl></dd></dl></dd></dl></div><div class="chapter" title="Chapter&nbsp;1.&nbsp;BigWorld Technology Client &amp; Tools Build Instructions"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Build_Instructions"></a>Chapter&nbsp;1.&nbsp;BigWorld Technology Client &amp; Tools Build Instructions</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#xref_Overview">1.1. Overview</a></span></dt><dt><span class="section"><a href="#xref_Client_Requirements">1.2. Client and Tools Machine Requirements</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Client_Tools_Requirements">1.2.1. </a></span></dt></dl></dd><dt><span class="section"><a href="#xref_Client_Tools_System_Requirements">1.3. Client and Tools Build Requirements</a></span></dt><dt><span class="section"><a href="#xref_Installing_BigWorld">1.4. Installing BigWorld Client and Tools</a></span></dt><dt><span class="section"><a href="#xref_Installing_Dependencies">1.5. Installing and Configuring Required Software</a></span></dt><dt><span class="section"><a href="#xref_Compiling_Client">1.6. Compiling the Client</a></span></dt><dt><span class="section"><a href="#xref_Compiling_Tools">1.7. Compiling the Tools</a></span></dt></dl></div><div class="section" title="1.1.&nbsp;Overview"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Overview"></a>1.1.&nbsp;Overview</h2></div></div></div><p>
+      This document describes how to set up the BigWorld Technology
+      build environment, and build the client and tools.
+    </p></div><div class="section" title="1.2.&nbsp;Client and Tools Machine Requirements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Client_Requirements"></a>1.2.&nbsp;Client and Tools Machine Requirements</h2></div></div></div><p>System requirements for running the client and tools.</p><div class="section" title="1.2.1.&nbsp;"><div class="titlepage"></div><div class="section" title="1.2.1.1.&nbsp;Client using New Terrain"><div class="titlepage"><div><div><h4 class="title"><a name="d0e36"></a>1.2.1.1.&nbsp;Client using New Terrain</h4></div></div></div><div class="altrow"><table border="0"><colgroup><col width="28%" class="col1"><col width="36%" class="col2"><col width="36%" class="col3"></colgroup><thead><tr><th>&nbsp;</th><th>Minimum</th><th>Recommended</th></tr></thead><tbody><tr><td>Graphics</td><td>
+              Shader model 2.0
+              <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">GeForce 6600 128Mb</li><li class="listitem">Radeon 9600 128Mb</li></ul></div>
+            </td><td>
+              Shader model 3.0
+              <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">GeForce 7600</li><li class="listitem">Radeon x1600</li></ul></div>
+            </td></tr><tr><td>CPU</td><td>2 GHz</td><td>2 GHz</td></tr><tr><td>Physical RAM</td><td>512 MB</td><td>1 GB</td></tr><tr><td>Operating System</td><td>Windows XP Home 32-bit</td><td>Windows 7 32-bit</td></tr></tbody></table></div></div><div class="section" title="1.2.1.2.&nbsp;Client using Classic Terrain"><div class="titlepage"><div><div><h4 class="title"><a name="d0e92"></a>1.2.1.2.&nbsp;Client using Classic Terrain</h4></div></div></div><div class="altrow"><table border="0"><colgroup><col width="28%" class="col1"><col width="36%" class="col2"><col width="36%" class="col3"></colgroup><thead><tr><th>&nbsp;</th><th>Minimum</th><th>Recommended</th></tr></thead><tbody><tr><td>Graphics</td><td>
+              Fixed function
+              <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">GeForce4 MX</li><li class="listitem">Radeon 7 Series</li></ul></div>
+            </td><td>
+              Shader model 1.1
+              <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">GeForce4 Ti</li><li class="listitem">Radeon 9500</li></ul></div>
+            </td></tr><tr><td>CPU</td><td>2 GHz</td><td>2 GHz</td></tr><tr><td>Physical RAM</td><td>512 MB</td><td>1 GB</td></tr><tr><td>Operating System</td><td>Windows XP Home 32-bit</td><td>Windows 7 32-bit</td></tr></tbody></table></div></div><div class="section" title="1.2.1.3.&nbsp;Tools"><div class="titlepage"><div><div><h4 class="title"><a name="d0e148"></a>1.2.1.3.&nbsp;Tools</h4></div></div></div><div class="altrow"><table border="0"><colgroup><col width="28%" class="col1"><col width="36%" class="col2"><col width="36%" class="col3"></colgroup><thead><tr><th>&nbsp;</th><th>Minimum</th><th>Recommended</th></tr></thead><tbody><tr><td>Graphics</td><td>
+              Shader Model 3.0
+              <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">GeForce 7900 GT</li><li class="listitem">Radeon X1800 XT</li></ul></div>
+            </td><td>
+              Shader Model 3.0+
+              <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">GeForce 8800 GTX</li><li class="listitem">Radeon HD 3870</li></ul></div>
+            </td></tr><tr><td>CPU</td><td><p>Athlon 64-bit 3800+ Dual Core</p><p>Pentium D
+            820</p></td><td><p>Athlon 64-bit 4200+ Dual Core</p><p>Pentium
+            T4200</p></td></tr><tr><td>Physical RAM</td><td>2 GB DDR2</td><td>2 GB DDR2</td></tr><tr><td>Operating System</td><td>Windows XP Professional 32-bit</td><td>Windows 7 64-bit</td></tr></tbody></table></div></div></div></div><div class="section" title="1.3.&nbsp;Client and Tools Build Requirements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Client_Tools_System_Requirements"></a>1.3.&nbsp;Client and Tools Build Requirements</h2></div></div></div><p>The minimum requirements for building the client are:
+  </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+        Visual Studio 2005 or Visual Studio 2008
+      </p></li><li class="listitem"><p>
+        DirectX 9 SDK &#8211; the February 2010 release was the last release to
+        support Visual Studio 2005
+      </p></li><li class="listitem"><p>
+        Platform SDK 6.0 or newer
+      </p></li></ul></div><p>
+  </p><p>The minimum requirements for building the tools are:
+  </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+        Visual Studio 2005 or Visual Studio 2008
+      </p></li><li class="listitem"><p>
+        DirectX 9 SDK &#8211; the February 2010 release was the last release to
+        support Visual Studio 2005
+      </p></li><li class="listitem"><p>
+        Platform SDK 6.0 or newer
+      </p></li><li class="listitem"><p>
+        3ds Max 2008/2009/2010/2011 SDK &#8211; required to build the
+        Max exporters
+      </p></li><li class="listitem"><p>
+        Maya 2008/2009/2010/2011 SDK &#8211; required to build the
+        Maya exporters
+      </p></li></ul></div><p>
+  </p></div><div class="section" title="1.4.&nbsp;Installing BigWorld Client and Tools"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Installing_BigWorld"></a>1.4.&nbsp;Installing BigWorld Client and Tools</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Check out the BigWorld package from the official Subversion
+        repository.</p></li><li class="listitem"><p>If running on a machine without developer tools installed,
+      be sure to install DirectX and Visual C++ runtimes which can be found
+      in the BigWorld package:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>
+              <span class="literal">PackageRoot\vc80-redist\vcredist_x86.exe</span>
+            </p></li><li class="listitem"><p>
+              <span class="literal">PackageRoot\directx-redist\DXSETUP.exe</span>
+            </p></li></ul></div></li></ul></div><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+      For Vista &#8211; If you are changing operating system
+      (for example, going from Windows XP to Vista),
+      and leaving the old build folders in place,
+      then be sure to completely clean all previous
+      output files (.OBJ) and executables from the output folders.
+      You should also remove all
+      previous compiled FX files (.FXO) from the RES path of your project.
+    </div></div><div class="section" title="1.5.&nbsp;Installing and Configuring Required Software"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Installing_Dependencies"></a>1.5.&nbsp;Installing and Configuring Required Software</h2></div></div></div><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+      Some instructions refer to Visual Studio 2005 but
+      are equally applicable to Visual Studio 2008. Be sure to substitute references to
+      <span class="literal">*2005.sln</span> to <span class="literal">*2008.sln</span>.
+    </div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Install Visual Studio 2005</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Install Visual Studio 2005 Service Pack 1.</p></li><li class="listitem"><p>Vista only: Install Visual Studio 2005 Service Pack 1
+            Update for Windows Vista.</p></li></ul></div></li><li class="listitem"><p>Install Visual Studio 2008</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Install Visual Studio 2008 Service Pack 1.</p></li><li class="listitem"><p>Install Visual C++ 2008 feature pack</p></li></ul></div></li><li class="listitem"><p>Install the DirectX SDK.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+          It is recommended to use the February 2010 release as it was the last
+          release to support Visual Studio 2005.
+        </div><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Make sure that the DirectX SDK's
+            <span class="literal">include</span> directory is added to Visual Studio's C++
+            <span class="literal">includes</span>
+            search path (see below).</p></li><li class="listitem"><p>Make sure that the DirectX SDK's
+            <span class="literal">library</span> directory is added to Visual Studio's
+            C++ <span class="literal">libraries</span>
+            search path (see below).</p></li><li class="listitem"><p>If you have installed MSVC++ after installing DirectX,
+            then make sure that
+            the DirectX folders are listed before the other default folders
+            in the <span class="literal">include</span> and
+            <span class="literal">link</span> lists, to give them preference during
+            compiling and linking.</p></li></ul></div></li><li class="listitem"><p>Install the Windows Platform SDK version 6.0 or later,
+        and make sure this has been added to
+        Visual Studio's C++ <span class="literal">includes</span> and
+        <span class="literal">libraries</span> paths at a higher priority
+        than the standard Visual Studio paths.</p></li><li class="listitem"><p>
+          BigWorld's source code ships with support for
+          <em class="emphasis">SpeedTree</em>, <em class="emphasis">Umbra</em>
+          and other third-party libraries turned off by default.
+          In order to turn support on in BigWorld's game client and tools,
+          see the <a href="./html/thirdparty_integrations/thirdparty_integrations.html#Third_Party_Integrations" class="olink">Third-Party Integrations</a> document.
+        </p></li><li class="listitem"><p>To add a directory to Visual Studio's C++
+        <span class="literal">includes</span> and <span class="literal">libraries</span>
+        search paths, follow the steps below:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>
+              Select menu item <em class="emphasis">Tools<span class="symbol">&#8594;</span>Options</em>.
+            </p></li><li class="listitem"><p>In the <em class="emphasis">Options</em> dialog, select
+             <em class="emphasis">Projects and Solutions</em>
+             (or <em class="emphasis">Projects</em>, in earlier versions) list
+             item, then <em class="emphasis">VC++ Directories</em>.</p></li><li class="listitem"><p>In the <em class="emphasis">Show Directories For</em>
+             drop-down list box, select
+             <em class="emphasis">Include files</em> or
+             <em class="emphasis">Library files</em>.</p></li><li class="listitem"><p>Add the required directories to the list.</p></li></ul></div></li><li class="listitem"><p>Install the 3ds Max SDK.</p><p>The 3ds Max visual and animation exporters make use of the
+        <span class="literal">3dsMax_sdk/samples/modifiers/morpher/resource.h</span>
+        header file in order to expose the morpher modifier. 
+        A small edit must be made in order for
+        the exporters to compile without errors.
+        Since this file forms part of the 3dsMaxSDK, it
+        do not form part of the BigWorld distributable.
+        The required edit is as follows:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Comment the following line in
+              <span class="literal">maxsdk/samples/modifiers/morpher/resource.h</span>
+              <em class="emphasis">(line 5)</em>:</p><p><em class="emphasis">From:</em>
+                  <span class="literal">005 #define IDS_LIBDESCRIPTION 1</span></p><p><em class="emphasis">To:</em>
+                  <span class="literal">005 //#define IDS_LIBDESCRIPTION 1</span></p></li><li class="listitem"><p>Make sure that in the VC++ options,
+              the DirectX SDK folders are listed
+              higher up than the 3ds Max ones.</p></li></ul></div></li></ul></div></div><div class="section" title="1.6.&nbsp;Compiling the Client"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Compiling_Client"></a>1.6.&nbsp;Compiling the Client</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>In Visual Studio, load
+        <span class="literal">bigworld/src/client/bwclient2005.sln</span>.</p></li><li class="listitem"><p>Set the <span class="literal">bwclient</span>
+        project as the startup project.</p></li><li class="listitem"><p>Build the <span class="literal">bwclient</span> project.</p></li><li class="listitem"><p>Set the <em class="emphasis">Solution Configuration</em>
+        to <span class="literal">Release</span>.</p></li><li class="listitem"><p>
+          To test the client, run <span class="literal">bigworld/bin/bwclient.exe</span>.
+        </p><p>
+          If you are running the game from within Visual Studio, then set
+          the working folder to <span class="literal">bigworld/bin/client</span>.
+        </p></li></ul></div><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+      The client can also be compiled as a Python extension module.
+      For more information on how to do this, please refer to the section on
+      <em class="emphasis">Interactive debugging</em> in the
+      <a href="./html/client_programming_guide/client_programming_guide.html#xref_Script_Interactive_Debugging" class="olink">Script interactive debugging</a>.
+    </div></div><div class="section" title="1.7.&nbsp;Compiling the Tools"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Compiling_Tools"></a>1.7.&nbsp;Compiling the Tools</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Compile Model Editor</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Open Visual Studio 2005</p></li><li class="listitem"><p>
+              Load
+              <span class="literal">bigworld/src/tools/modeleditor/modeleditor2005.sln</span>.
+            </p></li><li class="listitem"><p>Select the <em class="emphasis">Editor Hybrid Win32</em>
+            solution configuration.</p></li><li class="listitem"><p>Select <em class="emphasis">Build All</em>
+            (<span class="literal">SHIFT+CTRL+B</span>).</p></li><li class="listitem"><p>The executable <span class="literal">modeleditor.exe</span> is created in
+            <span class="literal">bigworld\tools\modeleditor</span>.</p></li></ul></div></li><li class="listitem"><p>Compile World Editor</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Open Visual Studio 2005</p></li><li class="listitem"><p>
+               Load
+               <span class="literal">bigworld/src/tools/worldeditor/worldeditor2005.sln</span>.
+             </p></li><li class="listitem"><p>
+               Select the <em class="emphasis">Editor Hybrid Win32</em> solution
+               configuration.
+             </p></li><li class="listitem"><p>Select <em class="emphasis">Build All</em>
+             (<span class="literal">SHIFT+CTRL+B</span>).</p></li><li class="listitem"><p>
+               The executable <span class="literal">worldeditor.exe</span>
+               is created in <span class="literal">bigworld\tools\worldeditor</span>.
+             </p></li></ul></div></li><li class="listitem"><p>Compile Particle Editor</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Open Visual Studio 2005.</p></li><li class="listitem"><p>
+               Load
+               <span class="literal">bigworld/src/tools/particle_editor/particle_editor2005.sln</span>.
+             </p></li><li class="listitem"><p>
+               Select the <em class="emphasis">Editor Hybrid Win32</em>
+               solution configuration (only Editor configurations are
+               supported).
+             </p></li><li class="listitem"><p>
+               Select <span class="literal">Build All</span>
+               (<span class="literal">SHIFT+CTRL+B</span>).
+             </p></li><li class="listitem"><p>
+                The executable <span class="literal">particleeditor.exe</span> is created in
+               <span class="literal">bigworld\tools\particleeditor</span>.
+              </p></li></ul></div></li><li class="listitem"><p>Compile the Animation Exporter</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Open Visual Studio 2005</p></li><li class="listitem"><p>
+               Load
+               <span class="literal">bigworld/src/tools/animationexporter/animationexporter.sln</span>
+               or
+               <span class="literal">bigworld/src/tools/animationexporter/animationexporter_2005.sln</span>.
+             </p></li><li class="listitem"><p>
+               Select the appropriate solution configuration depending on
+               which version of Max you are building for, i.e.
+               <em class="emphasis">Max2011 Release</em>.
+             </p></li><li class="listitem"><p>
+               Make sure the maxsdk <span class="literal">include</span> and
+               <span class="literal">library</span> folders are set up properly for the
+               configuration.
+             </p></li><li class="listitem"><p>Select <span class="literal">Build All</span>
+             (<span class="literal">SHIFT+CTRL+B</span>).</p></li></ul></div></li><li class="listitem"><p>Compile the Visual Exporter</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Open Visual Studio 2005</p></li><li class="listitem"><p>
+               Load
+               <span class="literal">bigworld/src/tools/visualexporter/visualexporter.sln</span>
+               or
+               <span class="literal">bigworld/src/tools/visualexporter/visualexporter_2005.sln</span>
+             </p></li><li class="listitem"><p>
+               Set <span class="literal">visualexporter</span> as the startup project.
+             </p></li><li class="listitem"><p>
+               Select the appropriate solution configuration depending on
+               which version of Max you are building for, i.e.
+               <em class="emphasis">Max2011 Release</em>.
+             </p></li><li class="listitem"><p>
+               Make sure the maxsdk <span class="literal">include</span> and
+               <span class="literal">library</span> folders are set up properly for
+               the configuration.
+             </p></li><li class="listitem"><p>
+               Select <span class="literal">Build All</span>
+               (<span class="literal">SHIFT+CTRL+B</span>).
+             </p></li></ul></div></li><li class="listitem"><p>Compile the Maya Visual Exporter</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Open Visual Studio 2005</p></li><li class="listitem"><p>
+               Load
+               <span class="literal">bigworld/src/tools/mayavisualexporter/mayavisualexporter.sln</span>
+               or
+               <span class="literal">bigworld/src/tools/mayavisualexporter/mayavisualexporter_2005.sln</span>.
+             </p></li><li class="listitem"><p>
+               Set <span class="literal">visualexporter</span> as the startup project.
+             </p></li><li class="listitem"><p>
+               Select the appropriate solution configuration depending on
+               which version of Maya you are building for, i.e.
+               <em class="emphasis">Maya 2011 Release</em>.
+             </p></li><li class="listitem"><p>
+               Make sure the Maya <span class="literal">include</span> and
+               <span class="literal">library</span> folders are set up properly for the
+               configuration.
+             </p></li><li class="listitem"><p>
+               Select <span class="literal">Build All</span>
+               (<span class="literal">SHIFT+CTRL+B</span>).
+             </p></li></ul></div></li><li class="listitem"><p>Compile NavGen</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Open Visual Studio 2005</p></li><li class="listitem"><p>
+               Load
+               <span class="literal">bigworld/src/tools/navgen/navgen.sln</span>.
+             </p></li><li class="listitem"><p>
+               Select the <em class="emphasis">Hybrid Win32</em> solution
+               configuration.
+             </p></li><li class="listitem"><p>
+               Select <span class="literal">Build All</span>
+               (<span class="literal">SHIFT+CTRL+B</span>).
+             </p></li><li class="listitem"><p>
+               The executable <span class="literal">navgen.exe</span> is created in
+               <span class="literal">bigworld/src/tools/misc</span>.
+             </p></li></ul></div></li><li class="listitem"><p>Compile the collada converter</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>
+               Open Visual Studio 2008
+               </p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+                 The collada converter can only be built with
+                 Visual Studio 2008
+               </div><p>
+             </p></li><li class="listitem"><p>
+               Load
+               <span class="literal">bigworld/src/tools/dae2bigworld/dae2bigworld2008.sln</span>.
+             </p></li><li class="listitem"><p>
+               Select the <em class="emphasis">Release</em> solution configuration.
+             </p></li><li class="listitem"><p>
+               Select <span class="literal">Build All</span>
+               (<span class="literal">SHIFT+CTRL+B</span>).
+             </p></li><li class="listitem"><p>
+               The executable <span class="literal">dae2bigworld.exe</span>
+               is created in
+               <span class="literal">bigworld/src/tools/collada_converter</span>.
+             </p></li></ul></div></li><li class="listitem"><p>
+          To test the tools, run the executables in the appropriate folder
+          under <span class="literal">bigworld/tools</span>.
+        </p></li></ul></div></div></div><div class="chapter" title="Chapter&nbsp;2.&nbsp;Additional Information and Troubleshooting"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Additional_Info_Troubleshooting"></a>Chapter&nbsp;2.&nbsp;Additional Information and Troubleshooting</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#xref_Build_Configurations">2.1. Build Configurations</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Build_Configuration_Summary">2.1.1. </a></span></dt><dt><span class="section"><a href="#xref_Property_Sheets">2.1.2. Property Sheets</a></span></dt><dt><span class="section"><a href="#xref_Precompiled_Headers">2.1.3. Precompiled Headers</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_Libraries">2.2. Libraries</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_C_Runtime_Library">2.2.1. The C Runtime Library</a></span></dt><dt><span class="section"><a href="#xref_Debugging_Dependencies">2.2.2. Debugging Dependencies</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_Common_Build_Errors">2.3. Common Build Errors</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Sharing_Violation">2.3.1. Sharing Violation</a></span></dt><dt><span class="section"><a href="#xref_Application_Error">2.3.2. Application Error</a></span></dt></dl></dd></dl></div><div class="section" title="2.1.&nbsp;Build Configurations"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Build_Configurations"></a>2.1.&nbsp;Build Configurations</h2></div></div></div><div class="section" title="2.1.1.&nbsp;"><div class="titlepage"></div><div class="section" title="2.1.1.1.&nbsp;Client Build Configuration Summary"><div class="titlepage"><div><div><h4 class="title"><a name="xref_Client_Build_Configuration_Summary"></a>2.1.1.1.&nbsp;Client Build Configuration Summary</h4></div></div></div><p>
+          The client comes with the following main build configurations:
+        </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><em class="emphasis">Debug</em><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+                optimisation disabled (/Od)
+              </li><li class="listitem">
+                linked against the debug CRT (/MDd)
+              </li><li class="listitem">
+                includes full debug information (/ZI)
+              </li><li class="listitem">
+                defines <span class="literal">_DEBUG</span></li><li class="listitem">
+                warning level 3 (/W3),  warnings treated as errors (/WX)
+              </li></ul></div></li><li class="listitem"><em class="emphasis">Hybrid</em><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+                full optimisation (/OX), favor fast code (/Ot)
+              </li><li class="listitem">
+                linked against the CRT with (/MD)
+              </li><li class="listitem">
+                includes some debug information (/Zi)
+              </li><li class="listitem">
+                defines <span class="literal">NDEBUG</span> and
+                <span class="literal">_HYBRID</span></li><li class="listitem">
+                warning level 3 (/W3), warnings treated as errors (/WX)
+              </li></ul></div></li><li class="listitem"><em class="emphasis">Release</em><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+                full optimisation (/OX), favor fast code (/Ot)
+              </li><li class="listitem">
+                linked against the CRT with (/MD)
+              </li><li class="listitem">
+                includes some debug information (/Zi)
+              </li><li class="listitem">
+                defines <span class="literal">NDEBUG</span> and <span class="literal">_RELEASE</span></li><li class="listitem">
+                warning level 3 (/W3), warnings treated as errors (/WX)
+              </li></ul></div></li><li class="listitem"><em class="emphasis">Consumer Release</em><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+                full optimisation (/OX), favor fast code (/Ot)
+              </li><li class="listitem">
+                linked against the CRT with (/MD)
+              </li><li class="listitem">
+                no debug information
+              </li><li class="listitem">
+                defines <span class="literal">NDEBUG</span>,
+                <span class="literal">_RELEASE</span> and
+                <span class="literal">CONSUMER_CLIENT</span></li><li class="listitem">
+                warning level 3 (/W3), warnings treated as errors (/WX)
+              </li><li class="listitem">
+                debug and any remaining developer options are disabled.
+                Most of this is set in <span class="literal">cstdmf/config.hpp</span>.
+              </li></ul></div></li></ul></div></div><div class="section" title="2.1.1.2.&nbsp;Tools Build Configuration Summary"><div class="titlepage"><div><div><h4 class="title"><a name="xref_Tools_Build_Configuration_Summary"></a>2.1.1.2.&nbsp;Tools Build Configuration Summary</h4></div></div></div><p>
+          The tools' build configurations are similar to the client,
+          except they are prefixed with
+          <span class="literal">Editor_</span>. There are no "release" or
+          "consumer release" build configurations for the tools and "hybrid"
+          should be used instead.
+        </p><p>
+          The tools come with the following main build configurations:
+        </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><em class="emphasis">Editor_Debug</em><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+              optimisation disabled (/Od)
+            </li><li class="listitem">
+              linked against the debug CRT with (/MDd)
+            </li><li class="listitem">
+              includes full debug information (/ZI)
+            </li><li class="listitem">
+              defines <span class="literal">_DEBUG</span></li><li class="listitem">
+              warning level 3 (/W3),
+              warnings treated as errors (/WX)
+            </li></ul></div></li><li class="listitem"><em class="emphasis">Editor_Hybrid</em><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+                full optimisation (/OX), favor fast code (/Ot)
+              </li><li class="listitem">
+                linked against the CRT with (/MD)
+              </li><li class="listitem">
+                includes some debug information (/Zi)
+              </li><li class="listitem">
+                defines <span class="literal">NDEBUG</span> and
+                <span class="literal">_HYBRID</span></li><li class="listitem">
+                warning level 3 (/W3), warnings treated as errors (/WX)
+              </li></ul></div></li></ul></div></div><p>
+        In addition there are some build configurations with
+        <span class="literal">_Eval</span> and <span class="literal">_Indie</span> postfixed on
+        their names which are for evaluation and indie BigWorld customers.
+      </p></div><div class="section" title="2.1.2.&nbsp;Property Sheets"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Property_Sheets"></a>2.1.2.&nbsp;Property Sheets</h3></div></div></div><p>The project configurations use property sheets
+      (<span class="literal">.vsprops</span> files)
+      to set the common options for each build configuration for each project.
+      They can be found in <span class="literal">bigworld/src/build/vsprops</span>.
+      </p></div><div class="section" title="2.1.3.&nbsp;Precompiled Headers"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Precompiled_Headers"></a>2.1.3.&nbsp;Precompiled Headers</h3></div></div></div><p>The projects use precompiled headers (.pch files) to increase build speed.</p><p>To duplicate this in a new project:
+        </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+            Create files called <span class="literal">pch.cpp</span> and
+            <span class="literal">pch.hpp</span> in the project directory.
+          </li><li class="listitem">
+            Set the project property
+            <em class="emphasis">Project Properties -&gt; C/C++ -&gt; Precompiled Headers -&gt;
+            Create/Use Precompiled Header</em> to
+            "Use Precompiled Header (/Yu)".
+          </li><li class="listitem">
+            Set the <span class="literal">pch.cpp</span> property
+            <em class="emphasis">Properties -&gt; C/C++ -&gt; Precompiled Headers -&gt;
+            Create/Use Precompiled Header</em> to
+            "Create Precompiled Header (/Yc)".
+          </li></ol></div><p>
+      </p></div></div><div class="section" title="2.2.&nbsp;Libraries"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Libraries"></a>2.2.&nbsp;Libraries</h2></div></div></div><div class="section" title="2.2.1.&nbsp;The C Runtime Library"><div class="titlepage"><div><div><h3 class="title"><a name="xref_C_Runtime_Library"></a>2.2.1.&nbsp;The C Runtime Library</h3></div></div></div><p>
+        The client and tools must be linked against the appropriate
+        C Runtime Library (CRT).
+      </p><p>
+        BigWorld is compiled dynamically against the CRT,
+        using the <span class="literal">/MDd</span> option for debug, and
+        <span class="literal">/MD</span> for release.
+        This decreases the executable size, because it does not include the
+        CRT, but it depends on the user having
+        <span class="literal">MSVCP80.dll</span> or
+        <span class="literal">MSVCP90.dll</span> installed correctly, depending on
+        which version of Visual Studio is being used.
+      </p><p>
+        This requires running <span class="literal">vcredist.exe</span> during
+        installation on end user's computers to ensure the correct DLLs
+        are installed.
+      </p><p>
+        BigWorld does not support compiling statically against the CRT,
+        (using the <span class="literal">/MTd</span> option for debug and,
+        and <span class="literal">/MT</span> for release).
+        This is because care must be taken to ensure that all of
+        the dependent libraries included are also compiled statically
+        against the CRT and BigWorld uses third-party libraries which do not
+        work well with the static CRT. Static linking can also cause memory
+        problems, if for example, CRT allocations are made in the program and
+        then deleted in a library, this is not supported by static linking.
+      </p><p>
+        References:
+        <a class="ulink" href="http://msdn.microsoft.com/en-us/library/abx4dbyh%28v=vs.80%29.aspx" target="_top">
+        C Run-Time Libraries</a> and
+        <a class="ulink" href="http://msdn.microsoft.com/en-us/library/2kzt1wy3%28v=vs.90%29.aspx" target="_top">
+        MSDN Run-Time Library Flags</a>.
+      </p></div><div class="section" title="2.2.2.&nbsp;Debugging Dependencies"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Debugging_Dependencies"></a>2.2.2.&nbsp;Debugging Dependencies</h3></div></div></div><p>
+        Here are some tools that can be used to help debug library dependency
+        issues.
+      </p><div class="section" title="2.2.2.1.&nbsp;Dumpbin"><div class="titlepage"><div><div><h4 class="title"><a name="xref_Dumpbin"></a>2.2.2.1.&nbsp;Dumpbin</h4></div></div></div><p>
+          To get a dump of the dependencies for an executable, you can use
+          the <span class="literal">DUMPBIN</span> command line utility that comes with
+          Visual Studio.
+        </p><p>For example:
+          </p><pre class="programlisting">&gt;dumpbin /DEPENDENTS "&lt;path_to_client&gt;bwclient.exe"
+Microsoft (R) COFF/PE Dumper Version 9.00.30729.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file &lt;path_to_client&gt;bwclient.exe
+
+File Type: EXECUTABLE IMAGE
+
+Image has the following dependencies:
+
+  WINMM.dll
+  WS2_32.dll
+  USER32.dll
+  d3dx9_42.dll
+  PSAPI.DLL
+  KERNEL32.dll
+  GDI32.dll
+  VERSION.dll
+  voip.dll
+  python26.dll
+  MSVCP90.dll
+  MSVCR90.dll
+  WININET.dll
+  IMM32.dll
+  gdiplus.dll
+  umbra.dll
+  ADVAPI32.dll
+  ole32.dll
+  SHELL32.dll
+  DINPUT8.dll
+  d3d9.dll
+  SHLWAPI.dll
+  fmodex.dll
+  fmod_event_net.dll
+  OLEAUT32.dll
+
+Summary
+
+     98000 .data
+     10000 .idata
+    24E000 .rdata
+      4000 .rsrc
+    F9C000 .text
+      B000 .tls</pre><p>
+        </p></div><div class="section" title="2.2.2.2.&nbsp;Dependency Walker"><div class="titlepage"><div><div><h4 class="title"><a name="xref_Dependency_Walker"></a>2.2.2.2.&nbsp;Dependency Walker</h4></div></div></div><p>
+          Another helpful utility is <em class="emphasis">Dependency Walker</em>
+          which will give the same information as DUMPBIN, as well as
+          checking the dependencies of the dependencies.
+          See <a class="ulink" href="http://www.dependencywalker.com/" target="_top">
+          http://www.dependencywalker.com/</a>.
+        </p></div></div></div><div class="section" title="2.3.&nbsp;Common Build Errors"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Common_Build_Errors"></a>2.3.&nbsp;Common Build Errors</h2></div></div></div><div class="section" title="2.3.1.&nbsp;Sharing Violation"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Sharing_Violation"></a>2.3.1.&nbsp;Sharing Violation</h3></div></div></div><p>
+       A build can fail if an instance of the client or tools is running
+       while BigWorld builds, due to the Windows file system not allowing
+       files to be modified while they are being used.
+       You might receive an error like the following:
+     </p><pre class="programlisting">1&gt;------ Build started: Project: bwclient, Configuration: Hybrid Win32 ------
+1&gt;Compiling...
+1&gt;script_bigworld.cpp
+1&gt;Performing Pre-Link Event...
+1&gt;..\lib\third_party\llmozlib2\llmozlib_dll\llmozlib_dll\release_2008\llmozlib_dll.dll
+1&gt;Sharing violation
+1&gt;Project : error PRJ0019: A tool returned an error code from "Performing Pre-Link Event..."
+1&gt;Project : warning PRJ0018 : The following environment variables were not found:
+1&gt;$(GFXSDK)
+1&gt;Build log was saved at "file://d:\bw_2current\bigworld\src\client\obj\Win32\Hybrid_2008\BuildLog.htm"
+1&gt;bwclient - 1 error(s), 0 warning(s)
+========== Build: 0 succeeded, 1 failed, 34 up-to-date, 0 skipped ==========</pre><p>
+       To fix this, go into the <em class="emphasis">Task Manager</em> and
+       stop any BigWorld client or tools processes that are running,
+       then build.
+     </p></div><div class="section" title="2.3.2.&nbsp;Application Error"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Application_Error"></a>2.3.2.&nbsp;Application Error</h3></div></div></div><p>
+       If it's your first time trying to run the debug version of the
+       client and you get an error similar to:
+     </p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/python_dll_error.png" align="middle"></div></div><span class="caption">"The application was unable to start correctly..."</span><p>
+       Additionally if you run it with the Visual Studio debugger you might
+       see that it got up to loading the Python DLL in the output window
+       before stopping.
+     </p><p>
+       This typically happens if you have a copy of
+       <span class="literal">python26_d.dll</span>
+       which was compiled with an incompatible version of Visual Studio.
+       For example, if you have a copy of the DLL which was compiled with
+       Visual Studio 2005, but the client has been compiled with
+       Visual Studio 2008. To fix this, try compiling
+       the Python DLL with your version of Visual Studio, see
+       <a href="./html/python_and_c/python_and_c.html#xref_Building_Client_Tools" class="olink">Building for the Client and Content Creation Tools</a>.
+     </p></div></div></div></div></div></body></html>

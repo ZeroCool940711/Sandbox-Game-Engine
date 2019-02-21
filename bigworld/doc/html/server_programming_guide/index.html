@@ -1,0 +1,746 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Server Programming Guide</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Programming Guide">
+      <link rel="next" href="pt01.html" title="Part&nbsp;I.&nbsp;Server Scripting Guide">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_programming_guide/index.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Server Programming Guide</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left">&nbsp;</td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="pt01.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="book" title="Server Programming Guide">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h1 class="title"><a name="Server_Programming_Guide"></a>Server Programming Guide
+                     </h1>
+                  </div>
+                  <div>
+                     <p class="releaseinfo">BigWorld Technology 2.1. Released 2012.</p>
+                  </div>
+                  <div>
+                     <p class="copyright">Copyright &copy; 1999-2012 BigWorld Pty Ltd. All rights reserved. </p>
+                  </div>
+                  <div>
+                     <div class="legalnotice" title="Legal Notice"><a name="d0e17"></a><p>This document is proprietary commercial in confidence and access
+                           is restricted to authorised users. This document is protected by
+                           copyright laws of Australia, other countries and international treaties.
+                           Unauthorised use, reproduction or distribution of this document, or any
+                             portion of this document, may result in the imposition of civil and
+                             criminal penalties as provided by law.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <hr>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="part"><a href="pt01.html">I. Server Scripting Guide</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="chapter"><a href="ch01.html">1. Overview</a></span></dt>
+                        <dt><span class="chapter"><a href="ch02.html">2. Directory Structure for Entity Scripting</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch02.html#xref_The_entities_xml_File">2.1. The entities.xml File</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#xref_The_Definition_File">2.2. The Entity Definition File</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#xref_The_Script_Files">2.3. The Entity Script Files</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch03.html">3. Directory Structure for Service Scripting</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch03.html#xref_The_services_xml_File">3.1. The services.xml File</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#xref_The_service_definition_File">3.2. The Service Definition File</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#xref_The_Service_Script_Files">3.3. The Service Script Files</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch04.html">4. Directory Structure for User Data Object Scripting</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch04.html#xref_The_udos_xml_File">4.1. The user_data_objects.xml File</a></span></dt>
+                              <dt><span class="section"><a href="ch04.html#xref_The_UDO_Definition_File">4.2. The User Data Object Definition File</a></span></dt>
+                              <dt><span class="section"><a href="ch04.html#xref_The_UDO_Script_Files">4.3. The User Data Object Script Files</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch05.html">5. Properties</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch05.html#xref_Property_Types">5.1. Property Types</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch05.html#xref_Primitive_Types">5.1.1. Primitive Types</a></span></dt>
+                                    <dt><span class="section"><a href="ch05.html#xref_Composite_Types">5.1.2. Composite Types</a></span></dt>
+                                    <dt><span class="section"><a href="ch05.html#xref_Custom_User_Types">5.1.3. Custom User Types</a></span></dt>
+                                    <dt><span class="section"><a href="ch05.html#xref_Alias_Of_Data_Types">5.1.4. Alias of Data Types</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch05.html#xref_ServerClientBandwidthPropertyUpdates">5.2. Server to Client bandwidth usage of Property updates</a></span></dt>
+                              <dt><span class="section"><a href="ch05.html#xref_Default_Values">5.3. Default Values</a></span></dt>
+                              <dt><span class="section"><a href="ch05.html#xref_Data_Distribution">5.4. Data Distribution</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch05.html#xref_Data_Distribution_Combinations">5.4.1. Valid Data Distribution Combinations</a></span></dt>
+                                    <dt><span class="section"><a href="ch05.html#xref_Data_Distribution_Usage">5.4.2. Using Distribution Flags</a></span></dt>
+                                    <dt><span class="section"><a href="ch05.html#d0e2833">5.4.3. Data Propagation</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch05.html#xref_Implementing_Custom_Property_Data_Types">5.5. Implementing Custom Property Data Types</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch05.html#d0e3025">5.5.1. Wrapping a FIXED_DICT Data Type</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch05.html#xref_Volatile_Properties">5.6. Volatile Properties</a></span></dt>
+                              <dt><span class="section"><a href="ch05.html#xref_LOD_Level_Of_Detail_On_Properties">5.7. LOD (Level of Detail) on Properties</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch05.html#d0e4113">5.7.1. LOD and Hysteresis</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch05.html#xref_Send_Latest_Only">5.8. Bandwidth Optimisation: Send Latest Only</a></span></dt>
+                              <dt><span class="section"><a href="ch05.html#xref_Prop_Is_Reliable">5.9. Bandwidth Optimisation: Is Reliable</a></span></dt>
+                              <dt><span class="section"><a href="ch05.html#xref_detailed_position">5.10. Detailed Position</a></span></dt>
+                              <dt><span class="section"><a href="ch05.html#xref_Appeal_Radius">5.11. Appeal Radius</a></span></dt>
+                              <dt><span class="section"><a href="ch05.html#d0e4464">5.12. Temporary Properties</a></span></dt>
+                              <dt><span class="section"><a href="ch05.html#xref_Persistent">5.13. Persistent</a></span></dt>
+                              <dt><span class="section"><a href="ch05.html#xref_UDO_Linking">5.14. User Data Object Linking With <span class="literal">UDO_REF</span>
+                                           Properties</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch06.html">6. Methods</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch06.html#d0e4710">6.1. Basic Method Specification</a></span></dt>
+                              <dt><span class="section"><a href="ch06.html#xref_Two_Way_Calls">6.2. Two-way calls</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch06.html#xref_twisted_deferred_objects">6.2.1. Twisted Deferred Objects</a></span></dt>
+                                    <dt><span class="section"><a href="ch06.html#xref_Two_Way_Errors">6.2.2. Error objects</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch06.html#d0e5189">6.3. Service Methods</a></span></dt>
+                              <dt><span class="section"><a href="ch06.html#xref_Intra_Entity_Communication">6.4. Intra-Entity Communication</a></span></dt>
+                              <dt><span class="section"><a href="ch06.html#xref_Send_Latest_Only_Method">6.5. Bandwidth Optimisation: Send Latest Only</a></span></dt>
+                              <dt><span class="section"><a href="ch06.html#xref_Method_Is_Reliable">6.6. Bandwidth Optimisation: Is Reliable</a></span></dt>
+                              <dt><span class="section"><a href="ch06.html#xref_Auxiliary_Data">6.7. Sending Auxiliary Data to the Client Via Proxy</a></span></dt>
+                              <dt><span class="section"><a href="ch06.html#xref_SPG_ExposedMethods">6.8. Exposed Methods <span class="symbol">&#8208;</span>
+                                           Client-to-Server Communication</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch06.html#d0e5655">6.8.1. Security Considerations of Exposed Methods</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch06.html#xref_ServerClientBandwidthMethodCalls">6.9. Server to Client bandwidth usage of Method calls</a></span></dt>
+                              <dt><span class="section"><a href="ch06.html#xref_Implicit_set_property_name_Methods">6.10. Client callbacks on property changes</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch06.html#d0e5724">6.10.1. Implicit
+                                                   <code class="methodname">set_<em class="replaceable"><code>&lt;property_name&gt;</code></em></code>
+                                                   Methods</a></span></dt>
+                                    <dt><span class="section"><a href="ch06.html#d0e5807">6.10.2. Implicit
+                                                   <code class="methodname">setNested_<em class="replaceable"><code>&lt;property_name&gt;</code></em></code>
+                                                   Methods</a></span></dt>
+                                    <dt><span class="section"><a href="ch06.html#d0e5859">6.10.3. Implicit
+                                                   <code class="methodname">setSlice_<em class="replaceable"><code>&lt;property_name&gt;</code></em></code>
+                                                   Methods</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch06.html#d0e5902">6.11. LOD on Methods</a></span></dt>
+                              <dt><span class="section"><a href="ch06.html#xref_Inter_Entity_Communication">6.12. Inter-Entity Communication</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch06.html#d0e5991">6.12.1. Entity IDs</a></span></dt>
+                                    <dt><span class="section"><a href="ch06.html#d0e6154">6.12.2. Retrieving Services</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch06.html#xref_Mailboxes">6.13. Mailboxes</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch06.html#xref_Mailboxes_Special">6.13.1. Special Mailboxes</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch06.html#d0e6520">6.14. Method Execution Context</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch07.html">7. Inheritance in BigWorld</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch07.html#d0e6757">7.1. Python Class Inheritance</a></span></dt>
+                              <dt><span class="section"><a href="ch07.html#xref_Entity_Interfaces">7.2. Entity Interfaces</a></span></dt>
+                              <dt><span class="section"><a href="ch07.html#xref_Entity_Parents">7.3. Entity Parents</a></span></dt>
+                              <dt><span class="section"><a href="ch07.html#xref_Client_Entity_Reuse">7.4. Client Entity Reuse</a></span></dt>
+                              <dt><span class="section"><a href="ch07.html#d0e7171">7.5. User Data Object Interfaces and Parents</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch08.html">8. Entity Instantiation and Destruction</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch08.html#xref_Entity_Instantiation_On_The_BaseApp">8.1. Entity Instantiation on the BaseApp</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch08.html#d0e7333">8.1.1. ServiceApps</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch08.html#xref_Cell_Entity_Creation_From_BaseApp">8.2. Cell Entity Creation From BaseApp</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch08.html#d0e7471">8.2.1. Creation Near an Existing Cell Entity</a></span></dt>
+                                    <dt><span class="section"><a href="ch08.html#d0e7559">8.2.2. Creation in a Numbered Space</a></span></dt>
+                                    <dt><span class="section"><a href="ch08.html#d0e7609">8.2.3. Creation in a New Space</a></span></dt>
+                                    <dt><span class="section"><a href="ch08.html#d0e7629">8.2.4. Creation in Default Space</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch08.html#d0e7659">8.3. Entity Destruction</a></span></dt>
+                              <dt><span class="section"><a href="ch08.html#d0e7775">8.4. Entity Instantiation From The CellApp</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch08.html#d0e7780">8.4.1. Instantiation With No Base Counterpart</a></span></dt>
+                                    <dt><span class="section"><a href="ch08.html#d0e7840">8.4.2. Instantiation With Base Counterpart</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch08.html#d0e7901">8.5. Loading Entities From Chunk Files</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch09.html">9. The Database Layer</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch09.html#d0e7980">9.1. Persistent Properties</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch09.html#xref_Non_Persistent_Properties">9.1.1. Non-Persistent Properties</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#xref_Built_In_Properties">9.1.2. Built-In Properties</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#xref_Database_Indexing">9.1.3. Database Indexing</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#xref_The_Identifier_Tag">9.1.4. The Identifier Tag</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch09.html#xref_Reading_And_Writing_Entities">9.2. Reading and Writing Entities</a></span></dt>
+                              <dt><span class="section"><a href="ch09.html#xref_Mapping_BigWorld_Properties_Into_SQL">9.3. Mapping BigWorld Properties Into SQL</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch09.html#d0e8532">9.3.1. Entity Tables</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#d0e8558">9.3.2. The <code class="varname">databaseID</code> property</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#d0e8572">9.3.3. Simple Data Types</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#d0e8669">9.3.4. <span class="type">VECTOR</span> Data Types</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#xref_STRING_UNICODE_STRING_BLOB_and_data_types">9.3.5. <span class="type">STRING</span>, <span class="type">UNICODE_STRING</span>,
+                                                   <span class="type">BLOB</span>, and <span class="type">PYTHON</span> Data Types</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#d0e9011">9.3.6. <span class="type">PATROL_PATH</span> and <span class="type">UDO_REF</span> Data
+                                                   Types</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#d0e9048">9.3.7. <span class="type">ARRAY</span>s and <span class="type">TUPLE</span>s</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#xref_FIXED_DICTs">9.3.8. <span class="type">FIXED_DICT</span>s</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#d0e9379">9.3.9. <span class="type">USER_TYPE</span>s</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch09.html#d0e10057">9.4. Execute Arbitrary Commands on Database</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch09.html#d0e10070">9.4.1. Execute Commands on SQL
+                                                   Database</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#d0e10172">9.4.2. Execute Commands on XML Database</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch09.html#xref_Secondary_Databases">9.5. Secondary Databases</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch09.html#xref_Data_Consolidation">9.5.1. Data Consolidation</a></span></dt>
+                                    <dt><span class="section"><a href="ch09.html#xref_Database_Snapshot">9.5.2. Database Snapshot</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch10.html">10. Character Sets and Encodings</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch10.html#xref_Python_Character_Sets">10.1. Python and Entity Properties</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch10.html#xref_Encoding_Python_String">10.1.1. <span class="literal">STRING</span></a></span></dt>
+                                    <dt><span class="section"><a href="ch10.html#xref_Encoding_Python_Unicode_String">10.1.2. <span class="literal">UNICODE_STRING</span></a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch10.html#xref_DBMgr_Character_Sets">10.2. DBMgr and Encodings</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch10.html#xref_DBMgr_MySQL_UNICODE_STRING">10.2.1. UNICODE_STRING storage</a></span></dt>
+                                    <dt><span class="section"><a href="ch10.html#xref_Encodings_Sorting_Search_Results">10.2.2. Sorting search results</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch11.html">11. Profiling</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch11.html#xref_Profiling_Entities">11.1. Profiling Entities</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch11.html#d0e10869">11.1.1. Persistent Properties</a></span></dt>
+                                    <dt><span class="section"><a href="ch11.html#d0e10876">11.1.2. Property Data Types</a></span></dt>
+                                    <dt><span class="section"><a href="ch11.html#d0e10881">11.1.3. Property Data Propagation</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch11.html#xref_Profiling_Python_Script">11.2. Python Game Script</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch11.html#xref_Understanding_PyProfile_Output">11.2.1. Understanding the output</a></span></dt>
+                                    <dt><span class="section"><a href="ch11.html#d0e10983">11.2.2. Increasing Memory Usage / Entity Count</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch11.html#xref_Profiling_Server_Processes">11.3. Profiling Server Processes (C++ Code)</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch11.html#d0e11015">11.3.1. Common Code Block Profiles</a></span></dt>
+                                    <dt><span class="section"><a href="ch11.html#d0e11054">11.3.2. BaseApp Code Block Profiles</a></span></dt>
+                                    <dt><span class="section"><a href="ch11.html#d0e11107">11.3.3. CellApp Code Block Profiles</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch11.html#xref_Profiling_Client_Communication">11.4. Client Communication</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch11.html#d0e11272">11.4.1. Private Client Events</a></span></dt>
+                                    <dt><span class="section"><a href="ch11.html#d0e11305">11.4.2. Public Client Events</a></span></dt>
+                                    <dt><span class="section"><a href="ch11.html#d0e11342">11.4.3. Total Public Client Events</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch11.html#xref_Profiling_Server_Communication">11.5. Server Communication</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch11.html#xref_BaseApp_Interface_Summary">11.5.1. BaseApp Interface Summary</a></span></dt>
+                                    <dt><span class="section"><a href="ch11.html#d0e11687">11.5.2. CellApp Interface Summary</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch12.html">12. Proxies and Players</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch12.html#d0e11806">12.1. Proxies</a></span></dt>
+                              <dt><span class="section"><a href="ch12.html#d0e11895">12.2. Witnesses</a></span></dt>
+                              <dt><span class="section"><a href="ch12.html#xref_Entity_Control">12.3. Entity Control</a></span></dt>
+                              <dt><span class="section"><a href="ch12.html#xref_Physics_Correction">12.4. Physics Correction</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch12.html#d0e12076">12.4.1. Avoiding Y-axis rubber-banding.</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch13.html">13. Entities and the Universe</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch13.html#d0e12115">13.1. Multiple Spaces</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch13.html#d0e12225">13.1.1. Spaces Pool</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch13.html#xref_Navigation_System">13.2. Navigation System</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch13.html#d0e12240">13.2.1. Key Features</a></span></dt>
+                                    <dt><span class="section"><a href="ch13.html#d0e12258">13.2.2. Navpoly Data Format</a></span></dt>
+                                    <dt><span class="section"><a href="ch13.html#d0e12286">13.2.3. Script Interface</a></span></dt>
+                                    <dt><span class="section"><a href="ch13.html#d0e12433">13.2.4. Navigate</a></span></dt>
+                                    <dt><span class="section"><a href="ch13.html#d0e12472">13.2.5. Graph Searches</a></span></dt>
+                                    <dt><span class="section"><a href="ch13.html#xref_navmesh_generation">13.2.6. Auto-Generation of Navpoly Regions</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch13.html#d0e12690">13.3. Time</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch13.html#d0e12697">13.3.1. Real Time</a></span></dt>
+                                    <dt><span class="section"><a href="ch13.html#d0e12702">13.3.2. Server Time</a></span></dt>
+                                    <dt><span class="section"><a href="ch13.html#xref_Game_Time">13.3.3. Game Time</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch13.html#xref_Initialisation_Personality_Script_eload_And_runscript">13.4. Initialisation: Personality script, eload, and runscript</a></span></dt>
+                              <dt><span class="section"><a href="ch13.html#d0e13033">13.5. Global Data</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch13.html#d0e13043">13.5.1. <code class="varname">globalData</code>, <code class="varname">baseAppData</code> and
+                                                   <code class="varname">cellAppData</code></a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch13.html#xref_Space_Data">13.6. Space Data</a></span></dt>
+                              <dt><span class="section"><a href="ch13.html#xref_Global_Bases">13.7. Global Bases</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch14.html">14. XML Data File Access</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch14.html#d0e13492">14.1. <code class="classname">ResMgr</code>.<code class="classname">DataSection</code></a></span></dt>
+                              <dt><span class="section"><a href="ch14.html#xref_Accessing_Data">14.2. Accessing Data</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch14.html#d0e13534">14.2.1. Opening a Section Within an XML File</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch14.html#d0e13549">14.3. Data Types</a></span></dt>
+                              <dt><span class="section"><a href="ch14.html#d0e13651">14.4. Writing Data</a></span></dt>
+                              <dt><span class="section"><a href="ch14.html#d0e13715">14.5. Performance Issues</a></span></dt>
+                              <dt><span class="section"><a href="ch14.html#d0e13724">14.6. API Reference</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch15.html">15. External Services</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch15.html#xref_Non-blocking_Methods">15.1. Non-blocking Methods</a></span></dt>
+                              <dt><span class="section"><a href="ch15.html#xref_Background_Threads">15.2. Background Threads</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch15.html#d0e13913">15.2.1. Caveats</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch16.html">16. Fault Tolerance</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch16.html#d0e13932">16.1. CellApp Fault Tolerance</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch16.html#d0e13935">16.1.1. Overview</a></span></dt>
+                                    <dt><span class="section"><a href="ch16.html#d0e13948">16.1.2. Restoration process</a></span></dt>
+                                    <dt><span class="section"><a href="ch16.html#d0e14001">16.1.3. Example</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch16.html#d0e14034">16.2. BaseApp Fault Tolerance</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch17.html">17. Disaster Recovery</a></span></dt>
+                        <dt><span class="chapter"><a href="ch18.html">18. Controlled Startup and Shutdown</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch18.html#d0e14141">18.1. Controlled Shutdown</a></span></dt>
+                              <dt><span class="section"><a href="ch18.html#d0e14271">18.2. Controlled Startup</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch19.html">19. Transactions and Handling Fault Tolerance and Disaster
+                                   Recovery</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch19.html#d0e14342">19.1. Transaction logic</a></span></dt>
+                              <dt><span class="section"><a href="ch19.html#d0e14428">19.2. Fault Tolerance Behaviour</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch19.html#d0e14431">19.2.1. CellApp Fault Tolerance</a></span></dt>
+                                    <dt><span class="section"><a href="ch19.html#d0e14454">19.2.2. BaseApp
+                                                   Fault Tolerance</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch19.html#d0e14481">19.3. Disaster Recovery Behaviour</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch20.html">20. Implementing Common Systems</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch20.html#d0e14511">20.1. General Scalability</a></span></dt>
+                              <dt><span class="section"><a href="ch20.html#d0e14530">20.2. Internal inter-component communication</a></span></dt>
+                              <dt><span class="section"><a href="ch20.html#xref_Player_AoI_Updates">20.3. Player AoI Updates</a></span></dt>
+                              <dt><span class="section"><a href="ch20.html#d0e14585">20.4. BigWorld Database Scalability</a></span></dt>
+                              <dt><span class="section"><a href="ch20.html#d0e14627">20.5. Player Look-up</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch20.html#d0e14630">20.5.1. Requirements</a></span></dt>
+                                    <dt><span class="section"><a href="ch20.html#d0e14642">20.5.2. Design</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch20.html#d0e14719">20.6. Friends lists</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch20.html#d0e14722">20.6.1. Requirements</a></span></dt>
+                                    <dt><span class="section"><a href="ch20.html#d0e14737">20.6.2. Design</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch20.html#d0e14934">20.7. Chat</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch20.html#d0e14947">20.7.1. P2P</a></span></dt>
+                                    <dt><span class="section"><a href="ch20.html#d0e14979">20.7.2. AoI-based broadcast chat</a></span></dt>
+                                    <dt><span class="section"><a href="ch20.html#d0e15000">20.7.3. Non-AoI-based broadcast chat</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch20.html#d0e15029">20.8. Mail</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch20.html#d0e15032">20.8.1. Requirements</a></span></dt>
+                                    <dt><span class="section"><a href="ch20.html#d0e15037">20.8.2. Design</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch20.html#d0e15048">20.9. Inventory System</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch20.html#d0e15051">20.9.1. Requirements</a></span></dt>
+                                    <dt><span class="section"><a href="ch20.html#d0e15063">20.9.2. Design</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch20.html#d0e15091">20.10. AoI-based Trading</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch20.html#d0e15094">20.10.1. Requirements</a></span></dt>
+                                    <dt><span class="section"><a href="ch20.html#d0e15103">20.10.2. Design</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch21.html">21. User Authentication and Billing System Integration</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch21.html#d0e15243">21.1. Authentication by DBMgr</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch21.html#xref_bigworldLogOnMapping_Table">21.1.1. Default Authentication via MySQL</a></span></dt>
+                                    <dt><span class="section"><a href="ch21.html#d0e15366">21.1.2. Default Authentication via XML</a></span></dt>
+                                    <dt><span class="section"><a href="ch21.html#d0e15446">21.1.3. Custom Authentication and Billing System Integration</a></span></dt>
+                                    <dt><span class="section"><a href="ch21.html#xref_Accepting_All_Users">21.1.4. Accepting All Users</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch21.html#xref_Bypassing_bigworldLogOnMapping_And_Using_Account_Entity">21.2. Authentication via a Base entity</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch22.html">22. Security</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch22.html#d0e15746">22.1. Client/Server Communications</a></span></dt>
+                              <dt><span class="section"><a href="ch22.html#d0e15835">22.2. Server-Side Network</a></span></dt>
+                              <dt><span class="section"><a href="ch22.html#d0e15872">22.3. Client Side</a></span></dt>
+                              <dt><span class="section"><a href="ch22.html#d0e15889">22.4. Client Cheating</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch22.html#d0e15901">22.4.1. General Rules for Managing Entity Data</a></span></dt>
+                                    <dt><span class="section"><a href="ch22.html#d0e15934">22.4.2. Writing Secure Game Script</a></span></dt>
+                                    <dt><span class="section"><a href="ch22.html#d0e15947">22.4.3. Balancing Security vs. Latency</a></span></dt>
+                                    <dt><span class="section"><a href="ch22.html#d0e15954">22.4.4. Balancing Security vs. Server CPU Cost</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch23.html">23. Debugging</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch23.html#d0e15964">23.1. General Debugging</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch23.html#d0e15967">23.1.1. Information and Error Messages</a></span></dt>
+                                    <dt><span class="section"><a href="ch23.html#d0e16001">23.1.2. Testing Scripts Using the Python Server</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch23.html#d0e16097">23.2. Performance Profiling</a></span></dt>
+                              <dt><span class="section"><a href="ch23.html#d0e16157">23.3. Common Mistakes</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch23.html#d0e16160">23.3.1. Definition Files Inconsistent Between the Server and
+                                                   Client</a></span></dt>
+                                    <dt><span class="section"><a href="ch23.html#d0e16169">23.3.2. Implementation (<span class="literal">.py</span>) Does Not Match Definition
+                                                   (<span class="literal">.def</span>)</a></span></dt>
+                                    <dt><span class="section"><a href="ch23.html#d0e16187">23.3.3. Accessing Other Entities' Properties and Methods Not Declared in
+                                                   the Definition File</a></span></dt>
+                                    <dt><span class="section"><a href="ch23.html#d0e16202">23.3.4. Trying to Update the Properties of a Ghost Entity</a></span></dt>
+                                    <dt><span class="section"><a href="ch23.html#d0e16229">23.3.5. Database backup and fault tolerance doesn't work for entities
+                                                   lacking a Base part</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch23.html#d0e16238">23.4. Fixed Cell Boundaries</a></span></dt>
+                              <dt><span class="section"><a href="ch23.html#d0e16306">23.5. Message Reliability And Ordering</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch24.html">24. Shared Development Environments</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch24.html#xref_Window_Linux_Cross_Platform_Development">24.1. Windows and Linux cross platform development</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch24.html#xref_Sharing_Resources_From_Windows">24.1.1. Sharing resources from Windows</a></span></dt>
+                                    <dt><span class="section"><a href="ch24.html#d0e16550">24.1.2. Accessing Windows share from Linux</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch24.html#d0e16707">24.2. Using BigWorld with a Version Control System</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch24.html#d0e16712">24.2.1. Customers using the Commercial Edition</a></span></dt>
+                                    <dt><span class="section"><a href="ch24.html#d0e16721">24.2.2. Customers using the Indie Edition</a></span></dt>
+                                    <dt><span class="section"><a href="ch24.html#xref_Version_Control_Exclusions">24.2.3. Files to exclude from version
+                                                   control</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch24.html#d0e16831">24.3. DBMgr database conflicts</a></span></dt>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+                  <dt><span class="part"><a href="pt02.html">II. Server C++ Programming Guide</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="chapter"><a href="ch25.html">25. Overview</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch25.html#xref_Compilation">25.1. Compilation</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch25.html#xref_Output_Directories">25.1.1. Output Directories</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch26.html">26. Extending BigWorld Server</a></span></dt>
+                        <dt><span class="chapter"><a href="ch27.html">27. Entity Extras and Controllers</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch27.html#d0e17071">27.1. Implementing Entity Extras</a></span></dt>
+                              <dt><span class="section"><a href="ch27.html#d0e17270">27.2. Implementing Controllers</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch27.html#d0e17594">27.2.1. Configuring Portal's Permissivity</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch27.html#d0e17672">27.3. Integrating Entity Extras and Controllers</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch27.html#d0e17778">27.3.1. Restricting the Number of Controllers Per Entity</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch28.html">28. Updatable Objects</a></span></dt>
+                        <dt><span class="chapter"><a href="ch29.html">29. Encrypting Client-Server Traffic</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch29.html#xref_Generating_RSA_Keypair">29.1. Generating your own RSA keypair</a></span></dt>
+                              <dt><span class="section"><a href="ch29.html#d0e17943">29.2. Working with multiple keys</a></span></dt>
+                              <dt><span class="section"><a href="ch29.html#d0e17957">29.3. Customising the symmetric encryption algorithm</a></span></dt>
+                              <dt><span class="section"><a href="ch29.html#xref_How_Packet_Filters_Work">29.4. How PacketFilters work</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch29.html#d0e17992">29.4.1. High-level requirements</a></span></dt>
+                                    <dt><span class="section"><a href="ch29.html#d0e18016">29.4.2. Filtering mechanics and requirements</a></span></dt>
+                                    <dt><span class="section"><a href="ch29.html#d0e18119">29.4.3. Extra space for filtering</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch30.html">30. Mercury Packet Structure</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch30.html#d0e18193">30.1. Header</a></span></dt>
+                              <dt><span class="section"><a href="ch30.html#d0e18206">30.2. Messages</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch30.html#d0e18250">30.2.1. Fixed-Length Messages</a></span></dt>
+                                    <dt><span class="section"><a href="ch30.html#d0e18269">30.2.2. Variable-Length Messages</a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch30.html#d0e18288">30.3. Footers</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch30.html#d0e18298">30.3.1. Fragment Numbers</a></span></dt>
+                                    <dt><span class="section"><a href="ch30.html#d0e18313">30.3.2. Sequence Number</a></span></dt>
+                                    <dt><span class="section"><a href="ch30.html#d0e18321">30.3.3. ACKs</a></span></dt>
+                                    <dt><span class="section"><a href="ch30.html#d0e18334">30.3.4. Indexed Channel ID</a></span></dt>
+                                    <dt><span class="section"><a href="ch30.html#d0e18342">30.3.5. First Request Offset and <span class="literal">replyID</span></a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch31.html">31. The Watcher Interface</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch31.html#d0e18425">31.1. Callable Function Watchers</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch31.html#xref_Forwarding_Watchers">31.1.1. Forwarding Watchers</a></span></dt>
+                                    <dt><span class="section"><a href="ch31.html#xref_Implement_Function_Watchers">31.1.2. Implementing Function Watchers</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch32.html">32. Debug Message Macros</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch32.html#d0e18797">32.1. Centralised Logging</a></span></dt>
+                              <dt><span class="section"><a href="ch32.html#xref_Filtering_By_Priority">32.2. Filtering by Priority</a></span></dt>
+                              <dt><span class="section"><a href="ch32.html#d0e18848">32.3. Message Priority</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch33.html">33. Non-Blocking Socket I/O Using Mercury</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch33.html#d0e18974">33.1. Getting Callbacks From Mercury::EventDispatcher</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="chapter"><a href="ch34.html">34. MySQL Database Schema</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch34.html#xref_Entity_Tables">34.1. Entity Tables</a></span></dt>
+                              <dt><span class="section"><a href="ch34.html#xref_Non_Entity_Tables">34.2. Non-Entity Tables</a></span></dt>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+                  <dt><span class="part"><a href="pt03.html">III. Extending WebConsole</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="chapter"><a href="ch35.html">35. Web Console</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch35.html#d0e19312">35.1. Adding a Page to a Module</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch35.html#d0e19336">35.1.1. Create a Template KID File</a></span></dt>
+                                    <dt><span class="section"><a href="ch35.html#d0e19376">35.1.2. Edit <code class="filename">controllers.py</code></a></span></dt>
+                                 </dl>
+                              </dd>
+                              <dt><span class="section"><a href="ch35.html#d0e19424">35.2. Adding a Module</a></span></dt>
+                              <dt><span class="section"><a href="ch35.html#d0e19513">35.3. Add an Action Item to ClusterControl</a></span></dt>
+                              <dd>
+                                 <dl>
+                                    <dt><span class="section"><a href="ch35.html#xref_Adding_A_Menu_Item_For_An_Existing_Component_Type">35.3.1. Adding a Menu Item for an Existing Component Type</a></span></dt>
+                                    <dt><span class="section"><a href="ch35.html#d0e19563">35.3.2. Adding a Menu Item for a New Component Type</a></span></dt>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left">&nbsp;</td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="pt01.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">&nbsp;</td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="40%" align="right" valign="top">&nbsp;Part&nbsp;I.&nbsp;Server Scripting Guide</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

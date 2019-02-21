@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	backgroundColor="#000000"
+	backgroundGradientAlphas="[]"  
+    backgroundImage=""
+    backgroundAlpha="0" 
+	layout="vertical" borderSkin="ApplicationBackground" creationComplete="onLoad()"  height="100%" width="100%" resize="onResize()" >
+	<mx:states>	
+		<mx:State name="tab">
+			<mx:AddChild position="lastChild">
+				<mx:TabNavigator id="tn" width="75%" height="90%"
+					borderSkin="ConfigurationBackground"  tabIndex="0">
+					<!--mx:VBox label="Entity Size" fontSize="12" height="85%" width="75%" 
+						borderSkin="ConfigurationBackground" 
+						backgroundImage=""
+						backgroundAlpha="0" 
+						backgroundColor="#ffffff"
+						borderColor="#ff8000"
+						borderStyle="none"
+						themeColor="#ff8000">
+					    <mx:Spacer width="100%" height="10%"/>
+					    <mx:HBox width="100%">
+					    	<mx:Spacer width="95" height="20"/>
+					    	<mx:RadioButton id="size25"  label="25%" change="ApplyEntityScale.enabled = true,ApplyEntityIcon.enabled = true"/>
+					    </mx:HBox>
+					    <mx:Spacer width="100%" height="10%"/>
+					    <mx:HBox width="100%">
+					    	<mx:Spacer width="95" height="20"/>
+					    	<mx:RadioButton id="size50"  label="50%" change="ApplyEntityScale.enabled = true,ApplyEntityIcon.enabled = true"/>
+					    </mx:HBox>
+					    <mx:Spacer width="100%" height="10%"/>
+					    <mx:HBox width="100%">
+					    	<mx:Spacer width="95" height="20"/>
+					    	<mx:RadioButton id="size75" label="75%" selected="true" change="ApplyEntityScale.enabled = true,ApplyEntityIcon.enabled = true"/>
+					    </mx:HBox>
+					    <mx:Spacer width="100%" height="10%"/>
+					    <mx:HBox width="100%">
+					    	<mx:Spacer width="95" height="20"/>
+					    	<mx:RadioButton id="size100"  label="100%" change="ApplyEntityScale.enabled = true,ApplyEntityIcon.enabled = true"/>
+					    </mx:HBox>
+					    <mx:Spacer width="100%" height="10%"/>
+					    <mx:HBox width="100%">
+					    	<mx:Spacer width="95" height="20"/>
+					       	<mx:RadioButton id="size150" label="150%" change="ApplyEntityScale.enabled = true,ApplyEntityIcon.enabled = true"/>
+					    </mx:HBox>
+					    <mx:Spacer width="100%" height="10%"/>
+					    <mx:HBox width="100%" height="30">
+					    	<mx:Spacer width="95" height="20"/>
+					    	<mx:RadioButton id="CustomScale" change="customValue.text='',ApplyEntityScale.enabled = true,ApplyEntityIcon.enabled = true" label="Custom Scale"/>
+					    	<mx:TextInput   id="customValue" visible="{CustomScale.selected}" enabled="{CustomScale.selected}" change="ApplyEntityScale.enabled = true,ApplyEntityIcon.enabled = true"/>
+					    </mx:HBox>
+					    <mx:HBox width="100%">
+					    	<mx:Spacer width="{tn.width/2}" height="10%"/>
+					        <mx:Button id="ApplyEntityScale" label="Apply" click="onApply(),ApplyEntityScale.enabled = false"/>
+					        <mx:Button  id="okButton" label="OK" click="onClickOk()" keyUp="{if(event.keyCode==13) onClickOk()}" />
+					        <mx:Button label="Cancel"  click="onCancel()" keyUp="{if(event.keyCode==13) onCancel()}" />
+					    </mx:HBox>                            
+				    </mx:VBox-->
+				    <mx:VBox label="Entity Icon" fontSize="12" height="85%" width="75%" 
+				    	borderSkin="ConfigurationBackground" 
+				        backgroundImage=""
+				        backgroundAlpha="0" 
+				        backgroundColor="#ffffff"
+				        borderColor="#ff8000"
+				        borderStyle="none"
+				        themeColor="#ff8000" borderThickness="2">
+				        <mx:Spacer width="100%" height="19"/>
+				        <mx:HBox width="100%">
+				            <mx:Spacer width="20" height="20"/>
+				            <mx:Label text="Entity size"/>
+				        </mx:HBox>
+				        <mx:HBox width="100%">
+				        	<mx:Spacer width="20" height="20"/>
+				            <mx:RadioButton id="size25"  label="25%" change="ApplyEntityIcon.enabled = true"/>
+				            <mx:RadioButton id="size50"  label="50%" change="ApplyEntityIcon.enabled = true"/>
+				            <mx:RadioButton id="size75" label="75%" selected="true" change="ApplyEntityIcon.enabled = true"/>
+				            <mx:RadioButton id="size100"  label="100%" change="ApplyEntityIcon.enabled = true"/>
+				            <mx:RadioButton id="size150" label="150%" change="ApplyEntityIcon.enabled = true"/>
+				            <mx:RadioButton id="CustomScale" change="customValue.text='',ApplyEntityIcon.enabled = true" label="Custom Scale"/>
+				            <mx:TextInput   id="customValue" visible="{CustomScale.selected}" enabled="{CustomScale.selected}" change="ApplyEntityIcon.enabled = true" width="100"/>
+				        </mx:HBox>
+				        <mx:Spacer width="100%" height="10%"/>
+				        <mx:HBox width="100%">
+				            <mx:Spacer width="20" height="20"/>
+				            <mx:Label text="Entity type"/>
+				            <mx:ComboBox id="entity_list" change="onChangeCombo()" selectedIndex="0" dataProvider="{entitynames}"></mx:ComboBox>
+				        </mx:HBox>
+				        <mx:Spacer width="100%" height="19%"/>
+				        <mx:HBox width="100%" color="#000000">
+				            <mx:Spacer width="20"/>
+				            <mx:CheckBox label="Enable Icon" change="onChangeSelection(),ApplyEntityIcon.enabled=true" fontSize="12" id="iconChk" enabled="true" selected="false" color="#000000"/>
+				        </mx:HBox>
+				        <mx:HBox width="100%">
+				        	<mx:Spacer width="18" height="10"/>
+				        	<mx:HorizontalList id="myIconList"  change="onChangeSelection(),ApplyEntityIcon.enabled=true" columnCount="8" columnWidth="{tn.width / 10}" height="{tn.height/6}" selectedIndex="0" dataProvider="{catalogueForIcons.lastResult.catalogue.image}" itemRenderer="myComponents.ThumbnailForIcon" enabled="{iconChk.selected}"/>
+				        </mx:HBox>
+				        <mx:Spacer width="100%" height="31%"/>
+				        <mx:HBox width="100%">
+				        	<mx:Spacer width="{tn.width/2}" height="10%"/>
+				            <mx:Button id="ApplyEntityIcon" label="Apply" click="onApply(),ApplyEntityIcon.enabled = false"/>
+				            <mx:Button  id="OkEntityIcon" label="OK" click="onClickOk()" keyUp="{if(event.keyCode==13) onClickOk()}" />
+				        	<mx:Button  id="CancelIcon1" label="Cancel" click="onCancel()" keyUp="{if(event.keyCode==13) onCancel()}" />
+				        </mx:HBox>
+			        </mx:VBox>
+				</mx:TabNavigator>
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>	
+	<mx:Label text="Global Configuration For Entity" width="243" height="34" fontSize="17" fontFamily="Times New Roman" color="#ffffff" fontStyle="italic"/>
+	<mx:HTTPService id="catalogueForIcons" url="static/assets/catalogueforicons.xml" result="onCatalogueResult()" />
+	
+	<mx:HTTPService id="setGlobalPrefs"/>
+	<mx:HTTPService id="setGPrefs"/>
+	<mx:HTTPService id="getGPrefs" result="onGlobalPrefResult()"/>
+	<mx:HTTPService id="getnames" result="onNamesResult()"/>
+	<mx:Script source="GlobalPreferenceScript.as"/>		
+</mx:Application>

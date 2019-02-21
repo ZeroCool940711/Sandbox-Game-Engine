@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>PyParticleSystemAction - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyParticleSystemAction Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyParticleSystemAction is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#delay" class="attribute_list" >delay</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#minimumAge" class="attribute_list" >minimumAge</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#typeID" class="attribute_list" >typeID</a></td><td>&nbsp; Integer as enumerated value.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a> is the base class of all actions that modify the
+behaviour of a particle system over time. All actions can have a delay
+associated with them (the time an action will wait before affecting the
+particle system) and minimumAge (the age a particle must be before it can be
+affected by the action).
+<br><br>
+Multiple <a href="PyParticleSystemAction.html">PyParticleSystemAction</a>'s can be stacked onto the particle system
+to create more complex behaviour.
+<br><br>
+Each <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> has a typeID integer attribute to represent its type.
+They are as follows:
+<br><br>
+
+<pre>	PSA_SOURCE_TYPE_ID			 1
+	PSA_SINK_TYPE_ID			 2
+	PSA_BARRIER_TYPE_ID			 3
+	PSA_FORCE_TYPE_ID			 4
+	PSA_STREAM_TYPE_ID			 5
+	PSA_JITTER_TYPE_ID			 6
+	PSA_SCALAR_TYPE_ID			 7
+	PSA_TINT_SHADER_TYPE_ID		 8
+	PSA_NODE_CLAMP_TYPE_ID		 9
+	PSA_ORBITOR_TYPE_ID			10
+	PSA_FLARE_TYPE_ID			11
+	PSA_COLLIDE_TYPE_ID			12
+	PSA_MATRIX_SWARM_TYPE_ID	13
+	PSA_MAGNET_TYPE_ID			14
+	PSA_SPLAT_TYPE_ID			15
+</pre>
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="delay"></a><p class="attribute_definition">
+<span class="attribute_definition">delay</span>
+</p>
+
+<div class="attribute_description">The delay in time from creation of the <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> before its
+ParticleSystemAction affects the particle system. Default value is 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="minimumAge"></a><p class="attribute_definition">
+<span class="attribute_definition">minimumAge</span>
+</p>
+
+<div class="attribute_description">The minimum time a particle must have existed before being affected by
+the ParticleSystemAction. Default value is 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="typeID"></a><p class="attribute_definition">
+<span class="attribute_definition">typeID</span>
+</p>
+
+<div class="attribute_description">The type ID of the ParticleSystemAction, PSA_FLARE_TYPE_ID (see
+ParticleSystemAction).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as enumerated value.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

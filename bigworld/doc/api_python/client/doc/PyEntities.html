@@ -1,0 +1,262 @@
+<html>
+<head>
+<title>PyEntities - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyEntities Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyEntities is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#get" class="function_list" >get</a>( self, id, defaultValue ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#has_key" class="function_list" >has_key</a>( self, key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#has_key" class="function_list" >has_key</a>( self, key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#items" class="function_list" >items</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#items" class="function_list" >items</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#keys" class="function_list" >keys</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#keys" class="function_list" >keys</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#values" class="function_list" >values</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#values" class="function_list" >values</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A class which emulates a dictionary of PyEntity objects indexed by their id
+attributes. Instances of this class do not support item assignment, but can
+be used with the subscript operator. Note that the key must be an integer,
+and that a key error will be thrown if the key given does not exist in the
+dictionary. Instances of this class are used by the engine to present lists
+of entities to script. They cannot be created via script, nor can they be
+modified.
+<br><br>
+Example:
+
+<pre>e = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#entities>entities</a> # this is a <a href="PyEntities.html">PyEntities</a> object
+e[ 100 ] # returns the entity with ID 100
+len( e ) # returns the number of entities in this dictionary
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="get"></a><p class="function_definition">
+<span class="function_definition">def get( <i>self, id, defaultValue</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the entity to find.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultValue</i></span></td><td><span class="function_parameter_description">&nbsp;An optional argument that is the return value if the
+	entity cannot be found. This defaults to None.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The entity with the input id or the default value if not found.
+</td></tr>
+</table>
+</p>
+
+<a name="has_key"></a><p class="function_definition">
+<span class="function_definition">def has_key( <i>self, key</i> ):</span>
+</p>
+
+<div class="function_description">Used to determine whether an entity with a specific ID
+is listed in this <a href="PyEntities.html">PyEntities</a> object.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;An integer key to look for.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A boolean. True if the key was found, false if it was not.
+</td></tr>
+</table>
+</p>
+
+<a name="has_key"></a><p class="function_definition">
+<span class="function_definition">def has_key( <i>self, key</i> ):</span>
+</p>
+
+<div class="function_description">Used to determine whether an entity with a specific ID
+is listed in this <a href="PyEntities.html">PyEntities</a> object.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;An integer key to look for.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A boolean. True if the key was found, false if it was not.
+</td></tr>
+</table>
+</p>
+
+<a name="items"></a><p class="function_definition">
+<span class="function_definition">def items( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Generates a list of the items (ID:entity pairs) listed in
+this object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A list containing all of the ID:entity pairs, represented as tuples
+containing one integer, and one entity.
+</td></tr>
+</table>
+</p>
+
+<a name="items"></a><p class="function_definition">
+<span class="function_definition">def items( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Generates a list of the items (ID:entity pairs) listed in
+this object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A list containing all of the ID:entity pairs, represented as tuples
+containing one integer, and one entity.
+</td></tr>
+</table>
+</p>
+
+<a name="keys"></a><p class="function_definition">
+<span class="function_definition">def keys( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Generates a list of the IDs of all of the entities listed in
+this object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A list containing all of the keys, represented as integers.
+</td></tr>
+</table>
+</p>
+
+<a name="keys"></a><p class="function_definition">
+<span class="function_definition">def keys( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Generates a list of the IDs of all of the entities listed in
+this object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A list containing all of the keys, represented as integers.
+</td></tr>
+</table>
+</p>
+
+<a name="values"></a><p class="function_definition">
+<span class="function_definition">def values( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Generates a list of all the entities listed in
+this object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A list containing all of the entities.
+</td></tr>
+</table>
+</p>
+
+<a name="values"></a><p class="function_definition">
+<span class="function_definition">def values( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Generates a list of all the entities listed in
+this object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A list containing all of the entities.
+</td></tr>
+</table>
+</p>
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<html>
+<head>
+<title>Vector2 - BigWorld cell Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Vector2 Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Math.html" class="module_h1">Math Module</a>]</span></p><p>Vector2 is part of the <a href="Math.html">Math</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Math</pre>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#cross2D" class="function_list" >cross2D</a>( self, v2 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#distSqrTo" class="function_list" >distSqrTo</a>( self, v2 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#distTo" class="function_list" >distTo</a>( self, v2 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#dot" class="function_list" >dot</a>( self, rhs ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#list" class="function_list" >list</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#normalise" class="function_list" >normalise</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#scale" class="function_list" >scale</a>( self, s ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#set" class="function_list" >set</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#tuple" class="function_list" >tuple</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#length" class="attribute_list" >length</a></td><td>&nbsp; Read-only float
+</td></tr>
+
+<tr valign=top><td><a href="#lengthSquared" class="attribute_list" >lengthSquared</a></td><td>&nbsp; Read-only float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="Vector2.html">Vector2</a> class is a 2-element vector. It can be created using
+<a href="Math.html">Math</a>.<a href=Math.html#Vector2><a href="Vector2.html">Vector2</a></a>() function.
+<br><br>
+The elements of <a href="Vector2.html">Vector2</a> are referred as members x and y.
+<br><br>
+<a href="Vector2.html">Vector2</a> supports following operations:
+Addtion: ex. v1 = v2 + v3
+Subtraction: ex. v1 = v2 - v3
+Negative: ex. v1 = -v2
+Positive: ex. v1 = +v2
+True-value test: ex. if v1: statements. In this case v1 is true if v1.lengthSquared > 0.f
+In-place addition: ex. v1 += v2
+In-place subtraction: ex. v1 -= v2
+Length: ex. len(v1). In this case always returns 2.
+Index: ex. v1[0] equals to v1.x, v1[1] equals to v1.y.
+Slice: ex. v1[0:1] returns a tuple contains v1.x, v1[0:2] returns a <a href="Vector2.html">Vector2</a> eqauls to v1 itself.
+Indexed Assignment: ex. v1[0] = 3.2 equals to v1.x = 3.2
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="cross2D"></a><p class="function_definition">
+<span class="function_definition">def cross2D( <i>self, v2</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the magnitude of the cross product between two
+Vector2s.
+<br><br>
+The formula is v1.x * v2.y - v1.y * v2.x
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>v2</i></span></td><td><span class="function_parameter_description">&nbsp;The vector on the right hand side of the cross product.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The magnitude of the cross product (a float).
+</td></tr>
+</table>
+</p>
+
+<a name="distSqrTo"></a><p class="function_definition">
+<span class="function_definition">def distSqrTo( <i>self, v2</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the square of the distance between two vectors.  This
+is often used for comparisons between two distances, because it saves the
+computational expense of calculating a square root.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>v2</i></span></td><td><span class="function_parameter_description">&nbsp;the vector to calculated the distance to, from this vector.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the square of the distance between the two vectors, as a float.
+</td></tr>
+</table>
+</p>
+
+<a name="distTo"></a><p class="function_definition">
+<span class="function_definition">def distTo( <i>self, v2</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the distance between two vectors.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>v2</i></span></td><td><span class="function_parameter_description">&nbsp;the vector to calculated the distance to, from this vector.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the distance between the two vectors, as a float.
+</td></tr>
+</table>
+</p>
+
+<a name="dot"></a><p class="function_definition">
+<span class="function_definition">def dot( <i>self, rhs</i> ):</span>
+</p>
+
+<div class="function_description">This function performs a dot product between this vector and the specified
+vector, and returns the product as a float. It doesn't effect this vector.
+<br><br>
+Dot product is defined to be the sum of the products of the individual
+components, ie:
+<br><br>
+x*x + y*y
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>rhs</i></span></td><td><span class="function_parameter_description">&nbsp;The vector to dot this vector with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The float which is the dot product.
+</td></tr>
+</table>
+</p>
+
+<a name="list"></a><p class="function_definition">
+<span class="function_definition">def list( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the vector converted to a list of 2 elements.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The list representation of the vector.
+</td></tr>
+</table>
+</p>
+
+<a name="normalise"></a><p class="function_definition">
+<span class="function_definition">def normalise( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function normalises this vector (scales it so that its length is
+exactly 1).
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="scale"></a><p class="function_definition">
+<span class="function_definition">def scale( <i>self, s</i> ):</span>
+</p>
+
+<div class="function_description">Returns the value of this vector, mutiplied by a scalar, leaving this
+vector unaffected.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>s</i></span></td><td><span class="function_parameter_description">&nbsp;the scalar to multiply by.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>returns the <a href="Vector2.html">Vector2</a> product of the scalar with the vector.
+</td></tr>
+</table>
+</p>
+
+<a name="set"></a><p class="function_definition">
+<span class="function_definition">def set( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the value of a <a href="Vector2.html">Vector2</a> to the specified value.  It can
+take several different styles of argument:
+<br><br>
+- It can take a <a href="Vector2.html">Vector2</a>, which sets this vector equal to the argument.
+<br><br>
+- It can take a tuple, with the same size as the vector, assigning the
+first element to x and the second to y.
+<br><br>
+- It can take a floating point number, which will be assigned to all
+components of the vector.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="tuple"></a><p class="function_definition">
+<span class="function_definition">def tuple( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Returns the vector converted to a tuple of 2 elements.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the tuple representing the vector.
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="length"></a><p class="attribute_definition">
+<span class="attribute_definition">length</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only float
+</td></tr>
+</table>
+</p>
+
+<a name="lengthSquared"></a><p class="attribute_definition">
+<span class="attribute_definition">lengthSquared</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

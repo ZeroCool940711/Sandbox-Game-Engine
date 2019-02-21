@@ -1,0 +1,794 @@
+<html>
+<head>
+<title>WebPageProvider - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>WebPageProvider Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>WebPageProvider is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#allowCursorInteraction" class="function_list" >allowCursorInteraction</a>( self, allow ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#enableCookies" class="function_list" >enableCookies</a>( self, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#enableProxy" class="function_list" >enableProxy</a>( self, proxyEnabledIn, proxyHostNameIn, proxyPortIn ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#evaluateJavaScript" class="function_list" >evaluateJavaScript</a>( self, script ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#focusBrowser" class="function_list" >focusBrowser</a>( self, focus, enable ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleKeyboardEvent" class="function_list" >handleKeyboardEvent</a>( self, keyCodeIn ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseButtonEvent" class="function_list" >handleMouseButtonEvent</a>( self, pos, down ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseMove" class="function_list" >handleMouseMove</a>( self, pos ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleUnicodeInput" class="function_list" >handleUnicodeInput</a>( self, keyCodeIn ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#height" class="function_list" >height</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#navigate" class="function_list" >navigate</a>( self, url ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#navigateBack" class="function_list" >navigateBack</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#navigateForward" class="function_list" >navigateForward</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#navigateReload" class="function_list" >navigateReload</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#scrollByLines" class="function_list" >scrollByLines</a>( self, lines ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#set404Redirect" class="function_list" >set404Redirect</a>( self, url ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setDynamic" class="function_list" >setDynamic</a>( self, dynamicPage ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setSize" class="function_list" >setSize</a>( self, width, height, exactWidth, exactHeight ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#texture" class="function_list" >texture</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#update" class="function_list" >update</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#url" class="function_list" >url</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#width" class="function_list" >width</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#constantRefreshDuringNavigation" class="attribute_list" >constantRefreshDuringNavigation</a></td><td>&nbsp; bool
+</td></tr>
+
+<tr valign=top><td><a href="#height" class="attribute_list" >height</a></td><td>&nbsp; uint32
+</td></tr>
+
+<tr valign=top><td><a href="#listener" class="attribute_list" >listener</a></td><td>&nbsp; python object
+</td></tr>
+
+<tr valign=top><td><a href="#ratePerSecond" class="attribute_list" >ratePerSecond</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#texture" class="attribute_list" >texture</a></td><td>&nbsp; <a href="PyTextureProvider.html">PyTextureProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#url" class="attribute_list" >url</a></td><td>&nbsp; unicode string
+</td></tr>
+
+<tr valign=top><td><a href="#width" class="attribute_list" >width</a></td><td>&nbsp; uint32
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is the wrapper class for one web page.
+This class can return a <a href="PyTextureProvider.html">PyTextureProvider</a> for the web page and
+can also be used to send event to the web page and to navigate
+to different web pages. These will get callbacks upon specific web page navigation events.
+The implementation is using the MPL LLMozlib library
+<br><br>
+The constructor takes 6 parameters that all have to be provided
+<br><br>
+The parameters are:
+width (uint32) - the width of the web page texture
+height (uint32) - the height of the web page texture
+dynamicPage (bool) - dynamic pages are refreshed at a higher rate
+mipmap (bool) - whether we want to create mipmaps for the texture or not
+url (unicode string) - the url to open (can be u"" to start with a blank page)
+graphicsSettingsBehaviour (string) - can be either "EFFECT_QUALITY" or "EFFECT_SCROLLING", this is how the
+	web page responds to the WEB_SETTINGS graphics setting. If EFFECT_QUALITY is used, the web page is scaled
+	to fit the <a href="WebPageProvider.html">WebPageProvider</a>, if EFFECT_SCROLLING is used, the <a href="WebPageProvider.html">WebPageProvider</a> shows a smaller view of the
+	web page.
+<br><br>
+For example:
+
+<pre>
+    webPage = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#WebPageProvider><a href="WebPageProvider.html">WebPageProvider</a></a>(800,600, True, True, u"", "EFFECT_QUALITY")
+    webPage.navigate("http://www.google.com")
+    component.texture = webPage.texture()
+</pre>
+This example creates a <a href="WebPageProvider.html">WebPageProvider</a> which provides the texture of www.google.com to
+A specific component for rendering.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="allowCursorInteraction"></a><p class="function_definition">
+<span class="function_definition">def allowCursorInteraction( <i>self, allow</i> ):</span>
+</p>
+
+<div class="function_description">This method is used to set the browser interaction mode 
+It effects whether it can alter the mouse or not.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>allow</i></span></td><td><span class="function_parameter_description">&nbsp;The new interaction state
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="enableCookies"></a><p class="function_definition">
+<span class="function_definition">def enableCookies( <i>self, value</i> ):</span>
+</p>
+
+<div class="function_description">This method enables or disables cookies.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The Cookies setting
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool		True for success
+</td></tr>
+</table>
+</p>
+
+<a name="enableProxy"></a><p class="function_definition">
+<span class="function_definition">def enableProxy( <i>self, proxyEnabledIn, proxyHostNameIn, proxyPortIn</i> ):</span>
+</p>
+
+<div class="function_description">This method enables proxy usage by this provider.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>proxyEnabledIn</i></span></td><td><span class="function_parameter_description">&nbsp;A bool marking whether to enable the proxy usage
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>proxyHostNameIn</i></span></td><td><span class="function_parameter_description">&nbsp;A string representing the proxy host name
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>proxyPortIn</i></span></td><td><span class="function_parameter_description">&nbsp;An int representing the proxy port
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool		True for success
+</td></tr>
+</table>
+</p>
+
+<a name="evaluateJavaScript"></a><p class="function_definition">
+<span class="function_definition">def evaluateJavaScript( <i>self, script</i> ):</span>
+</p>
+
+<div class="function_description">This method is used to evaluate JavaScript code on this web page.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>script</i></span></td><td><span class="function_parameter_description">&nbsp;The JavaScript code to execute
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The result of this command as a string.
+</td></tr>
+</table>
+</p>
+
+<a name="focusBrowser"></a><p class="function_definition">
+<span class="function_definition">def focusBrowser( <i>self, focus, enable</i> ):</span>
+</p>
+
+<div class="function_description">This method is used to set the browser focus mode
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>focus</i></span></td><td><span class="function_parameter_description">&nbsp;The new focus state
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>enable</i></span></td><td><span class="function_parameter_description">&nbsp;Whether to enable the window (currently not used)
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="handleKeyboardEvent"></a><p class="function_definition">
+<span class="function_definition">def handleKeyboardEvent( <i>self, keyCodeIn</i> ):</span>
+</p>
+
+<div class="function_description">This method handles special int keyboard events sent to the web page. 
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>keyCodeIn</i></span></td><td><span class="function_parameter_description">&nbsp;An int specifying the special key clicked
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseButtonEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseButtonEvent( <i>self, pos, down</i> ):</span>
+</p>
+
+<div class="function_description">This method handles mouse events sent to the web page. These should be 
+in pixel space of the WebPage.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pos</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector2.html">Vector2</a> specifying the position of the button event
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>down</i></span></td><td><span class="function_parameter_description">&nbsp;a bool representing whether the button is down or up
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseMove"></a><p class="function_definition">
+<span class="function_definition">def handleMouseMove( <i>self, pos</i> ):</span>
+</p>
+
+<div class="function_description">This method handles mouse move events sent to the web page. These should be 
+in pixel space of the WebPage.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pos</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector2.html">Vector2</a> specifying the position of the mouse event
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="handleUnicodeInput"></a><p class="function_definition">
+<span class="function_definition">def handleUnicodeInput( <i>self, keyCodeIn</i> ):</span>
+</p>
+
+<div class="function_description">This method handles unicode keyboard events sent to the web page. 
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>keyCodeIn</i></span></td><td><span class="function_parameter_description">&nbsp;A wide string whose first char represents the key in
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="height"></a><p class="function_definition">
+<span class="function_definition">def height( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method is used to get the height of the web page
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The height of the webpage
+</td></tr>
+</table>
+</p>
+
+<a name="navigate"></a><p class="function_definition">
+<span class="function_definition">def navigate( <i>self, url</i> ):</span>
+</p>
+
+<div class="function_description">This method navigates the web page to a different url
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>url</i></span></td><td><span class="function_parameter_description">&nbsp;A unicode string specifying the new url
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="navigateBack"></a><p class="function_definition">
+<span class="function_definition">def navigateBack( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method navigates one page back.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool  True if succsess
+</td></tr>
+</table>
+</p>
+
+<a name="navigateForward"></a><p class="function_definition">
+<span class="function_definition">def navigateForward( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method navigates one page forward.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool  True if succsess
+</td></tr>
+</table>
+</p>
+
+<a name="navigateReload"></a><p class="function_definition">
+<span class="function_definition">def navigateReload( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method reloads the web page.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool  True if succsess
+</td></tr>
+</table>
+</p>
+
+<a name="scrollByLines"></a><p class="function_definition">
+<span class="function_definition">def scrollByLines( <i>self, lines</i> ):</span>
+</p>
+
+<div class="function_description">This method handles mouse scrolling events sent to the web page. 
+lines mark how much to scroll
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>lines</i></span></td><td><span class="function_parameter_description">&nbsp;A int32 specifying how much to scroll
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="set404Redirect"></a><p class="function_definition">
+<span class="function_definition">def set404Redirect( <i>self, url</i> ):</span>
+</p>
+
+<div class="function_description">This method is used to set the default page when the web page
+isn't found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>url</i></span></td><td><span class="function_parameter_description">&nbsp;The redirect location
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setDynamic"></a><p class="function_definition">
+<span class="function_definition">def setDynamic( <i>self, dynamicPage</i> ):</span>
+</p>
+
+<div class="function_description">This method is used to set whether this page is dynamic
+meaning refreshes without someone clicking a link so should get
+higher refresh rate.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>dynamicPage</i></span></td><td><span class="function_parameter_description">&nbsp;whether this page is static or updates all the time (dynamic)
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setSize"></a><p class="function_definition">
+<span class="function_definition">def setSize( <i>self, width, height, exactWidth, exactHeight</i> ):</span>
+</p>
+
+<div class="function_description">This method is used to set the size of the web page
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>width</i></span></td><td><span class="function_parameter_description">&nbsp;The width of the web page
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>height</i></span></td><td><span class="function_parameter_description">&nbsp;The height of the web page
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>exactWidth</i></span></td><td><span class="function_parameter_description">&nbsp;Used for flash GUIs, contains their exact width
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>exactHeight</i></span></td><td><span class="function_parameter_description">&nbsp;Used for flash GUIs, contains their exact height
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool  True if succsess
+</td></tr>
+</table>
+</p>
+
+<a name="texture"></a><p class="function_definition">
+<span class="function_definition">def texture( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method returns the web page texture
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A texture provider for the webpage
+</td></tr>
+</table>
+</p>
+
+<a name="update"></a><p class="function_definition">
+<span class="function_definition">def update( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method update the web page and the texture
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="url"></a><p class="function_definition">
+<span class="function_definition">def url( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method returns the current web page url
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The webpage url
+</td></tr>
+</table>
+</p>
+
+<a name="width"></a><p class="function_definition">
+<span class="function_definition">def width( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method is used to get the width of the web page
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The width of the webpage
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="constantRefreshDuringNavigation"></a><p class="attribute_definition">
+<span class="attribute_definition">constantRefreshDuringNavigation</span>
+</p>
+
+<div class="attribute_description">A value specifiying whether this web page refreshes in a constant rate during navigation
+ The web page will be refreshed one time per second during navigation if this value is true
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool
+</td></tr>
+</table>
+</p>
+
+<a name="height"></a><p class="attribute_definition">
+<span class="attribute_definition">height</span>
+</p>
+
+<div class="attribute_description">The height of the web page texture
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>uint32
+</td></tr>
+</table>
+</p>
+
+<a name="listener"></a><p class="attribute_definition">
+<span class="attribute_definition">listener</span>
+</p>
+
+<div class="attribute_description">The listener to receive callbacks for this webpage
+<br><br>
+The listener is a python object that exposes the callbacks from <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#WebPageProvider><a href="WebPageProvider.html">WebPageProvider</a></a>
+All the callbacks receive a <a href="PyMozillaEvent.html">PyMozillaEvent</a>, although not all properties
+of the event is used in all callbacks, all callbacks need to return a boolean value
+to say whether they handled the event
+<br><br>
+The callbacks that can be defined and their event properties are:
+<br><br>
+onStatusTextChange
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#uri>uri</a> - url for this event
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#stringValue>stringValue</a> - status text
+<br><br>
+onUpdateProgress
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#uri>uri</a> - url for this event
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#intValue>intValue</a> - progress percentage
+<br><br>
+onNavigateBegin
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#uri>uri</a> - url for this event
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#stringValue>stringValue</a> - status text
+<br><br>
+onNavigateComplete
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#uri>uri</a> - url for this event
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#stringValue>stringValue</a> - status text
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#intValue>intValue</a> - the http response code
+<br><br>
+onLocationChange
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#uri>uri</a> - url for this event
+<br><br>
+onClickLinkHref
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#uri>uri</a> - url for this event
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#stringValue>stringValue</a> - href for the clicked link
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#stringValue2>stringValue2</a> - target for the clicked link
+<br><br>
+onClickLinkNoFollow
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#uri>uri</a> - url for this event
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#stringValue>stringValue</a> - same as uri
+<br><br>
+onPageChanged
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#uri>uri</a> - url for this event
+- <a href="PyMozillaEvent.html">PyMozillaEvent</a>.<a href=PyMozillaEvent.html#rect>rect</a> - angle that has changed
+<br><br>
+@NOTE not all callbacks have to be supplied, only callbacks that are present will be called
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>python object
+</td></tr>
+</table>
+</p>
+
+<a name="ratePerSecond"></a><p class="attribute_definition">
+<span class="attribute_definition">ratePerSecond</span>
+</p>
+
+<div class="attribute_description">The refresh update rate for the web page.
+ The web page will be refreshed n times per second where n is smaller or equals to this value.
+ This is important as refreshing the web page is currently done in the main thread
+ Creating performance spikes.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="texture"></a><p class="attribute_definition">
+<span class="attribute_definition">texture</span>
+</p>
+
+<div class="attribute_description">The texture of the current web page
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="PyTextureProvider.html">PyTextureProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="url"></a><p class="attribute_definition">
+<span class="attribute_definition">url</span>
+</p>
+
+<div class="attribute_description">The current url
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>unicode string
+</td></tr>
+</table>
+</p>
+
+<a name="width"></a><p class="attribute_definition">
+<span class="attribute_definition">width</span>
+</p>
+
+<div class="attribute_description">The width of the web page texture
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>uint32
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

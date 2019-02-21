@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>PyMorphControl - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyMorphControl Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyMorphControl is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyFashion.html">PyFashion</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#input" class="attribute_list" >input</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#targetNames" class="attribute_list" >targetNames</a></td><td>&nbsp; List of Strings
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is used to blend morph targets onto a <a href="PyModel.html">PyModel</a>, using blend
+weights specified in a <a href="MatrixProvider.html">MatrixProvider</a>.  The list of morph targets
+is specified by the targetNames attribute, the <a href="MatrixProvider.html">MatrixProvider</a> is
+specified by the input attribute.
+<br><br>
+To apply the <a href="PyMorphControl.html">PyMorphControl</a> to a model, it should be assigned to an
+arbitrarily named attribute of that model.  In order to function
+correctly, the named morph targets should all have been exported as part
+of the model's primitives.
+<br><br>
+If more than one <a href="PyMorphControl.html">PyMorphControl</a> is applied to a model at once, then
+the morph targets of both of them are weighted together.
+<br><br>
+A new <a href="PyMorphControl.html">PyMorphControl</a> is created using the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PyMorphControl><a href="PyMorphControl.html">PyMorphControl</a></a> function.
+<br><br>
+For example:
+
+<pre>mat = <a href="Math.html">Math</a>.<a href=Math.html#Matrix><a href="Matrix.html">Matrix</a></a>()
+mat.setElement( 0, 0, 2.0 ) # set the blend weight for "openLips" to 2.0
+mat.setElement( 0, 1, 1.0 ) # set the blend weight for "closedLips" to 1.0
+self.model.myMorphControl = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PyMorphControl><a href="PyMorphControl.html">PyMorphControl</a></a>()
+self.model.myMorphControl.input = mat
+self.model.myMorphContro.targetNames = [ "openLips", "closedLips" ]
+</pre>
+This example sets the model to have its lips two thirds open,
+assuming that the two named morph targets existed on the model.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="input"></a><p class="attribute_definition">
+<span class="attribute_definition">input</span>
+</p>
+
+<div class="attribute_description">This attribute takes a <a href="MatrixProvider.html">MatrixProvider</a>, whose elements are mapped to 
+the items in the targetNames attribute, with the first row being
+mapped to the first four items, the next row being mapped to the next
+four items, and so on, for up to sixteen items.  Elements beyond the
+last item of targetNames are ignored.
+<br><br>
+Each element of the <a href="MatrixProvider.html">MatrixProvider</a> is treated as the blend weight
+for the morph target named in the corresponding targetName item.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="targetNames"></a><p class="attribute_definition">
+<span class="attribute_definition">targetNames</span>
+</p>
+
+<div class="attribute_description">This attribute is a list of names of morph targets that this 
+<a href="PyMorphControl.html">PyMorphControl</a> will blend between. It will blend using the weights
+supplied in the input attribute, which is a <a href="MatrixProvider.html">MatrixProvider</a>, whose
+items are mapped to the names in this attribute.
+<br><br>
+All the named targets should have been exported as morph targets in
+the models primitive file, or undefined behaviour will result.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>List of Strings
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

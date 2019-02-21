@@ -1,0 +1,87 @@
+<html>
+  <head><link rel="stylesheet" type="text/css" href="style.css"></head>
+  <body onload="var x=document.getElementsByTagName('TD'); x[0].click();" background="menubackground.bmp" bgcolor="#D9F0FF" style="margin:0; padding:0; border-right:1pt solid gray; background-repeat:no-repeat; background-position:bottom right;">
+  <script>
+    function highlight() {
+       if (window.event.type == 'click' && window.event.srcElement.tagName == 'TD')
+          window.event.srcElement.firstChild.click();
+       if (window.event.type == 'click' && window.event.srcElement.tagName == 'IMG')
+          window.event.srcElement.parentElement.firstChild.click();
+      // Initialise variable
+      if (window.event.srcElement.tagName == 'A')
+        var triggerObj = window.event.srcElement;
+      else 
+        if (window.event.srcElement.tagName == 'TD')
+          var triggerObj = window.event.srcElement.firstChild;
+        else
+           if (window.event.srcElement.tagName == 'IMG')
+             var triggerObj = window.event.srcElement.parentElement;
+           else
+             return;
+      // If triggering event was 'click'
+      if (window.event.type == 'click')
+      {
+        // Clear highlight from current item
+        var TBODYobj=triggerObj.parentElement.parentElement.parentElement;
+        var TBODYrows=TBODYobj.childNodes.length-1;
+        for (; TBODYrows>=0; TBODYrows--)
+        {
+           if (TBODYobj.childNodes[TBODYrows].tagName == 'TR')
+           {
+             TBODYobj.childNodes[TBODYrows].firstChild.style.backgroundColor='';
+             TBODYobj.childNodes[TBODYrows].firstChild.style.border='';
+             TBODYobj.childNodes[TBODYrows].firstChild.firstChild.style.color='black';
+          }
+        }
+      }    
+      // If triggering event was 'click'
+      if (window.event.type == 'click')
+      {
+        // Highlight item that was clicked/hovered
+        triggerObj.parentElement.style.backgroundColor='darkslateblue';
+        triggerObj.style.color=((window.event.type=='click')?'white':'#FFFFFE');
+        triggerObj.blur();
+      }
+      // If triggering event was 'mouseover'
+      if (window.event.type == 'mouseover')
+      {
+         // If this is NOT the active link
+         if (triggerObj.style.color != 'white')
+         {
+            triggerObj.parentElement.style.border='solid 2pt darkslateblue';
+            triggerObj.parentElement.style.padding='0pt';
+         }
+      }
+      // If triggering event was 'mouseout'
+      if (window.event.type == 'mouseout')
+      {
+        // If this is the active link (in wich case font color will be 'white', instead of '#FFFFFE')
+        if (triggerObj.style.color != 'white')
+        {
+          // Clear highlight from item highlighted just because it was hovered
+            triggerObj.parentElement.style.border='';
+            triggerObj.parentElement.style.padding='';
+        }
+      }
+    }
+  </script>
+
+  <table class="menu" width="107%" cellspacing=1 onclick="highlight()" onmouseover="highlight()" onmouseout="highlight()">
+    <tr><td                 align=right><a href="movement.html"                   target="content">Movement</a>                   </td></tr> 
+    <tr><td                 align=right><a href="editing.html"                    target="content">Editing</a>                    </td></tr> 
+    <tr><td                 align=right><a href="object_mode.html"                target="content"><img src="we_toolbar_object_tool.png">
+                                                                                                   Object mode</a>                </td></tr> 
+    <tr><td                 align=right><a href="terrain_mode.html"               target="content"><img src="we_toolbar_terrain_texture_tool.png"><img src="we_toolbar_terrain_height_tool.png"><img src="we_toolbar_terrain_filter_tool.png"><img src="we_toolbar_terrain_mesh_tool.png">
+                                                                                                   Terrain mode</a>               </td></tr> 
+    <tr><td                 align=right><a href="terrain_import_export_mode.html" target="content"><img src="we_toolbar_terrain_import_export_tool.png">
+                                                                                                   Terrain import/export mode</a> </td></tr> 
+    <tr><td                 align=right><a href="project_mode.html"               target="content"><img src="we_toolbar_project_tool.png">
+                                                                                                   Project mode</a>               </td></tr> 
+    <tr><td                 align=right><a href="menu_shortcuts.html"             target="content">Menu shortcuts</a>             </td></tr> 
+    <tr><td                 align=right><a href="consoles.html"                   target="content">Consoles                       </td></tr> 
+    <tr><td class="console" align=right><a href="realtime_profiling_console.html" target="content">Realtime Profiling console</a> </td></tr> 
+    <tr><td class="console" align=right><a href="debug_watchers_console.html"     target="content">Debug (Watchers) console</a>   </td></tr> 
+    <tr><td class="console" align=right><a href="histogram_console.html"          target="content">Histogram console</a>          </td></tr> 
+    <tr><td class="console" align=right><a href="python_console.html"             target="content">Python console</a>             </td></tr> 
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<root>
+	<terrain>
+		<resource>	00000004o.cdata/terrain	</resource>
+	</terrain>
+	<boundary>
+		<normal>	1.000000 0.000000 0.000000	</normal>
+		<d>	0.000000	</d>
+		<portal>
+			<chunk>	ffff0004o	</chunk>
+			<uAxis>	0.000000 1.000000 0.000000	</uAxis>
+			<point>	-2000000.000000 0.000000 0.000000	</point>
+			<point>	2000000.000000 0.000000 0.000000	</point>
+			<point>	2000000.000000 100.000000 0.000000	</point>
+			<point>	-2000000.000000 100.000000 0.000000	</point>
+		</portal>
+	</boundary>
+	<boundary>
+		<normal>	-1.000000 0.000000 0.000000	</normal>
+		<d>	-100.000000	</d>
+		<portal>
+			<chunk>	00010004o	</chunk>
+			<uAxis>	0.000000 0.000000 1.000000	</uAxis>
+			<point>	0.000000 -2000000.000000 0.000000	</point>
+			<point>	100.000000 -2000000.000000 0.000000	</point>
+			<point>	100.000000 2000000.000000 0.000000	</point>
+			<point>	0.000000 2000000.000000 0.000000	</point>
+		</portal>
+	</boundary>
+	<boundary>
+		<normal>	0.000000 1.000000 0.000000	</normal>
+		<d>	-2000000.000000	</d>
+		<portal>
+			<chunk>	earth	</chunk>
+			<uAxis>	0.000000 0.000000 1.000000	</uAxis>
+			<point>	0.000000 0.000000 0.000000	</point>
+			<point>	100.000000 0.000000 0.000000	</point>
+			<point>	100.000000 100.000000 0.000000	</point>
+			<point>	0.000000 100.000000 0.000000	</point>
+		</portal>
+	</boundary>
+	<boundary>
+		<normal>	0.000000 -1.000000 0.000000	</normal>
+		<d>	-2000000.000000	</d>
+		<portal>
+			<chunk>	heaven	</chunk>
+			<uAxis>	1.000000 0.000000 0.000000	</uAxis>
+			<point>	0.000000 0.000000 0.000000	</point>
+			<point>	100.000000 0.000000 0.000000	</point>
+			<point>	100.000000 100.000000 0.000000	</point>
+			<point>	0.000000 100.000000 0.000000	</point>
+		</portal>
+	</boundary>
+	<boundary>
+		<normal>	0.000000 0.000000 1.000000	</normal>
+		<d>	0.000000	</d>
+		<portal>
+			<chunk>	00000003o	</chunk>
+			<uAxis>	1.000000 0.000000 0.000000	</uAxis>
+			<point>	0.000000 -2000000.000000 0.000000	</point>
+			<point>	100.000000 -2000000.000000 0.000000	</point>
+			<point>	100.000000 2000000.000000 0.000000	</point>
+			<point>	0.000000 2000000.000000 0.000000	</point>
+		</portal>
+	</boundary>
+	<boundary>
+		<normal>	0.000000 0.000000 -1.000000	</normal>
+		<d>	-100.000000	</d>
+	</boundary>
+	<transform>
+		<row0>	1.000000 0.000000 0.000000	</row0>
+		<row1>	0.000000 1.000000 0.000000	</row1>
+		<row2>	0.000000 0.000000 1.000000	</row2>
+		<row3>	0.000000 0.000000 400.000000	</row3>
+	</transform>
+	<boundingBox>
+		<min>	0.000000 -2000000.000000 400.000000	</min>
+		<max>	100.000000 2000000.000000 500.000000	</max>
+	</boundingBox>
+</root>

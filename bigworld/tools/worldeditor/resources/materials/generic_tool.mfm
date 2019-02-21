@@ -1,0 +1,11 @@
+<generic_tool.mfm>
+	<fx>	shaders/std_effects/lightonly.fx	</fx>
+	<property>	selfIllumination
+		<Float>	1.0	</Float>
+	</property>
+	<property>	diffuseMap
+		<Texture>	resources/materials/flare_halo.bmp	</Texture>
+	</property>
+	<collisionFlags>	0	</collisionFlags>
+	<materialKind>	0	</materialKind>
+</generic_tool.mfm>

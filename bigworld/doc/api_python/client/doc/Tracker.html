@@ -1,0 +1,304 @@
+<html>
+<head>
+<title>Tracker - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Tracker Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Tracker is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyFashion.html">PyFashion</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#debug" class="function_list" >debug</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#cachedNodeInfo" class="attribute_list" >cachedNodeInfo</a></td><td>&nbsp; Read-Only <a href="BaseNodeInfo.html">BaseNodeInfo</a>.
+</td></tr>
+
+<tr valign=top><td><a href="#directionProvider" class="attribute_list" >directionProvider</a></td><td>&nbsp; Read-Write <a href="MatrixProvider.html">MatrixProvider</a>.
+</td></tr>
+
+<tr valign=top><td><a href="#nodeInfo" class="attribute_list" >nodeInfo</a></td><td>&nbsp; Read-Write <a href="BaseNodeInfo.html">BaseNodeInfo</a>.
+</td></tr>
+
+<tr valign=top><td><a href="#pitch" class="attribute_list" >pitch</a></td><td>&nbsp; Read-Write Float.
+</td></tr>
+
+<tr valign=top><td><a href="#relativeProvider" class="attribute_list" >relativeProvider</a></td><td>&nbsp; Read-Write Integer.
+</td></tr>
+
+<tr valign=top><td><a href="#yaw" class="attribute_list" >yaw</a></td><td>&nbsp; Read-Write Float.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="Tracker.html">Tracker</a> is a subclass of <a href="PyFashion.html">PyFashion</a> that manipulates the yaw and pitch of
+Node instances in a <a href="PyModel.html">PyModel</a> to make them face towards (or "track") a
+target. The target may be another PyEntity / <a href="PyModel.html">PyModel</a>, an entity's
+auxilliary data, a specific direction, a point moving through a range of
+angles (allowing the <a href="PyModel.html">PyModel</a> to scanning back & forth), or anything else
+that can be represented by a <a href="MatrixProvider.html">MatrixProvider</a>.
+<br><br>
+The following steps set up and use a Tracker:
+<br><br>
+Create a <a href="Tracker.html">Tracker</a> object. A new <a href="Tracker.html">Tracker</a> object is create by calling
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Tracker><a href="Tracker.html">Tracker</a></a>(). The factory method doesn't take any parameters,
+so the attributes of the new object need to be set.
+<br><br>
+Assign a direction provider. This is the matrix provider which tells the
+<a href="Tracker.html">Tracker</a> which direction it should try to orient the <a href="PyModelNode.html">PyModelNode</a> objects
+that it affects. If this is not assigned or is set to None then the
+<a href="Tracker.html">Tracker</a> will have no effect, even if the pitch and yaw attributes are
+manually altered.
+<br><br>
+Specify whether the direction provider provides an absolute direction, or a
+direction relative to the model's orientation. Note that this should be set
+after the direction provider, as this is set to false each time the
+direction provider is changed.
+<br><br>
+Specify a NodeInfo (an instance of a child class of <a href="BaseNodeInfo.html">BaseNodeInfo</a>). This
+object contains data used by the <a href="Tracker.html">Tracker</a> to determine which <a href="PyModelNode.html">PyModelNode</a>
+objects to affect, and to what degree to affect them.
+<br><br>
+Apply the <a href="Tracker.html">Tracker</a> to a <a href="PyModel.html">PyModel</a>. This is achieved by assigning the <a href="Tracker.html">Tracker</a>
+object to a member variable belonging to the model. This variable need not
+exist beforehand, however it can be referenced afterwards (to remove the
+<a href="Tracker.html">Tracker</a>, for example).
+<br><br>
+Code Example: Turning a character model's head to point in the direction
+the player is facing. This demonstrates a simple use for the
+<a href="EntityDirProvider.html">EntityDirProvider</a> class.
+
+<pre># NOTE: model refers to the character model to which this is applied
+# NOTE: ent refers to the entity whose direction model will turn to face
+
+# create a new <a href="Tracker.html">Tracker</a>
+tracker = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Tracker><a href="Tracker.html">Tracker</a></a>()
+
+# create an <a href="EntityDirProvider.html">EntityDirProvider</a>  which follows the entity's facing and
+# apply it to the <a href="Tracker.html">Tracker</a>
+facingDirProvider = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#EntityDirProvider><a href="EntityDirProvider.html">EntityDirProvider</a></a>( ent, 1, 0 )
+tracker.directionProvider = facingDirProvider
+
+# create list of secondary nodes
+secondaryNodes = [ ( "biped Neck", 0.5 ) ]
+
+# create <a href="TrackerNodeInfo.html">TrackerNodeInfo</a> & apply to <a href="Tracker.html">Tracker</a>
+nodeInfo = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#TrackerNodeInfo><a href="TrackerNodeInfo.html">TrackerNodeInfo</a></a>( model, "biped Head", secondaryNodes,
+                                     "None", -100, 100, -100, 100, 100 )
+tracker.nodeInfo = nodeInfo
+
+# apply tracker to the model
+model.facingTracker = tracker
+</pre>
+<br><br>
+Code Example: Turning a character model's head to watch another entity.
+This demonstrates a simple use for the <a href="DiffDirProvider.html">DiffDirProvider</a> class.
+
+<pre># NOTE: model refers to the character model to which this is applied
+# NOTE: sourceEntity refers to the entity which owns model
+# NOTE: targetEntity is the entity to be watched by model
+
+# create a new <a href="Tracker.html">Tracker</a>
+tracker = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Tracker><a href="Tracker.html">Tracker</a></a>()
+
+# create a <a href="DiffDirProvider.html">DiffDirProvider</a> & apply it to the <a href="Tracker.html">Tracker</a>
+diffDirProvider = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#DiffDirProvider><a href="DiffDirProvider.html">DiffDirProvider</a></a>( sourceEntity.matrix,
+                                            targetEntity.matrix )
+tracker.directionProvider = diffDirProvider
+
+# create list of secondary nodes
+secondaryNodes = [ ( "biped Neck", 0.5 ) ]
+
+# create <a href="TrackerNodeInfo.html">TrackerNodeInfo</a> & apply to <a href="Tracker.html">Tracker</a>
+nodeInfo = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#TrackerNodeInfo><a href="TrackerNodeInfo.html">TrackerNodeInfo</a></a>( model, "biped Head", secondaryNodes,
+                                     "None", -100, 100, -100, 100, 100 )
+tracker.nodeInfo = nodeInfo
+
+# apply tracker to the model
+model.diffDirTracker = tracker
+</pre>
+<br><br>
+Code Example: Swinging a character model's arms idly back & forth. This
+demonstrates a use for the <a href="ScanDirProvider.html">ScanDirProvider</a> class, and also the use of
+negative weightings for secondary nodes. By applying negative weightings
+to children of the primary node, this example effectively stops the <a href="Tracker.html">Tracker</a>
+from applying its transformation to all subsequent nodes. This is shown in
+the example by the head remaining stationary despite the movement which
+the <a href="Tracker.html">Tracker</a> creates lower down the spine.
+
+<pre># NOTE: model refers to the character model to which this is applied
+
+# create a new <a href="Tracker.html">Tracker</a>
+tracker = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Tracker><a href="Tracker.html">Tracker</a></a>()
+
+# create a <a href="ScanDirProvider.html">ScanDirProvider</a> & apply it to the <a href="Tracker.html">Tracker</a>
+scanDirProvider = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#ScanDirProvider><a href="ScanDirProvider.html">ScanDirProvider</a></a>( 1, 5 ) # this scans +/-1 radian
+                                                   # every 5 seconds
+tracker.directionProvider = scanDirProvider
+tracker.relativeProvider = 1
+
+# create list of secondary nodes
+secondaryNodes = []
+secondaryNodes.append( ( "biped Neck", -0.5 ) )
+secondaryNodes.append( ( "biped Head", -0.5 ) )
+secondaryNodes.append( ( "biped Spine1", 0.5 ) )
+
+# create a <a href="TrackerNodeInfo.html">TrackerNodeInfo</a> & apply to the tracker
+nodeInfo = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#TrackerNodeInfo><a href="TrackerNodeInfo.html">TrackerNodeInfo</a></a>( model, "biped Spine1", secondaryNodes,
+                                     "None", -100, 100, -100, 100, 100 )
+tracker.nodeInfo = nodeInfo
+
+# apply tracker to the model
+model.armSwingTracker = tracker
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="debug"></a><p class="function_definition">
+<span class="function_definition">def debug( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This is used to obtain debug information regarding nodeinfo sizes. This
+function is not supported and is not intended to be used by game code.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A string containing debug information.
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="cachedNodeInfo"></a><p class="attribute_definition">
+<span class="attribute_definition">cachedNodeInfo</span>
+</p>
+
+<div class="attribute_description">This is the previous nodeInfo, used by the node info blending code. This is
+provided for debugging purposes, and is not expected to be used by a game.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="BaseNodeInfo.html">BaseNodeInfo</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="directionProvider"></a><p class="attribute_definition">
+<span class="attribute_definition">directionProvider</span>
+</p>
+
+<div class="attribute_description">This supplies the pitch and yaw targets. Note that assigning to this
+attribute also sets the relativeProvider attribute to false.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="MatrixProvider.html">MatrixProvider</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="nodeInfo"></a><p class="attribute_definition">
+<span class="attribute_definition">nodeInfo</span>
+</p>
+
+<div class="attribute_description">This specifies which nodes this tracker affects, and to what
+extent it affects them.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="BaseNodeInfo.html">BaseNodeInfo</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="pitch"></a><p class="attribute_definition">
+<span class="attribute_definition">pitch</span>
+</p>
+
+<div class="attribute_description">The pitch currently applied by the tracker. Assigning a value to this
+causes the model to snap to the specified pitch then turn back towards the
+pitch supplied by the directionProvider attribute. Note that the model will
+not be affected if a directionProvider has not been specified, and that the
+value of this is relative to the world coordinate system regardless of the
+value of the relativeProvider attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Float.
+</td></tr>
+</table>
+</p>
+
+<a name="relativeProvider"></a><p class="attribute_definition">
+<span class="attribute_definition">relativeProvider</span>
+</p>
+
+<div class="attribute_description">If this is non-zero then the nodes are turned to face the target direction
+in model space. Otherwise world space is used. Note that this
+is set to zero whenever directionProvider is changed.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Integer.
+</td></tr>
+</table>
+</p>
+
+<a name="yaw"></a><p class="attribute_definition">
+<span class="attribute_definition">yaw</span>
+</p>
+
+<div class="attribute_description">The yaw currently applied by the tracker. Assigning a value to this
+causes the model to snap to the specified yaw then turn back towards the
+yaw supplied by the directionProvider attribute. Note that the model will
+not be affected if a directionProvider has not been specified, and that the
+value of this is relative to the world coordinate system regardless of the
+value of the relativeProvider attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Float.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

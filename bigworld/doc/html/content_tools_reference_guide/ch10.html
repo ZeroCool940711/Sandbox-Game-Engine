@@ -1,0 +1,207 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;10.&nbsp;Offline Processor</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Content Tools Reference Guide">
+      <link rel="up" href="index.html" title="Content Tools Reference Guide">
+      <link rel="prev" href="ch09.html" title="Chapter&nbsp;9.&nbsp;Panel System">
+      <link rel="next" href="ch11.html" title="Chapter&nbsp;11.&nbsp;NavGen">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/content_tools_reference_guide/ch10.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;10.&nbsp;Offline Processor</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch09.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch11.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;10.&nbsp;Offline Processor">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_OfflineProcessor"></a>Chapter&nbsp;10.&nbsp;Offline Processor
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch10.html#d0e29004">10.1. Configuring Offline Processor</a></span></dt>
+                  <dt><span class="section"><a href="ch10.html#xref_Running_Offline_Processor">10.2. Running Offline Processor</a></span></dt>
+                  <dt><span class="section"><a href="ch10.html#xref_cluster_generation">10.3. Cluster generation</a></span></dt>
+               </dl>
+            </div>
+            <p>The Offline Processor is one of the BigWorld tools used to generate a
+                 navmesh for each chunk in a space. It uses Recast to generate the
+                 meshes.
+            </p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+               <h3 class="title">Note</h3>
+               <p>The other tool provided by BigWorld to generate a navmesh is
+                        NavGen. For more details, see <a class="xref" href="ch11.html" title="Chapter&nbsp;11.&nbsp;NavGen"><i>NavGen</i></a>.
+               </p>
+            </div>
+            <p>For details about Recast, refer to the project site, at <a class="ulink" href="http://code.google.com/p/recastnavigation/" target="_top">http://code.google.com/p/recastnavigation/</a>.
+            </p>
+            <div class="informalfigure">
+               <div class="mediaobject"><img src="images/offline_processor.png"><span class="caption">
+                     <p>Offline Processor</p></span></div>
+            </div>
+            <div class="section" title="10.1.&nbsp;Configuring Offline Processor">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e29004"></a>10.1.&nbsp;Configuring Offline Processor
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The Offline Processor, located at
+                      <code class="filename">bigworld/tools/misc/offline_processor.exe</code>, needs to be
+                      configured so it knows where to find your game resources. This is done by
+                      listing the resource paths, in order of precedence, in
+                      <code class="filename">bigworld/tools/misc/paths.xml</code>.
+               </p>
+               <p>In order for the Offline Processor to generate Recast navmeshes for
+                      a space, that space must be properly configured, by setting the
+                      <span class="literal">navmeshGenerator</span> option in
+                      <code class="filename">space.settings</code> to <span class="literal">recast</span>. If this
+                      option specifies any other generator, the Offline Processor will not
+                      generate meshes. Modifying this value will not automatically cause chunks
+                      to be dirtied, so if a navmesh already exists, the next generation will
+                      have to be run in overwrite mode. For details refer to <a class="xref" href="ch10.html#xref_Running_Offline_Processor" title="10.2.&nbsp;Running Offline Processor">Running Offline Processor</a>.
+               </p>
+               <p>Recast uses settings that are stored in a Girths file, located at
+                      <code class="filename">bigworld/res/helpers/girths/xml</code> by default. This file
+                      contains profiles for entity types that will use each layer of the
+                      navmesh. For details, see <a href="../server_programming_guide/index.html" class="olink">Server Programming Guide</a>'s
+                      section <a href="../server_programming_guide/ch13.html#xref_girth_information" class="olink">Configuring Girth Information for Navmesh Generation</a>.
+               </p>
+            </div>
+            <div class="section" title="10.2.&nbsp;Running Offline Processor">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Running_Offline_Processor"></a>10.2.&nbsp;Running Offline Processor
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The offline processor is designed to be run in a fully automated
+                      environment, and is therefore controlled via command line
+                      parameters.
+               </p>
+               <p><span class="literal">offline_processor.exe [options]</span></p>
+               <p>The available options are:</p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p><code class="code">-clusterIndex</code> The index of this machine within the
+                                   cluster. See <a class="xref" href="ch10.html#xref_cluster_generation" title="10.3.&nbsp;Cluster generation">Cluster generation</a> for more
+                                   information.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><code class="code">-clusterSize</code> The size of the cluster in which this
+                                   machine belongs. See <a class="xref" href="ch10.html#xref_cluster_generation" title="10.3.&nbsp;Cluster generation">Cluster generation</a> for
+                                   more information.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><code class="code">-help</code> Displays a usage message.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><code class="code">-nogui</code> If no space is specified, or the space could
+                                   not be found, this will avoid displaying the interactive GUI.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><code class="code">-overwrite</code> Forces all data to be re-generated even
+                                   if the chunks are not dirty.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><code class="code">-space</code> Path to the space which is to be processed
+                                   (e.g. "spaces/highlands").
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <p>For example, the following would force all data to be recalculated
+                      for the highlands space:
+               </p>
+               <p><span class="literal">offline_processor -overwrite -space
+                         spaces/highlands</span></p>
+               <p>If no arguments are supplied, an interactive dialog will be
+                      displayed in order for a space to be chosen to process.
+               </p>
+            </div>
+            <div class="section" title="10.3.&nbsp;Cluster generation">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_cluster_generation"></a>10.3.&nbsp;Cluster generation
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The offline processor allows you to accelerate the build process by
+                      spreading the workload amongst multiple machines (or multiple cores on a
+                      single machine). First, make sure that each computer has an up-to-date
+                      copy of the space being calculated. It is best to use cluster generation
+                      in conjunction with a version control system, such as CVS or SVN.
+               </p>
+               <p>Use the <code class="code">clusterIndex</code> and <code class="code">clusterSize</code>
+                      command line arguments. For example, if you have four machines to process
+                      a single space you could use the following four command lines (one on each
+                      machine),
+               </p><pre class="programlisting">offline_processor.exe -overwrite -clusterIndex 0 -clusterSize 4 -space spaces/highlands
+offline_processor.exe -overwrite -clusterIndex 1 -clusterSize 4 -space spaces/highlands
+offline_processor.exe -overwrite -clusterIndex 2 -clusterSize 4 -space spaces/highlands
+offline_processor.exe -overwrite -clusterIndex 3 -clusterSize 4 -space spaces/highlands</pre><p>The computers will proceed individually (there is no coordination
+                      between machines). To get the results from each computer back into one
+                      space use the version control system's check-in functionality
+                      (<em class="emphasis">e.g.</em>, <span class="literal">svn commit</span>). There should
+                      be no overlap between the computers over the changed files, so merging
+                      individual files should be unnecessary.
+               </p>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch09.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch11.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;9.&nbsp;Panel System&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;11.&nbsp;NavGen</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

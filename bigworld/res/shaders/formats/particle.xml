@@ -1,0 +1,9 @@
+<flora.xml>
+	<POSITION/>
+	<COLOR>
+		<type> D3DCOLOR </type>
+	</COLOR>
+	<PSIZE>
+		<type> FLOAT1 </type>
+	</PSIZE>
+</flora.xml>

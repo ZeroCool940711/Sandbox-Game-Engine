@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>PyResourceRefs - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyResourceRefs Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyResourceRefs is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#has_key" class="function_list" >has_key</a>( self, resourceID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#items" class="function_list" >items</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#keys" class="function_list" >keys</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#pop" class="function_list" >pop</a>( self, resourceID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#values" class="function_list" >values</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#failedIDs" class="attribute_list" >failedIDs</a></td><td>&nbsp; Read-Only Object
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is a resource reference holder.  It cannot be constructed
+explicitly, instead you must call <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#loadResourceListBG>loadResourceListBG</a> - the
+ResourceRefs object is passed into the callback function.
+This class holds references to those resources it is initialised with,
+so as long as you hold a reference to the <a href="PyResourceRefs.html">PyResourceRefs</a> object, you will
+also be holding onto references to all of its resources.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="has_key"></a><p class="function_definition">
+<span class="function_definition">def has_key( <i>self, resourceID</i> ):</span>
+</p>
+
+<div class="function_description">This function returns whether the <a href="PyResourceRefs.html">PyResourceRefs</a> has a reference
+to the resource given by the key.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>resourceID</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the resource to check.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True or False.
+</td></tr>
+</table>
+</p>
+
+<a name="items"></a><p class="function_definition">
+<span class="function_definition">def items( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a list of tuples of (resourceID, object)
+representing this objects resources by name and their python equivalent
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>list of tuples of (resourceID, object).
+</td></tr>
+</table>
+</p>
+
+<a name="keys"></a><p class="function_definition">
+<span class="function_definition">def keys( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the list of resourceIDs.	 
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>list of strings.
+</td></tr>
+</table>
+</p>
+
+<a name="pop"></a><p class="function_definition">
+<span class="function_definition">def pop( <i>self, resourceID</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the resource associated with a particular resource
+reference and erases it from <a href="PyResourceRefs.html">PyResourceRefs</a> ownership.  If there is no
+python representation, or if the resource failed to load, None will
+be returned.  In either case the <a href="PyResourceRefs.html">PyResourceRefs</a> object will no longer
+keep a reference to the resource and this is now up to the caller to
+manage.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>resourceID</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the required resource.	 
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>python resource, or None.
+</td></tr>
+</table>
+</p>
+
+<a name="values"></a><p class="function_definition">
+<span class="function_definition">def values( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a list of the python equivalents for the
+resources held onto by this object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>list of resource objects.
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="failedIDs"></a><p class="attribute_definition">
+<span class="attribute_definition">failedIDs</span>
+</p>
+
+<div class="attribute_description">This attribute contains a list of resources that failed to load.  It
+is a subset of the resourceIDs list.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Object
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

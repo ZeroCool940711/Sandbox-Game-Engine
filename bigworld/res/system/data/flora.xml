@@ -1,0 +1,58 @@
+<flora.xml>
+	<vb_size>	765000	</vb_size>
+	<texture_width>	256 </texture_width>
+	<texture_height> 128 </texture_height>
+	<!-- Lightmap for classic terrain -->
+	<light_map>
+		<material> system/materials/light_map.mfm </material>
+		<!-- Path to effect material.  Must be valid.-->
+
+		<width>			512	</width>
+		<!-- Width in pixels of the light map. -->
+
+		<height>		512	</height>	
+		<!-- Height in pixels of the light map.
+		     For best results, set to same as width. -->
+
+		<timeToleranceSecs>	60	</timeToleranceSecs>
+		<!-- Game time between updates of light map. -->
+
+		<textureFeedName>	floraLightMap	</textureFeedName>
+		<!-- Optional name of texture feed for light map. -->
+
+		<effectTextureName>	FloraLightMap	</effectTextureName>
+		<!-- Required, exposes the light map to the effect engine -->
+
+		<effectTransformName>	FloraLightMapTransform </effectTransformName>
+		<!-- Required, exposes the worldToLightMap transform to the effect engine -->
+	</light_map>
+	<!-- Lightmap for new terrain -->
+	<light_map2>
+		<material> system/materials/light_map2.mfm </material>
+		<!-- Path to effect material.  Must be valid.-->
+
+		<width>			512	</width>
+		<!-- Width in pixels of the light map. -->
+
+		<height>		512	</height>	
+		<!-- Height in pixels of the light map.
+		     For best results, set to same as width. -->
+
+		<timeToleranceSecs>	60	</timeToleranceSecs>
+		<!-- Game time between updates of light map. -->
+
+		<textureFeedName>	floraLightMap	</textureFeedName>
+		<!-- Optional name of texture feed for light map. -->
+
+		<effectTextureName>	FloraLightMap	</effectTextureName>
+		<!-- Required, exposes the light map to the effect engine -->
+
+		<effectTransformName>	FloraLightMapTransform </effectTransformName>
+		<!-- Required, exposes the worldToLightMap transform to the effect engine -->
+	</light_map2>
+	<ecotypes>
+		<empty>
+			<sound_tag>	wood </sound_tag>
+		</empty>
+	</ecotypes>
+</flora.xml>

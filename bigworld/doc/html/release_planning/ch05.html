@@ -1,0 +1,156 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;5.&nbsp;Monitoring and Maintaining the Cluster</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Release Planning">
+      <link rel="up" href="index.html" title="Release Planning">
+      <link rel="prev" href="ch04.html" title="Chapter&nbsp;4.&nbsp;Cluster Hardware">
+      <link rel="next" href="ch06.html" title="Chapter&nbsp;6.&nbsp;Communicating with the BigWorld Support Team">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/release_planning/ch05.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;5.&nbsp;Monitoring and Maintaining the Cluster</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch04.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch06.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;5.&nbsp;Monitoring and Maintaining the Cluster">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Monitoring_and_Maintaining_the_Cluster"></a>Chapter&nbsp;5.&nbsp;Monitoring and Maintaining the Cluster
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch05.html#xref_Day_to_Day_Monitoring">5.1. Day To Day Monitoring</a></span></dt>
+                  <dt><span class="section"><a href="ch05.html#xref_DistributingGameResources">5.2. Distributing Game Resources</a></span></dt>
+               </dl>
+            </div>
+            <p>After deploying the BigWorld cluster, an operations team should be in
+                 charge of maintaining and updating it as required.
+            </p>
+            <div class="section" title="5.1.&nbsp;Day To Day Monitoring">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Day_to_Day_Monitoring"></a>5.1.&nbsp;Day To Day Monitoring
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The operations team should monitor the cluster usage on a daily
+                      basis using StatGrapher to detect unexpected issues. Disk usage should
+                      also be monitored as running out of disk is a common cause of multiple
+                      server issues particularly for tools machines.
+               </p>
+               <p>The operations team should pay attention to any server crashes and
+                      report those to the BigWorld support team making sure all relevant
+                      information is collected and sent to the team. See the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s chapter <a href="../server_operations_guide/ch13.html" class="olink"><i>First Aid After a Crash</i></a> for more information about the
+                      procedure for investigating and reporting a crash.
+               </p>
+            </div>
+            <div class="section" title="5.2.&nbsp;Distributing Game Resources">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_DistributingGameResources"></a>5.2.&nbsp;Distributing Game Resources
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>As a server cluster can encompass a large number of machines, it is
+                      critical to have a deployment plan in place for updating your game
+                      resources for regular game updates, as well as updating the BigWorld
+                      server binaries for critical patch releases.
+               </p>
+               <p>Some common methods of distributing resources around a large cluster
+                      include:
+               </p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>NFS (Network File System)</p>
+                        <p>This has the advantage of keeping all your cluster machines up
+                                   to date at once, with the disadvantage of a large network load during
+                                   startup / shutdown times and potentially during critical load
+                                   situations where processes may need to dump a core file to the
+                                   filesystem which will further impact network load.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>RSync</p>
+                        <p>The rsync utililty is an extremely fast and efficient tool for
+                                   copying files between machines in your network. With some
+                                   customisation for your our server cluster, this can be a good
+                                   alternative for pushing releases to server machines.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>RPMs (Package Management)</p>
+                        <p>As outlined in the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s chapter <a href="../server_operations_guide/ch12.html" class="olink"><i>RPM</i></a>, creating
+                                   RPMs and setting up an in house YUM repository can be an effective way
+                                   of keeping machines synchronised with the latest versions by a single
+                                   push operation to the master repository.
+                        </p>
+                        <p>Using this approach an RPM would be generated for the BigWorld
+                                   server binaries (e.g.,
+                                   <code class="filename">bigworld-server-2.0.1.x86_64.rpm</code>) while a
+                                   seperate RPM would be generated for your game resources (e.g.,
+                                   <code class="filename">customer-gamename-1.0.2.noarch.rpm</code>. This would
+                                   allow updates of game resources and BigWorld server binaries to be
+                                   independently pushed to machines.
+                        </p>
+                        <p>An added advantage of this approach is that packages can be
+                                   automatically downgraded in an emergency, for example when a bad game
+                                   script update was pushed onto a live production server. This would be
+                                   as simple as running the <span class="literal">yum downgrade</span>
+                                   command.
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <p>Other options are also discussed in <a class="xref" href="ch04.html#xref_Secondary_Storage_Considerations" title="4.2.4.&nbsp;Secondary Storage Considerations">Secondary Storage Considerations</a>.
+               </p>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch04.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch06.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;4.&nbsp;Cluster Hardware&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;6.&nbsp;Communicating with the BigWorld Support Team</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

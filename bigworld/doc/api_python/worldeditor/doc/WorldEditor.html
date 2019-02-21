@@ -1,0 +1,3406 @@
+<html>
+<head>
+<title>WorldEditor - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>WorldEditor Module Reference</h1>
+The <a href="WorldEditor.html">WorldEditor</a> Module is a Python module that provides an interface to
+the various information about the world items in <a href="WorldEditor.html">WorldEditor</a>.
+It also provides functionality to configure the <a href="WorldEditor.html">WorldEditor</a> <a href="GUI.html">GUI</a>, replicate
+menu item actions, capture user interaction and provides an interface
+to the 'bwlockd' (lock server).
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addCommentaryMsg" class="function_list" >addCommentaryMsg</a>( CommentaryMsg ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addItemToHistory" class="function_list" >addItemToHistory</a>( path, type ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addUndoBarrier" class="function_list" >addUndoBarrier</a>( name, skipIfNoChange ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#adjustMarkerCluster" class="function_list" >adjustMarkerCluster</a>( selected, mouseOver ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#autoSnap" class="function_list" >autoSnap</a>( chunk1, chunk2 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#axisDirection" class="function_list" >axisDirection</a>( axis ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#axisValue" class="function_list" >axisValue</a>( Axis ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#callback" class="function_list" >callback</a>( time, function ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#camera" class="function_list" >camera</a>( cameraType ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#canConvertCurrentTerrain" class="function_list" >canConvertCurrentTerrain</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#canRegenerateLODs" class="function_list" >canRegenerateLODs</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#canResizeCurrentTerrain" class="function_list" >canResizeCurrentTerrain</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#changeToCamera" class="function_list" >changeToCamera</a>( cameraType ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#changedPostProcessing" class="function_list" >changedPostProcessing</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#chunkDataSection" class="function_list" >chunkDataSection</a>( revealer ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#chunkDirtyCounts" class="function_list" >chunkDirtyCounts</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#chunkFromModel" class="function_list" >chunkFromModel</a>( chunkDatasection, modelDataSection ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#chunkItems" class="function_list" >chunkItems</a>( ChunkItemRevealer ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#clearUndoRedo" class="function_list" >clearUndoRedo</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#cloneAndAutoSnap" class="function_list" >cloneAndAutoSnap</a>( cloneRevealer, snapRevealer ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#cloneChunkItems" class="function_list" >cloneChunkItems</a>( revealear, locator ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#convertCurrentTerrain" class="function_list" >convertCurrentTerrain</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#convertSpaceToZip" class="function_list" >convertSpaceToZip</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#convertTerrain" class="function_list" >convertTerrain</a>( space, reconvert ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#convertTerrainSingle" class="function_list" >convertTerrainSingle</a>( space, chunkId ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createChunk" class="function_list" >createChunk</a>( datasection, name, locator ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createChunkItem" class="function_list" >createChunkItem</a>( dataSection, locator, useLocalPos ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createInsideChunkDataSection" class="function_list" >createInsideChunkDataSection</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createInsideChunkName" class="function_list" >createInsideChunkName</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#cursorOverGraphicsWnd" class="function_list" >cursorOverGraphicsWnd</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#deleteChunkItems" class="function_list" >deleteChunkItems</a>( revealer ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#enterPlayerPreviewMode" class="function_list" >enterPlayerPreviewMode</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#farPlane" class="function_list" >farPlane</a>( farPlane ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#freezeChunkItems" class="function_list" >freezeChunkItems</a>( revealer, bool, bool ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#fudgeOrthographicMode" class="function_list" >fudgeOrthographicMode</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#fxSound" class="function_list" >fxSound</a>( SoundName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getCurrentEditors" class="function_list" >getCurrentEditors</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getOptionBool" class="function_list" >getOptionBool</a>( name, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getOptionFloat" class="function_list" >getOptionFloat</a>( name, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getOptionInt" class="function_list" >getOptionInt</a>( name, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getOptionMatrix34" class="function_list" >getOptionMatrix34</a>( name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getOptionString" class="function_list" >getOptionString</a>( name, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getOptionVector2" class="function_list" >getOptionVector2</a>( name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getOptionVector3" class="function_list" >getOptionVector3</a>( name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getOptionVector4" class="function_list" >getOptionVector4</a>( name, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getSelectionFilter" class="function_list" >getSelectionFilter</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#gizmoClick" class="function_list" >gizmoClick</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#gizmoUpdate" class="function_list" >gizmoUpdate</a>( worldRay ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#gridBounds" class="function_list" >gridBounds</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#hideChunkItems" class="function_list" >hideChunkItems</a>( revealer, bool, bool ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#importDataGUI" class="function_list" >importDataGUI</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#invalidateSpaceMap" class="function_list" >invalidateSpaceMap</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isCapsLockOn" class="function_list" >isCapsLockOn</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isChunkSelected" class="function_list" >isChunkSelected</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isInPlayerPreviewMode" class="function_list" >isInPlayerPreviewMode</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isKeyDown" class="function_list" >isKeyDown</a>( key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isPanelVisible" class="function_list" >isPanelVisible</a>( panel ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isSceneBrowserFocused" class="function_list" >isSceneBrowserFocused</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isTerrainTexture" class="function_list" >isTerrainTexture</a>( pBrushFile ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isUserEditingPostProcessing" class="function_list" >isUserEditingPostProcessing</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#keyToString" class="function_list" >keyToString</a>( key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#launchTool" class="function_list" >launchTool</a>( tool, cmd ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#leavePlayerPreviewMode" class="function_list" >leavePlayerPreviewMode</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#loadChunkPrefab" class="function_list" >loadChunkPrefab</a>( filename, locator ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#memoryLoad" class="function_list" >memoryLoad</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#messageBox" class="function_list" >messageBox</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#moveGroupTo" class="function_list" >moveGroupTo</a>( ToolLocator ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#outsideChunkIdentifier" class="function_list" >outsideChunkIdentifier</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#outsideChunkIdentifier" class="function_list" >outsideChunkIdentifier</a>( Vector3, Boolean ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#photographChunk" class="function_list" >photographChunk</a>( string, int, int, string ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#playFx" class="function_list" >playFx</a>( SoundEffect ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#playFxDelayed" class="function_list" >playFxDelayed</a>( SoundEffect, Delayed ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#playSimple" class="function_list" >playSimple</a>( SimpleSoundName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#pop" class="function_list" >pop</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#popTool" class="function_list" >popTool</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#projectCommit" class="function_list" >projectCommit</a>( commitMsg, keepLocks ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#projectDiscard" class="function_list" >projectDiscard</a>( commitMsg, keepLocks ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#projectLock" class="function_list" >projectLock</a>( commitMsg ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#projectMapAlpha" class="function_list" >projectMapAlpha</a>( alpha ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#projectUpdateSpace" class="function_list" >projectUpdateSpace</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#push" class="function_list" >push</a>( Module ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#pushTool" class="function_list" >pushTool</a>( tool ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#py_exportDataGUI" class="function_list" >py_exportDataGUI</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#quickSave" class="function_list" >quickSave</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#recreateChunks" class="function_list" >recreateChunks</a>( revealer ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#redo" class="function_list" >redo</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#regenerateLODs" class="function_list" >regenerateLODs</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#regenerateThumbnails" class="function_list" >regenerateThumbnails</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#reloadAllChunks" class="function_list" >reloadAllChunks</a>( bool ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#reloadMaterialKinds" class="function_list" >reloadMaterialKinds</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#render" class="function_list" >render</a>( dTime ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#repairTerrain" class="function_list" >repairTerrain</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#resaveAllTerrainBlocks" class="function_list" >resaveAllTerrainBlocks</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#resizeSpaceTerrainMaps" class="function_list" >resizeSpaceTerrainMaps</a>( space, heightMapSize, normalMapSize, shadowMapSize, holeMapSize, blends ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#resizeTerrainMaps" class="function_list" >resizeTerrainMaps</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#restitchAllTerrainBlocks" class="function_list" >restitchAllTerrainBlocks</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#revealSelection" class="function_list" >revealSelection</a>( selection ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#rightClick" class="function_list" >rightClick</a>( selection ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#rotateSnap" class="function_list" >rotateSnap</a>( chunks ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#save" class="function_list" >save</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#saveChunkPrefab" class="function_list" >saveChunkPrefab</a>( revealer, filename ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#saveChunkTemplate" class="function_list" >saveChunkTemplate</a>( revealer ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#saveOptions" class="function_list" >saveOptions</a>( filename ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#selectAll" class="function_list" >selectAll</a>( ignoreVis, ignoreFrozen, ignoreFilter ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setCurrentBrush " class="function_list" >setCurrentBrush </a>( brushFile ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setCurrentEditors" class="function_list" >setCurrentEditors</a>( editors ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setCurrentTexture" class="function_list" >setCurrentTexture</a>( pTextureFile ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setCurrentTextureFull " class="function_list" >setCurrentTextureFull </a>( pTextureFile, uProjection, vProjection ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setNoSelectionFilter" class="function_list" >setNoSelectionFilter</a>( filters ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setOption" class="function_list" >setOption</a>( name, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setOptionBool" class="function_list" >setOptionBool</a>( name, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setOptionFloat" class="function_list" >setOptionFloat</a>( name, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setOptionInt" class="function_list" >setOptionInt</a>( name, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setOptionMatrix34" class="function_list" >setOptionMatrix34</a>( name, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setOptionString" class="function_list" >setOptionString</a>( name, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setOptionVector2" class="function_list" >setOptionVector2</a>( name, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setOptionVector3" class="function_list" >setOptionVector3</a>( name, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setOptionVector4" class="function_list" >setOptionVector4</a>( name, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setPaintLayer " class="function_list" >setPaintLayer </a>( idx ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setPaintPos" class="function_list" >setPaintPos</a>( pos ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setSelectShellsOnly" class="function_list" >setSelectShellsOnly</a>( rule ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setSelectionFilter" class="function_list" >setSelectionFilter</a>( filters ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setTerrainPaintEscKey" class="function_list" >setTerrainPaintEscKey</a>( hitESC ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setToolMode" class="function_list" >setToolMode</a>( mode ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#showChunkReport" class="function_list" >showChunkReport</a>( chunk ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#showPanel" class="function_list" >showPanel</a>( panel, show ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#snapCameraToTerrain" class="function_list" >snapCameraToTerrain</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#stringInputBox" class="function_list" >stringInputBox</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#stringToKey" class="function_list" >stringToKey</a>( string ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#terrainBlendsRes" class="function_list" >terrainBlendsRes</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#terrainCollide" class="function_list" >terrainCollide</a>( start, end ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#terrainHeightMapRes" class="function_list" >terrainHeightMapRes</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#terrainHoleMapRes" class="function_list" >terrainHoleMapRes</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#tool" class="function_list" >tool</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#touchAllChunks" class="function_list" >touchAllChunks</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#udoCreateAtPosition" class="function_list" >udoCreateAtPosition</a>( guid, chunkId, pos, snapToTerrain ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#udoCreateLink" class="function_list" >udoCreateLink</a>( guid1, chunkId1, guid2, chunkId2, propName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#udoDeleteLinks" class="function_list" >udoDeleteLinks</a>( guid1, chunkId1, guid2, chunkId2 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#udoGet" class="function_list" >udoGet</a>( guid, chunkId ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#undo" class="function_list" >undo</a>( undoLevel ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#unloadChunk" class="function_list" >unloadChunk</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#update" class="function_list" >update</a>( dTime ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#userEditingPostProcessing" class="function_list" >userEditingPostProcessing</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#wipeTerrain" class="function_list" >wipeTerrain</a>( space ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#wipeTerrainRect" class="function_list" >wipeTerrainRect</a>( space, xStart, xEnd, zStart, zEnd ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#worldRay" class="function_list" >worldRay</a>(  ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#romp" class="attribute_list" >romp</a></td><td>&nbsp; <a href="RompHarness.html">RompHarness</a>
+</td></tr>
+
+</table>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addCommentaryMsg"></a><p class="function_definition">
+<span class="function_definition">def addCommentaryMsg( <i>CommentaryMsg</i> ):</span>
+</p>
+
+<div class="function_description">This function adds a message to the	Commentary Console.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>CommentaryMsg</i></span></td><td><span class="function_parameter_description">&nbsp;The message to display in the Commentary Console.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addItemToHistory"></a><p class="function_definition">
+<span class="function_definition">def addItemToHistory( <i>path, type</i> ):</span>
+</p>
+
+<div class="function_description">This function adds the asset to the Asset Browser's history
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path of the asset.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>type</i></span></td><td><span class="function_parameter_description">&nbsp;The type of the asset.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addUndoBarrier"></a><p class="function_definition">
+<span class="function_definition">def addUndoBarrier( <i>name, skipIfNoChange</i> ):</span>
+</p>
+
+<div class="function_description">Adds an undo/redo barrier with the given name.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the undo/redo barrier to add.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>skipIfNoChange</i></span></td><td><span class="function_parameter_description">&nbsp;An optional int that specifies whether to force
+						a barrier to be added even if no changes have been made.
+						Defaults value is False (0), otherwise setting True (1) will not add
+						a barrier if no changes have been made.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="adjustMarkerCluster"></a><p class="function_definition">
+<span class="function_definition">def adjustMarkerCluster( <i>selected, mouseOver</i> ):</span>
+</p>
+
+<div class="function_description">This function adjusts the cluster, joins or removes the cluster association between 
+what is currently selected and the what the mouse is current over.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>selected</i></span></td><td><span class="function_parameter_description">&nbsp;A ChunkItemRevealer object which references what is currently selected.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>mouseOver</i></span></td><td><span class="function_parameter_description">&nbsp;A ChunkItemRevealer object which references what the mouse is
+					currently over.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="autoSnap"></a><p class="function_definition">
+<span class="function_definition">def autoSnap( <i>chunk1, chunk2</i> ):</span>
+</p>
+
+<div class="function_description">This function snaps two chunks together, by finding their closest matching portals.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunk1</i></span></td><td><span class="function_parameter_description">&nbsp;A ChunkItemRevealer object of the chunk that is currently being edited.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunk2</i></span></td><td><span class="function_parameter_description">&nbsp;A ChunkItemRevealer object to the chunk that needs to be snapped to
+				the chunk that is currently being edited.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="axisDirection"></a><p class="function_definition">
+<span class="function_definition">def axisDirection( <i>axis</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the direction the specified joystick is pointing in.
+<br><br>
+The return value indicates which direction the joystick is facing, as
+follows:
+<br><br>
+
+<pre>- 0 down and left
+- 1 down
+- 2 down and right
+- 3 left
+- 4 centred
+- 5 right
+- 6 up and left
+- 7 up
+- 8 up and right
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>axis</i></span></td><td><span class="function_parameter_description">&nbsp;This is one of AXIS_LX, AXIS_LY, AXIS_RX, AXIS_RY, with the
+				first letter being L or R meaning left thumbstick or right
+				thumbstick, the second, X or Y being the direction.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>An integer representing the direction of the specified
+				thumbstick, as listed above.
+</td></tr>
+</table>
+</p>
+
+<a name="axisValue"></a><p class="function_definition">
+<span class="function_definition">def axisValue( <i>Axis</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the value of the given joystick axis.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Axis</i></span></td><td><span class="function_parameter_description">&nbsp;The given joystick axis to get the joystick axis from.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The value of the given joystick axis.
+</td></tr>
+</table>
+</p>
+
+<a name="callback"></a><p class="function_definition">
+<span class="function_definition">def callback( <i>time, function</i> ):</span>
+</p>
+
+<div class="function_description">Registers a callback function to be called after a certain time,
+but not before the next tick. (If registered during a tick
+and it has expired then it will go off still - add a minuscule
+amount of time to <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#time>time</a>() to prevent this if unwanted)
+Non-positive times are interpreted as offsets from the current time.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>time</i></span></td><td><span class="function_parameter_description">&nbsp;The amount of time to pass before the function is called.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>function</i></span></td><td><span class="function_parameter_description">&nbsp;The callback function.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="camera"></a><p class="function_definition">
+<span class="function_definition">def camera( <i>cameraType</i> ):</span>
+</p>
+
+<div class="function_description">This function gets a <a href="WorldEditor.html">WorldEditor</a> camera.
+<br><br>
+For more information see the <a href="BaseCamera.html">BaseCamera</a> class.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>cameraType</i></span></td><td><span class="function_parameter_description">&nbsp;The type of camera to return. If cameraType = 0 then the
+					mouseLook camera is returned; if cameraType = 1 then the
+					orthographic camera is returned; if cameraType is not given
+					then the current camera is returned.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns a reference to a camera which corresponds to the supplied cameraType
+		parameter. If cameraType is not supplied then the current camera is returned.
+</td></tr>
+</table>
+</p>
+
+<a name="canConvertCurrentTerrain"></a><p class="function_definition">
+<span class="function_definition">def canConvertCurrentTerrain( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns 1 if the current terrain can be converted
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>1 if the current terrain can be converted, or 0 if not.
+</td></tr>
+</table>
+</p>
+
+<a name="canRegenerateLODs"></a><p class="function_definition">
+<span class="function_definition">def canRegenerateLODs( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns 1 if the terrain LODs can be regenerated.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>1 if the current terrain LODs can be regenerated, or 0 if not.
+</td></tr>
+</table>
+</p>
+
+<a name="canResizeCurrentTerrain"></a><p class="function_definition">
+<span class="function_definition">def canResizeCurrentTerrain( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns 1 if the current terrain maps can be resized.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>1 if the current terrain maps can be resized, or 0 if not.
+</td></tr>
+</table>
+</p>
+
+<a name="changeToCamera"></a><p class="function_definition">
+<span class="function_definition">def changeToCamera( <i>cameraType</i> ):</span>
+</p>
+
+<div class="function_description">This function changes the current camera to the specified cameraType.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>cameraType</i></span></td><td><span class="function_parameter_description">&nbsp;The cameraType to change the current camera to. If
+					cameraType = 0 then the mouseLook camera is used;
+					if cameraType = 1 then the orthographic camera is used.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="changedPostProcessing"></a><p class="function_definition">
+<span class="function_definition">def changedPostProcessing( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function flags the current post processing chain as dirty so WE can
+refresh it.
+</div>
+
+<a name="chunkDataSection"></a><p class="function_definition">
+<span class="function_definition">def chunkDataSection( <i>revealer</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the <a href="DataSection.html">DataSection</a> for the given chunk.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>revealer</i></span></td><td><span class="function_parameter_description">&nbsp;The ChunkItemRevealer object of the chunk which
+				<a href="DataSection.html">DataSection</a> is to be returned.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The <a href="DataSection.html">DataSection</a> of the given chunk.
+</td></tr>
+</table>
+</p>
+
+<a name="chunkDirtyCounts"></a><p class="function_definition">
+<span class="function_definition">def chunkDirtyCounts( <i></i> ):</span>
+</p>
+
+<div class="function_description">Returns a dictionary containing the dirty counts for each
+type of chunk cache (name -> count).
+</div>
+
+<a name="chunkFromModel"></a><p class="function_definition">
+<span class="function_definition">def chunkFromModel( <i>chunkDatasection, modelDataSection</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a chunk <a href="DataSection.html">DataSection</a> from a model file. It requires an
+already created chunk <a href="DataSection.html">DataSection</a> which it will copy the relevant chunk data to.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunkDatasection</i></span></td><td><span class="function_parameter_description">&nbsp;A pointer to the <a href="DataSection.html">DataSection</a> to which the chunk
+						data needs to be stored.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>modelDataSection</i></span></td><td><span class="function_parameter_description">&nbsp;The model's <a href="DataSection.html">DataSection</a> to create the chunk <a href="DataSection.html">DataSection</a> from.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="chunkItems"></a><p class="function_definition">
+<span class="function_definition">def chunkItems( <i>ChunkItemRevealer</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a Reavealer containing all items within
+the given chunk.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>ChunkItemRevealer</i></span></td><td><span class="function_parameter_description">&nbsp;or Chunk ID (as a string) representing
+		the desired chunk.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns a ChunkItemGroup object of the all the items in 
+		the given chunk.
+</td></tr>
+</table>
+</p>
+
+<a name="clearUndoRedo"></a><p class="function_definition">
+<span class="function_definition">def clearUndoRedo( <i></i> ):</span>
+</p>
+
+<div class="function_description">Clears the undo/redo lists.
+</div>
+
+<a name="cloneAndAutoSnap"></a><p class="function_definition">
+<span class="function_definition">def cloneAndAutoSnap( <i>cloneRevealer, snapRevealer</i> ):</span>
+</p>
+
+<div class="function_description">This function clones the given shell and then snaps the clone
+to the selected shell.
+<br><br>
+No action is performed if no matching or available portals can be found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>cloneRevealer</i></span></td><td><span class="function_parameter_description">&nbsp;The ChunkItemRevealer object of the shell to clone.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>snapRevealer</i></span></td><td><span class="function_parameter_description">&nbsp;The ChunkItemRevealer object of the shell to snap
+						the clone to.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns a ChunkItemGroup object of the cloned shell if the operation
+		was successful.
+</td></tr>
+</table>
+</p>
+
+<a name="cloneChunkItems"></a><p class="function_definition">
+<span class="function_definition">def cloneChunkItems( <i>revealear, locator</i> ):</span>
+</p>
+
+<div class="function_description">This function makes a copy of a group of chunk items. It places the newly
+created chunk items at the position of the supplied ToolLocator object.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>revealear</i></span></td><td><span class="function_parameter_description">&nbsp;A ChunkItemRevealer object of the selected items to clone.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>locator</i></span></td><td><span class="function_parameter_description">&nbsp;A ToolLocator object which has the position of where the copies 
+				 should be placed in the space.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A ChunkItemGroup object of the cloned items.
+</td></tr>
+</table>
+</p>
+
+<a name="convertCurrentTerrain"></a><p class="function_definition">
+<span class="function_definition">def convertCurrentTerrain( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function converts the current terrain to new terrain.
+</div>
+
+<a name="convertSpaceToZip"></a><p class="function_definition">
+<span class="function_definition">def convertSpaceToZip( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function goes through all .cdata files of the current space and 
+converts them to use zip sections.  It is okay to call this even if
+the current space uses zip sections.
+</div>
+
+<a name="convertTerrain"></a><p class="function_definition">
+<span class="function_definition">def convertTerrain( <i>space, reconvert</i> ):</span>
+</p>
+
+<div class="function_description">This function converts the terrain of a space
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>space</i></span></td><td><span class="function_parameter_description">&nbsp;The path of space to convert.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>reconvert</i></span></td><td><span class="function_parameter_description">&nbsp;True if the space should be processed even if it's already converted.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="convertTerrainSingle"></a><p class="function_definition">
+<span class="function_definition">def convertTerrainSingle( <i>space, chunkId</i> ):</span>
+</p>
+
+<div class="function_description">This function converts the terrain of a single chunk
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>space</i></span></td><td><span class="function_parameter_description">&nbsp;The path of space where the chunk to be converted is.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunkId</i></span></td><td><span class="function_parameter_description">&nbsp;Chunk identifier of the chunk to be converted.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="createChunk"></a><p class="function_definition">
+<span class="function_definition">def createChunk( <i>datasection, name, locator</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a chunk given the chunk's datasection and name.
+It places the newly created chunk at the position of the optional ToolLocator.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>datasection</i></span></td><td><span class="function_parameter_description">&nbsp;The <a href="DataSection.html">DataSection</a> of the chunk to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The full name of the chunk to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>locator</i></span></td><td><span class="function_parameter_description">&nbsp;An optional ToolLocator or <a href="MatrixProvider.html">MatrixProvider</a>
+					object which provides a position for the
+					newly created chunk.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns a ChunkItemGroup object of the newly created chunk.
+</td></tr>
+</table>
+</p>
+
+<a name="createChunkItem"></a><p class="function_definition">
+<span class="function_definition">def createChunkItem( <i>dataSection, locator, useLocalPos</i> ):</span>
+</p>
+
+<div class="function_description">This method is used to create a chunk item(s). It places the newly created
+chunk item at the position of the supplied ToolLocator object. It also accepts an
+optional parameter which specifies whether the new item should be moved to
+the ToolLocator's local coordinates or world coordinates.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>dataSection</i></span></td><td><span class="function_parameter_description">&nbsp;The <a href="DataSection.html">DataSection</a> of the item to be created.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>locator</i></span></td><td><span class="function_parameter_description">&nbsp;The ToolLocator object which is used to see where
+					the item should be placed in the space.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>useLocalPos</i></span></td><td><span class="function_parameter_description">&nbsp;An optional int value which specifies whether the item should
+					be placed localy to the ToolLocator or in world position (default).
+					useLocalPos = 2 for local transform, useLocalPos = 1 for world transform.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A ChunkItemGroup object of the newly created item(s).
+</td></tr>
+</table>
+</p>
+
+<a name="createInsideChunkDataSection"></a><p class="function_definition">
+<span class="function_definition">def createInsideChunkDataSection( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates a chunk <a href="DataSection.html">DataSection</a> for a shell.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns a tuple with the chunk <a href="DataSection.html">DataSection</a> being the first
+		tuple value and an unique chunk name being the second tuple value.
+</td></tr>
+</table>
+</p>
+
+<a name="createInsideChunkName"></a><p class="function_definition">
+<span class="function_definition">def createInsideChunkName( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates an unique chunk name.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>An unique chunk name, or "error" if the function failed.
+</td></tr>
+</table>
+</p>
+
+<a name="cursorOverGraphicsWnd"></a><p class="function_definition">
+<span class="function_definition">def cursorOverGraphicsWnd( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function queries whether the mouse cursor is currently over 
+graphics window. This is usually used to see whether <a href="WorldEditor.html">WorldEditor</a>
+should be expecting input from the user.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns True (1) if the cursor is over the graphics window, False (0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="deleteChunkItems"></a><p class="function_definition">
+<span class="function_definition">def deleteChunkItems( <i>revealer</i> ):</span>
+</p>
+
+<div class="function_description">This function deletes chunk items referenced by the supplied ChunkItemRevealer object.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>revealer</i></span></td><td><span class="function_parameter_description">&nbsp;The ChunkItemRevealer object of the items that need
+				to be deleted.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="enterPlayerPreviewMode"></a><p class="function_definition">
+<span class="function_definition">def enterPlayerPreviewMode( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function enables the player preview mode view.
+</div>
+
+<a name="farPlane"></a><p class="function_definition">
+<span class="function_definition">def farPlane( <i>farPlane</i> ):</span>
+</p>
+
+<div class="function_description">This function queries and sets the far plane distance.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>farPlane</i></span></td><td><span class="function_parameter_description">&nbsp;Optional float value. The distance to set the far plane to.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>If the farPlane parameter was not supplied, then this function returns the 
+		currently set far plane distance, otherwise returns the new far plane distance.
+</td></tr>
+</table>
+</p>
+
+<a name="freezeChunkItems"></a><p class="function_definition">
+<span class="function_definition">def freezeChunkItems( <i>revealer, bool, bool</i> ):</span>
+</p>
+
+<div class="function_description">This function freezes chunk items referenced by the supplied ChunkItemRevealer object.
+The optional bool parameter can be used to unfreeze as well.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>revealer</i></span></td><td><span class="function_parameter_description">&nbsp;The ChunkItemRevealer object of the items that need
+				to be frozen.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>bool</i></span></td><td><span class="function_parameter_description">&nbsp;Optional: The frozen status to update the items with.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>bool</i></span></td><td><span class="function_parameter_description">&nbsp;Optional: Whether or not it should keep the selection.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="fudgeOrthographicMode"></a><p class="function_definition">
+<span class="function_definition">def fudgeOrthographicMode( <i></i> ):</span>
+</p>
+
+<div class="function_description">This is a temporary function that simply makes the camera
+go top-down.
+</div>
+
+<a name="fxSound"></a><p class="function_definition">
+<span class="function_definition">def fxSound( <i>SoundName</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a reference to a loaded sound.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>SoundName</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the loaded sound to get the reference from.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The reference to the loaded sound that has the given sound name.
+</td></tr>
+</table>
+</p>
+
+<a name="getCurrentEditors"></a><p class="function_definition">
+<span class="function_definition">def getCurrentEditors( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function gets the sequence of current editors.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns a sequence of the current editors in use.
+</td></tr>
+</table>
+</p>
+
+<a name="getOptionBool"></a><p class="function_definition">
+<span class="function_definition">def getOptionBool( <i>name, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the bool option in the options.xml file.
+If none can be found then the defaultVal is returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to get.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;The defaultVal to return in case no value was found
+					in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the value from the options.xml that corresponds to the option name.
+</td></tr>
+</table>
+</p>
+
+<a name="getOptionFloat"></a><p class="function_definition">
+<span class="function_definition">def getOptionFloat( <i>name, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the float option in the options.xml file.
+If none can be found then the defaultVal is returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to get.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;The defaultVal to return in case no value was found
+					in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the value from the options.xml that corresponds to the option name.
+</td></tr>
+</table>
+</p>
+
+<a name="getOptionInt"></a><p class="function_definition">
+<span class="function_definition">def getOptionInt( <i>name, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the int option in the options.xml file.
+If none can be found then the defaultVal is returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to get.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;The defaultVal to return in case no value was found
+					in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the value from the options.xml that corresponds to the option name.
+</td></tr>
+</table>
+</p>
+
+<a name="getOptionMatrix34"></a><p class="function_definition">
+<span class="function_definition">def getOptionMatrix34( <i>name</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the 3x4 <a href="Matrix.html">Matrix</a> option in the options.xml file.
+If none can be found then the identity matrix is returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to get.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the value from the options.xml that corresponds to
+				the option name, or the identity matrix if no corresponding
+				option name exists.
+</td></tr>
+</table>
+</p>
+
+<a name="getOptionString"></a><p class="function_definition">
+<span class="function_definition">def getOptionString( <i>name, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the string option in the options.xml file.
+If none can be found then the defaultVal is returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to get.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;The defaultVal to return in case no value was found
+					in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the value from the options.xml that corresponds to the option name.
+</td></tr>
+</table>
+</p>
+
+<a name="getOptionVector2"></a><p class="function_definition">
+<span class="function_definition">def getOptionVector2( <i>name</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the <a href="Vector2.html">Vector2</a> option in the options.xml file.
+If none can be found then the defaultVal is returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to get.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the value from the options.xml that corresponds to the option name, or (0,0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="getOptionVector3"></a><p class="function_definition">
+<span class="function_definition">def getOptionVector3( <i>name</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the <a href="Vector3.html">Vector3</a> option in the options.xml file.
+If none can be found then the defaultVal is returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to get.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the value from the options.xml that corresponds to the option name, or a zero <a href="Vector3.html">Vector3</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="getOptionVector4"></a><p class="function_definition">
+<span class="function_definition">def getOptionVector4( <i>name, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the <a href="Vector4.html">Vector4</a> option in the options.xml file.
+If none can be found then the defaultVal is returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to get.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;The defaultVal to return in case no value was found
+					in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the value from the options.xml that corresponds to the option name.
+</td></tr>
+</table>
+</p>
+
+<a name="getSelectionFilter"></a><p class="function_definition">
+<span class="function_definition">def getSelectionFilter( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function retrieves the selection filters.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the selection filters.
+</td></tr>
+</table>
+</p>
+
+<a name="gizmoClick"></a><p class="function_definition">
+<span class="function_definition">def gizmoClick( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function tells the gizmo that the user has clicked it.
+</div>
+
+<a name="gizmoUpdate"></a><p class="function_definition">
+<span class="function_definition">def gizmoUpdate( <i>worldRay</i> ):</span>
+</p>
+
+<div class="function_description">This method updates the gizmo manager's internals.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>worldRay</i></span></td><td><span class="function_parameter_description">&nbsp;The ray from the camera to the mouse position.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns True if the ray intersects something, False otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="gridBounds"></a><p class="function_definition">
+<span class="function_definition">def gridBounds( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method calculates the bounding box of the space in world coords.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A 2-tuple containing the min bounds and max bounds as <a href="Vector3.html">Vector3</a>'s.
+</td></tr>
+</table>
+</p>
+
+<a name="hideChunkItems"></a><p class="function_definition">
+<span class="function_definition">def hideChunkItems( <i>revealer, bool, bool</i> ):</span>
+</p>
+
+<div class="function_description">This function hides chunk items referenced by the supplied ChunkItemRevealer object.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>revealer</i></span></td><td><span class="function_parameter_description">&nbsp;The ChunkItemRevealer object of the items that need
+				to be hidden.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>bool</i></span></td><td><span class="function_parameter_description">&nbsp;Optional: The hidden status to update the items with.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>bool</i></span></td><td><span class="function_parameter_description">&nbsp;Optional: Whether or not it should keep the selection.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="importDataGUI"></a><p class="function_definition">
+<span class="function_definition">def importDataGUI( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function enables the TerrainImport Tool Mode.
+</div>
+
+<a name="invalidateSpaceMap"></a><p class="function_definition">
+<span class="function_definition">def invalidateSpaceMap( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function invalidates the space map, forcing a full recalculation.
+</div>
+
+<a name="isCapsLockOn"></a><p class="function_definition">
+<span class="function_definition">def isCapsLockOn( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns whether CapsLock is on.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns True (1) if Caps Lock is on, False (0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isChunkSelected"></a><p class="function_definition">
+<span class="function_definition">def isChunkSelected( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function queries whether a shell is currently selected.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns True if a shell is selected, False otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isInPlayerPreviewMode"></a><p class="function_definition">
+<span class="function_definition">def isInPlayerPreviewMode( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function asks <a href="WorldEditor.html">WorldEditor</a> if we are in playerPreviewMode
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns True (1) if in player preview mode, False (0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isKeyDown"></a><p class="function_definition">
+<span class="function_definition">def isKeyDown( <i>key</i> ):</span>
+</p>
+
+<div class="function_description">This function allows the script to check if a particular key has
+been pressed and is currently still down. The term 'key' is used here to refer
+to any control with an up/down status; it can refer to the keys of a
+keyboard, the buttons of a mouse or even that of a joystick. The complete
+list of keys recognised by the client can be found in the Keys module,
+defined in keys.py.
+<br><br>
+The return value is zero if the key is not being held down, and a non-zero
+value if it is being held down.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;An integer value indexing the key of interest.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True (1) if the key is down, false (0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isPanelVisible"></a><p class="function_definition">
+<span class="function_definition">def isPanelVisible( <i>panel</i> ):</span>
+</p>
+
+<div class="function_description">This function checks whether a given panel is visible.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>panel</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the panel to query whether it is visible.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns True (1) if the panel is visible, False (0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isSceneBrowserFocused"></a><p class="function_definition">
+<span class="function_definition">def isSceneBrowserFocused( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns whether or not the Scene Browser is in focus.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns True (1) if the SceneBrowser is in focus.
+</td></tr>
+</table>
+</p>
+
+<a name="isTerrainTexture"></a><p class="function_definition">
+<span class="function_definition">def isTerrainTexture( <i>pBrushFile</i> ):</span>
+</p>
+
+<div class="function_description">This function checks whether a file is suitable for terrain painting.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pBrushFile</i></span></td><td><span class="function_parameter_description">&nbsp;A filename for testing.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Non-zero if the file is a texture file, zero otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isUserEditingPostProcessing"></a><p class="function_definition">
+<span class="function_definition">def isUserEditingPostProcessing( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns WE's current state for allowing changes to the chain.
+If the post processing chain can be changed. If this function return 'true',
+the chain won't be changed.
+</div>
+
+<a name="keyToString"></a><p class="function_definition">
+<span class="function_definition">def keyToString( <i>key</i> ):</span>
+</p>
+
+<div class="function_description">The 'keyToString' method converts from a key index to its corresponding
+string name. The string names returned by the integer index can be found in
+the keys.py file. If the index supplied is out of bounds, an empty string
+will be returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;An integer representing a key index value.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A string containing the name of the key supplied.
+</td></tr>
+</table>
+</p>
+
+<a name="launchTool"></a><p class="function_definition">
+<span class="function_definition">def launchTool( <i>tool, cmd</i> ):</span>
+</p>
+
+<div class="function_description">This function launches the specified tool.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>tool</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the tool to launch, e.g., ParticleEditor.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>cmd</i></span></td><td><span class="function_parameter_description">&nbsp;Any startup command-line options that the tool should launch with.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="leavePlayerPreviewMode"></a><p class="function_definition">
+<span class="function_definition">def leavePlayerPreviewMode( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function disables the player preview mode view.
+</div>
+
+<a name="loadChunkPrefab"></a><p class="function_definition">
+<span class="function_definition">def loadChunkPrefab( <i>filename, locator</i> ):</span>
+</p>
+
+<div class="function_description">This function loads a chunk prefab from the specified filename and
+places the chunk items at the given ToolLocator's position.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>filename</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the chunk prefab file to load.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>locator</i></span></td><td><span class="function_parameter_description">&nbsp;The ToolLocator or <a href="MatrixProvider.html">MatrixProvider</a> which 
+				will provide the position in the space
+				to load the prefab to.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns a ChunkItemGroup object of the loaded chunk items from the 
+		loaded chunk prefab.
+</td></tr>
+</table>
+</p>
+
+<a name="memoryLoad"></a><p class="function_definition">
+<span class="function_definition">def memoryLoad( <i></i> ):</span>
+</p>
+
+<div class="function_description">Returns an integer percentage of the system's memory load.
+</div>
+
+<a name="messageBox"></a><p class="function_definition">
+<span class="function_definition">def messageBox( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function displays a message box.
+Return values are "no", "yes", "ok", "cancel".
+</div>
+
+<a name="moveGroupTo"></a><p class="function_definition">
+<span class="function_definition">def moveGroupTo( <i>ToolLocator</i> ):</span>
+</p>
+
+<div class="function_description">Move all current position properties to the given locator.
+It does not add an undo barrier, it is up to the Python code to do that.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>ToolLocator</i></span></td><td><span class="function_parameter_description">&nbsp;The ToolLocator object to move the current position properties to.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="outsideChunkIdentifier"></a><p class="function_definition">
+<span class="function_definition">def outsideChunkIdentifier( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function gets the chunk identifier that the camera currently resides in.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String	The identifier of the camera chunk, empty string if not valid.
+</td></tr>
+</table>
+</p>
+
+<a name="outsideChunkIdentifier"></a><p class="function_definition">
+<span class="function_definition">def outsideChunkIdentifier( <i>Vector3, Boolean</i> ):</span>
+</p>
+
+<div class="function_description">This function converts the given x, z position into an outdoor chunk
+identifier string (as used by the chunk filenames). If the checkBounds parameter
+is set to True, then this will return an empty string if the given coordinates
+fall outside the space boundaries.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Vector3</i></span></td><td><span class="function_parameter_description">&nbsp;Position in the space to test against.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>Boolean</i></span></td><td><span class="function_parameter_description">&nbsp;Whether or not to check if the point falls within space bounds.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String		The identifier of the outside chunk containing the given point.
+</td></tr>
+</table>
+</p>
+
+<a name="photographChunk"></a><p class="function_definition">
+<span class="function_definition">def photographChunk( <i>string, int, int, string</i> ):</span>
+</p>
+
+<div class="function_description">Given an outside chunk identifier, this will save a top down orthographic
+snapshot of the chunk to the given filename, in DDS format.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>string</i></span></td><td><span class="function_parameter_description">&nbsp;Name of the chunk to photograph
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>int</i></span></td><td><span class="function_parameter_description">&nbsp;Width of the output image in pixels
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>int</i></span></td><td><span class="function_parameter_description">&nbsp;Height of the output image in pixels
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>string</i></span></td><td><span class="function_parameter_description">&nbsp;Filename to write as
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool		Whether or not the chunk photo was taken
+</td></tr>
+</table>
+</p>
+
+<a name="playFx"></a><p class="function_definition">
+<span class="function_definition">def playFx( <i>SoundEffect</i> ):</span>
+</p>
+
+<div class="function_description">This function plays the named sound effect.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>SoundEffect</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the sound effect to play.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="playFxDelayed"></a><p class="function_definition">
+<span class="function_definition">def playFxDelayed( <i>SoundEffect, Delayed</i> ):</span>
+</p>
+
+<div class="function_description">This function plays the named sound effect with a delay.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>SoundEffect</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the sound effect to play.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>Delayed</i></span></td><td><span class="function_parameter_description">&nbsp;The delay before playing the sound effect.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="playSimple"></a><p class="function_definition">
+<span class="function_definition">def playSimple( <i>SimpleSoundName</i> ):</span>
+</p>
+
+<div class="function_description">This function plays the named Simple sound.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>SimpleSoundName</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the Simple sound to play.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="pop"></a><p class="function_definition">
+<span class="function_definition">def pop( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function pops the current module from the application's module stack.
+</div>
+
+<a name="popTool"></a><p class="function_definition">
+<span class="function_definition">def popTool( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function pops the current tool from <a href="WorldEditor.html">WorldEditor</a>'s tool stack.
+</div>
+
+<a name="projectCommit"></a><p class="function_definition">
+<span class="function_definition">def projectCommit( <i>commitMsg, keepLocks</i> ):</span>
+</p>
+
+<div class="function_description">This function commits the changes to the locked chunks in the project 
+to the repository.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>commitMsg</i></span></td><td><span class="function_parameter_description">&nbsp;A commit message.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>keepLocks</i></span></td><td><span class="function_parameter_description">&nbsp;An int to specify whether to keep (1) the project lock
+					or unlock (0) the project after committing.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="projectDiscard"></a><p class="function_definition">
+<span class="function_definition">def projectDiscard( <i>commitMsg, keepLocks</i> ):</span>
+</p>
+
+<div class="function_description">This function discards changes made to the locked chunks while the project was locked.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>commitMsg</i></span></td><td><span class="function_parameter_description">&nbsp;A commit message.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>keepLocks</i></span></td><td><span class="function_parameter_description">&nbsp;An int to specify whether to keep (1) the project lock
+					or unlock (0) the project after discarding.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="projectLock"></a><p class="function_definition">
+<span class="function_definition">def projectLock( <i>commitMsg</i> ):</span>
+</p>
+
+<div class="function_description">This function locks the project for editing the locked chunks.
+Locked chunks can only be edited with the editor that locked them.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>commitMsg</i></span></td><td><span class="function_parameter_description">&nbsp;A lock message.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="projectMapAlpha"></a><p class="function_definition">
+<span class="function_definition">def projectMapAlpha( <i>alpha</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the current project map's alpha value if no alpha is passed in.
+If an alpha is passed as a parameter then the current project map's alpha
+will be set to that value.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>alpha</i></span></td><td><span class="function_parameter_description">&nbsp;Optional Float value. If this is provided then the current
+				project's map alpha will be set to this value.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the current project's map alpha if no alpha was provided, otherwise
+		returns 0.
+</td></tr>
+</table>
+</p>
+
+<a name="projectUpdateSpace"></a><p class="function_definition">
+<span class="function_definition">def projectUpdateSpace( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function retrieves updates made to the space from the repository.
+</div>
+
+<a name="push"></a><p class="function_definition">
+<span class="function_definition">def push( <i>Module</i> ):</span>
+</p>
+
+<div class="function_description">This function pushes a module onto the application's module stack.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Module</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the module to push onto the application's module stack.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="pushTool"></a><p class="function_definition">
+<span class="function_definition">def pushTool( <i>tool</i> ):</span>
+</p>
+
+<div class="function_description">This function pushes a tool onto <a href="WorldEditor.html">WorldEditor</a>'s tool stack.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>tool</i></span></td><td><span class="function_parameter_description">&nbsp;The tool to push onto <a href="WorldEditor.html">WorldEditor</a>'s tool stack.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="py_exportDataGUI"></a><p class="function_definition">
+<span class="function_definition">def py_exportDataGUI( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function enables the TerrainImport Tool Mode.
+</div>
+
+<a name="quickSave"></a><p class="function_definition">
+<span class="function_definition">def quickSave( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function forces a quick save operation.
+</div>
+
+<a name="recreateChunks"></a><p class="function_definition">
+<span class="function_definition">def recreateChunks( <i>revealer</i> ):</span>
+</p>
+
+<div class="function_description">This function recreates the chunk which is referenced by the ChunkItemRevealer object.
+This is primarily used for shells that have been edited outside of <a href="WorldEditor.html">WorldEditor</a>,
+and need to be updated in <a href="WorldEditor.html">WorldEditor</a> without having to reload the entire space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>revealer</i></span></td><td><span class="function_parameter_description">&nbsp;The ChunkItemRevealer object of the chunk to recreate.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="redo"></a><p class="function_definition">
+<span class="function_definition">def redo( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function works exactly like undo, only it redoes the last undo operation.
+</div>
+
+<a name="regenerateLODs"></a><p class="function_definition">
+<span class="function_definition">def regenerateLODs( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function goes through all chunks, both loaded and unloaded, and
+recalculates the terrain LOD textures then saves them directly to disk.
+Chunks that were unloaded are ejected when it finishes with them, so large
+spaces can be regenerated. The downside is that there is no undo/redo, and
+the .cdata files are modified directly.
+</div>
+
+<a name="regenerateThumbnails"></a><p class="function_definition">
+<span class="function_definition">def regenerateThumbnails( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function goes through all chunks, both loaded and unloaded, and
+recalculates the thumbnails then saves them directly to disk. Chunks
+that were unloaded are ejected when it finishes with them, so large
+spaces can be regenerated. The downside is that there is no undo/redo, and
+the .cdata files are modified directly. It also assumes that the shadow
+data is up to date.
+<br><br>
+This function also deletes the time stamps and dds files.
+</div>
+
+<a name="reloadAllChunks"></a><p class="function_definition">
+<span class="function_definition">def reloadAllChunks( <i>bool</i> ):</span>
+</p>
+
+<div class="function_description">This function forces all chunks to be reloaded.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>bool</i></span></td><td><span class="function_parameter_description">&nbsp;(optional) If false, then no warnings will be issued 
+					to the user about needing to save.
+					Defaults to True.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="reloadMaterialKinds"></a><p class="function_definition">
+<span class="function_definition">def reloadMaterialKinds( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function reloads the material kinds XML file.
+</div>
+
+<a name="render"></a><p class="function_definition">
+<span class="function_definition">def render( <i>dTime</i> ):</span>
+</p>
+
+<div class="function_description">This function forces <a href="WorldEditor.html">WorldEditor</a> to render everything on the scene. 
+Usually called every frame, but it still receives a dTime value
+which informs the renderer how much time has passed since the last
+render call.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>dTime</i></span></td><td><span class="function_parameter_description">&nbsp;The amount of time that has passed since the last 
+				render call. Default value is one frame	(1/30s).
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="repairTerrain"></a><p class="function_definition">
+<span class="function_definition">def repairTerrain( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function puts back "terrain" resources inside a .chunk file if its
+corresponding .cdata file contains terrain.
+</div>
+
+<a name="resaveAllTerrainBlocks"></a><p class="function_definition">
+<span class="function_definition">def resaveAllTerrainBlocks( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function resaves all terrain blocks in the space. This is used when the
+file format changes and the client does not support the same format.
+</div>
+
+<a name="resizeSpaceTerrainMaps"></a><p class="function_definition">
+<span class="function_definition">def resizeSpaceTerrainMaps( <i>space, heightMapSize, normalMapSize, shadowMapSize, holeMapSize, blends</i> ):</span>
+</p>
+
+<div class="function_description">This function allows resizing the terrain maps of a space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>space</i></span></td><td><span class="function_parameter_description">&nbsp;space to resize
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>heightMapSize</i></span></td><td><span class="function_parameter_description">&nbsp;new height map size, or 0 to keep the old size.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>normalMapSize</i></span></td><td><span class="function_parameter_description">&nbsp;new normal map size, or 0 to keep the old size.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>shadowMapSize</i></span></td><td><span class="function_parameter_description">&nbsp;new shadow map size, or 0 to keep the old size.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>holeMapSize</i></span></td><td><span class="function_parameter_description">&nbsp;new hole map size, or 0 to keep the old size.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>blends</i></span></td><td><span class="function_parameter_description">&nbsp;new blends map size, or 0 to keep the old size.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="resizeTerrainMaps"></a><p class="function_definition">
+<span class="function_definition">def resizeTerrainMaps( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function gathers new map sizes from the user and converts the terrain
+to the new sizes.
+</div>
+
+<a name="restitchAllTerrainBlocks"></a><p class="function_definition">
+<span class="function_definition">def restitchAllTerrainBlocks( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function restitches all chunks in the space to eliminate seams in the terrain.
+</div>
+
+<a name="revealSelection"></a><p class="function_definition">
+<span class="function_definition">def revealSelection( <i>selection</i> ):</span>
+</p>
+
+<div class="function_description">This function informs <a href="WorldEditor.html">WorldEditor</a> what is currently selected,
+i.e., what object/s such as shells, models, particle systems, etc.
+are currently selected.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>selection</i></span></td><td><span class="function_parameter_description">&nbsp;A ChunkItemRevealer object to the selected object(s).
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="rightClick"></a><p class="function_definition">
+<span class="function_definition">def rightClick( <i>selection</i> ):</span>
+</p>
+
+<div class="function_description">This function opens an item's context menu. It is usually called
+when right clicking an item in the world.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>selection</i></span></td><td><span class="function_parameter_description">&nbsp;A ChunkItemRevealer object to the selected object. 
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="rotateSnap"></a><p class="function_definition">
+<span class="function_definition">def rotateSnap( <i>chunks</i> ):</span>
+</p>
+
+<div class="function_description">This function rotate snap a chunk
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunks</i></span></td><td><span class="function_parameter_description">&nbsp;A ChunkItemRevealer object of the chunk that is currently being rotate-snapped
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="save"></a><p class="function_definition">
+<span class="function_definition">def save( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function forces a full save and process all operation.
+</div>
+
+<a name="saveChunkPrefab"></a><p class="function_definition">
+<span class="function_definition">def saveChunkPrefab( <i>revealer, filename</i> ):</span>
+</p>
+
+<div class="function_description">This function saves a chunk prefab to a file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>revealer</i></span></td><td><span class="function_parameter_description">&nbsp;The ChunkItemRevealer object of the chunk items to save
+				as the chunk prefab.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>filename</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the file to save the chunk prefab to.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns a message if the save was successful, returns NULL otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="saveChunkTemplate"></a><p class="function_definition">
+<span class="function_definition">def saveChunkTemplate( <i>revealer</i> ):</span>
+</p>
+
+<div class="function_description">This function is used to save a shell's light arrangement as a template for the shell.
+When the shell is placed elsewhere in the world, its light setup will be loaded from
+the template.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>revealer</i></span></td><td><span class="function_parameter_description">&nbsp;The ChunkItemRevealer object of the selected shell which needs to have 
+				its template saved.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="saveOptions"></a><p class="function_definition">
+<span class="function_definition">def saveOptions( <i>filename</i> ):</span>
+</p>
+
+<div class="function_description">This function saves the options file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>filename</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the file to save the options file as. If
+				no name is given then it will overwrite the current
+				options file.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns True if the save operation was successful, False otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="selectAll"></a><p class="function_definition">
+<span class="function_definition">def selectAll( <i>ignoreVis, ignoreFrozen, ignoreFilter</i> ):</span>
+</p>
+
+<div class="function_description">This function selects all editable items in all loaded chunks.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>ignoreVis</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) If True, it allows selecting hidden items.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>ignoreFrozen</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) If True, it allows selecting frozen items.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>ignoreFilter</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) If True, it ignores the Selection Filters.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns a group of the selected chunk items in the form of a ChunkItemGroup object.
+</td></tr>
+</table>
+</p>
+
+<a name="setCurrentBrush "></a><p class="function_definition">
+<span class="function_definition">def setCurrentBrush ( <i>brushFile</i> ):</span>
+</p>
+
+<div class="function_description">This function changes the current painting brush.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>brushFile</i></span></td><td><span class="function_parameter_description">&nbsp;The brush file to use for terrain painting.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setCurrentEditors"></a><p class="function_definition">
+<span class="function_definition">def setCurrentEditors( <i>editors</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the sequence of current editors.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>editors</i></span></td><td><span class="function_parameter_description">&nbsp;The sequence of editors to be set as the current editors.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setCurrentTexture"></a><p class="function_definition">
+<span class="function_definition">def setCurrentTexture( <i>pTextureFile</i> ):</span>
+</p>
+
+<div class="function_description">This function changes the current texture used to paint the terrain,
+given only the texture file. It uses the default UV projection values.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pTextureFile</i></span></td><td><span class="function_parameter_description">&nbsp;The texture file to use for terrain painting.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setCurrentTextureFull "></a><p class="function_definition">
+<span class="function_definition">def setCurrentTextureFull ( <i>pTextureFile, uProjection, vProjection</i> ):</span>
+</p>
+
+<div class="function_description">This function changes the current texture used to paint the terrain.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pTextureFile</i></span></td><td><span class="function_parameter_description">&nbsp;The texture file to use for terrain painting.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>uProjection</i></span></td><td><span class="function_parameter_description">&nbsp;The u-Projection of the texture.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>vProjection</i></span></td><td><span class="function_parameter_description">&nbsp;The v-Projection of the texture.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setNoSelectionFilter"></a><p class="function_definition">
+<span class="function_definition">def setNoSelectionFilter( <i>filters</i> ):</span>
+</p>
+
+<div class="function_description">This function excludes the specified selection filters from the current selection filters.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>filters</i></span></td><td><span class="function_parameter_description">&nbsp;The filters to exclude from selection.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setOption"></a><p class="function_definition">
+<span class="function_definition">def setOption( <i>name, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the option in the options.xml file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The value to set in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setOptionBool"></a><p class="function_definition">
+<span class="function_definition">def setOptionBool( <i>name, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the int option in the options.xml file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The value to set in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setOptionFloat"></a><p class="function_definition">
+<span class="function_definition">def setOptionFloat( <i>name, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the float option in the options.xml file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The value to set in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setOptionInt"></a><p class="function_definition">
+<span class="function_definition">def setOptionInt( <i>name, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the int option in the options.xml file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The value to set in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setOptionMatrix34"></a><p class="function_definition">
+<span class="function_definition">def setOptionMatrix34( <i>name, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the 3x4 <a href="Matrix.html">Matrix</a> option in the options.xml file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The value to set in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setOptionString"></a><p class="function_definition">
+<span class="function_definition">def setOptionString( <i>name, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the string option in the options.xml file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The value to set in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setOptionVector2"></a><p class="function_definition">
+<span class="function_definition">def setOptionVector2( <i>name, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the <a href="Vector2.html">Vector2</a> option in the options.xml file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The value to set in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setOptionVector3"></a><p class="function_definition">
+<span class="function_definition">def setOptionVector3( <i>name, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the <a href="Vector3.html">Vector3</a> option in the options.xml file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The value to set in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setOptionVector4"></a><p class="function_definition">
+<span class="function_definition">def setOptionVector4( <i>name, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the <a href="Vector4.html">Vector4</a> option in the options.xml file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the option to set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The value to set in the options.xml file.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setPaintLayer "></a><p class="function_definition">
+<span class="function_definition">def setPaintLayer ( <i>idx</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the index of the last layer painted.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>idx</i></span></td><td><span class="function_parameter_description">&nbsp;The index of the layer last painted.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setPaintPos"></a><p class="function_definition">
+<span class="function_definition">def setPaintPos( <i>pos</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the position that the last layer was painted at.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pos</i></span></td><td><span class="function_parameter_description">&nbsp;The position that the last layer was painted at.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setSelectShellsOnly"></a><p class="function_definition">
+<span class="function_definition">def setSelectShellsOnly( <i>rule</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the shell's selection rules. If 0 is passed 
+then the shell's chunk items may be selected depending on the selection filter, but
+not the shell itself. If 1 is passed then the shell will be able to be selected.
+If 2 is passed then all shell's chunk items may be selected, but not the shell
+itself.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>rule</i></span></td><td><span class="function_parameter_description">&nbsp;The shell selection rule.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setSelectionFilter"></a><p class="function_definition">
+<span class="function_definition">def setSelectionFilter( <i>filters</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the specified selection filters.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>filters</i></span></td><td><span class="function_parameter_description">&nbsp;The selection filters to set.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setTerrainPaintEscKey"></a><p class="function_definition">
+<span class="function_definition">def setTerrainPaintEscKey( <i>hitESC</i> ):</span>
+</p>
+
+<div class="function_description">This function is possible called by the tool functor when the ESC key is
+pressed.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>hitESC</i></span></td><td><span class="function_parameter_description">&nbsp;Non-zero if the escape key is pressed.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setToolMode"></a><p class="function_definition">
+<span class="function_definition">def setToolMode( <i>mode</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the current <a href="WorldEditor.html">WorldEditor</a> tool mode.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>mode</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the tool mode to set.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="showChunkReport"></a><p class="function_definition">
+<span class="function_definition">def showChunkReport( <i>chunk</i> ):</span>
+</p>
+
+<div class="function_description">This function displays the chunk report of the selected chunk
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunk</i></span></td><td><span class="function_parameter_description">&nbsp;A ChunkItemRevealer object to the selected chunk.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="showPanel"></a><p class="function_definition">
+<span class="function_definition">def showPanel( <i>panel, show</i> ):</span>
+</p>
+
+<div class="function_description">This function shows or hides a Tool Panel.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>panel</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the panel to show/hide.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>show</i></span></td><td><span class="function_parameter_description">&nbsp;If show = 0 then the panel will be hidden, otherwise it will be shown.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="snapCameraToTerrain"></a><p class="function_definition">
+<span class="function_definition">def snapCameraToTerrain( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function snaps the camera to the ground.
+</div>
+
+<a name="stringInputBox"></a><p class="function_definition">
+<span class="function_definition">def stringInputBox( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function displays a string input box, and returns the string typed by the user.
+If the user hits the "Cancel" button, it returns the special string "<cancel>".
+</div>
+
+<a name="stringToKey"></a><p class="function_definition">
+<span class="function_definition">def stringToKey( <i>string</i> ):</span>
+</p>
+
+<div class="function_description">This function converts the name of a key to its corresponding
+key index as used by the 'isKeyDown' method. The string names
+for a key can be found in the keys.py file. If the name supplied is not on
+the list defined, the value returned is zero, indicating an error. This
+method has a inverse method, 'keyToString' which does the exact opposite.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>string</i></span></td><td><span class="function_parameter_description">&nbsp;A string argument containing the name of the key.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>An integer value for the key with the supplied name.
+</td></tr>
+</table>
+</p>
+
+<a name="terrainBlendsRes"></a><p class="function_definition">
+<span class="function_definition">def terrainBlendsRes( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the current terrain layer blend resolution.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>current terrain layer blend resolution, or 1 if not available.
+</td></tr>
+</table>
+</p>
+
+<a name="terrainCollide"></a><p class="function_definition">
+<span class="function_definition">def terrainCollide( <i>start, end</i> ):</span>
+</p>
+
+<div class="function_description">This function tests if a given line collides with the terrain, and returns
+the distance traveled from the start to the collision point.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>start</i></span></td><td><span class="function_parameter_description">&nbsp;Start point of the line to collide against the terrain.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>end</i></span></td><td><span class="function_parameter_description">&nbsp;End point of the line to collide against the terrain.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Distance from start to the collision point, -1 if no collision.
+</td></tr>
+</table>
+</p>
+
+<a name="terrainHeightMapRes"></a><p class="function_definition">
+<span class="function_definition">def terrainHeightMapRes( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the current terrain height map resolution.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>current terrain height map resolution, or 1 if not available.
+</td></tr>
+</table>
+</p>
+
+<a name="terrainHoleMapRes"></a><p class="function_definition">
+<span class="function_definition">def terrainHoleMapRes( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the current terrain hole map resolution.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>current terrain hole map resolution, or 1 if not available.
+</td></tr>
+</table>
+</p>
+
+<a name="tool"></a><p class="function_definition">
+<span class="function_definition">def tool( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function gets the current tool from <a href="WorldEditor.html">WorldEditor</a>'s tool stack.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A reference to the current tool from <a href="WorldEditor.html">WorldEditor</a>'s tool stack.
+</td></tr>
+</table>
+</p>
+
+<a name="touchAllChunks"></a><p class="function_definition">
+<span class="function_definition">def touchAllChunks( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function marks all chunks in the current space as dirty.
+</div>
+
+<a name="udoCreateAtPosition"></a><p class="function_definition">
+<span class="function_definition">def udoCreateAtPosition( <i>guid, chunkId, pos, snapToTerrain</i> ):</span>
+</p>
+
+<div class="function_description">This static function returns a copy of the object identified
+by the guid and chunk id passed in. The new UDO will have empty properties.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>guid</i></span></td><td><span class="function_parameter_description">&nbsp;GUID of the UDO at the start of the link.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunkId</i></span></td><td><span class="function_parameter_description">&nbsp;Chunk id of the UDO at the start of the link.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>pos</i></span></td><td><span class="function_parameter_description">&nbsp;Desired position for the new node.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>snapToTerrain</i></span></td><td><span class="function_parameter_description">&nbsp;Desired position for the new node.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="udoCreateLink"></a><p class="function_definition">
+<span class="function_definition">def udoCreateLink( <i>guid1, chunkId1, guid2, chunkId2, propName</i> ):</span>
+</p>
+
+<div class="function_description">This function exposes creation of links to python.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>guid1</i></span></td><td><span class="function_parameter_description">&nbsp;GUID of the object at the start of the link.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunkId1</i></span></td><td><span class="function_parameter_description">&nbsp;Chunk id of the object at the start of the link.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>guid2</i></span></td><td><span class="function_parameter_description">&nbsp;GUID of the object at the end of the link.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunkId2</i></span></td><td><span class="function_parameter_description">&nbsp;Chunk id of the object at the end of the link.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>propName</i></span></td><td><span class="function_parameter_description">&nbsp;Name of the property that contains the link.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="udoDeleteLinks"></a><p class="function_definition">
+<span class="function_definition">def udoDeleteLinks( <i>guid1, chunkId1, guid2, chunkId2</i> ):</span>
+</p>
+
+<div class="function_description">This static function deletes all links between two UDOs.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>guid1</i></span></td><td><span class="function_parameter_description">&nbsp;GUID of the UDO at the start of the link.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunkId1</i></span></td><td><span class="function_parameter_description">&nbsp;Chunk id of the UDO at the start of the link.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>guid2</i></span></td><td><span class="function_parameter_description">&nbsp;GUID of the UDO at the end of the link.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunkId2</i></span></td><td><span class="function_parameter_description">&nbsp;Chunk id of the UDO at the end of the link.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="udoGet"></a><p class="function_definition">
+<span class="function_definition">def udoGet( <i>guid, chunkId</i> ):</span>
+</p>
+
+<div class="function_description">Returns the object that matches the guid.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>guid</i></span></td><td><span class="function_parameter_description">&nbsp;GUID of the desired UDO.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>chunkId</i></span></td><td><span class="function_parameter_description">&nbsp;Chunk id of the desired UDO
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="undo"></a><p class="function_definition">
+<span class="function_definition">def undo( <i>undoLevel</i> ):</span>
+</p>
+
+<div class="function_description">This function undoes the most recent operation, returning
+its description. If it is passed a positive integer argument,
+then it just returns the description for that level of the
+undo stack and doesn't actually undo anything.
+If there is no undo level, an empty string is returned.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>undoLevel</i></span></td><td><span class="function_parameter_description">&nbsp;The level of the undo stack to return the undo 
+					description to. If not supplied, then the most recent
+					operation will be undone.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The description of the undo operation at the given level of the
+		undo stack. If no description is found then an empty string is returned.
+</td></tr>
+</table>
+</p>
+
+<a name="unloadChunk"></a><p class="function_definition">
+<span class="function_definition">def unloadChunk( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function unloads the chunk under the current tool's locator.
+This has the effect of clearing all changes made to the chunk since the
+last save.
+</div>
+
+<a name="update"></a><p class="function_definition">
+<span class="function_definition">def update( <i>dTime</i> ):</span>
+</p>
+
+<div class="function_description">This function forces an update to be called in <a href="WorldEditor.html">WorldEditor</a>. 
+Usually called every frame, but it still receives a dTime
+value which informs the update function how much time has passed
+since the last update call.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>dTime</i></span></td><td><span class="function_parameter_description">&nbsp;The amount of time to be passed since the last update. 
+				Default value is one frame (1/30s).
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="userEditingPostProcessing"></a><p class="function_definition">
+<span class="function_definition">def userEditingPostProcessing( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function resets WE's state to allow changes to the chain again. This
+function must be used with care since it will allow replacing what the user
+has been editing.
+</div>
+
+<a name="wipeTerrain"></a><p class="function_definition">
+<span class="function_definition">def wipeTerrain( <i>space</i> ):</span>
+</p>
+
+<div class="function_description">This function removes all terrain from a space
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>space</i></span></td><td><span class="function_parameter_description">&nbsp;The path of the space to wipe.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="wipeTerrainRect"></a><p class="function_definition">
+<span class="function_definition">def wipeTerrainRect( <i>space, xStart, xEnd, zStart, zEnd</i> ):</span>
+</p>
+
+<div class="function_description">This function removes terrain from a rectangle of a space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>space</i></span></td><td><span class="function_parameter_description">&nbsp;The path of the space to wipe.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>xStart</i></span></td><td><span class="function_parameter_description">&nbsp;Starting position in the X axis in grid coordinates
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>xEnd</i></span></td><td><span class="function_parameter_description">&nbsp;Ending position in the X axis in grid coordinates
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>zStart</i></span></td><td><span class="function_parameter_description">&nbsp;Starting position in the Z axis in grid coordinates
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>zEnd</i></span></td><td><span class="function_parameter_description">&nbsp;Ending position in the Z axis in grid coordinates
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="worldRay"></a><p class="function_definition">
+<span class="function_definition">def worldRay( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the world ray.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns the world ray from the view frustrum to the mouse position.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="romp"></a><p class="attribute_definition">
+<span class="attribute_definition">romp</span>
+</p>
+
+<div class="attribute_description">The romp attribute gives access to the <a href="RompHarness.html">RompHarness</a> object in the editor. For
+more information, see the <a href="RompHarness.html">RompHarness</a> class.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="RompHarness.html">RompHarness</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

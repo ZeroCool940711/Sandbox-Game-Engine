@@ -1,0 +1,8 @@
+<root>
+	<nodelessVisual>	resources/models/floating_platform_node	</nodelessVisual>
+	<materialNames>	</materialNames>
+	<visibilityBox>
+		<min>	-0.605900 0.000000 -0.595100	</min>
+		<max>	0.589800 0.079100 0.600600	</max>
+	</visibilityBox>
+</root>

@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# make sure we're running in a terminal
+if [ X$TERM != Xxterm ]; then
+	TERM=xterm	# no infinite loops here thanks
+	exec xterm -T "Stop the world" -geometry 80x10 -e $0 $*
+fi
+
+# try the controlled shutdown
+killall -USR1 loginapp
+killall -q -INT bots
+
+#killall -KILL space_viewer.py
+# this is ugly... but it'll work (craigt)
+# - find a list of all processes
+# - extract all those mentioning space_viewer.py with grep
+# - exclude anything mentioning grep (to avoid error messages)
+# - use awk to extract the process id
+# - kill that process
+#ps axw | grep space_viewer.py | grep -v grep | awk '{print $1}' | xargs kill -KILL
+# SV=`ps axw | grep space_viewer.py | grep -v grep | awk '{print $1}'`
+# if [ X$SV != X ]; then
+#	kill -INT $SV
+# fi
+
+#  naming service is shutdown by 'world' script when the
+#  gbots process exits and it is unblocked. We don't
+#  rely on this happening 'tho of course.
+
+# wait a bit
+echo Waiting for normal system shutdown...
+sleep 4
+
+# now clean up anything left
+$MF_ROOT/bigworld/tools/server/misc/cleanup.sh
+
+# let the user reade the message
+sleep 1

@@ -1,0 +1,3 @@
+#!/bin/sh
+#BWPANEL 7.5 "Telnet to CellApp"
+xterm -T 'CellApp Python console' -e $MF_ROOT/bigworld/tools/server/control_cluster.py pyconsole cellapp

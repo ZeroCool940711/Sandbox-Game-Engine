@@ -1,0 +1,418 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;2.&nbsp;SFX</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="SFX">
+      <link rel="up" href="index.html" title="SFX">
+      <link rel="prev" href="ch01.html" title="Chapter&nbsp;1.&nbsp;Introduction">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/howto_sfx/ch02.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;2.&nbsp;SFX</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch01.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;</td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;2.&nbsp;SFX">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_sfx"></a>Chapter&nbsp;2.&nbsp;SFX
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch02.html#d0e33">2.1. How SFX Works</a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#d0e88">2.2. Event Timings</a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#d0e101">2.3. Viewing an Effect In-game</a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#d0e144">2.4. Writing FX Files</a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#d0e158">2.5. Using the SFX API</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#d0e161">2.5.1. One-Shot SFX</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e175">2.5.2. Buffered SFX</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e186">2.5.3. Persistent SFX</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch02.html#d0e206">2.6. Post-Processing Special Effects</a></span></dt>
+               </dl>
+            </div>
+            <div class="section" title="2.1.&nbsp;How SFX Works">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e33"></a>2.1.&nbsp;How SFX Works
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The FX module itself is based on 3 major interfaces;
+                  	   <span class="literal">Actors</span>, <span class="literal">Joints</span> and
+                       <span class="literal">Events</span>.
+                      
+               </p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p><span class="literal">Actors</span> represent the resources used by an effect, for example Particle Systems,
+                               			Models and Sounds.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal">Joints</span> determine how the <span class="literal">Actors</span> are attached in the world, for example on Hard-
+                             			Points, Nodes, or assigned as Entity Models.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal">Events</span> describe how the effect will play out, and there are many options to
+                             			choose from.
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <p>There are 4 main API functions the programmer needs to know about.  These are:</p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem"><span class="literal">FX.prerequisites()</span>  This method returns a list of all the resources required
+                          			to be loaded before an effect can be played.  It is designed to be passed
+                          			directly into the <span class="literal">BigWorld.loadResourceListBG()</span> method.  The resulting resource
+                          			dictionary can then be passed directly back into the FX module to construct
+                          			effects.
+                          		
+                     </li>
+                     <li class="listitem"><span class="literal">FX.OneShot()</span>  This method creates a once-off effect, that will automatically
+                          			attach itself in the world, play the effect, and detach itself.
+                          		
+                     </li>
+                     <li class="listitem"><span class="literal">FX.bufferedOneShot()</span>  This method also plays a one-shot effect, but
+                          			internally it manages a fixed-size circular buffer and plays the first
+                          			available one.  This is especially important for high-frequency effects such as
+                          			bullet "pchangs", where you need instantaneous access to an effect, and you
+                          			need to cap the number that may exist at any one time for memory or performance
+                          			reasons.  The FX system keeps track of how many of each type of buffered effect
+                          			was asked to play, and can report whether there was a buffer overrun, and how
+                          			large the buffer should have been in order to satisfy all requests for the
+                          			effect at any one time.
+                          		
+                     </li>
+                     <li class="listitem"><span class="literal">FX.Persistent()</span>  This method creates an effect designed to be attached for
+                          			a long amount of time, in particular, over the course of many plays of the
+                          			effect.  Additionally it is used for effects that do not have a specified
+                          			duration, i.e. do not end by themselves.
+                          		
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="section" title="2.2.&nbsp;Event Timings">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e88"></a>2.2.&nbsp;Event Timings
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>
+                        All FX are started over 3 frames, not just 1.
+                      
+               </p>
+               <p>
+                        Firstly, immediate events are played.  There is nothing special to say about
+                        these.
+                      
+               </p>
+               <p>
+                        Secondly, transform dependent events are played.  These events require exact
+                        knowledge of where the effect is to be played in the world.  Due to the way
+                        nodes are accessed in python, there can be one frame between accessing a node,
+                        and that node having a valid world transform stored in it.  Since many actors
+                        are attached to nodes or hard-points, most events need to wait a single frame
+                        after attachment before they play.  An example is simply spawning a particle.
+                        If the particle system's node is not yet valid, the particles will be spawned
+                        in the wrong spot, e.g. at the world origin.
+                      
+               </p>
+               <p>
+                        Finally, duration dependent events are played.  These events need to know the
+                        duration of the entire effect, before they are initiated.  An example would be
+                        a light fade-out event that needs to be timed to finish with the rest of the
+                        effect.
+                    	
+               </p>
+               <p>
+                        Note that the effects system currently does not implement a timeline for the
+                        effect, but this would be the next most obvious extension (along with an
+                        effects sequencer.)  Currently it only supports the concept of a random delay
+                        for events.
+                      
+               </p>
+            </div>
+            <div class="section" title="2.3.&nbsp;Viewing an Effect In-game">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e101"></a>2.3.&nbsp;Viewing an Effect In-game
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>
+                        Let's make an effect show in-game. This will attach a
+                        "matrix swarm" effect to the <span class="literal">PlayerAvatar</span>'s
+                        body.
+                  
+                        Start up Fantasy Demo in offline mode and open the Python console.
+                      
+               </p>
+               <p>
+                        At this point you might prefer to prevent the background from
+                        being dark, so that it's easier to see the effect play. Press
+                        <span class="literal">~</span> + <span class="literal">F9</span> to turn off background
+                        darkening.
+                      
+               </p>
+               <p>Type the following to load and play the
+                        <span class="literal">person_explosion</span> on the player:
+                      
+               </p><pre class="programlisting">import FX
+s = FX.OneShot("sfx/person_explosion.xml", $p.model, $p)
+s.go($p, $p)</pre><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title">Note</h3><span class="literal">$p</span> is an alias for <span class="literal">BigWorld.player()</span>
+                        in the Fantasy Demo Python console (it get's the current player).
+                      
+               </div>
+               <div class="informalfigure">
+                  <div class="mediaobject"><img src="images/person_explosion.png"><span class="caption">
+                        <p>You should see the
+                                       <span class="literal">"person_explosion"</span>
+                                       <em class="emphasis">matrix swarm</em>
+                                       on the avatar's body.
+                        </p></span></div>
+               </div>
+            </div>
+            <div class="section" title="2.4.&nbsp;Writing FX Files">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e144"></a>2.4.&nbsp;Writing FX Files
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>
+                        Please see the <a href="../file_grammar_guide/ch39.html#xref_fx_xml" class="olink"><span class="literal"><em class="replaceable"><code>&lt;fx&gt;</code></em>.xml</span></a>
+                        for a full description of the FX file grammar.
+                      
+               </p>
+               <p>See the Content Creation Guide
+                        chapter on Particles and Special Effects for a description of how to create SFX with an
+                        artist.
+                      
+               </p>
+               <p><span class="citetitle">The example SFX xml spec</span></p><pre class="programlisting">
+
+      &lt;!--
+        Actors in the effect system.
+        These are the resources used by events.
+      --&gt;
+      &lt;Actor&gt; muzzleSmoke
+        &lt;ParticleSystem&gt;
+          sets/global/fx/particles/muzzle_smoke.xml
+        &lt;/ParticleSystem&gt;
+      &lt;/Actor&gt;
+      
+      &lt;Actor&gt; muzzleFlash
+        &lt;Model&gt;
+          sets/global/fx/actors/muzzle_flash.model
+        &lt;/Model&gt;
+      &lt;/Actor&gt;
+      
+      &lt;Actor&gt; healingBeam
+        &lt;ParticleSystem&gt;
+          sets/global/fx/particles/healing_beam.xml
+        &lt;/ParticleSystem&gt;
+      &lt;/Actor&gt;
+      
+      &lt;!--
+        Joints in the effect system.
+        These attach the actors to the source upon invokation
+        of the special effect.
+      --&gt;
+      &lt;Joint&gt; muzzleSmoke
+        &lt;Node&gt; HP_muzzle &lt;/Node&gt;
+      &lt;/Joint&gt;
+      
+      &lt;Joint&gt; muzzleFlash
+        &lt;Hardpoint&gt; muzzle   &lt;/Hardpoint&gt;
+      &lt;/Joint&gt;
+      
+      &lt;Joint&gt; healingBeam
+        &lt;Node&gt; HP_muzzle &lt;/Node&gt;
+      &lt;/Joint&gt;
+      
+      
+      &lt;!--
+        All events must return a duration.
+        Thus the total length is known,
+        and the Attach objects can be asked to Detach at the end.
+      --&gt;
+      &lt;Event&gt;
+       &lt;SwarmTargets&gt; healingBeam 
+        &lt;Node&gt; biped Neck &lt;/Node&gt;
+           .
+           .
+           .
+       &lt;/SwarmTargets&gt;
+      &lt;/Event&gt;
+      &lt;Event&gt;
+       &lt;ForceParticle&gt; muzzleSmoke &lt;/ForceParticle&gt;
+      &lt;/Event&gt;
+      &lt;Event&gt;
+       &lt;PlayAction&gt; muzzleFlash
+        &lt;Action&gt; Flash &lt;/Action&gt;
+       &lt;/PlayAction&gt;
+      &lt;/Event&gt;
+      &lt;Event&gt;
+       &lt;ForceParticle&gt; healingBeam &lt;/ForceParticle&gt;
+      &lt;/Event&gt;
+
+    </pre></div>
+            <div class="section" title="2.5.&nbsp;Using the SFX API">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e158"></a>2.5.&nbsp;Using the SFX API
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="2.5.1.&nbsp;One-Shot SFX">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e161"></a>2.5.1.&nbsp;One-Shot SFX
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                             The OneShot sfx will attach, and detach to the model
+                             automatically, all you have to do is create it
+                             and call <span class="literal">go( source, target, args... )</span> on the effect.
+                           
+                  </p>
+                  <p>
+                             Creation is always safe (empty SFX can be created)
+                             so you never need to check.
+                           
+                  </p>
+                  <p>
+                             eg. firing a gun once.
+                           
+                  </p><pre class="programlisting">s = FX.OneShotSFX( fileName )
+s.go( gun )</pre></div>
+               <div class="section" title="2.5.2.&nbsp;Buffered SFX">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e175"></a>2.5.2.&nbsp;Buffered SFX
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                             Some things like sparks happen
+                             very often, and thus you would not like to allocate
+                             particle memory every time.
+                           
+                  </p>
+                  <p>Also, you'd like to cap the maximum amount of
+                             them in effect at any time, to limit any worst-case
+                             scenarios (especially with respect to memory).
+                           
+                  </p>
+                  <p>
+                             eg. firing a gun once, but this happens often.
+                           
+                  </p><pre class="programlisting">FX.bufferedOneShotSFX( fileName, gun )</pre></div>
+               <div class="section" title="2.5.3.&nbsp;Persistent SFX">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e186"></a>2.5.3.&nbsp;Persistent SFX
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                             Some effects should be run continuosly.
+                           
+                  </p>
+                  <p>
+                             Once constructed, you need to call
+                       		<span class="literal">attach( source )</span>, <span class="literal">go( target, args... )</span> and <span class="literal">detach()</span> on the effect.
+                           
+                  </p>
+                  <p>
+                             eg. smoke continuously rising from a gun.
+                           
+                  </p><pre class="programlisting">FX.Persistent( fileName )
+s.attach( gun )</pre></div>
+            </div>
+            <div class="section" title="2.6.&nbsp;Post-Processing Special Effects">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e206"></a>2.6.&nbsp;Post-Processing Special Effects
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>When adding post processing effects, you will most likely want some way to make them fade in and out.
+                      Use <span class="literal">PPAnimateProperty</span> on a phase in the chain. You can reverse the keys for fade in and fade out.
+               </p>
+               <p>To pass in the location of the SFX source to a post processing effect, use <span class="literal">PPTranslationProperty</span>.
+               </p>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch01.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;1.&nbsp;Introduction&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

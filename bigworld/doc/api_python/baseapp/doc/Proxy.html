@@ -1,0 +1,435 @@
+<html>
+<head>
+<title>Proxy - BigWorld base Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Proxy Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Proxy is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="Base.html">Base</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#giveClientTo" class="function_list" >giveClientTo</a>( self, proxy ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#streamFileToClient" class="function_list" >streamFileToClient</a>( self, resourceName, desc="", id=-1 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#streamStringToClient" class="function_list" >streamStringToClient</a>( self, data, desc="", id=-1 ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'callbacks' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Callback Methods</a></h2>
+<table id="callbacks" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#clientDead" class="function_list" >clientDead</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onClientDeath" class="function_list" >onClientDeath</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onClientGetCell" class="function_list" >onClientGetCell</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onEntitiesEnabled" class="function_list" >onEntitiesEnabled</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onGiveClientToFailure" class="function_list" >onGiveClientToFailure</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLatencyTrigger" class="function_list" >onLatencyTrigger</a>( self, latency, goneAboveThis ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLogOnAttempt" class="function_list" >onLogOnAttempt</a>( self, ip, port, password ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onStreamComplete" class="function_list" >onStreamComplete</a>( self, id, success ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#bandwidthPerSecond" class="attribute_list" >bandwidthPerSecond</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#client" class="attribute_list" >client</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#clientAddr" class="attribute_list" >clientAddr</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#entitiesEnabled" class="attribute_list" >entitiesEnabled</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#hasClient" class="attribute_list" >hasClient</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#latencyLast" class="attribute_list" >latencyLast</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#latencyTriggers" class="attribute_list" >latencyTriggers</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#roundTripTime" class="attribute_list" >roundTripTime</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#timeSinceHeardFromClient" class="attribute_list" >timeSinceHeardFromClient</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#wards" class="attribute_list" >wards</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="Proxy.html">Proxy</a> is a special type of <a href="Base.html">Base</a> that has an associated Client. As such,
+it handles all the server updates for that Client. There is no direct script
+call to create a <a href="Proxy.html">Proxy</a> specifically.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="giveClientTo"></a><p class="function_definition">
+<span class="function_definition">def giveClientTo( <i>self, proxy</i> ):</span>
+</p>
+
+<div class="function_description">This method transfers the client associated with this proxy to
+another proxy.  The current proxy must have a client and the
+destination must not.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Proxy.html">Proxy</a>.<a href="Proxy.html#onGiveClientToFailure">onGiveClientToFailure</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>proxy</i></span></td><td><span class="function_parameter_description">&nbsp;the proxy to transfer the client to.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="streamFileToClient"></a><p class="function_definition">
+<span class="function_definition">def streamFileToClient( <i>self, resourceName, desc="", id=-1</i> ):</span>
+</p>
+
+<div class="function_description">This method is similar to streamStringToClient() except that the string
+passed as the first argument is the path to a file to be sent to the
+client, rather than the actual data itself.  This should be used
+whenever data is being read off disk to be sent to the client, as all
+file operations are done in a separate thread and therefore the timing
+of the main thread is not jeopardised.
+<br><br>
+The client treats data sent with streamStringToClient() and
+streamFileToClient() in exactly the same way, i.e. it doesn't try to
+write data sent down with this method to a file.
+<br><br>
+See <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onStreamComplete>onStreamComplete</a> in client Python API documentation.
+</div>
+
+<p>
+<span class="function_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Proxy.html">Proxy</a>.<a href="Proxy.html#onStreamComplete">onStreamComplete</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>resourceName</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the resource to be sent.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>desc</i></span></td><td><span class="function_parameter_description">&nbsp;An optional string description to be sent.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;A 16-bit id whose management is entirely up to the
+caller. If -1 is passed in then the next id in sequence that is not
+currently in use is selected.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The id associated with this download.
+</td></tr>
+</table>
+</p>
+
+<a name="streamStringToClient"></a><p class="function_definition">
+<span class="function_definition">def streamStringToClient( <i>self, data, desc="", id=-1</i> ):</span>
+</p>
+
+<div class="function_description">This method adds some data to send to the currently attached
+client. Data is cleared if the client detaches, and this
+method may only be called when a client is attached. The management
+of the 16-bit id is entirely up to the caller. If the ID is not
+specified by the caller then an unused id is allocated.
+<br><br>
+You can define a callback in your Proxy-derived class (onStreamComplete)
+that will be called when either all data has been sent to the client, or
+the download has failed for some reason.
+<br><br>
+See <a href="Proxy.html">Proxy</a>.<a href=Proxy.html#onStreamComplete>onStreamComplete</a> in the base Python API documentation, and
+<a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onStreamComplete>onStreamComplete</a> in client Python API documentation.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>data</i></span></td><td><span class="function_parameter_description">&nbsp;The string to be sent.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>desc</i></span></td><td><span class="function_parameter_description">&nbsp;An optional string description to be sent.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;A 16-bit id whose management is entirely up to the
+caller. If -1 is passed in then the next id in sequence that is not
+currently in use is selected.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The id associated with this download.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<h2>Callback Method Documentation</h2>
+
+<a name="clientDead"></a><p class="function_definition">
+<span class="function_definition">def clientDead( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onClientDeath"></a><p class="function_definition">
+<span class="function_definition">def onClientDeath( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onClientGetCell"></a><p class="function_definition">
+<span class="function_definition">def onClientGetCell( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onEntitiesEnabled"></a><p class="function_definition">
+<span class="function_definition">def onEntitiesEnabled( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onGiveClientToFailure"></a><p class="function_definition">
+<span class="function_definition">def onGiveClientToFailure( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onLatencyTrigger"></a><p class="function_definition">
+<span class="function_definition">def onLatencyTrigger( <i>self, latency, goneAboveThis</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>latency</i></span></td><td><span class="function_parameter_description">&nbsp;The latency trigger value.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>goneAboveThis</i></span></td><td><span class="function_parameter_description">&nbsp;Indicates whether the latency has gone above or
+	below this.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onLogOnAttempt"></a><p class="function_definition">
+<span class="function_definition">def onLogOnAttempt( <i>self, ip, port, password</i> ):</span>
+</p>
+
+<div class="function_description">This callback should return one of the following: <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#LOG_ON_ACCEPT>LOG_ON_ACCEPT</a>,
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#LOG_ON_REJECT>LOG_ON_REJECT</a>, <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#LOG_ON_WAIT_FOR_DESTROY>LOG_ON_WAIT_FOR_DESTROY</a>.
+<br><br>
+If this callback returns <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#LOG_ON_REJECT>LOG_ON_REJECT</a>, the log on attempt fails.
+<br><br>
+If this callback returns <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#LOG_ON_ACCEPT>LOG_ON_ACCEPT</a>, the client is attached to
+this active entity.
+<br><br>
+If this callback returns <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#LOG_ON_WAIT_FOR_DESTROY>LOG_ON_WAIT_FOR_DESTROY</a> or the proxy
+destroys itself in this callback, the log on attempt will wait until the
+current entity has logged off and then log on as normal. Note: The
+calling code is still responsible for ensuring the current entity
+is destroyed via <a href="Base.html">Base</a>.<a href=Base.html#destroy>destroy</a>. If the current entity has not been
+destroyed within 5 seconds, the relogon attempt will be automatically
+rejected.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>ip</i></span></td><td><span class="function_parameter_description">&nbsp;The IP address of the client attempting to connect.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>port</i></span></td><td><span class="function_parameter_description">&nbsp;The port number of the client attempting to connect.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>password</i></span></td><td><span class="function_parameter_description">&nbsp;The password that the user attempted to log on with. This
+argument is only present if the entity has a property called "password".
+If the entity does not have a "password" property, onLogOnAttempt will be
+called with only two arguments.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onStreamComplete"></a><p class="function_definition">
+<span class="function_definition">def onStreamComplete( <i>self, id, success</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the terminated download.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>success</i></span></td><td><span class="function_parameter_description">&nbsp;Boolean indicating whether or not the download completed
+                successfully.
+</span></td></tr>
+
+</table>
+</p>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="bandwidthPerSecond"></a><p class="attribute_definition">
+<span class="attribute_definition">bandwidthPerSecond</span>
+</p>
+
+<div class="attribute_description">Set this to limit the amount of bandwidth this Client wishes to receive per second
+</div>
+
+<a name="client"></a><p class="attribute_definition">
+<span class="attribute_definition">client</span>
+</p>
+
+<div class="attribute_description">This is the ClientEntityMailBox that communicates directly with the
+Client entity on the ClientApp associated with this <a href="Proxy.html">Proxy</a>.
+<br><br>
+If the entity does not have an attached client, a dummy mailbox is
+returned. This will consume the method call but will not cause any
+network data to be sent.
+<br><br>
+Use the hasClient attribute to check if a client is attached.
+</div>
+
+<a name="clientAddr"></a><p class="attribute_definition">
+<span class="attribute_definition">clientAddr</span>
+</p>
+
+<div class="attribute_description">This tuple contains the ip and port of the Client machine
+</div>
+
+<a name="entitiesEnabled"></a><p class="attribute_definition">
+<span class="attribute_definition">entitiesEnabled</span>
+</p>
+
+<div class="attribute_description">This is whether or not entities have been enabled by the Client.
+Scripts cannot communicate with the Client until it enables entities.
+</div>
+
+<a name="hasClient"></a><p class="attribute_definition">
+<span class="attribute_definition">hasClient</span>
+</p>
+
+<div class="attribute_description">This is whether or not a client is currently attached to this <a href="Proxy.html">Proxy</a>.
+</div>
+
+<a name="latencyLast"></a><p class="attribute_definition">
+<span class="attribute_definition">latencyLast</span>
+</p>
+
+<div class="attribute_description">This is the latency value that was used for the last check of the
+latency triggers. It may be useful for initialising the state of
+trigger call handlers when inserting their trigger value into the list.
+</div>
+
+<a name="latencyTriggers"></a><p class="attribute_definition">
+<span class="attribute_definition">latencyTriggers</span>
+</p>
+
+<div class="attribute_description">This is a sequence of latency trigger values. Whenever the latency
+passes this value in either direction, the onLatencyTrigger method
+is called. The call is made with the relevant trigger value and
+the direction (1 = above, 0 = below) as arguments. The latency is
+checked roughly every second, but the calls occur in sorted order,
+as if the latency value moved smoothly through its range. The latency
+value used for this calculation is that of 'timeSinceHeardFromClient'.
+</div>
+
+<a name="roundTripTime"></a><p class="attribute_definition">
+<span class="attribute_definition">roundTripTime</span>
+</p>
+
+<div class="attribute_description">This is the average round trip time in seconds for communication to the
+client.
+</div>
+
+<a name="timeSinceHeardFromClient"></a><p class="attribute_definition">
+<span class="attribute_definition">timeSinceHeardFromClient</span>
+</p>
+
+<div class="attribute_description">This is the number of seconds since a packet from the client was last
+received.
+</div>
+
+<a name="wards"></a><p class="attribute_definition">
+<span class="attribute_definition">wards</span>
+</p>
+
+<div class="attribute_description">This is a list of EntityIDs that the associated Client is allowed to control.  When controlEntity()
+is called on the Client, the newly controlled Entity should be added to this list so the updates will
+be propagated to the Cell, rather than the Cell updating the Client.
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>EventGroup - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>EventGroup Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="FMOD.html" class="module_h1">FMOD Module</a>]</span></p><p>EventGroup is part of the <a href="FMOD.html">FMOD</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import FMOD</pre>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#loadEventData" class="function_list" >loadEventData</a>( self, Optional ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#isLoaded" class="attribute_list" >isLoaded</a></td><td>&nbsp; Read-only boolean
+</td></tr>
+
+<tr valign=top><td><a href="#isPlaying" class="attribute_list" >isPlaying</a></td><td>&nbsp; Read-only boolean
+</td></tr>
+
+<tr valign=top><td><a href="#memoryUsed" class="attribute_list" >memoryUsed</a></td><td>&nbsp; Read-only unsigned integer
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+An <a href="EventGroup.html">EventGroup</a> is a wrapper for an FMOD::<a href="EventGroup.html">EventGroup</a>, and provides an
+interface to control the loading and unloading of data by group. Groups
+are created using the event hierachy in the <a href="FMOD.html">FMOD</a> Designer tool.
+<br><br>
+Please see the <a href="FMOD.html">FMOD</a> Designer API documentation and the <a href="FMOD.html">FMOD</a> Designer
+User Manual, both are located in your <a href="FMOD.html">FMOD</a> install directory.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="loadEventData"></a><p class="function_definition">
+<span class="function_definition">def loadEventData( <i>self, Optional</i> ):</span>
+</p>
+
+<div class="function_description">Loads the resources for all events within an event group.  
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Optional</i></span></td><td><span class="function_parameter_description">&nbsp;Bool	whether or not the client should block 
+						until the events have been loaded. Defaults
+						to true.
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="isLoaded"></a><p class="attribute_definition">
+<span class="attribute_definition">isLoaded</span>
+</p>
+
+<div class="attribute_description">Whether this group is currently loading.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only boolean
+</td></tr>
+</table>
+</p>
+
+<a name="isPlaying"></a><p class="attribute_definition">
+<span class="attribute_definition">isPlaying</span>
+</p>
+
+<div class="attribute_description">Whether this group contains any events which are currently playing.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only boolean
+</td></tr>
+</table>
+</p>
+
+<a name="memoryUsed"></a><p class="attribute_definition">
+<span class="attribute_definition">memoryUsed</span>
+</p>
+
+<div class="attribute_description">Memory used by this event group.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only unsigned integer
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

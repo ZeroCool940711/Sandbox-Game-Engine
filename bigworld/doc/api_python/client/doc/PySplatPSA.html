@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>PySplatPSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PySplatPSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PySplatPSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#callback" class="attribute_list" >callback</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PySplatPSA.html">PySplatPSA</a> is a <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> that collides particles with the
+collision scene, based upon their position and velocity.  When a particle
+collides, it dies and calls the given callback class, which must have the
+following method callback.onSplat( self, (position3),(velocity3),(colour4) )
+<br><br>
+Note - this is a very expensive particle action, and should be used
+sparingly! Also note, the current implementation limits the action to
+0.5msec per frame - after that, particles will simply fall through geometry.
+<br><br>
+A new <a href="PySplatPSA.html">PySplatPSA</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#SplatPSA>SplatPSA</a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="callback"></a><p class="attribute_definition">
+<span class="attribute_definition">callback</span>
+</p>
+
+<div class="attribute_description">The class that is called when a particle hits the collision scene.
+The class must have a method onSplat( self, (position3),(velocity3),
+(colour4) )
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

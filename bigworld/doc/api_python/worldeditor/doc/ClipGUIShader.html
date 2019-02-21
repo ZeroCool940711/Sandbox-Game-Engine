@@ -1,0 +1,224 @@
+<html>
+<head>
+<title>ClipGUIShader - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ClipGUIShader Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>ClipGUIShader is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="GUIShader.html">GUIShader</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#reset" class="function_list" >reset</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#currentValue" class="attribute_list" >currentValue</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#delay" class="attribute_list" >delay</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#dynValue" class="attribute_list" >dynValue</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#mode" class="attribute_list" >mode</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#slant" class="attribute_list" >slant</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#speed" class="attribute_list" >speed</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#value" class="attribute_list" >value</a></td><td>&nbsp; Float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This <a href="GUIShader.html">GUIShader</a> clips the components that it is applied to.  It clips a
+component to a rectangle that has one dimension	the same as the component's
+rectangle, and the other dimension having one side that lines up with the
+corresponding component edge, and the other side having been scaled in from
+the component edge by the value attribute.  Which edge is scaled is
+determined by the mode attribute.
+<br><br>
+This can be useful for things like health bars, which need to be dynamically
+clipped.
+<br><br>
+For example, in the following code:
+<br><br>
+
+<pre>comp = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "maps/gui/scroll.dds" )
+<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>( comp )
+shad = <a href="GUI.html">GUI</a>.<a href=GUI.html#ClipShader>ClipShader</a>()
+comp.addShader( shad )
+
+shad.mode	= "RIGHT"
+shad.value	= 0.75
+shad.speed  = 10.0
+shad.value	= 0.25
+</pre>
+<br><br>
+This example will start with the leftmost three quarters of the component
+visible and the rightmost quarter clipped off.  Over 10 seconds it
+will linearly clip more and more until only the leftmost quarter is visible.
+<br><br>
+A <a href="ClipGUIShader.html">ClipGUIShader</a> is created using the <a href="GUI.html">GUI</a>.<a href=GUI.html#ClipShader>ClipShader</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="reset"></a><p class="function_definition">
+<span class="function_definition">def reset( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function forces current size of the clip rectangle to move instantly
+to the size specified by the
+value attribute
+</div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="currentValue"></a><p class="attribute_definition">
+<span class="attribute_definition">currentValue</span>
+</p>
+
+<div class="attribute_description">The currentValue attribute gives read access to the current size (in 
+clip coordinates, with (-1,-1) in the bottom left of the screen and (1,1)
+in the top right) of the
+cliprect while it is linearly interpolating	from its initial value to
+the newly assigned value attribute.  It interpolates over a number of
+seconds	specified by the speed attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="delay"></a><p class="attribute_definition">
+<span class="attribute_definition">delay</span>
+</p>
+
+<div class="attribute_description">The delay attribute is the time it takes, when the attribute value is
+assigned to, before the clipper is adjust from its current value to
+the newly assigned value.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="dynValue"></a><p class="attribute_definition">
+<span class="attribute_definition">dynValue</span>
+</p>
+
+<div class="attribute_description">This attribute is unsupported.
+</div>
+
+<a name="mode"></a><p class="attribute_definition">
+<span class="attribute_definition">mode</span>
+</p>
+
+<div class="attribute_description">The mode attribute determines which edge moves to clip the component.
+It can have a value of "LEFT" or "RIGHT".  If mode is "LEFT", then the
+value attribute determines the rightmost fraction of the component to
+be shown.  If mode is "RIGHT", then the value attribute determines the
+leftmost fraction of the component to be shown.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="slant"></a><p class="attribute_definition">
+<span class="attribute_definition">slant</span>
+</p>
+
+<div class="attribute_description">The slant value offers support for clipping gui components where the cut
+needs to be on a slant ( for example a slanted health bar ).  It only
+works on simple gui components ( i.e. not text nor mesh components ).
+<br><br>
+The slant is a percentage of the component's width , and represents
+the x-offset between the top and the bottom of the component.  If
+your component's texture has a backwards slope ( like a backslash )
+then set the slant to a negative value.
+</div>
+
+<a name="speed"></a><p class="attribute_definition">
+<span class="attribute_definition">speed</span>
+</p>
+
+<div class="attribute_description">The speed attribute is the time it takes, when the attribute value is
+assigned to, to adjust from its current value to the newly assigned
+value.  The clip rectangle size is linearly interpolated over this
+time period.
+<br><br>
+The currentValue attribute gives the current size of the clip rectangle
+during the interpolation.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="value"></a><p class="attribute_definition">
+<span class="attribute_definition">value</span>
+</p>
+
+<div class="attribute_description">This attribute determines the proportion of the component to reveal.
+Values less than zero are treated the same as zero, values above one
+are treated as one.  How to align the revealed rectangle with the
+underlying component is determined by the mode attribute.
+<br><br>
+If the speed attribute is non-zero, then, when a new value is assigned,
+the actual size of the clip rect will take speed seconds to move from
+its initial value to the newly assigned value.  The currentValue
+attribute will give read access to actual size of the clip rect as it
+is moving.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

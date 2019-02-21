@@ -1,0 +1,209 @@
+<html>
+<head>
+<title>ServerDiscoveryDetails - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ServerDiscoveryDetails Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>ServerDiscoveryDetails is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#hostName" class="attribute_list" >hostName</a></td><td>&nbsp; Read-only String
+</td></tr>
+
+<tr valign=top><td><a href="#ip" class="attribute_list" >ip</a></td><td>&nbsp; Read-only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#ownerName" class="attribute_list" >ownerName</a></td><td>&nbsp; Read-only String
+</td></tr>
+
+<tr valign=top><td><a href="#port" class="attribute_list" >port</a></td><td>&nbsp; Read-only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#serverString" class="attribute_list" >serverString</a></td><td>&nbsp; Read-only String
+</td></tr>
+
+<tr valign=top><td><a href="#spaceName" class="attribute_list" >spaceName</a></td><td>&nbsp; Read-only String
+</td></tr>
+
+<tr valign=top><td><a href="#uid" class="attribute_list" >uid</a></td><td>&nbsp; Read-only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#universeName" class="attribute_list" >universeName</a></td><td>&nbsp; Read-only String
+</td></tr>
+
+<tr valign=top><td><a href="#usersCount" class="attribute_list" >usersCount</a></td><td>&nbsp; Read-only Integer
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+ServerDiscovery::Details defines an object which describes the current
+status of a <a href="BigWorld.html">BigWorld</a> server as might be considered useful in a game lobby.
+Instances of this class are and can only be created by the
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#serverDiscovery>serverDiscovery</a> object. All attributes of this object are
+read-only.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="hostName"></a><p class="attribute_definition">
+<span class="attribute_definition">hostName</span>
+</p>
+
+<div class="attribute_description">This is the name of the server computer, as returned by a call to the
+standard getHostName function.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only String
+</td></tr>
+</table>
+</p>
+
+<a name="ip"></a><p class="attribute_definition">
+<span class="attribute_definition">ip</span>
+</p>
+
+<div class="attribute_description">This is the IP address of the server, expressed as a single integer. If the
+IP address is considered to be like a base 256 number, then this would be
+its decimal representation. For example, the IP address 10.11.12.42 would
+be represented here as 168496170, which is
+10 * 256^3 + 11 * 256^2 + 12 * 256^1 + 42 * 256^0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="ownerName"></a><p class="attribute_definition">
+<span class="attribute_definition">ownerName</span>
+</p>
+
+<div class="attribute_description">This is the name of the user who launched the server. If the server is
+running Windows then this would be the value returned by the GetLogin()
+function, otherwise it would be the value returned by GetUserName().
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only String
+</td></tr>
+</table>
+</p>
+
+<a name="port"></a><p class="attribute_definition">
+<span class="attribute_definition">port</span>
+</p>
+
+<div class="attribute_description">This is an integer equal to the port on which the server is listening.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="serverString"></a><p class="attribute_definition">
+<span class="attribute_definition">serverString</span>
+</p>
+
+<div class="attribute_description">This is a server string of the form <ip>:<port>, suitable to be passed into
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#connect>connect</a>()
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only String
+</td></tr>
+</table>
+</p>
+
+<a name="spaceName"></a><p class="attribute_definition">
+<span class="attribute_definition">spaceName</span>
+</p>
+
+<div class="attribute_description">This string is the name of the space currently playing on the server.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only String
+</td></tr>
+</table>
+</p>
+
+<a name="uid"></a><p class="attribute_definition">
+<span class="attribute_definition">uid</span>
+</p>
+
+<div class="attribute_description">This integer is the user identification number with which the server was
+launched. This can be used to differentiate between multiple servers
+which may be running on the same machine.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="universeName"></a><p class="attribute_definition">
+<span class="attribute_definition">universeName</span>
+</p>
+
+<div class="attribute_description">This string is the name of the universe currently playing on the server.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only String
+</td></tr>
+</table>
+</p>
+
+<a name="usersCount"></a><p class="attribute_definition">
+<span class="attribute_definition">usersCount</span>
+</p>
+
+<div class="attribute_description">This integer represents the total number of attempts that have been made to
+connect to the server (by any client).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only Integer
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

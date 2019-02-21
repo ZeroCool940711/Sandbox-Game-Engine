@@ -1,0 +1,1051 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Server Installation Guide</title><link rel="stylesheet" type="text/css" href="../css/bigworld.css"><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_installation_guide/server_installation_guide.html $" alt="bw logo"></div><div id="content"><div class="book" title="Server Installation Guide"><div class="titlepage"><div><div><h1 class="title"><a name="Server_Installation_Guide"></a>Server Installation Guide</h1></div><div><p class="releaseinfo">BigWorld Technology 2.1. Released 2012.</p></div><div><p class="copyright">Copyright &copy; 1999-2012 BigWorld Pty Ltd. All rights reserved. </p></div><div><div class="legalnotice" title="Legal Notice"><a name="d0e17"></a><p>This document is proprietary commercial in confidence and access
+  is restricted to authorised users. This document is protected by
+  copyright laws of Australia, other countries and international treaties.
+  Unauthorised use, reproduction or distribution of this document, or any
+  portion of this document, may result in the imposition of civil and
+  criminal penalties as provided by law.</p></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="chapter"><a href="#xref_Overview">1. Overview</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e32">1.1. Requirements</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e35">1.1.1. Hardware Requirements</a></span></dt><dt><span class="section"><a href="#d0e62">1.1.2. Software Requirements</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e71">1.2. Reading this document</a></span></dt></dl></dd><dt><span class="chapter"><a href="#xref_Simple_Installation">2. Simple Installation</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Recommended_Setup">2.1. Recommended Setup</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e150">2.1.1. Supported Distributions</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e173">2.2. Preparation</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e197">2.2.1. Installing CentOS</a></span></dt><dt><span class="section"><a href="#xref_Installing_EPEL">2.2.2. Installing the EPEL Repository</a></span></dt><dt><span class="section"><a href="#xref_Installing_Configuring_And_Starting_MySQL">2.2.3. Installing, Configuring and Starting MySQL</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e564">2.3. Installing the BigWorld Technology Server package</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e585">2.3.1. BWMachineD</a></span></dt><dt><span class="section"><a href="#d0e608">2.3.2. BigWorld Server</a></span></dt><dt><span class="section"><a href="#xref_Simple_Installation_BigWorld_Server_Tools">2.3.3. BigWorld Server Tools</a></span></dt><dt><span class="section"><a href="#d0e704">2.3.4. Customising your installation</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#xref_First_Run_Server">3. Server First Run</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Creating_Developer_Account">3.1. Creating a Developer Account</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e759">3.1.1. Account creation example</a></span></dt><dt><span class="section"><a href="#d0e775">3.1.2. Common Mistakes</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_Create_A_New_Project">3.2. Create a new project</a></span></dt><dt><span class="section"><a href="#d0e929">3.3. Package specific key generation</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e934">3.3.1. LoginApp Keypair</a></span></dt><dt><span class="section"><a href="#d0e973">3.3.2. Customer Server Key</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e989">3.4. Managing the BigWorld Server</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_WebConsole_Admin_Add_New_User">3.4.1. Adding A New User</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e1097">3.5. Login to WebConsole</a></span></dt><dt><span class="section"><a href="#d0e1115">3.6. Starting a BigWorld server</a></span></dt></dl></dd><dt><span class="chapter"><a href="#xref_Cluster_Configuration">4. Cluster Configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Cluster_Configuration_Security">4.1. Security</a></span></dt><dt><span class="section"><a href="#xref_Cluster_Configuration_Routing">4.2. Routing</a></span></dt><dt><span class="section"><a href="#xref_Cluster_Configuration_Buffer_Sizes">4.3. Buffer sizes</a></span></dt><dt><span class="section"><a href="#xref_Disabling_Cron_Jobs">4.4. Disabling <span class="command"><strong>cron</strong></span> jobs</a></span></dt></dl></dd><dt><span class="appendix"><a href="#xref_Appendix_Hardware_Requirements">A. Hardware Requirements</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e1430">A.1. CPU Specifications</a></span></dt><dt><span class="section"><a href="#d0e1441">A.2. Duals/Single/Quad/Blades</a></span></dt><dt><span class="section"><a href="#d0e1487">A.3. Network Interface Cards</a></span></dt><dt><span class="section"><a href="#d0e1492">A.4. Disk Storage</a></span></dt><dt><span class="section"><a href="#d0e1499">A.5. Power Supplies</a></span></dt><dt><span class="section"><a href="#d0e1504">A.6. Memory</a></span></dt><dt><span class="section"><a href="#d0e1521">A.7. NOC Bandwidth</a></span></dt><dt><span class="section"><a href="#d0e1526">A.8. VMWare</a></span></dt></dl></dd><dt><span class="appendix"><a href="#xref_Install_OS">B. Installing CentOS 5</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Install_OS_Installing">B.1. Installing</a></span></dt><dt><span class="section"><a href="#xref_Post_Installation_Setup">B.2. Post-installation Setup</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e1712">B.2.1. Install updates</a></span></dt><dt><span class="section"><a href="#d0e1719">B.2.2. Configure services</a></span></dt><dt><span class="section"><a href="#d0e1733">B.2.3. Install build tools</a></span></dt><dt><span class="section"><a href="#d0e1740">B.2.4. MySQL server and development libraries</a></span></dt><dt><span class="section"><a href="#d0e1757">B.2.5. Changing UIDs</a></span></dt></dl></dd></dl></dd><dt><span class="appendix"><a href="#xref_Copying_Files_To_Linux">C. Copying files to Linux</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e1910">C.1. USB Thumb Drive / External Hard Disk</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Installing_NTFS_Packages">C.1.1. Installing NTFS Support</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e1933">C.2. Python <code class="classname">SimpleHTTPServer</code> hosted on
+    Windows</a></span></dt><dt><span class="section"><a href="#d0e1964">C.3. Windows network share</a></span></dt></dl></dd><dt><span class="appendix"><a href="#xref_Customising_Installation">D. Creating a custom BigWorld server installation</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e1990">D.1. Customising RPMs</a></span></dt><dt><span class="section"><a href="#d0e2004">D.2. Manual Installation</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e2007">D.2.1. BWMachined</a></span></dt><dt><span class="section"><a href="#d0e2058">D.2.2. Server</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e2074">D.3. Server Tools</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Requirements_And_Caveats">D.3.1. Requirements and Caveats</a></span></dt></dl></dd></dl></dd><dt><span class="appendix"><a href="#xref_Appendix_Understanding_BWMachined">E. Understanding the BigWorld Machine Daemon (BWMachineD)</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e2202">E.1. How BWMachined Works</a></span></dt><dt><span class="section"><a href="#xref_Configuring_BWMachined">E.2. Configuring BWMachined</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e2239">E.2.1. Creating <code class="filename">~/.bwmachined.conf</code></a></span></dt><dt><span class="section"><a href="#d0e2342">E.2.2. Creating <code class="filename">/etc/bwmachined.conf</code></a></span></dt></dl></dd></dl></dd><dt><span class="appendix"><a href="#xref_Server_Installation_Troubleshooting">F. Troubleshooting</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Check_BWMachined_Running">F.1. Check That BWMachined is Running</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Troubleshooting_BWMachined">F.1.1. Troubleshooting BWMachined</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_Troubleshooting_StatLogger">F.2. StatLogger</a></span></dt><dt><span class="section"><a href="#d0e2577">F.3. BigWorld Support</a></span></dt></dl></dd></dl></div><div class="chapter" title="Chapter&nbsp;1.&nbsp;Overview"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Overview"></a>Chapter&nbsp;1.&nbsp;Overview</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d0e32">1.1. Requirements</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e35">1.1.1. Hardware Requirements</a></span></dt><dt><span class="section"><a href="#d0e62">1.1.2. Software Requirements</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e71">1.2. Reading this document</a></span></dt></dl></div><p>This document describes how to quickly install the BigWorld Server and
+  Tools in order to see an operational environment up and running in the
+  shortest possible time. This document assumes you have read the <a href="../server_overview/server_overview.html#Server_Overview" class="olink">Server Overview</a> and understand the basic interaction between
+  BigWorld server processes.</p><p>As the majority of this installation procedure is automated, this
+  mechanism of installation may not be suited for more advanced users who are
+  experienced with BigWorld and wish to customise the installation process.
+  For more advanced installation documentation, please refer to <a class="xref" href="#xref_Customising_Installation" title="Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation">Appendix&nbsp;D, <i>Creating a custom BigWorld server installation</i></a>.</p><div class="section" title="1.1.&nbsp;Requirements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e32"></a>1.1.&nbsp;Requirements</h2></div></div></div><div class="section" title="1.1.1.&nbsp;Hardware Requirements"><div class="titlepage"><div><div><h3 class="title"><a name="d0e35"></a>1.1.1.&nbsp;Hardware Requirements</h3></div></div></div><p>The BigWorld server will run on most mainstream PC desktop
+      hardware providing it is 64 bit (x86_64). For a detailed description of
+      hardware requirements and recommendations for the BigWorld server please
+      refer to <a class="xref" href="#xref_Appendix_Hardware_Requirements" title="Appendix&nbsp;A.&nbsp;Hardware Requirements">Appendix&nbsp;A, <i>Hardware Requirements</i></a>.</p><p>The BigWorld server tools have a recommended minimum hardware
+      configuration as follows:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>1GHz CPU</p></li><li class="listitem"><p>1GB RAM</p></li><li class="listitem"><p>30GB Hard disk (for main OS install)</p></li><li class="listitem"><p>120GB Hard disk (for logging)</p></li><li class="listitem"><p>100Mbit NIC</p></li></ul></div><p>If an external machine is hosting the MySQL server for use with
+      WebConsole and StatLogger, we recommend that machine to have similar
+      specifications. We also recommend that the network link between the
+      machine hosting the WebConsole and/or StatLogger and the link to the
+      MySQL server be low-latency and high capacity for best
+      performance.</p></div><div class="section" title="1.1.2.&nbsp;Software Requirements"><div class="titlepage"><div><div><h3 class="title"><a name="d0e62"></a>1.1.2.&nbsp;Software Requirements</h3></div></div></div><p>CentOS 5 64 bit is the recommended platform for development and
+      production environments, however both RedHat Enterprise Linux 5 and
+      CentOS 5 are supported. For instructions on installing CentOS 5, please
+      refer to <a class="xref" href="#xref_Install_OS" title="Appendix&nbsp;B.&nbsp;Installing CentOS 5">Appendix&nbsp;B, <i>Installing CentOS 5</i></a>.</p><p>Other software dependencies should automatically be met by the RPM
+      dependency list when installing packages from an RPM</p></div></div><div class="section" title="1.2.&nbsp;Reading this document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e71"></a>1.2.&nbsp;Reading this document</h2></div></div></div><p>While reading this document there are some subtle conventions we use
+    to distinguish between different situations. One of these conventions is
+    the difference we use between commands that are intended to be run as the
+    root user as opposed to a command to be run in a normal user account. This
+    difference is signficant in the same way as requiring Administrator access
+    on a Windows machine.</p><p>Commands to be run as root will be prefixed with a
+    "<span class="literal">#</span>" symbol, while commands to be run as a regular user
+    will be prefixed with a "<span class="literal">$</span>" symbol.</p><p>For example, if we wanted to run the command '<span class="literal">cat
+    /proc/1/mem</span>' as the root user we would express it as:</p><pre class="programlisting"><em class="emphasis">#</em> cat /proc/1/mem</pre><p>Whereas if it were to be run as a regular user it would look
+    like:</p><pre class="programlisting"><em class="emphasis">$</em> cat /proc/1/mem</pre><p>Where possible we try and be explicit with regard to how a command
+    should be run, however this visual indication should assist you if there
+    is any confusion.</p><p>IBM provides a useful Linux tutorial, which explains the root user
+    and details the methods of switching between accounts. If you are new to
+    Linux, you should read this tutorial before continuing. It is available at
+    <a class="ulink" href="http://www.ibm.com/developerworks/linux/tutorials/l-basics/section5.html" target="_top">http://www.ibm.com/developerworks/linux/tutorials/l-basics/section5.html</a>.</p><p>Another convention we use is to italicise parts of commands that you
+    should substitute for the value relevant to your situation or
+    needs.</p><p>For example, if we wanted to use the command
+    '<span class="literal">useradd</span>', which is followed by a new username, we
+    would express it as:</p><pre class="programlisting">$ useradd <em class="emphasis"><em class="replaceable"><code>username</code></em></em></pre><p>This can help to prevent ambiguity in some complex or unfamiliar
+    commands that are used in this document.</p></div></div><div class="chapter" title="Chapter&nbsp;2.&nbsp;Simple Installation"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Simple_Installation"></a>Chapter&nbsp;2.&nbsp;Simple Installation</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#xref_Recommended_Setup">2.1. Recommended Setup</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e150">2.1.1. Supported Distributions</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e173">2.2. Preparation</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e197">2.2.1. Installing CentOS</a></span></dt><dt><span class="section"><a href="#xref_Installing_EPEL">2.2.2. Installing the EPEL Repository</a></span></dt><dt><span class="section"><a href="#xref_Installing_Configuring_And_Starting_MySQL">2.2.3. Installing, Configuring and Starting MySQL</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e564">2.3. Installing the BigWorld Technology Server package</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e585">2.3.1. BWMachineD</a></span></dt><dt><span class="section"><a href="#d0e608">2.3.2. BigWorld Server</a></span></dt><dt><span class="section"><a href="#xref_Simple_Installation_BigWorld_Server_Tools">2.3.3. BigWorld Server Tools</a></span></dt><dt><span class="section"><a href="#d0e704">2.3.4. Customising your installation</a></span></dt></dl></dd></dl></div><p>Installing the BigWorld server consists of installing 3 separate
+  components:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>BigWorld Machine Daemon (BWMachineD)</p></li><li class="listitem"><p>BigWorld Server (BaseApp, CellApp, DbMgr, etc)</p></li><li class="listitem"><p>BigWorld Server Tools (MessageLogger, WebConsole, etc)</p></li></ul></div><p>BWMachineD is required by both the BigWorld server and the BigWorld
+  server tools, however both the server and server tools can run independantly
+  of one another and are commonly installed on separate machines to avoid load
+  issues of one service interfering with another.</p><p>The simplest path to installing the server and tools is to use the
+  pre-generated RPM packages which are tested and known to work on the
+  supported Linux distributions.</p><div class="section" title="2.1.&nbsp;Recommended Setup"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Recommended_Setup"></a>2.1.&nbsp;Recommended Setup</h2></div></div></div><p>The recommended system configuration for a scalable BigWorld server
+    environment is to separate the BigWorld server from the machine that will
+    run the BigWorld server tools.</p><p>The isolation of the server tools on a separate machine is
+    recommended in order to ensure that if high load situations occur on any
+    cluster machines, the associated increase in logging and monitoring tasks
+    performed by the server tools do not further degrade performance on any of
+    the active cluster machines.</p><p>Due to the potential for log files to grow quite drastically in both
+    a development and a production environment it is recommended that, when
+    creating partitions for the operating system installation, to create a
+    separate partition or have an entirely separate hard disk dedicated for
+    the BigWorld server logs.</p><p>For the purposes of an initial installation or small scale
+    development it is perfectly acceptable to install both the server and
+    tools onto the same machine, and this installation guide will assume that
+    the installation is being peformed on a single machine.</p><div class="section" title="2.1.1.&nbsp;Supported Distributions"><div class="titlepage"><div><div><h3 class="title"><a name="d0e150"></a>2.1.1.&nbsp;Supported Distributions</h3></div></div></div><p>BigWorld only officially supports the 64-bit CentOS
+      5.<em class="replaceable"><code>x</code></em> and RedHat Enterprise Linux
+      5.<em class="replaceable"><code>x</code></em> distributions.</p><p>BigWorld has previously supported other Linux distributions,
+      however in order to better support customers we have consolidated our
+      support list to have a greater focus and reduce variability when
+      resolving customer issues.</p><p>CentOS can be downloaded from the <a class="ulink" href="http://www.centos.org/" target="_top">CentOS community portal</a>.</p><p>RedHat Enterprise Linux is available from the <a class="ulink" href="http://www.redhat.com/" target="_top">RedHat website</a>.</p></div></div><div class="section" title="2.2.&nbsp;Preparation"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e173"></a>2.2.&nbsp;Preparation</h2></div></div></div><p>As the BigWorld server is a complex set of programs with a number of
+    dependencies, it is important to ensure that all your system has been
+    installed correctly and prepared before continuing with the primary
+    installation. A quick overview of what is required to install the BigWorld
+    server and tools follows:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>64 bit x86_64 hardware</p></li><li class="listitem"><p>CentOS<sup>[<a name="d0e185" href="#ftn.d0e185" class="footnote">1</a>]</sup> 5 64 bit</p></li><li class="listitem"><p>EPEL repository enabled</p></li><li class="listitem"><p>MySQL installed, configured and started</p></li></ul></div><p>The following sections will outline in more detail how to achieve a
+    functional installation of CentOS ready for an installation of the
+    BigWorld server.</p><div class="section" title="2.2.1.&nbsp;Installing CentOS"><div class="titlepage"><div><div><h3 class="title"><a name="d0e197"></a>2.2.1.&nbsp;Installing CentOS</h3></div></div></div><p>A guide on how to install Linux is out of the scope of this
+      documentation as this process will commonly need to be tailored to your
+      circumstances. We have however provided a rough overview of the CentOS
+      installation process which outlines specific packages and configuration
+      options that may be useful for a BigWorld server cluster machine. This
+      overview can be found in <a class="xref" href="#xref_Install_OS" title="Appendix&nbsp;B.&nbsp;Installing CentOS 5">Appendix&nbsp;B, <i>Installing CentOS 5</i></a>.</p><div class="section" title="2.2.1.1.&nbsp;Update System Packages"><div class="titlepage"><div><div><h4 class="title"><a name="xref_Update_System_Packages"></a>2.2.1.1.&nbsp;Update System Packages</h4></div></div></div><p>After any system installation it is a good idea to update all
+        the installed system packages as there may have been important
+        security fixes or other bug fixes which can impact the performance and
+        security of your system since the installation media used for your
+        install was produced.</p><p>Run the following command as root:</p><pre class="programlisting"># yum update</pre><p>After performing this update it is a good idea to reboot your
+        computer to pick up any system changes such as kernel updates.</p></div></div><div class="section" title="2.2.2.&nbsp;Installing the EPEL Repository"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Installing_EPEL"></a>2.2.2.&nbsp;Installing the EPEL Repository</h3></div></div></div><p>In order to fully support the server tools under CentOS it is
+      necessary to install some packages that are not available in the default
+      CentOS installation. In order to facilitate this you must enable the
+      <a class="ulink" href="http://fedoraproject.org/wiki/EPEL" target="_top">Extra Packages for
+      Enterprise Linux (EPEL)</a> repository which is provided by the
+      Fedora Project. The Fedora project manages this repository as they are
+      the base distribution from which Red Hat and CentOS are forked
+      from.</p><p>To enable the EPEL repository use the following command:</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The EPEL packages aren't kept as up to date as the official
+        releases. If you have trouble downloading a version, try navigating to
+        the directory and searching for the current version of the EPEL
+        package. For example as of the CentOS 5.6 release the EPEL package
+        still refers to 5.4.</p><p>Please modify the following URL as required.</p></div><p>As root, run:</p><pre class="programlisting"># wget http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+# rpm -Uvh epel-release-5-4.noarch.rpm</pre><p>This step has now made the packages from the EPEL repository
+      available to your CentOS installation which will be used when the
+      BigWorld server RPMs are installed.</p></div><div class="section" title="2.2.3.&nbsp;Installing, Configuring and Starting MySQL"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Installing_Configuring_And_Starting_MySQL"></a>2.2.3.&nbsp;Installing, Configuring and Starting MySQL</h3></div></div></div><p>Both the BigWorld server and server tools can make use of MySQL
+      for persistent data storage. In order to take advantage of MySQL it must
+      be properly configured for each use case.</p><p>To install the MySQL server, run the following command as
+      root:</p><pre class="programlisting"># yum install mysql-server</pre><p>This will install the MySQL server only. In order to interact with
+      the MySQL server to create initial databases and set user access
+      privileges we need to install the MySQL client. To do this run the
+      following command as root:</p><pre class="programlisting"># yum install mysql</pre><p>DBMgr requires that its tables use the InnoDB storage engine,
+      which is not necessarily the default engine used by MySQL. To make
+      InnoDB the default engine, edit the file
+      <code class="filename">/etc/my.cnf</code>, and add the following entry in the
+      <code class="code">[mysqld]</code> section:</p><pre class="programlisting">default-storage-engine=InnoDB</pre><div class="section" title="2.2.3.1.&nbsp;Start the MySQL server"><div class="titlepage"><div><div><h4 class="title"><a name="d0e259"></a>2.2.3.1.&nbsp;Start the MySQL server</h4></div></div></div><p>After installing the MySQL server it is quite common to not have
+        the actual MySQL server running or configured to restart after a
+        reboot. As it is a core component in most environments it is important
+        to check the MySQL server is setup correctly before proceeding.</p><p>As root run:</p><pre class="programlisting"># /sbin/chkconfig --levels 345 mysqld on 
+# /etc/init.d/mysqld start</pre><p>This has ensured that the MySQL server will be running after the
+        machine is rebooted, and starts up the MySQL server for immediate use.
+        If you are new to Linux and are unfamiliar with the concept of
+        <em class="emphasis">runlevels</em> it would be useful to gain a basic
+        understanding of this concept if you intend to maintain a BigWorld
+        server cluster. More information can be found on the <a class="ulink" href="http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/ch-services.html#s1-services-runlevels" target="_top">Red
+        Hat Documentation</a> website.</p></div><div class="section" title="2.2.3.2.&nbsp;MySQL Accounts"><div class="titlepage"><div><div><h4 class="title"><a name="d0e276"></a>2.2.3.2.&nbsp;MySQL Accounts</h4></div></div></div><p>Both the BigWorld server and the BigWorld server tools have
+        different requirements of the MySQL server as they are both performing
+        unique tasks. As a result of this, we recommend that a seperate
+        account is created for the BigWorld server tools, and for every user
+        who will be running a BigWorld server.</p><p>The default MySQL installation is configured with one user
+        called <span class="literal">root</span>. This is not the same as the system
+        root user. In order to create a new MySQL user we log in to MySQL
+        using the MySQL <span class="literal">root</span> user account as
+        follows:</p><pre class="programlisting">$ mysql -u root</pre><p>This command can be run as any user providing the MySQL root
+        user account has no password set.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>For detailed instructions on MySQL account creation and
+          management please refer to the <a class="ulink" href="http://dev.mysql.com/doc/" target="_top">MySQL documentation website</a>,
+          specifically the <em class="emphasis">MySQL Server Administration</em>
+          chapter, section <em class="emphasis">MySQL User Account
+          Management</em>.</p></div><div class="section" title="2.2.3.2.1.&nbsp;BigWorld Server Tools"><div class="titlepage"><div><div><h5 class="title"><a name="xref_MySQL_Server_Tools_Account"></a>2.2.3.2.1.&nbsp;BigWorld Server Tools</h5></div></div></div><p>The BigWorld Server Tools component StatLogger requires a
+          MySQL server to work, while WebConsole by default will use SQLite
+          but can be configured to use MySQL.</p><p>The following example illustrates how to create a MySQL user
+          for the server tools with a username of <span class="literal">bwtools</span>
+          and a password of <span class="literal">bwtools_passwd</span> and assign the
+          required privileges to allow the server tools to operate
+          normally.</p><p>To create a user and grant privileges, run the following
+          command:</p><pre class="programlisting">$ mysql -u root
+ mysql&gt; GRANT ALL PRIVILEGES ON *.* TO '<em class="emphasis">bwtools</em>'@'localhost' IDENTIFIED BY '<em class="emphasis">bwtools_passwd</em>';
+ mysql&gt; GRANT ALL PRIVILEGES ON *.* TO '<em class="emphasis">bwtools</em>'@'%' IDENTIFIED BY '<em class="emphasis">bwtools_passwd</em>';</pre></div><div class="section" title="2.2.3.2.2.&nbsp;BigWorld Server User Account"><div class="titlepage"><div><div><h5 class="title"><a name="d0e334"></a>2.2.3.2.2.&nbsp;BigWorld Server User Account</h5></div></div></div><p>Every user in the network that will run their own BigWorld
+          server will need to have a MySQL account created for that server
+          instance. For example in a development environment with two server
+          developers, Alice and Bob, and a QA team that runs a single server,
+          three MySQL databases would need to be created and assigned to each
+          server user.</p><p>It is considered good practice to limit the privileges of a
+          database user to the tasks they will be required to perform. As the
+          DBMgr process (and related tools) require less privileges than the
+          BigWorld server tools, when we create an account for the server we
+          will be more specific in regards to the privileges that user
+          has.</p><p>We will need three pieces of information when creating a
+          database for use with the BigWorld server.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Username (set in <code class="filename">bw.xml</code> using
+              <span class="literal">&lt;dbMgr&gt;&lt;username&gt;</span>)</p></li><li class="listitem"><p>Password (set in <code class="filename">bw.xml</code> using
+              <span class="literal">&lt;dbMgr&gt;&lt;password&gt;</span>)</p></li><li class="listitem"><p>Database name (set in <code class="filename">bw.xml</code> using
+              <span class="literal">&lt;dbMgr&gt;&lt;databaseName&gt;</span>)</p></li></ul></div><p>If you are not yet familiar with the
+          <code class="filename">bw.xml</code> file, don't worry as this will be
+          covered in more detail later in this document.</p><p>The following SQL commands provide the basic syntax to use
+          when creating a MySQL account for use with the BigWorld server.
+          Specific examples follow.</p><pre class="programlisting">$ mysql -u root <a class="co" name="co_mysql_grant_0" href="#co_mysql_grant_0_desc"><img src="../images/callouts/1.png" alt="1" border="0"></a>
+GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, DROP, INDEX ON <em class="replaceable"><code><em class="emphasis">game_db_name</em></code></em>.* TO '<em class="replaceable"><code><em class="emphasis">username</em></code></em>'@'localhost' IDENTIFIED BY '<em class="replaceable"><code><em class="emphasis">password</em></code></em>'; <a class="co" name="co_mysql_grant_1" href="#co_mysql_grant_1_desc"><img src="../images/callouts/2.png" alt="2" border="0"></a>
+
+GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, DROP, INDEX ON <em class="replaceable"><code><em class="emphasis">game_db_name</em></code></em>.* TO '<em class="replaceable"><code><em class="emphasis">username</em></code></em>'@'%' IDENTIFIED BY '<em class="replaceable"><code><em class="emphasis">password</em></code></em>'; <a class="co" name="co_mysql_grant_2" href="#co_mysql_grant_2_desc"><img src="../images/callouts/3.png" alt="3" border="0"></a>
+
+GRANT RELOAD ON *.* TO '<em class="replaceable"><code><em class="emphasis">username</em></code></em>'@'localhost' IDENTIFIED BY '<em class="replaceable"><code><em class="emphasis">password</em></code></em>'; <a class="co" name="co_mysql_grant_3" href="#co_mysql_grant_3_desc"><img src="../images/callouts/4.png" alt="4" border="0"></a>
+
+GRANT RELOAD ON *.* TO '<em class="replaceable"><code><em class="emphasis">username</em></code></em>'@'%' IDENTIFIED BY '<em class="replaceable"><code><em class="emphasis">password</em></code></em>'; <a class="co" name="co_mysql_grant_4" href="#co_mysql_grant_4_desc"><img src="../images/callouts/5.png" alt="5" border="0"></a></pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a name="co_mysql_grant_0_desc"></a><a href="#co_mysql_grant_0"><img src="../images/callouts/1.png" alt="1" border="0"></a> </p></td><td valign="top" align="left"><p>Connect to the MySQL server using the MySQL
+              <span class="literal">root</span> account. By default no password is
+              required to use this account.</p></td></tr><tr><td width="5%" valign="top" align="left"><p><a name="co_mysql_grant_1_desc"></a><a href="#co_mysql_grant_1"><img src="../images/callouts/2.png" alt="2" border="0"></a> </p></td><td valign="top" align="left"><p>Grant access for the database table operations SELECT,
+              INSERT, UPDATE, DELETE, ALTER, CREATE and INDEX to the database
+              named <em class="emphasis">game_db_name</em> for the user
+              <em class="emphasis">username</em> using the password
+              <em class="emphasis">password</em> when connecting to the MySQL
+              server from the localmachine (ie:
+              <em class="emphasis">localhost</em>).</p></td></tr><tr><td width="5%" valign="top" align="left"><p><a name="co_mysql_grant_2_desc"></a><a href="#co_mysql_grant_2"><img src="../images/callouts/3.png" alt="3" border="0"></a> </p></td><td valign="top" align="left"><p>This is the same as the previous GRANT command, however
+              this rule is to give access for the user when connecting to the
+              MySQL server from a remote machine (ie: not connecting from
+              <em class="emphasis">localhost</em>). It is possible to restrict the
+              machines from which the user can connect by specifying a more
+              restrictive pattern after the <span class="literal">@</span>
+              symbol.</p></td></tr><tr><td width="5%" valign="top" align="left"><p><a name="co_mysql_grant_3_desc"></a><a href="#co_mysql_grant_3"><img src="../images/callouts/4.png" alt="4" border="0"></a> </p></td><td valign="top" align="left"><p>Grant access for the RELOAD capability on all databases
+              from the local machine.</p></td></tr><tr><td width="5%" valign="top" align="left"><p><a name="co_mysql_grant_4_desc"></a><a href="#co_mysql_grant_4"><img src="../images/callouts/5.png" alt="5" border="0"></a> </p></td><td valign="top" align="left"><p>This is the same as the previous GRANT, however as before
+              this rule grants the privilege when connecting from a remote
+              machine.</p></td></tr></table></div><div class="section" title="2.2.3.2.2.1.&nbsp;Use Case"><div class="titlepage"><div><div><h6 class="title"><a name="d0e466"></a>2.2.3.2.2.1.&nbsp;Use Case</h6></div></div></div><p>In our use case office there are two server developers,
+            Alice and Bob. Alice is involved in the development on a new game
+            project, Parrot Attack and an existing game project Chickens Fight
+            Back. Bob on the other hand is only involved in the development of
+            the new Parrot Attack game.</p><p>Alice will need two databases created for her, one for each
+            project she is working on, and Bob will only need a single
+            database for his own development purposes. The following table
+            outlines the information that will be used by the database
+            administrator in order to create the required MySQL database
+            accounts.</p><div class="altrow"><table border="1" width="75%"><colgroup><col width="33%"><col width="33%"><col width="34%"></colgroup><thead><tr><th>Database Name</th><th>Username</th><th>Password</th></tr></thead><tbody><tr><td>alice_parrot_attack</td><td>alice</td><td>1234567</td></tr><tr><td>alice_chickens_fight_back</td><td>alice</td><td>1234567</td></tr><tr><td>bob_parrot_attack</td><td>bob</td><td>bobs secret password1</td></tr></tbody></table></div><p>You can see from this table that both Alice and Bob have
+            been assigned their own database for each game project they are
+            working on. This is to ensure that the when Alice starts her own
+            BigWorld server, she doesn't impact any work that Bob may be
+            currently involved in.</p><p>Using Bob's example above we would create an account for Bob
+            giving him privileges on his own Parrot Attack database as
+            follows:</p><pre class="programlisting">$ mysql -u root
+<em class="emphasis">mysql&gt;</em> GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, DROP, INDEX ON <em class="emphasis">bob_parrot_attack</em>.* TO '<em class="emphasis">bob</em>'@'localhost' IDENTIFIED BY '<em class="emphasis">bobs secret password1</em>'; 
+  <em class="emphasis">Query OK, 0 rows affected (0.08 sec)</em>
+  
+<em class="emphasis">mysql&gt;</em> GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, DROP, INDEX ON <em class="emphasis">bob_parrot_attack</em>.* TO '<em class="emphasis">bob</em>'@'%' IDENTIFIED BY '<em class="emphasis">bobs secret password1</em>'; 
+  <em class="emphasis">Query OK, 0 rows affected (0.00 sec)</em>
+  
+<em class="emphasis">mysql&gt;</em> GRANT RELOAD ON *.* TO '<em class="emphasis">bob</em>'@'localhost' IDENTIFIED BY '<em class="emphasis">bobs secret password1</em>'; 
+  <em class="emphasis">Query OK, 0 rows affected (0.00 sec)</em>
+  
+mysql&gt; GRANT RELOAD ON *.* TO '<em class="emphasis">bob</em>'@'%' IDENTIFIED BY '<em class="emphasis">bobs secret password1</em>';
+  Query OK, 0 rows affected (0.00 sec)</pre></div></div></div></div></div><div class="section" title="2.3.&nbsp;Installing the BigWorld Technology Server package"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e564"></a>2.3.&nbsp;Installing the BigWorld Technology Server package</h2></div></div></div><p>Now your system should be ready to install the RPM packages
+    contained in the <code class="filename">rpm</code> directory of
+    your downloaded package. This guide will assume that you have copied the
+    RPM files into your root user's home directory <code class="filename">/root</code>. If you are uncertain of how to
+    transfer your files from a Windows machine to your newly installed Linux
+    machine please refer to <a class="xref" href="#xref_Copying_Files_To_Linux" title="Appendix&nbsp;C.&nbsp;Copying files to Linux">Appendix&nbsp;C, <i>Copying files to Linux</i></a>.</p><p>These instructions assume that you are operating on a Linux command
+    line, either via a text based login, or via a Console or Terminal opened
+    through your Window Manager.</p><p>We will start by illustrating a basic office installation</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/small_office_installation.png" align="middle"></div></div><div class="section" title="2.3.1.&nbsp;BWMachineD"><div class="titlepage"><div><div><h3 class="title"><a name="d0e585"></a>2.3.1.&nbsp;BWMachineD</h3></div></div></div><p>The BigWorld Machine Daemon is required on all machines in a
+      server cluster that will run BigWorld processes. As such this is the
+      first program we will install.</p><pre class="programlisting"># cd /root <a class="co" name="co_inst_bwmd_0" href="#co_inst_bwmd_0_desc"><img src="../images/callouts/1.png" alt="1" border="0"></a>
+# yum install --nogpgcheck <em class="replaceable"><code>bigworld-bwmachined-2.1.0.x86_64.rpm</code></em> <a class="co" name="co_inst_bwmd_1" href="#co_inst_bwmd_1_desc"><img src="../images/callouts/2.png" alt="2" border="0"></a></pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a name="co_inst_bwmd_0_desc"></a><a href="#co_inst_bwmd_0"><img src="../images/callouts/1.png" alt="1" border="0"></a> </p></td><td valign="top" align="left"><p>We first change to the directory to which the RPM files were
+          copied. In this section we assume this is the <code class="filename">/root</code> directory (adjust this as
+          nescessary).</p></td></tr><tr><td width="5%" valign="top" align="left"><p><a name="co_inst_bwmd_1_desc"></a><a href="#co_inst_bwmd_1"><img src="../images/callouts/2.png" alt="2" border="0"></a> </p></td><td valign="top" align="left"><p>Install the bwmachined package, making sure to replace the
+          package name with the correct filename if the version numbers are
+          different.</p></td></tr></table></div></div><div class="section" title="2.3.2.&nbsp;BigWorld Server"><div class="titlepage"><div><div><h3 class="title"><a name="d0e608"></a>2.3.2.&nbsp;BigWorld Server</h3></div></div></div><p>Installing the BigWorld server is trivial. As root, run:</p><pre class="programlisting"># cd /root
+# yum install --nogpgcheck <em class="replaceable"><code>bigworld-server</code></em>-2.1.0.x86_64.rpm</pre><p>Although the BigWorld server should now be successfully installed,
+      there are still a two steps remaining before a BigWorld server instance
+      can be run. The first step requires us to install the BigWorld server
+      tools which provides you with the ability to start, stop, and interact
+      with a BigWorld server instance. Installing the server tools is discussed
+      in more detail in the following section <a class="xref" href="#xref_Simple_Installation_BigWorld_Server_Tools" title="2.3.3.&nbsp;BigWorld Server Tools">BigWorld Server Tools</a>.</p><p>A user account also needs to be correctly configured so the server
+      tools are able to locate the appropriate executables and game resources
+      for when starting a BigWorld server instance. This is discussed in
+      passing in <a class="xref" href="#xref_Create_A_New_Project" title="3.2.&nbsp;Create a new project">Create a new project</a>, and in more
+      detail in <a class="xref" href="#xref_Appendix_Understanding_BWMachined" title="Appendix&nbsp;E.&nbsp;Understanding the BigWorld Machine Daemon (BWMachineD)">Appendix&nbsp;E, <i>Understanding the BigWorld Machine Daemon (BWMachineD)</i></a>.</p></div><div class="section" title="2.3.3.&nbsp;BigWorld Server Tools"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Simple_Installation_BigWorld_Server_Tools"></a>2.3.3.&nbsp;BigWorld Server Tools</h3></div></div></div><p>You should now be able to succesfully install the BigWorld server
+      tools. Perform the following commands as root:</p><pre class="programlisting"># cd /root
+# yum install --nogpgcheck <em class="replaceable"><code>bigworld-tools-2.1.0.x86_64.rpm</code></em></pre><p>With the server tools installed there are two more tasks left to
+      do. Firstly we need to configure StatLogger to use our local MySQL
+      server, and secondly we will test that the WebConsole has been started
+      correctly.</p><div class="section" title="2.3.3.1.&nbsp;Configuring StatLogger"><div class="titlepage"><div><div><h4 class="title"><a name="xref_Configuring_StatLogger"></a>2.3.3.1.&nbsp;Configuring StatLogger</h4></div></div></div><p>StatLogger currently only works with a MySQL database and as
+        such requires a MySQL account to be configured in order to operate.
+        When installing StatLogger from an RPM the preferences file that
+        StatLogger uses will automatically be placed on your filesystem as
+        <code class="filename">/etc/bigworld/stat_logger.xml</code>. To set your
+        account details you will need to edit this file as the root user and
+        change the <span class="literal">&lt;dbUser&gt;</span> and
+        <span class="literal">&lt;dbPass&gt;</span> elements.</p><p>To illustrate how these values would be modified we will use the
+        MySQL account details that were created in <a class="xref" href="#xref_MySQL_Server_Tools_Account" title="2.2.3.2.1.&nbsp;BigWorld Server Tools">BigWorld Server Tools</a>. Using this information we
+        would change the <code class="filename">stat_logger.xml</code> file entries as
+        follows:</p><pre class="programlisting">&lt;?xml version="1.0"?&gt;
+&lt;preferences&gt;
+        &lt;!--General options--&gt;
+        &lt;options&gt;
+                &lt;dbHost&gt;localhost&lt;/dbHost&gt;
+                &lt;dbUser&gt;<em class="emphasis">bwtools</em>&lt;/dbUser&gt;
+                &lt;dbPass&gt;<em class="emphasis">bwtools_passwd</em>&lt;/dbPass&gt;
+                &lt;dbPort&gt;3306&lt;/dbPort&gt;</pre><p>After configuring StatLogger with your local database account
+        information you will need to start StatLogger and restart WebConsole
+        as follows:</p><pre class="programlisting"># /etc/init.d/bw_stat_logger start
+Starting bw_stat_logger:                                   [  OK  ]
+# /etc/init.d/bw_web_console restart
+Stopping web_console:                                      [  OK  ]
+Starting bw_web_console:                                   [  OK  ]</pre></div><div class="section" title="2.3.3.2.&nbsp;Confirm tools are running"><div class="titlepage"><div><div><h4 class="title"><a name="d0e672"></a>2.3.3.2.&nbsp;Confirm tools are running</h4></div></div></div><p>With the server tools installed on your tools machine it is
+        worthwhile ensuring that they have started correctly so that you can be
+        sure nothing has gone awry in the initial part of your installation. To
+        do this we simply run the startup scripts with a
+        <span class="literal">status</span> command to ensure they are working as
+        expected.</p><p>As root run the following commands:</p><pre class="programlisting"># /etc/init.d/bw_stat_logger status
+Status of stat_logger: running 
+# /etc/init.d/bw_message_logger status
+Status of message_logger: running
+# /etc/init.d/bw_web_console status
+Status of web_console: running</pre></div><div class="section" title="2.3.3.3.&nbsp;Connecting to WebConsole"><div class="titlepage"><div><div><h4 class="title"><a name="d0e684"></a>2.3.3.3.&nbsp;Connecting to WebConsole</h4></div></div></div><p>With the server tools installed you should now be able to see
+        the WebConsole page by simply connecting a web browser to it. The URL
+        of WebConsole is the hostname of the machine on which it has been
+        installed at port 8080. For example:</p><pre class="programlisting">http://<em class="replaceable"><code>localhost</code></em>:8080</pre><p>When connected you should be presented with a page similar to
+        the following:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/web_console_login.png" align="middle"></div></div><p>Creating a WebConsole account will be discussed in more detail
+        in <a class="xref" href="#xref_First_Run_Server" title="Chapter&nbsp;3.&nbsp;Server First Run"><i>Server First Run</i></a>.</p></div></div><div class="section" title="2.3.4.&nbsp;Customising your installation"><div class="titlepage"><div><div><h3 class="title"><a name="d0e704"></a>2.3.4.&nbsp;Customising your installation</h3></div></div></div><p>As development environments progress or a game starts to reach the
+      release stage of its production cycle it may become nescessary to
+      customise your installation of BigWorld to your own environment. If this
+      is the case, please refer to <a class="xref" href="#xref_Customising_Installation" title="Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation">Appendix&nbsp;D, <i>Creating a custom BigWorld server installation</i></a> for more information.</p></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a id="ftn.d0e185" href="#d0e185" class="para">1</a>] </sup>Anywhere CentOS is mentioned, Red Hat Enterprise Linux may
+            be substituted.</p></div></div></div><div class="chapter" title="Chapter&nbsp;3.&nbsp;Server First Run"><div class="titlepage"><div><div><h2 class="title"><a name="xref_First_Run_Server"></a>Chapter&nbsp;3.&nbsp;Server First Run</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#xref_Creating_Developer_Account">3.1. Creating a Developer Account</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e759">3.1.1. Account creation example</a></span></dt><dt><span class="section"><a href="#d0e775">3.1.2. Common Mistakes</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_Create_A_New_Project">3.2. Create a new project</a></span></dt><dt><span class="section"><a href="#d0e929">3.3. Package specific key generation</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e934">3.3.1. LoginApp Keypair</a></span></dt><dt><span class="section"><a href="#d0e973">3.3.2. Customer Server Key</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e989">3.4. Managing the BigWorld Server</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_WebConsole_Admin_Add_New_User">3.4.1. Adding A New User</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e1097">3.5. Login to WebConsole</a></span></dt><dt><span class="section"><a href="#d0e1115">3.6. Starting a BigWorld server</a></span></dt></dl></div><p>This <em class="emphasis">First Run</em> section assumes that the user is
+  completely new to a BigWorld server setup and is working on a freshly
+  installed machine. As such we will step through some basic setup steps such
+  as creating a new user account for the developer to run a BigWorld server
+  with. Feel free to step over any steps you already feel confident
+  with.</p><p>The following procedures will also assume that the operations will be
+  performed using a Linux console or terminal. While there are graphical
+  alternatives available for users that have chosen a GUI installation, by
+  describing the text based alternatives we are able to simplify the steps to
+  the core behaviour being performed.</p><div class="section" title="3.1.&nbsp;Creating a Developer Account"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Creating_Developer_Account"></a>3.1.&nbsp;Creating a Developer Account</h2></div></div></div><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>If you are working in a large office environment you may wish to
+      talk to your Systems Administrator about the user configuration
+      mechanism that is already in place in the office. The approach described
+      below may conflict with other distributed account mangement systems such
+      as LDAP or NIS.</p></div><p>Each developer that will need to run their own server must have a
+    Linux user account created for them. This is to enable them to have a
+    location that stores their individual development files and the
+    configuration files which determine how their server instance will be
+    started.</p><p>The following command which is run as the root user is used to
+    create a new user account in Linux.</p><pre class="programlisting"># useradd <em class="emphasis"><em class="replaceable"><code>username</code></em></em></pre><p>Upon issuing this command a new user home directory will be created
+    by default as <code class="filename">/home/<em class="replaceable"><code>username</code></em></code>.</p><p>With the user directory created we now need to set a password for
+    the user to ensure they are the only one who is allowed to login. To do
+    this issue the following command as root:</p><pre class="programlisting"># passwd <em class="emphasis"><em class="replaceable"><code>username</code></em></em>
+Changing password for user <em class="replaceable"><code>username</code></em>.
+New UNIX password:
+Retype new UNIX password: 
+passwd: all authentication tokens updated successfully.</pre><p>With these two steps completed you now have a new user account that
+    you should be able to login with and continue the <em class="emphasis">First
+    Run</em> steps.</p><div class="section" title="3.1.1.&nbsp;Account creation example"><div class="titlepage"><div><div><h3 class="title"><a name="d0e759"></a>3.1.1.&nbsp;Account creation example</h3></div></div></div><p>To fully illustrate the steps described above we will show the
+      entire process of creating a new user account for a new server developer
+      called <span class="literal">Alice</span>.</p><pre class="programlisting"># useradd <em class="emphasis">alice</em>
+# passwd <em class="emphasis">alice</em>
+Changing password for user alice.
+New UNIX password:
+Retype new UNIX password: 
+passwd: all authentication tokens updated successfully.</pre></div><div class="section" title="3.1.2.&nbsp;Common Mistakes"><div class="titlepage"><div><div><h3 class="title"><a name="d0e775"></a>3.1.2.&nbsp;Common Mistakes</h3></div></div></div><p>While we haven't discussed multiple computer installations in much
+      detail up to this point, one of the most common mistakes with user
+      accounts can occur when a user account is created on different machines
+      in the network with different numerical user IDs (UID). For example,
+      suppose we had two server machines <span class="literal">host-A</span> and
+      <span class="literal">host-B</span> and we performed the following
+      operations:</p><pre class="programlisting"># On host-<em class="emphasis">A</em>
+useradd alice
+useradd bob
+
+# On host-<em class="emphasis">B</em>
+useradd bob
+useradd alice</pre><p>Notice that the sequence of operations has been reversed on
+      <span class="literal">host-B</span> compared with what was performed on
+      <span class="literal">host-A</span>. As a result the UID that is created for the
+      user <span class="literal">bob</span> on <span class="literal">host-B</span> may be the same
+      as user <span class="literal">alice</span> on <span class="literal">host-A</span>. If the
+      UIDs conflict for two users, there will be issues with server management
+      and server monitoring.</p><p>There are a number of alternatives you can use to resolve this
+      potential issue which will depend on how many machines you will need to
+      use in your network. The most simple approach is to specify a UID when
+      you create the accounts, such as:</p><pre class="programlisting">$ useradd <em class="emphasis">-u <em class="replaceable"><code>6001</code></em></em> <em class="replaceable"><code>username</code></em></pre><p>In this example the UID of 6001 was specified as the user was
+      created, which allows us to specify the same UID when we create the
+      account on another machine. This approach however becomes unfeasible
+      when dealing with a large number of machines, in which case we may look
+      to use a centralised account management solution such as LDAP or NIS.
+      These approaches are more complex and are out of the scope of this
+      document. There are numerous online resources that will guide you
+      through the process of setting up these account management
+      solutions.</p></div></div><div class="section" title="3.2.&nbsp;Create a new project"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Create_A_New_Project"></a>3.2.&nbsp;Create a new project</h2></div></div></div><p>With your user account created you can now login and start your
+    first project which will enable you to start a server. Once you have a
+    terminal logged in to your newly setup machine as the user created in
+    <a class="xref" href="#xref_Creating_Developer_Account" title="3.1.&nbsp;Creating a Developer Account">Creating a Developer Account</a> creating an initial
+    example project is quite simple. As part of the server installation a
+    program called <span class="literal">bw_configure</span> was installed which is used
+    to assist in configuring your user account to run a BigWorld server. By
+    running this script with a new project name it will both create a new
+    project as well as set our configuration file that is used to start a
+    server.</p><p>To create a new project run the following command, replacing the
+    string <em class="replaceable"><code>project_name</code></em> with the name of your own
+    project:</p><pre class="programlisting">$ bw_configure <em class="emphasis"><em class="replaceable"><code>project_name</code></em></em></pre><p>For example if the server developer Alice were to create a new
+    project called '<span class="literal">bigworld_first_run</span>' she would see the
+    following output:</p><pre class="programlisting">$ bw_configure <em class="emphasis">bigworld_first_run</em>
+'bigworld_first_run' project directory not found.
+Create 'bigworld_first_run' with tutorial resources [y/N]? y
+Creating new project at /home/alice/bigworld_first_run
+Generating for chapter 6 - BASIC_NPC
+    from /opt/bigworld/2.1/server/bin/res
+    to /home/alice/bigworld_first_run/res
+
+Writing /home/alice/bigworld_first_run/run.bat
+Writing to /home/alice/.bwmachined.conf succeeded
+
+Installation root : /opt/bigworld/current/server
+BigWorld resources: /opt/bigworld/current/server/res
+Game resources    : bigworld_first_run</pre><p>This command will create a directory that is populated with the
+    resources from the <a href="../bigworld_tutorial/bigworld_tutorial.html#BigWorld_Tutorial" class="olink">Tutorial</a>. It will also
+    create a new configuration file in your home directory called
+    <code class="filename">.bwmachined.conf</code>. As a starting point it is useful to
+    understand the basic breakdown of the
+    <code class="filename">.bwmachined.conf</code> file in case you need to modify it
+    at a later stage.</p><p>The <code class="filename">.bwmachined.conf</code> file is a file that
+    contains a single line that is used by the bwmachined process on each
+    machine to determine how to start server processes for a user. The
+    information contained inside this file then has to point to the server
+    binaries to be used as well as the game resources. The breakdown of the
+    file is as follows:</p><pre class="programlisting"><em class="replaceable"><code>server_binary_directory</code></em>:<em class="replaceable"><code>game_res_directory</code></em>[;<em class="replaceable"><code>secondary_res_directory</code></em>]</pre><p>In the <code class="filename">.bwmachined.conf</code> file that was created
+    for you by the <span class="command"><strong>bw_configure</strong></span> program the three paths
+    mentioned above will be set as follows:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal"><em class="replaceable"><code>server_binary_directory</code></em></span>
+        is automatically filled in with the installation path of the BigWorld
+        server binaries.</p></li><li class="listitem"><p><span class="literal"><em class="replaceable"><code>game_res_directory</code></em></span>
+        will most likely be filled out with a directory path that resembles
+        <span class="literal">/home/<em class="replaceable"><code>username</code></em>/<em class="replaceable"><code>project_name</code></em>/res.</span>
+        This <span class="literal"><em class="replaceable"><code>project_name</code></em></span>
+        directory will be where all your additions and modifications will
+        occur: it is where your game will be implemented.</p></li><li class="listitem"><p><span class="literal"><em class="replaceable"><code>secondary_res_directory</code></em></span>
+        is automatically filled in with the BigWorld resource directory. The
+        BigWorld resource directory is generally required for all games as it
+        contains default configuration files and Python libraries that are
+        used by the server processes.</p></li></ul></div><p>For more details on the <code class="filename">.bwmachined.conf</code> file,
+    please refer to <a class="xref" href="#xref_Appendix_Understanding_BWMachined" title="Appendix&nbsp;E.&nbsp;Understanding the BigWorld Machine Daemon (BWMachineD)">Appendix&nbsp;E, <i>Understanding the BigWorld Machine Daemon (BWMachineD)</i></a>.</p></div><div class="section" title="3.3.&nbsp;Package specific key generation"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e929"></a>3.3.&nbsp;Package specific key generation</h2></div></div></div><p>Both the Indie and non-Indie BigWorld server packages require some
+    key files to be generated and placed in the correct location in order to
+    work correctly. Please refer to the section below that is relevant to your
+    package.</p><div class="section" title="3.3.1.&nbsp;LoginApp Keypair"><div class="titlepage"><div><div><h3 class="title"><a name="d0e934"></a>3.3.1.&nbsp;LoginApp Keypair</h3></div></div></div><p>In order to ensure that a Client is connecting to an authentic
+      game server and the username / password sent by the Client are not able
+      to be intercepted from a public network, the initial communication with
+      the BigWorld server to the LoginApp is encrypted using a public
+      keypair.</p><p>The BigWorld Technology package ships with a default LoginApp
+      keypair, however since all customers receive the same keypair it is
+      strongly recommended to create your own keypair from the start of your
+      project and store it in your game resource directory rather than in the
+      BigWorld resource directory.</p><p>For information on how to go about creating your own custom game
+      keypair please see the <a href="../server_programming_guide/server_programming_guide.html#Server_Programming_Guide" class="olink">Server Programming Guide</a>
+      section <a href="../server_programming_guide/server_programming_guide.html#xref_Generating_RSA_Keypair" class="olink">Generating your own RSA keypair</a>. Once you have created your
+      keypair, place it into your game resource directory that was created in
+      <a class="xref" href="#xref_Create_A_New_Project" title="3.2.&nbsp;Create a new project">Create a new project</a>. For example the
+      <code class="filename">loginapp.privkey</code> would be placed in <code class="filename">/home/<em class="replaceable"><code>username</code></em>/<em class="replaceable"><code>project_name</code></em>/res/server</code>
+      while the <code class="filename">loginapp.pubkey</code> would be placed in the
+      directory <code class="filename">/home/<em class="replaceable"><code>username</code></em>/<em class="replaceable"><code>project_name</code></em>/res</code>.</p></div><div class="section" title="3.3.2.&nbsp;Customer Server Key"><div class="titlepage"><div><div><h3 class="title"><a name="d0e973"></a>3.3.2.&nbsp;Customer Server Key</h3></div></div></div><p>Customers must place the <code class="filename">bigworld.key</code> file
+      that was provided in the initial package notification email into their
+      game resource tree. This file should be placed either in <code class="filename">bigworld/res/server</code> or <code class="filename"><em class="replaceable"><code>project_res</code></em>/server</code>.</p></div></div><div class="section" title="3.4.&nbsp;Managing the BigWorld Server"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e989"></a>3.4.&nbsp;Managing the BigWorld Server</h2></div></div></div><p>With a project created and with all the relevant configuration files
+    set, we can look to start our server. In order to interact with a BigWorld
+    server cluster we provide both a web interface and a set of command line
+    tools. For most server interacts we recommend using the web interface and
+    we will describe this approach here.</p><p>The web interface to the BigWorld server is called WebConsole. It
+    provides a number of features for interacting with a BigWorld server
+    cluster that are more fully outlined in the <a href="../server_operations_guide/server_operations_guide.html#Server_Operations_Guide" class="olink">Server Operations Guide</a>'s chapter <a href="../server_operations_guide/server_operations_guide.html#xref_Admin_Tools" class="olink"><i>Cluster Administration Tools</i></a>.</p><p>WebConsole is automatically started and runs on port 8080 of the
+    machine on which the <span class="literal">bigworld-tools</span> RPM was installed.
+    To connect to the WebConsole we would then use a URL such as
+    <span class="literal">http://<em class="replaceable"><code>hostname</code></em>:8080/</span>
+    replacing <em class="replaceable"><code>hostname</code></em> with either the IP address
+    of the machine or its hostname depending on how the other machines in your
+    network have been configured. To avoid confusion when testing WebConsole
+    for the first time we recommend using the IP address of the WebConsole
+    machine to confirm that any issues aren't related to hostname or DNS
+    resolution problems.</p><p>When connecting for the first time you should be presented with a
+    screen similar to the following:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/web_console_login.png" align="middle"></div></div><p>The user accounts on the WebConsole now need to be created and the
+    default administration login password changed. To do this, log in with
+    username <span class="literal">admin</span>, password
+    <span class="literal">admin</span>.</p><div class="section" title="3.4.1.&nbsp;Adding A New User"><div class="titlepage"><div><div><h3 class="title"><a name="xref_WebConsole_Admin_Add_New_User"></a>3.4.1.&nbsp;Adding A New User</h3></div></div></div><p>To add a new user, click on the "Add New User" menu item on the left
+  hand side of the page. You will then be presented with a form to input as
+  follows:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/webconsole_admin_add_user.png" align="middle"></div></div><p>The table below summarises the input fields providing sample
+  input:</p><div class="altrow"><table border="1" width="75%"><colgroup><col width="33%"><col width="67%"></colgroup><thead><tr><th>Field</th><th>Description</th></tr></thead><tbody><tr><td>Username</td><td>The username that for the new user.</td></tr><tr><td>Password</td><td>The password with which the new user will log in.</td></tr><tr><td>Confirm Password</td><td>The password from the previous field, retyped to ensure no
+          mistake was made on entry.</td></tr><tr><td>Server User</td><td><p>The Linux user this account will be associated with.
+          This will be the Linux user that the BigWorld server processes will
+          be run as.</p> <p>If you are uncertain of this field, please
+          talk to your system administrator to find out what your Linux user
+          account is.</p></td></tr></tbody></table></div><p>The following image shows a new user account <span class="literal">AliceB</span>
+  being created and associated with the Linux user account
+  <span class="literal">alice</span>:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/webconsole_admin_add_user_alice.png" align="middle"></div></div><p>Once all the user information has been entered, simply click the
+  <span class="guibutton">Add User</span> button and you will be returned to the main
+  user listing, which will include the new user:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/webconsole_admin_main_alice.png" align="middle"></div></div></div></div><div class="section" title="3.5.&nbsp;Login to WebConsole"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1097"></a>3.5.&nbsp;Login to WebConsole</h2></div></div></div><p>Now that a WebConsole user account has been created, you can login
+    and start your first BigWorld server instance. To do this, return to the
+    WebConsole login screen, enter the username and password that you created
+    in the previous section, and press the <span class="literal">Log In</span> button.
+    You should now be presented with a screen similar to the following:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/web_console_cluster_control_trim.png" align="middle"></div></div><p>Each blue bar on the left hand side of the page contains a
+    collection of loosely related functionality for interacting with a
+    BigWorld server cluster. For information about each section refer to the
+    'Help' menu option in each module. For example, in the default display the
+    help option is located as follows:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/web_console_cluster_control_help.png" align="middle"></div></div></div><div class="section" title="3.6.&nbsp;Starting a BigWorld server"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1115"></a>3.6.&nbsp;Starting a BigWorld server</h2></div></div></div><p>With all the hard work out of the way, you are now only a few mouse
+    clicks away from having your first server up and running. From
+    WebConsole's Cluster Control<span class="symbol">&#8594;</span>Manage Servers
+    module click the <em class="emphasis">Start the server</em> link:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/web_console_cluster_control_start.png" align="middle"></div></div><p>You should now be presented with a web page outlining your user
+    information, the separate components of the
+    <code class="filename">.bwmachined.conf</code> file, and a list of machines on
+    which you can start the server:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/web_console_start_server.png" align="middle"></div></div><p>The purpose of this page is to allow you to review both your
+    configuration settings and the machine (or machines) on which you would
+    like to start the server prior to launching the cluster. For our purposes
+    we will use the default settings which should launch the server on a
+    single machine, identified using either your hostname or the IP address of
+    your local machine. To start the server simply press the 'Go!' button. You
+    should now see an interim web page that automatically updates as each
+    server process starts:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/web_console_server_starting.png" align="middle"></div></div><p>The above image shows us all the server processes except the BaseApp
+    and CellApp have started running and are operational. The BaseApp and
+    CellApp processes are the last to start as they rely on all the other
+    server processes to operate correctly.</p><p>You should now have an active server instance which presents you
+    with a web page similar to the following:</p><div class="informalfigure"><div class="mediaobject" align="center"><img src="images/web_console_server_running.png" align="middle"></div></div><p>At this point you should be ready to move on to the <a href="../bigworld_tutorial/bigworld_tutorial.html#BigWorld_Tutorial" class="olink">Tutorial</a> which will start to lead you through the
+    process of creating your own game and understanding the programming
+    concepts involved in interacting with BigWorld.</p><p>Good luck with your development!</p></div></div><div class="chapter" title="Chapter&nbsp;4.&nbsp;Cluster Configuration"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Cluster_Configuration"></a>Chapter&nbsp;4.&nbsp;Cluster Configuration</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#xref_Cluster_Configuration_Security">4.1. Security</a></span></dt><dt><span class="section"><a href="#xref_Cluster_Configuration_Routing">4.2. Routing</a></span></dt><dt><span class="section"><a href="#xref_Cluster_Configuration_Buffer_Sizes">4.3. Buffer sizes</a></span></dt><dt><span class="section"><a href="#xref_Disabling_Cron_Jobs">4.4. Disabling <span class="command"><strong>cron</strong></span> jobs</a></span></dt></dl></div><p>There are a number of issues within a network cluster that can
+  influence the behaviour of a BigWorld server. This chapter outlines these
+  issues along with the steps that should be taken both to deal with them and
+  to ensure the optimal performance of your BigWorld cluster
+  environment.</p><div class="section" title="4.1.&nbsp;Security"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Cluster_Configuration_Security"></a>4.1.&nbsp;Security</h2></div></div></div><p>In a BigWorld Server cluster, not all machines are connected to the
+    public internet, but those that are must be secured well.</p><p>This is most easily achieved by using a firewall to block incoming
+    packets. In general, the approach for machines with public IP addresses
+    should be to block all incoming packets on the interface with the public
+    IP.</p><p>The exception is that LoginApps and BaseApps need to allow UDP
+    traffic to the ports on which they listen. The ports to be used are
+    defined in the <code class="filename">res/server/bw.xml</code> file using the
+    options <span class="literal">loginApp/externalPorts/port</span> and
+    <span class="literal">baseApp/externalPorts/port</span>. For details on these
+    options, see the <a href="../server_operations_guide/server_operations_guide.html#Server_Operations_Guide" class="olink">Server Operations Guide</a>'s chapter
+    <a href="../server_operations_guide/server_operations_guide.html#xref_Server_Configuration_With_bw_xml" class="olink"><i>Server Configuration with <span class="literal">bw.xml</span></i></a>, sections <a href="../server_operations_guide/server_operations_guide.html#xref_BaseApp_Configuration_Options" class="olink">BaseApp Configuration Options</a> and <a href="../server_operations_guide/server_operations_guide.html#xref_LoginApp_Configuration_Options" class="olink">LoginApp Configuration Options</a>.</p><p>Using the Linux firewall configuration tool,
+    <span class="command"><strong>iptables</strong></span>, we can add a rule to drop all incoming
+    traffic on the external interface. In the following examples, we assume
+    the external interface is <span class="literal">eth1</span>. For example:</p><pre class="programlisting"># /sbin/iptables -A INPUT -i <em class="emphasis"><em class="replaceable"><code>eth1</code></em></em> -j DROP</pre><p>On the machines running LoginApps, we can add a rule to allow
+    traffic through on the login port, using the default port of
+    <span class="literal">20013</span>, as illustrated below:</p><pre class="programlisting"># /sbin/iptables -I INPUT 1 -p udp -i <em class="replaceable"><code>eth1</code></em> --destination-port <em class="emphasis">20013</em> -j ACCEPT</pre><p>Similarly, for machines running BaseApps, we add similar rules to
+    allow traffic through on the BaseApp external port as specified in the
+    <span class="literal">baseApp/externalPorts/port</span> options.</p><p>We use <span class="literal">-I INPUT 1</span> in the new rule instead of
+    <span class="literal">-A INPUT</span> because <span class="command"><strong>iptables</strong></span> applies
+    the first rule in the chain that matches an incoming packet. Therefore, we
+    need to insert the rule for accepting login packets before the rule for
+    rejecting all UDP traffic on <span class="literal">eth1</span>.</p><p>For a production server, you should disable all networking services
+    apart from SSH from trusted IP addresses.</p><p>BWMachined requires the ability to broadcast on the internal
+    interface and receive back its own replies on UDP ports
+    <span class="literal">20018</span> and <span class="literal">20019</span>. The internal
+    interface is denoted here as <span class="literal">eth0</span>. The firewall rules
+    should accommodate this requirement.</p><p>For example:</p><pre class="programlisting"># /sbin/iptables -I INPUT 1 -p udp -i <em class="replaceable"><code>eth0</code></em> -m multiport --destination-ports 20018:20019 -j ACCEPT</pre><p>For details about the ports used by a BigWorld server see <a href="../server_operations_guide/server_operations_guide.html#xref_Security" class="olink"><i>Security</i></a>.</p><p>You must ensure that the firewall rules are restored each time the
+    machine boots. You can use the following command to save the
+    <span class="command"><strong>iptables</strong></span> configuration:</p><pre class="programlisting"># /etc/init.d/iptables save</pre></div><div class="section" title="4.2.&nbsp;Routing"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Cluster_Configuration_Routing"></a>4.2.&nbsp;Routing</h2></div></div></div><p>A large number of tools and server components in BigWorld Technology
+    rely on being able to send IP broadcast packets to the default broadcast
+    address (255.255.255.255), and for them to be routed correctly.</p><p>This will happen by default on a machine with only one network
+    interface (i.e., machines on the internal network only, such as CellApp
+    machines, DBMgr machines, etc.).</p><p>For machines with two network interfaces (i.e., BaseApp and LoginApp
+    machines), we need to make sure that packets sent to the broadcast address
+    are routed via the internal interface.</p><p>We can make sure this is done correctly by making an entry in the
+    kernel routing table with the <span class="command"><strong>ip</strong></span> command. This command
+    may not be installed by default. You can install this utility by running
+    the following command as root:</p><pre class="programlisting"># yum install iproute</pre><p>In the example below, we once again assume that
+    <span class="literal">eth0</span> interface is the internal network. To add a
+    default broadcast route, run the following command as the root
+    user:</p><pre class="programlisting"># /sbin/ip route add broadcast 255.255.255.255 dev <em class="emphasis"><em class="replaceable"><code>eth0</code></em></em></pre><p>This command will only add the route to the current routing table,
+    and will not apply after rebooting your machine. In order to ensure this
+    route is applied whenever the <span class="literal">eth0</span> interface is brought
+    online run the following command as the root user:</p><pre class="programlisting"># echo "broadcast 255.255.255.255 dev <em class="emphasis"><em class="replaceable"><code>eth0</code></em></em>" &gt; /etc/sysconfig/network-scripts/route-<em class="emphasis"><em class="replaceable"><code>eth0</code></em></em></pre><p>This command will create the file
+    <code class="filename">/etc/sysconfig/network-scripts/route-<em class="replaceable"><code>eth0</code></em></code>
+    if it doesn't already exist.</p></div><div class="section" title="4.3.&nbsp;Buffer sizes"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Cluster_Configuration_Buffer_Sizes"></a>4.3.&nbsp;Buffer sizes</h2></div></div></div><p>Some of BigWorld's network components require socket buffers that
+    are generally larger than system defaults. In order for these components
+    to work properly, the amount of memory allocated for these buffers must be
+    increased. This involves values: the maximum read and write buffer sizes,
+    and the default write buffer size.</p><p>If you installed BWMachined using the RPM package, these values
+    should have been automatically added or updated in the
+    <code class="filename">/etc/sysctl.conf</code> file, and you can skip this
+    section.</p><p>The size allocated for socket buffers is determined from kernel
+    settings, which can be modified on the fly using the
+    <span class="command"><strong>sysctl</strong></span> command. For example, the maximum size of read
+    buffers can be increased to 16 MB with:</p><pre class="programlisting"># /sbin/sysctl -w net.core.rmem_max=16777215</pre><p>However, to make these changes persistent, we strongly recommend
+    defining higher values in the <code class="filename">/etc/sysctl.conf</code> file.
+    The entries for the relevant settings should have the following
+    values:</p><pre class="programlisting">net.core.<em class="emphasis">rmem_max = 16777216</em>
+net.core.<em class="emphasis">wmem_max = 1048576</em>
+net.core.<em class="emphasis">wmem_default = 1048576</em></pre></div><div class="section" title="4.4.&nbsp;Disabling cron jobs"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Disabling_Cron_Jobs"></a>4.4.&nbsp;Disabling <span class="command"><strong>cron</strong></span> jobs</h2></div></div></div><p>Cron is a system daemon which enables tasks to be scheduled for
+    running at pre-determined intervals, such as hourly, daily, weekly, etc.
+    Cron refers to these periodic tasks as <em class="emphasis">jobs</em>. These
+    jobs may adversely affect the performance of a running server due to the
+    the kind of functionality they perform. For example it is quite common for
+    cron jobs to update the <span class="command"><strong>locate</strong></span> database which involves
+    performing a recursive directory listing on the entire machine. These
+    kinds of jobs can involve reading from each part of a hard drive,
+    effectively causing a flush of the disk cache Linux has in memory. This
+    can cause a momentary lapse in performance of server processes, as disk
+    swapping starts to occur on the host machine.</p><p>We recommend that BigWorld Server machines have resource-intensive
+    (CPU, memory or disk) cron jobs disabled in production environments. You
+    can achieve this (with various levels of granularity) by disabling these
+    cron jobs.</p><p>Cron jobs can be disabled by clearing the executable bit on the
+    relevant job. For example, to disable the job run by
+    <code class="filename">/etc/cron.daily/makewhatis.cron</code>:</p><pre class="programlisting"># chmod -x /etc/cron.daily/makewhatis.cron</pre><p>Re-enabling cronjobs can be done by setting the executable bit using
+    the reverse operation:</p><pre class="programlisting"># chmod +x /etc/cron.daily/makewhatis.cron</pre><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>System cron jobs are stored in the following locations:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><code class="filename">/etc/cron.d</code> (contains cron jobs for
+            system services)</p></li><li class="listitem"><p><code class="filename">/etc/cron.hourly</code> (for hourly cron job
+            scripts)</p></li><li class="listitem"><p><code class="filename">/etc/cron.daily</code> (for daily cron job
+            scripts)</p></li><li class="listitem"><p><code class="filename">/etc/cron.weekly</code> (for weekly cron job
+            scripts)</p></li><li class="listitem"><p><code class="filename">/etc/cron.monthly</code> (for monthly cron job
+            scripts)</p></li></ul></div></li></ul></div><p>Also remove any unnecessary user-level cron jobs. These can be
+    listed per-user using:</p><pre class="programlisting">$ crontab -l</pre><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>We do not recommend completely disabling the cron service as
+      facilities such as log rotation and some security mechanisms may rely on
+      the cron service being active.</p></div></div></div><div class="appendix" title="Appendix&nbsp;A.&nbsp;Hardware Requirements"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Appendix_Hardware_Requirements"></a>Appendix&nbsp;A.&nbsp;Hardware Requirements</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d0e1430">A.1. CPU Specifications</a></span></dt><dt><span class="section"><a href="#d0e1441">A.2. Duals/Single/Quad/Blades</a></span></dt><dt><span class="section"><a href="#d0e1487">A.3. Network Interface Cards</a></span></dt><dt><span class="section"><a href="#d0e1492">A.4. Disk Storage</a></span></dt><dt><span class="section"><a href="#d0e1499">A.5. Power Supplies</a></span></dt><dt><span class="section"><a href="#d0e1504">A.6. Memory</a></span></dt><dt><span class="section"><a href="#d0e1521">A.7. NOC Bandwidth</a></span></dt><dt><span class="section"><a href="#d0e1526">A.8. VMWare</a></span></dt></dl></div><p>The appendix is intended as a quick summary of the required hardware
+  specification needed in order to run a BigWorld. The following list should
+  be considered as the minimum set of required hardware:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>1GHz CPU (non-mobile CPU preferred)</p></li><li class="listitem"><p>256MB RAM</p></li><li class="listitem"><p>8GB Hard Disk</p></li><li class="listitem"><p>100Mbps Network Interface Card</p></li></ul></div><p>The following list outlines BigWorld's recommended hardware
+  requirements for an optimal price vs performance solution.</p><div class="section" title="A.1.&nbsp;CPU Specifications"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1430"></a>A.1.&nbsp;CPU Specifications</h2></div></div></div><p>In general, use the fastest CPU's that you can. Faster CPU's mean
+    more entities per CPU and fewer machines.</p><p>As far as which CPU to buy, look at the normal kinds of things for
+    servers: big L1 and L2 cache sizes, and fast front-side buses are always
+    better than small L1 and L2 cache sizes and slow front-side buses.</p><p>Multiple processors will help you out due to lower network traffic
+    and fewer machines, until such time as the processors are generating too
+    much data to get to the network card (or over the PCI bus to the network
+    card).</p><p>If you have multiple processors, then make sure that you have one
+    server component running on each CPU.</p></div><div class="section" title="A.2.&nbsp;Duals/Single/Quad/Blades"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1441"></a>A.2.&nbsp;Duals/Single/Quad/Blades</h2></div></div></div><p>In general CPU density in each box is a price decision. Blade
+    machines are expensive, but if you are paying expensive rates for your NOC
+    it may work out to be cheaper. If we ignored the NOC cost, we recommend
+    dual CPU machines.</p><p>An example Blade setup would be as follows:</p><p><em class="emphasis">BladeCenter LS20
+    885051U</em></p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Processor: Low Power AMD Opteron Processor Model 246
+          (Standard)</p></li><li class="listitem"><p>Memory: 4 GB PC3200 ECC DDR RDIMM (2 x 2 GB Kit) System
+          Memory</p></li><li class="listitem"><p>IBM eServer BladeCenter &#8482; Gigabit Ethernet Expansion
+          Card</p></li><li class="listitem"><p>SCSI Hard disk drive 1 : 73GB Non Hot-Swap 2.5" 10K RPM
+          Ultra320 SCSI HDD</p></li></ul></div><p><em class="emphasis">BladeCenter
+    86773XU</em></p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Optical device: IBM 8X Max DVD-ROM Ultrabay Slim Drive
+        (Standard)</p></li><li class="listitem"><p>Diskette drive: IBM 1.44MB 3.5-inch Diskette Drive
+        (Standard)</p></li><li class="listitem"><p>Power supply modules 1 and 2: BladeCenter 2000W Power Supplies
+        one and two (Standard)</p></li><li class="listitem"><p>Management modules: BladeCenter KVM / Management Module
+        (Standard)</p></li><li class="listitem"><p>Switch module bay 1: Nortel Networks Layer 2/3 Copper GbE Switch
+        Module for IBM eServer BladeCenter</p></li><li class="listitem"><p>Switch module bay 2: Nortel Networks Layer 2/3 Copper GbE Switch
+        Module for IBM eServer BladeCenter</p></li></ul></div><p>A setup with 10 LS20 blades in a 86773XU BladeCenter would cost
+    approx $60k USD.</p></div><div class="section" title="A.3.&nbsp;Network Interface Cards"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1487"></a>A.3.&nbsp;Network Interface Cards</h2></div></div></div><p>1Gbps NICs are recommended. The accurate way to determine what NIC
+    is required is to measure the inter-server traffic for your game. If the
+    traffic is reaching 25% of the cards capacity we recommend using a faster
+    card (i.e. if the traffic is more than 25Mbps use a 1Gbps NIC). Note most
+    100Mbps NIC cards cannot handle more than 50Mbps sustained
+    throughput.</p></div><div class="section" title="A.4.&nbsp;Disk Storage"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1492"></a>A.4.&nbsp;Disk Storage</h2></div></div></div><p>For the general machines (CellApps, BaseApps, and the various
+    managers) RAID disk setups are not recommended. None of these machines use
+    the disk sub-system extensively (and are certainly not disk bound). Use
+    standard drives, that are big enough to store the entire world data
+    (typically in the order of 1 to 10G). If a drive dies it can be replaced
+    and the data copied from the master.</p><p>The machine with the master copy of the data should use a RAID 5
+    system for speed and data integrity. Hot-swap drives will facilitate easy
+    replacement when drives fail. The database server also needs to use RAID 5
+    for data integrity and Logical Volume Management for snapshotting. We also
+    recommend using 10k or 15k RPM drives (SATA or SCSI). The database for a
+    game stores backup copies of all entities. This database can be large,
+    potentially 10G to 1TB, but this should be measured during development.
+    This can be estimated by multiplying the number of entities by their
+    size.</p></div><div class="section" title="A.5.&nbsp;Power Supplies"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1499"></a>A.5.&nbsp;Power Supplies</h2></div></div></div><p>We recommend the use of dual redundant PSUs for the database
+    machine, and the master data server. All other machines can use standard
+    single PSU's, since a failure of these machines is not critical. It is
+    cheaper to let the BigWorld fault tolerance system do the work on the
+    software side.</p></div><div class="section" title="A.6.&nbsp;Memory"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1504"></a>A.6.&nbsp;Memory</h2></div></div></div><p>To calculate memory requirements for the CellApp we recommend the
+    following:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Around 32MB to 128MB, for Linux to run comfortably (depends on
+        how well you have stripped back the kernel and system
+        services).</p></li><li class="listitem"><p>Around 32MB for a CellApp or BaseApp to run comfortably with no
+        entities on them and no spaces loaded.</p></li><li class="listitem"><p>Enough RAM for your entities, and for your world geometry
+        (remember that the cell needs to load up enough geometry to cover for
+        the AoI for all entities it is supporting). This amount will depend on
+        how dense your meshes are, and how much data is stored with each
+        entity. 2GB of RAM would not be unusual for an average game.</p></li></ul></div><p>The BaseApps would typically require around 512M, depending on how
+    much entity data is stored. All other machines require around 512M.</p></div><div class="section" title="A.7.&nbsp;NOC Bandwidth"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1521"></a>A.7.&nbsp;NOC Bandwidth</h2></div></div></div><p>This is easy to calculate. Multiply the number of players by the
+    desired bandwidth per player. Outgoing bandwidth is generally higher than
+    the incoming bandwidth.</p></div><div class="section" title="A.8.&nbsp;VMWare"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1526"></a>A.8.&nbsp;VMWare</h2></div></div></div><p>It is possible to use VMWare for single developer testing purposes,
+    however VMWare is not recommended as a scaleable production configuration
+    due to the timing latency that can be introduced. It is also important to
+    note that if you are intending to use a VMWare image that the architecture
+    of the package you are creating should be same as the intended machine you
+    will run the image on. While this may seem counter-intuitive, this is
+    important as the cross-architecture emulation significantly slows down the
+    server and will generally causing process deaths due to a lack of
+    responsiveness.</p></div></div><div class="appendix" title="Appendix&nbsp;B.&nbsp;Installing CentOS 5"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Install_OS"></a>Appendix&nbsp;B.&nbsp;Installing CentOS 5</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#xref_Install_OS_Installing">B.1. Installing</a></span></dt><dt><span class="section"><a href="#xref_Post_Installation_Setup">B.2. Post-installation Setup</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e1712">B.2.1. Install updates</a></span></dt><dt><span class="section"><a href="#d0e1719">B.2.2. Configure services</a></span></dt><dt><span class="section"><a href="#d0e1733">B.2.3. Install build tools</a></span></dt><dt><span class="section"><a href="#d0e1740">B.2.4. MySQL server and development libraries</a></span></dt><dt><span class="section"><a href="#d0e1757">B.2.5. Changing UIDs</a></span></dt></dl></dd></dl></div><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Even experienced users should skim the following sections to make
+    sure that required packages are installed.</p></div><p>You may wish to refer to the Centos documentation (<a class="ulink" href="http://www.centos.org/docs/5/" target="_top">http://www.centos.org/docs/5/</a>) for additional notes and guidelines
+  on installing and configuring CentOS.</p><div class="section" title="B.1.&nbsp;Installing"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Install_OS_Installing"></a>B.1.&nbsp;Installing</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Boot the computer using the installation DVD, or other media
+        (for example PXE boot). See the CentOS documentation for further
+        details.</p><p>You may need to select the CD/DVD ROM drive as a bootable device
+        in the BIOS when installing from DVD.</p></li><li class="listitem"><p>This installation guide is based on the graphical installer.
+        Press ENTER at the first boot screen to select <span class="literal">Install in
+        graphical mode</span>.</p><p>If you are having trouble with video card drivers, then you can
+        reboot and try the text-only installer.</p></li><li class="listitem"><p>If this is the first time that the CD/DVD has been used, then it
+        is worthwhile to use the built-in test option.</p><p>The test will take around 15 minutes. If you do not want to
+        test, just select Skip.</p></li><li class="listitem"><p><em class="emphasis">Language and keyboard
+        type.</em></p><p>The language selected will be used for the installation
+        procedure as well as being the default language of the installed
+        system.</p></li><li class="listitem"><p><em class="emphasis">Installation method</em></p><p>Choose <span class="literal">Local CDROM</span> if you are using DVD to
+        install, or you can choose your local CentOS mirror.</p></li><li class="listitem"><p><em class="emphasis">Disk partitioning</em></p><p>You can partition the disk as you see fit. The <span class="literal">Remove
+        all partitions on selected drives and create default layout</span>
+        option should work for most situations. You can modify the default
+        layout by checking the <span class="literal">Review and modify partitioning
+        layout</span> checkbox.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>If the machine will host the database server (running MySQL
+          and DBMgr), and you are using secondary databases, you will need to
+          use LVM partitions and you will also need to allocate some free
+          space for the LVM snapshot. You can add unallocated space on one of
+          your logical drives when reviewing the partitioning layout. See
+          <a href="../server_operations_guide/server_operations_guide.html#xref_Database_Snapshot_Tool" class="olink">Database Snapshot Tool</a> for more details about the
+          snapshotting tool.</p></div></li><li class="listitem"><p><em class="emphasis">Boot loader
+        configuration</em></p><p>Select the appropriate options for you machine (by default, the
+        bootloader will be installed to the MBR).</p></li><li class="listitem"><p><em class="emphasis">Network configuration</em></p><p>Ensure that you have at least one network device listed, and
+        that IPv4 is enabled for it.</p><p>In production, for BaseApp and LoginApp machines, there should
+        be two network interfaces, one for external traffic, and the other for
+        internal server traffic. In development, these can be the same.</p><p>The hostname can be specified manually or it can be set from
+        DHCP.</p><p>If you are not using DHCP, you will need to enter the default
+        gateway and DNS addresses.</p></li><li class="listitem"><p><em class="emphasis">Time zone selection</em></p><p>Select your time zone.</p><p>We recommend that you leave the system clock as UTC as per the
+        default.</p></li><li class="listitem"><p><em class="emphasis">Setting the <code class="code">root</code>
+        password</em></p><p>You will need access to the <code class="code">root</code> account to install
+        some BigWorld Server components, make sure you remember this
+        password.</p></li><li class="listitem"><p><em class="emphasis">Package selection</em></p><p>If this is a production machine, we recommend that you have
+        <span class="literal">Desktop - Gnome</span> unchecked. You can leave the other
+        options unchecked, the specific packages that the BigWorld server
+        requires will be installed later on in this guide.</p><p>In development, you may wish to use the machine as a desktop
+        development machine, in which case you can choose to install whichever
+        packages you require for development, such as the <span class="literal">Desktop -
+        Gnome</span> package group.</p></li><li class="listitem"><p><em class="emphasis">First boot configuration</em></p><p>The installation program will format the disk partitions,
+        install the base system and system packages. After this process is
+        complete, you will be asked to reboot the machine. On first boot, you
+        will be prompted for further configuration.</p></li><li class="listitem"><p><em class="emphasis">Authentication</em></p><p>This tool sets up how your OS will look up user account
+        information.</p><p>BigWorld components assume that the username to UID mapping is
+        unique across the network i.e. two users with the same name on two
+        different machines will have the same UID and vice versa. If you are
+        creating accounts with the same name on multiple machines, please
+        ensure that they all have the UID by manually specifying their
+        UID.</p><p>Furthermore, the BigWorld server also assumes that server
+        components started by the same user (as identified by their UID)
+        belongs to the same server instance, even when those components are
+        running on different machines. To run multiple BigWorld Server
+        instances, multiple user accounts are needed.</p><p>You can set up remote account information servers such as LDAP.
+        We recommend using LDAP during development to ensure that every
+        machine in the cluster has the same user set. Typically, each
+        developer user has an account where they can run their own servers
+        independent of other users.</p><p>Refer to the OpenLDAP documentation for further information on
+        how to configure an LDAP service to authenticate users.</p></li><li class="listitem"><p><em class="emphasis">Firewall configuration</em></p><p>For a development machine, the firewall should be disabled. The
+        default firewall blocks all UDP traffic, which prevents the BigWorld
+        Server from operating. You can disable the firewall by setting the
+        <span class="literal">Security Level</span> option to
+        <span class="literal">Disabled</span>.</p><p>For a production machine, you will need to setup specialised
+        firewall rules for your specific security requirements. Guides for
+        BigWorld Server specific firewall settings are given in the <a class="xref" href="#xref_Cluster_Configuration" title="Chapter&nbsp;4.&nbsp;Cluster Configuration"><i>Cluster Configuration</i></a> section of this
+        document.</p><p>The BigWorld Server is known to work with the default SELinux
+        settings (enforcing).</p></li><li class="listitem"><p><em class="emphasis">System services</em></p><p>For production machines, in order to avoid unexpected load
+        spikes on your system from background services, we recommend that you
+        disable any non-essential services. You can configure which services
+        are started up at boot time.</p><p>Services that are recommended to be disabled
+        include:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>cups</p></li><li class="listitem"><p>bluetooth</p></li><li class="listitem"><p>yum-updatesd</p></li></ul></div></li><li class="listitem"><p><em class="emphasis">Finishing the
+        installation</em></p><p>Once exiting the first boot configuration screen, you will be
+        presented with a login prompt. Login as the root user to continue the
+        installation.</p></li></ul></div></div><div class="section" title="B.2.&nbsp;Post-installation Setup"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Post_Installation_Setup"></a>B.2.&nbsp;Post-installation Setup</h2></div></div></div><div class="section" title="B.2.1.&nbsp;Install updates"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1712"></a>B.2.1.&nbsp;Install updates</h3></div></div></div><p>Although not strictly required, it is a good idea to install the
+      latest updates. You can update the packages by running the following
+      command as root:</p><pre class="programlisting"># yum update</pre></div><div class="section" title="B.2.2.&nbsp;Configure services"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1719"></a>B.2.2.&nbsp;Configure services</h3></div></div></div><p>In order to avoid unexpected load spikes on your system from
+      background services, non-essential services should be disabled. The
+      service configuration can be modified by running the following as
+      root:</p><pre class="programlisting"># firstboot --reconfig</pre><p>This will bring up the same configuration menu that appears after
+      the OS has been installed. Select the option <span class="literal">System
+      services</span>, and uncheck those services that you don't wish to
+      start at boot time. See above in <a class="xref" href="#xref_Install_OS_Installing" title="B.1.&nbsp;Installing">Installing</a> for a list of recommended
+      services to disable.</p></div><div class="section" title="B.2.3.&nbsp;Install build tools"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1733"></a>B.2.3.&nbsp;Install build tools</h3></div></div></div><p>To build the BigWorld Server, GCC and Make must be installed.
+      These should be the default compiler and make utility on your Linux
+      installation.</p><pre class="programlisting"># yum install gcc-c++ make</pre></div><div class="section" title="B.2.4.&nbsp;MySQL server and development libraries"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1740"></a>B.2.4.&nbsp;MySQL server and development libraries</h3></div></div></div><p>This step is required if you wish to use BigWorld WebConsole and
+      StatLogger, or use DBMgr with MySQL support.</p><p>The BigWorld Server is compatible with MySQL 5.0 and MySQL 5.1.
+      Support for MySQL 4.x has been deprecated.</p><p>If you have not already installed the MySQL server, you can do so
+      by running the following command as the root user:</p><pre class="programlisting"># yum install mysql-server</pre><p>If you intend to use DBMgr with MySQL support, you must also
+      ensure you have the MySQL client development package, as this is needed
+      to rebuild DBMgr with MySQL support.</p><p>Install the MySQL client development package by running the
+      following command as the root user:</p><pre class="programlisting"># yum install mysql-devel</pre></div><div class="section" title="B.2.5.&nbsp;Changing UIDs"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1757"></a>B.2.5.&nbsp;Changing UIDs</h3></div></div></div><p>A requirement of BWMachined is that all machines in your cluster
+      must have the same user account information, in particular, that the
+      numerical user IDs (UID) for a particular username are the same on every
+      machine.</p><p>When setting up your cluster, one system in your cluster may end
+      up with a mapping of UIDs to usernames that is different from other
+      systems in your cluster. This is especially likely if you are not using
+      LDAP or a similar tool to synchronise login names.</p><p>If you are using the GNOME desktop environment on these machines,
+      there can be problems when you change the UID for a username. This
+      section outlines the steps to change the UID of a username and avoid
+      these problems. If all the machines were set up such that each user
+      account has the same UID on each machine, you can skip this
+      section.</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Make sure no one is logged in graphically.</p></li><li class="listitem"><p>If you are in graphical mode, press <code class="code">CTRL + ALT +
+          F1</code> to switch to a text console.</p></li><li class="listitem"><p>Log in as <code class="code">root</code>.</p></li><li class="listitem"><p>Choose the new user ID and group ID for your user, making sure
+          that the new user ID is not being used by any other user, and
+          similarly that the group ID is not used by another group. You can
+          check by looking through <code class="filename">/etc/passwd</code> and
+          <code class="filename">/etc/group</code>. By convention, the user's primary
+          group ID and user ID are the same, though this need not be the
+          case.</p></li><li class="listitem"><p>Change the user ID and group ID of the user and the user's
+          primary group by invoking the following commands:</p><pre class="programlisting"># groupmod -g <em class="replaceable"><code>&lt;new GID&gt;</code></em> <em class="replaceable"><code>&lt;groupname&gt;</code></em>
+# usermod -u <em class="replaceable"><code>&lt;new UID&gt;</code></em> -g <em class="replaceable"><code>&lt;new GID&gt;</code></em> <em class="replaceable"><code>&lt;username&gt;</code></em></pre></li><li class="listitem"><p>Confirm that the new user has the new UID and GID:</p><pre class="programlisting"># id <em class="replaceable"><code>&lt;username&gt;</code></em></pre></li><li class="listitem"><p>Issue the command below to remove any invalidated user
+          state:</p><pre class="programlisting"># rm -rf /tmp/*<em class="replaceable"><code>&lt;username&gt;</code></em>*</pre><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p><span class="literal">rm</span> is the command to remove files, and
+            the <span class="literal">-rf</span> flags direct a recursive search, and
+            force deletion of all directories and files that match the name,
+            without prompting you. These flags should therefore only ever be
+            used with extreme care.</p><p>The asterisks represent sets of wild-card characters in the
+            search for files to remove. For example, for the user Alice, this
+            command would remove a file called
+            <code class="filename">/tmp/mapping-Alice</code> if it were to
+            exist.</p></div></li><li class="listitem"><p>You will now need to change the ownership of the home
+          directory to the new user and group:</p><pre class="programlisting"># chown -R <em class="replaceable"><code>&lt;username&gt;</code></em>:<em class="replaceable"><code>&lt;groupname&gt;</code></em> /home/<em class="replaceable"><code>&lt;username&gt;</code></em></pre></li><li class="listitem"><p>Press <code class="code">CTRL + ALT + F7</code> to return to the graphical
+          login if required.</p></li></ol></div></div></div></div><div class="appendix" title="Appendix&nbsp;C.&nbsp;Copying files to Linux"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Copying_Files_To_Linux"></a>Appendix&nbsp;C.&nbsp;Copying files to Linux</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d0e1910">C.1. USB Thumb Drive / External Hard Disk</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Installing_NTFS_Packages">C.1.1. Installing NTFS Support</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e1933">C.2. Python <code class="classname">SimpleHTTPServer</code> hosted on
+    Windows</a></span></dt><dt><span class="section"><a href="#d0e1964">C.3. Windows network share</a></span></dt></dl></div><p>For people unfamiliar with using Linux, even a simple task such as
+  copying files from a Windows machine to a Linux machine can be daunting.
+  This section aims to assist this process by providing a number of
+  (hopefully) convenient alternatives that can be used to assist in
+  transferring files between machines.</p><p>There a number of approaches that can be used for copying files from
+  Windows to Linux. These include but are not limited to:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>USB Thumb Drive / External Hard Disk</p></li><li class="listitem"><p>Python <code class="classname">SimpleHTTPServer</code> hosted on
+      Windows</p></li><li class="listitem"><p>Windows network share</p></li></ul></div><p>Below is a brief outline of each of the mentioned methods. We
+  encourage you to investigate each approach independently in order to feel
+  comfortable performing these operations whenever required without assistance
+  from BigWorld.</p><p>The following examples will assume you are copying the RPM files from
+  a standard BigWorld package which are located in the <code class="filename">rpm</code> directory at the top level of your
+  package.</p><p>It doesn't matter where you copy the files on the Linux machine.
+  However, the commands listed in the <a class="xref" href="#xref_Simple_Installation" title="Chapter&nbsp;2.&nbsp;Simple Installation"><i>Simple Installation</i></a> section are given under the assumption
+  that you copy the files to <code class="filename">/root</code>.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>In Linux the entire file system is organised in a single hierarchy.
+    The location <code class="filename">/</code> refers to the root
+    level and subdirectories are listed after that. For example, to switch to
+    the <code class="filename">/usr/include</code> directory, you can
+    use the <span class="command"><strong>cd</strong></span>, or 'change directory' command in the
+    following way:</p><pre class="programlisting">$ cd /usr/include</pre><p>If you are new to Linux, you should read the article at <a class="ulink" href="www.freeos.com/articles/3102" target="_top">www.freeos.com/articles/3102</a>,
+    which describes the Linux file system in more detail.</p></div><div class="section" title="C.1.&nbsp;USB Thumb Drive / External Hard Disk"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1910"></a>C.1.&nbsp;USB Thumb Drive / External Hard Disk</h2></div></div></div><p>When using this approach you may need to pay attention to the
+    filesystem type of the drive you are using. A FAT32 filesystem is natively
+    supported by Linux, while NTFS is not. Quite often, drives that have been
+    formatted under Windows will have an NTFS filesystem rather than FAT32. If
+    this occurs in your drive, see <a class="xref" href="#xref_Installing_NTFS_Packages" title="C.1.1.&nbsp;Installing NTFS Support">Installing NTFS Support</a>.</p><p>This approach is perhaps the easiest for copying a small number of
+    files between machines on a once-off basis. Once you have copied the files
+    from your Windows machine to the USB device and inserted it into the Linux
+    machine the device should be auto-mounted. If you are logged into a
+    graphical account you should see the device appear as a new icon on your
+    desktop.</p><p>Command line only users may need to perform more steps to discover
+    where the device was mounted. The <span class="command"><strong>mount</strong></span> command should
+    provide you with a list of all device-to-directory mappings to enable you
+    to discover the directory in which the files are located.</p><div class="section" title="C.1.1.&nbsp;Installing NTFS Support"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Installing_NTFS_Packages"></a>C.1.1.&nbsp;Installing NTFS Support</h3></div></div></div><p>To install NTFS support for your CentOS installation, firstly
+      ensure that you have installed the EPEL repository as outlined in <a class="xref" href="#xref_Installing_EPEL" title="2.2.2.&nbsp;Installing the EPEL Repository">Installing the EPEL Repository</a> and then run the following command as
+      root:</p><pre class="programlisting"># yum install ntfs-3g ntfsprogs</pre></div></div><div class="section" title="C.2.&nbsp;Python SimpleHTTPServer hosted on Windows"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1933"></a>C.2.&nbsp;Python <code class="classname">SimpleHTTPServer</code> hosted on
+    Windows</h2></div></div></div><p>This approach assumes that you have installed Python on your Windows
+    machine and have the Python executables in your <code class="envar">$PATH</code>
+    environment variable.</p><p>After installing or downloading your Bigworld Technology package,
+    open a command line window by clicking on Run in the Start menu, and
+    typing <span class="command"><strong>cmd</strong></span> into the prompt. Navigate to the <code class="filename">rpm</code> directory in your new installation and
+    type:</p><pre class="programlisting">C:\BigWorld\rpm&gt; python.exe -m SimpleHTTPServer
+rving HTTP on 0.0.0.0 port 8000 ...</pre><p>You can now use the <span class="command"><strong>wget</strong></span> program or a Web browser
+    on your Linux machine to copy files via HTTP. If you are unsure of your
+    Windows machine IP address you can use the <span class="command"><strong>ipconfig</strong></span>
+    program on the command line. For example, to copy the 2.1 bwmachined RPM
+    file you would use the following command, replacing 10.40.3.145 with your
+    own IP address:</p><pre class="programlisting">$ wget http://10.40.3.145:8000/bigworld-bwmachined-2.1.0.x86_64.rpm
+
+--2011-11-05 11:16:28--  http://10.40.3.145:8000/bigworld-bwmachined-2.1.0.x86_64.rpm
+Connecting to 10.40.3.145:8000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1096149 (1.0M) [application/octet-stream]
+Saving to: `bigworld-bwmachined-2.1.0.x86_64.rpm'
+
+100%[======================================&gt;] 1,096,149   4.93M/s   in 0.3s    
+
+2011-11-05 11:16:29 (11.8 MB/s) - `bigworld-bwmachined-2.1.0.x86_64.rpm' saved [1096149/1096149]</pre></div><div class="section" title="C.3.&nbsp;Windows network share"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1964"></a>C.3.&nbsp;Windows network share</h2></div></div></div><p>Copying files from a Windows network share can be extremely
+    convenient, but depending on your network setup it may be problematic to
+    initially setup. In order to use this file-copying mechanism, ensure that
+    you share your windows files using Advanced network file sharing, not the
+    default simple file sharing. More detailed instructions on configuring a
+    network share on Windows can be found in the <a href="../server_programming_guide/server_programming_guide.html#Server_Programming_Guide" class="olink">Server Programming Guide</a>'s chapter <a href="../server_programming_guide/server_programming_guide.html#xref_Simplified_Server_Usage" class="olink"><i>Shared Development Environments</i></a>.</p><p>For simplicity's sake, to retrieve the files on the Linux machine
+    you should use a graphical login and navigate to your Windows machine
+    using the Places<span class="symbol">&#8594;</span>Network Servers menu
+    options.</p></div></div><div class="appendix" title="Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Customising_Installation"></a>Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d0e1990">D.1. Customising RPMs</a></span></dt><dt><span class="section"><a href="#d0e2004">D.2. Manual Installation</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e2007">D.2.1. BWMachined</a></span></dt><dt><span class="section"><a href="#d0e2058">D.2.2. Server</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e2074">D.3. Server Tools</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Requirements_And_Caveats">D.3.1. Requirements and Caveats</a></span></dt></dl></dd></dl></div><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This appendix does not apply to Indie package customers.</p></div><p>As a game advances through its development process it may become
+  nescessary to perform a custom installation of the BigWorld server. This may
+  be due to BigWorld server binaries having been regenerated, or production
+  environment machines needing to alter the installation location from the
+  default provided in the RPM files.</p><p>This chapter outlines some of the approaches that can be used to
+  customise the installation of each BigWorld server component. Whichever
+  approach you choose to use, we assume that you have obtained the BigWorld
+  Technology package correctly. This is to ensure that there are no line
+  ending issues, such as having Windows CRLF line endings when attempting to
+  use scripts from Linux, which assume LF only line endings.</p><p>This chapter will also assume that you have a solid understanding of
+  Linux (in particular the CentOS file system heirachy) and are confident in
+  navigating the environment on the command line to locate files as
+  required.</p><div class="section" title="D.1.&nbsp;Customising RPMs"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1990"></a>D.1.&nbsp;Customising RPMs</h2></div></div></div><p>BigWorld distributes the RPM <code class="filename">.spec</code> files and Python scripts that are used
+    for building the officially shipped RPMs. This enables you to customise
+    the RPMs for your own environment should you need to.</p><p>Should you wish to use this approach of customisation, please refer
+    to the <a href="../server_operations_guide/server_operations_guide.html#Server_Operations_Guide" class="olink">Server Operations Guide</a>'s chapter <a href="../server_operations_guide/server_operations_guide.html#xref_RPM" class="olink"><i>RPM</i></a> which fully
+    outlines both how the BigWorld RPM build scripts work, and approaches that
+    can be used for automating the distribution of the RPMs within a large
+    network environment.</p></div><div class="section" title="D.2.&nbsp;Manual Installation"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e2004"></a>D.2.&nbsp;Manual Installation</h2></div></div></div><div class="section" title="D.2.1.&nbsp;BWMachined"><div class="titlepage"><div><div><h3 class="title"><a name="d0e2007"></a>D.2.1.&nbsp;BWMachined</h3></div></div></div><p>Out of all the BigWorld server components, BWMachined is perhaps
+      the easiest to customise the installation of due to its
+      simplicity.</p><p>To install BWMachined manually you can run the
+      <code class="filename">bwmachined2.sh</code> script as the root user in the
+      <code class="filename">bigworld/tools/server/install</code>
+      directory as follows:</p><pre class="programlisting"># ./bwmachined2.sh install</pre><p>This operation will perform the following steps:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Stop any existing installed BWMachined daemon, and uninstall
+          it if it does exist. This will not uninstall an RPM package of
+          BWMachined however.</p></li><li class="listitem"><p>Create the BWMachined init script in <code class="filename">/etc/rc.d/init.d/</code>.</p></li><li class="listitem"><p>Create the symbolic links in <code class="filename">/etc/rc[1-5].d/</code>. It is setup to stop in
+          <code class="filename">rc1.d/</code> and start in <code class="filename">rc[2-5].d/</code>. These can be changed
+          manually if desired.</p></li><li class="listitem"><p>Copy the BWMachined executable to the directory <code class="filename">/usr/sbin/</code>.</p></li><li class="listitem"><p>Launch the executable in daemon mode as if the init script
+          were called with the <code class="option">start</code> argument.</p></li></ul></div></div><div class="section" title="D.2.2.&nbsp;Server"><div class="titlepage"><div><div><h3 class="title"><a name="d0e2058"></a>D.2.2.&nbsp;Server</h3></div></div></div><p>A custom installation of the BigWorld server is not constrained by
+      any installation scripts or file system locations. All that is
+      nescessary is that the user(s) that will run the BigWorld server on each
+      machine in the cluster have access to the server binaries and the game
+      resources. This means that it is possible to install the BigWorld server
+      binaries either in a user's home directory, or in any other location on
+      a host.</p><p>Because it is generally enforced that the
+      <code class="filename">.bwmachined.conf</code> file is the same between machines
+      for an individual user in a BigWorld network cluster, it is preferable
+      to ensure that the installation location of the BigWorld server binaries
+      is consistent on each machined. This also ensures that ongoing
+      maintenance of the machines is much easier.</p><p>If you choose to manage your own BigWorld server binary
+      installation you may wish to refer to some of the options mentioned in
+      the document <a href="../release_planning/release_planning.html#Release_Planning" class="olink">Release Planning</a>'s section <a href="../release_planning/release_planning.html#xref_DistributingGameResources" class="olink">Distributing Game Resources</a>.</p></div></div><div class="section" title="D.3.&nbsp;Server Tools"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e2074"></a>D.3.&nbsp;Server Tools</h2></div></div></div><p>The server tools perhaps benefit the most from being installed from
+    an RPM due to the complexity of subsystems and configuration that is
+    involved in installing them correctly. The following instructions describe
+    dependancy list as well as a basic installation guide although we no
+    longer support a manual installation of the server tools.</p><div class="section" title="D.3.1.&nbsp;Requirements and Caveats"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Requirements_And_Caveats"></a>D.3.1.&nbsp;Requirements and Caveats</h3></div></div></div><div class="section" title="D.3.1.1.&nbsp;Requirements"><div class="titlepage"><div><div><h4 class="title"><a name="d0e2082"></a>D.3.1.1.&nbsp;Requirements</h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>BWMachined installed and operational on the server tools
+            machine</p></li><li class="listitem"><p>Dedicated user account for the server tools</p></li><li class="listitem"><p>MySQL Database</p></li><li class="listitem"><p>Python 2.4 or higher (default for RedHat / CentOS)</p></li><li class="listitem"><p>TurboGears v1.x (default for RedHat / CentOS)</p></li></ul></div></div><div class="section" title="D.3.1.2.&nbsp;Dependencies"><div class="titlepage"><div><div><h4 class="title"><a name="xref_Dependencies"></a>D.3.1.2.&nbsp;Dependencies</h4></div></div></div><p>WebConsole by default uses an SQLite database for managing all
+        persistent data such as user information, preferences, etc.</p><p>The statistics-collecting process, StatLogger, relies on a MySQL
+        database server for storing process and machine statistics.</p></div><div class="section" title="D.3.1.3.&nbsp;Installation process"><div class="titlepage"><div><div><h4 class="title"><a name="d0e2108"></a>D.3.1.3.&nbsp;Installation process</h4></div></div></div><p>The installation process will not be outlined in a step-by-step
+        manner as has been done for the RPM installation process. If you are
+        attempting a custom installation of the BigWorld server tools it is
+        assumed that you have enough system understanding and experience with
+        BigWorld to perform each step described below.</p><p>A custom installation of the BigWorld server tools requires you
+        to perform the following steps:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Install the EPEL repository as outlined in <a class="xref" href="#xref_Installing_EPEL" title="2.2.2.&nbsp;Installing the EPEL Repository">Installing the EPEL Repository</a>.</p></li><li class="listitem"><p>Install the <span class="literal">MySQL-python</span> RPM package as
+            distributed with the BigWorld package to prevent any WebConsole
+            and StatLogger connection issues.</p></li><li class="listitem"><p>Install all dependencies.</p><p>Even when performing a custom installation we recommend that
+            you install the dependency chain via the default CentOS
+            repositories used for the BigWorld RPMs, as it will ensure that
+            the versions of installed packages are correct.</p><p>The following yum packages should be installed:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>python-setuptools</p></li><li class="listitem"><p>python-sqlobject</p></li><li class="listitem"><p>TurboGears</p></li></ul></div></li><li class="listitem"><p><span class="literal">yum update</span> your distribution to ensure
+            all security and bug fixes have been applied.</p></li><li class="listitem"><p>Create a user account within your domain which will be used
+            to run the tools.</p><p>For example, create the user <span class="literal">bwtools</span> that
+            is able to be resolved on all machines in the server cluster and
+            has a unique user ID on all cluster machines.</p></li><li class="listitem"><p>Ensure the MySQL server is running and enabled for all
+            appropriate runlevels.</p></li><li class="listitem"><p>Create a MySQL server account for the BigWorld server
+            tools.</p></li><li class="listitem"><p>Install the BigWorld server tools into the BigWorld tools
+            users directory.</p></li><li class="listitem"><p>Set the SELinux security context for
+            <code class="filename">bwlog.so</code>.</p></li><li class="listitem"><p>Update the WebConsole configuration file.</p></li><li class="listitem"><p>Update the StatLogger configuration file.</p></li><li class="listitem"><p>Update the MessageLogger configuration file.</p></li><li class="listitem"><p>Copy the service scripts from <code class="filename">bigworld/tools/server/install</code> into
+            the directory <code class="filename">/etc/init.d</code>
+            and set the service runlevels.</p></li><li class="listitem"><p>Start MessageLogger, StatLogger and WebConsole.</p></li><li class="listitem"><p>Configure log rotation for the server tools log
+            files.</p></li><li class="listitem"><p>Verify that all services are running after a server
+            restart.</p></li></ul></div></div></div></div></div><div class="appendix" title="Appendix&nbsp;E.&nbsp;Understanding the BigWorld Machine Daemon (BWMachineD)"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Appendix_Understanding_BWMachined"></a>Appendix&nbsp;E.&nbsp;Understanding the BigWorld Machine Daemon (BWMachineD)</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d0e2202">E.1. How BWMachined Works</a></span></dt><dt><span class="section"><a href="#xref_Configuring_BWMachined">E.2. Configuring BWMachined</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e2239">E.2.1. Creating <code class="filename">~/.bwmachined.conf</code></a></span></dt><dt><span class="section"><a href="#d0e2342">E.2.2. Creating <code class="filename">/etc/bwmachined.conf</code></a></span></dt></dl></dd></dl></div><div class="section" title="E.1.&nbsp;How BWMachined Works"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e2202"></a>E.1.&nbsp;How BWMachined Works</h2></div></div></div><p>For information about the role of BWMachined please refer to the
+    <a href="../server_overview/server_overview.html#Server_Overview" class="olink">Server Overview</a>'s chapter <a href="../server_overview/server_overview.html#xref_BWMachined" class="olink">BWMachined</a>.</p><p>In order for the BWMachined process to act as an agent for starting
+    and locating server processes for users within a network cluster it is
+    nescessary to have a mechanism for BWMachineD to be able to locate game
+    resources on a per user basis on each machine it is running on.</p><p>The approach chosen for BWMachineD was to have a configuration file
+    in each user's home directory that intends to launch any BigWorld
+    processes. This configuration file directs BWMachineD as to where it can
+    locate the BigWorld server binaries as well as the game resources to
+    use on each machine. While it is uncommon this approach allows each machine
+    to potentially have a different installation location for the server
+    binaries and game resources.</p><p>When interacting with the BigWorld server tools and requesting to
+    launch a server, a message will be sent to BWMachineD which in turn queries
+    the configuration file associated with the requesting user. The
+    paths specified in the configuration file are then used by the BWMachineD
+    process when it attempts to launch the server processes. For more details
+    regarding the layout of the BWMachineD configuration files please refer
+    to the following section <a class="xref" href="#xref_Configuring_BWMachined" title="E.2.&nbsp;Configuring BWMachined">Configuring BWMachined</a>.</p></div><div class="section" title="E.2.&nbsp;Configuring BWMachined"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Configuring_BWMachined"></a>E.2.&nbsp;Configuring BWMachined</h2></div></div></div><p>BWMachined plays a crucial role in the ongoing operation of your
+    cluster environment, so it's important to understand how it can be
+    configured and which configuration options are relevant for your server
+    environment.</p><p>There are two configuration files which are relevant to the operation
+    of BWMachined:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><code class="filename">~/.bwmachined.conf</code></p><p>This file is used to specify options relating to how an individual
+        user working within a BigWorld cluster should find the server resources
+        required to operate on any available cluster machines.</p></li><li class="listitem"><p><code class="filename">/etc/bwmachined.conf</code></p><p>This file is primarily used to specify settings relating to how
+        the machine on which BWMachined is running should operate within the
+        cluster environment.</p></li></ul></div><div class="section" title="E.2.1.&nbsp;Creating ~/.bwmachined.conf"><div class="titlepage"><div><div><h3 class="title"><a name="d0e2239"></a>E.2.1.&nbsp;Creating <code class="filename">~/.bwmachined.conf</code></h3></div></div></div><p>When starting a server and related components there are two
+      important pieces of information that are required:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Where to find the BigWorld server executable files.</p></li><li class="listitem"><p>Which directories contain the game resources to use with the
+          server.</p></li></ul></div><p>The preferred way to specify these settings is in the file
+      <code class="filename">~/.bwmachined.conf</code>.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>For users not familiar with Linux:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>The <span class="literal">~</span> (tilde) indicates the user's home
+              directory, for example a user called <span class="literal">johns</span>
+              would generally have a home directory located at
+              <code class="filename">/home/johns</code></p></li><li class="listitem"><p>The period character before the filename indicates it is a
+              hidden file which causes it to not be displayed by many directory
+              listing applications including ls (unless the <code class="code">-a</code>
+              option is specified).</p></li></ul></div></div><p>Below is an example of a <code class="filename">~/.bwmachined.conf</code>
+      file for a user <span class="literal">johns</span>. This file needs to be manually
+      created when the user account is created. Note the different places where
+      a semi-colon and a colon are used:</p><p>The preferred way to specify these settings is in a file
+        <code class="filename">~/.bwmachined.conf</code>.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>For users not familiar with Linux:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>The <span class="literal">~</span> (tilde) indicates the user's home
+                directory, for example a user called <span class="literal">alice</span>
+                would generally have a home directory located at
+                <code class="filename">/home/alice</code></p></li><li class="listitem"><p>The period character before the filename indicates it is a
+                hidden file which causes it to not be displayed by many
+                directory listing applications including ls (unless the
+                <code class="code">-a</code> option is specified).</p></li></ul></div></div><p>Below is an example of a <code class="filename">~/.bwmachined.conf</code>
+        file for a user <span class="literal">alice</span>. This file needs to be manually
+        created when the user account is created. Note the different places
+        where a semi-colon and a colon are used.</p><pre class="programlisting"># .bwmachined.conf
+  # Format: BW_ROOT;BW_RES_PATH:[BW_RES_PATH] ...
+  /opt/bigworld/current/server;/home/alice/fantasydemo/res:/opt/bigworld/current/server/res</pre><p>The path before the semi-colon should point to the root directory of
+      the installed files. You will generally have the <code class="filename">bigworld</code> directory underneath this root
+      directory. The paths after the semi-colon (separated by colon characters)
+      specify the resource paths that will be used to find resources used by
+      your game.</p><p>When starting a BigWorld server using the standard server tools,
+      such as <span class="command"><strong>control_cluster.py</strong></span> or WebConsole, BWMachined is
+      responsible for launching the server binaries and uses the information
+      located in <code class="filename">~/.bwmachined.conf</code> as well as the
+      architecture of the host system to determine how to launch the server for
+      the requesting user.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Each user that needs to run a server within your cluster
+        environment will need a <code class="filename">~/.bwmachined.conf</code> file
+        created and configured for them.</p></div></div><div class="section" title="E.2.2.&nbsp;Creating /etc/bwmachined.conf"><div class="titlepage"><div><div><h3 class="title"><a name="d0e2342"></a>E.2.2.&nbsp;Creating <code class="filename">/etc/bwmachined.conf</code></h3></div></div></div><p>The global configuration file
+      <code class="filename">/etc/bwmachined.conf</code> is used for setting options that
+      define how BWMachined will operate on the host it is running on. For
+      example, if you have multiple machines in your cluster, and during
+      development you wish to isolate certain machines into groups for developer
+      usage, this would be applied in the global configuration file. The
+      following list provides a quick summary of host based configuration
+      options that may be applied in the file
+      <code class="filename">/etc/bwmachined.conf</code>:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>User defined categories</p></li><li class="listitem"><p>Reviver configuration</p></li><li class="listitem"><p>BigWorld server timing method</p></li><li class="listitem"><p>Interface configuration for multi-interface hosts</p></li></ul></div><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The configuration file is only read when BWMachined starts. It
+        will have to be restarted if you want it to acknowledge your
+        changes.</p></div><div class="section" title="E.2.2.1.&nbsp;Reviver Configuration"><div class="titlepage"><div><div><h4 class="title"><a name="d0e2371"></a>E.2.2.1.&nbsp;Reviver Configuration</h4></div></div></div><p>When the Reviver process starts, it queries the local BWMachined
+        process, and will only support the components that have an entry in a
+        special user defined category called <span class="literal">[Components]</span>. An
+        example configuration specifying that the Reviver should support all
+        server components would be defined as below:</p><pre class="programlisting">[Components]
+  baseApp
+  baseAppMgr
+  cellApp
+  cellAppMgr
+  dbMgr
+  loginApp</pre><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>BaseApp and CellApp will not be restarted by Reviver, the
+          <span class="literal">[Components]</span> entries are used by the WebConsole and
+          <span class="command"><strong>control_cluster.py</strong></span> to determine which processes
+          should be started by BWMachined on that host. This list however is
+          only a hint for the server tools and the processes may still be
+          started on that host if required.</p></div><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>If the <span class="literal">[Components]</span> category does not contain
+          any entries, then Reviver will support all server components.</p></div></div><div class="section" title="E.2.2.2.&nbsp;Timing Method"><div class="titlepage"><div><div><h4 class="title"><a name="d0e2396"></a>E.2.2.2.&nbsp;Timing Method</h4></div></div></div><p>By default, time services is provided by the clock_gettime system
+        call. The default is the recommended timing method and works for all
+        supported platforms, for further options, please refer to the <a href="../server_operations_guide/server_operations_guide.html#Server_Operations_Guide" class="olink">Server Operations Guide</a>'s chapter <a href="../server_operations_guide/server_operations_guide.html#xref_Clock" class="olink"><i>Clock</i></a>.</p></div><div class="section" title="E.2.2.3.&nbsp;Machine groups"><div class="titlepage"><div><div><h4 class="title"><a name="d0e2405"></a>E.2.2.3.&nbsp;Machine groups</h4></div></div></div><p>The membership of the machine running BWMachined can also be
+        optionally specified in <code class="filename">/etc/bwmachined.conf</code>. For
+        more details on what machine groups are used for, and how to specify
+        them, refer to the <a href="../server_operations_guide/server_operations_guide.html#Server_Operations_Guide" class="olink">Server Operations Guide</a>'s
+        chapter <a href="../server_operations_guide/server_operations_guide.html#xref_Machine_Groups" class="olink"><i>Machine Groups and Categories</i></a>.</p></div><div class="section" title="E.2.2.4.&nbsp;Internal Interface Configuration for Multi-interface Hosts"><div class="titlepage"><div><div><h4 class="title"><a name="d0e2417"></a>E.2.2.4.&nbsp;Internal Interface Configuration for Multi-interface
+        Hosts</h4></div></div></div><p>The BigWorld machine daemon is used for both internal machines and
+        out-facing machines such as those that BaseApps and LoginApps are run
+        on. The protocol that BigWorld components use for discovery of server
+        processes, and process startup registry involves a UDP broadcast to the
+        machine daemons.</p><p>The machine daemon must determine the interface to receive these
+        broadcasts from. By default, the machine daemon will determine which
+        interface is the internal interface by sending a broadcast packet on
+        each interface and waiting for this broadcast packet to be returned. The
+        interface which receives the first broadcast packet is assumed to be the
+        internal network.</p><p>For the out-facing machines with more than one interface, this may
+        result in the incorrect interface being chosen. In these situations, it
+        is best to check your broadcast routing rules<sup>[<a name="d0e2426" href="#ftn.d0e2426" class="footnote">2</a>]</sup> and consider adding firewall rules to block receiving from
+        BWMachined ports (20018 and 20019) on these other interfaces.</p><p>For example, if <span class="literal">eth1</span> is not your internal
+        interface:</p><pre class="programlisting"># /sbin/iptables -I INPUT 1 -p udp -i <em class="replaceable"><code>eth1</code></em> -m multiport --destination-ports 20018:20019 -j DROP</pre><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>In most circumstances it is better to block all ports and then
+          only open the ports that are needed. See <a class="xref" href="#xref_Cluster_Configuration_Security" title="4.1.&nbsp;Security">Security</a>.</p></div><p>In rare cases, the <span class="literal">[InternalInterface]</span>
+        configuration option can be set with either the dotted-decimal address
+        or the name of the interface that is connected to the internal
+        network.</p><p>For example, using the name of the interface:</p><pre class="programlisting">[InternalInterface]
+  <em class="replaceable"><code>eth0</code></em></pre><p>Using dotted-decimal notation:</p><pre class="programlisting">[InternalInterface]
+  <em class="replaceable"><code>192.168.0.1</code></em></pre><p>If this option is not specified, auto-discovery of the internal
+        interface will be performed. If the option is specified, but no
+        interface is found that matches the value set in
+        <span class="literal">[InternalInterface]</span>, then an error will be logged to
+        syslog and the machine daemon process will terminate.</p><p>This option may now also be specified in the
+        <span class="literal">[bwmachined]</span> section of
+        <code class="filename">/etc/bigworld.conf</code> as follows:</p><pre class="programlisting">[bwmachined]
+  internal_interface = <em class="replaceable"><code>&lt;value&gt;</code></em></pre></div></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a id="ftn.d0e2426" href="#d0e2426" class="para">2</a>] </sup>For more details, see <a class="xref" href="#xref_Cluster_Configuration_Routing" title="4.2.&nbsp;Routing">Routing</a>.</p></div></div></div><div class="appendix" title="Appendix&nbsp;F.&nbsp;Troubleshooting"><div class="titlepage"><div><div><h2 class="title"><a name="xref_Server_Installation_Troubleshooting"></a>Appendix&nbsp;F.&nbsp;Troubleshooting</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#xref_Check_BWMachined_Running">F.1. Check That BWMachined is Running</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_Troubleshooting_BWMachined">F.1.1. Troubleshooting BWMachined</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_Troubleshooting_StatLogger">F.2. StatLogger</a></span></dt><dt><span class="section"><a href="#d0e2577">F.3. BigWorld Support</a></span></dt></dl></div><p>While we attempt to prevent problems from occuring duting the
+  installation process, some will inevitably arise. This appendix aims to
+  outline some of the more common failure cases that can occur when installing
+  the BigWorld server and tools.</p><div class="section" title="F.1.&nbsp;Check That BWMachined is Running"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Check_BWMachined_Running"></a>F.1.&nbsp;Check That BWMachined is Running</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>To check if the daemon is running, use
+        <span class="command"><strong>control_cluster.py</strong></span><sup>[<a name="d0e2495" href="#ftn.d0e2495" class="footnote">3</a>]</sup> utility. To use <span class="command"><strong>control_cluster.py</strong></span> to
+        check the status of BWMachined, issue the following command:</p><pre class="programlisting">$ bigworld/tools/server/control_cluster.py cinfo</pre><p>The machines correctly running BWMachined should be displayed,
+        as in the example below:</p><pre class="programlisting">shire       10.40.3.37      0 processes   0%, 0% of 2000MHz (4% mem)</pre><p>Make sure that the process has an address that is on the
+        internal network. If it does not, make sure that your broadcast route
+        is set correctly.</p><p>If your machine is not listed, but has BWMachined running, then
+        you might need to check your firewall rules. For more details, see
+        section <a class="xref" href="#xref_Cluster_Configuration_Security" title="4.1.&nbsp;Security">Security</a> in this
+        document.</p><p>You can also run the following command to check the relationship
+        between bwmachined processes in the cluster.</p><pre class="programlisting">$ bigworld/tools/server/control_cluster.py checkring</pre></li></ul></div><div class="section" title="F.1.1.&nbsp;Troubleshooting BWMachined"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Troubleshooting_BWMachined"></a>F.1.1.&nbsp;Troubleshooting BWMachined</h3></div></div></div><p>Some of the most common problems that can occur when installing a
+      BigWorld service are a result of BWMachined not running after the
+      initial installation. The following outlines the most common issues
+      encountered and how to resolve these problems. These steps should be
+      checked in order.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Is BWMachined running?</p><pre class="programlisting">/sbin/service bwmachined2 status</pre><p>If BWMachined is running, you may have to adjust firewall
+          rules in order to allow UDP broadcast messages to be sent and
+          received around the server cluster. For more information please
+          refer to <a class="xref" href="#xref_Cluster_Configuration_Security" title="4.1.&nbsp;Security">Security</a>.</p><p>If BWMachined is not running, continue with the following
+          step.</p></li><li class="listitem"><p>Was BWMachined able to start at all?</p><p>BWMachined is quite often able to successfully startup but
+          will then fail when attempting to send broadcast messages out to the
+          network. In order to determine what happened on startup we need to
+          investigate the system logs (syslog) which can be found by default
+          in <code class="filename">/var/log/messages</code>. Output from a successful
+          startup should appear as follows:</p><pre class="programlisting">/opt/bigworld/2.1/bwmachined/sbin/bwmachined2: --- BWMachined start ---
+/opt/bigworld/2.1/bwmachined/sbin/bwmachined2: Host architecture: 64 bit.
+/opt/bigworld/2.1/bwmachined/sbin/bwmachined2: Using gettime timing
+/opt/bigworld/2.1/bwmachined/sbin/bwmachined2: Broadcast discovery receipt from 10.40.3.145.
+/opt/bigworld/2.1/bwmachined/sbin/bwmachined2: Confirmed 10.40.3.145 (eth0) as default broadcast route interface.</pre><p>The key line here is the final line that confirms the default
+          broadcast route. If you do not see this line and in its place see an
+          error message you will most likely need to adjust the default
+          broadcast routing rules. For more details see <a class="xref" href="#xref_Cluster_Configuration_Routing" title="4.2.&nbsp;Routing">Routing</a>.</p><p>If you are having trouble finding BWMachined output in your
+          syslogs, try restarting BWMachined which should generate new logs as
+          it starts.</p></li></ul></div></div></div><div class="section" title="F.2.&nbsp;StatLogger"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_Troubleshooting_StatLogger"></a>F.2.&nbsp;StatLogger</h2></div></div></div><p>Some of the most common issues encountered with StatLogger
+    include:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Incorrect or no MySQL database connection info provided.</p><p>This can be resolved by following the instructions outlined in
+        <a class="xref" href="#xref_Configuring_StatLogger" title="2.3.3.1.&nbsp;Configuring StatLogger">Configuring StatLogger</a>.</p></li><li class="listitem"><p>Old versions of Python MySQLdb module being used.</p><p>This issue will generally manifest itself as StatLogger failing
+        to reconnect to the MySQL server overnight when the StatLogger service
+        is not being heavily loaded.</p><p>This issue can be resolved by installing the Python MySQLdb module
+        provided by BigWorld as outlined in <a class="xref" href="#xref_Simple_Installation_BigWorld_Server_Tools" title="2.3.3.&nbsp;BigWorld Server Tools">BigWorld Server Tools</a>.</p></li></ul></div></div><div class="section" title="F.3.&nbsp;BigWorld Support"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e2577"></a>F.3.&nbsp;BigWorld Support</h2></div></div></div><p>When all else fails and you are uncertain of how to procede,
+    contacting BigWorld support is the next step. BigWorld provides a number
+    of support methods.</p><p>For Indie package customers, using the forums is the best place to
+    ask questions. The forums are located at <a class="ulink" href="https://forum.bigworldtech.com" target="_top">https://forum.bigworldtech.com</a>. These forums are a community
+    interaction with other Indie customers who have most likely encountered
+    the same issues as you. BigWorld staff do monitor and respond to these
+    forums.</p><p>For non-Indie customers, using the PerlDesk ticket system available
+    at <a class="ulink" href="http://support.bigworldtech.com" target="_top">http://support.bigworldtech.com</a> is the recommended
+    method of asking questions. This ticketing system allows us to track
+    questions and ensure that they are responded to in a timely manner.</p></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a id="ftn.d0e2495" href="#d0e2495" class="para">3</a>] </sup>For more details, see the <a href="../server_operations_guide/server_operations_guide.html#Server_Operations_Guide" class="olink">Server Operations Guide</a>'s section <a href="../server_operations_guide/server_operations_guide.html#xref_Server_Command_Line_Utilities" class="olink">Server Command-Line Utilities</a>.</p></div></div></div></div></div></body></html>

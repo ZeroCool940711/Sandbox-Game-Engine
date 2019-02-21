@@ -1,0 +1,170 @@
+<html>
+<head>
+<title>BoidsFilter - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BoidsFilter Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>BoidsFilter is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="AvatarFilter.html">AvatarFilter</a>
+ &rarr; <a href="Filter.html">Filter</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#approachRadius" class="attribute_list" >approachRadius</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#collisionFraction" class="attribute_list" >collisionFraction</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#influenceRadius" class="attribute_list" >influenceRadius</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#speed" class="attribute_list" >speed</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#speed" class="attribute_list" >speed</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#stopRadius" class="attribute_list" >stopRadius</a></td><td>&nbsp; float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This subclass of <a href="AvatarFilter.html">AvatarFilter</a> implements a filter which implements flocking
+behaviour for the models that make up an entity.  This would normally
+be used for an entity such as a flock of birds or a school of fish which
+has many models driven by one entity.
+<br><br>
+The interpolation of the <a href="Entity.html">Entity</a> position is done using the same logic
+as its parent <a href="AvatarFilter.html">AvatarFilter</a>.  However, it also updates the positions
+of individual models (which are known, according to flocking conventions,
+as boids) that are attached to the entity, using standard
+flocking rules.
+<br><br>
+When the flock lands, the boidsLanded method is called on the entity.
+<br><br>
+A new <a href="BoidsFilter.html">BoidsFilter</a> is created using the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#BoidsFilter><a href="BoidsFilter.html">BoidsFilter</a></a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="approachRadius"></a><p class="attribute_definition">
+<span class="attribute_definition">approachRadius</span>
+</p>
+
+<div class="attribute_description">When the boids are in the process of landing, and
+a boid is inside the approach radius, then it will
+point directly at its goal, instead of smoothly turning
+towards it.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="collisionFraction"></a><p class="attribute_definition">
+<span class="attribute_definition">collisionFraction</span>
+</p>
+
+<div class="attribute_description">The collision fraction defines the proportion of the influence radius
+within which neighbours will be considered colliding.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="influenceRadius"></a><p class="attribute_definition">
+<span class="attribute_definition">influenceRadius</span>
+</p>
+
+<div class="attribute_description">The influence radius simply determines how close
+a boid must be to another to affect it at all.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="speed"></a><p class="attribute_definition">
+<span class="attribute_definition">speed</span>
+</p>
+
+<div class="attribute_description">The normal speed of the boids.  While boids will speed
+up and slow down during flocking, their speed will always
+be damped toward this speed.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="speed"></a><p class="attribute_definition">
+<span class="attribute_definition">speed</span>
+</p>
+
+<div class="attribute_description">Controls whether the boids are flying or landing. By default they are in
+	 * the flying state which is specified with 0. The landing state will cause
+	 * the boids to land and is specified with 1. When a boid lands the method
+	 * boidsLanded is called.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="stopRadius"></a><p class="attribute_definition">
+<span class="attribute_definition">stopRadius</span>
+</p>
+
+<div class="attribute_description">When the boids are in the process of landing, and
+a boid is inside the stop radius, it will be positioned
+exactly at the goal, and its speed will be set to 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

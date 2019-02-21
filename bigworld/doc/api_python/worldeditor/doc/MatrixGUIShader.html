@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>MatrixGUIShader - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>MatrixGUIShader Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>MatrixGUIShader is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="GUIShader.html">GUIShader</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#reset" class="function_list" >reset</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#blend" class="attribute_list" >blend</a></td><td>&nbsp; integer (treated as boolean)
+</td></tr>
+
+<tr valign=top><td><a href="#eta" class="attribute_list" >eta</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#target" class="attribute_list" >target</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is a <a href="GUI.html">GUI</a> shader that transforms the four corners of
+each component it is applied to by a matrix.  This affects the
+position the components are drawn on the screen, without actually
+changing the components themselves.
+<br><br>
+The four corners have <a href="Vector3.html">Vector3</a> positions in screen space, which has
+(-1,-1,z) in the bottom left and (1,1,z) in the top right.  The
+z component is used for sorting purposes only.  This matrix transforms
+those points within screen space.
+<br><br>
+The target matrix is a <a href="MatrixProvider.html">MatrixProvider</a>, so it can be updated dynamically.
+<br><br>
+The <a href="MatrixGUIShader.html">MatrixGUIShader</a> can also blend(linearly interpolate) from its current target
+to a newly specified target.  It takes eta seconds from the last time
+the target changed before the applied transform reaches the transform
+specified by the target.
+<br><br>
+A new <a href="MatrixGUIShader.html">MatrixGUIShader</a> is created using <a href="GUI.html">GUI</a>.<a href=GUI.html#MatrixShader>MatrixShader</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="reset"></a><p class="function_definition">
+<span class="function_definition">def reset( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the current matrix to the target matrix, immediately.
+</div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="blend"></a><p class="attribute_definition">
+<span class="attribute_definition">blend</span>
+</p>
+
+<div class="attribute_description">This attribute specifies whether to blend from the current transform to
+that specified by the target <a href="MatrixProvider.html">MatrixProvider</a>.  If this attribute is
+non-zero (true) then blending is performed, over eta seconds.  If this
+attribute is zero (false) then the target transform is just applied
+instantly.
+<br><br>
+It defaults to 1 (true).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>integer (treated as boolean)
+</td></tr>
+</table>
+</p>
+
+<a name="eta"></a><p class="attribute_definition">
+<span class="attribute_definition">eta</span>
+</p>
+
+<div class="attribute_description">This attribute specifies how many seconds it will take to blend from
+the current transformation of the components to the target transform.
+This is only used if the blend attribute is non-zero.
+<br><br>
+It defaults to 0.0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="target"></a><p class="attribute_definition">
+<span class="attribute_definition">target</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the <a href="MatrixProvider.html">MatrixProvider</a> that is used to transform
+the components that this is attached to.  The transformation is applied
+within clip space ( (-1,-1) is the bottom left of the screen, (1,1) is
+the top right).
+<br><br>
+If blend is 0 (false) then any changes to the target <a href="MatrixProvider.html">MatrixProvider</a>
+are reflected instantaneously in the transformation of the components.
+<br><br>
+If blend is non-zero (true), then the the components will move from
+their current transformations to the transform specified by the target
+in eta seconds.
+<br><br>
+It defaults to None.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

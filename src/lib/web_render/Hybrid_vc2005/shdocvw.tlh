@@ -1,0 +1,1622 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 15.00.21022.08 (9e960b81).
+//
+// d:\alejandro\programs\editores\juegos\bigworld_python_engine\bw191\src\lib\web_render\hybrid_vc2005\shdocvw.tlh
+//
+// C++ source equivalent of Win32 type library shdocvw.dll
+// compiler-generated file created 10/08/18 at 19:53:25 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace SHDocVw {
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("eab22ac0-30c1-11cf-a7eb-0000c05bae0b"))
+/* LIBID */ __SHDocVw;
+struct __declspec(uuid("eab22ac1-30c1-11cf-a7eb-0000c05bae0b"))
+/* dual interface */ IWebBrowser;
+struct __declspec(uuid("eab22ac2-30c1-11cf-a7eb-0000c05bae0b"))
+/* dispinterface */ DWebBrowserEvents;
+enum CommandStateChangeConstants;
+struct __declspec(uuid("0002df05-0000-0000-c000-000000000046"))
+/* dual interface */ IWebBrowserApp;
+struct __declspec(uuid("d30c1661-cdaf-11d0-8a3e-00c04fc9e26e"))
+/* dual interface */ IWebBrowser2;
+enum SecureLockIconConstants;
+enum NewProcessCauseConstants;
+struct __declspec(uuid("34a715a0-6587-11d0-924a-0020afc7ac4d"))
+/* dispinterface */ DWebBrowserEvents2;
+struct /* coclass */ WebBrowser_V1;
+struct /* coclass */ WebBrowser;
+struct /* coclass */ InternetExplorer;
+struct /* coclass */ InternetExplorerMedium;
+struct /* coclass */ ShellBrowserWindow;
+enum ShellWindowTypeConstants;
+enum ShellWindowFindWindowOptions;
+struct __declspec(uuid("fe4106e0-399a-11d0-a48c-00a0c90a8f39"))
+/* dispinterface */ DShellWindowsEvents;
+struct __declspec(uuid("85cb6900-4d95-11cf-960c-0080c7f4ee85"))
+/* dual interface */ IShellWindows;
+struct /* coclass */ ShellWindows;
+struct __declspec(uuid("729fe2f8-1ea8-11d1-8f85-00c04fc2fbe1"))
+/* dual interface */ IShellUIHelper;
+struct __declspec(uuid("a7fe6eda-1932-4281-b881-87b31b8bc52c"))
+/* dual interface */ IShellUIHelper2;
+struct __declspec(uuid("528df2ec-d419-40bc-9b6d-dcdbf9c1b25d"))
+/* dual interface */ IShellUIHelper3;
+struct __declspec(uuid("b36e6a53-8073-499e-824c-d776330a333e"))
+/* dual interface */ IShellUIHelper4;
+struct __declspec(uuid("a2a08b09-103d-4d3f-b91c-ea455ca82efa"))
+/* dual interface */ IShellUIHelper5;
+struct __declspec(uuid("987a573e-46ee-4e89-96ab-ddf7f8fdc98c"))
+/* dual interface */ IShellUIHelper6;
+struct __declspec(uuid("60e567c8-9573-4ab2-a264-637c6c161cb1"))
+/* dual interface */ IShellUIHelper7;
+struct __declspec(uuid("66debcf2-05b0-4f07-b49b-b96241a65db2"))
+/* dual interface */ IShellUIHelper8;
+struct /* coclass */ ShellUIHelper;
+struct __declspec(uuid("55136806-b2de-11d1-b9f2-00a0c98bc547"))
+/* dispinterface */ DShellNameSpaceEvents;
+struct __declspec(uuid("55136804-b2de-11d1-b9f2-00a0c98bc547"))
+/* dual interface */ IShellFavoritesNameSpace;
+struct __declspec(uuid("e572d3c9-37be-4ae2-825d-d521763e3108"))
+/* dual interface */ IShellNameSpace;
+struct /* coclass */ ShellNameSpace;
+struct __declspec(uuid("f3470f24-15fd-11d2-bb2e-00805ff7efca"))
+/* dual interface */ IScriptErrorList;
+struct /* coclass */ CScriptErrorList;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IWebBrowser, __uuidof(IWebBrowser));
+_COM_SMARTPTR_TYPEDEF(DWebBrowserEvents, __uuidof(DWebBrowserEvents));
+_COM_SMARTPTR_TYPEDEF(IWebBrowserApp, __uuidof(IWebBrowserApp));
+_COM_SMARTPTR_TYPEDEF(IWebBrowser2, __uuidof(IWebBrowser2));
+_COM_SMARTPTR_TYPEDEF(DWebBrowserEvents2, __uuidof(DWebBrowserEvents2));
+_COM_SMARTPTR_TYPEDEF(DShellWindowsEvents, __uuidof(DShellWindowsEvents));
+_COM_SMARTPTR_TYPEDEF(IShellWindows, __uuidof(IShellWindows));
+_COM_SMARTPTR_TYPEDEF(IShellUIHelper, __uuidof(IShellUIHelper));
+_COM_SMARTPTR_TYPEDEF(IShellUIHelper2, __uuidof(IShellUIHelper2));
+_COM_SMARTPTR_TYPEDEF(IShellUIHelper3, __uuidof(IShellUIHelper3));
+_COM_SMARTPTR_TYPEDEF(IShellUIHelper4, __uuidof(IShellUIHelper4));
+_COM_SMARTPTR_TYPEDEF(IShellUIHelper5, __uuidof(IShellUIHelper5));
+_COM_SMARTPTR_TYPEDEF(IShellUIHelper6, __uuidof(IShellUIHelper6));
+_COM_SMARTPTR_TYPEDEF(IShellUIHelper7, __uuidof(IShellUIHelper7));
+_COM_SMARTPTR_TYPEDEF(IShellUIHelper8, __uuidof(IShellUIHelper8));
+_COM_SMARTPTR_TYPEDEF(DShellNameSpaceEvents, __uuidof(DShellNameSpaceEvents));
+_COM_SMARTPTR_TYPEDEF(IShellFavoritesNameSpace, __uuidof(IShellFavoritesNameSpace));
+_COM_SMARTPTR_TYPEDEF(IShellNameSpace, __uuidof(IShellNameSpace));
+_COM_SMARTPTR_TYPEDEF(IScriptErrorList, __uuidof(IScriptErrorList));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("eab22ac1-30c1-11cf-a7eb-0000c05bae0b"))
+IWebBrowser : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetApplication))
+    IDispatchPtr Application;
+    __declspec(property(get=GetParent))
+    IDispatchPtr Parent;
+    __declspec(property(get=GetContainer))
+    IDispatchPtr Container;
+    __declspec(property(get=GetDocument))
+    IDispatchPtr Document;
+    __declspec(property(get=GetTopLevelContainer))
+    VARIANT_BOOL TopLevelContainer;
+    __declspec(property(get=GetType))
+    _bstr_t Type;
+    __declspec(property(get=GetLeft,put=PutLeft))
+    long Left;
+    __declspec(property(get=GetTop,put=PutTop))
+    long Top;
+    __declspec(property(get=GetWidth,put=PutWidth))
+    long Width;
+    __declspec(property(get=GetHeight,put=PutHeight))
+    long Height;
+    __declspec(property(get=GetLocationName))
+    _bstr_t LocationName;
+    __declspec(property(get=GetLocationURL))
+    _bstr_t LocationURL;
+    __declspec(property(get=GetBusy))
+    VARIANT_BOOL Busy;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT GoBack ( );
+    HRESULT GoForward ( );
+    HRESULT GoHome ( );
+    HRESULT GoSearch ( );
+    HRESULT Navigate (
+        _bstr_t URL,
+        VARIANT * Flags = &vtMissing,
+        VARIANT * TargetFrameName = &vtMissing,
+        VARIANT * PostData = &vtMissing,
+        VARIANT * Headers = &vtMissing );
+    HRESULT Refresh ( );
+    HRESULT Refresh2 (
+        VARIANT * Level = &vtMissing );
+    HRESULT Stop ( );
+    IDispatchPtr GetApplication ( );
+    IDispatchPtr GetParent ( );
+    IDispatchPtr GetContainer ( );
+    IDispatchPtr GetDocument ( );
+    VARIANT_BOOL GetTopLevelContainer ( );
+    _bstr_t GetType ( );
+    long GetLeft ( );
+    void PutLeft (
+        long pl );
+    long GetTop ( );
+    void PutTop (
+        long pl );
+    long GetWidth ( );
+    void PutWidth (
+        long pl );
+    long GetHeight ( );
+    void PutHeight (
+        long pl );
+    _bstr_t GetLocationName ( );
+    _bstr_t GetLocationURL ( );
+    VARIANT_BOOL GetBusy ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_GoBack ( ) = 0;
+      virtual HRESULT __stdcall raw_GoForward ( ) = 0;
+      virtual HRESULT __stdcall raw_GoHome ( ) = 0;
+      virtual HRESULT __stdcall raw_GoSearch ( ) = 0;
+      virtual HRESULT __stdcall raw_Navigate (
+        /*[in]*/ BSTR URL,
+        /*[in]*/ VARIANT * Flags = &vtMissing,
+        /*[in]*/ VARIANT * TargetFrameName = &vtMissing,
+        /*[in]*/ VARIANT * PostData = &vtMissing,
+        /*[in]*/ VARIANT * Headers = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+      virtual HRESULT __stdcall raw_Refresh2 (
+        /*[in]*/ VARIANT * Level = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_Stop ( ) = 0;
+      virtual HRESULT __stdcall get_Application (
+        /*[out,retval]*/ IDispatch * * ppDisp ) = 0;
+      virtual HRESULT __stdcall get_Parent (
+        /*[out,retval]*/ IDispatch * * ppDisp ) = 0;
+      virtual HRESULT __stdcall get_Container (
+        /*[out,retval]*/ IDispatch * * ppDisp ) = 0;
+      virtual HRESULT __stdcall get_Document (
+        /*[out,retval]*/ IDispatch * * ppDisp ) = 0;
+      virtual HRESULT __stdcall get_TopLevelContainer (
+        /*[out,retval]*/ VARIANT_BOOL * pBool ) = 0;
+      virtual HRESULT __stdcall get_Type (
+        /*[out,retval]*/ BSTR * Type ) = 0;
+      virtual HRESULT __stdcall get_Left (
+        /*[out,retval]*/ long * pl ) = 0;
+      virtual HRESULT __stdcall put_Left (
+        /*[in]*/ long pl ) = 0;
+      virtual HRESULT __stdcall get_Top (
+        /*[out,retval]*/ long * pl ) = 0;
+      virtual HRESULT __stdcall put_Top (
+        /*[in]*/ long pl ) = 0;
+      virtual HRESULT __stdcall get_Width (
+        /*[out,retval]*/ long * pl ) = 0;
+      virtual HRESULT __stdcall put_Width (
+        /*[in]*/ long pl ) = 0;
+      virtual HRESULT __stdcall get_Height (
+        /*[out,retval]*/ long * pl ) = 0;
+      virtual HRESULT __stdcall put_Height (
+        /*[in]*/ long pl ) = 0;
+      virtual HRESULT __stdcall get_LocationName (
+        /*[out,retval]*/ BSTR * LocationName ) = 0;
+      virtual HRESULT __stdcall get_LocationURL (
+        /*[out,retval]*/ BSTR * LocationURL ) = 0;
+      virtual HRESULT __stdcall get_Busy (
+        /*[out,retval]*/ VARIANT_BOOL * pBool ) = 0;
+};
+
+struct __declspec(uuid("eab22ac2-30c1-11cf-a7eb-0000c05bae0b"))
+DWebBrowserEvents : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT BeforeNavigate (
+        _bstr_t URL,
+        long Flags,
+        _bstr_t TargetFrameName,
+        VARIANT * PostData,
+        _bstr_t Headers,
+        VARIANT_BOOL * Cancel );
+    HRESULT NavigateComplete (
+        _bstr_t URL );
+    HRESULT StatusTextChange (
+        _bstr_t Text );
+    HRESULT ProgressChange (
+        long Progress,
+        long ProgressMax );
+    HRESULT DownloadComplete ( );
+    HRESULT CommandStateChange (
+        long Command,
+        VARIANT_BOOL Enable );
+    HRESULT DownloadBegin ( );
+    HRESULT NewWindow (
+        _bstr_t URL,
+        long Flags,
+        _bstr_t TargetFrameName,
+        VARIANT * PostData,
+        _bstr_t Headers,
+        VARIANT_BOOL * Processed );
+    HRESULT TitleChange (
+        _bstr_t Text );
+    HRESULT FrameBeforeNavigate (
+        _bstr_t URL,
+        long Flags,
+        _bstr_t TargetFrameName,
+        VARIANT * PostData,
+        _bstr_t Headers,
+        VARIANT_BOOL * Cancel );
+    HRESULT FrameNavigateComplete (
+        _bstr_t URL );
+    HRESULT FrameNewWindow (
+        _bstr_t URL,
+        long Flags,
+        _bstr_t TargetFrameName,
+        VARIANT * PostData,
+        _bstr_t Headers,
+        VARIANT_BOOL * Processed );
+    HRESULT Quit (
+        VARIANT_BOOL * Cancel );
+    HRESULT WindowMove ( );
+    HRESULT WindowResize ( );
+    HRESULT WindowActivate ( );
+    HRESULT PropertyChange (
+        _bstr_t Property );
+};
+
+enum __declspec(uuid("34a226e0-df30-11cf-89a9-00a0c9054129"))
+CommandStateChangeConstants
+{
+    CSC_UPDATECOMMANDS = -1,
+    CSC_NAVIGATEFORWARD = 1,
+    CSC_NAVIGATEBACK = 2
+};
+
+struct __declspec(uuid("0002df05-0000-0000-c000-000000000046"))
+IWebBrowserApp : IWebBrowser
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetName))
+    _bstr_t Name;
+    __declspec(property(get=GetFullName))
+    _bstr_t FullName;
+    __declspec(property(get=GetPath))
+    _bstr_t Path;
+    __declspec(property(get=GetVisible,put=PutVisible))
+    VARIANT_BOOL Visible;
+    __declspec(property(get=GetStatusBar,put=PutStatusBar))
+    VARIANT_BOOL StatusBar;
+    __declspec(property(get=GetStatusText,put=PutStatusText))
+    _bstr_t StatusText;
+    __declspec(property(get=GetToolBar,put=PutToolBar))
+    int ToolBar;
+    __declspec(property(get=GetMenuBar,put=PutMenuBar))
+    VARIANT_BOOL MenuBar;
+    __declspec(property(get=GetFullScreen,put=PutFullScreen))
+    VARIANT_BOOL FullScreen;
+    __declspec(property(get=GetHWND))
+    long HWND;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Quit ( );
+    HRESULT ClientToWindow (
+        int * pcx,
+        int * pcy );
+    HRESULT PutProperty (
+        _bstr_t Property,
+        const _variant_t & vtValue );
+    _variant_t GetProperty (
+        _bstr_t Property );
+    _bstr_t GetName ( );
+    long GetHWND ( );
+    _bstr_t GetFullName ( );
+    _bstr_t GetPath ( );
+    VARIANT_BOOL GetVisible ( );
+    void PutVisible (
+        VARIANT_BOOL pBool );
+    VARIANT_BOOL GetStatusBar ( );
+    void PutStatusBar (
+        VARIANT_BOOL pBool );
+    _bstr_t GetStatusText ( );
+    void PutStatusText (
+        _bstr_t StatusText );
+    int GetToolBar ( );
+    void PutToolBar (
+        int Value );
+    VARIANT_BOOL GetMenuBar ( );
+    void PutMenuBar (
+        VARIANT_BOOL Value );
+    VARIANT_BOOL GetFullScreen ( );
+    void PutFullScreen (
+        VARIANT_BOOL pbFullScreen );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_Quit ( ) = 0;
+      virtual HRESULT __stdcall raw_ClientToWindow (
+        /*[in,out]*/ int * pcx,
+        /*[in,out]*/ int * pcy ) = 0;
+      virtual HRESULT __stdcall raw_PutProperty (
+        /*[in]*/ BSTR Property,
+        /*[in]*/ VARIANT vtValue ) = 0;
+      virtual HRESULT __stdcall raw_GetProperty (
+        /*[in]*/ BSTR Property,
+        /*[out,retval]*/ VARIANT * pvtValue ) = 0;
+      virtual HRESULT __stdcall get_Name (
+        /*[out,retval]*/ BSTR * Name ) = 0;
+      virtual HRESULT __stdcall get_HWND (
+        /*[out,retval]*/ long * pHWND ) = 0;
+      virtual HRESULT __stdcall get_FullName (
+        /*[out,retval]*/ BSTR * FullName ) = 0;
+      virtual HRESULT __stdcall get_Path (
+        /*[out,retval]*/ BSTR * Path ) = 0;
+      virtual HRESULT __stdcall get_Visible (
+        /*[out,retval]*/ VARIANT_BOOL * pBool ) = 0;
+      virtual HRESULT __stdcall put_Visible (
+        /*[in]*/ VARIANT_BOOL pBool ) = 0;
+      virtual HRESULT __stdcall get_StatusBar (
+        /*[out,retval]*/ VARIANT_BOOL * pBool ) = 0;
+      virtual HRESULT __stdcall put_StatusBar (
+        /*[in]*/ VARIANT_BOOL pBool ) = 0;
+      virtual HRESULT __stdcall get_StatusText (
+        /*[out,retval]*/ BSTR * StatusText ) = 0;
+      virtual HRESULT __stdcall put_StatusText (
+        /*[in]*/ BSTR StatusText ) = 0;
+      virtual HRESULT __stdcall get_ToolBar (
+        /*[out,retval]*/ int * Value ) = 0;
+      virtual HRESULT __stdcall put_ToolBar (
+        /*[in]*/ int Value ) = 0;
+      virtual HRESULT __stdcall get_MenuBar (
+        /*[out,retval]*/ VARIANT_BOOL * Value ) = 0;
+      virtual HRESULT __stdcall put_MenuBar (
+        /*[in]*/ VARIANT_BOOL Value ) = 0;
+      virtual HRESULT __stdcall get_FullScreen (
+        /*[out,retval]*/ VARIANT_BOOL * pbFullScreen ) = 0;
+      virtual HRESULT __stdcall put_FullScreen (
+        /*[in]*/ VARIANT_BOOL pbFullScreen ) = 0;
+};
+
+struct __declspec(uuid("d30c1661-cdaf-11d0-8a3e-00c04fc9e26e"))
+IWebBrowser2 : IWebBrowserApp
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetOffline,put=PutOffline))
+    VARIANT_BOOL Offline;
+    __declspec(property(get=GetSilent,put=PutSilent))
+    VARIANT_BOOL Silent;
+    __declspec(property(get=GetRegisterAsBrowser,put=PutRegisterAsBrowser))
+    VARIANT_BOOL RegisterAsBrowser;
+    __declspec(property(get=GetRegisterAsDropTarget,put=PutRegisterAsDropTarget))
+    VARIANT_BOOL RegisterAsDropTarget;
+    __declspec(property(get=GetTheaterMode,put=PutTheaterMode))
+    VARIANT_BOOL TheaterMode;
+    __declspec(property(get=GetAddressBar,put=PutAddressBar))
+    VARIANT_BOOL AddressBar;
+    __declspec(property(get=GetResizable,put=PutResizable))
+    VARIANT_BOOL Resizable;
+    __declspec(property(get=GetReadyState))
+    enum tagREADYSTATE ReadyState;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Navigate2 (
+        VARIANT * URL,
+        VARIANT * Flags = &vtMissing,
+        VARIANT * TargetFrameName = &vtMissing,
+        VARIANT * PostData = &vtMissing,
+        VARIANT * Headers = &vtMissing );
+    enum OLECMDF QueryStatusWB (
+        enum OLECMDID cmdID );
+    HRESULT ExecWB (
+        enum OLECMDID cmdID,
+        enum OLECMDEXECOPT cmdexecopt,
+        VARIANT * pvaIn,
+        VARIANT * pvaOut );
+    HRESULT ShowBrowserBar (
+        VARIANT * pvaClsid,
+        VARIANT * pvarShow = &vtMissing,
+        VARIANT * pvarSize = &vtMissing );
+    enum tagREADYSTATE GetReadyState ( );
+    VARIANT_BOOL GetOffline ( );
+    void PutOffline (
+        VARIANT_BOOL pbOffline );
+    VARIANT_BOOL GetSilent ( );
+    void PutSilent (
+        VARIANT_BOOL pbSilent );
+    VARIANT_BOOL GetRegisterAsBrowser ( );
+    void PutRegisterAsBrowser (
+        VARIANT_BOOL pbRegister );
+    VARIANT_BOOL GetRegisterAsDropTarget ( );
+    void PutRegisterAsDropTarget (
+        VARIANT_BOOL pbRegister );
+    VARIANT_BOOL GetTheaterMode ( );
+    void PutTheaterMode (
+        VARIANT_BOOL pbRegister );
+    VARIANT_BOOL GetAddressBar ( );
+    void PutAddressBar (
+        VARIANT_BOOL Value );
+    VARIANT_BOOL GetResizable ( );
+    void PutResizable (
+        VARIANT_BOOL Value );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_Navigate2 (
+        /*[in]*/ VARIANT * URL,
+        /*[in]*/ VARIANT * Flags = &vtMissing,
+        /*[in]*/ VARIANT * TargetFrameName = &vtMissing,
+        /*[in]*/ VARIANT * PostData = &vtMissing,
+        /*[in]*/ VARIANT * Headers = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_QueryStatusWB (
+        /*[in]*/ enum OLECMDID cmdID,
+        /*[out,retval]*/ enum OLECMDF * pcmdf ) = 0;
+      virtual HRESULT __stdcall raw_ExecWB (
+        /*[in]*/ enum OLECMDID cmdID,
+        /*[in]*/ enum OLECMDEXECOPT cmdexecopt,
+        /*[in]*/ VARIANT * pvaIn,
+        /*[in,out]*/ VARIANT * pvaOut ) = 0;
+      virtual HRESULT __stdcall raw_ShowBrowserBar (
+        /*[in]*/ VARIANT * pvaClsid,
+        /*[in]*/ VARIANT * pvarShow = &vtMissing,
+        /*[in]*/ VARIANT * pvarSize = &vtMissing ) = 0;
+      virtual HRESULT __stdcall get_ReadyState (
+        /*[out,retval]*/ enum tagREADYSTATE * plReadyState ) = 0;
+      virtual HRESULT __stdcall get_Offline (
+        /*[out,retval]*/ VARIANT_BOOL * pbOffline ) = 0;
+      virtual HRESULT __stdcall put_Offline (
+        /*[in]*/ VARIANT_BOOL pbOffline ) = 0;
+      virtual HRESULT __stdcall get_Silent (
+        /*[out,retval]*/ VARIANT_BOOL * pbSilent ) = 0;
+      virtual HRESULT __stdcall put_Silent (
+        /*[in]*/ VARIANT_BOOL pbSilent ) = 0;
+      virtual HRESULT __stdcall get_RegisterAsBrowser (
+        /*[out,retval]*/ VARIANT_BOOL * pbRegister ) = 0;
+      virtual HRESULT __stdcall put_RegisterAsBrowser (
+        /*[in]*/ VARIANT_BOOL pbRegister ) = 0;
+      virtual HRESULT __stdcall get_RegisterAsDropTarget (
+        /*[out,retval]*/ VARIANT_BOOL * pbRegister ) = 0;
+      virtual HRESULT __stdcall put_RegisterAsDropTarget (
+        /*[in]*/ VARIANT_BOOL pbRegister ) = 0;
+      virtual HRESULT __stdcall get_TheaterMode (
+        /*[out,retval]*/ VARIANT_BOOL * pbRegister ) = 0;
+      virtual HRESULT __stdcall put_TheaterMode (
+        /*[in]*/ VARIANT_BOOL pbRegister ) = 0;
+      virtual HRESULT __stdcall get_AddressBar (
+        /*[out,retval]*/ VARIANT_BOOL * Value ) = 0;
+      virtual HRESULT __stdcall put_AddressBar (
+        /*[in]*/ VARIANT_BOOL Value ) = 0;
+      virtual HRESULT __stdcall get_Resizable (
+        /*[out,retval]*/ VARIANT_BOOL * Value ) = 0;
+      virtual HRESULT __stdcall put_Resizable (
+        /*[in]*/ VARIANT_BOOL Value ) = 0;
+};
+
+enum __declspec(uuid("65507be0-91a8-11d3-a845-009027220e6d"))
+SecureLockIconConstants
+{
+    secureLockIconUnsecure = 0,
+    secureLockIconMixed = 1,
+    secureLockIconSecureUnknownBits = 2,
+    secureLockIconSecure40Bit = 3,
+    secureLockIconSecure56Bit = 4,
+    secureLockIconSecureFortezza = 5,
+    secureLockIconSecure128Bit = 6
+};
+
+enum __declspec(uuid("a8317d46-03cb-4975-ae94-85e9f2e1d020"))
+NewProcessCauseConstants
+{
+    ProtectedModeRedirect = 1
+};
+
+struct __declspec(uuid("34a715a0-6587-11d0-924a-0020afc7ac4d"))
+DWebBrowserEvents2 : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT StatusTextChange (
+        _bstr_t Text );
+    HRESULT ProgressChange (
+        long Progress,
+        long ProgressMax );
+    HRESULT CommandStateChange (
+        long Command,
+        VARIANT_BOOL Enable );
+    HRESULT DownloadBegin ( );
+    HRESULT DownloadComplete ( );
+    HRESULT TitleChange (
+        _bstr_t Text );
+    HRESULT PropertyChange (
+        _bstr_t szProperty );
+    HRESULT BeforeNavigate2 (
+        IDispatch * pDisp,
+        VARIANT * URL,
+        VARIANT * Flags,
+        VARIANT * TargetFrameName,
+        VARIANT * PostData,
+        VARIANT * Headers,
+        VARIANT_BOOL * Cancel );
+    HRESULT NewWindow2 (
+        IDispatch * * ppDisp,
+        VARIANT_BOOL * Cancel );
+    HRESULT NavigateComplete2 (
+        IDispatch * pDisp,
+        VARIANT * URL );
+    HRESULT DocumentComplete (
+        IDispatch * pDisp,
+        VARIANT * URL );
+    HRESULT OnQuit ( );
+    HRESULT OnVisible (
+        VARIANT_BOOL Visible );
+    HRESULT OnToolBar (
+        VARIANT_BOOL ToolBar );
+    HRESULT OnMenuBar (
+        VARIANT_BOOL MenuBar );
+    HRESULT OnStatusBar (
+        VARIANT_BOOL StatusBar );
+    HRESULT OnFullScreen (
+        VARIANT_BOOL FullScreen );
+    HRESULT OnTheaterMode (
+        VARIANT_BOOL TheaterMode );
+    HRESULT WindowSetResizable (
+        VARIANT_BOOL Resizable );
+    HRESULT WindowSetLeft (
+        long Left );
+    HRESULT WindowSetTop (
+        long Top );
+    HRESULT WindowSetWidth (
+        long Width );
+    HRESULT WindowSetHeight (
+        long Height );
+    HRESULT WindowClosing (
+        VARIANT_BOOL IsChildWindow,
+        VARIANT_BOOL * Cancel );
+    HRESULT ClientToHostWindow (
+        long * CX,
+        long * CY );
+    HRESULT SetSecureLockIcon (
+        long SecureLockIcon );
+    HRESULT FileDownload (
+        VARIANT_BOOL ActiveDocument,
+        VARIANT_BOOL * Cancel );
+    HRESULT NavigateError (
+        IDispatch * pDisp,
+        VARIANT * URL,
+        VARIANT * Frame,
+        VARIANT * StatusCode,
+        VARIANT_BOOL * Cancel );
+    HRESULT PrintTemplateInstantiation (
+        IDispatch * pDisp );
+    HRESULT PrintTemplateTeardown (
+        IDispatch * pDisp );
+    HRESULT UpdatePageStatus (
+        IDispatch * pDisp,
+        VARIANT * nPage,
+        VARIANT * fDone );
+    HRESULT PrivacyImpactedStateChange (
+        VARIANT_BOOL bImpacted );
+    HRESULT NewWindow3 (
+        IDispatch * * ppDisp,
+        VARIANT_BOOL * Cancel,
+        unsigned long dwFlags,
+        _bstr_t bstrUrlContext,
+        _bstr_t bstrUrl );
+    HRESULT SetPhishingFilterStatus (
+        long PhishingFilterStatus );
+    HRESULT WindowStateChanged (
+        unsigned long dwWindowStateFlags,
+        unsigned long dwValidFlagsMask );
+    HRESULT NewProcess (
+        long lCauseFlag,
+        IDispatch * pWB2,
+        VARIANT_BOOL * Cancel );
+    HRESULT ThirdPartyUrlBlocked (
+        VARIANT * URL,
+        unsigned long dwCount );
+    HRESULT RedirectXDomainBlocked (
+        IDispatch * pDisp,
+        VARIANT * StartURL,
+        VARIANT * RedirectURL,
+        VARIANT * Frame,
+        VARIANT * StatusCode );
+    HRESULT BeforeScriptExecute (
+        IDispatch * pDispWindow );
+    HRESULT WebWorkerStarted (
+        unsigned long dwUniqueID,
+        _bstr_t bstrWorkerLabel );
+    HRESULT WebWorkerFinsihed (
+        unsigned long dwUniqueID );
+};
+
+struct __declspec(uuid("eab22ac3-30c1-11cf-a7eb-0000c05bae0b"))
+WebBrowser_V1;
+    // interface IWebBrowser2
+    // [ default ] interface IWebBrowser
+    // [ source ] dispinterface DWebBrowserEvents2
+    // [ default, source ] dispinterface DWebBrowserEvents
+
+struct __declspec(uuid("8856f961-340a-11d0-a96b-00c04fd705a2"))
+WebBrowser;
+    // [ default ] interface IWebBrowser2
+    // interface IWebBrowser
+    // [ default, source ] dispinterface DWebBrowserEvents2
+    // [ source ] dispinterface DWebBrowserEvents
+
+struct __declspec(uuid("0002df01-0000-0000-c000-000000000046"))
+InternetExplorer;
+    // [ default ] interface IWebBrowser2
+    // interface IWebBrowserApp
+    // [ default, source ] dispinterface DWebBrowserEvents2
+    // [ source ] dispinterface DWebBrowserEvents
+
+struct __declspec(uuid("d5e8041d-920f-45e9-b8fb-b1deb82c6e5e"))
+InternetExplorerMedium;
+    // [ default ] interface IWebBrowser2
+    // interface IWebBrowserApp
+    // [ default, source ] dispinterface DWebBrowserEvents2
+    // [ source ] dispinterface DWebBrowserEvents
+
+struct __declspec(uuid("c08afd90-f2a1-11d1-8455-00a0c91f3880"))
+ShellBrowserWindow;
+    // [ default ] interface IWebBrowser2
+    // interface IWebBrowserApp
+    // [ default, source ] dispinterface DWebBrowserEvents2
+    // [ source ] dispinterface DWebBrowserEvents
+
+enum __declspec(uuid("f41e6981-28e5-11d0-82b4-00a0c90c29c5"))
+ShellWindowTypeConstants
+{
+    SWC_EXPLORER = 0,
+    SWC_BROWSER = 1,
+    SWC_3RDPARTY = 2,
+    SWC_CALLBACK = 4,
+    SWC_DESKTOP = 8
+};
+
+enum __declspec(uuid("7716a370-38ca-11d0-a48b-00a0c90a8f39"))
+ShellWindowFindWindowOptions
+{
+    SWFO_NEEDDISPATCH = 1,
+    SWFO_INCLUDEPENDING = 2,
+    SWFO_COOKIEPASSED = 4
+};
+
+struct __declspec(uuid("fe4106e0-399a-11d0-a48c-00a0c90a8f39"))
+DShellWindowsEvents : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT WindowRegistered (
+        long lCookie );
+    HRESULT WindowRevoked (
+        long lCookie );
+};
+
+struct __declspec(uuid("85cb6900-4d95-11cf-960c-0080c7f4ee85"))
+IShellWindows : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetCount))
+    long Count;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    IDispatchPtr Item (
+        const _variant_t & index = vtMissing );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Register (
+        IDispatch * pid,
+        long HWND,
+        int swClass,
+        long * plCookie );
+    HRESULT RegisterPending (
+        long lThreadId,
+        VARIANT * pvarloc,
+        VARIANT * pvarlocRoot,
+        int swClass,
+        long * plCookie );
+    HRESULT Revoke (
+        long lCookie );
+    HRESULT OnNavigate (
+        long lCookie,
+        VARIANT * pvarloc );
+    HRESULT OnActivated (
+        long lCookie,
+        VARIANT_BOOL fActive );
+    IDispatchPtr FindWindowSW (
+        VARIANT * pvarloc,
+        VARIANT * pvarlocRoot,
+        int swClass,
+        long * pHWND,
+        int swfwOptions );
+    HRESULT OnCreated (
+        long lCookie,
+        IUnknown * punk );
+    HRESULT ProcessAttachDetach (
+        VARIANT_BOOL fAttach );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_Count (
+        /*[out,retval]*/ long * Count ) = 0;
+      virtual HRESULT __stdcall raw_Item (
+        /*[in]*/ VARIANT index,
+        /*[out,retval]*/ IDispatch * * Folder ) = 0;
+      virtual HRESULT __stdcall raw__NewEnum (
+        /*[out,retval]*/ IUnknown * * ppunk ) = 0;
+      virtual HRESULT __stdcall raw_Register (
+        /*[in]*/ IDispatch * pid,
+        /*[in]*/ long HWND,
+        /*[in]*/ int swClass,
+        /*[out]*/ long * plCookie ) = 0;
+      virtual HRESULT __stdcall raw_RegisterPending (
+        /*[in]*/ long lThreadId,
+        /*[in]*/ VARIANT * pvarloc,
+        /*[in]*/ VARIANT * pvarlocRoot,
+        /*[in]*/ int swClass,
+        /*[out]*/ long * plCookie ) = 0;
+      virtual HRESULT __stdcall raw_Revoke (
+        /*[in]*/ long lCookie ) = 0;
+      virtual HRESULT __stdcall raw_OnNavigate (
+        /*[in]*/ long lCookie,
+        /*[in]*/ VARIANT * pvarloc ) = 0;
+      virtual HRESULT __stdcall raw_OnActivated (
+        /*[in]*/ long lCookie,
+        /*[in]*/ VARIANT_BOOL fActive ) = 0;
+      virtual HRESULT __stdcall raw_FindWindowSW (
+        /*[in]*/ VARIANT * pvarloc,
+        /*[in]*/ VARIANT * pvarlocRoot,
+        /*[in]*/ int swClass,
+        /*[out]*/ long * pHWND,
+        /*[in]*/ int swfwOptions,
+        /*[out,retval]*/ IDispatch * * ppdispOut ) = 0;
+      virtual HRESULT __stdcall raw_OnCreated (
+        /*[in]*/ long lCookie,
+        /*[in]*/ IUnknown * punk ) = 0;
+      virtual HRESULT __stdcall raw_ProcessAttachDetach (
+        /*[in]*/ VARIANT_BOOL fAttach ) = 0;
+};
+
+struct __declspec(uuid("9ba05972-f6a8-11cf-a442-00a0c90a8f39"))
+ShellWindows;
+    // [ default ] interface IShellWindows
+    // [ default, source ] dispinterface DShellWindowsEvents
+
+struct __declspec(uuid("729fe2f8-1ea8-11d1-8f85-00c04fc2fbe1"))
+IShellUIHelper : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT ResetFirstBootMode ( );
+    HRESULT ResetSafeMode ( );
+    HRESULT RefreshOfflineDesktop ( );
+    HRESULT AddFavorite (
+        _bstr_t URL,
+        VARIANT * Title = &vtMissing );
+    HRESULT AddChannel (
+        _bstr_t URL );
+    HRESULT AddDesktopComponent (
+        _bstr_t URL,
+        _bstr_t Type,
+        VARIANT * Left = &vtMissing,
+        VARIANT * Top = &vtMissing,
+        VARIANT * Width = &vtMissing,
+        VARIANT * Height = &vtMissing );
+    VARIANT_BOOL IsSubscribed (
+        _bstr_t URL );
+    HRESULT NavigateAndFind (
+        _bstr_t URL,
+        _bstr_t strQuery,
+        VARIANT * varTargetFrame );
+    HRESULT ImportExportFavorites (
+        VARIANT_BOOL fImport,
+        _bstr_t strImpExpPath );
+    HRESULT AutoCompleteSaveForm (
+        VARIANT * Form = &vtMissing );
+    HRESULT AutoScan (
+        _bstr_t strSearch,
+        _bstr_t strFailureUrl,
+        VARIANT * pvarTargetFrame = &vtMissing );
+    HRESULT AutoCompleteAttach (
+        VARIANT * Reserved = &vtMissing );
+    _variant_t ShowBrowserUI (
+        _bstr_t bstrName,
+        VARIANT * pvarIn );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_ResetFirstBootMode ( ) = 0;
+      virtual HRESULT __stdcall raw_ResetSafeMode ( ) = 0;
+      virtual HRESULT __stdcall raw_RefreshOfflineDesktop ( ) = 0;
+      virtual HRESULT __stdcall raw_AddFavorite (
+        /*[in]*/ BSTR URL,
+        /*[in]*/ VARIANT * Title = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_AddChannel (
+        /*[in]*/ BSTR URL ) = 0;
+      virtual HRESULT __stdcall raw_AddDesktopComponent (
+        /*[in]*/ BSTR URL,
+        /*[in]*/ BSTR Type,
+        /*[in]*/ VARIANT * Left = &vtMissing,
+        /*[in]*/ VARIANT * Top = &vtMissing,
+        /*[in]*/ VARIANT * Width = &vtMissing,
+        /*[in]*/ VARIANT * Height = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_IsSubscribed (
+        /*[in]*/ BSTR URL,
+        /*[out,retval]*/ VARIANT_BOOL * pBool ) = 0;
+      virtual HRESULT __stdcall raw_NavigateAndFind (
+        /*[in]*/ BSTR URL,
+        /*[in]*/ BSTR strQuery,
+        /*[in]*/ VARIANT * varTargetFrame ) = 0;
+      virtual HRESULT __stdcall raw_ImportExportFavorites (
+        /*[in]*/ VARIANT_BOOL fImport,
+        /*[in]*/ BSTR strImpExpPath ) = 0;
+      virtual HRESULT __stdcall raw_AutoCompleteSaveForm (
+        /*[in]*/ VARIANT * Form = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_AutoScan (
+        /*[in]*/ BSTR strSearch,
+        /*[in]*/ BSTR strFailureUrl,
+        /*[in]*/ VARIANT * pvarTargetFrame = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_AutoCompleteAttach (
+        /*[in]*/ VARIANT * Reserved = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_ShowBrowserUI (
+        /*[in]*/ BSTR bstrName,
+        /*[in]*/ VARIANT * pvarIn,
+        /*[out,retval]*/ VARIANT * pvarOut ) = 0;
+};
+
+struct __declspec(uuid("a7fe6eda-1932-4281-b881-87b31b8bc52c"))
+IShellUIHelper2 : IShellUIHelper
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT AddSearchProvider (
+        _bstr_t URL );
+    HRESULT RunOnceShown ( );
+    HRESULT SkipRunOnce ( );
+    HRESULT CustomizeSettings (
+        VARIANT_BOOL fSQM,
+        VARIANT_BOOL fPhishing,
+        _bstr_t bstrLocale );
+    VARIANT_BOOL SqmEnabled ( );
+    VARIANT_BOOL PhishingEnabled ( );
+    _bstr_t BrandImageUri ( );
+    HRESULT SkipTabsWelcome ( );
+    HRESULT DiagnoseConnection ( );
+    HRESULT CustomizeClearType (
+        VARIANT_BOOL fSet );
+    unsigned long IsSearchProviderInstalled (
+        _bstr_t URL );
+    VARIANT_BOOL IsSearchMigrated ( );
+    _bstr_t DefaultSearchProvider ( );
+    HRESULT RunOnceRequiredSettingsComplete (
+        VARIANT_BOOL fComplete );
+    VARIANT_BOOL RunOnceHasShown ( );
+    _bstr_t SearchGuideUrl ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_AddSearchProvider (
+        /*[in]*/ BSTR URL ) = 0;
+      virtual HRESULT __stdcall raw_RunOnceShown ( ) = 0;
+      virtual HRESULT __stdcall raw_SkipRunOnce ( ) = 0;
+      virtual HRESULT __stdcall raw_CustomizeSettings (
+        /*[in]*/ VARIANT_BOOL fSQM,
+        /*[in]*/ VARIANT_BOOL fPhishing,
+        /*[in]*/ BSTR bstrLocale ) = 0;
+      virtual HRESULT __stdcall raw_SqmEnabled (
+        /*[out,retval]*/ VARIANT_BOOL * pfEnabled ) = 0;
+      virtual HRESULT __stdcall raw_PhishingEnabled (
+        /*[out,retval]*/ VARIANT_BOOL * pfEnabled ) = 0;
+      virtual HRESULT __stdcall raw_BrandImageUri (
+        /*[out,retval]*/ BSTR * pbstrUri ) = 0;
+      virtual HRESULT __stdcall raw_SkipTabsWelcome ( ) = 0;
+      virtual HRESULT __stdcall raw_DiagnoseConnection ( ) = 0;
+      virtual HRESULT __stdcall raw_CustomizeClearType (
+        /*[in]*/ VARIANT_BOOL fSet ) = 0;
+      virtual HRESULT __stdcall raw_IsSearchProviderInstalled (
+        /*[in]*/ BSTR URL,
+        /*[out,retval]*/ unsigned long * pdwResult ) = 0;
+      virtual HRESULT __stdcall raw_IsSearchMigrated (
+        /*[out,retval]*/ VARIANT_BOOL * pfMigrated ) = 0;
+      virtual HRESULT __stdcall raw_DefaultSearchProvider (
+        /*[out,retval]*/ BSTR * pbstrName ) = 0;
+      virtual HRESULT __stdcall raw_RunOnceRequiredSettingsComplete (
+        /*[in]*/ VARIANT_BOOL fComplete ) = 0;
+      virtual HRESULT __stdcall raw_RunOnceHasShown (
+        /*[out,retval]*/ VARIANT_BOOL * pfShown ) = 0;
+      virtual HRESULT __stdcall raw_SearchGuideUrl (
+        /*[out,retval]*/ BSTR * pbstrUrl ) = 0;
+};
+
+struct __declspec(uuid("528df2ec-d419-40bc-9b6d-dcdbf9c1b25d"))
+IShellUIHelper3 : IShellUIHelper2
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT AddService (
+        _bstr_t URL );
+    unsigned long IsServiceInstalled (
+        _bstr_t URL,
+        _bstr_t Verb );
+    VARIANT_BOOL InPrivateFilteringEnabled ( );
+    HRESULT AddToFavoritesBar (
+        _bstr_t URL,
+        _bstr_t Title,
+        VARIANT * Type = &vtMissing );
+    HRESULT BuildNewTabPage ( );
+    HRESULT SetRecentlyClosedVisible (
+        VARIANT_BOOL fVisible );
+    HRESULT SetActivitiesVisible (
+        VARIANT_BOOL fVisible );
+    HRESULT ContentDiscoveryReset ( );
+    VARIANT_BOOL IsSuggestedSitesEnabled ( );
+    HRESULT EnableSuggestedSites (
+        VARIANT_BOOL fEnable );
+    HRESULT NavigateToSuggestedSites (
+        _bstr_t bstrRelativeUrl );
+    HRESULT ShowTabsHelp ( );
+    HRESULT ShowInPrivateHelp ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_AddService (
+        /*[in]*/ BSTR URL ) = 0;
+      virtual HRESULT __stdcall raw_IsServiceInstalled (
+        /*[in]*/ BSTR URL,
+        /*[in]*/ BSTR Verb,
+        /*[out,retval]*/ unsigned long * pdwResult ) = 0;
+      virtual HRESULT __stdcall raw_InPrivateFilteringEnabled (
+        /*[out,retval]*/ VARIANT_BOOL * pfEnabled ) = 0;
+      virtual HRESULT __stdcall raw_AddToFavoritesBar (
+        /*[in]*/ BSTR URL,
+        /*[in]*/ BSTR Title,
+        /*[in]*/ VARIANT * Type = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_BuildNewTabPage ( ) = 0;
+      virtual HRESULT __stdcall raw_SetRecentlyClosedVisible (
+        /*[in]*/ VARIANT_BOOL fVisible ) = 0;
+      virtual HRESULT __stdcall raw_SetActivitiesVisible (
+        /*[in]*/ VARIANT_BOOL fVisible ) = 0;
+      virtual HRESULT __stdcall raw_ContentDiscoveryReset ( ) = 0;
+      virtual HRESULT __stdcall raw_IsSuggestedSitesEnabled (
+        /*[out,retval]*/ VARIANT_BOOL * pfEnabled ) = 0;
+      virtual HRESULT __stdcall raw_EnableSuggestedSites (
+        /*[in]*/ VARIANT_BOOL fEnable ) = 0;
+      virtual HRESULT __stdcall raw_NavigateToSuggestedSites (
+        /*[in]*/ BSTR bstrRelativeUrl ) = 0;
+      virtual HRESULT __stdcall raw_ShowTabsHelp ( ) = 0;
+      virtual HRESULT __stdcall raw_ShowInPrivateHelp ( ) = 0;
+};
+
+struct __declspec(uuid("b36e6a53-8073-499e-824c-d776330a333e"))
+IShellUIHelper4 : IShellUIHelper3
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    VARIANT_BOOL msIsSiteMode ( );
+    HRESULT msSiteModeShowThumbBar ( );
+    _variant_t msSiteModeAddThumbBarButton (
+        _bstr_t bstrIconURL,
+        _bstr_t bstrTooltip );
+    HRESULT msSiteModeUpdateThumbBarButton (
+        const _variant_t & ButtonID,
+        VARIANT_BOOL fEnabled,
+        VARIANT_BOOL fVisible );
+    HRESULT msSiteModeSetIconOverlay (
+        _bstr_t IconUrl,
+        VARIANT * pvarDescription = &vtMissing );
+    HRESULT msSiteModeClearIconOverlay ( );
+    HRESULT msAddSiteMode ( );
+    HRESULT msSiteModeCreateJumpList (
+        _bstr_t bstrHeader );
+    HRESULT msSiteModeAddJumpListItem (
+        _bstr_t bstrName,
+        _bstr_t bstrActionUri,
+        _bstr_t bstrIconUri,
+        VARIANT * pvarWindowType = &vtMissing );
+    HRESULT msSiteModeClearJumpList ( );
+    HRESULT msSiteModeShowJumpList ( );
+    _variant_t msSiteModeAddButtonStyle (
+        const _variant_t & uiButtonID,
+        _bstr_t bstrIconURL,
+        _bstr_t bstrTooltip );
+    HRESULT msSiteModeShowButtonStyle (
+        const _variant_t & uiButtonID,
+        const _variant_t & uiStyleID );
+    HRESULT msSiteModeActivate ( );
+    _variant_t msIsSiteModeFirstRun (
+        VARIANT_BOOL fPreserveState );
+    HRESULT msAddTrackingProtectionList (
+        _bstr_t URL,
+        _bstr_t bstrFilterName );
+    VARIANT_BOOL msTrackingProtectionEnabled ( );
+    VARIANT_BOOL msActiveXFilteringEnabled ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_msIsSiteMode (
+        /*[out,retval]*/ VARIANT_BOOL * pfSiteMode ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeShowThumbBar ( ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeAddThumbBarButton (
+        /*[in]*/ BSTR bstrIconURL,
+        /*[in]*/ BSTR bstrTooltip,
+        /*[out,retval]*/ VARIANT * pvarButtonID ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeUpdateThumbBarButton (
+        /*[in]*/ VARIANT ButtonID,
+        /*[in]*/ VARIANT_BOOL fEnabled,
+        /*[in]*/ VARIANT_BOOL fVisible ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeSetIconOverlay (
+        /*[in]*/ BSTR IconUrl,
+        /*[in]*/ VARIANT * pvarDescription = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeClearIconOverlay ( ) = 0;
+      virtual HRESULT __stdcall raw_msAddSiteMode ( ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeCreateJumpList (
+        /*[in]*/ BSTR bstrHeader ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeAddJumpListItem (
+        /*[in]*/ BSTR bstrName,
+        /*[in]*/ BSTR bstrActionUri,
+        /*[in]*/ BSTR bstrIconUri,
+        /*[in]*/ VARIANT * pvarWindowType = &vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeClearJumpList ( ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeShowJumpList ( ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeAddButtonStyle (
+        /*[in]*/ VARIANT uiButtonID,
+        /*[in]*/ BSTR bstrIconURL,
+        /*[in]*/ BSTR bstrTooltip,
+        /*[out,retval]*/ VARIANT * pvarStyleID ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeShowButtonStyle (
+        /*[in]*/ VARIANT uiButtonID,
+        /*[in]*/ VARIANT uiStyleID ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeActivate ( ) = 0;
+      virtual HRESULT __stdcall raw_msIsSiteModeFirstRun (
+        /*[in]*/ VARIANT_BOOL fPreserveState,
+        /*[out,retval]*/ VARIANT * puiFirstRun ) = 0;
+      virtual HRESULT __stdcall raw_msAddTrackingProtectionList (
+        /*[in]*/ BSTR URL,
+        /*[in]*/ BSTR bstrFilterName ) = 0;
+      virtual HRESULT __stdcall raw_msTrackingProtectionEnabled (
+        /*[out,retval]*/ VARIANT_BOOL * pfEnabled ) = 0;
+      virtual HRESULT __stdcall raw_msActiveXFilteringEnabled (
+        /*[out,retval]*/ VARIANT_BOOL * pfEnabled ) = 0;
+};
+
+struct __declspec(uuid("a2a08b09-103d-4d3f-b91c-ea455ca82efa"))
+IShellUIHelper5 : IShellUIHelper4
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _variant_t msProvisionNetworks (
+        _bstr_t bstrProvisioningXml );
+    HRESULT msReportSafeUrl ( );
+    HRESULT msSiteModeRefreshBadge ( );
+    HRESULT msSiteModeClearBadge ( );
+    HRESULT msDiagnoseConnectionUILess ( );
+    HRESULT msLaunchNetworkClientHelp ( );
+    HRESULT msChangeDefaultBrowser (
+        VARIANT_BOOL fChange );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_msProvisionNetworks (
+        /*[in]*/ BSTR bstrProvisioningXml,
+        /*[out,retval]*/ VARIANT * puiResult ) = 0;
+      virtual HRESULT __stdcall raw_msReportSafeUrl ( ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeRefreshBadge ( ) = 0;
+      virtual HRESULT __stdcall raw_msSiteModeClearBadge ( ) = 0;
+      virtual HRESULT __stdcall raw_msDiagnoseConnectionUILess ( ) = 0;
+      virtual HRESULT __stdcall raw_msLaunchNetworkClientHelp ( ) = 0;
+      virtual HRESULT __stdcall raw_msChangeDefaultBrowser (
+        /*[in]*/ VARIANT_BOOL fChange ) = 0;
+};
+
+struct __declspec(uuid("987a573e-46ee-4e89-96ab-ddf7f8fdc98c"))
+IShellUIHelper6 : IShellUIHelper5
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT msStopPeriodicTileUpdate ( );
+    HRESULT msStartPeriodicTileUpdate (
+        const _variant_t & pollingUris,
+        const _variant_t & startTime = vtMissing,
+        const _variant_t & uiUpdateRecurrence = vtMissing );
+    HRESULT msStartPeriodicTileUpdateBatch (
+        const _variant_t & pollingUris,
+        const _variant_t & startTime = vtMissing,
+        const _variant_t & uiUpdateRecurrence = vtMissing );
+    HRESULT msClearTile ( );
+    HRESULT msEnableTileNotificationQueue (
+        VARIANT_BOOL fChange );
+    _variant_t msPinnedSiteState ( );
+    HRESULT msEnableTileNotificationQueueForSquare150x150 (
+        VARIANT_BOOL fChange );
+    HRESULT msEnableTileNotificationQueueForWide310x150 (
+        VARIANT_BOOL fChange );
+    HRESULT msEnableTileNotificationQueueForSquare310x310 (
+        VARIANT_BOOL fChange );
+    HRESULT msScheduledTileNotification (
+        _bstr_t bstrNotificationXml,
+        _bstr_t bstrNotificationId,
+        _bstr_t bstrNotificationTag,
+        const _variant_t & startTime = vtMissing,
+        const _variant_t & expirationTime = vtMissing );
+    HRESULT msRemoveScheduledTileNotification (
+        _bstr_t bstrNotificationId );
+    HRESULT msStartPeriodicBadgeUpdate (
+        _bstr_t pollingUri,
+        const _variant_t & startTime = vtMissing,
+        const _variant_t & uiUpdateRecurrence = vtMissing );
+    HRESULT msStopPeriodicBadgeUpdate ( );
+    HRESULT msLaunchInternetOptions ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_msStopPeriodicTileUpdate ( ) = 0;
+      virtual HRESULT __stdcall raw_msStartPeriodicTileUpdate (
+        /*[in]*/ VARIANT pollingUris,
+        /*[in]*/ VARIANT startTime = vtMissing,
+        /*[in]*/ VARIANT uiUpdateRecurrence = vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_msStartPeriodicTileUpdateBatch (
+        /*[in]*/ VARIANT pollingUris,
+        /*[in]*/ VARIANT startTime = vtMissing,
+        /*[in]*/ VARIANT uiUpdateRecurrence = vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_msClearTile ( ) = 0;
+      virtual HRESULT __stdcall raw_msEnableTileNotificationQueue (
+        /*[in]*/ VARIANT_BOOL fChange ) = 0;
+      virtual HRESULT __stdcall raw_msPinnedSiteState (
+        /*[out,retval]*/ VARIANT * pvarSiteState ) = 0;
+      virtual HRESULT __stdcall raw_msEnableTileNotificationQueueForSquare150x150 (
+        /*[in]*/ VARIANT_BOOL fChange ) = 0;
+      virtual HRESULT __stdcall raw_msEnableTileNotificationQueueForWide310x150 (
+        /*[in]*/ VARIANT_BOOL fChange ) = 0;
+      virtual HRESULT __stdcall raw_msEnableTileNotificationQueueForSquare310x310 (
+        /*[in]*/ VARIANT_BOOL fChange ) = 0;
+      virtual HRESULT __stdcall raw_msScheduledTileNotification (
+        /*[in]*/ BSTR bstrNotificationXml,
+        /*[in]*/ BSTR bstrNotificationId,
+        /*[in]*/ BSTR bstrNotificationTag,
+        /*[in]*/ VARIANT startTime = vtMissing,
+        /*[in]*/ VARIANT expirationTime = vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_msRemoveScheduledTileNotification (
+        /*[in]*/ BSTR bstrNotificationId ) = 0;
+      virtual HRESULT __stdcall raw_msStartPeriodicBadgeUpdate (
+        /*[in]*/ BSTR pollingUri,
+        /*[in]*/ VARIANT startTime = vtMissing,
+        /*[in]*/ VARIANT uiUpdateRecurrence = vtMissing ) = 0;
+      virtual HRESULT __stdcall raw_msStopPeriodicBadgeUpdate ( ) = 0;
+      virtual HRESULT __stdcall raw_msLaunchInternetOptions ( ) = 0;
+};
+
+struct __declspec(uuid("60e567c8-9573-4ab2-a264-637c6c161cb1"))
+IShellUIHelper7 : IShellUIHelper6
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT SetExperimentalFlag (
+        _bstr_t bstrFlagString,
+        VARIANT_BOOL vfFlag );
+    VARIANT_BOOL GetExperimentalFlag (
+        _bstr_t bstrFlagString );
+    HRESULT SetExperimentalValue (
+        _bstr_t bstrValueString,
+        unsigned long dwValue );
+    unsigned long GetExperimentalValue (
+        _bstr_t bstrValueString );
+    HRESULT ResetAllExperimentalFlagsAndValues ( );
+    VARIANT_BOOL GetNeedIEAutoLaunchFlag (
+        _bstr_t bstrUrl );
+    HRESULT SetNeedIEAutoLaunchFlag (
+        _bstr_t bstrUrl,
+        VARIANT_BOOL flag );
+    VARIANT_BOOL HasNeedIEAutoLaunchFlag (
+        _bstr_t bstrUrl );
+    HRESULT LaunchIE (
+        _bstr_t bstrUrl,
+        VARIANT_BOOL automated );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_SetExperimentalFlag (
+        /*[in]*/ BSTR bstrFlagString,
+        /*[in]*/ VARIANT_BOOL vfFlag ) = 0;
+      virtual HRESULT __stdcall raw_GetExperimentalFlag (
+        /*[in]*/ BSTR bstrFlagString,
+        /*[out,retval]*/ VARIANT_BOOL * vfFlag ) = 0;
+      virtual HRESULT __stdcall raw_SetExperimentalValue (
+        /*[in]*/ BSTR bstrValueString,
+        /*[in]*/ unsigned long dwValue ) = 0;
+      virtual HRESULT __stdcall raw_GetExperimentalValue (
+        /*[in]*/ BSTR bstrValueString,
+        /*[out,retval]*/ unsigned long * pdwValue ) = 0;
+      virtual HRESULT __stdcall raw_ResetAllExperimentalFlagsAndValues ( ) = 0;
+      virtual HRESULT __stdcall raw_GetNeedIEAutoLaunchFlag (
+        /*[in]*/ BSTR bstrUrl,
+        /*[out,retval]*/ VARIANT_BOOL * flag ) = 0;
+      virtual HRESULT __stdcall raw_SetNeedIEAutoLaunchFlag (
+        /*[in]*/ BSTR bstrUrl,
+        /*[in]*/ VARIANT_BOOL flag ) = 0;
+      virtual HRESULT __stdcall raw_HasNeedIEAutoLaunchFlag (
+        /*[in]*/ BSTR bstrUrl,
+        /*[out,retval]*/ VARIANT_BOOL * exists ) = 0;
+      virtual HRESULT __stdcall raw_LaunchIE (
+        /*[in]*/ BSTR bstrUrl,
+        /*[in]*/ VARIANT_BOOL automated ) = 0;
+};
+
+struct __declspec(uuid("66debcf2-05b0-4f07-b49b-b96241a65db2"))
+IShellUIHelper8 : IShellUIHelper7
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetCVListData ( );
+    _bstr_t GetCVListLocalData ( );
+    _bstr_t GetEMIEListData ( );
+    _bstr_t GetEMIEListLocalData ( );
+    HRESULT OpenFavoritesPane ( );
+    HRESULT OpenFavoritesSettings ( );
+    HRESULT LaunchInHVSI (
+        _bstr_t bstrUrl );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_GetCVListData (
+        /*[out,retval]*/ BSTR * pbstrResult ) = 0;
+      virtual HRESULT __stdcall raw_GetCVListLocalData (
+        /*[out,retval]*/ BSTR * pbstrResult ) = 0;
+      virtual HRESULT __stdcall raw_GetEMIEListData (
+        /*[out,retval]*/ BSTR * pbstrResult ) = 0;
+      virtual HRESULT __stdcall raw_GetEMIEListLocalData (
+        /*[out,retval]*/ BSTR * pbstrResult ) = 0;
+      virtual HRESULT __stdcall raw_OpenFavoritesPane ( ) = 0;
+      virtual HRESULT __stdcall raw_OpenFavoritesSettings ( ) = 0;
+      virtual HRESULT __stdcall raw_LaunchInHVSI (
+        /*[in]*/ BSTR bstrUrl ) = 0;
+};
+
+struct __declspec(uuid("64ab4bb7-111e-11d1-8f79-00c04fc2fbe1"))
+ShellUIHelper;
+    // [ default ] interface IShellUIHelper8
+
+struct __declspec(uuid("55136806-b2de-11d1-b9f2-00a0c98bc547"))
+DShellNameSpaceEvents : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT FavoritesSelectionChange (
+        long cItems,
+        long hItem,
+        _bstr_t strName,
+        _bstr_t strUrl,
+        long cVisits,
+        _bstr_t strDate,
+        long fAvailableOffline );
+    HRESULT SelectionChange ( );
+    HRESULT DoubleClick ( );
+    HRESULT Initialized ( );
+};
+
+struct __declspec(uuid("55136804-b2de-11d1-b9f2-00a0c98bc547"))
+IShellFavoritesNameSpace : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetSubscriptionsEnabled))
+    VARIANT_BOOL SubscriptionsEnabled;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT MoveSelectionUp ( );
+    HRESULT MoveSelectionDown ( );
+    HRESULT ResetSort ( );
+    HRESULT NewFolder ( );
+    HRESULT Synchronize ( );
+    HRESULT Import ( );
+    HRESULT Export ( );
+    HRESULT InvokeContextMenuCommand (
+        _bstr_t strCommand );
+    HRESULT MoveSelectionTo ( );
+    VARIANT_BOOL GetSubscriptionsEnabled ( );
+    VARIANT_BOOL CreateSubscriptionForSelection ( );
+    VARIANT_BOOL DeleteSubscriptionForSelection ( );
+    HRESULT SetRoot (
+        _bstr_t bstrFullPath );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_MoveSelectionUp ( ) = 0;
+      virtual HRESULT __stdcall raw_MoveSelectionDown ( ) = 0;
+      virtual HRESULT __stdcall raw_ResetSort ( ) = 0;
+      virtual HRESULT __stdcall raw_NewFolder ( ) = 0;
+      virtual HRESULT __stdcall raw_Synchronize ( ) = 0;
+      virtual HRESULT __stdcall raw_Import ( ) = 0;
+      virtual HRESULT __stdcall raw_Export ( ) = 0;
+      virtual HRESULT __stdcall raw_InvokeContextMenuCommand (
+        /*[in]*/ BSTR strCommand ) = 0;
+      virtual HRESULT __stdcall raw_MoveSelectionTo ( ) = 0;
+      virtual HRESULT __stdcall get_SubscriptionsEnabled (
+        /*[out,retval]*/ VARIANT_BOOL * pBool ) = 0;
+      virtual HRESULT __stdcall raw_CreateSubscriptionForSelection (
+        /*[out,retval]*/ VARIANT_BOOL * pBool ) = 0;
+      virtual HRESULT __stdcall raw_DeleteSubscriptionForSelection (
+        /*[out,retval]*/ VARIANT_BOOL * pBool ) = 0;
+      virtual HRESULT __stdcall raw_SetRoot (
+        /*[in]*/ BSTR bstrFullPath ) = 0;
+};
+
+struct __declspec(uuid("e572d3c9-37be-4ae2-825d-d521763e3108"))
+IShellNameSpace : IShellFavoritesNameSpace
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetEnumOptions,put=PutEnumOptions))
+    long EnumOptions;
+    __declspec(property(get=GetSelectedItem,put=PutSelectedItem))
+    IDispatchPtr SelectedItem;
+    __declspec(property(get=GetRoot,put=PutRoot))
+    _variant_t Root;
+    __declspec(property(get=GetDepth,put=PutDepth))
+    int Depth;
+    __declspec(property(get=GetMode,put=PutMode))
+    unsigned int Mode;
+    __declspec(property(get=GetFlags,put=PutFlags))
+    unsigned long Flags;
+    __declspec(property(get=GetTVFlags,put=PutTVFlags))
+    unsigned long TVFlags;
+    __declspec(property(get=GetColumns,put=PutColumns))
+    _bstr_t Columns;
+    __declspec(property(get=GetCountViewTypes))
+    int CountViewTypes;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetEnumOptions ( );
+    void PutEnumOptions (
+        long pgrfEnumFlags );
+    IDispatchPtr GetSelectedItem ( );
+    void PutSelectedItem (
+        IDispatch * pItem );
+    _variant_t GetRoot ( );
+    void PutRoot (
+        const _variant_t & pvar );
+    int GetDepth ( );
+    void PutDepth (
+        int piDepth );
+    unsigned int GetMode ( );
+    void PutMode (
+        unsigned int puMode );
+    unsigned long GetFlags ( );
+    void PutFlags (
+        unsigned long pdwFlags );
+    void PutTVFlags (
+        unsigned long dwFlags );
+    unsigned long GetTVFlags ( );
+    _bstr_t GetColumns ( );
+    void PutColumns (
+        _bstr_t bstrColumns );
+    int GetCountViewTypes ( );
+    HRESULT SetViewType (
+        int iType );
+    IDispatchPtr SelectedItems ( );
+    HRESULT Expand (
+        const _variant_t & var,
+        int iDepth );
+    HRESULT UnselectAll ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_EnumOptions (
+        /*[out,retval]*/ long * pgrfEnumFlags ) = 0;
+      virtual HRESULT __stdcall put_EnumOptions (
+        /*[in]*/ long pgrfEnumFlags ) = 0;
+      virtual HRESULT __stdcall get_SelectedItem (
+        /*[out,retval]*/ IDispatch * * pItem ) = 0;
+      virtual HRESULT __stdcall put_SelectedItem (
+        /*[in]*/ IDispatch * pItem ) = 0;
+      virtual HRESULT __stdcall get_Root (
+        /*[out,retval]*/ VARIANT * pvar ) = 0;
+      virtual HRESULT __stdcall put_Root (
+        /*[in]*/ VARIANT pvar ) = 0;
+      virtual HRESULT __stdcall get_Depth (
+        /*[out,retval]*/ int * piDepth ) = 0;
+      virtual HRESULT __stdcall put_Depth (
+        /*[in]*/ int piDepth ) = 0;
+      virtual HRESULT __stdcall get_Mode (
+        /*[out,retval]*/ unsigned int * puMode ) = 0;
+      virtual HRESULT __stdcall put_Mode (
+        /*[in]*/ unsigned int puMode ) = 0;
+      virtual HRESULT __stdcall get_Flags (
+        /*[out,retval]*/ unsigned long * pdwFlags ) = 0;
+      virtual HRESULT __stdcall put_Flags (
+        /*[in]*/ unsigned long pdwFlags ) = 0;
+      virtual HRESULT __stdcall put_TVFlags (
+        /*[in]*/ unsigned long dwFlags ) = 0;
+      virtual HRESULT __stdcall get_TVFlags (
+        /*[out,retval]*/ unsigned long * dwFlags ) = 0;
+      virtual HRESULT __stdcall get_Columns (
+        /*[out,retval]*/ BSTR * bstrColumns ) = 0;
+      virtual HRESULT __stdcall put_Columns (
+        /*[in]*/ BSTR bstrColumns ) = 0;
+      virtual HRESULT __stdcall get_CountViewTypes (
+        /*[out,retval]*/ int * piTypes ) = 0;
+      virtual HRESULT __stdcall raw_SetViewType (
+        /*[in]*/ int iType ) = 0;
+      virtual HRESULT __stdcall raw_SelectedItems (
+        /*[out,retval]*/ IDispatch * * ppid ) = 0;
+      virtual HRESULT __stdcall raw_Expand (
+        /*[in]*/ VARIANT var,
+        int iDepth ) = 0;
+      virtual HRESULT __stdcall raw_UnselectAll ( ) = 0;
+};
+
+struct __declspec(uuid("55136805-b2de-11d1-b9f2-00a0c98bc547"))
+ShellNameSpace;
+    // [ default ] interface IShellNameSpace
+    // [ default, source ] dispinterface DShellNameSpaceEvents
+
+struct __declspec(uuid("f3470f24-15fd-11d2-bb2e-00805ff7efca"))
+IScriptErrorList : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT advanceError ( );
+    HRESULT retreatError ( );
+    long canAdvanceError ( );
+    long canRetreatError ( );
+    long getErrorLine ( );
+    long getErrorChar ( );
+    long getErrorCode ( );
+    _bstr_t getErrorMsg ( );
+    _bstr_t getErrorUrl ( );
+    long getAlwaysShowLockState ( );
+    long getDetailsPaneOpen ( );
+    HRESULT setDetailsPaneOpen (
+        long fDetailsPaneOpen );
+    long getPerErrorDisplay ( );
+    HRESULT setPerErrorDisplay (
+        long fPerErrorDisplay );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_advanceError ( ) = 0;
+      virtual HRESULT __stdcall raw_retreatError ( ) = 0;
+      virtual HRESULT __stdcall raw_canAdvanceError (
+        /*[out,retval]*/ long * pfCanAdvance ) = 0;
+      virtual HRESULT __stdcall raw_canRetreatError (
+        /*[out,retval]*/ long * pfCanRetreat ) = 0;
+      virtual HRESULT __stdcall raw_getErrorLine (
+        /*[out,retval]*/ long * plLine ) = 0;
+      virtual HRESULT __stdcall raw_getErrorChar (
+        /*[out,retval]*/ long * plChar ) = 0;
+      virtual HRESULT __stdcall raw_getErrorCode (
+        /*[out,retval]*/ long * plCode ) = 0;
+      virtual HRESULT __stdcall raw_getErrorMsg (
+        /*[out,retval]*/ BSTR * pstr ) = 0;
+      virtual HRESULT __stdcall raw_getErrorUrl (
+        /*[out,retval]*/ BSTR * pstr ) = 0;
+      virtual HRESULT __stdcall raw_getAlwaysShowLockState (
+        /*[out,retval]*/ long * pfAlwaysShowLocked ) = 0;
+      virtual HRESULT __stdcall raw_getDetailsPaneOpen (
+        /*[out,retval]*/ long * pfDetailsPaneOpen ) = 0;
+      virtual HRESULT __stdcall raw_setDetailsPaneOpen (
+        long fDetailsPaneOpen ) = 0;
+      virtual HRESULT __stdcall raw_getPerErrorDisplay (
+        /*[out,retval]*/ long * pfPerErrorDisplay ) = 0;
+      virtual HRESULT __stdcall raw_setPerErrorDisplay (
+        long fPerErrorDisplay ) = 0;
+};
+
+struct __declspec(uuid("efd01300-160f-11d2-bb2e-00805ff7efca"))
+CScriptErrorList;
+    // [ default ] interface IScriptErrorList
+
+//
+// Wrapper method implementations
+//
+
+#include "d:\alejandro\programs\editores\juegos\bigworld_python_engine\bw191\src\lib\web_render\hybrid_vc2005\shdocvw.tli"
+
+} // namespace SHDocVw
+
+#pragma pack(pop)

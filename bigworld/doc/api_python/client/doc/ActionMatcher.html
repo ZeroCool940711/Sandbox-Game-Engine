@@ -1,0 +1,598 @@
+<html>
+<head>
+<title>ActionMatcher - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ActionMatcher Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>ActionMatcher is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="Motor.html">Motor</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#actions" class="attribute_list" >actions</a></td><td>&nbsp; Read-Only Tuple
+</td></tr>
+
+<tr valign=top><td><a href="#bodyTwistSpeed" class="attribute_list" >bodyTwistSpeed</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#boredNotifier" class="attribute_list" >boredNotifier</a></td><td>&nbsp; Function object
+</td></tr>
+
+<tr valign=top><td><a href="#collisionRooted" class="attribute_list" >collisionRooted</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#debug" class="attribute_list" >debug</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#debugWorldVelocity" class="attribute_list" >debugWorldVelocity</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#entityCollision" class="attribute_list" >entityCollision</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#fallNotifier" class="attribute_list" >fallNotifier</a></td><td>&nbsp; Function object
+</td></tr>
+
+<tr valign=top><td><a href="#fallSelected" class="attribute_list" >fallSelected</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#footTwistSpeed" class="attribute_list" >footTwistSpeed</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#fuse" class="attribute_list" >fuse</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#inheritOnRecouple" class="attribute_list" >inheritOnRecouple</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#lastMatch" class="attribute_list" >lastMatch</a></td><td>&nbsp; Read-Only String
+</td></tr>
+
+<tr valign=top><td><a href="#matchCaps" class="attribute_list" >matchCaps</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#matchModelScale" class="attribute_list" >matchModelScale</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#matchNotifier" class="attribute_list" >matchNotifier</a></td><td>&nbsp; Function object
+</td></tr>
+
+<tr valign=top><td><a href="#matcherCoupled" class="attribute_list" >matcherCoupled</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#maxCollisionLod" class="attribute_list" >maxCollisionLod</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#patience" class="attribute_list" >patience</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#startMovingNotifier" class="attribute_list" >startMovingNotifier</a></td><td>&nbsp; Function object
+</td></tr>
+
+<tr valign=top><td><a href="#turnModelToEntity" class="attribute_list" >turnModelToEntity</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#useEntityModel" class="attribute_list" >useEntityModel</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#useEntityPitchAndRoll" class="attribute_list" >useEntityPitchAndRoll</a></td><td>&nbsp; Read-Write Boolean.
+</td></tr>
+
+<tr valign=top><td><a href="#velocityProvider" class="attribute_list" >velocityProvider</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="ActionMatcher.html">ActionMatcher</a> is a <a href="Motor.html">Motor</a> that matches the movements and
+orientation of an entity to the actions defined on its primary model.
+<br><br>
+The <a href="ActionMatcher.html">ActionMatcher</a> takes account of such information as:
+<br><br>
+	- the speed of the <a href="Entity.html">Entity</a>
+<br><br>
+	- the angle between the Model and the <a href="Entity.html">Entity</a>
+<br><br>
+	- the angle between the Model and the <a href="Entity.html">Entity</a>'s velocity
+<br><br>
+	- user-defined state flags
+<br><br>
+It also reads configuration information from Actions in the .model file, in
+order to work out which action to play and how fast to play it.
+The <a href="ActionMatcher.html">ActionMatcher</a> starts at the top, and checks each action
+in order, until it finds one that matches the current criteria.
+The relevent parts of the action definition are within the &lt;match>
+section.
+<br><br>
+	- &lt;trigger> contains the criteria for picking a particular action.
+	  For an action to be chosen, all of the following must be true:
+<br><br>
+		- The speed (magnitude of the velocity) of the Enitity is betweeen
+		  &lt;minEntitySpeed> and &lt;maxEntitySpeed>.  If
+		  &lt;minEntitySpeed> is less than zero, then the engine assumes
+		  the entity is falling when it plays this animation.  Note that
+		  minEntitySpeed should always be closer to zero, regardless of
+		  sign, eg, min = -2, max = -7, min = 2, max = 7
+<br><br>
+		- The angle (entityYaw - modelYaw)is between &lt;minEntityAux1> and
+		  &lt;maxEntityAux1>.
+<br><br>
+		- The angle (entityVelocity - modelYaw) is between
+		  &lt;minEntityYaw> and &lt;maxEntityYaw>.  To match a model
+		  walking backward, give it a a yaw range of between, 90 and 270.
+<br><br>
+		- The <a href="ActionMatcher.html">ActionMatcher</a> must have all of the caps specified in
+		  &lt;capsOn> switched on.  These caps are bitpositions in a
+		  bitfield, so range between 0 and 31.  The caps have no <a href="BigWorld.html">BigWorld</a>
+		  specific meanings, so it is up to the game to assign meaning to
+		  specific numbers.
+<br><br>
+		- The <a href="ActionMatcher.html">ActionMatcher</a> must have all of the caps specified in
+		  &lt;capsOff> switched off.
+<br><br>
+	- &lt;scalePlaybackSpeed>, if set to true, specifies that the rate the
+	  animation is played at will be scaled to match the movement rate.
+	  If, for example, the animation was designed in 3dsmax to be played
+	  at 30 frames a second and move at 2 m/s.  If the entity is moving at
+	  3.5 m/s, and the valid range for this particular animation is 1 m/s
+	  to 5 m/s then the animation will play 3.5/2.0 = 1.75 times faster
+	  than the animator built it to play.
+<br><br>
+	- &lt;feetFollowDirection>, if set to true, causes the model to turn to
+	  track the <a href="DirectionCursor.html">DirectionCursor</a>
+<br><br>
+By default, an <a href="ActionMatcher.html">ActionMatcher</a> motor is automatically created for a primary
+Model. To create additional ActionMatchers, use <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#ActionMatcher><a href="ActionMatcher.html">ActionMatcher</a></a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="actions"></a><p class="attribute_definition">
+<span class="attribute_definition">actions</span>
+</p>
+
+<div class="attribute_description">This attribute contains the name of all matchable actions in use
+by the action matcher
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Tuple
+</td></tr>
+</table>
+</p>
+
+<a name="bodyTwistSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">bodyTwistSpeed</span>
+</p>
+
+<div class="attribute_description">The angular speed at which the model will turn to line up with the
+entity in radians per second.  Defaults to 2pi.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="boredNotifier"></a><p class="attribute_definition">
+<span class="attribute_definition">boredNotifier</span>
+</p>
+
+<div class="attribute_description">The boredNotifer is the callback function to call once fuse exceeds patience.
+As an animation plays, fuse will increase.  When a new animation is played,
+fuse will be reset.  The patience parameter is set by script.  If 0, the
+boredNotifier will not be triggered.  The callback can be defined as follows:
+<br><br>
+
+<pre>	def onBored( self, actionName )
+</pre>
+<br><br>
+The name of the action is that described in the .model file under
+<action>/<name>.  It can be set in the Action panel of ModelViewer.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Function object
+</td></tr>
+</table>
+</p>
+
+<a name="collisionRooted"></a><p class="attribute_definition">
+<span class="attribute_definition">collisionRooted</span>
+</p>
+
+<div class="attribute_description">This attribute controls how the model responds to entity to entity
+collisions.  The entityCollision attribute controls whether the entity
+will contribute towards collisions at all, collisionRooted controls
+whether this model will move in response to collisions.  This model
+will move directly away from the entity it has collided with, until its
+bounding box no longer overlaps that of the model belonging to the
+collided entity.  Note that it is the model	that moves, rather than the
+entity, making this a client side effect only.
+<br><br>
+If this is non-zero, then it will NOT move in response to collisions,
+otherwise it will.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="debug"></a><p class="attribute_definition">
+<span class="attribute_definition">debug</span>
+</p>
+
+<div class="attribute_description">The debug attribute allows you to view internal action matcher
+variables that are contributing towards matching, including information
+about the currently matched action, if any.
+</div>
+
+<a name="debugWorldVelocity"></a><p class="attribute_definition">
+<span class="attribute_definition">debugWorldVelocity</span>
+</p>
+
+<div class="attribute_description">The debug attribute exposes the internal world velocity
+that was calculated and used by the action matcher to select
+actions.
+</div>
+
+<a name="entityCollision"></a><p class="attribute_definition">
+<span class="attribute_definition">entityCollision</span>
+</p>
+
+<div class="attribute_description">Specifies whether the model responds to collisions between entities.
+If this is true then when the parent entity collides with another
+entity, then one model, or the other, or both, will be moved away from
+other model so that they dont overlap.   Which model moves is
+determined by the collisionRooted flag on the <a href="ActionMatcher.html">ActionMatcher</a> on both
+models.  If collisionRooted is set on either model, then that model
+will NOT move away from the entity, leaving the onus for movement on
+the other model.  If both have it set, then neither will move.  If it
+is clear on both of them then they will both move half as far.  It
+defaults to 0.
+Note that it is the model that moves, rather than than the entity,
+making this ta client side effect only.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="fallNotifier"></a><p class="attribute_definition">
+<span class="attribute_definition">fallNotifier</span>
+</p>
+
+<div class="attribute_description">The callback function to call when the entity transitions between
+falling and not-falling.  On callback the function will receive one
+argument, falling, which is 1 if the entity has started to fall, and 0
+if it has just stopped falling.  The <a href="ActionMatcher.html">ActionMatcher</a> decides if the
+entity is falling based on the action that it chooses.  If the
+minEntitySpeed of the trigger is less than zero, then it assumes that
+the entity is falling. This will be the case when the falling checkbox is selected
+in the model editor for an action.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Function object
+</td></tr>
+</table>
+</p>
+
+<a name="fallSelected"></a><p class="attribute_definition">
+<span class="attribute_definition">fallSelected</span>
+</p>
+
+<div class="attribute_description">This attribute is set to true if the <a href="ActionMatcher.html">ActionMatcher</a> chose a falling
+action in its most recent choice.  The <a href="ActionMatcher.html">ActionMatcher</a> decides if the
+entity is falling based on the action that it chooses.  If the
+minEntitySpeed of the trigger is less than zero, then it assumes that
+the entity is falling.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="footTwistSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">footTwistSpeed</span>
+</p>
+
+<div class="attribute_description">The angular speed at which the model can twist to match its
+unitRotation in	radians per second. Defaults to 3pi.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="fuse"></a><p class="attribute_definition">
+<span class="attribute_definition">fuse</span>
+</p>
+
+<div class="attribute_description">Fuse is the attribute that tracks how long (in seconds) a model has
+been bored (playing the same action).  Once it exceeds patience, the
+boredNotifier callback is called.  This works for all animations, not
+just idle animations.  It is up	to the callback function to process
+different types of animation.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="inheritOnRecouple"></a><p class="attribute_definition">
+<span class="attribute_definition">inheritOnRecouple</span>
+</p>
+
+<div class="attribute_description">This attribute is used for client controlling entities to smooth their motion when
+the <a href="ActionMatcher.html">ActionMatcher</a> is switched on after being off (which is done by
+setting matcherCoupled to 1).  If inheritOnRecouple is true, then the
+Entities position is set to the models position, otherwise the model is
+moved immediately to the entities position, which can cause a visual
+jar.  It defaults to 1.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="lastMatch"></a><p class="attribute_definition">
+<span class="attribute_definition">lastMatch</span>
+</p>
+
+<div class="attribute_description">This attribute is set to the name of the last action chosen by the
+action matcher.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only String
+</td></tr>
+</table>
+</p>
+
+<a name="matchCaps"></a><p class="attribute_definition">
+<span class="attribute_definition">matchCaps</span>
+</p>
+
+<div class="attribute_description">This attribute specifies which user defined capabilities the
+<a href="ActionMatcher.html">ActionMatcher</a> is matching at the moment.  It is a list of numbers
+between 0 and 31.  It is checked against the &lt;capsOn> and
+&lt;capsOff> fields (in the .model file definition of each action) for
+each action, and the <a href="ActionMatcher.html">ActionMatcher</a> will only match those actions for
+which all caps in the &lt;capsOn >field are on in matchCaps	and all
+those in &lt;capsOff> are NOT on.
+<br><br>
+Read-Write List of Integers (0-31)
+</div>
+
+<a name="matchModelScale"></a><p class="attribute_definition">
+<span class="attribute_definition">matchModelScale</span>
+</p>
+
+<div class="attribute_description">This attribute controls whether the model's scale is taken into 
+account when choosing an action. Note: Only the Z scale is used
+as in the following entity.model.scale[2]
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="matchNotifier"></a><p class="attribute_definition">
+<span class="attribute_definition">matchNotifier</span>
+</p>
+
+<div class="attribute_description">The callback function to call when the entity transitions between
+one action-matched action and another.  On callback the function
+will receive one argument, the name of the new action.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Function object
+</td></tr>
+</table>
+</p>
+
+<a name="matcherCoupled"></a><p class="attribute_definition">
+<span class="attribute_definition">matcherCoupled</span>
+</p>
+
+<div class="attribute_description">This attribute switches the <a href="ActionMatcher.html">ActionMatcher</a> on and off. If the attribute
+is false (0), then the <a href="ActionMatcher.html">ActionMatcher</a> is	decoupled, otherwise, it is
+coupled.  It defaults to 1.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="maxCollisionLod"></a><p class="attribute_definition">
+<span class="attribute_definition">maxCollisionLod</span>
+</p>
+
+<div class="attribute_description">If the LOD (level of detail) of the model is less than this amount,
+then the model will be moved to respond to entity-entity collisions.
+If it is greater than this amount, then the model won't respond to
+collisions.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="patience"></a><p class="attribute_definition">
+<span class="attribute_definition">patience</span>
+</p>
+
+<div class="attribute_description">Patience is how long the model can continue playing the same action
+for, before it becomes bored.  Fuse keeps track	of how long the same
+animation has been playing. Once fuse exceeds patience, the
+boredNotifier callback is called.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="startMovingNotifier"></a><p class="attribute_definition">
+<span class="attribute_definition">startMovingNotifier</span>
+</p>
+
+<div class="attribute_description">The startMovingNotifier is a callback function to call when the entity
+changes from a stationary to a moving state. This callback's purpose is
+to provide the opportunity to the script programmer to clear the action
+queue in the even that it had been set explicitly in script. The
+callback can be defined as follows:
+<br><br>
+
+<pre>	def onStartMoving( self, actionName ):
+		for actionName in self.model.queue:
+			self.model.action(actionName).stop()
+		pass
+
+	self.am.startMovingNotifier = onStartMoving
+</pre>
+<br><br>
+The name of the action is that described in the .model file under
+<action>/<name>.  It can be set in the Action panel of ModelViewer.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Function object
+</td></tr>
+</table>
+</p>
+
+<a name="turnModelToEntity"></a><p class="attribute_definition">
+<span class="attribute_definition">turnModelToEntity</span>
+</p>
+
+<div class="attribute_description">This attribute controls whether or not the <a href="ActionMatcher.html">ActionMatcher</a> turns the
+model to track direction changes in the <a href="Entity.html">Entity</a>.  If it is true, then
+the models yaw will be set to the Entities yaw.  If it is false, then
+the action matcher doesn't control the model's yaw at all.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="useEntityModel"></a><p class="attribute_definition">
+<span class="attribute_definition">useEntityModel</span>
+</p>
+
+<div class="attribute_description">The useEntityModel attribute makes the action matcher use the entity's
+model to check for movement and rotation, instead of the action
+matcher's owner's model.
+<br><br>
+This is particularly useful if the action matcher is constructed with
+and entity that is different than the owner of the model that this
+action matcher is used by.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="useEntityPitchAndRoll"></a><p class="attribute_definition">
+<span class="attribute_definition">useEntityPitchAndRoll</span>
+</p>
+
+<div class="attribute_description">This attribute controls whether the model should use the pitch and
+roll of the entity.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Boolean.
+</td></tr>
+</table>
+</p>
+
+<a name="velocityProvider"></a><p class="attribute_definition">
+<span class="attribute_definition">velocityProvider</span>
+</p>
+
+<div class="attribute_description">The velocityProvider attribute allows you to use any <a href="Vector4Provider.html">Vector4Provider</a>
+to match against, instead of the entity velocity.  This is particularly
+useful with player physics Vector4Providers, which allow you to remove
+the effect of collision corrections.
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

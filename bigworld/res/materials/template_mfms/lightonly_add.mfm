@@ -1,0 +1,29 @@
+<root>
+	<fx>	shaders/std_effects/lightonly_add.fx	</fx>
+	<property>	diffuseLightExtraModulation
+		<Float>	1.000000	</Float>
+	</property>
+	<property>	lightEnable
+		<Bool>	true	</Bool>
+	</property>
+	<property>	srcBlend
+		<Int>	2	</Int>
+	</property>
+	<property>	alphaReference
+		<Int>	0	</Int>
+	</property>
+	<property>	alphaTestEnable
+		<Bool>	false	</Bool>
+	</property>
+	<property>	doubleSided
+		<Bool>	false	</Bool>
+	</property>
+	<property>	selfIllumination
+		<Float>	0.000000	</Float>
+	</property>
+	<property>	diffuseMap
+		<Texture> helpers\maps\aid_builder.bmp	</Texture>
+	</property>
+	<collisionFlags>	0	</collisionFlags>
+	<materialKind>	0	</materialKind>
+</root>

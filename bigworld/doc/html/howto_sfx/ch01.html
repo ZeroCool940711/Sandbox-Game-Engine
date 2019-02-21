@@ -1,0 +1,85 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;1.&nbsp;Introduction</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="SFX">
+      <link rel="up" href="index.html" title="SFX">
+      <link rel="prev" href="index.html" title="SFX">
+      <link rel="next" href="ch02.html" title="Chapter&nbsp;2.&nbsp;SFX">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/howto_sfx/ch01.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;1.&nbsp;Introduction</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="index.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch02.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;1.&nbsp;Introduction">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Introduction"></a>Chapter&nbsp;1.&nbsp;Introduction
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <p>The FX module implements a data-driven special effects framework.
+               Special effects are defined in an XML document,
+               and loaded by the FX module on cue. The SFX files tie together not just
+               particle effects, but all related
+               components, for example sounds, models, decals, camera shake etc.
+               This is designed to hide a lot of simple Python code that is often duplicated
+                 in entity scripts, which can frequently be error-prone.
+            </p>
+            <p>It is also designed to implement best-practices regarding special effects
+               in BigWorld.  For example, it will load resources in the background to avoid
+                 causing i/o stalls in the rendering thread.  It implements circular buffers
+                 of often-used effects to minimise the wait time and manage memory usage.
+                 It manages a number of conditions often encountered by special effects code,
+                 for example, it keeps track of where effects are attached to the world, so
+                 they can be cleaned up properly, even if the entity the effect is attached
+                 to leaves the world during the playing of the effect.  And it allows 
+                 customisation of the effect at run-time.
+            </p>
+            <p>It is designed to be extensible for your game; simply implement your own
+                 Events and register them with the class factory and they will be availble
+                 for use by the effects system.
+            </p>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="index.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch02.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">SFX&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;2.&nbsp;SFX</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

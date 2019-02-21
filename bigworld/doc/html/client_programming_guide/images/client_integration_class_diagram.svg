@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.48.2 r9819"
+   inkscape:export-filename="/mnt/hgfs/bigworld/bw-3-current/bigworld/doc/client_programming_guide/images/client_integration_class_diagram.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   sodipodi:docname="client_integration_class_diagram.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.1">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;">
+      <path
+         id="path3239"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path3233"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="EmptyTriangleOutL"
+       style="overflow:visible">
+      <path
+         id="path3391"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;fill:#FFFFFF;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.8) translate(-6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="EmptyTriangleInL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="EmptyTriangleInL"
+       style="overflow:visible">
+      <path
+         id="path3382"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;fill:#FFFFFF;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(-0.8) translate(-6,0)" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.99999999"
+     inkscape:cx="172.47617"
+     inkscape:cy="848.37739"
+     inkscape:document-units="px"
+     inkscape:current-layer="g2435"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="825"
+     inkscape:window-x="1477"
+     inkscape:window-y="460"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g15026"
+       transform="translate(189.5,-1)">
+      <g
+         id="g2435">
+        <g
+           transform="translate(-213,-78.5)"
+           id="g13408">
+          <rect
+             style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect2383"
+             width="114.3287"
+             height="33.042976"
+             x="199.9785"
+             y="103.34069" />
+          <text
+             xml:space="preserve"
+             style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:DejaVu LGC Sans Condensed;-inkscape-font-specification:'DejaVu LGC Sans Condensed,'"
+             x="255.71428"
+             y="125.21932"
+             id="text3155"
+             sodipodi:linespacing="125%"><tspan
+               style="font-size:14px"
+               sodipodi:role="line"
+               id="tspan3157"
+               x="255.71428"
+               y="125.21932">BWEntity</tspan></text>
+        </g>
+        <g
+           transform="translate(-51,21.5)"
+           id="g13424">
+          <rect
+             y="73.340691"
+             x="37.9785"
+             height="33.042976"
+             width="114.3287"
+             id="rect13415"
+             style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text13417"
+             y="95.219322"
+             x="93.714279"
+             style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:DejaVu LGC Sans Condensed;-inkscape-font-specification:'DejaVu LGC Sans Condensed,'"
+             xml:space="preserve"><tspan
+               y="95.219322"
+               x="93.714279"
+               id="tspan13419"
+               sodipodi:role="line"
+               style="font-size:14px">MyEntity</tspan></text>
+        </g>
+        <g
+           id="g3403">
+          <rect
+             style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect13431"
+             width="114.3287"
+             height="33.042976"
+             x="-13.0215"
+             y="167.8407" />
+          <text
+             xml:space="preserve"
+             style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:DejaVu LGC Sans Condensed;-inkscape-font-specification:'DejaVu LGC Sans Condensed,'"
+             x="42.714279"
+             y="189.71933"
+             id="text13433"
+             sodipodi:linespacing="125%"><tspan
+               style="font-size:14px"
+               sodipodi:role="line"
+               id="tspan13435"
+               x="42.714279"
+               y="189.71933">Avatar_Stub</tspan></text>
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#EmptyTriangleOutL);display:inline"
+           d="m 44.14285,167.3407 -1e-6,-39.45703"
+           id="path13437"
+           inkscape:connector-type="polyline"
+           inkscape:connection-end="#g13424"
+           inkscape:connection-end-point="d4"
+           inkscape:connector-curvature="0" />
+        <path
+           sodipodi:nodetypes="cc"
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#EmptyTriangleOutL)"
+           d="m 44.142849,94.840691 0,-36.957024"
+           id="path13441"
+           inkscape:connector-type="polyline"
+           inkscape:connection-start="#g13424"
+           inkscape:connection-end="#g13408"
+           inkscape:connection-start-point="d4"
+           inkscape:connection-end-point="d4"
+           inkscape:connector-curvature="0" />
+        <g
+           id="g3418">
+          <rect
+             y="238.3407"
+             x="-12.5215"
+             height="33.042976"
+             width="114.3287"
+             id="rect14497"
+             style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text14499"
+             y="260.21933"
+             x="43.214279"
+             style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:DejaVu LGC Sans Condensed;-inkscape-font-specification:'DejaVu LGC Sans Condensed,'"
+             xml:space="preserve"><tspan
+               y="260.21933"
+               x="43.214279"
+               id="tspan14501"
+               sodipodi:role="line"
+               style="font-size:14px">Avatar</tspan></text>
+        </g>
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-type="polyline"
+           id="path14503"
+           d="m 44.697373,238.42648 -0.02096,-37.04281"
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#EmptyTriangleOutL)"
+           inkscape:connector-curvature="0" />
+        <g
+           id="g3408">
+          <rect
+             style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect15028"
+             width="140.22301"
+             height="32.937283"
+             x="195.53136"
+             y="150.39355" />
+          <text
+             xml:space="preserve"
+             style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu LGC Sans Condensed;-inkscape-font-specification:'DejaVu LGC Sans Condensed,'"
+             x="265.21429"
+             y="172.21933"
+             id="text15030"
+             sodipodi:linespacing="125%"><tspan
+               style="font-size:14px"
+               sodipodi:role="line"
+               id="tspan15032"
+               x="265.21429"
+               y="172.21933">CellMB::Avatar</tspan></text>
+        </g>
+        <g
+           id="g3413">
+          <rect
+             y="199.89354"
+             x="196.03134"
+             height="32.937279"
+             width="140.22301"
+             id="rect15043"
+             style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text15045"
+             y="220.71933"
+             x="265.71429"
+             style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu LGC Sans Condensed;-inkscape-font-specification:'DejaVu LGC Sans Condensed,'"
+             xml:space="preserve"><tspan
+               y="220.71933"
+               x="265.71429"
+               sodipodi:role="line"
+               style="font-size:14px"
+               id="tspan2481">BaseMB::Avatar</tspan></text>
+        </g>
+        <path
+           sodipodi:nodetypes="cc"
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+           d="m 101.8072,182.98831 92.3085,-17.10464"
+           id="path15049"
+           inkscape:connector-type="polyline"
+           inkscape:connector-curvature="0" />
+        <path
+           sodipodi:nodetypes="cc"
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend);display:inline"
+           d="m 101.8072,188.70628 94.22414,15.8569"
+           id="path16115"
+           inkscape:connector-type="polyline"
+           inkscape:connection-end="#rect15043"
+           inkscape:connection-end-point="d4"
+           inkscape:connector-curvature="0" />
+        <text
+           xml:space="preserve"
+           style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+           x="-153"
+           y="42.862183"
+           id="text16650"><tspan
+             sodipodi:role="line"
+             id="tspan16652"
+             x="-153"
+             y="42.862183">Base class for all entities.</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+           x="-163.5"
+           y="106.36218"
+           id="text16654"><tspan
+             sodipodi:role="line"
+             id="tspan16656"
+             x="-163.5"
+             y="106.36218">Per-game entity superclass</tspan><tspan
+             id="tspan16712"
+             sodipodi:role="line"
+             x="-163.5"
+             y="118.86218">(user-defined).</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+           x="-173.5"
+           y="173.36218"
+           id="text16658"><tspan
+             sodipodi:role="line"
+             id="tspan16660"
+             x="-173.5"
+             y="173.36218">Generated class with stubs</tspan><tspan
+             sodipodi:role="line"
+             x="-173.5"
+             y="185.86218"
+             id="tspan16662">for client-side methods and</tspan><tspan
+             sodipodi:role="line"
+             x="-173.5"
+             y="198.36218"
+             id="tspan16664">properties.</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+           x="-174.14551"
+           y="256.12097"
+           id="text16666"><tspan
+             sodipodi:role="line"
+             id="tspan16668"
+             x="-174.14551"
+             y="256.12097">User-defined concrete entity</tspan><tspan
+             sodipodi:role="line"
+             x="-174.14551"
+             y="268.62097"
+             id="tspan16670">class.</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+           x="340.5"
+           y="161.36218"
+           id="text16672"><tspan
+             sodipodi:role="line"
+             id="tspan16674"
+             x="340.5"
+             y="161.36218">Handle for calling remote server-side </tspan><tspan
+             sodipodi:role="line"
+             x="340.5"
+             y="173.86218"
+             id="tspan16676">methods on the cell entity.</tspan></text>
+        <text
+           id="text16678"
+           y="211.36218"
+           x="340.5"
+           style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+           xml:space="preserve"><tspan
+             y="211.36218"
+             x="340.5"
+             id="tspan16680"
+             sodipodi:role="line">Handle for calling remote server-side </tspan><tspan
+             id="tspan16682"
+             y="223.86218"
+             x="340.5"
+             sodipodi:role="line">methods on the base entity.</tspan></text>
+        <rect
+           style="fill:none;stroke:#666666"
+           id="rect3148"
+           width="723"
+           height="293"
+           x="4"
+           y="6.3621721"
+           transform="translate(-189.5,1)" />
+      </g>
+    </g>
+  </g>
+</svg>

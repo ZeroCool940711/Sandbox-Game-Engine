@@ -1,0 +1,1034 @@
+<html>
+<head>
+<title>GUI - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>GUI Module Reference</h1>
+The <a href="GUI.html">GUI</a> module contains all the functions which are used to create <a href="GUI.html">GUI</a>
+components and shaders,
+to display them on the screen, and to handle input events.
+
+<h2><a href="#" onClick="obj=document.getElementById( 'classes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Class List</a></h2>
+<table id="classes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="class_list"><a href="AlphaGUIShader.html" class="class_list" >AlphaGUIShader</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="BoundingBoxGUIComponent.html" class="class_list" >BoundingBoxGUIComponent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="ClipGUIShader.html" class="class_list" >ClipGUIShader</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="ColourGUIShader.html" class="class_list" >ColourGUIShader</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="ConsoleGUIComponent.html" class="class_list" >ConsoleGUIComponent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="FlashGUIComponent.html" class="class_list" >FlashGUIComponent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="FlashTextGUIComponent.html" class="class_list" >FlashTextGUIComponent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="FrameGUIComponent.html" class="class_list" >FrameGUIComponent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="FrameGUIComponent2.html" class="class_list" >FrameGUIComponent2</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="GUIShader.html" class="class_list" >GUIShader</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="GoboComponent.html" class="class_list" >GoboComponent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="GraphGUIComponent.html" class="class_list" >GraphGUIComponent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="GuiAttachment.html" class="class_list" >GuiAttachment</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="MatrixGUIShader.html" class="class_list" >MatrixGUIShader</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="MeshGUIAdaptor.html" class="class_list" >MeshGUIAdaptor</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="Minimap.html" class="class_list" >Minimap</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="MouseCursor.html" class="class_list" >MouseCursor</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="SimpleGUIComponent.html" class="class_list" >SimpleGUIComponent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="TextGUIComponent.html" class="class_list" >TextGUIComponent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="WindowGUIComponent.html" class="class_list" >WindowGUIComponent</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="WorldToClipMP.html" class="class_list" >WorldToClipMP</a></span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#AlphaShader" class="function_list" >AlphaShader</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Attachment" class="function_list" >Attachment</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#BoundingBox" class="function_list" >BoundingBox</a>( textureName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#ClipShader" class="function_list" >ClipShader</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#ColourShader" class="function_list" >ColourShader</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Console" class="function_list" >Console</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Flash" class="function_list" >Flash</a>( movie ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#FlashText" class="function_list" >FlashText</a>( text ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Frame" class="function_list" >Frame</a>( backgroundTextureName, cornerTextureName, edgeTextureName, tiledWidth, tiledHeight ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Frame2" class="function_list" >Frame2</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Gobo" class="function_list" >Gobo</a>( textureName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Graph" class="function_list" >Graph</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Latency" class="function_list" >Latency</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#MatrixShader" class="function_list" >MatrixShader</a>( target ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#MeshAdaptor" class="function_list" >MeshAdaptor</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Minimap" class="function_list" >Minimap</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Simple" class="function_list" >Simple</a>( textureName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Text" class="function_list" >Text</a>( text ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#Window" class="function_list" >Window</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#WorldToClipMP" class="function_list" >WorldToClipMP</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addRoot" class="function_list" >addRoot</a>( component ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delRoot" class="function_list" >delRoot</a>( component ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#draw" class="function_list" >draw</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleAxisEvent" class="function_list" >handleAxisEvent</a>( event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleAxisEvent" class="function_list" >handleAxisEvent</a>( event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleKeyEvent" class="function_list" >handleKeyEvent</a>( event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseEvent" class="function_list" >handleMouseEvent</a>( event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#load" class="function_list" >load</a>( section ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#mcursor" class="function_list" >mcursor</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#printRoots" class="function_list" >printRoots</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#reSort" class="function_list" >reSort</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#roots" class="function_list" >roots</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#screenResolution" class="function_list" >screenResolution</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setDragDistance" class="function_list" >setDragDistance</a>( distance ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setResolutionOverride" class="function_list" >setResolutionOverride</a>( resolution ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#update" class="function_list" >update</a>( dTime ):</span>
+</td></tr>
+
+</table>
+
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="AlphaShader"></a><p class="function_definition">
+<span class="function_definition">def AlphaShader( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="AlphaGUIShader.html">AlphaGUIShader</a>.  An <a href="AlphaGUIShader.html">AlphaGUIShader</a> is used to
+control the alpha on a <a href="GUI.html">GUI</a> component and its children.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a newly created <a href="AlphaGUIShader.html">AlphaGUIShader</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="Attachment"></a><p class="function_definition">
+<span class="function_definition">def Attachment( <i></i> ):</span>
+</p>
+
+<div class="function_description">Creates and returns a new GUIAttachment, which is 
+used to display gui elements in the 3D scene.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The new GUIAttachment object
+</td></tr>
+</table>
+</p>
+
+<a name="BoundingBox"></a><p class="function_definition">
+<span class="function_definition">def BoundingBox( <i>textureName</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>textureName</i></span></td><td><span class="function_parameter_description">&nbsp;The full resource path of the texture to be used.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The newly created <a href="BoundingBoxGUIComponent.html">BoundingBoxGUIComponent</a>
+</td></tr>
+</table>
+</p>
+
+<a name="ClipShader"></a><p class="function_definition">
+<span class="function_definition">def ClipShader( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="ClipGUIShader.html">ClipGUIShader</a>.  This is used to clip the
+specified portion off one side of the component.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a new <a href="ClipGUIShader.html">ClipGUIShader</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="ColourShader"></a><p class="function_definition">
+<span class="function_definition">def ColourShader( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="ColourGUIShader.html">ColourGUIShader</a>.  This is used to apply colours
+to gui components.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a new <a href="ColourGUIShader.html">ColourGUIShader</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="Console"></a><p class="function_definition">
+<span class="function_definition">def Console( <i></i> ):</span>
+</p>
+
+<div class="function_description">Creates and returns a new <a href="ConsoleGUIComponent.html">ConsoleGUIComponent</a>, which displays an editable console on the screen.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The new <a href="ConsoleGUIComponent.html">ConsoleGUIComponent</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="Flash"></a><p class="function_definition">
+<span class="function_definition">def Flash( <i>movie</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="FlashGUIComponent.html">FlashGUIComponent</a> which allows a flash movie to be
+inserted into the <a href="GUI.html">GUI</a> hierarchy. If this component has an attached script, then
+the script must take responsibility for passing mouse and key events into the
+<a href="PyMovieView.html">PyMovieView</a> object.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>movie</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyMovieView.html">PyMovieView</a> object containing the movie to associate with
+				the component.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the newly created component.
+</td></tr>
+</table>
+</p>
+
+<a name="FlashText"></a><p class="function_definition">
+<span class="function_definition">def FlashText( <i>text</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="FlashTextGUIComponent.html">FlashTextGUIComponent</a>.  This component renders a
+line of text.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>text</i></span></td><td><span class="function_parameter_description">&nbsp;A string containing the line of text to be rendered.
+				This can be changed once the component is created.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the newly created component.
+</td></tr>
+</table>
+</p>
+
+<a name="Frame"></a><p class="function_definition">
+<span class="function_definition">def Frame( <i>backgroundTextureName, cornerTextureName, edgeTextureName, tiledWidth, tiledHeight</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="FrameGUIComponent.html">FrameGUIComponent</a>.  This is basically a tiled
+simpleGUIComponent with a frame around it.  The frame is specified by and
+edge texture and a corner texture.  The size of the frame is specified by
+the tiledWidth and tiledHeight, which are also used to specify the tiling
+of the background.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>backgroundTextureName</i></span></td><td><span class="function_parameter_description">&nbsp;The filename of the background texture.
+								This needs to be a valid texture file.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>cornerTextureName</i></span></td><td><span class="function_parameter_description">&nbsp;The filename of the corner texture.
+								This needs to be a valid texture file.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>edgeTextureName</i></span></td><td><span class="function_parameter_description">&nbsp;The filename of the edge texture.
+								This needs to be a valid texture file.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>tiledWidth</i></span></td><td><span class="function_parameter_description">&nbsp;The width to make the frame, and to tile
+								the background at.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>tiledHeight</i></span></td><td><span class="function_parameter_description">&nbsp;The height to make the frame, and to tile
+								the background at.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="Frame2"></a><p class="function_definition">
+<span class="function_definition">def Frame2( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="FrameGUIComponent2.html">FrameGUIComponent2</a>.  This is a resizable
+frame created from a single texture and a single draw call.
+The frame requires specific artwork, please see the content creation
+guide for details.
+</div>
+
+<a name="Gobo"></a><p class="function_definition">
+<span class="function_definition">def Gobo( <i>textureName</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new Gobo component.
+The <a href="GoboComponent.html">GoboComponent</a> acts like other gui components, but blends the gui
+component texture with another specified <a href="PyTextureProvider.html">PyTextureProvider</a>, using
+the alpha channel of the component's texture.
+<br><br>
+If you associate a render target with the gobo component, you can also
+freeze and unfreeze the secondary <a href="PyTextureProvider.html">PyTextureProvider</a>.
+<br><br>
+A recommended use of the gobo component is to create a post-processing
+effect, and use the output of that effect as the second texture stage
+in the gobo component.
+<br><br>
+This is for example perfect for binoculars and sniper scopes.
+<br><br>
+For example, in the following code:
+<br><br>
+
+<pre>comp = <a href="GUI.html">GUI</a>.<a href=GUI.html#Gobo>Gobo</a>( "gui/maps/gobo_binoculars.dds" )
+comp.materialFX="SOLID"
+comp.secondTexture=myBlurredRenderTarget.texture
+<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>( comp )
+</pre>
+<br><br>
+This example will display a binocular gobo, and where the alpha channel is
+relatively opaque in the binocular texture map, a blurred version of the scene
+is drawn.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>textureName</i></span></td><td><span class="function_parameter_description">&nbsp;The filename of the gobo texture.  The alpha
+								channel determines how much of the blurred
+								screen should be blended in.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="Graph"></a><p class="function_definition">
+<span class="function_definition">def Graph( <i></i> ):</span>
+</p>
+
+<div class="function_description">Creates and returns a new <a href="GraphGUIComponent.html">GraphGUIComponent</a>, which is used to graph a <a href="Vector4Provider.html">Vector4Provider</a> on the screen.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The new <a href="GraphGUIComponent.html">GraphGUIComponent</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="Latency"></a><p class="function_definition">
+<span class="function_definition">def Latency( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="LatencyGUIComponent.html">LatencyGUIComponent</a>.  This will display the
+word "Offline" on the screen if the client is not connected to the server,
+and nothing otherwise.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a new <a href="LatencyGUIComponent.html">LatencyGUIComponent</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="MatrixShader"></a><p class="function_definition">
+<span class="function_definition">def MatrixShader( <i>target</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="MatrixGUIShader.html">MatrixGUIShader</a>.  This can be used to transform
+the position of one or more <a href="GUI.html">GUI</a> Components within clipping space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>target</i></span></td><td><span class="function_parameter_description">&nbsp;(optional)	The initial target <a href="MatrixProvider.html">MatrixProvider</a>.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a new <a href="MatrixGUIShader.html">MatrixGUIShader</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="MeshAdaptor"></a><p class="function_definition">
+<span class="function_definition">def MeshAdaptor( <i></i> ):</span>
+</p>
+
+<div class="function_description">Creates and returns a new <a href="MeshGUIAdaptor.html">MeshGUIAdaptor</a> object, which is used to display 3D objects in the <a href="GUI.html">GUI</a> scene.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The new <a href="MeshGUIAdaptor.html">MeshGUIAdaptor</a>
+</td></tr>
+</table>
+</p>
+
+<a name="Minimap"></a><p class="function_definition">
+<span class="function_definition">def Minimap( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="Minimap.html">Minimap</a> object. <a href="Minimap.html">Minimap</a> is a
+<a href="GUI.html">GUI</a> component that can display a scrolling map, with entries displayed
+on the map.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="Minimap.html">Minimap</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="Simple"></a><p class="function_definition">
+<span class="function_definition">def Simple( <i>textureName</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>, which renders the specified
+texture in the centre of the screen.  It can be customised once it has
+been created.
+<br><br>
+Example:
+
+<pre>myGui = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "gui/maps/myGui.dds" )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>textureName</i></span></td><td><span class="function_parameter_description">&nbsp;the string resourceId of the texture to display in the
+gui component.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> that got created
+</td></tr>
+</table>
+</p>
+
+<a name="Text"></a><p class="function_definition">
+<span class="function_definition">def Text( <i>text</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="TextGUIComponent.html">TextGUIComponent</a>.  This component renders a
+line of text.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>text</i></span></td><td><span class="function_parameter_description">&nbsp;A string containing the line of text to be rendered.
+				This can be changed once the component is created.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the newly created component.
+</td></tr>
+</table>
+</p>
+
+<a name="Window"></a><p class="function_definition">
+<span class="function_definition">def Window( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates a new <a href="WindowGUIComponent.html">WindowGUIComponent</a>, which is used to apply 
+scroll functionality to its children.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a new <a href="WindowGUIComponent.html">WindowGUIComponent</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="WorldToClipMP"></a><p class="function_definition">
+<span class="function_definition">def WorldToClipMP( <i></i> ):</span>
+</p>
+
+<div class="function_description">Used primarily with the <a href="MatrixGUIShader.html">MatrixGUIShader</a>, this returns a new WorldToClip MatrixProider object.
+</div>
+
+<a name="addRoot"></a><p class="function_definition">
+<span class="function_definition">def addRoot( <i>component</i> ):</span>
+</p>
+
+<div class="function_description">This function adds a <a href="GUI.html">GUI</a> component to the gui root.  <a href="GUI.html">GUI</a> elements exist in
+a treelike structure, with every element having a parent.  The top level
+parent is the root of the whole tree.  This root exists internal to the <a href="GUI.html">GUI</a>
+module.	In order for a gui component to be processed, for both rendering
+and event handling, it, or one of its parents, must be added to the root.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;the gui component to add to the root
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delRoot"></a><p class="function_definition">
+<span class="function_definition">def delRoot( <i>component</i> ):</span>
+</p>
+
+<div class="function_description">This function removes a Gui component from the root gui's list of children.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;the component to remove
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="draw"></a><p class="function_definition">
+<span class="function_definition">def draw( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method causes the <a href="GUI.html">GUI</a> and all components which have been added as
+roots to be redrawn.
+<br><br>
+It is called automatically by the system each tick.  It would not normally
+be necessary to call this function.
+</div>
+
+<a name="handleAxisEvent"></a><p class="function_definition">
+<span class="function_definition">def handleAxisEvent( <i>event</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the <a href="GUI.html">GUI</a> to handle the given axis event.  It hands the 
+event to each of its child components which have the focus attribute set,
+until one of them returns non zero, at which point it returns non-zero.
+Otherwise, it returns zero.
+<br><br>
+This needs to be called from the personality script, otherwise the <a href="GUI.html">GUI</a> will
+not process axis events.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyAxisEvent.html">PyAxisEvent</a> object.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>non-zero means the event was handled, zero means it wasn't.
+</td></tr>
+</table>
+</p>
+
+<a name="handleAxisEvent"></a><p class="function_definition">
+<span class="function_definition">def handleAxisEvent( <i>event</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever a joystick axis event occurs. 
+<br><br>
+  *	This needs to be called from the personality script, otherwise the <a href="GUI.html">GUI</a> will
+  *	not process axis events.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyAxisEvent.html">PyAxisEvent</a> object.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>This function should return False if the axis event was not handled
+  *	and True if the axis event was handled.
+</td></tr>
+</table>
+</p>
+
+<a name="handleKeyEvent"></a><p class="function_definition">
+<span class="function_definition">def handleKeyEvent( <i>event</i> ):</span>
+</p>
+
+<div class="function_description">This functions gets the <a href="GUI.html">GUI</a> to handle the given key event.  It hands the 
+event to each of its child components which have the focus attribute set,
+until one of them returns non zero, at which point it returns non-zero.
+Otherwise, it returns zero.
+<br><br>
+This needs to be called from the personality script, otherwise the <a href="GUI.html">GUI</a> will
+not process key events.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyKeyEvent.html">PyKeyEvent</a> containing information about this key event.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>non-zero means the event was handled, zero means it wasn't.
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseEvent( <i>event</i> ):</span>
+</p>
+
+<div class="function_description">This function gets the <a href="GUI.html">GUI</a> to handle the given mouse event.  It hands the 
+event to each of its child components which have the focus attribute set,
+until one of them returns non zero, at which point it returns non-zero.
+Otherwise, it returns zero.
+<br><br>
+This needs to be called from the personality script, otherwise the <a href="GUI.html">GUI</a> will
+not process mouse events.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyMouseEvent.html">PyMouseEvent</a> object.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>non-zero means the event was handled, zero means it wasn't.
+</td></tr>
+</table>
+</p>
+
+<a name="load"></a><p class="function_definition">
+<span class="function_definition">def load( <i>section</i> ):</span>
+</p>
+
+<div class="function_description">This module function loads a gui component from a data section. The
+data section can either be specified as a string resourceID (filename),
+or as a PyDataSection.  Normally, the data section would have
+been created previously by calling the save method on the gui
+component.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>section</i></span></td><td><span class="function_parameter_description">&nbsp;either a resourceId or a PyDataSection
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="mcursor"></a><p class="function_definition">
+<span class="function_definition">def mcursor( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns the <a href="MouseCursor.html">MouseCursor</a> object. 
+<br><br>
+Use it, in conjunction with <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#setCursor>setCursor</a> function to activate the
+mouse cursor. The mouse cursor object should be activated whenever is
+desirable to have the user interacting with <a href="GUI.html">GUI</a> components by using the
+mouse. No mouse events will be propagated to the components if the mouse
+cursor is not active. To activate the mouse cursor, use:
+<br><br>
+
+<pre>	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#setCursor>setCursor</a>( <a href="GUI.html">GUI</a>.<a href=GUI.html#mcursor>mcursor</a>() )
+</pre>
+<br><br>
+Also, use it to access and modify all mouse cursor properties, like
+position, visible, shape and active:
+<br><br>
+
+<pre>	mouseStatus = <a href="GUI.html">GUI</a>.<a href=GUI.html#mcursor>mcursor</a>().active
+	mousePosition = <a href="GUI.html">GUI</a>.<a href=GUI.html#mcursor>mcursor</a>().position
+	<a href="GUI.html">GUI</a>.<a href=GUI.html#mcursor>mcursor</a>().visible = True
+	<a href="GUI.html">GUI</a>.<a href=GUI.html#mcursor>mcursor</a>().shape = 'arrow'
+</pre>
+</div>
+
+<a name="printRoots"></a><p class="function_definition">
+<span class="function_definition">def printRoots( <i></i> ):</span>
+</p>
+
+<div class="function_description">Prints the <a href="GUI.html">GUI</a> structure (as info msgs) this is useful for debugging <a href="GUI.html">GUI</a> structures.
+</div>
+
+<a name="reSort"></a><p class="function_definition">
+<span class="function_definition">def reSort( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function resorts the gui components at the root of the <a href="GUI.html">GUI</a> tree.
+This function sorts according to the third (depth) component of the
+children's position attributes.  Changing this depth value in a child
+doesn't automatically reorder the children, so an explicit call to
+this function is required.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only list of <a href="GUI.html">GUI</a> components.
+</td></tr>
+</table>
+</p>
+
+<a name="roots"></a><p class="function_definition">
+<span class="function_definition">def roots( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function returns a list of the current root components.  It is not
+editable.  Instead, use the <a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a> and <a href="GUI.html">GUI</a>.<a href=GUI.html#delRoot>delRoot</a> to add and remove
+components from the list.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only list of <a href="GUI.html">GUI</a> components.
+</td></tr>
+</table>
+</p>
+
+<a name="screenResolution"></a><p class="function_definition">
+<span class="function_definition">def screenResolution( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function simply returns the current (width, height) in pixels of the
+screen. If a resolution override has been set, then this returns the
+override. Use <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#screenSize>screenSize</a> if you need the physical resolution
+regardless of whether the <a href="GUI.html">GUI</a> resolution has been overridden.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A 2-tuple representing the width and height of the screen, in
+pixels.
+</td></tr>
+</table>
+</p>
+
+<a name="setDragDistance"></a><p class="function_definition">
+<span class="function_definition">def setDragDistance( <i>distance</i> ):</span>
+</p>
+
+<div class="function_description">Sets the minimum distance the mouse pointer has to travel after the left
+mouse button has been pressed before the movement is considered a drag.
+<br><br>
+Once the movement is classified as dragging, a click event will no longer
+be generated if the mouse is released over the dragged component.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>distance</i></span></td><td><span class="function_parameter_description">&nbsp;the minimum drag distance (float, in clip space).
+					The default value is 0.002.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setResolutionOverride"></a><p class="function_definition">
+<span class="function_definition">def setResolutionOverride( <i>resolution</i> ):</span>
+</p>
+
+<div class="function_description">This method overrides the resolution that the <a href="GUI.html">GUI</a> system uses for
+calculations. This allows components setup in pixel space to be
+automatically scaled. For example, if the resolution override is set
+to 1024x768, then the <a href="GUI.html">GUI</a> will take up the same area of the screen
+no matter what the actual screen resolution is.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>resolution</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector2.html">Vector2</a> of the new override. If it is a zero vector
+					then the override is disabled.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="update"></a><p class="function_definition">
+<span class="function_definition">def update( <i>dTime</i> ):</span>
+</p>
+
+<div class="function_description">This function causes the <a href="GUI.html">GUI</a> to be updated as if the specified amount of
+time had passed.  This updates all of the components and shaders which
+have been added to the <a href="GUI.html">GUI</a> root.
+<br><br>
+The system automatically updates the gui each tick with dTime on each
+update being the actual time since the last update.  This call would not
+normally need to be used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>dTime</i></span></td><td><span class="function_parameter_description">&nbsp;The amount of time assumed to have passed since the last
+				update.
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

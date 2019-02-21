@@ -1,0 +1,353 @@
+<html>
+<head>
+<title>PyChunkSpotLight - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyChunkSpotLight Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyChunkSpotLight is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+PyObjectPlusWithVD
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#recalc" class="function_list" >recalc</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#bounds" class="attribute_list" >bounds</a></td><td>&nbsp; Read-Write <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#colour" class="attribute_list" >colour</a></td><td>&nbsp; Read-Write <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+<tr valign=top><td><a href="#cosConeAngle" class="attribute_list" >cosConeAngle</a></td><td>&nbsp; Read-Write Float
+</td></tr>
+
+<tr valign=top><td><a href="#diffuse" class="attribute_list" >diffuse</a></td><td>&nbsp; Read-Write Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#direction" class="attribute_list" >direction</a></td><td>&nbsp; Read-Write <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#innerRadius" class="attribute_list" >innerRadius</a></td><td>&nbsp; Read-Write Float
+</td></tr>
+
+<tr valign=top><td><a href="#outerRadius" class="attribute_list" >outerRadius</a></td><td>&nbsp; Read-Write Float
+</td></tr>
+
+<tr valign=top><td><a href="#position" class="attribute_list" >position</a></td><td>&nbsp; Read-Write <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#priority" class="attribute_list" >priority</a></td><td>&nbsp; Read-Write Integer
+</td></tr>
+
+<tr valign=top><td><a href="#shader" class="attribute_list" >shader</a></td><td>&nbsp; Read-Write <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#source" class="attribute_list" >source</a></td><td>&nbsp; Read-Write <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#specular" class="attribute_list" >specular</a></td><td>&nbsp; Read-Write Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#visible" class="attribute_list" >visible</a></td><td>&nbsp; Read-Write boolean
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This is a script controlled spot light which can be used as a diffuse
+and/or specular light source for models and shells. This is not the class
+used for environmental lights or lights which have been placed in the
+editor.
+<br><br>
+The colour, radius, cone size, direction and position properties of the light can be set to
+static values via the colour, innerRadius and outerRadius, cosConeAngle, direction and position
+attributes. Alternatively, They can be set to dynamic values via the
+source, bounds, and shader attributes. These will override the static
+values when specified.  This gives you the ability to dynamically
+alter the light's look, or attach it to moving models in the scene.
+<br><br>
+The strength of a <a href="PyChunkSpotLight.html">PyChunkSpotLight</a> at a point is determined by it's
+innerRadius, outerRadius, and the distance between the point and
+the <a href="PyChunkSpotLight.html">PyChunkSpotLight</a>. If the distance is less than innerRadius, then the light
+is applied at full strength (regardless of outerRadius). The strength of
+the light falls off linearly from full to 0 between innerRadius and
+outerRadius, and is 0 from outerRadius onwards.
+<br><br>
+Code Example:
+
+<pre># This sets up a <a href="PyChunkSpotLight.html">PyChunkSpotLight</a> object which shows some of the things
+# that it can do.
+
+
+# create a light source which is attached to the player's hand
+# NB: the hand node is assumed to be called "HP_right_hand" in this
+# example.  Examine the model in ModelViewer to determine the node name
+# in your model. In the example models this points out from the palm.
+followPlayerHand = <a href="BigWorld.html">BigWorld</a>.<a href="PyChunkSpotLight.html">PyChunkSpotLight</a>()
+followPlayerHand.innerRadius = 1
+followPlayerHand.outerRadius = 10
+followPlayerHand.cosConeAngle = 0.9 # ~25 degrees from center
+followPlayerHand.source = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#player>player</a>().model.node("HP_right_hand")
+followPlayerHand.colour = (255, 255, 255, 0) # white
+followPlayerHand.specular = 1
+followPlayerHand.diffuse = 1
+followPlayerHand.visible = True
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="recalc"></a><p class="function_definition">
+<span class="function_definition">def recalc( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Recalculates the effects of the light. The initial setup of a <a href="PyChunkSpotLight.html">PyChunkSpotLight</a>
+does not require this to be called.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None.
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="bounds"></a><p class="attribute_definition">
+<span class="attribute_definition">bounds</span>
+</p>
+
+<div class="attribute_description">When specified, this overwrites the innerRadius and outerRadius attributes
+with the first and second components of the <a href="Vector4.html">Vector4</a> it provides,
+respectively.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="colour"></a><p class="attribute_definition">
+<span class="attribute_definition">colour</span>
+</p>
+
+<div class="attribute_description">The colour of the light source in RGBA form. This is overwritten with the 
+output of the shader attribute if it has been specified.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<a name="cosConeAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">cosConeAngle</span>
+</p>
+
+<div class="attribute_description">The cos of the cone angle.
+1.0 = zero size cone
+0.0 = 180 degree cone (90 degrees on each side)
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Float
+</td></tr>
+</table>
+</p>
+
+<a name="diffuse"></a><p class="attribute_definition">
+<span class="attribute_definition">diffuse</span>
+</p>
+
+<div class="attribute_description">If true, this provides a light source for diffuse shaders. This defaults
+to true.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="direction"></a><p class="attribute_definition">
+<span class="attribute_definition">direction</span>
+</p>
+
+<div class="attribute_description">The direction of the light source. This is overwritten with the output of the
+source attribute if it has been specified.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="innerRadius"></a><p class="attribute_definition">
+<span class="attribute_definition">innerRadius</span>
+</p>
+
+<div class="attribute_description">The radius around the centre of the light within which the strength of the
+light does not drop off. This is overwritten with the first component of
+the output of the bounds attribute if it has been specified.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Float
+</td></tr>
+</table>
+</p>
+
+<a name="outerRadius"></a><p class="attribute_definition">
+<span class="attribute_definition">outerRadius</span>
+</p>
+
+<div class="attribute_description">If greater than innerRadius, this is the radius around the centre of the
+light at which the strength of the light becomes zero. If this is less than
+or equal to innerRadius, then there is no area around the light in which
+its effect dissipates. This is overwritten with the second component of the
+output of the bounds attribute if it has been specified.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Float
+</td></tr>
+</table>
+</p>
+
+<a name="position"></a><p class="attribute_definition">
+<span class="attribute_definition">position</span>
+</p>
+
+<div class="attribute_description">The centre of the light source. This is overwritten with the output of the
+source attribute if it has been specified.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="priority"></a><p class="attribute_definition">
+<span class="attribute_definition">priority</span>
+</p>
+
+<div class="attribute_description">A priority bias used when sorting lights to determine the most
+relevant set of lights for a particular object. This is useful
+to ensure important lights will always be considered before other
+lights (e.g. a player's torch).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Integer
+</td></tr>
+</table>
+</p>
+
+<a name="shader"></a><p class="attribute_definition">
+<span class="attribute_definition">shader</span>
+</p>
+
+<div class="attribute_description">When specified, this overwrites the colour attribute with the <a href="Vector4.html">Vector4</a> it
+provides.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="source"></a><p class="attribute_definition">
+<span class="attribute_definition">source</span>
+</p>
+
+<div class="attribute_description">When specified, this overwrites the position attribute with it's
+translation.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="specular"></a><p class="attribute_definition">
+<span class="attribute_definition">specular</span>
+</p>
+
+<div class="attribute_description">If true, this provides a light source for specular shaders. This defaults
+to false.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="visible"></a><p class="attribute_definition">
+<span class="attribute_definition">visible</span>
+</p>
+
+<div class="attribute_description">Dictates whether this light illuminates things.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write boolean
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

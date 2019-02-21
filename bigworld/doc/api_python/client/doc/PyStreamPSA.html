@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>PyStreamPSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyStreamPSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyStreamPSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#halfLife" class="attribute_list" >halfLife</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#vector" class="attribute_list" >vector</a></td><td>&nbsp; Sequence of 3 floats.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PyStreamPSA.html">PyStreamPSA</a> is a <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> the converges the velocity of particles
+to the velocity of the stream.
+<br><br>
+Drag can be simulated by setting the velocity to the zero vector.
+<br><br>
+A new <a href="PyStreamPSA.html">PyStreamPSA</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#StreamPSA>StreamPSA</a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="halfLife"></a><p class="attribute_definition">
+<span class="attribute_definition">halfLife</span>
+</p>
+
+<div class="attribute_description">Half-life of convergence for the particles velocity to the stream 
+velocity in seconds. Default is -1.0. Values should be < 0 for no
+effect, and >= 0 to have particles converge. 0 indicates instant
+convergence to the stream velocity.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="vector"></a><p class="attribute_definition">
+<span class="attribute_definition">vector</span>
+</p>
+
+<div class="attribute_description">Vector describing the direction and magnitude of the stream velocity to 
+which particle velocity is to be converged. Default is
+( 0.0, 0.0, 0.0 ).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Sequence of 3 floats.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

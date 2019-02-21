@@ -1,0 +1,401 @@
+.content .pageheader
+{
+	font-size: 2em;
+	margin-bottom: 1em;
+}
+
+.content a, .content a:active, .content a:visited
+{
+	color:#0000FF; 
+}
+
+.content a:hover
+{
+	color: #FF8000;
+}
+
+.content .field, .content .colheader, .content .th
+{
+	font-weight:bold;
+}
+
+.content .code
+{
+	font-family: fixed;
+	font-size: 8pt;
+}
+
+.content .hotkey
+{
+	color: #DD0000;
+}
+
+.content .alert
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.content .thinpre
+{
+	margin: 0;
+	padding: 0;
+}
+
+.content table
+{
+	border-collapse: collapse;
+}
+
+.content table
+{
+	border-top:		2px solid #FF8000;
+	border-right:	2px solid #16A5DD;
+	border-left:	2px solid #16A5DD;
+	border-bottom: 	4px solid #16A5DD;
+}
+
+.content .noborders
+{
+	border: none;
+}
+
+.content td, .content th
+{
+	padding: 5px 5px 2px 2px;
+	border:	1px solid #CCCCCC;
+}
+
+.content .heading, .content .subheading
+{
+	background-image:	url(../images/bg_heading.jpg);
+	background-repeat: 	repeat-y;
+	background-color: 	#5FC8EF;
+	font-weight: 		bold;
+	font-size: 			1.25em;
+	color: 				#FFFFFF;
+	text-align: left;
+}
+
+.content .numeric
+{
+	text-align: right;
+}
+
+.content .subheading 
+{
+	font-size: 1.0em;
+}
+
+.content img
+{
+	border: 0;
+}
+
+#login_intro
+{
+	padding:			1em;
+	margin:				3em auto 0 auto;
+	width:				75%;
+	color:				black;
+	border:				1px solid #94D8E0;
+	font-size:			medium;
+}
+
+#login_intro .heading
+{
+	font-size:				x-large;
+	font-weight:			bold;
+	background-image:		url( /static/images/navmenu_arrow_off.png );
+	background-position:	right;
+	background-repeat:		no-repeat;
+	background-color:		#4682B4;
+	color:					white;
+	margin:					0.25em 0 0.25em 0;
+	padding:				5px 0.5em 2px 0.5em;
+}
+
+#login_intro h2
+{
+	font-size:				large;
+	
+}
+
+#login_intro p
+{
+	margin-left:			2em;
+	margin-right:			2em;
+}
+
+#bad_browser
+{
+	margin-left:		auto;
+	margin-right:		auto;
+	width:				50%;
+	text-align:			center;
+	border: 			1px solid #CC3333;
+	margin-top:			2em;
+	padding:			1em;
+	background-color:	#FFCCCC;
+	color:				red;
+	font-weight:		bold;
+	font-size:			small;
+	display:			none;
+}
+
+
+/* styles below added by Ronnie */
+.main
+{
+	padding: 	10px 0px 0px 0px;
+	height: 	100%;
+}
+
+/* styles for login */
+.login
+{
+	font-size: 		0.8em;
+	color:			#FAA61A;
+	font-weight:	bold;
+}
+
+.login a, .login a:visited, .login a:visited
+{
+	color:	#95DAF4;
+}
+
+.login a:hover
+{
+	color:	#FFFFFF;
+}
+
+.login input.text
+{
+	background-color:	#EAF8FD; 
+}
+
+.login .login-button
+{
+	font-family: 	sans-serif; 
+	font-weight:	bold;
+}
+
+/* styles for watcher listing (cluster control section) */
+.watcher
+{
+	background-color:	#FFFFFF;
+	border-top:			2px solid #FF8000;
+	border-right:		2px solid #16A5DD;
+	border-left:		2px solid #16A5DD;
+	border-bottom: 		6px solid #16A5DD;
+	margin-bottom: 		12px;
+}
+
+h1.watcherheader
+{
+	border-top:		2px solid #FF8000;
+	border-right:	2px solid #16A5DD;
+	border-left:	2px solid #16A5DD;
+	border-bottom: 	4px solid #16A5DD;
+	
+	background-image:	url(../images/bg_heading.jpg);
+	background-repeat: 	repeat-y;
+	background-color: 	#5FC8EF;
+	font-weight: 		bold;
+	font-size: 			1.25em;
+	color: 				#FFFFFF;
+	display:			block;
+	text-align: left;
+}
+
+.watcherrow a, .sortrow a:visited, .sortrow a:active
+{
+	color: #0000FF;
+}
+
+.watcherrow a:hover
+{
+	color:#FF8000;
+}
+
+.watcher .heading a
+{
+	color: #CCCCCC;
+}
+
+.sortable a, .sortable a:visited, .sortable a:active
+{
+	color: #0000FF;
+}
+
+.sortable a:hover
+{
+	color: #FF8000;
+}
+
+.sortrow
+{
+	background-color:#95DAF4;
+	font-size:0.8em;
+}
+
+.sortrow a, .sortrow a:visited, .sortrow a:active
+{
+	color: 	#0000FF;
+}
+
+.sortrow a:hover
+{
+	color: 	#FF8000;
+}
+
+#filterstable td.group 
+{
+	border: 	1px solid #65BFEF;
+}
+
+#filterstable input
+{
+	font-family:  	sans-serif; 
+}
+
+#filterstable button, #filterstable .btn
+{
+	font-family: 	sans-serif; 
+	font-weight: 	bold; 
+}
+
+.logviewer .show
+{
+	float:			right;
+	margin-left:    1em;
+}
+
+.logviewer .field
+{
+	float:			left;
+}
+
+.logviewer .outputpane
+{
+	border: none;
+}
+
+.logviewer .outputpane .heading
+{
+	background: 	none;
+	color: 			black;
+	font-weight: 	bold;
+	font-size: 	1.25em;
+}
+
+.logviewer .outputpane .status
+{
+	text-align:		right;
+	color: 			#555;
+}
+
+.logviewer td, .logviewer th
+{
+	border: 	none;
+}
+
+.logviewer iframe
+{
+	border: 	1px solid #CCCCCC;
+}
+
+.logviewer .spinner
+{
+	margin-left: 	5px;
+}
+
+.logviewer .stop
+{
+	margin-left: 	5px;
+}
+
+.pyscript .heading
+{
+	background: 	none;
+	color: 			black;
+	font-weight: 	bold;
+	font-size: 	1em;
+}
+
+
+.filter_title_left
+{
+	float: 	left;
+	clear: 	none;
+}
+
+.filter_title_right
+{
+	float: 	right;
+	clear: 	none;
+}
+
+.content .innertable
+{
+	border: 		none;
+	margin-right: 	0.5em;
+	margin-left: 	0.5em;
+	margin-bottom: 	0.5em;
+}
+
+.content .innertable tr
+{
+	border-top: 	1px solid #65BFEF;
+}
+
+.content .innertable tr.first
+{	
+	border-top: 	none;
+}
+
+.content .innertable td, .content .innertable th
+{
+	border:		none;
+}
+
+.content .innertable2
+{
+	border:			none;
+	margin-right: 	1em;
+}
+
+.content .innertable2 tr, .content .innertable2 td
+{
+	border: 	0;
+	padding: 	6px;
+}
+
+.content .innertable2 td, .content .innertable2 th
+{
+	border-left: 	1px solid #65BFEF;
+	
+}
+
+.content .innertable2 td.first
+{
+	border-left: 	none;
+}
+
+#read_only
+{
+	color:			DarkGrey;
+}
+
+/* color codes:
+#EAF8FD - Lightest Blue
+#D0EFFB - Very Light Blue
+#95DAF4 - Next Light Blue
+#16A5DD - Light Blue
+#1284C0 - Middle Blue
+#104D8C - Dark Blue
+#0060F3 - Blue Text Link
+#0F5286 - Top bar Blue
+#FAA61A - Orange
+#FF8000 - Dark Orange
+*/

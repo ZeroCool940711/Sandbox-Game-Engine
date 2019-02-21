@@ -1,0 +1,315 @@
+<html>
+<head>
+<title>PyIME - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyIME Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyIME is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#candidates" class="attribute_list" >candidates</a></td><td>&nbsp; Read-Only list of Unicode strings
+</td></tr>
+
+<tr valign=top><td><a href="#candidatesVertical" class="attribute_list" >candidatesVertical</a></td><td>&nbsp; Read-Only boolean
+</td></tr>
+
+<tr valign=top><td><a href="#candidatesVisible" class="attribute_list" >candidatesVisible</a></td><td>&nbsp; Read-Only boolean
+</td></tr>
+
+<tr valign=top><td><a href="#composition" class="attribute_list" >composition</a></td><td>&nbsp; Read-Only Unicode string
+</td></tr>
+
+<tr valign=top><td><a href="#compositionAttr" class="attribute_list" >compositionAttr</a></td><td>&nbsp; Read-Only Array of integers
+</td></tr>
+
+<tr valign=top><td><a href="#compositionCursorPosition" class="attribute_list" >compositionCursorPosition</a></td><td>&nbsp; Read-Only int
+</td></tr>
+
+<tr valign=top><td><a href="#currentlyVisible" class="attribute_list" >currentlyVisible</a></td><td>&nbsp; Read-Only boolean
+</td></tr>
+
+<tr valign=top><td><a href="#enabled" class="attribute_list" >enabled</a></td><td>&nbsp; Read-Write boolean
+</td></tr>
+
+<tr valign=top><td><a href="#language" class="attribute_list" >language</a></td><td>&nbsp; Read-Only string
+</td></tr>
+
+<tr valign=top><td><a href="#reading" class="attribute_list" >reading</a></td><td>&nbsp; Read-Only Unicode string
+</td></tr>
+
+<tr valign=top><td><a href="#readingVertical" class="attribute_list" >readingVertical</a></td><td>&nbsp; Read-Only boolean
+</td></tr>
+
+<tr valign=top><td><a href="#readingVisible" class="attribute_list" >readingVisible</a></td><td>&nbsp; Read-Only boolean
+</td></tr>
+
+<tr valign=top><td><a href="#selectedCandidate" class="attribute_list" >selectedCandidate</a></td><td>&nbsp; Read-Only int
+</td></tr>
+
+<tr valign=top><td><a href="#state" class="attribute_list" >state</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+Provides access to the current IME state for the client process. This cannot
+be directly instanciated and is accessed via the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#ime>ime</a> singleton object.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="candidates"></a><p class="attribute_definition">
+<span class="attribute_definition">candidates</span>
+</p>
+
+<div class="attribute_description">Contains a list of possible candidates based on the keystrokes
+entered by the user.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only list of Unicode strings
+</td></tr>
+</table>
+</p>
+
+<a name="candidatesVertical"></a><p class="attribute_definition">
+<span class="attribute_definition">candidatesVertical</span>
+</p>
+
+<div class="attribute_description">Determines whether ot not the candidate list is horizontal or vertical for
+the current language.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only boolean
+</td></tr>
+</table>
+</p>
+
+<a name="candidatesVisible"></a><p class="attribute_definition">
+<span class="attribute_definition">candidatesVisible</span>
+</p>
+
+<div class="attribute_description">Determines whether or not the candidate list should be displayed to the user.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only boolean
+</td></tr>
+</table>
+</p>
+
+<a name="composition"></a><p class="attribute_definition">
+<span class="attribute_definition">composition</span>
+</p>
+
+<div class="attribute_description">Contains the unicode string representing the current composition
+entered by the user.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Unicode string
+</td></tr>
+</table>
+</p>
+
+<a name="compositionAttr"></a><p class="attribute_definition">
+<span class="attribute_definition">compositionAttr</span>
+</p>
+
+<div class="attribute_description">Of the same length as the composition string, this specifies the
+current conversion attributes for each character in the string.
+<br><br>
+Possible values are:
+<br><br>
+
+<pre>ATTR_INPUT					= 0
+ATTR_TARGET_CONVERTED		= 1
+ATTR_CONVERTED				= 2
+ATTR_TARGET_NOTCONVERTED	= 3
+ATTR_INPUT_ERROR			= 4
+ATTR_FIXEDCONVERTED			= 5
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Array of integers
+</td></tr>
+</table>
+</p>
+
+<a name="compositionCursorPosition"></a><p class="attribute_definition">
+<span class="attribute_definition">compositionCursorPosition</span>
+</p>
+
+<div class="attribute_description">Index into the composition string representing where the input cursor 
+is currently located.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only int
+</td></tr>
+</table>
+</p>
+
+<a name="currentlyVisible"></a><p class="attribute_definition">
+<span class="attribute_definition">currentlyVisible</span>
+</p>
+
+<div class="attribute_description">If this is true, then there are IME components with which the user are currently
+interacting (e.g. composition string and/or candidate list).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only boolean
+</td></tr>
+</table>
+</p>
+
+<a name="enabled"></a><p class="attribute_definition">
+<span class="attribute_definition">enabled</span>
+</p>
+
+<div class="attribute_description">Controls whether or not IME is enabled for the client. For example, you would
+set this to True when an IME enabled edit control comes into focus and then
+set it to False when it loses focus.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write boolean
+</td></tr>
+</table>
+</p>
+
+<a name="language"></a><p class="attribute_definition">
+<span class="attribute_definition">language</span>
+</p>
+
+<div class="attribute_description">Reflects the current language selected by the user. Supported languages 
+are are:
+<br><br>
+
+<pre>"NON_IME"	- A language that does not require an IME.
+"CHS"		- Chinese (Simplified)
+"CHT"		- Chinese (Traditional)
+"JAPANESE"	- Japanese
+"KOREAN"	- Korean
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only string
+</td></tr>
+</table>
+</p>
+
+<a name="reading"></a><p class="attribute_definition">
+<span class="attribute_definition">reading</span>
+</p>
+
+<div class="attribute_description">Contains the unicode string representing the current reading string
+entered by the user.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Unicode string
+</td></tr>
+</table>
+</p>
+
+<a name="readingVertical"></a><p class="attribute_definition">
+<span class="attribute_definition">readingVertical</span>
+</p>
+
+<div class="attribute_description">Determines whether ot not the reading string is horizontal or vertical for
+the current language.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only boolean
+</td></tr>
+</table>
+</p>
+
+<a name="readingVisible"></a><p class="attribute_definition">
+<span class="attribute_definition">readingVisible</span>
+</p>
+
+<div class="attribute_description">Determines whether or not the reading string should be displayed to the user.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only boolean
+</td></tr>
+</table>
+</p>
+
+<a name="selectedCandidate"></a><p class="attribute_definition">
+<span class="attribute_definition">selectedCandidate</span>
+</p>
+
+<div class="attribute_description">Index into the candidate selection list of the currently highlighted candidate.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only int
+</td></tr>
+</table>
+</p>
+
+<a name="state"></a><p class="attribute_definition">
+<span class="attribute_definition">state</span>
+</p>
+
+<div class="attribute_description">Reflects the current state of the IME. Possible values are:
+<br><br>
+
+<pre>"OFF"		- The IME is turned off.
+"ON"		- The IME is active.
+"ENGLISH"	- The IME is active, but is in alpha numeric mode.
+</pre>
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

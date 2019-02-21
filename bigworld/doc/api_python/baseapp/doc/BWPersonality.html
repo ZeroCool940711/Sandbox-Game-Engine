@@ -1,0 +1,315 @@
+<html>
+<head>
+<title>BWPersonality - BigWorld base Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BWPersonality Module Reference</h1>
+The name of this module is actually specified by the personality option in
+the configuration file. This module should be implemented by the user.
+It should contain callback methods that will be called by the server at
+specific events.
+<br><br>
+It is also possible to register for these events using
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addEventListener>addEventListener</a>. For example,
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addEventListener>addEventListener</a>( "onInit", myFunc ).
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#onAppReady" class="function_list" >onAppReady</a>( isBootstrap, didAutoLoad ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onAppShutDown" class="function_list" >onAppShutDown</a>( stage ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onAppShuttingDown" class="function_list" >onAppShuttingDown</a>( shutdownTime ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onBaseAppData" class="function_list" >onBaseAppData</a>( key, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onBaseAppReady" class="function_list" >onBaseAppReady</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onBaseAppShutDown" class="function_list" >onBaseAppShutDown</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onBaseAppShuttingDown" class="function_list" >onBaseAppShuttingDown</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onCellAppDeath" class="function_list" >onCellAppDeath</a>( addr ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onDelBaseAppData" class="function_list" >onDelBaseAppData</a>( key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onDelGlobalData" class="function_list" >onDelGlobalData</a>( key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onFini" class="function_list" >onFini</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onGlobalData" class="function_list" >onGlobalData</a>( key, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onInit" class="function_list" >onInit</a>( isReload ):</span>
+</td></tr>
+
+</table>
+
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="onAppReady"></a><p class="function_definition">
+<span class="function_definition">def onAppReady( <i>isBootstrap, didAutoLoad</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when the BaseApp (or ServiceApp) is ready.
+The isBootstrap parameter indicates whether this BaseApp is the first
+BaseApp (called the bootstrap BaseApp).
+<br><br>
+This method is also called with a parameter indicating whether the database
+has automatically loaded any entities from the database. This is useful in
+the case where singleton entities need to be created from script if they
+did not already exist in the database.
+<br><br>
+Note that entity auto-load from database is only supported when the MySQL
+database is used.
+<br><br>
+See Also: <a href="Base.html">Base</a>.<a href=Base.html#writeToDB>writeToDB</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>isBootstrap</i></span></td><td><span class="function_parameter_description">&nbsp;True if this BaseApp is the bootstrap BaseApp, False
+					otherwise.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>didAutoLoad</i></span></td><td><span class="function_parameter_description">&nbsp;True if entities were automatically loaded by the
+					database, False otherwise.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onAppShutDown"></a><p class="function_definition">
+<span class="function_definition">def onAppShutDown( <i>stage</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when a controlled shutdown has been
+scheduled.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>stage</i></span></td><td><span class="function_parameter_description">&nbsp;stage is the stage of shutdown that the server is in. These are
+as follows:
+	0 - Before disconnecting clients
+	1 - Before writing entities to the database
+	2 - After writing entities to the database
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onAppShuttingDown"></a><p class="function_definition">
+<span class="function_definition">def onAppShuttingDown( <i>shutdownTime</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when a controlled shutdown has been
+scheduled.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>shutdownTime</i></span></td><td><span class="function_parameter_description">&nbsp;shutdownTime is the game time that the server is
+scheduled to shut down at.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onBaseAppData"></a><p class="function_definition">
+<span class="function_definition">def onBaseAppData( <i>key, value</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever a shared BaseApp data value is
+set. This may be when a value is initially set or when it is modified.
+<br><br>
+See Also: <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#baseAppData>baseAppData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onDelBaseAppData>onDelBaseAppData</a>,
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onGlobalData>onGlobalData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onDelGlobalData>onDelGlobalData</a>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;The key associated with the value.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The new value.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onBaseAppReady"></a><p class="function_definition">
+<span class="function_definition">def onBaseAppReady( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onBaseAppShutDown"></a><p class="function_definition">
+<span class="function_definition">def onBaseAppShutDown( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onBaseAppShuttingDown"></a><p class="function_definition">
+<span class="function_definition">def onBaseAppShuttingDown( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onCellAppDeath"></a><p class="function_definition">
+<span class="function_definition">def onCellAppDeath( <i>addr</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called when a CellApp death has been
+detected.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>addr</i></span></td><td><span class="function_parameter_description">&nbsp;addr is the address of CellApp that has died.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onDelBaseAppData"></a><p class="function_definition">
+<span class="function_definition">def onDelBaseAppData( <i>key</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever a shared BaseApp data value is
+deleted.
+<br><br>
+See Also: <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#baseAppData>baseAppData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onBaseAppData>onBaseAppData</a>,
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onGlobalData>onGlobalData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onDelGlobalData>onDelGlobalData</a>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;The key of the value deleted.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onDelGlobalData"></a><p class="function_definition">
+<span class="function_definition">def onDelGlobalData( <i>key</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever a shared Global data value is
+deleted.
+<br><br>
+See Also: <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onGlobalData>onGlobalData</a>,
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#baseAppData>baseAppData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onBaseAppData>onBaseAppData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onDelBaseAppData>onDelBaseAppData</a>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;The key of the value deleted.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onFini"></a><p class="function_definition">
+<span class="function_definition">def onFini( <i></i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever the Python script system is
+about to be completely shut down. This function is called after all stages
+of onBaseAppShutDown have executed.
+</div>
+
+<a name="onGlobalData"></a><p class="function_definition">
+<span class="function_definition">def onGlobalData( <i>key, value</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever a shared Global data value is
+set. This may be when a value is initially set or when it is modified.
+<br><br>
+See Also: <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onDelGlobalData>onDelGlobalData</a>,
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#baseAppData>baseAppData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onBaseAppData>onBaseAppData</a>, <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onDelBaseAppData>onDelBaseAppData</a>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;The key associated with the value.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The new value.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onInit"></a><p class="function_definition">
+<span class="function_definition">def onInit( <i>isReload</i> ):</span>
+</p>
+
+<div class="function_description">If present, this method is called whenever the Python scripts have completed
+loading.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>isReload</i></span></td><td><span class="function_parameter_description">&nbsp;True if the loading was caused by a call to
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#reloadScript>reloadScript</a>, otherwise, False
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

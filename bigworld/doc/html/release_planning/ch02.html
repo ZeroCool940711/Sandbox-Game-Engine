@@ -1,0 +1,368 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;2.&nbsp;Release Planning Checklist</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Release Planning">
+      <link rel="up" href="index.html" title="Release Planning">
+      <link rel="prev" href="ch01.html" title="Chapter&nbsp;1.&nbsp;Overview">
+      <link rel="next" href="ch03.html" title="Chapter&nbsp;3.&nbsp;Developing a Robust Server">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/release_planning/ch02.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;2.&nbsp;Release Planning Checklist</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch01.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch03.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;2.&nbsp;Release Planning Checklist">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Beta_Checklist"></a>Chapter&nbsp;2.&nbsp;Release Planning Checklist
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch02.html#xref_Client_Checklist">2.1. Client Checklist</a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#xref_Server_Checklist">2.2. Server Checklist</a></span></dt>
+                  <dt><span class="section"><a href="ch02.html#xref_Sysadmin_Checklist">2.3. System Administrator Checklist</a></span></dt>
+               </dl>
+            </div>
+            <p>This chapter aims to outline key issues that BigWorld has identified
+               from experience with many customers as being important for consideration
+                 prior to your game's launch. Ideally this list would be constantly reviewed
+                 during the development process to keep focused on reducing the impact of
+                 last minute potentially critical issues.
+            </p>
+            <div class="section" title="2.1.&nbsp;Client Checklist">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Client_Checklist"></a>2.1.&nbsp;Client Checklist
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>Ensure that the LoginApp private key
+                                   (<code class="filename">bigworld/res/server/loginapp.privkey</code>) is not
+                                   distributed in your game client packages.
+                        </p>
+                        <p>See the <a href="../server_programming_guide/index.html" class="olink">Server Programming Guide</a>'s chapter
+                                   <a href="../server_programming_guide/ch29.html" class="olink"><i>Encrypting Client-Server Traffic</i></a> section <a href="../server_programming_guide/ch29.html#xref_Generating_RSA_Keypair" class="olink">Generating your own RSA keypair</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Distributed resources have been packed with
+                                   <code class="filename">res_packer</code>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Ensure that <code class="filename">.py</code> files are
+                                   not in release package, only distribute <code class="filename">.pyc</code>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Pre-compile shaders for supported video cards if desired.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Python console should be disabled.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>CAT access is disabled.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Cheat modes have been disabled.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Packaged binary is a Consumer Release executable build.</p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="section" title="2.2.&nbsp;Server Checklist">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Server_Checklist"></a>2.2.&nbsp;Server Checklist
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>Bot tests have been run.</p>
+                        <p>See <a class="xref" href="ch03.html#xref_BotTests" title="3.2.&nbsp;Testing with Bots">Testing with Bots</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>All unnecessary development script log messages have been
+                                   removed.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>MessageLogger log profiling has been done to ensure log sizes
+                                   don't grow beyond the capacity of the server tools storage.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Generate a custom LoginApp public keypair.</p>
+                        <p>See the <a href="../server_programming_guide/index.html" class="olink">Server Programming Guide</a>'s chapter
+                                   <a href="../server_programming_guide/ch29.html" class="olink"><i>Encrypting Client-Server Traffic</i></a> section <a href="../server_programming_guide/ch29.html#xref_Generating_RSA_Keypair" class="olink">Generating your own RSA keypair</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Profile entity sizes and estimate bandwidth usage.</p>
+                        <p>See <a class="xref" href="ch03.html#xref_ProfilingEntities" title="3.1.5.2.&nbsp;Profiling Entity Sizes and Bandwidth Usage">Profiling Entity Sizes and Bandwidth Usage</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Test deployment hardware for packet loss and memory
+                                   usage.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>All modified BigWorld server settings are located in
+                                   <code class="filename"><em class="replaceable"><code>your_game</code></em>/res/server/bw.xml</code>
+                                   to enable better isolation of changes between your game settings and
+                                   BigWorld default settings.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Default BigWorld server settings have been changed from
+                                   development defaults to production defaults.
+                        </p>
+                        <p>See the <code class="property">&lt;parentFile&gt;</code> setting in the
+                                   file
+                                   <code class="filename"><em class="replaceable"><code>your_game</code></em>/res/server/bw.xml</code>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><code class="property">&lt;hasDevelopmentAssertions&gt;</code> set to
+                                   <span class="literal">false</span>.
+                        </p>
+                        <p>See the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s section
+                                   <a href="../server_operations_guide/ch02.html#xref_General_Configuration_Options" class="olink">General Configuration Options</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><code class="property">&lt;dbMgr/type&gt;</code> set to
+                                   <span class="literal">mysql</span>.
+                        </p>
+                        <p>See the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s section
+                                   <a href="../server_operations_guide/ch02.html#xref_DBMgr_Configuration_Options" class="olink">DBMgr Configuration Options</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Customised values based on development load testing and
+                                   extrapolated resource usage for desired production environment for the
+                                   options, <code class="property">&lt;cellAppMgr/cellAppLoadLowerBound&gt;</code>
+                                   and
+                                   <code class="property">&lt;cellAppMgr/cellAppLoadUpperBound&gt;</code>.
+                        </p>
+                        <p>See the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s section
+                                   <a href="../server_operations_guide/ch02.html#xref_CellAppMgr_Configuration_Options" class="olink">CellAppMgr Configuration Options</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Customised
+                                   <code class="property">&lt;balance/maxCPUOffload&gt;</code>.
+                        </p>
+                        <p>See the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s section
+                                   <a href="../server_operations_guide/ch02.html#xref_Load_Balancing_Configuration_Options" class="olink">Load Balancing Configuration Options</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Revivers are being used.</p>
+                        <p>See the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a> section
+                                   <a href="../server_operations_guide/ch04.html#xref_Fault_Tolerance_With_Reviver" class="olink">Fault Tolerance with Reviver</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Smoothing server load during startup.</p>
+                        <p>See <a class="xref" href="ch04.html#xref_SmoothingStartupLoad" title="4.3.2.&nbsp;Smoothing load during startup">Smoothing load during startup</a>.
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="section" title="2.3.&nbsp;System Administrator Checklist">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Sysadmin_Checklist"></a>2.3.&nbsp;System Administrator Checklist
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p><code class="filename">bwmachined</code> versions are consistent within
+                                   the cluster.
+                        </p>
+                        <p>See <a class="xref" href="ch04.html#xref_BwmachinedConsistent" title="4.3.5.&nbsp;BWMachined Version Consistency">BWMachined Version Consistency</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Game update procedures are in place.</p>
+                        <p>See <a class="xref" href="ch05.html#xref_DistributingGameResources" title="5.2.&nbsp;Distributing Game Resources">Distributing Game Resources</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Computer hardware is sufficient.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Network hardware and capacity is sufficient.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Network interfaces have appropriate buffer sizes.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>MySQL database correctly configured.</p>
+                        <p>See the <a href="../server_installation_guide/index.html" class="olink">Server Installation Guide</a>'s chapter
+                                   <a href="../server_installation_guide/ch02.html" class="olink"><i>Simple Installation</i></a>, section <a href="../server_installation_guide/ch02.html#xref_Installing_Configuring_And_Starting_MySQL" class="olink">Installing, Configuring and Starting MySQL</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Firewalls have been correctly configured.</p>
+                        <p>See the <a href="../server_installation_guide/index.html" class="olink">Server Installation Guide</a>'s chapter
+                                   <a href="../server_installation_guide/ch04.html" class="olink"><i>Cluster Configuration</i></a>, section <a href="../server_installation_guide/ch04.html#xref_Cluster_Configuration_Security" class="olink">Security</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Only publicly facing machines can run LoginApps and
+                                   BaseApps.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Log rotation is in place for all server machines.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>BigWorld server tools are operational.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Cluster access has been locked down to authorised people
+                                   only.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>An appropriate BigWorld server layout is in place for starting
+                                   cluster.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>DNS round-robin in place for LoginApp load balancing.</p>
+                        <p>See the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s chapter
+                                   <a href="../server_operations_guide/ch09.html" class="olink"><i>BigWorld Server Across Multiple Machines</i></a>, section
+                                   <a href="../server_operations_guide/ch09.html#xref_LoginApp_And_Scalability" class="olink">LoginApp and Scalability</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Unnecessary services disabled on servers.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Servers are running in runlevel 3.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Disabled unnecessary cron jobs.</p>
+                        <p>See the <a href="../server_installation_guide/index.html" class="olink">Server Installation Guide</a>'s chapter
+                                   <a href="../server_installation_guide/ch04.html" class="olink"><i>Cluster Configuration</i></a>, section <a href="../server_installation_guide/ch04.html#xref_Disabling_Cron_Jobs" class="olink">Disabling <span class="command"><strong>cron</strong></span> jobs</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Revivers are being used.</p>
+                        <p>See the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s chapter
+                                   <a href="../server_operations_guide/ch04.html" class="olink"><i>Fault Tolerance</i></a>, section <a href="../server_operations_guide/ch04.html#xref_Fault_Tolerance_With_Reviver" class="olink">Fault Tolerance with Reviver</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Server tools have a dedicated machine.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Machines running BaseApp and LoginApp processes should have at
+                                   least 2 network interfaces.
+                        </p>
+                        <p>This will ensure that the internal network and the external
+                                   network traffic is kept isolated and will help reduce overall network
+                                   congestion.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Ensure there is a procedure in place to allow access to / send
+                                   core dumps and server binaries to BigWorld for debugging.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Ensure there is a procedure in place to provide BigWorld support
+                                   access to the cluster for debugging.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Ensure there is a procedure for accessing logs and sending them
+                                   to BigWorld for debugging.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>BigWorld server binaries being used are up-to-date and
+                                   completely patched.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>MySQL machine has adequate hard disk capacity.</p>
+                        <p>Following standard best practice to ensure that the database
+                                   data directory <span class="literal">datadir</span> as specified in the MySQL
+                                   configuration file (by default <code class="filename">/etc/my.cnf</code>)
+                                   exists on a separate drive / partition to the primary operating system
+                                   installation will allow the ability to scale the size of the MySQL
+                                   database as required using LVM / RAID or other appropriate
+                                   solution.
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch01.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch03.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;1.&nbsp;Overview&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;3.&nbsp;Developing a Robust Server</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>PySplodge - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PySplodge Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PySplodge is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyAttachment.html">PyAttachment</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#maxLod" class="attribute_list" >maxLod</a></td><td>&nbsp; Read-Write float.
+</td></tr>
+
+<tr valign=top><td><a href="#size" class="attribute_list" >size</a></td><td>&nbsp; Read-Write <a href="Vector3.html">Vector3</a>.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="PyAttachment.html">PyAttachment</a> which draws a "splodge" shadow on the ground
+below the point where it is attached. The shape of this shadow
+moves in relation to the position of the sun, and is only visible
+outside. The actual shadow is drawn using the material specified
+in resource.xml/environment/splodgeMaterial
+<br><br>
+A new <a href="PySplodge.html">PySplodge</a> is created using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Splodge>Splodge</a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="maxLod"></a><p class="attribute_definition">
+<span class="attribute_definition">maxLod</span>
+</p>
+
+<div class="attribute_description">The maximum distance from a camera at which this will be drawn.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float.
+</td></tr>
+</table>
+</p>
+
+<a name="size"></a><p class="attribute_definition">
+<span class="attribute_definition">size</span>
+</p>
+
+<div class="attribute_description">The x and y components of this describe the height and width of the object
+casting the splodge's shadow. This is used to calculate the size and shape
+of the splodge as it is drawn on the ground. The z component has no effect.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="Vector3.html">Vector3</a>.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

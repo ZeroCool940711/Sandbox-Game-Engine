@@ -1,0 +1,3 @@
+bigworld/tools/server/install/bwmachined2,%{_sbindir}/bwmachined2,550
+bigworld/tools/server/install/bwmachined2.sh,%{_initrddir}/bwmachined2,755
+bigworld/tools/server/rpm/bwmachined/bwmachined.conf,%{_sysconfdir}/bwmachined.conf,744

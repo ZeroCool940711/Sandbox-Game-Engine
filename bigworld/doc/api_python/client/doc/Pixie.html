@@ -1,0 +1,752 @@
+<html>
+<head>
+<title>Pixie - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Pixie Module Reference</h1>
+<a href="Pixie.html">Pixie</a> provides an interface to the <a href="BigWorld.html">BigWorld</a> client's particle
+systems. It exposes factory functions that provide instances
+of the client's base particle system and instances of modifier classes that
+affect the manner in which the particle system evolves over time.
+<br><br>
+The modifiers that affect the ParticleSystem are all derived from
+the ParticleSystemAction abstract base class.
+
+<h2><a href="#" onClick="obj=document.getElementById( 'classes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Class List</a></h2>
+<table id="classes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="class_list"><a href="PyAmpParticleRenderer.html" class="class_list" >PyAmpParticleRenderer</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyBarrierPSA.html" class="class_list" >PyBarrierPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyBlurParticleRenderer.html" class="class_list" >PyBlurParticleRenderer</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyCollidePSA.html" class="class_list" >PyCollidePSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyFlarePSA.html" class="class_list" >PyFlarePSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyForcePSA.html" class="class_list" >PyForcePSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyJitterPSA.html" class="class_list" >PyJitterPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyMagnetPSA.html" class="class_list" >PyMagnetPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyMatrixSwarmPSA.html" class="class_list" >PyMatrixSwarmPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyMeshParticleRenderer.html" class="class_list" >PyMeshParticleRenderer</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyMetaParticleSystem.html" class="class_list" >PyMetaParticleSystem</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyNodeClampPSA.html" class="class_list" >PyNodeClampPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyOrbitorPSA.html" class="class_list" >PyOrbitorPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyParticleSystem.html" class="class_list" >PyParticleSystem</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyParticleSystemAction.html" class="class_list" >PyParticleSystemAction</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyParticleSystemRenderer.html" class="class_list" >PyParticleSystemRenderer</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyPointSpriteParticleRenderer.html" class="class_list" >PyPointSpriteParticleRenderer</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyScalerPSA.html" class="class_list" >PyScalerPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PySinkPSA.html" class="class_list" >PySinkPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PySourcePSA.html" class="class_list" >PySourcePSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PySplatPSA.html" class="class_list" >PySplatPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PySpriteParticleRenderer.html" class="class_list" >PySpriteParticleRenderer</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyStreamPSA.html" class="class_list" >PyStreamPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyTintShaderPSA.html" class="class_list" >PyTintShaderPSA</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyTrailParticleRenderer.html" class="class_list" >PyTrailParticleRenderer</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="PyVisualParticleRenderer.html" class="class_list" >PyVisualParticleRenderer</a></span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#AmpParticleRenderer" class="function_list" >AmpParticleRenderer</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#BarrierPSA" class="function_list" >BarrierPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#BlurParticleRenderer" class="function_list" >BlurParticleRenderer</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#CollidePSA" class="function_list" >CollidePSA</a>( elasticity ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#FlarePSA" class="function_list" >FlarePSA</a>( filename ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#ForcePSA" class="function_list" >ForcePSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#JitterPSA" class="function_list" >JitterPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#MagnetPSA" class="function_list" >MagnetPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#MatrixSwarmPSA" class="function_list" >MatrixSwarmPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#MeshParticleRenderer" class="function_list" >MeshParticleRenderer</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#MetaParticleSystem" class="function_list" >MetaParticleSystem</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#NodeClampPSA" class="function_list" >NodeClampPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#OrbitorPSA" class="function_list" >OrbitorPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#ParticleSystem" class="function_list" >ParticleSystem</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#PointSpriteRenderer" class="function_list" >PointSpriteRenderer</a>( spritename ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#ScalerPSA" class="function_list" >ScalerPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#SinkPSA" class="function_list" >SinkPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#SourcePSA" class="function_list" >SourcePSA</a>( position_source, velocity_source ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#SplatPSA" class="function_list" >SplatPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#SpriteRenderer" class="function_list" >SpriteRenderer</a>( spritename ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#StreamPSA" class="function_list" >StreamPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#TintShaderPSA" class="function_list" >TintShaderPSA</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#TrailParticleRenderer" class="function_list" >TrailParticleRenderer</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#VisualParticleRenderer" class="function_list" >VisualParticleRenderer</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#create" class="function_list" >create</a>( name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBG" class="function_list" >createBG</a>( name, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#prerequisites" class="function_list" >prerequisites</a>( pSection ):</span>
+</td></tr>
+
+</table>
+
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="AmpParticleRenderer"></a><p class="function_definition">
+<span class="function_definition">def AmpParticleRenderer( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyAmpParticleRenderer.html">PyAmpParticleRenderer</a> object. An
+AmpParticleRenderer is a ParticleRenderer that renders segmented lines from
+the particle position back to the origin of the particle system.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyAmpParticleRenderer.html">PyAmpParticleRenderer</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="BarrierPSA"></a><p class="function_definition">
+<span class="function_definition">def BarrierPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyBarrierPSA.html">PyBarrierPSA</a> object. BarrierPSA is
+a ParticleSystemAction that acts as an invisible barrier to particles.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyBarrierPSA.html">PyBarrierPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="BlurParticleRenderer"></a><p class="function_definition">
+<span class="function_definition">def BlurParticleRenderer( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates and returns a new <a href="PyBlurParticleRenderer.html">PyBlurParticleRenderer</a> object.
+</div>
+
+<a name="CollidePSA"></a><p class="function_definition">
+<span class="function_definition">def CollidePSA( <i>elasticity</i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyCollidePSA.html">PyCollidePSA</a> object. CollidePSA is
+a ParticleSystemAction that collides particles with the collision scene.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>elasticity</i></span></td><td><span class="function_parameter_description">&nbsp;Elasticity of the collisions.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyCollidePSA.html">PyCollidePSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="FlarePSA"></a><p class="function_definition">
+<span class="function_definition">def FlarePSA( <i>filename</i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyFlarePSA.html">PyFlarePSA</a> object. FlarePSA is a
+ParticleSystemAction that draws a lens flare at the location of the oldest
+particle.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>filename</i></span></td><td><span class="function_parameter_description">&nbsp;Name of the flare resource to use.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyFlarePSA.html">PyFlarePSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="ForcePSA"></a><p class="function_definition">
+<span class="function_definition">def ForcePSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyForcePSA.html">PyForcePSA</a> object. ForcePSA is a
+ParticleSystemAction that applies a constant acceleration to particles in a
+particular direction.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyForcePSA.html">PyForcePSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="JitterPSA"></a><p class="function_definition">
+<span class="function_definition">def JitterPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyJitterPSA.html">PyJitterPSA</a> object. JitterPSA is a
+ParticleSystemAction that adds random motion to the particles.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyJitterPSA.html">PyJitterPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="MagnetPSA"></a><p class="function_definition">
+<span class="function_definition">def MagnetPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyMagnetPSA.html">PyMagnetPSA</a> object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyMagnetPSA.html">PyMagnetPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="MatrixSwarmPSA"></a><p class="function_definition">
+<span class="function_definition">def MatrixSwarmPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyMatrixSwarmPSA.html">PyMatrixSwarmPSA</a> object.
+MatrixSwarmPSA takes a list of target matrix providers, and
+for each particle, assigns the position of one of the targets to it.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyMatrixSwarmPSA.html">PyMatrixSwarmPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="MeshParticleRenderer"></a><p class="function_definition">
+<span class="function_definition">def MeshParticleRenderer( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyMeshParticleRenderer.html">PyMeshParticleRenderer</a> object. A
+MeshParticleRenderer is a ParticleSystemRenderer which renders each particle
+as mesh object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyMeshParticleRenderer.html">PyMeshParticleRenderer</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="MetaParticleSystem"></a><p class="function_definition">
+<span class="function_definition">def MetaParticleSystem( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a <a href="PyMetaParticleSystem.html">PyMetaParticleSystem</a> object.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyMetaParticleSystem.html">PyMetaParticleSystem</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="NodeClampPSA"></a><p class="function_definition">
+<span class="function_definition">def NodeClampPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyNodeClampPSA.html">PyNodeClampPSA</a> object.
+NodeClampPSA is a ParticleSystemAction that locks a particle to a Node.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyNodeClampPSA.html">PyNodeClampPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="OrbitorPSA"></a><p class="function_definition">
+<span class="function_definition">def OrbitorPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyOrbitorPSA.html">PyOrbitorPSA</a> object. OrbitorPSA is
+a ParticleSystemAction that causes particles to orbit around a point.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyOrbitorPSA.html">PyOrbitorPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="ParticleSystem"></a><p class="function_definition">
+<span class="function_definition">def ParticleSystem( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a <a href="PyParticleSystem.html">PyParticleSystem</a> object. The
+<a href="PyParticleSystem.html">PyParticleSystem</a> class provides a base particle system to manage
+particles.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new ParticleSystem object.
+</td></tr>
+</table>
+</p>
+
+<a name="PointSpriteRenderer"></a><p class="function_definition">
+<span class="function_definition">def PointSpriteRenderer( <i>spritename</i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyPointSpriteParticleRenderer.html">PyPointSpriteParticleRenderer</a> object. A
+PointSpriteParticleRenderer is a ParticleSystemRenderer which renders each
+particle as a point sprite.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spritename</i></span></td><td><span class="function_parameter_description">&nbsp;Name of sprite to use for particles.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyPointSpriteParticleRenderer.html">PyPointSpriteParticleRenderer</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="ScalerPSA"></a><p class="function_definition">
+<span class="function_definition">def ScalerPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyScalerPSA.html">PyScalerPSA</a> object. ScalarPSA is a
+ParticleSystemAction that scales particle size over time.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyScalerPSA.html">PyScalerPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="SinkPSA"></a><p class="function_definition">
+<span class="function_definition">def SinkPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PySinkPSA.html">PySinkPSA</a> object. SinkPSA is a
+ParticleSystemAction that destroys particles within a ParticleSystem.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PySinkPSA.html">PySinkPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="SourcePSA"></a><p class="function_definition">
+<span class="function_definition">def SourcePSA( <i>position_source, velocity_source</i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PySourcePSA.html">PySourcePSA</a> object. SourcePSA is a
+ParticleSystemAction that creates particles within a ParticleSystem.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>position_source</i></span></td><td><span class="function_parameter_description">&nbsp;<a href="VectorGenerator.html">VectorGenerator</a> as a position source for the particles.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>velocity_source</i></span></td><td><span class="function_parameter_description">&nbsp;<a href="VectorGenerator.html">VectorGenerator</a> as a velocity source for the particles.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PySourcePSA.html">PySourcePSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="SplatPSA"></a><p class="function_definition">
+<span class="function_definition">def SplatPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PySplatPSA.html">PySplatPSA</a> object. SplatPSA is a
+ParticleSystemAction that splats particles onto the collision scene.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PySplatPSA.html">PySplatPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="SpriteRenderer"></a><p class="function_definition">
+<span class="function_definition">def SpriteRenderer( <i>spritename</i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PySpriteParticleRenderer.html">PySpriteParticleRenderer</a> object. A
+SpriteParticleRenderer is a ParticleSystemRenderer which renders each
+particle as a facing polygon.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>spritename</i></span></td><td><span class="function_parameter_description">&nbsp;Name of sprite to use for particles.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PySpriteParticleRenderer.html">PySpriteParticleRenderer</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="StreamPSA"></a><p class="function_definition">
+<span class="function_definition">def StreamPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyStreamPSA.html">PyStreamPSA</a> object. StreamPSA is a
+ParticleSystemAction the converges particles to the velocity of the stream.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyStreamPSA.html">PyStreamPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="TintShaderPSA"></a><p class="function_definition">
+<span class="function_definition">def TintShaderPSA( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyTintShaderPSA.html">PyTintShaderPSA</a> object.
+TintShaderPSA is a ParticleSystemAction that alters a particles tint
+according to its age.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyTintShaderPSA.html">PyTintShaderPSA</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="TrailParticleRenderer"></a><p class="function_definition">
+<span class="function_definition">def TrailParticleRenderer( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function creates and returns a new <a href="PyTrailParticleRenderer.html">PyTrailParticleRenderer</a> object.
+</div>
+
+<a name="VisualParticleRenderer"></a><p class="function_definition">
+<span class="function_definition">def VisualParticleRenderer( <i></i> ):</span>
+</p>
+
+<div class="function_description">Factory function to create and return a new <a href="PyVisualParticleRenderer.html">PyVisualParticleRenderer</a> object. A
+VisualParticleRenderer is a ParticleSystemRenderer which renders each particle
+as a visual.
+Note that it is quicker to use MeshParticle objects exported specifically for
+use with the MeshParticleRenderer, as they can be drawn 15-at-a-time; however
+the MeshParticle objects have more limited material functionality.  The
+VisualParticleRenderer can render any material.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A new <a href="PyVisualParticleRenderer.html">PyVisualParticleRenderer</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="create"></a><p class="function_definition">
+<span class="function_definition">def create( <i>name</i> ):</span>
+</p>
+
+<div class="function_description">This function creates either a <a href="PyParticleSystem.html">PyParticleSystem</a> or <a href="PyMetaParticleSystem.html">PyMetaParticleSystem</a> by
+loading an definition for the particle system from an XML file.
+<br><br>
+If the XML file defines a ParticleSystem then the returned object is a
+<a href="PyParticleSystem.html">PyParticleSystem</a>, and if it defines a MetaParticleSystem then the returned
+object is a <a href="PyMetaParticleSystem.html">PyMetaParticleSystem</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;Name of the XML file to load.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="createBG"></a><p class="function_definition">
+<span class="function_definition">def createBG( <i>name, callback</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a MetaParticleSystem in the background thread
+by loading an definition for the particle system from an XML file.
+<br><br>
+Unlike the create function, it always return a MetaParticleSystem. If
+the XML file defines a ParticleSystem, this will be returned as the only
+system in the new MetaParticleSystem create.
+<br><br>
+The callable object provided as the second argument will be called
+after the particle system has been created. This call will always
+occur in the same thread as the original call (the main thread).
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;Name of the XML file to load.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;Callable object to be invoked when the new system is ready.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="prerequisites"></a><p class="function_definition">
+<span class="function_definition">def prerequisites( <i>pSection</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a tuple of all the resources required to load
+a MetaParticleSystem.
+<br><br>
+The XML passed in should be either a ParticleSystem or a Meta-
+ParticleSystem.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pSection</i></span></td><td><span class="function_parameter_description">&nbsp;Data Section of the particle system.
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

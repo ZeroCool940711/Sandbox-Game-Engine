@@ -1,0 +1,262 @@
+<html>
+<head>
+<title>BaseCamera - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BaseCamera Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>BaseCamera is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#handleAxisEvent" class="function_list" >handleAxisEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleKeyEvent" class="function_list" >handleKeyEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseEvent" class="function_list" >handleMouseEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#render" class="function_list" >render</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#set" class="function_list" >set</a>( self, matrix ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#direction" class="attribute_list" >direction</a></td><td>&nbsp; Read-Only <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#invViewMatrix" class="attribute_list" >invViewMatrix</a></td><td>&nbsp; Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#matrix" class="attribute_list" >matrix</a></td><td>&nbsp; Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#position" class="attribute_list" >position</a></td><td>&nbsp; Read-Only <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#spaceID" class="attribute_list" >spaceID</a></td><td>&nbsp; SpaceID (int)
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is the abstract base class for all cameras.  It supplies basic
+functionality for setting a camera to a particular matrix, for updating and
+rendering the camera, and for reading the camera's position and direction.
+<br><br>
+There are three subclasses, <a href="CursorCamera.html">CursorCamera</a>, <a href="FlexiCam.html">FlexiCam</a> and <a href="FreeCamera.html">FreeCamera</a>.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="handleAxisEvent"></a><p class="function_definition">
+<span class="function_definition">def handleAxisEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This function allows the camera to handle the given joystick axis event. If
+the camera handles the event it returns True, otherwise it returns False.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyAxisEvent.html">PyAxisEvent</a> representing the event.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it was not.
+</td></tr>
+</table>
+</p>
+
+<a name="handleKeyEvent"></a><p class="function_definition">
+<span class="function_definition">def handleKeyEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This function allows the camera to handle the given key event. If
+the camera handles the event it returns True, otherwise it returns False.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyKeyEvent.html">PyKeyEvent</a> representing the event.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it was not.
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This function allows the camera to handle the given mouse movement event. If
+the camera handles the event it returns True, otherwise it returns False.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyMouseEvent.html">PyMouseEvent</a> representing the event.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it was not.
+</td></tr>
+</table>
+</p>
+
+<a name="render"></a><p class="function_definition">
+<span class="function_definition">def render( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function has no effect
+</div>
+
+<a name="set"></a><p class="function_definition">
+<span class="function_definition">def set( <i>self, matrix</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the transformation matrix for the camera to
+the specified <a href="MatrixProvider.html">MatrixProvider</a>.  It doesn't actually use the specified
+<a href="MatrixProvider.html">MatrixProvider</a> directly but copies it.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>matrix</i></span></td><td><span class="function_parameter_description">&nbsp;The <a href="MatrixProvider.html">MatrixProvider</a> which the camera is being moved to.
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="direction"></a><p class="attribute_definition">
+<span class="attribute_definition">direction</span>
+</p>
+
+<div class="attribute_description">The current facing of the camera within the world
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="invViewMatrix"></a><p class="attribute_definition">
+<span class="attribute_definition">invViewMatrix</span>
+</p>
+
+<div class="attribute_description">The <a href="MatrixProvider.html">MatrixProvider</a> which specifies the current inverse transform of the camera 
+within the world ( i.e. the camera's transform as a world object )
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="matrix"></a><p class="attribute_definition">
+<span class="attribute_definition">matrix</span>
+</p>
+
+<div class="attribute_description">The <a href="MatrixProvider.html">MatrixProvider</a> which specifies the current transform of the camera 
+within the world
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="position"></a><p class="attribute_definition">
+<span class="attribute_definition">position</span>
+</p>
+
+<div class="attribute_description">The current location of the camera within the world
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="spaceID"></a><p class="attribute_definition">
+<span class="attribute_definition">spaceID</span>
+</p>
+
+<div class="attribute_description">This is the ID of the space in which the camera resides. If zero the
+camera derives its space from that of the player. Default is zero.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>SpaceID (int)
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

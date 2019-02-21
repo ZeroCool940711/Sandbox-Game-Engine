@@ -1,0 +1,8 @@
+<root>
+	<nodelessVisual>	system/models/storm_overhead	</nodelessVisual>
+	<materialNames>	</materialNames>
+	<visibilityBox>
+		<min>	-50.000000 5.000000 -50.000000	</min>
+		<max>	50.000000 5.000000 50.000000	</max>
+	</visibilityBox>
+</root>

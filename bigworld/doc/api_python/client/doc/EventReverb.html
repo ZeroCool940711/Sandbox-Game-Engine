@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>EventReverb - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>EventReverb Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="FMOD.html" class="module_h1">FMOD Module</a>]</span></p><p>EventReverb is part of the <a href="FMOD.html">FMOD</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import FMOD</pre>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#active" class="attribute_list" >active</a></td><td>&nbsp; Read-write boolean
+</td></tr>
+
+<tr valign=top><td><a href="#maxDistance" class="attribute_list" >maxDistance</a></td><td>&nbsp; Read-write float
+</td></tr>
+
+<tr valign=top><td><a href="#maxDistance" class="attribute_list" >maxDistance</a></td><td>&nbsp; Read-write float
+</td></tr>
+
+<tr valign=top><td><a href="#position" class="attribute_list" >position</a></td><td>&nbsp; Read-write <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#source" class="attribute_list" >source</a></td><td>&nbsp; Read-write <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="EventReverb.html">EventReverb</a> provides access to <a href="FMOD.html">FMOD</a> Event Reverbs.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="active"></a><p class="attribute_definition">
+<span class="attribute_definition">active</span>
+</p>
+
+<div class="attribute_description">Activates/deactivates this reverb effect within the 3D world.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-write boolean
+</td></tr>
+</table>
+</p>
+
+<a name="maxDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">maxDistance</span>
+</p>
+
+<div class="attribute_description">The minimum distance the listener has to be to this reverb
+object before the reverb effect is applied at full volume.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-write float
+</td></tr>
+</table>
+</p>
+
+<a name="maxDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">maxDistance</span>
+</p>
+
+<div class="attribute_description">The maximum distance at which the reverb affects the listener. The
+reverb effect is not audible outside this radius.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-write float
+</td></tr>
+</table>
+</p>
+
+<a name="position"></a><p class="attribute_definition">
+<span class="attribute_definition">position</span>
+</p>
+
+<div class="attribute_description">The centre position of the reverb. This is overwritten with the 
+output of the source attribute if it has been specified.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-write <a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="source"></a><p class="attribute_definition">
+<span class="attribute_definition">source</span>
+</p>
+
+<div class="attribute_description">The matrix provider which will be used to determine the location
+of the reverb within the world. This overwrites the position
+attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-write <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

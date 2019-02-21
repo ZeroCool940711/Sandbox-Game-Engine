@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>PySTLSequence - BigWorld bots Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PySTLSequence Class Reference</h1>
+<p><b>PySTLSequence</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#length" class="attribute_list" >length</a></td><td>&nbsp; Integer
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is used to expose STL sequences from the engine to Python.
+It behaves in exactly the same way as a standard Python sequence,
+except that it has a length property.
+In particular, if v, x, y and z are sequences, either standard Python
+or <a href="PySTLSequence.html">PySTLSequence</a> and i and j are integers and n is a number,
+then the following operations are valid:
+<br><br>
+
+<pre>len(x)
+x + y
+x * n
+x[i]
+x[i:j]
+x[i] = v
+x[i:j] = v
+v in x
+x += y
+x *= n
+</pre>
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="length"></a><p class="attribute_definition">
+<span class="attribute_definition">length</span>
+</p>
+
+<div class="attribute_description">This attribute returns the number of elements in the sequence
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

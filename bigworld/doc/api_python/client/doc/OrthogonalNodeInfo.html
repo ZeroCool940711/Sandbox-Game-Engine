@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>OrthogonalNodeInfo - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>OrthogonalNodeInfo Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>OrthogonalNodeInfo is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="BaseNodeInfo.html">BaseNodeInfo</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#pitchAxis" class="attribute_list" >pitchAxis</a></td><td>&nbsp; int
+</td></tr>
+
+<tr valign=top><td><a href="#yawAxis" class="attribute_list" >yawAxis</a></td><td>&nbsp; int
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This is a subclass of <a href="BaseNodeInfo.html">BaseNodeInfo</a>. An Instance of this class describes
+a system by which <a href="PyModelNode.html">PyModelNode</a> instances can be affected by a <a href="Tracker.html">Tracker</a>.
+Such an instance can be used by a <a href="Tracker.html">Tracker</a> to apply pitch changes to one
+model node, and yaw changes to another. This can be used very effectively
+with models which represent machinery that turns on swivel joints. The
+values which control this behaviour are all provided to the factory method
+used to create this (<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#OrthogonalNodeInfo><a href="OrthogonalNodeInfo.html">OrthogonalNodeInfo</a></a>).  Once created, only the
+pitch and yaw axis can be accessed and/or changed.
+<br><br>
+Refer to the <a href="Tracker.html">Tracker</a> class documentation for an overview of the tracker
+system and related code samples.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="pitchAxis"></a><p class="attribute_definition">
+<span class="attribute_definition">pitchAxis</span>
+</p>
+
+<div class="attribute_description">Describes which axis to rotate along to change pitch.  This value was
+provided upon creation (see <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#OrthogonalNodeInfo><a href="OrthogonalNodeInfo.html">OrthogonalNodeInfo</a></a>()).  Values
+of 1, 2 and 3 represent the x, y and z axis repectively.  Negative
+values cause the desired axis to be inverted.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>int
+</td></tr>
+</table>
+</p>
+
+<a name="yawAxis"></a><p class="attribute_definition">
+<span class="attribute_definition">yawAxis</span>
+</p>
+
+<div class="attribute_description">Describes which axis to rotate along to change yaw.  This value was
+provided upon creation (see <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#OrthogonalNodeInfo><a href="OrthogonalNodeInfo.html">OrthogonalNodeInfo</a></a>()).  Values
+of 1, 2 and 3 represent the x, y and z axis repectively.  Negative
+values cause the desired axis to be inverted.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>int
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

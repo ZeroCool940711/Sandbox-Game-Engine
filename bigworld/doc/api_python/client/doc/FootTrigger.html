@@ -1,0 +1,152 @@
+<html>
+<head>
+<title>FootTrigger - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>FootTrigger Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>FootTrigger is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyAttachment.html">PyAttachment</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#dustSource" class="attribute_list" >dustSource</a></td><td>&nbsp; SourcePSA
+</td></tr>
+
+<tr valign=top><td><a href="#footstepCallback" class="attribute_list" >footstepCallback</a></td><td>&nbsp; Callable Object
+</td></tr>
+
+<tr valign=top><td><a href="#maxLod" class="attribute_list" >maxLod</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#odd" class="attribute_list" >odd</a></td><td>&nbsp; Integer
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="FootTrigger.html">FootTrigger</a> is a <a href="PyAttachment.html">PyAttachment</a> which can be attached to nodes in a model
+to test for them hitting the ground.  It is capable of both creating
+particles from a SourcePSA which it stores, and also calling a function on
+each footstep.
+<br><br>
+The <a href="FootTrigger.html">FootTrigger</a> works by tracking the height of the node it is attached
+to, relative to a rest position. Whenever this height gets bellow a given
+threshold, the trigger does a coarse collision test for a potential
+footstep. The test is performed againt any object in the collision scene
+which the trigger approaches from above. This includes terrain, shells and
+static models. It doesn't include entities, however. If the collision test
+yields true, a footstep is flagged. The threshold level can be set using
+the field &lt;environment/footprintThreshold&gt; in resources.xml.
+<br><br>
+In normal biped usage, two would be used, one attached to the right foot node,
+one to the left.  More than two can be used, however, the odd attribute is
+treated as boolean, so processing of leg specific effects is limited to
+right and left.
+<br><br>
+FootTriggers are created by the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#FootTrigger><a href="FootTrigger.html">FootTrigger</a></a>() function.
+<br><br>
+Example:
+
+<pre>leftTrigger  = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#FootTrigger><a href="FootTrigger.html">FootTrigger</a></a>( 1 )
+rightTrigger = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#FootTrigger><a href="FootTrigger.html">FootTrigger</a></a>( 0 )
+# dustSourcePSA is the particle system action to create the dust
+leftTrigger.dustSource =  dustSourcePSA
+rightTrigger.dustSource = dustSourcePSA
+# model is the model we want to add FootTriggers to
+lfoot = model.node( "biped R Foot" )
+rfoot = model.node( "biped L Foot" )
+lfoot.attach( leftTrigger )
+rfoot.attach( rightTrigger )
+</pre>
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="dustSource"></a><p class="attribute_definition">
+<span class="attribute_definition">dustSource</span>
+</p>
+
+<div class="attribute_description">The dustSource attribute is a SourcePSA (The particle system action
+responsible for creating particles), that will have its SourcePSA.force
+method called when the foot strikes the ground.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>SourcePSA
+</td></tr>
+</table>
+</p>
+
+<a name="footstepCallback"></a><p class="attribute_definition">
+<span class="attribute_definition">footstepCallback</span>
+</p>
+
+<div class="attribute_description">A callback function object, which is called when the foot strikes the
+ground.  The function is supplied with two arguments, the first is the
+velocity that the model is moving at, the second is a flag which is 0
+if it is a right foot, 1 if it is a left foot.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Callable Object
+</td></tr>
+</table>
+</p>
+
+<a name="maxLod"></a><p class="attribute_definition">
+<span class="attribute_definition">maxLod</span>
+</p>
+
+<div class="attribute_description">If the <a href="FootTrigger.html">FootTrigger</a> is greater than maxLod away from the camera, it will
+not be processed or drawn.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="odd"></a><p class="attribute_definition">
+<span class="attribute_definition">odd</span>
+</p>
+
+<div class="attribute_description">This attribute is used to distinguish between different FootTriggers.
+It is passed to the callback function as an argument.
+<br><br>
+Footstep triggers were designed for bipedal use, and it was envisaged
+that 0, means that this is a right foot, anything else means a
+left foot.  However, it would be possible to interpret it differently.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

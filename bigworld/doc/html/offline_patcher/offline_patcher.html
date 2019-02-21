@@ -1,0 +1,743 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Offline Patching</title><link rel="stylesheet" type="text/css" href="../css/bigworld.css"><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/offline_patcher/offline_patcher.html $" alt="bw logo"></div><div id="content"><div class="book" title="Offline Patching"><div class="titlepage"><div><div><h1 class="title"><a name="Offline_Updating"></a>Offline Patching</h1></div><div><p class="releaseinfo">BigWorld Technology 2.1. Released 2012.</p></div><div><p class="copyright">Copyright &copy; 1999-2012 BigWorld Pty Ltd. All rights reserved. </p></div><div><div class="legalnotice" title="Legal Notice"><a name="d0e17"></a><p>This document is proprietary commercial in confidence and access
+  is restricted to authorised users. This document is protected by
+  copyright laws of Australia, other countries and international treaties.
+  Unauthorised use, reproduction or distribution of this document, or any
+  portion of this document, may result in the imposition of civil and
+  criminal penalties as provided by law.</p></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="chapter"><a href="#d0e20">1. Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e23">1.1. Overview</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e58">1.1.1. Preparing release patch archives</a></span></dt><dt><span class="section"><a href="#d0e158">1.1.2. Client-side patching process</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e231">1.2. Requirements</a></span></dt><dt><span class="section"><a href="#d0e254">1.3. Layout of the offline patcher tools and libraries</a></span></dt></dl></dd><dt><span class="chapter"><a href="#d0e303">2. Operation</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_MakePatch">2.1. MakePatch</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e326">2.1.1. Command-line usage</a></span></dt><dt><span class="section"><a href="#d0e472">2.1.2. Patch archives</a></span></dt><dt><span class="section"><a href="#d0e519">2.1.3. Multi-source support</a></span></dt><dt><span class="section"><a href="#d0e530">2.1.4. Example usage</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_ApplyPatch">2.2. ApplyPatch</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e608">2.2.1. Command line usage</a></span></dt><dt><span class="section"><a href="#d0e694">2.2.2. Example usage</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_CheckVersion">2.3. CheckVersion</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e766">2.3.1. Command line usage</a></span></dt><dt><span class="section"><a href="#xref_Versions_File">2.3.2. Versions file</a></span></dt><dt><span class="section"><a href="#d0e863">2.3.3. State file</a></span></dt><dt><span class="section"><a href="#d0e894">2.3.4. Deployment notes</a></span></dt><dt><span class="section"><a href="#d0e913">2.3.5. Patch transport schemes</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#d0e948">3. Application Programmers Interface</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_The_patcherlib_Package">3.1. The <span class="literal">patcherlib</span> package</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e964">3.1.1. The <span class="literal">patch_file_builder</span> module</a></span></dt><dt><span class="section"><a href="#xref_patch_apply_Module">3.1.2. The <span class="literal">patch_apply</span> module</a></span></dt><dt><span class="section"><a href="#d0e1269">3.1.3. The <span class="literal">bsdiff</span> module</a></span></dt><dt><span class="section"><a href="#d0e1463">3.1.4. Other modules</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_The_versionslib_Package">3.2. The <span class="literal">versionslib</span> package</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_The_Versions_Module">3.2.1. The <span class="literal">versions</span> module</a></span></dt><dt><span class="section"><a href="#xref_The_State_Module">3.2.2. The <span class="literal">state</span> module</a></span></dt><dt><span class="section"><a href="#xref_The_transfer_Module">3.2.3. The <span class="literal">transfer</span> module</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#d0e2119">4. Offline Patcher Terminology</a></span></dt><dt><span class="appendix"><a href="#d0e2145">A. Acknowledgements</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_bsdiff_Binary_diff_path_Utility">A.1. <span class="literal">bsdiff</span> - Binary diff/patch utility</a></span></dt></dl></dd></dl></div><div class="chapter" title="Chapter&nbsp;1.&nbsp;Introduction"><div class="titlepage"><div><div><h2 class="title"><a name="d0e20"></a>Chapter&nbsp;1.&nbsp;Introduction</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d0e23">1.1. Overview</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e58">1.1.1. Preparing release patch archives</a></span></dt><dt><span class="section"><a href="#d0e158">1.1.2. Client-side patching process</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e231">1.2. Requirements</a></span></dt><dt><span class="section"><a href="#d0e254">1.3. Layout of the offline patcher tools and libraries</a></span></dt></dl></div><div class="section" title="1.1.&nbsp;Overview"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e23"></a>1.1.&nbsp;Overview</h2></div></div></div><p>This document describes the offline patching library, which allows
+    for difference-generation and patching of resources and game binaries in a
+    systematic manner.</p><p>In development, much of the game resources exist as text XML files,
+    for example, <span class="literal">.chunk</span> files. These are generally packed
+    into a binary format for shipping at release time. Thus, at release time,
+    the game resources consist of directory hierarchies of mostly binary
+    resources and executables, and this tree of resources can be further
+    packed into a single (or multiple) ZIP archive and used directly by the
+    BigWorld game engine. Packing binary resources is done via the ResPacker
+    tool<sup>[<a name="d0e33" href="#ftn.d0e33" class="footnote">1</a>]</sup>.</p><p>After the game has been shipped, game logic may be modified to fix
+    bugs or tune behaviour, or new content may be added in the form of new
+    space geometries, new entity types, character models, and so on.
+    Distributing these to end-users involves sending them only the changes, in
+    the form of the new files and patches to existing files that have been
+    modified. These changes are bundled into patch archives, and can be
+    targeted against specific resource archives or directory trees
+    alike.</p><p>The offline patcher tools are located in
+    <span class="literal">bigworld/tools/misc/offline_patcher</span>.</p><div class="section" title="1.1.1.&nbsp;Preparing release patch archives"><div class="titlepage"><div><div><h3 class="title"><a name="d0e58"></a>1.1.1.&nbsp;Preparing release patch archives</h3></div></div></div><p>For each released version, patch archives against previously
+      released versions need to be created. For example, if you have released
+      version <em class="emphasis">A</em>, <em class="emphasis">B</em> and
+      <em class="emphasis">C</em>, and have a new version to release (say,
+      <em class="emphasis">D</em>), then for each of <em class="emphasis">A</em>,
+      <em class="emphasis">B</em> and <em class="emphasis">C</em>, an upgrade path will
+      need to be available for end users with those versions
+      (<em class="emphasis">e.g.</em>, <em class="emphasis">A <span class="symbol">&#8594;</span> D</em>, <em class="emphasis">B
+      <span class="symbol">&#8594;</span> D</em>, <em class="emphasis">C <span class="symbol">&#8594;</span> D</em>).</p><p>The <span class="literal">MakePatch</span> tool creates a patch archive
+      between two directory trees or two ZIP file archives<sup>[<a name="d0e110" href="#ftn.d0e110" class="footnote">2</a>]</sup>.</p><p>A patch archive file may contain many such sets of changes between
+      two directory trees. Diagrammatically, a patch archive file consists of
+      the following structure:</p><div class="informalfigure"><div class="mediaobject"><img src="images/patch_archive_file_layout.png"><span class="caption"><p>Patch archive file layout</p></span></div></div><p>The above diagram illustrates a patch file intended for patching
+      against the BigWorld demonstration package FantasyDemo. Firstly, the
+      BigWorld resources in the intended target path
+      <span class="literal">bigworld/res</span> have been upgraded from the 1.8.1
+      release to the 1.9.0 release. Secondly, the game-specific resources,
+      present in intended target path <span class="literal">fantasydemo/res</span>, are
+      also being patched, with their versions incremented to 1.3.0 from 1.2.0.
+      Finally, the game client itself is being upgraded, going to version
+      1.2.0 from 1.1.0 for the intended target path
+      <span class="literal">fantasydemo/game</span>.</p><p>This example demonstrates that different parts of the end-user's
+      distribution can be targeted for patching. The above intended targets
+      (<em class="emphasis">i.e.</em>, <span class="literal">bigworld/res</span>,
+      <span class="literal">fantasydemo/res</span>, <span class="literal">fantasydemo/game</span>)
+      are not defined anywhere in the end-user's distribution, and are defined
+      in the version file that is downloaded by the patching client.</p><p>As another example, small script changes can be sent to end-users
+      where there are only a few changes scattered around the client scripts
+      in <span class="literal">fantasydemo/res/scripts/client</span>. Thus, this path
+      could be a target path being patched against contained in a patch
+      archive file, and the changeset can be added to a patch file by running
+      MakePatch against the old and new versions of the contents of
+      <span class="literal">fantasydemo/res/scripts/client</span>.</p></div><div class="section" title="1.1.2.&nbsp;Client-side patching process"><div class="titlepage"><div><div><h3 class="title"><a name="d0e158"></a>1.1.2.&nbsp;Client-side patching process</h3></div></div></div><p>The Python-based patching libraries are designed to be used by a
+      game launcher application to check for updates against a
+      <em class="emphasis">versions file</em> from a HTTP server, which specifies
+      how to update to the current version. As part of the offline patcher
+      feature, there is a minimal update client implemented as part of the
+      CheckVersion tool<sup>[<a name="d0e166" href="#ftn.d0e166" class="footnote">3</a>]</sup>.</p><div class="section" title="1.1.2.1.&nbsp;Targets and the state file"><div class="titlepage"><div><div><h4 class="title"><a name="d0e172"></a>1.1.2.1.&nbsp;Targets and the state file</h4></div></div></div><p>A <em class="emphasis">target</em> is either a directory tree or a
+        resource ZIP archive, and is version-controlled locally on the
+        end-user's distribution via a <em class="emphasis">state file</em>. This
+        file contains a list of defined targets (identified by a name string),
+        and for each of these targets, the version of that target that is
+        currently installed. For example, a target may be the game resource
+        ZIP archive (<em class="emphasis">e.g.</em>, <span class="literal">/res.zip</span>),
+        or it may be a directory tree (<em class="emphasis">e.g.</em>,
+        <span class="literal">./game</span>).</p></div><div class="section" title="1.1.2.2.&nbsp;Versions file and upgrade paths"><div class="titlepage"><div><div><h4 class="title"><a name="d0e195"></a>1.1.2.2.&nbsp;Versions file and upgrade paths</h4></div></div></div><p>The versions file contains <em class="emphasis">upgrade paths</em> to
+        the current release version for all previous release versions. Each
+        upgrade path specifies a set of <em class="emphasis">targets</em> and patch
+        retrieval information for those targets. Versions are identified by
+        version strings<sup>[<a name="d0e206" href="#ftn.d0e206" class="footnote">4</a>]</sup>.</p></div><div class="section" title="1.1.2.3.&nbsp;Patching"><div class="titlepage"><div><div><h4 class="title"><a name="d0e212"></a>1.1.2.3.&nbsp;Patching</h4></div></div></div><p>The patching process follows this flowchart:</p><div class="informalfigure"><div class="mediaobject"><img src="images/process_for_starting_a_game.png"><span class="caption"><p>Process for starting a game, possibly updating
+            before launch</p></span></div></div><p>Typically, when the user launches the game, they actually launch
+        the update client, which checks whether it has the current version
+        from the versions file. The game is launched from within the update
+        client only if the current version matches the current version on the
+        server's versions file.</p><p>Note that there are potentially many patch files as part of an
+        upgrade path targeting multiple paths. This allows you to divide up
+        your resources into those that change often, to those that change
+        infrequently (<em class="emphasis">e.g.</em>, the BigWorld resources would
+        change infrequently, whereas space geometry data and script would
+        change more frequently), and have independent versioning for each
+        target.</p></div></div></div><div class="section" title="1.2.&nbsp;Requirements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e231"></a>1.2.&nbsp;Requirements</h2></div></div></div><p>The offline patcher has been tested against Python version 2.5. It
+    also makes use of a Python extension module called
+    <span class="literal">bsdiff</span>, which is located in
+    <span class="literal">bigworld/tools/misc/offline_patcher/patcherlib</span>. It is
+    supplied in the form of a <span class="literal">_bsdiff.so</span> for use under
+    Linux, and <span class="literal">_bsdiff.pyd</span> for use under Windows. Please
+    note that you can recompile against another version of Python<sup>[<a name="d0e248" href="#ftn.d0e248" class="footnote">5</a>]</sup>.</p></div><div class="section" title="1.3.&nbsp;Layout of the offline patcher tools and libraries"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e254"></a>1.3.&nbsp;Layout of the offline patcher tools and libraries</h2></div></div></div><p>The layout of the tools and library in the BigWorld distribution at
+    <span class="literal">bigworld/tools/misc/offline_patcher</span> is described
+    below:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal">make_patch.py</span></p><p>Top-level script that implements the MakePatch tool - it creates
+        a patch file archive between two directory trees. For details on
+        MakePatch, see <a class="xref" href="#xref_MakePatch" title="2.1.&nbsp;MakePatch">MakePatch</a>.</p></li><li class="listitem"><p><span class="literal">apply_patch.py</span></p><p>Top-level script that implements the ApplyPatch tool - it
+        applies a patch file to either a directory hierarchy or to the
+        contents of a ZIP file archive. For details on ApplyPatch, see <a class="xref" href="#xref_ApplyPatch" title="2.2.&nbsp;ApplyPatch">ApplyPatch</a>.</p></li><li class="listitem"><p><span class="literal">check_version.py</span></p><p>Top-level script that implements the CheckVersion tool - it
+        checks for an upgrade path on a remote server, then downloads and
+        applies patch files against target paths defined in the upgrade path.
+        For details on CheckVersion, see <a class="xref" href="#xref_CheckVersion" title="2.3.&nbsp;CheckVersion">CheckVersion</a>.</p></li><li class="listitem"><p><span class="literal">patcherlib</span></p><p>Python module directory containing modules with functionality
+        useful for creating and applying patch files. For details on this
+        library, see <a class="xref" href="#xref_The_patcherlib_Package" title="3.1.&nbsp;The patcherlib package">The <span class="literal">patcherlib</span> package</a>.</p></li><li class="listitem"><p><span class="literal">versionslib</span></p><p>Python module directory containing modules with functionality
+        useful for checking versions and applying an upgrade path. For details
+        on this library, see <a class="xref" href="#xref_The_versionslib_Package" title="3.2.&nbsp;The versionslib package">The <span class="literal">versionslib</span> package</a>.</p></li></ul></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a id="ftn.d0e33" href="#d0e33" class="para">1</a>] </sup>For details on ResPacker, see the <a href="../client_programming_guide/client_programming_guide.html#Client_Programming_Guide" class="olink">Client Programming Guide</a>'s section <a href="../client_programming_guide/client_programming_guide.html#xref_Releasing_The_Game" class="olink"><i>Releasing The Game</i></a> <span class="symbol">&#8594;</span> <a href="../client_programming_guide/client_programming_guide.html#xref_Prepare_The_Assets" class="olink">Prepare the assets</a> <span class="symbol">&#8594;</span> <a href="../client_programming_guide/client_programming_guide.html#xref_Run_res_packer" class="olink"><span class="literal">res_packer</span></a>.</p></div><div class="footnote"><p><sup>[<a id="ftn.d0e110" href="#d0e110" class="para">2</a>] </sup>For details, see <a class="xref" href="#xref_MakePatch" title="2.1.&nbsp;MakePatch">MakePatch</a>.</p></div><div class="footnote"><p><sup>[<a id="ftn.d0e166" href="#d0e166" class="para">3</a>] </sup>For details, see <a class="xref" href="#xref_CheckVersion" title="2.3.&nbsp;CheckVersion">CheckVersion</a>.</p></div><div class="footnote"><p><sup>[<a id="ftn.d0e206" href="#d0e206" class="para">4</a>] </sup>For details, see <a class="xref" href="#xref_Versions_File" title="2.3.2.&nbsp;Versions file">Versions file</a>.</p></div><div class="footnote"><p><sup>[<a id="ftn.d0e248" href="#d0e248" class="para">5</a>] </sup>For details, see <a class="xref" href="#xref_Compiling_The_bsdiff_Extension_Module" title="3.1.3.1.&nbsp;Compiling the bsdiff extension module">Compiling the <span class="literal">bsdiff</span> extension
+        module</a>.</p></div></div></div><div class="chapter" title="Chapter&nbsp;2.&nbsp;Operation"><div class="titlepage"><div><div><h2 class="title"><a name="d0e303"></a>Chapter&nbsp;2.&nbsp;Operation</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#xref_MakePatch">2.1. MakePatch</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e326">2.1.1. Command-line usage</a></span></dt><dt><span class="section"><a href="#d0e472">2.1.2. Patch archives</a></span></dt><dt><span class="section"><a href="#d0e519">2.1.3. Multi-source support</a></span></dt><dt><span class="section"><a href="#d0e530">2.1.4. Example usage</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_ApplyPatch">2.2. ApplyPatch</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e608">2.2.1. Command line usage</a></span></dt><dt><span class="section"><a href="#d0e694">2.2.2. Example usage</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_CheckVersion">2.3. CheckVersion</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e766">2.3.1. Command line usage</a></span></dt><dt><span class="section"><a href="#xref_Versions_File">2.3.2. Versions file</a></span></dt><dt><span class="section"><a href="#d0e863">2.3.3. State file</a></span></dt><dt><span class="section"><a href="#d0e894">2.3.4. Deployment notes</a></span></dt><dt><span class="section"><a href="#d0e913">2.3.5. Patch transport schemes</a></span></dt></dl></dd></dl></div><div class="section" title="2.1.&nbsp;MakePatch"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_MakePatch"></a>2.1.&nbsp;MakePatch</h2></div></div></div><p>This tool is located at
+    <span class="literal">bigworld/tools/misc/offline_patcher/make_patch.py</span>.</p><p>MakePatch builds patches which can be used for ApplyPatch to patch
+    <em class="emphasis">targets</em>, and supports multi-versioned patch files
+    (for details on ApplyPatch, see <a class="xref" href="#xref_ApplyPatch" title="2.2.&nbsp;ApplyPatch">ApplyPatch</a>).</p><p>Both MakePatch and ApplyPatch have their implementations as part of
+    the <span class="literal">patcherlib.command_line</span> module.</p><div class="section" title="2.1.1.&nbsp;Command-line usage"><div class="titlepage"><div><div><h3 class="title"><a name="d0e326"></a>2.1.1.&nbsp;Command-line usage</h3></div></div></div><p>The syntax for invoking MakePatch via the command line is
+      described below:</p><pre class="programlisting">make_patch.py [<em class="replaceable"><code>options</code></em>] <em class="replaceable"><code>&lt;source-path&gt;</code></em> <em class="replaceable"><code>&lt;dest-path&gt;</code></em> <em class="replaceable"><code>&lt;patch-output-path&gt;</code></em></pre><p>The three required arguments (one source path for each source
+      version that the patch will support) are described below:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal"><em class="replaceable"><code>&lt;source-path&gt;</code></em></span></p><p>The source tree path. This can be either a directory or a ZIP
+          file archive.</p></li><li class="listitem"><p><span class="literal"><em class="replaceable"><code>&lt;dest-path&gt;</code></em></span></p><p>The destination tree path. This can be either a directory or a
+          ZIP file archive.</p></li><li class="listitem"><p><span class="literal"><em class="replaceable"><code>&lt;patch-output-path&gt;</code></em></span></p><p>The patch output path.</p></li></ul></div><p>The available
+      <span class="literal"><em class="replaceable"><code>options</code></em></span> are described
+      below:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal">-h</span>, <span class="literal">--help</span></p><p>Displays the help page.</p></li><li class="listitem"><p><span class="literal">--debug-level=<em class="replaceable"><code>LOGLEVEL</code></em></span></p><p>Specifies the debug level of MakePatch -
+          <span class="literal"><em class="replaceable"><code>LOGLEVEL</code></em></span> must have one
+          of the following values: <span class="literal">DEBUG</span>,
+          <span class="literal">INFO</span>, <span class="literal">WARNING</span>,
+          <span class="literal">CRITICAL</span>, or <span class="literal">ERROR</span>.</p></li><li class="listitem"><p><span class="literal">--source-version=<em class="replaceable"><code>SOURCEVERSION</code></em></span></p><p>Specifies the label for the source version - the default value
+          is the basename of the
+          <span class="literal"><em class="replaceable"><code>&lt;source_path&gt;</code></em></span>
+          argument.</p></li><li class="listitem"><p><span class="literal">--use-checksums-if-unmodified</span></p><p>Specifies that MakePatch should use checksums for unmodified
+          files as well as modified files - the default is to not use checksum
+          for unmodified files.</p></li><li class="listitem"><p><span class="literal">--ignore-patterns=<em class="replaceable"><code>IGNOREPATTERNS</code></em></span></p><p>Specifies the patterns to ignore when traversing the directory
+          hierarchy - the default is
+          <span class="literal">/CVS$|/\.svn$|/\.#[^/]+$</span>.</p><p>Uses commas to delimit the patterns, and use the backlash
+          character to escape the comma character in a pattern
+          (<em class="emphasis">i.e.</em>, <span class="literal">'\,')</span>.</p><p>By default, certain file patterns are not considered when
+          traversing the hierarchies looking for changes. Files matching the
+          ignored patterns are not considered when computing the difference
+          between the two trees. If directories match the ignored file
+          patterns, then the entire tree is culled from the search space.
+          These file patterns (as regular expressions) are:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><span class="literal">/CVS$</span></p><p>This pattern matches CVS control directories.</p></li><li class="listitem"><p><span class="literal">/\.svn$</span></p><p>This pattern matches Subversion control
+              directories.</p></li><li class="listitem"><p><span class="literal">/\.#[^/]+$</span></p><p>This pattern matches <span class="literal">.#</span> files that are
+              a result of CVS updates.</p></li></ul></div></li></ul></div></div><div class="section" title="2.1.2.&nbsp;Patch archives"><div class="titlepage"><div><div><h3 class="title"><a name="d0e472"></a>2.1.2.&nbsp;Patch archives</h3></div></div></div><p>The MakePatch tool generates a patch archive, which is a tarfile
+      with the following:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>The changes between the source directory tree and a
+          destination directory tree.</p></li><li class="listitem"><p>A manifest file.</p></li></ul></div><p>The directory tree versions are given names indicating their
+      version (<em class="emphasis">e.g.</em>, <span class="literal">bw_res-1.9.0</span>).
+      The only requirement for a version is that they be a string - they do
+      not have to conform to any convention, but it may be wise to have some
+      scheme where the target trees are identified by name and a version
+      string appended to the target name.</p><p>Currently, you can specify more than one source version to provide
+      changes against the destination version. This could be used to make a
+      patch multi-versioned, that is, supporting multiple released versions by
+      combining their changes from each supported source version into a single
+      patch archive. However, this is discouraged, as it is much better for
+      the CheckVersion script or equivalent to handle selection of individual
+      patches to download from the <em class="emphasis">versions file</em> (for
+      details on CheckVersion, see <a class="xref" href="#xref_CheckVersion" title="2.3.&nbsp;CheckVersion">CheckVersion</a>).</p><p>The changes for a particular version consist of the
+      following:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>New files added in the destination version.</p></li><li class="listitem"><p>Binary delta patches to existing files.</p></li></ul></div><p>The <em class="emphasis">manifest file</em> contains instructions on
+      which files to add, modify or delete, as well as checksum information.
+      By default, checksums are generated for modified files only. However,
+      you can use the <span class="literal">--use-checksums-if-unmodified</span> option
+      to have checksums generated for every file encountered in the source
+      directory tree. If checksums are present in the manifest file, then they
+      will each be checked.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>ZIP file archives inside ZIP archives have their files
+          extracted and the deltas generated based on the contents of the
+          files contained inside the ZIP archive, rather than on the ZIP
+          archive files themselves.</p></div></div><div class="section" title="2.1.3.&nbsp;Multi-source support"><div class="titlepage"><div><div><h3 class="title"><a name="d0e519"></a>2.1.3.&nbsp;Multi-source support</h3></div></div></div><p>MakePatch supports patch files that contain changes for multiple
+      sources, intended against either multiple targets and/or
+      versions.</p><p>This means that for a group of targets, changes for each target
+      from one version to another can be bundled into the same patch
+      archive.</p><p>This also means that for a particular target the changes for
+      multiple versions of that target can be contained within the same patch
+      archive. Typically, however, it is more advantageous to have a
+      single-version patch files for each released version, and rely on
+      VersionCheck and the versions file to drive the patching client to
+      download a single-version patch. This is more flexible and saves on
+      download bandwidth.</p><p>Changes for multiple sources can be added at the archive creation,
+      or they can be added to an existing patch archive by re-running
+      MakePatch with the same patch archive as the patch output path.</p></div><div class="section" title="2.1.4.&nbsp;Example usage"><div class="titlepage"><div><div><h3 class="title"><a name="d0e530"></a>2.1.4.&nbsp;Example usage</h3></div></div></div><div class="section" title="2.1.4.1.&nbsp;Creating a single-source patch archive"><div class="titlepage"><div><div><h4 class="title"><a name="d0e533"></a>2.1.4.1.&nbsp;Creating a single-source patch archive</h4></div></div></div><p>The example below creates a patch archive between the source
+        tree with path <span class="literal">1.8.0/bigworld/res</span> (labelled
+        <span class="literal">bw_res-1.8.0</span>) and
+        <span class="literal">1.9.0/bigworld/res</span> (labelled
+        <span class="literal">bw_res-1.9.0</span>), and outputs it to a patch archive
+        file called
+        <span class="literal">bw_res-1.8.0-1.9.0.patch</span>.</p><pre class="programlisting">$ python make_patch.py --source-version=bw_res-1.8.0 \
+  1.8.0/bigworld/res     1.9.0/bigworld/res     bw_res-1.8.0-1.9.0.patch</pre></div><div class="section" title="2.1.4.2.&nbsp;Creating a multiple-source patch archive"><div class="titlepage"><div><div><h4 class="title"><a name="d0e555"></a>2.1.4.2.&nbsp;Creating a multiple-source patch archive</h4></div></div></div><p>The example below creates a patch archive between source
+        trees:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Path <span class="literal">1.8.0/fantasydemo/res</span> (labelled
+              <span class="literal">fantasydemo_res-1.8.0</span>) and path
+              <span class="literal">1.9.0/fantasydemo/res</span></p></li><li class="listitem"><p>Path <span class="literal">1.8.0/fantasydemo/game</span> (labelled
+              <span class="literal">fantasydemo_game-1.8.0</span>) and path
+              <span class="literal">1.9.0/fantasydemo/game</span></p></li></ul></div><p>These two sets of changes are packaged into a patch
+        archive file called
+        <span class="literal">fantasydemo-1.8.0-1.9.0.patch</span>.</p><pre class="programlisting">$ python make_patch.py --source-version=fantasydemo_res-1.8.0
+  1.8.0/fantasydemo/res     1.9.0/fantasydemo/res     fantasydemo-1.8.0-1.9.0.patch
+...
+
+$ python make_patch.py --source-version=fantasydemo_game-1.8.0
+  1.8.0/fantasydemo/game    1.9.0/fantasydemo/game    fantasydemo-1.8.0-1.9.0.patch</pre></div></div></div><div class="section" title="2.2.&nbsp;ApplyPatch"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_ApplyPatch"></a>2.2.&nbsp;ApplyPatch</h2></div></div></div><p>This tool is located at
+    <span class="literal">bigworld/tools/misc/offline_patcher/apply_patch.py</span>. It
+    complements the MakePatch tool by applying patches made by it to a
+    directory tree or ZIP archive. The ApplyPatch tool relies on functions
+    exposed by the <span class="literal">patcherlib.patch_apply</span> module (for
+    details, see <a class="xref" href="#xref_patch_apply_Module" title="3.1.2.&nbsp;The patch_apply module">The <span class="literal">patch_apply</span> module</a>).</p><p>Both MakePatch and ApplyPatch have their implementations as part of
+    the <span class="literal">patcherlib.command_line</span> module.</p><div class="section" title="2.2.1.&nbsp;Command line usage"><div class="titlepage"><div><div><h3 class="title"><a name="d0e608"></a>2.2.1.&nbsp;Command line usage</h3></div></div></div><p>The syntax for invoking ApplyPatch via the command line is
+      described below:</p><pre class="programlisting">apply_patch.py [<em class="replaceable"><code>options</code></em>] <em class="replaceable"><code>&lt;patch-path&gt;</code></em> <em class="replaceable"><code>&lt;target-path&gt;</code></em> <em class="replaceable"><code>&lt;target-version&gt;</code></em>
+
+-h, --help            show this help message and exit
+--debug-level=LOGLEVEL one of DEBUG, INFO, WARNING, CRITICAL, ERROR</pre><p>The three required arguments are described below:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal"><em class="replaceable"><code>&lt;patch-path&gt;</code></em></span></p><p>The path to the patch archive.</p></li><li class="listitem"><p><span class="literal"><em class="replaceable"><code>&lt;target-path&gt;</code></em></span></p><p>The destination tree path.</p></li><li class="listitem"><p><span class="literal"><em class="replaceable"><code>&lt;target_version&gt;</code></em></span></p><p>The target version before patching.</p></li></ul></div><p>The available
+      <span class="literal"><em class="replaceable"><code>options</code></em></span> are described
+      below:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal">-h</span>, <span class="literal">--help</span></p><p>Displays the help page.</p></li><li class="listitem"><p><span class="literal">--debug-level=<em class="replaceable"><code>LOGLEVEL</code></em></span></p><p>Specifies the debug level of ApplyPatch -
+          <span class="literal"><em class="replaceable"><code>LOGLEVEL</code></em></span> must have one
+          of the following values: <span class="literal">DEBUG</span>,
+          <span class="literal">INFO</span>, <span class="literal">WARNING</span>,
+          <span class="literal">CRITICAL</span>, or <span class="literal">ERROR</span>.</p></li></ul></div></div><div class="section" title="2.2.2.&nbsp;Example usage"><div class="titlepage"><div><div><h3 class="title"><a name="d0e694"></a>2.2.2.&nbsp;Example usage</h3></div></div></div><div class="section" title="2.2.2.1.&nbsp;Patching against a directory tree with a patch file"><div class="titlepage"><div><div><h4 class="title"><a name="d0e697"></a>2.2.2.1.&nbsp;Patching against a directory tree with a patch file</h4></div></div></div><p>The example below applies a patch archive on to a source tree
+        with path <span class="literal">./res</span> and version
+        <span class="literal">bw_res-1.8.0</span>, and outputs it to a patch archive
+        file at <span class="literal">downloads/bw_res-1.8.0-1.9.0.patch</span>.</p><pre class="programlisting">$ python apply_patch.py downloads/bw_res-1.8.0-1.9.0.patch bigworld/res bw_res-1.8.0 </pre></div></div></div><div class="section" title="2.3.&nbsp;CheckVersion"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_CheckVersion"></a>2.3.&nbsp;CheckVersion</h2></div></div></div><p>CheckVersion is a command line tool that implements a minimal
+    patching client. As input, it takes the following configuration
+    files:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>A <em class="emphasis">state file</em>.</p><p>Contains the state of targets for that end-user's
+          distribution. The default is <span class="literal">state.xml</span>.</p></li><li class="listitem"><p>A <em class="emphasis">versions file</em>.</p><p>Contains upgrade paths for possible release versions. This is
+          retrieved from a remote server via HTTP. An example is supplied in
+          <code class="filename">bigworld/tools/misc/offline_patcher/examples/versions.xml</code>.</p></li><li class="listitem"><p>A general game configuration file.</p><p>Contains the URL to retrieve the versions file from. The
+          default is <span class="literal">patcher_config.xml</span>, and an example is
+          supplied in
+          <code class="filename">bigworld/tools/misc/offline_patcher/examples/patcher_config.xml</code>.</p></li></ul></div><p>CheckVersion gets from the general game configuration the URL for
+    the versions file, then retrieves its contents and parses it. It then
+    compares its local version from the local state with this remote version
+    specified in the versions file, and determines an upgrade path if
+    necessary from the versions file. It then downloads each patch archive,
+    and applies them using the functionality provided in the
+    <span class="literal">patcherlib.patch_apply</span> module (for details on this
+    module, see <a class="xref" href="#xref_patch_apply_Module" title="3.1.2.&nbsp;The patch_apply module">The <span class="literal">patch_apply</span> module</a>).</p><p>This script is intended as a bare-bones update client, and it is
+    expected that game developers implement their own custom launcher
+    application incorporating an update client that may reuse the
+    functionality provided in the CheckVersion script. For example, a UI
+    update client could be implemented which utilises progress bar widgets,
+    HTML display of release notes, and so on.</p><p>The CheckVersion script is driven by the retrieved versions file
+    (for details on this file, see <a class="xref" href="#xref_Versions_File" title="2.3.2.&nbsp;Versions file">Versions file</a>).</p><div class="section" title="2.3.1.&nbsp;Command line usage"><div class="titlepage"><div><div><h3 class="title"><a name="d0e766"></a>2.3.1.&nbsp;Command line usage</h3></div></div></div><p>The syntax for invoking CheckVersion via the command line is
+      described below:</p><pre class="programlisting">usage: check_version.py [options]
+
+options:
+-h, --help            show this help message and exit
+-c CONFIGPATH, --config=CONFIGPATH
+                      The patcher configuration file that contains the
+                      versions.xml URL. Defaults to "patcher_config.xml".
+-s STATEPATH, --state=STATEPATH
+                      The state file. Defaults to "state.xml".
+--debug-level=DEBUGLEVEL
+                      The logging debug level. Defaults to "INFO".
+</pre></div><div class="section" title="2.3.2.&nbsp;Versions file"><div class="titlepage"><div><div><h3 class="title"><a name="xref_Versions_File"></a>2.3.2.&nbsp;Versions file</h3></div></div></div><p>This file contains upgrade paths for past released versions to
+      upgrade to the current version. Functionality for parsing this XML
+      document is supplied via the <code class="classname">VersionsXML</code> class
+      (for details, see <a class="xref" href="#xref_The_Versions_Module" title="3.2.1.&nbsp;The versions module">The <span class="literal">versions</span> module</a>).</p><p>The versions file is downloaded from a URL contained within the
+      configuration file, defaulting to a
+      <code class="filename">patcher_config.xml</code> in the current working
+      directory, and is parsed using the simple <span class="literal">Config</span>
+      class in <span class="literal">check_versions.py</span>. Developers may wish to
+      change this scheme when developing their own update client.</p><p>An example versions file is supplied in
+      <code class="filename">bigworld/tools/misc/offline_patcher/examples/versions.xml</code>.</p><p>The example file below describes an upgrade path from a past
+      released version of a theoretical game from an initial version 1.0 to a
+      new current version 1.1. In the example, there are three targets for
+      which there are patches for:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal">your_game_res</span></p><p>Refers to a ZIP archive of the packed game resources
+          (<em class="emphasis">e.g..</em>, res-packed tree of the contents of
+          <code class="filename">your_game/res</code>).</p></li><li class="listitem"><p><span class="literal">your_game_bin</span></p><p>The game executable directory, designed for patching against
+          the game executable and any other binaries, such as DLLs needed by
+          the executable, as well as configuration files needed by the game,
+          such as <code class="filename">paths.xml</code>.</p></li><li class="listitem"><p><span class="literal">bw_res</span></p><p>Refers to a ZIP archive of the packed BigWorld base resources
+          (<em class="emphasis">i.e.</em>, res-packed tree of the contents of
+          <code class="filename">bigworld/res</code>).</p></li></ul></div><pre class="programlisting">&lt;?xml version="1.0"?&gt;
+&lt;root&gt;
+  &lt;currentVersion&gt;1.1&lt;/currentVersion&gt;
+  &lt;property name="baseURL"&gt;http://update.yourgame.com/downloads&lt;/property&gt;
+  &lt;supportedVersions&gt;
+      &lt;version&gt;
+          &lt;name&gt;1.0&lt;/name&gt;
+          &lt;property name="updateInfoURL"&gt;info/test.php&lt;/property&gt;
+          &lt;targets&gt;
+              &lt;target&gt;
+                  &lt;name&gt;your_game_res&lt;/name&gt;
+                  &lt;path&gt;../your_game_res.zip&lt;/path&gt;
+                  &lt;sourceVersion&gt;1.0&lt;/sourceVersion&gt;
+                  &lt;destVersion&gt;1.1&lt;/destVersion&gt;
+                  &lt;patch&gt;
+                      &lt;transferType&gt;http&lt;/transferType&gt;
+                      &lt;name&gt;your_game_res.1.0-1.1.patch&lt;/name&gt;
+                      &lt;property name="url"&gt;patches/your_game_res.1.0-1.1.patch&lt;/property&gt;
+                      &lt;property name="md5sum"&gt;00112233445566778899aabbccddeeff&lt;/property&gt;
+                  &lt;/patch&gt;
+              &lt;/target&gt;
+              &lt;target&gt;
+                  &lt;name&gt;your_game_bin&lt;/name&gt;
+                  &lt;path&gt;.&lt;/path&gt;
+                  &lt;sourceVersion&gt;1.0&lt;/sourceVersion&gt;
+                  &lt;destVersion&gt;1.1&lt;/destVersion&gt;
+                  &lt;patch&gt;
+                      &lt;transferType&gt;http&lt;/transferType&gt;
+                      &lt;name&gt;your_game_bin.1.0-1.1.patch&lt;/name&gt;
+                      &lt;property name="url"&gt;patches/your_game_bin.1.0-1.1.patch&lt;/property&gt;
+                      &lt;property name="md5sum"&gt;00112233445566778899aabbccddeeff&lt;/property&gt;
+                  &lt;/patch&gt;
+              &lt;/target&gt;
+              &lt;target&gt;
+                  &lt;name&gt;bigworld_res&lt;/name&gt;
+                  &lt;path&gt;../bw_res.zip&lt;/path&gt;
+                  &lt;sourceVersion&gt;1.9.3.0&lt;/sourceVersion&gt;
+                  &lt;destVersion&gt;1.9.4&lt;/destVersion&gt;
+                  &lt;patch&gt;
+                      &lt;transferType&gt;http&lt;/transferType&gt;
+                      &lt;name&gt;bw_res.1.9.3.0-1.9.4.patch&lt;/name&gt;
+                      &lt;property name="url"&gt;patches/bw_res.1.9.3.0-1.9.4.patch&lt;/property&gt;
+                      &lt;property name="md5sum"&gt;00112233445566778899aabbccddeeff&lt;/property&gt;
+                  &lt;/patch&gt;
+              &lt;/target&gt;
+          &lt;/targets&gt;
+      &lt;/version&gt;
+  &lt;/supportedVersions&gt;
+&lt;/root&gt;
+</pre><p><span class="citetitle">Example versions file</span></p><p>Note that version 1.1 of the overall game uses 1.9.4 BigWorld
+      resources over version 1.0's usage of 1.9.3 BigWorld resources. This
+      illustrates that the versioning of the individual targets is independent
+      from the overall game versioning.</p><p>This is only an example layout for a theoretical game. Game
+      developers must take into account the requirements of their game when
+      partitioning their resources into suitable resource trees.</p><div class="section" title="2.3.2.1.&nbsp;Properties"><div class="titlepage"><div><div><h4 class="title"><a name="d0e844"></a>2.3.2.1.&nbsp;Properties</h4></div></div></div><p>Properties are used to store specific details about some part of
+        the patching process. For example, you might have a URL to a web page
+        for each upgrade path containing the release notes that you wish to
+        have displayed while the patching process is running. Custom transfer
+        handlers can utilise the property mechanism to get details about how
+        to retrieve a patch. Properties can be defined at the root level, at
+        the upgrade path level (that is, under the <span class="literal">version</span>
+        element), or at the patch level (under the <span class="literal">patch</span>
+        element).</p><p>Properties are key-value pairs, described as in the
+        following:</p><pre class="programlisting">&lt;property name="key_name"&gt;value&lt;/property&gt;</pre><p>The combined properties from root-level, upgrade path-level to
+        patch-level are passed to the constructor of any transfer handler as
+        keyword arguments. Properties at lower levels override properties at
+        higher levels.</p><p>For example, the versionslib.transfer module defines the HTTP
+        transfer method in the class HTTPTransferHandler. The constructor to
+        HTTPTransferHandler has a baseURL property which, in the example
+        above, is described at the root level. However, it could also be
+        described per-upgrade path, so that each upgrade path has a different
+        base URL.</p></div></div><div class="section" title="2.3.3.&nbsp;State file"><div class="titlepage"><div><div><h3 class="title"><a name="d0e863"></a>2.3.3.&nbsp;State file</h3></div></div></div><p>The state file specifies for each target which version is
+      currently installed on the end-user's distribution. This is only a
+      simple implementation - developers may choose to implement persistence
+      of target state in another way as part of their launcher process
+      (<em class="emphasis">e.g.</em>, Windows Registry keys). Other
+      implementations should implement the Python State interface for reusing
+      the rest of the CheckVersions script and the
+      <span class="literal">versionslib</span> library.</p><p>An example state file is supplied in
+      bigworld/tools/misc/offline_patcher/examples/state.xml. It corresponds
+      to the supplied example versions.xml versions file.</p><p>Functionality for parsing the state XML file is supplied in the
+      form of the <span class="literal">StateXML</span> class defined in the
+      <span class="literal">versionslib.state</span> module (for details on this class,
+      see <a class="xref" href="#xref_The_State_Module" title="3.2.2.&nbsp;The state module">The <span class="literal">state</span> module</a>).</p><div class="section" title="2.3.3.1.&nbsp;Example state file"><div class="titlepage"><div><div><h4 class="title"><a name="d0e886"></a>2.3.3.1.&nbsp;Example state file</h4></div></div></div><pre class="programlisting">&lt;?xml version="1.0"?&gt;
+&lt;root&gt;
+  &lt;currentVersion&gt; 1.0 &lt;/currentVersion&gt;
+  &lt;targets&gt;
+      &lt;target name="your_game_res"&gt; 1.0 &lt;/target&gt;
+      &lt;target name="your_game_bin"&gt; 1.0 &lt;/target&gt;
+      &lt;target name="bigworld_res"&gt; 1.9.4.0 &lt;/target&gt;
+  &lt;/targets&gt;
+&lt;/root&gt;
+</pre><p><span class="citetitle">Example state file</span></p></div></div><div class="section" title="2.3.4.&nbsp;Deployment notes"><div class="titlepage"><div><div><h3 class="title"><a name="d0e894"></a>2.3.4.&nbsp;Deployment notes</h3></div></div></div><p>The CheckVersion script relies on <span class="literal">patcherlib</span>
+      for applying patches to targets. Deploying this may involve compiling
+      all the <span class="literal">.py</span> files to <span class="literal">.pyc</span> or
+      <span class="literal">.pyo</span> files, then adding them in a ZIP archive and
+      placing in the Python library path.</p><p>The game launcher must run script methods for checking against a
+      versions file to verify that its version is up-to-date. This requires
+      that a Python interpreter be involved at some point in the game launch
+      process, which implies that the launcher is itself a Python script or an
+      executable that is linked against the Python runtime library.</p></div><div class="section" title="2.3.5.&nbsp;Patch transport schemes"><div class="titlepage"><div><div><h3 class="title"><a name="d0e913"></a>2.3.5.&nbsp;Patch transport schemes</h3></div></div></div><p>There is currently only one method of transport for patches: HTTP.
+      However, the versions file syntax can allow for more transport schemes
+      (such as BitTorrent, for example). Transport schemes are specified as
+      part of the delivery element in the versions document -
+      <em class="emphasis">e.g.</em>, consider the following example versions file
+      fragment:</p><pre class="programlisting">&lt;patch&gt;
+ &lt;transferType&gt;           http                             &lt;/transferType&gt;
+ &lt;name&gt;                   bw_res-1.9.4.0-1.9.x.ypatch         &lt;/name&gt;
+ &lt;property name="url"&gt;    patches/bw_res-1.9.4.0-1.9.x.y.patch &lt;/property&gt;
+ &lt;property name="md5sum"&gt; c166772f145bcc59ac714b7995e52c2a &lt;/property&gt;
+&lt;/patch&gt;</pre><p>The transferType tags describes how to download a patch file from
+      a URL via HTTP. This transfer handler supports resuming of partial
+      downloads with a small amount of rollback, that is, resuming will occur
+      at a point (by default 4K) before the end of the received file fragment.
+      In order to detect possible file corruption, the newly downloaded
+      portion corresponding to the rollback amount is checked against what was
+      downloaded previously, and the download will restart from the beginning
+      if corruption is detected.</p><p>Properties for a patch transfer are specified using the
+      <span class="literal">property</span> tags. The HTTP transfer type defines the
+      following properties:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal">url</span></p><p>The URL from which to retrieve the patch file. If a relative
+          URL is given, then it is relative to the base of the version file
+          URL.</p></li><li class="listitem"><p><span class="literal">md5sum</span></p><p>The MD5 sum of the retrieved patch file.</p></li></ul></div><p>You can add your own transfer type by specifying properties that
+      describe how to retrieve a patch file. You will need to modify the
+      CheckVersions script and create and register a new
+      <span class="literal">PatchTransferHandler</span> class.</p></div></div></div><div class="chapter" title="Chapter&nbsp;3.&nbsp;Application Programmers Interface"><div class="titlepage"><div><div><h2 class="title"><a name="d0e948"></a>Chapter&nbsp;3.&nbsp;Application Programmers Interface</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#xref_The_patcherlib_Package">3.1. The <span class="literal">patcherlib</span> package</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e964">3.1.1. The <span class="literal">patch_file_builder</span> module</a></span></dt><dt><span class="section"><a href="#xref_patch_apply_Module">3.1.2. The <span class="literal">patch_apply</span> module</a></span></dt><dt><span class="section"><a href="#d0e1269">3.1.3. The <span class="literal">bsdiff</span> module</a></span></dt><dt><span class="section"><a href="#d0e1463">3.1.4. Other modules</a></span></dt></dl></dd><dt><span class="section"><a href="#xref_The_versionslib_Package">3.2. The <span class="literal">versionslib</span> package</a></span></dt><dd><dl><dt><span class="section"><a href="#xref_The_Versions_Module">3.2.1. The <span class="literal">versions</span> module</a></span></dt><dt><span class="section"><a href="#xref_The_State_Module">3.2.2. The <span class="literal">state</span> module</a></span></dt><dt><span class="section"><a href="#xref_The_transfer_Module">3.2.3. The <span class="literal">transfer</span> module</a></span></dt></dl></dd></dl></div><p>This chapter describes the API that the offline patcher tool is
+  constructed from. This part is of interest to developers wishing to automate
+  some part of the patch packaging process, write extensions to the offline
+  patcher, or write their own patching client.</p><div class="section" title="3.1.&nbsp;The patcherlib package"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_The_patcherlib_Package"></a>3.1.&nbsp;The <span class="literal">patcherlib</span> package</h2></div></div></div><p>This section describes the <span class="literal">patcherlib</span> package,
+    which contains functionality to compute differences between two directory
+    trees, generate patch file archives for those changes, and apply patch
+    file archives to directory trees.</p><div class="section" title="3.1.1.&nbsp;The patch_file_builder module"><div class="titlepage"><div><div><h3 class="title"><a name="d0e964"></a>3.1.1.&nbsp;The <span class="literal">patch_file_builder</span> module</h3></div></div></div><p>This section pertains to the
+      <span class="literal">patcherlib.patch_file_builder module</span>, which is used
+      by MakePatch to generate patch files. Developers wishing to integrate
+      automated release tools can reuse functionality in this module to
+      generate patch files readable by the
+      <span class="package">patcherlib.apply_patch</span> library module and the
+      ApplyPatch command line program (for details on ApplyPatch, see <a class="xref" href="#xref_ApplyPatch" title="2.2.&nbsp;ApplyPatch">ApplyPatch</a>).</p><p>This module implements the <span class="literal">PatchFileBuilder</span>
+      class, which is used to build a patch file archive containing changes
+      between two directory hierarchies. It has the following methods:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><em class="emphasis"><span class="literal">PatchFileBuilder( sourcePath,
+          destPath, outFilePath, sourceVersion, useChecksumsIfUnmod=False,
+          ignorePatterns=DEFAULT_IGNORE_PATTERNS )</span></em></p><p>The arguments of <span class="literal">PatchFileBuilder</span>'s
+          constructor are described below:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><span class="literal">sourcePath</span></p><p>One of the directory trees (the other is specified by
+              <span class="literal">destPath</span>) to take changes between for storing
+              in the patch archive that will be written out to
+              <span class="literal">outFilePath</span>.</p></li><li class="listitem"><p><span class="literal">destPath</span></p><p>See <span class="literal">sourcePath</span>.</p></li><li class="listitem"><p><span class="literal">outFilePath</span></p><p>Patch archive to which the changes will be written.</p></li><li class="listitem"><p><span class="literal">sourceVersion</span></p><p>The source version name label under which these sets of
+              changes will be added to the patch file archive.</p></li><li class="listitem"><p><span class="literal">useChecksumsIfUnmod=False</span></p><p>Determines whether files that are not modified will also
+              have their checksums computed and stored in the manifest file
+              for checking against when the patch file is applied.</p><p>By default this is <span class="literal">False</span>, which means
+              that only checksums for files that have been modified will have
+              their checksums computed and checked.</p></li><li class="listitem"><p><span class="literal">ignorePatterns=DEFAULT_IGNORE_PATTERNS</span></p><p>A list of patterns for which files which have a
+              successfully matching relative path will be ignored. This
+              defaults to <span class="literal">DEFAULT_IGNORE_PATTERNS</span> which is
+              defined in
+              <code class="filename">offline_patcher/patcherlib/treediff.py</code>.</p></li></ul></div></li><li class="listitem"><p><em class="emphasis"><span class="literal">run()</span></em></p><p>Creates the patch file archive.</p></li></ul></div></div><div class="section" title="3.1.2.&nbsp;The patch_apply module"><div class="titlepage"><div><div><h3 class="title"><a name="xref_patch_apply_Module"></a>3.1.2.&nbsp;The <span class="literal">patch_apply</span> module</h3></div></div></div><p>The functions defined in the
+      <span class="literal">patcherlib.patch_apply</span> module are used in the
+      ApplyPatch script to apply a patch against a directory hierarchy, and
+      are described below.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><em class="emphasis"><span class="literal">PatchApply</span>
+          class</em></p><p>This class implements the patching process, and has the
+          following methods:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">PatchApply( sourceVersion,
+              sourcePath, patchFilePath,
+              callback=PatchApplyCallbackInterface()
+              )</span></em></p><p>The arguments are described below:</p><div class="itemizedlist"><ul class="itemizedlist" type="square"><li class="listitem"><p><span class="literal">sourceVersion</span></p><p>Name of the version.</p></li><li class="listitem"><p><span class="literal">sourcePath</span></p><p>Directory against which the patch will be
+                  applied.</p></li><li class="listitem"><p><span class="literal">patchFilePath</span></p><p>The patch archive file.</p></li><li class="listitem"><p><span class="literal">callback=PatchApplyCallbackInterface()</span></p><p>Object that implements the
+                  <span class="literal">PatchApplyCallbackInterface</span>, and that
+                  will be called back with the progress of the patching
+                  process.</p></li></ul></div></li><li class="listitem"><p><em class="emphasis"><span class="literal">run()</span></em></p><p>Applies the patch.</p></li></ul></div></li><li class="listitem"><p><em class="emphasis"><span class="literal">PatchApplyCallbackInterface</span>
+          interface</em></p><p>The patching process implemented by the
+          <span class="literal">PatchApply</span> class can be monitored for progress by
+          means of a callback interface that calls back on certain events,
+          which are described below. This is useful for updating GUIs on what
+          exactly is being patched, and the progress of the overall patching
+          effort.</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">onStart( numOperations
+              )</span></em></p><p>Called when the patching process has started, it receives
+              as argument the number of operations taken from the patch
+              archive file. This gives the number of additions, modifications
+              and deletion operations in this patch</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onDirAddStart( path
+              )</span></em></p><p>Called when the patching process has to add a directory -
+              it calls <span class="literal">onDirAddStart</span> before executing the
+              addition, then <span class="literal">onDirAddFinish</span> when it has
+              finished.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onDirAddFinish( path
+              )</span></em></p><p>See <em class="emphasis"><span class="literal">onDirAddStart( path
+              )</span></em>.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onDirDelStart( path
+              )</span></em></p><p>Called when the patching process has to delete a directory
+              - it calls <span class="literal">onDirDelStart</span> before executing the
+              addition, then <span class="literal">onDirDelFinish</span> when it has
+              finished.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onDirDelFinish( path
+              )</span></em></p><p>See <em class="emphasis"><span class="literal">onDirDelStart( path
+              )</span></em>.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onFileAddStart( path
+              )</span></em></p><p>Called when the patching process has to add a file - it
+              calls <span class="literal">onFileAddStart</span> before executing the
+              addition, then <span class="literal">onFileAddFinish</span> when it has
+              finished.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onFileAddFinish( path
+              )</span></em></p><p>See <em class="emphasis"><span class="literal">onFileAddStart( path
+              )</span></em>.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onFileDelStart( path
+              )</span></em></p><p>Called when the patching process has to delete a file - it
+              calls <span class="literal">onFileDelStart</span> before executing the
+              addition, then <span class="literal">onFileDelFinish</span> when it has
+              finished.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onFileDelFinish( path
+              )</span></em></p><p>See <em class="emphasis"><span class="literal">onFileDelStart( path
+              )</span></em>.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onFileModStart( path
+              )</span></em></p><p>Called when the patching process has to patch an
+              individual file - it calls <span class="literal">onFileModStart</span>
+              before executing the patch, then
+              <span class="literal">onFileModFinish</span> when it has finished.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onFileModFinish( path
+              )</span></em></p><p>See <em class="emphasis"><span class="literal">onFileModStart( path
+              )</span></em>.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">onFinish()</span></em></p><p>Called when the patching process has finished.</p></li></ul></div></li></ul></div></div><div class="section" title="3.1.3.&nbsp;The bsdiff module"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1269"></a>3.1.3.&nbsp;The <span class="literal">bsdiff</span> module</h3></div></div></div><p>This section describes the functions defined in the
+      <span class="literal">patcherlib.bsdiff</span> module, which provides the
+      functionality to compute binary differences between two individual
+      files.</p><p>This module is implemented as a Python extension module, written
+      in C++, and is derived from Colin Percival's <span class="literal">bsdiff</span>
+      utility (for details, see <a class="xref" href="#xref_bsdiff_Binary_diff_path_Utility" title="A.1.&nbsp;bsdiff - Binary diff/patch utility"><span class="literal">bsdiff</span> - Binary diff/patch utility</a>). The actual library is
+      loaded from an architecture-specific package directory under the
+      <code class="filename">bigworld/tools/misc/offline_patcher/patcherlib/bin</code>
+      directory containing a version of <span class="literal">_bsdiff.so</span> under
+      Linux, and <span class="literal">_bsdiff.pyd</span> under Windows. The module has
+      been compiled against Python 2.5 - the source is provided so that it can
+      be compiled against another version of Python.</p><div class="section" title="3.1.3.1.&nbsp;Compiling the bsdiff extension module"><div class="titlepage"><div><div><h4 class="title"><a name="xref_Compiling_The_bsdiff_Extension_Module"></a>3.1.3.1.&nbsp;Compiling the <span class="literal">bsdiff</span> extension
+        module</h4></div></div></div><p>The source to the <span class="literal">bsdiff</span> extension module can
+        be found in <span class="literal">src/tools/offline_patcher/bsdiff</span>. To
+        compile, follow the instructions below:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><em class="emphasis">Under Linux</em></p><p>Under Linux, the Python development package needs to be
+            installed to recompile <span class="literal">bsdiff</span> - under Fedora
+            and CentOS, this is called <span class="literal">python-devel</span>, and in
+            Debian, this is called <span class="literal">python-dev</span>.</p><p>Compile the module using the following
+            commands:</p><pre class="programlisting">$ make clean all</pre><p>This will build the Python extension module into an
+            architecture-specific directory in
+            <code class="filename">bigworld/tools/misc/offline_patcher/patcherlib/bin</code>.</p></li><li class="listitem"><p><em class="emphasis">Under Windows</em></p><p>The Visual Studio solution file
+            <span class="literal">bsdiff_2005.sln</span> has been tested for use with
+            Visual Studio 2005. Developers should ensure that they have a copy
+            of the Python sources, and that they link against the compiled
+            library file (<em class="emphasis">e.g.</em>,
+            <span class="literal">python25.lib</span>), which needs to be built from the
+            sources (usually using the <span class="literal">pythoncore</span> project).
+            Please refer to the Python documentation for how to build under VS
+            2005.</p><p>Developers need to set the environment variable
+            <span class="literal">PYTHONHOME</span> to point to the Python source
+            distribution that they wish to link against, or edit the relevant
+            properties where the variable <code class="varname">$(PYTHONHOME)</code> is
+            used to point to the built Python distribution.</p></li></ul></div></div><div class="section" title="3.1.3.2.&nbsp;The bsdiff module interface"><div class="titlepage"><div><div><h4 class="title"><a name="d0e1361"></a>3.1.3.2.&nbsp;The <span class="literal">bsdiff</span> module interface</h4></div></div></div><p>The <span class="literal">bsdiff</span> module uses the
+        <span class="literal">bslib</span> C++ library to do its work. The
+        <span class="literal">bslib</span> sources are located in
+        <span class="literal">src/tools/offline_patcher/bsdiff</span>, and implemented
+        in the files <span class="literal">bslib.hpp</span> and
+        <span class="literal">bslib.cpp</span>. Those functions are exposed to Python by
+        the following Python methods:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><em class="emphasis"><span class="literal">haveDiffs( path1, path2,
+            bufSize = 4096 )</span></em></p><p>Returns <span class="literal">True</span> if files at
+            <em class="emphasis">path1</em> and <em class="emphasis">path2</em> have
+            differences, and <span class="literal">False</span> otherwise. The
+            <span class="literal">bufSize</span> parameter specifies how much data to
+            read and compare at a time. It raises <span class="literal">IOError</span>
+            if either of the files at those paths cannot be read, or
+            <span class="literal">TypeError</span> if the files at those paths are not
+            regular files.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">diffFilesToFile( srcPath,
+            dstPath, patchPath )</span></em></p><p>Computes the binary differences between the files at
+            <span class="literal">srcPath</span> and <span class="literal">dstPath</span>, and
+            writes them to a file at <span class="literal">patchPath</span> in a format
+            recognised by <span class="literal">patchFromFile</span>, as well as the
+            original <span class="literal">bspatch</span> command line utility.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">patchFilesFromFile( srcPath,
+            dstPath, patchPath )</span></em></p><p>Patches a file created from the
+            <span class="literal">diffToFile</span> function at
+            <span class="literal">srcPath</span> from a patch file at
+            <span class="literal">patchPath</span> (created by
+            <span class="literal">diffFilesToFile</span>), and writes it to
+            <span class="literal">dstPath</span> (which can be the same as
+            <span class="literal">srcPath</span> to overwrite the original source
+            file).</p></li></ul></div></div></div><div class="section" title="3.1.4.&nbsp;Other modules"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1463"></a>3.1.4.&nbsp;Other modules</h3></div></div></div><p>A brief description of the other utility modules in
+      <span class="literal">patcherlib</span> are given here.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal">command_line</span>: Used for implementing the
+            commands used by the top level MakePatch and ApplyPatch command
+            line tools.</p></li><li class="listitem"><p><span class="literal">manifest</span>: Used for parsing and creating
+            patch manifests.</p></li><li class="listitem"><p><span class="literal">md5_interface</span>: Module abstracting
+            different MD5 libraries across different versions of
+            Python.</p></li><li class="listitem"><p><span class="literal">temp_dir_list</span>: A module for creating
+            temporary directories and deleting them when no longer
+            needed.</p></li><li class="listitem"><p><span class="literal">treediff</span>: A module for traversing two
+            directory trees and determining the differences.</p></li><li class="listitem"><p><span class="literal">utils</span>: A general utility module.</p></li></ul></div></div></div><div class="section" title="3.2.&nbsp;The versionslib package"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_The_versionslib_Package"></a>3.2.&nbsp;The <span class="literal">versionslib</span> package</h2></div></div></div><p>This package is used to query a remote server and download patches
+    to be applied against a local distribution using the
+    <span class="package">patcherlib</span> package.</p><p>It is composed of the following modules:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal">versions</span></p></li><li class="listitem"><p><span class="literal">state</span></p></li><li class="listitem"><p><span class="literal">transfer</span></p></li><li class="listitem"><p><span class="literal">simple_config</span></p></li></ul></div><p>The <span class="literal">version</span>, <span class="literal">state</span>, and
+    <span class="literal">transfer</span> modules contain the main classes dealing with
+    how to check against a remote server and download patches, and are
+    described in the following sections.</p><p>The <span class="literal">simple_config</span> module contains a simple
+    configuration file parser, which CheckVersion uses to read a configuration
+    containing a URL to the versions file.</p><div class="section" title="3.2.1.&nbsp;The versions module"><div class="titlepage"><div><div><h3 class="title"><a name="xref_The_Versions_Module"></a>3.2.1.&nbsp;The <span class="literal">versions</span> module</h3></div></div></div><p>The interfaces and classes implemented by this module are
+      described below:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><em class="emphasis"><span class="literal">VersionsInterface</span>
+          interface</em></p><p>The Python <span class="literal">Versions</span> interface is used by
+          <span class="literal">CheckVersion</span> to extract the patching instructions
+          contained within a versions file. It is defined in the
+          <span class="literal">versionslib.versions</span> module. For alternate
+          implementations of a versions file, developers can implement this
+          interface and pass it to <span class="literal">CheckVersion</span> in the same
+          way that it currently passes the <span class="literal">VersionsXML</span>
+          class instances around.</p><p><span class="literal">VersionInterface</span> implements the following
+          methods:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">getUpgradePath( versionName
+              )</span></em></p><p>Returns the version upgrade path for a named version in
+              the form of an <span class="literal">UpgradePath</span> object, or
+              <span class="literal">None</span> if no such path exists.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">getCurrentVersion()</span></em></p><p>Returns the remote current version name.</p></li></ul></div></li><li class="listitem"><p><em class="emphasis"><span class="literal">VersionsXML</span>
+          class</em></p><p>This is the default implementation of
+          <span class="literal">VersionsInterface</span> - it uses XML as the format,
+          and is also defined in the <span class="literal">versionslib.versions</span>
+          module, and implements the following methods:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">VersionsXML(
+              versionsDocument )</span></em></p><p>Constructs a <span class="literal">VersionsXML</span> instance. The
+              <span class="literal">versionsDocument</span> parameter is an XML DOM
+              object of the versions file.</p></li></ul></div><p>An example on how to use the <span class="literal">VersionXML</span>
+          class is displayed below:</p><pre class="programlisting">from versionslib import versions
+from xml.dom import minidom
+import urllib
+
+conn = urllib.urlopen( "http://example.com/versions.xml" )
+versionsContent = conn.read()
+conn.close()
+
+versionsDoc = minidom.parseString( versionsContent )
+versions = versions.VersionsXML( versionsDoc )
+
+if localVersion != versions.getCurrentVersion():
+  upgradePath = versions.getUpgradePath( localVersion )</pre><p><span class="citetitle">Using the <span class="literal">VersionsXML</span>
+          class</span></p></li><li class="listitem"><p><em class="emphasis"><span class="literal">UpgradePath</span>
+          class</em></p><p>This class is defined in the
+          <span class="literal">versionslib.versions</span> module - it is an upgrade
+          path for a particular older release version, and holds target
+          patches (in the form of <span class="literal">Target</span> objects required
+          to patch to the new release version. For details, see
+          <code class="classname">Target</code> class defined below.</p><p>This class has the following attributes:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">name</span></em></p><p>The name of the upgrade path's source version.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">targets</span></em></p><p>A Python list of <span class="literal">Target</span>
+              instances.</p></li></ul></div><p>This class has the following methods:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">getProperties()</span></em></p><p>Return the accumulated properties from the root-level to
+                the upgrade-path level.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">setUpgradePathProperties()</span></em></p><p>This methods is called as part of the parsing process,
+                and is not intended to be used by applications.</p></li></ul></div></li><li class="listitem"><p><em class="emphasis"><span class="literal">Target</span>
+          class</em></p><p>A <span class="literal">Target</span> object specifies a method of
+          transferring the patch file using a transfer handler, and which
+          target path to apply the patch against.</p><p>This class has the following attributes:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">name</span></em></p><p>The name of the target.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">path</span></em></p><p>The path to the target to patch.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">sourceVersion</span></em></p><p>The source version name of the target (what its current
+              version should be).</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">destVersion</span></em></p><p>The destination version name of the target (what its new
+              version will be after successful patching).</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">transferType</span></em></p><p>The transfer type string, which specifies what transfer
+              handler to use. For details, see <a class="xref" href="#xref_The_transfer_Module" title="3.2.3.&nbsp;The transfer module">The <span class="literal">transfer</span> module</a>.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">patchName</span></em></p><p>The file name of the patch archive file.</p></li></ul></div><p>Additionally, it has the following method:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">getProperties()</span></em></p><p>Return a Python dictionary containing the accumulated
+              root-level, upgrade path-level to partch-level
+              properties.</p></li></ul></div></li></ul></div></div><div class="section" title="3.2.2.&nbsp;The state module"><div class="titlepage"><div><div><h3 class="title"><a name="xref_The_State_Module"></a>3.2.2.&nbsp;The <span class="literal">state</span> module</h3></div></div></div><p>This module contains definitions for
+      <span class="literal">StateInterface</span> and the default implementing interface
+      <span class="literal">StateXML</span>, both of which are used to read the local
+      game version state.</p><p>The interfaces and classes implemented by this module are
+      described below:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><em class="emphasis"><span class="literal">StateInterface</span>
+          interface</em></p><p>Objects implementing this interface must support the following
+          methods:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">getCurrentVersion()</span></em></p><p>Returns the current local version of this
+              distribution.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">getTargetVersion(
+              targetName )</span></em></p><p>Returns the current local version of the given
+              target.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">setCurrentVersion(
+              versionName )</span></em></p><p>Changes the current local version of this distribution to
+              <span class="literal">versionName</span>.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">setTargetVersion(
+              targetName, versionName )</span></em></p><p>Changes the current local version of the given
+              target.</p></li></ul></div></li><li class="listitem"><p><em class="emphasis"><span class="literal">StateXML</span>
+          class</em></p><p>Like the <span class="literal">VersionsXML</span> class, the default
+          implementation of the <span class="literal">State</span> interface uses XML as
+          the format, and is defined in the
+          <span class="literal">versionslib.state</span> module.</p><p>The classes implemented by this module are described
+          below:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal"> StateXML( path
+              )</span></em></p><p>Constructs an instance of the <span class="literal">StateXML</span>
+              class, where <span class="literal">path</span> is a path to the XML
+              document.</p></li></ul></div><p>An example on how to use the <span class="literal">StateXML</span> class
+          is displayed below:</p><pre class="programlisting">state = StateXML( "state.xml" )
+if state.getCurrentVersion() != versions.getCurrentVersion():
+ upgradePath = versions.getUpgradePath( state.getCurrentVersion() )
+ ...
+ for target in upgradePath.targets:
+    localTargetVersion = state.getTargetVersion( target.name )
+    ...
+    # finished target upgrade, update state
+    state.setTargetVersion( target.name, target.destVersion )
+
+ # finished upgrade, set state version
+ state.setCurrentVersion( upgradePath.destVersion )</pre><p><span class="citetitle">Using the StateXML class</span></p></li></ul></div></div><div class="section" title="3.2.3.&nbsp;The transfer module"><div class="titlepage"><div><div><h3 class="title"><a name="xref_The_transfer_Module"></a>3.2.3.&nbsp;The <span class="literal">transfer</span> module</h3></div></div></div><p>This module contains the interface for a
+      <span class="literal">PatchTransferHandler</span>, which defines a method of
+      retrieving a patch from a some location, for example via HTTP.</p><p>This section has some guidance on how to add a sub-class of a
+      <span class="literal">PatchTransferHandler</span> when creating new transfer
+      methods.</p><p>The interfaces and classes implemented by this module are
+      described below:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><em class="emphasis"><span class="literal">PatchTransferHandler</span>
+          interface</em></p><p>Implementors of this interface define a method of retrieving a
+          patch file from a remote source (<em class="emphasis">e.g.</em>, through
+          HTTP or BitTorrent). It implements the following static
+          methods:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">PatchTransferHandler.create( transferType,
+              destPath, **properties) )</span></em></p><p>Creates an appropriate instance of a
+              <span class="literal">PatchTransferHandler</span> object that can handle
+              the given <span class="literal">transferType</span>. The properties
+              parameter is a keyword argument dictionary which is used when
+              constructing the appropriate instance of the transfer handler,
+              and is passed to the appropriate subclass' constructor as
+              keyword arguments.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">PatchTransferHandler.register(
+              transferType, klass )</span></em></p><p>Registers a <span class="literal">PatchTransferHandler</span>
+              sub-class (given as the <span class="literal">klass</span> parameter) with
+              the given <span class="literal">transferType</span> string.</p></li></ul></div><p>Implementors of this interface should implement the following
+          methods:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><code class="function">retrieve</code>()</em></p><p>Retrieve the patch now.</p></li><li class="listitem"><p><em class="emphasis">addProgressListener()</em></p><p>Attach a progress listener object. See <a class="xref" href="#xref_Progress_listeners" title="3.2.3.3.&nbsp;Progress listeners">Progress listeners</a></p></li><li class="listitem"><p><em class="emphasis">removeProgressLIstener()</em></p><p>Detach a progress listener object.</p></li></ul></div></li><li class="listitem"><p><em class="emphasis"><span class="literal">HTTPTransferHandler</span>
+          class</em></p><p>This class implements a transfer handler for transferring a
+          patch from a HTTP server, and implements the following
+          methods:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p><em class="emphasis"><span class="literal">HTTPTransferHandler(
+              destPath, baseURL, url, md5sum, **extraProps
+              )</span></em></p><p>The HTTP transfer handler downloads the file located at
+              <span class="literal">url</span> (which may be a relative from
+              <span class="literal">baseURL</span>, or an absolute HTTP URL), and the
+              file should have a MD5 sum equal to that in the
+              <span class="literal">md5sum</span> parameter.</p><p>The baseURL, url and md5sum parameters are passed in as a
+              keyword arguments dictionary from
+              PatchTransferHandler.create().</p></li></ul></div></li></ul></div><div class="section" title="3.2.3.1.&nbsp;Creating the appropriate instance of transfer handler"><div class="titlepage"><div><div><h4 class="title"><a name="d0e1981"></a>3.2.3.1.&nbsp;Creating the appropriate instance of transfer handler</h4></div></div></div><p>Recall from the definition of the versions file that the
+        transfer type and transfer properties are defined as part of the
+        targets in the upgrade path's target list (for details, see <a class="xref" href="#xref_Versions_File" title="2.3.2.&nbsp;Versions file">Versions file</a>). An example is displayed below.</p><pre class="programlisting">&lt;root&gt;
+ ...
+ &lt;property name="gameInfoURL"&gt;     http://www.yourgame.com/game_info.php
+ ...
+ &lt;supportedVersions&gt;
+    &lt;supportedVersion&gt;
+       &lt;name&gt; 1.0 &lt;/name&gt;
+       ...
+       &lt;property name="baseURL"&gt;   http://update.yourgame.com/patches/1.0
+       ...
+       &lt;target&gt;
+       &lt;patch&gt;
+          &lt;transferType&gt;           http                                 &lt;/transferType&gt;
+          &lt;patchName&gt;              bw_res-1.9.4.0-1.9.x.y.patch         &lt;/patchName&gt;
+          &lt;property name="url"&gt;    patches/bw_res-1.9.4.0-1.9.x.y.patch &lt;/property&gt;
+          &lt;property name="md5sum"&gt; aabbccddeeff00112233445566778899     &lt;/property&gt;
+       &lt;/patch&gt;
+    &lt;/supportedVersion&gt;
+    ...
+ &lt;/supportedVersions&gt;
+&lt;/root&gt;</pre><p><span class="citetitle">Example versions file excerpt</span></p><p>As seen above, a patch XML definition consists of a
+        <span class="literal">transferType</span> tag, which is mapped to a transfer
+        handler class. Transfer handlers are registered with the base class
+        <span class="literal">PatchTransferHandler</span>, so that instances are created
+        using the <span class="literal">PatchTransferHandler.create</span> static
+        method.</p><p>The <span class="literal">property</span> tags are parsed and placed into
+        a Python dictionary, which can be passed to the transfer handler as
+        part of the keyword arguments in the
+        <span class="literal">PatchTransferHandler.create</span> method. The constructor
+        for the appropriate <span class="literal">PatchTransferHandler</span> sub-class
+        must accept these arguments or allow for general keyword
+        parameters.</p><p>Each transfer handler class is registered with the
+        <span class="literal">PatchTransferHandler</span> static method
+        <span class="literal">PatchTransferHandler.register</span>.</p></div><div class="section" title="3.2.3.2.&nbsp;Adding another PatchTransferHandler sub-class"><div class="titlepage"><div><div><h4 class="title"><a name="d0e2023"></a>3.2.3.2.&nbsp;Adding another <span class="literal">PatchTransferHandler</span>
+        sub-class</h4></div></div></div><p>New methods of transferring patches are implemented by adding
+        another PatchTransferHandler object that subclasses the
+        <span class="literal">PatchTransferHandler</span> abstract class, and it must be
+        registered with the <span class="literal">PatchTransferHandler</span> class
+        using its <span class="literal">register()</span> static method with an
+        appropriate string tag, which is specified as part of the
+        <span class="literal">transferType</span> element.</p><p>PatchTransferHandler sub-classes are expected to periodically
+        notify of their progress using
+        <code class="classname">PatchTransferHandler</code>'s
+        <code class="methodname">_notifyProgress()</code> method:</p><pre class="programlisting">def _notifyProgress( self, progress, description ):</pre><p>The progress parameter is an integer indicating percentage
+        progress from 0 to 100. The description parameter is a dictionary
+        containing key-value pairs that provide progress reports that are
+        specific to the type of transfer handler used.</p></div><div class="section" title="3.2.3.3.&nbsp;Progress listeners"><div class="titlepage"><div><div><h4 class="title"><a name="xref_Progress_listeners"></a>3.2.3.3.&nbsp;Progress listeners</h4></div></div></div><p>Progress listeners are objects that listen to the progress of a
+        patch transfer. They can be used to notify the end user of the
+        progress of a particular transfer. They should be callable and they
+        are passed the following parameters:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><em class="emphasis"><span class="literal">progress</span></em>
+            (float)</p><p>A floating point number from 0 to 100 indicating the
+            percentage progress of the transfer. A special value of -1.0
+            indicates that the transfer failed.</p></li><li class="listitem"><p><em class="emphasis"><span class="literal">description</span></em>
+            (dict)</p><p>A dictionary containing key-value pairs describing the
+            context of the transfer. Different transfer methods will define
+            different keys. The
+            <code class="classname">HTTPPatchTransferHandler</code> defines the
+            following keys:</p></li></ul></div><div class="section" title="3.2.3.3.1.&nbsp;HTTPPatchTransferHandler progress listener description keys"><div class="titlepage"><div><div><h5 class="title"><a name="d0e2080"></a>3.2.3.3.1.&nbsp;HTTPPatchTransferHandler progress listener description
+          keys</h5></div></div></div><p>The <code class="classname">HTTPPatchTransferHandler</code> defines
+          the following keys:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="literal">url</span></p><p>The URL being retrieved.</p></li><li class="listitem"><p><span class="literal">bytesReceived</span></p><p>The number of bytes downloaded.</p></li><li class="listitem"><p><span class="literal">bytesTotal</span></p><p>The total number of bytes to download.</p></li><li class="listitem"><p><span class="literal">status</span></p><p>The HTTP status code of the most recent attempt to
+              download this patch.</p></li><li class="listitem"><p><span class="literal">errorMsg</span></p><p>If progress is set to -1, then this is an error message
+              indicating what the failure was.</p></li></ul></div></div></div></div></div></div><div class="chapter" title="Chapter&nbsp;4.&nbsp;Offline Patcher Terminology"><div class="titlepage"><div><div><h2 class="title"><a name="d0e2119"></a>Chapter&nbsp;4.&nbsp;Offline Patcher Terminology</h2></div></div></div><p>The following terms are used in this document:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><em class="emphasis">state file</em></p><p>An XML file which patcher clients maintain for each target.</p></li><li class="listitem"><p><em class="emphasis">upgrade path</em></p><p>A specification for upgrading to the current version. Each
+      released version should have an entry in the versions file.</p></li><li class="listitem"><p><em class="emphasis">versions file</em></p><p>An XML file that patcher clients download via HTTP. The current
+      version name is listed, and for each previously released version, it
+      contains an upgrade path to the current version.</p><p>The idea is for clients to check this file before launching the
+      game, and only launch the game executable if the current version exists,
+      otherwise it applies the Upgrade Path specified in the versions
+      file.</p></li></ul></div></div><div class="appendix" title="Appendix&nbsp;A.&nbsp;Acknowledgements"><div class="titlepage"><div><div><h2 class="title"><a name="d0e2145"></a>Appendix&nbsp;A.&nbsp;Acknowledgements</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#xref_bsdiff_Binary_diff_path_Utility">A.1. <span class="literal">bsdiff</span> - Binary diff/patch utility</a></span></dt></dl></div><div class="section" title="A.1.&nbsp;bsdiff - Binary diff/patch utility"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xref_bsdiff_Binary_diff_path_Utility"></a>A.1.&nbsp;<span class="literal">bsdiff</span> - Binary diff/patch utility</h2></div></div></div><p>Some parts of the BigWorld Offline Patcher feature are derived from
+    the <span class="literal">bsdiff</span> binary <span class="literal">diff/patch</span> utility
+    developed by Colin Percival. As per the licensing requirements, the
+    copyright notice and licensing conditions are reproduced below.</p><div class="blockquote"><blockquote class="blockquote"><p>Copyright 2003-2005 Colin Percival</p><p>All rights reserved.</p><p>Redistribution and use in source and binary forms, with or without
+      modification, are permitted providing that the following conditions are
+      met:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Redistributions of source code must retain the above copyright
+          notice, this list of conditions and the following disclaimer.</p></li><li class="listitem"><p>Redistributions in binary form must reproduce the above
+          copyright notice, this list of conditions and the following
+          disclaimer in the documentation and/or other materials provided with
+          the distribution.</p></li></ol></div><p>THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS
+      OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+      WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+      DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+      INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+      (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+      SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+      HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+      STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+      ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+      POSSIBILITY OF SUCH DAMAGE.</p></blockquote></div></div></div></div></div></body></html>

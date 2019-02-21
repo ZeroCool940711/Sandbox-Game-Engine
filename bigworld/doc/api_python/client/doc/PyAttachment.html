@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>PyAttachment - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyAttachment Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyAttachment is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#attached" class="attribute_list" >attached</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#inWorld" class="attribute_list" >inWorld</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#matrix" class="attribute_list" >matrix</a></td><td>&nbsp; Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+Any object type which can be attached to something else inherits from
+<a href="PyAttachment.html">PyAttachment</a>.  Examples of <a href="PyAttachment.html">PyAttachment</a> are <a href="PyModel.html">PyModel</a>, ParticleSystem and
+<a href="PySplodge.html">PySplodge</a>.  A <a href="PyAttachment.html">PyAttachment</a> can be attached to various things, among them
+<a href="PyModelNode.html">PyModelNode</a>s and <a href="Entity.html">Entity</a>s.
+<br><br>
+For example, to attach a model to an entity:
+
+<pre>e.model = myModel # model is a subclass of <a href="PyAttachment.html">PyAttachment</a>
+</pre>
+<br><br>
+To attach a particle system to the right hand of a character model:
+
+<pre># myPS is a particle system, which inherits from <a href="PyAttachment.html">PyAttachment</a>
+character.node( "biped R Hand" ).attach( myPS )
+</pre>
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="attached"></a><p class="attribute_definition">
+<span class="attribute_definition">attached</span>
+</p>
+
+<div class="attribute_description">This attribute indicates whether or not this attachment is already
+attached to something.  It is 1 if the attachment is attached, 0
+otherwise.
+<br><br>
+This attribute should be checked before trying to attach to something,
+because you can't attach to something if it is already attached to
+something else.  First you must detach the <a href="PyAttachment.html">PyAttachment</a> from whatever
+it is attached to.  If this is an entity, you can set the entity's model
+attribute to None.  If it is attached to a <a href="PyModelNode.html">PyModelNode</a>, you can call
+the detach function.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="inWorld"></a><p class="attribute_definition">
+<span class="attribute_definition">inWorld</span>
+</p>
+
+<div class="attribute_description">This attribute is used to determine whether the attachment has been
+added to the world.  It is read only, and is set to 1 if the Attachment
+is in the world, 0 otherwise.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="matrix"></a><p class="attribute_definition">
+<span class="attribute_definition">matrix</span>
+</p>
+
+<div class="attribute_description">This matrix is the transformation between the frame of reference of the
+object the <a href="PyAttachment.html">PyAttachment</a> is attached to, and the <a href="PyAttachment.html">PyAttachment</a>'s root
+node.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

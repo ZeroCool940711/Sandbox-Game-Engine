@@ -1,0 +1,163 @@
+<html>
+<head>
+<title>PyModelRenderer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyModelRenderer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyModelRenderer is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+PyObjectPlusWithWeakReference
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#render" class="function_list" >render</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#dynamic" class="attribute_list" >dynamic</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#models" class="attribute_list" >models</a></td><td>&nbsp; List of PyModels
+</td></tr>
+
+<tr valign=top><td><a href="#texture" class="attribute_list" >texture</a></td><td>&nbsp; Read-Only <a href="PyTextureProvider.html">PyTextureProvider</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is used to render a model to a <a href="PyTextureProvider.html">PyTextureProvider</a>, which can be
+used by gui components, such as a <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> to render that model
+to the screen.  It can either render a single frame of a model or provide a
+dynamic <a href="PyTextureProvider.html">PyTextureProvider</a> which updates every frame.
+<br><br>
+In order for a model to be rendered, it must not be attached to anything,
+which means that it cannot be in the world.
+<br><br>
+The camera is positioned at (0,1,-1), looking at (0,-1,1). It cannot be
+configured.
+<br><br>
+ The models scale, position and rotation attributes can
+be used to setup the model in the correct position.  The model can have
+Actions playing on it.
+<br><br>
+Multiple models are all added to the same render space, and rendered at
+whatever position they are placed at.
+<br><br>
+The background for the render has an alpha of zero.
+<br><br>
+A new <a href="PyModelRenderer.html">PyModelRenderer</a> is created using the <a href="BigWorld.html">BigWorld</a>.<a href="PyModelRenderer.html">PyModelRenderer</a> function.
+<br><br>
+Example:
+
+<pre># create a new model to render
+mod = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Model>Model</a>( "objects/models/characters/biped.model" )
+
+# create the model renderer
+mr = <a href="BigWorld.html">BigWorld</a>.<a href="PyModelRenderer.html">PyModelRenderer</a>( 256, 256 )
+mr.models = [ mod ]
+
+# the pyModelRenderer camera is setup well to look at a unit cube.
+# here we make the model fit into that cube
+mod.zoomExtents()
+
+# setting the renderer to dynamic means it will update every frame.
+# this is good for animating models, or if there is a motor attached
+# (for example an oscillator, which makes it spin around)
+# usage : mr.dynamic = 1
+
+# however in this case, the biped model isn't animating, and there is
+# no motor attached.  therefore we have to call render() explicitly.
+# Note that render MUST be called before accessing the texture() attribute.
+mr.dynamic = 0
+mr.render()
+
+# create a component to display it in
+cmp = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "somedummytexture.bmp" )
+cmp.texture = mr.texture
+<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>( cmp )
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="render"></a><p class="function_definition">
+<span class="function_definition">def render( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function causes the PyModelRender to redraw all of its models with
+all their current fashions (Animations, dyes, etc).  This function call
+is not necessary if the dynamic attribute is set to non-zero, because
+it will automatically render every tick.
+</div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="dynamic"></a><p class="attribute_definition">
+<span class="attribute_definition">dynamic</span>
+</p>
+
+<div class="attribute_description">If this attribute is zero (its default), then it only updates its
+texture when the render() function is called.  If it non-zero, then
+every tick it updates the texture to reflect any changes in the models.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="models"></a><p class="attribute_definition">
+<span class="attribute_definition">models</span>
+</p>
+
+<div class="attribute_description">This attribute is a list of all the models that will be rendered.  
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>List of PyModels
+</td></tr>
+</table>
+</p>
+
+<a name="texture"></a><p class="attribute_definition">
+<span class="attribute_definition">texture</span>
+</p>
+
+<div class="attribute_description">This attribute is the read-only <a href="PyTextureProvider.html">PyTextureProvider</a> which can be used by
+something like the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> to provide a dynamic texture to
+render.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="PyTextureProvider.html">PyTextureProvider</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

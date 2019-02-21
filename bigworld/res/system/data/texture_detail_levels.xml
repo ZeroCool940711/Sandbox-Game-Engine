@@ -1,0 +1,29 @@
+<root>
+	<detailLevel>
+		<contains> norms </contains>
+		<contains> normals </contains>
+		<format> A8R8G8B8 </format>
+	</detailLevel>
+	<detailLevel>
+		<!-- Flora textures have strict size and format regulations.
+			Do not change the format or reduceDim values -->
+		<contains> flora	</contains>
+		<format>   DXT3		</format>
+		<reduceDim>	0	</reduceDim>
+	</detailLevel>
+	<detailLevel>
+		<postfix> bmp </postfix>
+		<format> DXT1 </format>
+	</detailLevel>
+	<detailLevel>
+		<postfix> tga </postfix>
+		<format> DXT3 </format>
+	</detailLevel>
+	<detailLevel>
+		<format> DXT1 </format>
+	</detailLevel>
+	<detailLevel>
+		<contains>	_cloud </contains>
+		<format>	A8R8G8B8 </format>		
+	</detailLevel>
+</root>

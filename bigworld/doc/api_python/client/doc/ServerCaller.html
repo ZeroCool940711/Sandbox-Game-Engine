@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>ServerCaller - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ServerCaller Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>ServerCaller is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+These objects are automatically created by <a href="BigWorld.html">BigWorld</a> to populate a <a href="PyServer.html">PyServer</a> object.  Each <a href="ServerCaller.html">ServerCaller</a> object
+provides the link to a single method on the component that the <a href="PyServer.html">PyServer</a> object represents (ie, Cell or Base).
+These methods are defined in the .def file and can only exist if the server component exists.  A <a href="ServerCaller.html">ServerCaller</a>
+object is accessed by invoking the method that it represents in the <a href="PyServer.html">PyServer</a> object, eg;
+<br><br>
+	self.cell.method( args )
+<br><br>
+where self is an <a href="Entity.html">Entity</a>, cell is the PyObject created by <a href="BigWorld.html">BigWorld</a> (which is not available if there is no Cell
+component for this <a href="Entity.html">Entity</a>) and method( args ) is the <a href="ServerCaller.html">ServerCaller</a> object that represents the method on the Cell
+that was defined in this <a href="Entity.html">Entity</a>'s .def file
+<br><br>
+This is not supported for licensees who have not licensed the <a href="BigWorld.html">BigWorld</a>
+server technology.
+
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

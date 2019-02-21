@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>Vector4Shader - BigWorld bots Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Vector4Shader Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Math.html" class="module_h1">Math Module</a>]</span></p><p>Vector4Shader is part of the <a href="Math.html">Math</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Math</pre>
+<h2>Parent Classes</h2>
+<a href="Vector4Provider.html">Vector4Provider</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addOp" class="function_list" >addOp</a>( self, opcode, outreg, param1, param2 ):</span>
+</td></tr>
+
+</table>
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="Vector4Shader.html">Vector4Shader</a> implements a <a href="Vector4Provider.html">Vector4Provider</a> that can be used to emulate a pixel
+shader implementation for 2D GUI components.
+<br><br>
+The following code example show how to create a flickering light, for example
+when a spot fire occurs for "duration" and fades out gracefully.
+<br><br>
+code:
+
+<pre>import <a href="BigWorld.html">BigWorld</a>
+from <a href="Math.html">Math</a> import <a href="Vector4Shader.html">Vector4Shader</a>
+from <a href="Math.html">Math</a> import <a href="Vector4LFO.html">Vector4LFO</a>
+from <a href="Math.html">Math</a> import <a href="Vector4Animation.html">Vector4Animation</a>
+from V4ShaderConsts import _mul
+from V4ShaderConsts import _r0
+from V4ShaderConsts import _r1
+
+
+#and in class FlickeringLight...
+
+self.light = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PyChunkLight>PyChunkLight</a>()
+self.light.innerRadius = self.innerRadius
+self.light.outerRadius = self.outerRadius
+
+self.lightFaderAnim = <a href="Vector4Animation.html">Vector4Animation</a>()
+self.lightFaderAnim.time = 0
+self.lightFaderAnim.duration = duration
+col = <a href="Vector4.html">Vector4</a>(self.colour)
+self.lightFaderAnim.keyframes = [(0.0,(0,0,0,0)),(0.25,col),
+	(duration*0.5,col),(duration,(0,0,0,0))]
+
+lfo1 = <a href="Vector4LFO.html">Vector4LFO</a>()
+lfo1.period = 0.4
+lfo2 = <a href="Vector4LFO.html">Vector4LFO</a>()
+lfo2.period = 0.149
+self.lightFader = <a href="Vector4Shader.html">Vector4Shader</a>()
+
+#First we multiply lfo1 by lfo2, and place the result in
+#the temporary register _r1
+self.lightFader.addOp( _mul, _r1, lfo1, lfo2 )
+
+#Then we multiply the light fader animation to _r1, placing
+#the result in _r0 ( the final output register )
+self.lightFader.addOp( _mul, _r0, self.lightFaderAnim, _r1 )
+
+self.light.source = source.model.root
+self.light.visible = 1
+self.light.shader = self.lightFader
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addOp"></a><p class="function_definition">
+<span class="function_definition">def addOp( <i>self, opcode, outreg, param1, param2</i> ):</span>
+</p>
+
+<div class="function_description">One parameter:
+0 - MOVE
+1 - RECIPROCAL
+2 - BIAS
+3 - COMPLEMENT
+<br><br>
+Two parameters:
+4 - MULTIPLY
+5 - DIVIDE
+6 - ADD
+6 - SUBTRACT
+7 - DOT
+8 - MIN
+9 - MAX
+10 - SGE
+11 - SLT
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>opcode</i></span></td><td><span class="function_parameter_description">&nbsp;One of the above values as an uint8
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>outreg</i></span></td><td><span class="function_parameter_description">&nbsp;Temporary output register as Vector4ProviderPtr to store result
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>param1</i></span></td><td><span class="function_parameter_description">&nbsp;First parameter as Vector4ProviderPtr
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>param2</i></span></td><td><span class="function_parameter_description">&nbsp;Optional second parameter as Vector4ProviderPtr, used as required
+</span></td></tr>
+
+</table>
+</p>
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

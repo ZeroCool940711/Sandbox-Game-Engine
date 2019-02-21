@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="modeleditor2005">
+</Property><Property Name="Archivo de la solución" Value="D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\modeleditor\modeleditor2005.sln">
+</Property><Property Name="Archivo de opciones de usuario" Value="D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\modeleditor\modeleditor2005.suo">
+</Property><Property Name="Date" Value="Monday, October 8, 2018">
+</Property><Property Name="Time" Value="20:04 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="modeleditor2005.sln" Description="La copia D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\modeleditor\modeleditor2005.sln.old del archivo se ha realizado correctamente">
+</Event><Event ErrorLevel="0" Project="" Source="modeleditor2005.suo" Description="La copia D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\modeleditor\modeleditor2005.suo.old del archivo se ha realizado correctamente">
+</Event><Event ErrorLevel="0" Project="ModelEditor2005" Source="ModelEditor2005.vcproj" Description="Ya no se permite la implementación web en el servidor de IIS local. La herramienta de generación de implementación web se ha quitado de la configuración del proyecto.">
+</Event><Event ErrorLevel="1" Project="ModelEditor2005" Source="ModelEditor2005.vcproj" Description="Esta aplicación se ha actualizado para incluir la configuración relacionada con la característica Control de cuentas de usuario (UAC) de Windows Vista. De manera predeterminada, cuando se ejecuta en Windows Vista con el Control de cuentas de usuario habilitado, la aplicación está marcada para que se ejecute con los mismos privilegios que el proceso que la inició y para que no pueda ejecutarse con virtualización. Puede cambiar la configuración relativa al Control de cuentas de usuario desde las páginas de propiedades del proyecto.">
+</Event><Event ErrorLevel="0" Project="ModelEditor2005" Source="ModelEditor2005.vcproj" Description="Se realizó correctamente la copia de seguridad del archivo de proyecto 'D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\modeleditor\ModelEditor2005.vcproj.8.00.old'.">
+</Event><Event ErrorLevel="0" Project="ModelEditor2005" Source="ModelEditor2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="ModelEditor2005" Source="ModelEditor2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="appmgr2005" Source="..\..\lib\appmgr\appmgr2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="appmgr2005" Source="..\..\lib\appmgr\appmgr2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="math3d2005" Source="..\..\lib\math\math3d2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="math3d2005" Source="..\..\lib\math\math3d2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="moo2005" Source="..\..\lib\moo\moo2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="moo2005" Source="..\..\lib\moo\moo2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="resmgr2005" Source="..\..\lib\resmgr\resmgr2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="resmgr2005" Source="..\..\lib\resmgr\resmgr2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="zip2005" Source="..\..\lib\zip\zip2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="zip2005" Source="..\..\lib\zip\zip2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="romp2005" Source="..\..\lib\romp\romp2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="romp2005" Source="..\..\lib\romp\romp2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="input2005" Source="..\..\lib\input\input2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="input2005" Source="..\..\lib\input\input2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="pyscript2005" Source="..\..\lib\pyscript\pyscript2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="pyscript2005" Source="..\..\lib\pyscript\pyscript2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ashes2005" Source="..\..\lib\ashes\ashes2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="ashes2005" Source="..\..\lib\ashes\ashes2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="duplo2005" Source="..\..\lib\duplo\duplo2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="duplo2005" Source="..\..\lib\duplo\duplo2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="physics22005" Source="..\..\lib\physics2\physics22005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="physics22005" Source="..\..\lib\physics2\physics22005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="editor_chunk2005" Source="..\..\lib\chunk\editor_chunk2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="editor_chunk2005" Source="..\..\lib\chunk\editor_chunk2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="guitabs2005" Source="..\..\lib\guitabs\guitabs2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="guitabs2005" Source="..\..\lib\guitabs\guitabs2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="speedtree2005" Source="..\..\lib\speedtree\speedtree2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="speedtree2005" Source="..\..\lib\speedtree\speedtree2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="gizmo2005" Source="..\..\lib\gizmo\gizmo2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="gizmo2005" Source="..\..\lib\gizmo\gizmo2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ual2005" Source="..\..\lib\ual\ual2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="ual2005" Source="..\..\lib\ual\ual2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="fmodsound2005" Source="..\..\lib\fmodsound\fmodsound2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="fmodsound2005" Source="..\..\lib\fmodsound\fmodsound2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="guimanager2005" Source="..\..\lib\guimanager\guimanager2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="guimanager2005" Source="..\..\lib\guimanager\guimanager2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="controls2005" Source="..\..\lib\controls\controls2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="controls2005" Source="..\..\lib\controls\controls2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="pythoncore" Source="..\..\lib\python\PCbuild8\pythoncore.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="pythoncore" Source="..\..\lib\python\PCbuild8\pythoncore.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="geh2005" Source="..\..\lib\geh\geh2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="geh2005" Source="..\..\lib\geh\geh2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="libpng" Source="..\..\lib\png\projects\visualc71\libpng.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="libpng" Source="..\..\lib\png\projects\visualc71\libpng.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="terrain2005" Source="..\..\lib\terrain\terrain2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="terrain2005" Source="..\..\lib\terrain\terrain2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="particle2005" Source="..\..\lib\particle\particle2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="particle2005" Source="..\..\lib\particle\particle2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="model" Source="..\..\lib\model\model.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="model" Source="..\..\lib\model\model.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="modeleditor2005.sln" Description="La solución se convirtió correctamente">
+</Event><Event ErrorLevel="3" Project="" Source="modeleditor2005.sln" Description="Converted">
+</Event></UpgradeLog>

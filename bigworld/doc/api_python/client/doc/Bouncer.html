@@ -1,0 +1,373 @@
+<html>
+<head>
+<title>Bouncer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Bouncer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Bouncer is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="Motor.html">Motor</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#calcPath" class="function_list" >calcPath</a>( self, clientSourcePos, serverSourcePos, destPos, elasticity, radius, maxBounces ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#estimatePath" class="function_list" >estimatePath</a>( self, clientSourcePos, elasticity, radius, maxBounces ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#updatePath" class="function_list" >updatePath</a>( self, clientSourcePos, serverSourcePos, destPos ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#destPos" class="attribute_list" >destPos</a></td><td>&nbsp; Sequence of floats (x, y, z).
+</td></tr>
+
+<tr valign=top><td><a href="#timeSlice" class="attribute_list" >timeSlice</a></td><td>&nbsp; Float. Default is 0 (this must be set before calcPath is called).
+</td></tr>
+
+<tr valign=top><td><a href="#tripTime" class="attribute_list" >tripTime</a></td><td>&nbsp; Float. Default is -1 (this must be set before calcPath is called).
+</td></tr>
+
+<tr valign=top><td><a href="#vx" class="attribute_list" >vx</a></td><td>&nbsp; Float. Default is 0.
+</td></tr>
+
+<tr valign=top><td><a href="#vy" class="attribute_list" >vy</a></td><td>&nbsp; Float. Default is 0.
+</td></tr>
+
+<tr valign=top><td><a href="#vz" class="attribute_list" >vz</a></td><td>&nbsp; Float. Default is 0.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="Bouncer.html">Bouncer</a> is a <a href="Motor.html">Motor</a> that causes the model to move with an initial velocity
+(vx, vy, vz) in a balistic trajectory, following the laws of motion and
+bouncing against the collision scene until it eventually comes to rest.
+<br><br>
+It is designed to work in a lagged network environment so that the player
+originally activating the bouncer can get immediate feedback, being able to
+see the balistic projectile without having to wait for the server to return
+its correct final path, while still getting an end result that is consistent
+with that on the server and all witnessing clients.
+<br><br>
+This is achieved by allowing the original client to estimate the object's
+path (using estimatePath) and start animating it right away. When the final
+authoritative trajectory arrives from the server, the two paths are blended
+together over time (using updatePath), so that the final position on the
+client is the same as the one returned by the server.
+<br><br>
+Clients witnessing the balistic object will animate the server-computed
+trajectory from the begining (using calcPath).
+<br><br>
+Example:
+
+<pre>	def throwGrenade(self):
+		# when throwing the grenade
+		motor = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Bouncer><a href="Bouncer.html">Bouncer</a></a>()
+		motor.vx = throwSpeed[0]
+		motor.vy = throwSpeed[1]
+		motor.vz = throwSpeed[2]
+		motor.tripTime  = Grenade.FUSETIME # no point in simulating past explosion time
+		motor.timeSlice = 1.0 / 30.0
+		motor.estimatePath( owner.position, ELASTICITY, RADIUS, MAX_BOUNCES)
+
+		model = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Model>Model</a>(GRENADE_MODEL)
+		model.motors = [motor]
+		(...)
+
+	def enterWorld(self):
+		if self.ownerId == <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#player>player</a>().id:
+			# update existing motor
+			(...)
+			model.motors[0].updatePath(
+				self.clientSourcePos,
+				self.serverSourcePos,
+				self.destinationPos)
+		else:
+			# witnessing grenade being thrown
+			(...)
+			motor = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Bouncer><a href="Bouncer.html">Bouncer</a></a>()
+			motor.vx = self.throwSpeed[0]
+			motor.vy = self.throwSpeed[1]
+			motor.vz = self.throwSpeed[2]
+			motor.tripTime  = self.fusetime
+			motor.timeSlice = 1.0 / 30.0
+			motor.calcPath(
+				currentOwnerPosition, self.serverSourcePos,
+				self.destPos, ELASTICITY, RADIUS, MAX_BOUNCES)
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="calcPath"></a><p class="function_definition">
+<span class="function_definition">def calcPath( <i>self, clientSourcePos, serverSourcePos, destPos, elasticity, radius, maxBounces</i> ):</span>
+</p>
+
+<div class="function_description">Pre-calculates the path of the object, as determined 
+by the <a href="Bouncer.html">Bouncer</a> motor. The <a href="Bouncer.html">Bouncer</a> will move the object
+along this path as the motor is updated over time.
+<br><br>
+The clientSourcePos is the initial position, and the model has its
+position interpolated over the first second of its trajectory to
+join on the calculated path from serverSourcePos to destPos.
+<br><br>
+<i>This method should be used on witnessing clients.</i>
+<br><br>
+<i>This needs to be called before the motor is used.</i>
+<br><br>
+<i>The tripTime attribute must be set to an estimate before this
+function is called. The simulation will be carried up to tripTime.
+This can either be sent by the server or be a constant in the game
+(e.g., the fuse time of a grenade).</i>
+<br><br>
+<i>Velocity is taken from the vx, vy and vz attributes. These and
+timeSlice must also be set before calcPath can be called.</i>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>clientSourcePos</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of floats (x, y, z): initial position on the client.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>serverSourcePos</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of floats (x, y, z): initial position on the server. 
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>destPos</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of floats (x, y, z): destination position.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>elasticity</i></span></td><td><span class="function_parameter_description">&nbsp;float: bouncing object elasticity factor. 
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>radius</i></span></td><td><span class="function_parameter_description">&nbsp;float: bouncing object radius.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxBounces</i></span></td><td><span class="function_parameter_description">&nbsp;int: maximum number of bounces before stoping the simulation.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>2-tuple: (total simulation time, time to reach destination).
+</td></tr>
+</table>
+</p>
+
+<a name="estimatePath"></a><p class="function_definition">
+<span class="function_definition">def estimatePath( <i>self, clientSourcePos, elasticity, radius, maxBounces</i> ):</span>
+</p>
+
+<div class="function_description">Estimates a path before the final information arrives from the server. 
+<br><br>
+<i>This method should be used on the client activating the bouncer.</i>
+<br><br>
+<i>This needs to be called before the motor is used.</i>
+<br><br>
+<i>The tripTime attribute must be set to an estimate before this
+function is called. The simulation will be carried up to tripTime.
+The lifetime of the bouncing object is usually the best guess.</i>
+<br><br>
+<i>Velocity is taken from the vx, vy and vz attributes. These and
+timeSlice must also be set before estimatePath is called.</i>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>clientSourcePos</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of floats (x, y, z): initial position on the client.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>elasticity</i></span></td><td><span class="function_parameter_description">&nbsp;float: bouncing object elasticity factor. 
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>radius</i></span></td><td><span class="function_parameter_description">&nbsp;float: bouncing object radius.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>maxBounces</i></span></td><td><span class="function_parameter_description">&nbsp;int: maximum number of bounces before stoping the simulation.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float: total simulation time.
+</td></tr>
+</table>
+</p>
+
+<a name="updatePath"></a><p class="function_definition">
+<span class="function_definition">def updatePath( <i>self, clientSourcePos, serverSourcePos, destPos</i> ):</span>
+</p>
+
+<div class="function_description">Updates an estimated path, based on the final authoritative information 
+received from the server. The combination of estimatePath and updatePath
+should end up with the same result as calcPath, but it can start earlier.
+The path is smoothed from the estimate to the correct result, based on
+what has already been played back.
+<br><br>
+<i>This method should be used on the client that activated the bouncer,
+after it has received the server-computed source and destination positions.</i>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>clientSourcePos</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of floats (x, y, z): initial position on the client.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>serverSourcePos</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of floats (x, y, z): initial position on the server. 
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>destPos</i></span></td><td><span class="function_parameter_description">&nbsp;Sequence of floats (x, y, z): destination position.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float: total simulation time.
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="destPos"></a><p class="attribute_definition">
+<span class="attribute_definition">destPos</span>
+</p>
+
+<div class="attribute_description">The attribute destPos can be used to access the destination position
+for the path of the <a href="Bouncer.html">Bouncer</a>. This attribute is Read Only. If called
+before calcPath or estimatePath are called, the return value will be
+the zero vector.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Sequence of floats (x, y, z).
+</td></tr>
+</table>
+</p>
+
+<a name="timeSlice"></a><p class="attribute_definition">
+<span class="attribute_definition">timeSlice</span>
+</p>
+
+<div class="attribute_description">The attribute timeSlice is used to specify the time interval between
+pre-calculated positions for the objects path. This needs to be set
+to a value greater than 0 before calcPath is called. A rough estimate
+for this would be the time interval between frames. This along with
+tripTime allows you to specify how many steps are precalculated by
+calcPath for the objects trajectory, and to control how much processor
+time is used by calcPath.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0 (this must be set before calcPath is called).
+</td></tr>
+</table>
+</p>
+
+<a name="tripTime"></a><p class="attribute_definition">
+<span class="attribute_definition">tripTime</span>
+</p>
+
+<div class="attribute_description">The attribute tripTime is used to specify in rough terms the expected
+time that the object will take to come to rest (reach its destination).
+This needs to be set to a value greater than 0 before calcPath is
+called. It will serve as the upper bound for the simulation time.
+This, along with timeSlice allows you to specify how many steps
+are precalculated by calcPath for the objects trajectory, and to
+control how much processor time is used by calcPath.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is -1 (this must be set before calcPath is called).
+</td></tr>
+</table>
+</p>
+
+<a name="vx"></a><p class="attribute_definition">
+<span class="attribute_definition">vx</span>
+</p>
+
+<div class="attribute_description">Initial velocity in the models x-axis direction.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0.
+</td></tr>
+</table>
+</p>
+
+<a name="vy"></a><p class="attribute_definition">
+<span class="attribute_definition">vy</span>
+</p>
+
+<div class="attribute_description">Initial velocity in the models y-axis direction.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0.
+</td></tr>
+</table>
+</p>
+
+<a name="vz"></a><p class="attribute_definition">
+<span class="attribute_definition">vz</span>
+</p>
+
+<div class="attribute_description">Initial velocity in the models z-axis direction.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

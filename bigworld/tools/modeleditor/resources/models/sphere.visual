@@ -1,0 +1,65 @@
+<root>
+	<node>
+		<identifier>	Scene Root	</identifier>
+		<transform>
+			<row0>	1.000000 0.000000 0.000000	</row0>
+			<row1>	0.000000 1.000000 0.000000	</row1>
+			<row2>	0.000000 0.000000 1.000000	</row2>
+			<row3>	0.000000 0.000000 0.000000	</row3>
+		</transform>
+		<node>
+			<identifier>	Bone01	</identifier>
+			<transform>
+				<row0>	-0.003247 0.999995 -0.000000	</row0>
+				<row1>	-0.000008 -0.000000 -1.000000	</row1>
+				<row2>	-0.999995 -0.003247 0.000008	</row2>
+				<row3>	-0.028937 0.012018 -0.000000	</row3>
+			</transform>
+			<node>
+				<identifier>	Bone02	</identifier>
+				<transform>
+					<row0>	0.999968 0.000000 0.007946	</row0>
+					<row1>	0.000000 1.000000 -0.000008	</row1>
+					<row2>	-0.007946 0.000008 0.999968	</row2>
+					<row3>	0.934735 0.000000 -0.000000	</row3>
+				</transform>
+				<node>
+					<identifier>	Bone02BlendBoneSphere01	</identifier>
+					<transform>
+						<row0>	-0.011193 -0.000000 -0.999937	</row0>
+						<row1>	0.999937 0.000000 -0.011193	</row1>
+						<row2>	0.000000 -1.000000 0.000000	</row2>
+						<row3>	-0.947046 -0.000000 -0.021373	</row3>
+					</transform>
+				</node>
+			</node>
+			<node>
+				<identifier>	Bone01BlendBoneSphere01	</identifier>
+				<transform>
+					<row0>	-0.003247 -0.000008 -0.999995	</row0>
+					<row1>	0.999995 -0.000000 -0.003247	</row1>
+					<row2>	-0.000000 -1.000000 0.000008	</row2>
+					<row3>	-0.012112 -0.000000 -0.028898	</row3>
+				</transform>
+			</node>
+		</node>
+	</node>
+	<renderSet>
+		<treatAsWorldSpaceObject>	true	</treatAsWorldSpaceObject>
+		<node>	Bone01BlendBoneSphere01	</node>
+		<node>	Bone02BlendBoneSphere01	</node>
+		<geometry>
+			<vertices>	Sphere01.vertices	</vertices>
+			<primitive>	Sphere01.indices	</primitive>
+			<primitiveGroup>	0
+				<material>
+					<identifier>	empty	</identifier>
+				</material>
+			</primitiveGroup>
+		</geometry>
+	</renderSet>
+	<boundingBox>
+		<min>	-0.989074 -0.000000 -0.994522	</min>
+		<max>	0.989074 2.000000 0.994522	</max>
+	</boundingBox>
+</root>

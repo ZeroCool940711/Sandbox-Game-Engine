@@ -1,0 +1,90 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;4.&nbsp;Offline Patcher Terminology</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Offline Patching">
+      <link rel="up" href="index.html" title="Offline Patching">
+      <link rel="prev" href="ch03.html" title="Chapter&nbsp;3.&nbsp;Application Programmers Interface">
+      <link rel="next" href="apa.html" title="Appendix&nbsp;A.&nbsp;Acknowledgements">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/offline_patcher/ch04.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;4.&nbsp;Offline Patcher Terminology</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch03.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="apa.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;4.&nbsp;Offline Patcher Terminology">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="d0e2119"></a>Chapter&nbsp;4.&nbsp;Offline Patcher Terminology
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <p>The following terms are used in this document:</p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="emphasis">state file</em></p>
+                     <p>An XML file which patcher clients maintain for each target.</p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="emphasis">upgrade path</em></p>
+                     <p>A specification for upgrading to the current version. Each
+                              released version should have an entry in the versions file.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="emphasis">versions file</em></p>
+                     <p>An XML file that patcher clients download via HTTP. The current
+                              version name is listed, and for each previously released version, it
+                              contains an upgrade path to the current version.
+                     </p>
+                     <p>The idea is for clients to check this file before launching the
+                              game, and only launch the game executable if the current version exists,
+                              otherwise it applies the Upgrade Path specified in the versions
+                              file.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch03.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="apa.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;3.&nbsp;Application Programmers Interface&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Appendix&nbsp;A.&nbsp;Acknowledgements</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

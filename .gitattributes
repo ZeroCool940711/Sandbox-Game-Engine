@@ -1,0 +1,4 @@
+*.pch filter=lfs diff=lfs merge=lfs -text
+*.ilk filter=lfs diff=lfs merge=lfs -text
+*.lib filter=lfs diff=lfs merge=lfs -text
+lib.pch filter=lfs diff=lfs merge=lfs -text

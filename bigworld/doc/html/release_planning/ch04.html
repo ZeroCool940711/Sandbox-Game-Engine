@@ -1,0 +1,861 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;4.&nbsp;Cluster Hardware</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Release Planning">
+      <link rel="up" href="index.html" title="Release Planning">
+      <link rel="prev" href="ch03.html" title="Chapter&nbsp;3.&nbsp;Developing a Robust Server">
+      <link rel="next" href="ch05.html" title="Chapter&nbsp;5.&nbsp;Monitoring and Maintaining the Cluster">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/release_planning/ch04.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;4.&nbsp;Cluster Hardware</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch03.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch05.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;4.&nbsp;Cluster Hardware">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Hardware_Recommendations"></a>Chapter&nbsp;4.&nbsp;Cluster Hardware
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch04.html#d0e702">4.1. Choosing the Number of BigWorld Server Instances</a></span></dt>
+                  <dt><span class="section"><a href="ch04.html#d0e741">4.2. The Cluster Hardware</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch04.html#d0e748">4.2.1. General Cluster Machines</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#d0e763">4.2.2. Database Machines</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#d0e770">4.2.3. Server Tools Machines</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#xref_Secondary_Storage_Considerations">4.2.4. Secondary Storage Considerations</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#xref_Sizing_The_Cluster">4.2.5. Sizing the Cluster</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch04.html#d0e840">4.3. Cluster Configuration</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch04.html#d0e843">4.3.1. Linux Distributions</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#xref_SmoothingStartupLoad">4.3.2. Smoothing load during startup</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#xref_MySQLConfiguration">4.3.3. MySQL Configuration</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#d0e906">4.3.4. Network Configuration</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#xref_BwmachinedConsistent">4.3.5. BWMachined Version Consistency</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch04.html#xref_Client_Hardware_Recommendations">4.4. Client Hardware Recommendations</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch04.html#d0e1042">4.4.1. Advanced Terrain Recommendations</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#d0e1076">4.4.2. Simple Terrain Recommendations</a></span></dt>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+            <p>A typical BigWorld network cluster is built from multiple multi-core
+                 machines and a high performance network connecting them. Correct planning of
+                 these components will allow for an easy and cost effective implementation.
+                 BigWorld recommends installing a test environment using similar but smaller
+                 scale hardware as the planned production environment and basing the
+                 production environment configuration on the test results acquired from this
+                 environment.
+            </p>
+            <div class="section" title="4.1.&nbsp;Choosing the Number of BigWorld Server Instances">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e702"></a>4.1.&nbsp;Choosing the Number of BigWorld Server Instances
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>When releasing your game, you may want to consider running more than
+                      one BigWorld server instance.
+               </p>
+               <p>If you are releasing your game in multiple geographic locations, you
+                      may want to host your game in multiple locations so that your servers are
+                      closer to the players. Each data centre will need to run at least one
+                      BigWorld server.
+               </p>
+               <p>Even inside a single data centre, there may be reasons to run
+                      multiple servers. If your game has multiple shards, you can choose to
+                      develop and run your game so that all shards run within a single server
+                      instance or you may choose to run a single server instance per
+                      shard.
+               </p>
+               <p>Advantages of running a single server instance include:</p>
+               <div class="orderedlist">
+                  <ol class="orderedlist" type="1">
+                     <li class="listitem">
+                        <p>Machine resources are balanced between all shards.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Easier handling of player movement between shards.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Ability to send script messages between entities in different
+                                   shards.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Easier to manage as there are fewer databases, fewer accounts to
+                                   monitor and deploy to etc.
+                        </p>
+                     </li>
+                  </ol>
+               </div>
+               <p>Advantages of running a single server instance per shard
+                      include:
+               </p>
+               <div class="orderedlist">
+                  <ol class="orderedlist" type="1">
+                     <li class="listitem">
+                        <p>Not needing to have a single network to run the entire
+                                   game.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Greater isolation of faults. If a single shard gets corrupted,
+                                   it will not affect other shards.
+                        </p>
+                     </li>
+                  </ol>
+               </div>
+               <p>A solution between these two extremes can also be used having
+                      multiple server instances each running multiple shards.
+               </p>
+               <p>The <a href="../server_overview/index.html" class="olink">Server Overview</a> contains more
+                      details.
+               </p>
+            </div>
+            <div class="section" title="4.2.&nbsp;The Cluster Hardware">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e741"></a>4.2.&nbsp;The Cluster Hardware
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>BigWorld recommends using brand name cluster machines with proven
+                      stability and performance. Reducing the variations between machines in the
+                      cluster can also reduce complex and increase flexibility. The BigWorld
+                      engine has not been extensively tested using virtual machines to host the
+                      server instance.
+               </p>
+               <p>Using multiple cores with big L1 and L2 cache sizes is recommended
+                      as long as the cores are not overloading the NIC bandwidth. One server
+                      component (such as a CellApp or BaseApp) should be run on each
+                      core.
+               </p>
+               <div class="section" title="4.2.1.&nbsp;General Cluster Machines">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e748"></a>4.2.1.&nbsp;General Cluster Machines
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Multi-core brand name machines are becoming the market standard
+                           and are recommended. We recommend taking into account the specific game
+                           requirements and the cost effective market solutions when choosing the
+                           cluster machine specifications. In general, our customers are currently
+                           using 2-4 core machines with 2-4 GB of memory. One CellApp or BaseApp
+                           application should be run on each core. Depending on the usage
+                           requirement, each machine should be equipped with one or two 1Gb NICs
+                           and with enough disk space to host the server resources, the server
+                           binaries and system log files. Appropriate free disk space should be
+                           available on the disk where the server is installed. Redundant PSU's
+                           should be considered to ensure high reliability.
+                  </p>
+                  <p>BaseApp processes using the secondary database feature require
+                           disk space to write to their SQLite databases. Attention should be paid
+                           to ensure that there is enough disk space for these processes.
+                  </p>
+                  <p>The machines should have enough memory to avoid swapping as this
+                           can lead to poor performance and even processes being shut down. Swap
+                           space is still recommended as there is still a chance that these
+                           situations can be handled.
+                  </p>
+                  <p>For sizing the cluster, please review the section <a href="ch04.html#xref_Sizing_The_Cluster" class="olink">Sizing the Cluster</a>.
+                  </p>
+                  <p>Please note that we strongly recommend that the processor affinity
+                           for the server processes be left to the operating system to
+                           manage.
+                  </p>
+               </div>
+               <div class="section" title="4.2.2.&nbsp;Database Machines">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e763"></a>4.2.2.&nbsp;Database Machines
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The hardware required by your database will be heavily dependant
+                           on how much load your database is put under. As with most databases the
+                           general rule is to use multiple cores, large memory and high performance
+                           reliable hard disks. RAID solutions should be considered for the MySQL
+                           hard disk. These should be implemented by a MySQL expert.
+                  </p>
+                  <p>Setting up the database machine should be done by an experienced
+                           MySQL DBA taking into account the performance measurements taken in the
+                           test environment.
+                  </p>
+               </div>
+               <div class="section" title="4.2.3.&nbsp;Server Tools Machines">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e770"></a>4.2.3.&nbsp;Server Tools Machines
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The server tools components have greater disk requirements than
+                           normal cluster machines. You may wish to have a higher performance
+                           hard-disk in this machine to handle the load of logging for all server
+                           processes. It can also be a good idea to isolate logs to separate
+                           partitions. This ensures that if a single logging process runs away and
+                           consumes too much disk space, other processes still have some free disk
+                           space.
+                  </p>
+                  <p>The general strategy used for long term storage of logs is to use
+                           logrotate to perform periodic log switches. Older log files should be
+                           archived in order to reduce the space requirements.
+                  </p>
+               </div>
+               <div class="section" title="4.2.4.&nbsp;Secondary Storage Considerations">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Secondary_Storage_Considerations"></a>4.2.4.&nbsp;Secondary Storage Considerations
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>It is crucial that the master copy of the server binaries and
+                           resources and the MySQL database are stored on fault tolerant hard disks
+                           which are also backed up regularly.
+                  </p>
+                  <p>BigWorld recommends against using NAS related solutions like NFS
+                           for the database as these solutions can cause increased network load and
+                           therefore degrade performance.
+                  </p>
+                  <p>The BigWorld cluster has yet to be performance tested using SAN
+                           solutions but we expect these solutions to better fit the BigWorld
+                           cluster deployment.
+                  </p>
+                  <p>When deploying the BigWorld cluster on separate machines without
+                           the usage of a SAN or a NAS solution, a solution should be used to
+                           distribute game resources between the cluster components. Any commonly
+                           used solution can be used for this issue. Some examples include:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p>Rsync</p>
+                        </li>
+                        <li class="listitem">
+                           <p><a class="ulink" href="http://reductivelabs.com/trac/puppet" target="_top">puppet</a></p>
+                        </li>
+                        <li class="listitem">
+                           <p><a class="ulink" href="http://www.cfengine.org" target="_top">cfengine</a></p>
+                        </li>
+                        <li class="listitem">
+                           <p>custom scripts</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="4.2.5.&nbsp;Sizing the Cluster">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Sizing_The_Cluster"></a>4.2.5.&nbsp;Sizing the Cluster
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>BigWorld Technology supports multiple types of games. Some games
+                           include many NPC entities and complex server AI calculations while
+                           others include more player characters and less NPCs. The number of
+                           spaces can also vary between different implementations. This variety
+                           means that the cluster requirements will depend on the specific customer
+                           game implementation.
+                  </p>
+                  <p>The best solution for sizing the cluster is to measure the
+                           BigWorld server instance requirements on a test environment and then to
+                           use these results to predict the required cluster hardware. BigWorld
+                           Technology allows adding machines to a cluster as well as changing the
+                           role of each machine. This allows easy adjustment of the cluster during
+                           both the testing and the deployment stages. Please note that extra
+                           resources should be allocated to any server to handle load spikes and
+                           unexpected events. The chapter <a class="xref" href="ch07.html" title="Chapter&nbsp;7.&nbsp;Cluster Deployment Examples"><i>Cluster Deployment Examples</i></a> below contains examples
+                           based on real cluster deployments.
+                  </p>
+                  <div class="section" title="4.2.5.1.&nbsp;Cluster Machines">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e812"></a>4.2.5.1.&nbsp;Cluster Machines
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>In order to establish the hardware specification required for a
+                                game, tests should be run in a representative test environment. We
+                                recommend creating a representative cluster which will include the
+                                same ratio of CellApps, BaseApps and other processes as planned for
+                                the production environment. A WoW style game should probably have a
+                                test environment for at least one complete shard while any style game
+                                should aim to have a test environment sized at least 10% of the
+                                planned production environment.
+                     </p>
+                     <p>Scaling from the test environment to the production environment
+                                should be done in small steps to detect any bottlenecks or unexpected
+                                issues. This includes identifying changes that may need to be made in
+                                the game's script and other resources. In some cases, it may even
+                                require changes to the game design so early detect of these issues is
+                                important.
+                     </p>
+                     <p>The testing stage should try to estimate the expected production
+                                environment while also monitoring less scalable components (like the
+                                CellAppMgr, BaseAppMgr and database components) to detect potential
+                                bottlenecks.
+                     </p>
+                  </div>
+                  <div class="section" title="4.2.5.2.&nbsp;Cluster Network">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e821"></a>4.2.5.2.&nbsp;Cluster Network
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The external-facing cluster machines would typically be
+                                connected directly to the Internet without the usage of any hardware
+                                based firewalls. The estimated required bandwidth per machine should
+                                be calculated based on the results of the test environment and extra
+                                bandwidth should be allocated to prevent problems due to network
+                                spikes. A rough estimate can be achieved by multiplying the requested
+                                downstream bandwidth per client by the expected number of clients.
+                                Extra bandwidth should be allocated for resending dropped packets as
+                                well as handling temporary spikes in the amount of data being sent.
+                                Outgoing bandwidth is generally higher than incoming.
+                     </p>
+                     <p>In order to establish the network requirements, it is
+                                recommended to run the same network cluster as above and monitor
+                                network bandwidth and loss. Additionally, the network switch load
+                                should be monitored using switch monitoring utilities or other network
+                                interface monitoring utilities to measure the internal cluster
+                                bandwidth requirements and internet bandwidth requirements.
+                     </p>
+                     <p>BigWorld Technology has multiple mechanisms to overcome packet
+                                loss issues but it is recommended that the underlying network error
+                                rate is within acceptable parameters (for example, less than .01% in
+                                unsaturated network conditions).
+                     </p>
+                  </div>
+                  <div class="section" title="4.2.5.3.&nbsp;The Bots Process">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e830"></a>4.2.5.3.&nbsp;The Bots Process
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The bots process should be used early and regularly to test with
+                                large numbers of simulated players. Time should be spent to create bot
+                                scripts that will simulate player behaviour. Server load and bandwidth
+                                usage should grow near linearly with the number of bots added.
+                                Attention should be paid, if this growth does not appear to be linear
+                                as this can lead to scaling issues in larger production
+                                environments.
+                     </p>
+                  </div>
+                  <div class="section" title="4.2.5.4.&nbsp;Staged Release">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e835"></a>4.2.5.4.&nbsp;Staged Release
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>It can be difficult to estimate the expected player base and
+                                expected concurrent player count. It may make sense to release your
+                                game in a stage manner to help predict the peak usage and cluster
+                                requirements as well as having an opportunity to identify any problems
+                                earlier with a smaller player base.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="4.3.&nbsp;Cluster Configuration">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e840"></a>4.3.&nbsp;Cluster Configuration
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="4.3.1.&nbsp;Linux Distributions">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e843"></a>4.3.1.&nbsp;Linux Distributions
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>For long term deployment environments, BigWorld supports and
+                           recommends the usage of one of the following Linux distributions. Be
+                           aware that 32 bit Linux distributions are not supported.
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p>CentOS 5 (64 bit)</p>
+                           <p><a class="ulink" href="http://www.centos.org/" target="_top">http://www.centos.org/</a></p>
+                        </li>
+                        <li class="listitem">
+                           <p>RedHat Enterprise Linux 5 (64 bit)</p>
+                           <p><a class="ulink" href="http://www.redhat.com/rhel" target="_top">http://www.redhat.com/rhel</a></p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="4.3.2.&nbsp;Smoothing load during startup">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_SmoothingStartupLoad"></a>4.3.2.&nbsp;Smoothing load during startup
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>While some effort should be put into tweaking server configuration
+                           for operational stability, it is also important to consider the load of
+                           your system during server startup. Spiky load during server startup may
+                           reduce the speed that your cluster will startup and, in the worst case,
+                           potentially prevent server startup completely due to overloaded
+                           processes.
+                  </p>
+                  <p>In order to assist spreading load between server processes and
+                           increasing space load time, the following options should be configured
+                           in your game's <code class="filename">bw.xml</code> file.
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal">&lt;desiredBaseApps&gt;</span></p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">&lt;desiredCellApps&gt;</span></p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">&lt;cellAppMgr/maxLoadingCells&gt;</span></p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">&lt;cellAppMgr/minLoadingArea&gt;</span></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>While these options will assist in smoothing out your server
+                           startup, it is important to take into consideration that the CellAppMgr
+                           configuration options apply across the entire lifetime of the server,
+                           not just during startup. For this reason it may be useful for your game
+                           script to implement a loading phase and an active game phase. During the
+                           transition between these two phases the configuration options such as
+                           <span class="literal">&lt;cellAppMgr/maxLoadingCells&gt;</span> can be modified
+                           via a Watcher set request. This also applies to any other load balancing
+                           options or other configuration options you may choose to tweak for game
+                           startup. See the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a> for more
+                           details on these options.
+                  </p>
+               </div>
+               <div class="section" title="4.3.3.&nbsp;MySQL Configuration">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_MySQLConfiguration"></a>4.3.3.&nbsp;MySQL Configuration
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>MySQL is quite well configured by default, however there are a few
+                           options that should be considered for tweaking to ensure optimal
+                           performance within your own production environment.
+                  </p>
+                  <div class="variablelist">
+                     <dl>
+                        <dt><span class="term"><span class="literal">innodb_buffer_pool_size</span></span></dt>
+                        <dd>
+                           <p>MySQL documentation suggests that this system variable can
+                                          be set to 80% of the physical memory size.
+                           </p>
+                        </dd>
+                     </dl>
+                  </div>
+               </div>
+               <div class="section" title="4.3.4.&nbsp;Network Configuration">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e906"></a>4.3.4.&nbsp;Network Configuration
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The cluster network should be carefully configured to provide both
+                           security and performance.
+                  </p>
+                  <div class="section" title="4.3.4.1.&nbsp;Installing Multiple LoginApps">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e911"></a>4.3.4.1.&nbsp;Installing Multiple LoginApps
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>BigWorld recommends using DNS round robin in order to achieve
+                                load balancing when deploying multiple LoginApps. There are many good
+                                references available on the Internet explaining how to install and use
+                                this DNS feature.
+                     </p>
+                  </div>
+                  <div class="section" title="4.3.4.2.&nbsp;Security Considerations">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e916"></a>4.3.4.2.&nbsp;Security Considerations
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="section" title="4.3.4.2.1.&nbsp;External Network Security">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h5 class="title"><a name="d0e919"></a>4.3.4.2.1.&nbsp;External Network Security
+                                 </h5>
+                              </div>
+                           </div>
+                        </div>
+                        <p>A typical BigWorld cluster includes multiple external facing
+                                     machines as displayed in the image below. These machines include
+                                     both BaseApp and LoginApp machines which are used for the client
+                                     login and for communication with the other server components. All
+                                     external facing machines should be carefully configured to prevent
+                                     hackers from getting access to these machines. Additionally, BaseApp
+                                     and CellApp Python code should be carefully reviewed to prevent any
+                                     potential exploits. For further information please review the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a> chapter <a href="../server_operations_guide/ch08.html" class="olink"><i>Security</i></a>.
+                        </p>
+                        <div class="informalfigure">
+                           <div class="mediaobject"><object type="image/svg+xml" data="images/cluster_layout.svg"></object><span class="caption">
+                                 <p>BigWorld Server Instance
+                                                  components
+                                 </p></span></div>
+                        </div>
+                     </div>
+                     <div class="section" title="4.3.4.2.2.&nbsp;Communication Encryption">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h5 class="title"><a name="d0e935"></a>4.3.4.2.2.&nbsp;Communication Encryption
+                                 </h5>
+                              </div>
+                           </div>
+                        </div>
+                        <p>BigWorld Technology ships with a default LoginApp RSA key pair
+                                     to enable encrypted login communication, however all BigWorld
+                                     customers receive the same pre-generated key pair. In order to
+                                     secure the client connections for a BigWorld game, a new key pair
+                                     should be generated and the public key distributed with the game
+                                     clients. The key size directly impacts the performance of LoginApp.
+                                     For instructions please see <a href="../server_programming_guide/ch29.html" class="olink"><i>Encrypting Client-Server Traffic</i></a>.
+                        </p>
+                     </div>
+                  </div>
+                  <div class="section" title="4.3.4.3.&nbsp;Default broadcast network routes and External Interfaces">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="xref_DefaultRoutes"></a>4.3.4.3.&nbsp;Default broadcast network routes and External
+                                         Interfaces
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="section" title="4.3.4.3.1.&nbsp;Configuring internal interfaces">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h5 class="title"><a name="d0e946"></a>4.3.4.3.1.&nbsp;Configuring internal interfaces
+                                 </h5>
+                              </div>
+                           </div>
+                        </div>
+                        <p>In order to ensure the correct operation of your cluster, it
+                                     is important to correctly configure network routing on every host.
+                                     From BigWorld's perspective, this means making sure that machines
+                                     with multiple network interfaces (such as BaseApp and LoginApp
+                                     machines) have the correct default network route established for
+                                     broadcast network messages. BigWorld servers use broadcast messages
+                                     as a mechanism to establish internal network interfaces as well as
+                                     finding other servers in the cluster. Please review the Server
+                                     Installation Guide for more details.
+                        </p>
+                     </div>
+                     <div class="section" title="4.3.4.3.2.&nbsp;Configuring external interfaces">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h5 class="title"><a name="d0e951"></a>4.3.4.3.2.&nbsp;Configuring external interfaces
+                                 </h5>
+                              </div>
+                           </div>
+                        </div>
+                        <p>While default broadcast routes are used to identify internal
+                                     network interfaces it is necessary to configure BigWorld servers to
+                                     know which interface to use for external network communication. In
+                                     production environments, the Internet facing network will generally
+                                     have a separate network assignment to the internal network.
+                        </p>
+                        <p>To configure your cluster to use the correct network interface
+                                     use the <code class="filename">bw.xml</code> option
+                                     <span class="literal">&lt;externalInterface&gt;</span><sup>[<a name="d0e963" href="#ftn.d0e963" class="footnote">1</a>]</sup>. The recommended method for specifying external
+                                     interfaces is with an IP address / netmask combination to avoid
+                                     having individual <code class="filename">bw.xml</code> files per host. For
+                                     example using the previous example host configuration we could add
+                                     an entry as follows:
+                        </p><pre class="programlisting">
+&lt;root&gt;
+    &lt;personality&gt; FantasyDemo &lt;/personality&gt;
+    
+    &lt;parentFile&gt; server/production_defaults.xml &lt;/parentFile&gt;
+
+    <em class="emphasis">&lt;externalInterface&gt; 192.168.1.0/24 &lt;/externalInterface&gt;</em>
+&lt;/root&gt;
+</pre><p>Although not strictly necessary, it is recommended to
+                                     standardise the network interface assignment to assist with system
+                                     administration. For example, all internal network interfaces could
+                                     be configured as <span class="literal">eth0</span> and all external interfaces
+                                     should be configured as <span class="literal">eth1</span>.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="4.3.5.&nbsp;BWMachined Version Consistency">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_BwmachinedConsistent"></a>4.3.5.&nbsp;BWMachined Version Consistency
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>While BigWorld strives to make BWMachined versions interact with
+                           each other as seamlessly as possible, it is recommended to make sure
+                           that all the installed versions of BWMachined within your BigWorld
+                           network cluster have the same version number. The easiest way to check
+                           this is from within WebConsole. Navigate to the <em class="emphasis">Cluster
+                              Control</em> module's <em class="emphasis">All Machines</em> page.
+                           WebConsole will display differently versioned BWMachined installation in
+                           red and will show a warning at the bottom of the screen if multiple
+                           BWMachined versions are installed within the same cluster.
+                  </p>
+                  <p>Another way to see the same information using command line tools
+                           is to use the <span class="command"><strong>control_cluster.py</strong></span> command
+                           <code class="option">cinfo</code>. Differing or older versions of BWMachined have
+                           their version number displayed at the end of each line. For
+                           example:
+                  </p><pre class="programlisting">$ control_cluster.py cinfo
+dev01      10.40.1.01       0 processes   0% of 1000MHz (7% mem)
+dev02      10.40.1.02       6 processes   7% of 2200MHz (77% mem)
+dev03      10.40.1.03       0 processes   0% of 2405MHz (2% mem) (v41)
+fedora6    10.40.1.06       1 process     0% of 1300MHz (5% mem) (v41)
+bwtools    10.40.1.100      1 process     2%, 0% of 2133MHz (30% mem)
+5 machines total</pre><p>In this example we can see that the machines
+                           <span class="literal">dev03</span> and <span class="literal">fedora6</span> have an older
+                           BWMachined version of 41 than the rest of the cluster.
+                  </p>
+                  <p>If you want to quickly check the version of BWMachined on your
+                           current host and don't have access to the BigWorld server tools, you can
+                           query the installed BWMachined binary directly using either the init.d
+                           script as root:
+                  </p><pre class="programlisting"># /etc/init.d/bwmachined2 version
+BWMachined (BigWorld 2.0.0 Hybrid64. 11:18:12 Jul  8 2010)
+Protocol version 42</pre><p>or query the installed BWMachined binary using the
+                           <code class="option">--version</code> command line argument:
+                  </p><pre class="programlisting"># /opt/bigworld/current/bwmachined/sbin/bwmachined2 --version
+BWMachined (BigWorld 2.0.0 Hybrid64. 11:18:12 Jul  8 2010)
+Protocol version 42</pre><p>Newer BWMachined versions are developed to support running older
+                           instances of the server, so updating to a newer version of BWMachined
+                           will almost always still allow running older servers.
+                  </p>
+               </div>
+            </div>
+            <div class="section" title="4.4.&nbsp;Client Hardware Recommendations">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Client_Hardware_Recommendations"></a>4.4.&nbsp;Client Hardware Recommendations
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The requirements for running the client are heavily dependant on the
+                      visual complexity of your game and the number of effects (such as
+                      particles) that are used for different quality levels. The following
+                      recommendations are based upon the FantasyDemo game environment and client
+                      as shipped with the default BigWorld Technology packages. We recommend
+                      running client performance and stability tests on different platforms to
+                      ensure compatibility and performance of the client on these
+                      platforms.
+               </p>
+               <p>The other major factor that can determine client hardware
+                      requirements is the kind of terrain used within your game. For more
+                      information on the different terrain types available please refer to
+                      <a href="../client_programming_guide/index.html" class="olink">Client Programming Guide</a>'s chapter <a href="../client_programming_guide/ch04.html" class="olink"><i>Terrain</i></a>.
+               </p>
+               <div class="section" title="4.4.1.&nbsp;Advanced Terrain Recommendations">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e1042"></a>4.4.1.&nbsp;Advanced Terrain Recommendations
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="altrow">
+                     <table border="0">
+                        <colgroup>
+                           <col width="50%" class="col1">
+                           <col width="50%" class="col2">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <th>Recommended</th>
+                              <th>Minimum</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>GeForce 7600 or ATI Radeon x1600</td>
+                              <td>GeForce 6600 128 MB or ATI Radeon 9600 128 MB</td>
+                           </tr>
+                           <tr>
+                              <td>2 GHz CPU</td>
+                              <td>2 GHz CPU</td>
+                           </tr>
+                           <tr>
+                              <td>1 GB RAM (2GB if running Vista)</td>
+                              <td>512 MB RAM</td>
+                           </tr>
+                           <tr>
+                              <td>Windows XP Home 32bit or Vista Home 32bit</td>
+                              <td>Windows XP Home 32bit</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="section" title="4.4.2.&nbsp;Simple Terrain Recommendations">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e1076"></a>4.4.2.&nbsp;Simple Terrain Recommendations
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="altrow">
+                     <table border="0">
+                        <colgroup>
+                           <col width="50%" class="col1">
+                           <col width="50%" class="col2">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <th>Recommended</th>
+                              <th>Minimum</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>GeForce4 Ti or ATI Radeon 9500</td>
+                              <td>GeForce4 MX or ATI Radeon 7 Series</td>
+                           </tr>
+                           <tr>
+                              <td>2 GHz CPU</td>
+                              <td>2 GHz CPU</td>
+                           </tr>
+                           <tr>
+                              <td>1 GB RAM</td>
+                              <td>512 MB RAM</td>
+                           </tr>
+                           <tr>
+                              <td>Windows XP Home/Pro 32bit or Vista Home 32bit</td>
+                              <td>Windows XP Home 32bit</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="footnotes"><br><hr width="100" align="left">
+               <div class="footnote">
+                  <p><sup>[<a id="ftn.d0e963" href="#d0e963" class="para">1</a>] </sup>For more details see <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a> <a href="../server_operations_guide/ch02.html" class="olink"><i>Server Configuration with <span class="literal">bw.xml</span></i></a> <a href="../server_operations_guide/ch02.html#xref_General_Configuration_Options" class="olink">General Configuration Options</a>.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch03.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch05.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;3.&nbsp;Developing a Robust Server&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;5.&nbsp;Monitoring and Maintaining the Cluster</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

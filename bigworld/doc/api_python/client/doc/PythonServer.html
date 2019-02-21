@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>PythonServer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PythonServer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PythonServer is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#write" class="function_list" >write</a>( self, args ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#softspace" class="attribute_list" >softspace</a></td><td>&nbsp; integer
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class provides access to the Python interpreter via a TCP connection.
+It starts listening on port 50001.  It accepts telnet requests on this
+port, allowing access to the python console on the client from a remote
+machine.
+<br><br>
+This class is not exposed to the client.  It has a Python interface to
+allow Python to communicate with the object.  However, this interface
+is of no use to the user.
+<br><br>
+It has a write method, which is called by Python when there is output to
+display.  It has a softspace attribute which is also required for
+interfacing to Python.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="write"></a><p class="function_definition">
+<span class="function_definition">def write( <i>self, args</i> ):</span>
+</p>
+
+<div class="function_description">This method is called by Python whenever there is new data for
+stdout or stderror. We redirect it to all the connections, and
+then print it out as normal. CRs are subsituted for CR/LF pairs
+to facilitate printing on Windows.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>args</i></span></td><td><span class="function_parameter_description">&nbsp;A Python tuple containing a single string argument
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="softspace"></a><p class="attribute_definition">
+<span class="attribute_definition">softspace</span>
+</p>
+
+<div class="attribute_description">This attribute is required to interface with the Python engine.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>integer
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<root>
+	<fx>	shaders/std_effects/parallax_lighting_specmap.fx	</fx>
+	<property>	specularColour
+		<Vector4>	1.000000 1.000000 1.000000 1.000000	</Vector4>
+	</property>
+	<property>	useSpecularMap
+		<Bool>	true	</Bool>
+	</property>
+	<property>	diffuseLightExtraModulation
+		<Float>	0.000000	</Float>
+	</property>
+	<property>	parallaxAspectRatio
+		<Float>	1.000000	</Float>
+	</property>
+	<property>	parallaxScale
+		<Float>	0.042000	</Float>
+	</property>
+	<property>	specularMap
+		<Texture>	helpers\maps\aid_builder.bmp	</Texture>
+	</property>
+	<property>	normalMap
+		<Texture>	helpers\maps\aid_builder_norms.bmp	</Texture>
+	</property>
+	<property>	diffuseMap
+		<Texture>	helpers\maps\aid_builder.bmp	</Texture>
+	</property>
+	<collisionFlags>	0	</collisionFlags>
+	<materialKind>	0	</materialKind>
+</root>

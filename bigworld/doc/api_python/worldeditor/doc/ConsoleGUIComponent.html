@@ -1,0 +1,434 @@
+<html>
+<head>
+<title>ConsoleGUIComponent - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ConsoleGUIComponent Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>ConsoleGUIComponent is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#clear" class="function_list" >clear</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#columnLeft" class="function_list" >columnLeft</a>( self, columnIndex ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#prints" class="function_list" >prints</a>( self, str ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#rowTop" class="function_list" >rowTop</a>( self, rowIndex ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#toggleFontScale (deprecated)" class="function_list" >toggleFontScale (deprecated)</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#visibleHeight" class="function_list" >visibleHeight</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#visibleWidth" class="function_list" >visibleWidth</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#characterSize" class="attribute_list" >characterSize</a></td><td>&nbsp; Read-Only <a href="Vector2.html">Vector2</a>
+</td></tr>
+
+<tr valign=top><td><a href="#cursor" class="attribute_list" >cursor</a></td><td>&nbsp; <a href="Vector2.html">Vector2</a>
+</td></tr>
+
+<tr valign=top><td><a href="#editCallback" class="attribute_list" >editCallback</a></td><td>&nbsp; Callable Python object, which takes one argument
+</td></tr>
+
+<tr valign=top><td><a href="#editCol" class="attribute_list" >editCol</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#editColour" class="attribute_list" >editColour</a></td><td>&nbsp; Write-Only <a href="Vector2.html">Vector2</a>
+</td></tr>
+
+<tr valign=top><td><a href="#editEnable" class="attribute_list" >editEnable</a></td><td>&nbsp; Integer (treated as boolean)
+</td></tr>
+
+<tr valign=top><td><a href="#editLineLength" class="attribute_list" >editLineLength</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#editPrompt" class="attribute_list" >editPrompt</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#editRow" class="attribute_list" >editRow</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#editText" class="attribute_list" >editText</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#lineColour" class="attribute_list" >lineColour</a></td><td>&nbsp; Write-Only <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class has been deprecated in favour of script based solutions
+that take advantage of multiline TextGUIComponents.
+<br><br>
+This class is used to supply an editable console, which renders characters
+and a flashing cursor to the screen.  It can be switched between
+edit and non-edit mode using the editEnable attribute, which defaults to
+non-edit mode.  The position of the
+cursor can be moved around using the editRow and editCol attributes.
+Text can be written straight to the console programatically using the prints
+function.  There is no support for wrapping, so only the portion of the
+string that fits on the screen is drawn.
+<br><br>
+When in edit mode, if the user presses enter then the callback function
+specified by editCallback is called, with the entered text as an argument.
+By default, the console does nothing with the entered text.  The callback
+function is required to do anything with it, including adding it to a previous
+line of the screen.  Once the callback function has completed, the console
+clears the edit line.
+<br><br>
+<a href="BigWorld.html">BigWorld</a> consoles use font size matching to select which font will be
+used to render text. With font size matching, whenever a new screen
+resolution is selected, the font that yields the number of columns that
+best matches the ideal console width will be chosen from the list of
+available fonts. The list of fonts is defined in resource.xml's
+system/consoleFonts entry. The number of visible columns and rows, thus,
+will change whenever the resolution changes. The visibleWidth and
+visibleHeight methods can be used to retrieve the current number of columns
+and rows. rowTop and columnLeft can be used to get the x and y screen
+position, respectively, of any character in the console.
+<br><br>
+A new <a href="ConsoleGUIComponent.html">ConsoleGUIComponent</a> is created using the <a href="GUI.html">GUI</a>.<a href=GUI.html#Console>Console</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="clear"></a><p class="function_definition">
+<span class="function_definition">def clear( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function clears all text from the Console.
+</div>
+
+<a name="columnLeft"></a><p class="function_definition">
+<span class="function_definition">def columnLeft( <i>self, columnIndex</i> ):</span>
+</p>
+
+<div class="function_description">This will return the left side y position of the console
+columns at the given index, in clip space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>columnIndex</i></span></td><td><span class="function_parameter_description">&nbsp;index to a column of text in the console.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>left side x position to the column, in clip space.
+</td></tr>
+</table>
+</p>
+
+<a name="prints"></a><p class="function_definition">
+<span class="function_definition">def prints( <i>self, str</i> ):</span>
+</p>
+
+<div class="function_description">This function renders a string to the console at the position
+specified by the editRow and editCol attributes.
+<br><br>
+Note that if, immediately after calling the prints function, the cursor
+position is not updated then the next tick will overwrite the string
+with the editText.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>str</i></span></td><td><span class="function_parameter_description">&nbsp;the string to print to the console.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="rowTop"></a><p class="function_definition">
+<span class="function_definition">def rowTop( <i>self, rowIndex</i> ):</span>
+</p>
+
+<div class="function_description">This will return the upper y position of the console
+row at the given index, in clip space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>rowIndex</i></span></td><td><span class="function_parameter_description">&nbsp;index to a row of text in the console.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>upper y position to the row, in clip space.
+</td></tr>
+</table>
+</p>
+
+<a name="toggleFontScale (deprecated)"></a><p class="function_definition">
+<span class="function_definition">def toggleFontScale (deprecated)( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This will toggle between using a fixed size font and scaling the font
+to fit the current window size.  Scaling is off by default.
+<br><br>
+Note: this function has been deprecated in favor of font size matching.
+Please, refer to the class overview for more information.
+</div>
+
+<a name="visibleHeight"></a><p class="function_definition">
+<span class="function_definition">def visibleHeight( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This will return the number of rows visible for
+this console in the current screen resolution.
+</div>
+
+<a name="visibleWidth"></a><p class="function_definition">
+<span class="function_definition">def visibleWidth( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This will return the number of columns visible for
+this console in the current screen resolution.
+</div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="characterSize"></a><p class="attribute_definition">
+<span class="attribute_definition">characterSize</span>
+</p>
+
+<div class="attribute_description">This attribute represents the size of a character on the screen.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Vector2.html">Vector2</a>
+</td></tr>
+</table>
+</p>
+
+<a name="cursor"></a><p class="attribute_definition">
+<span class="attribute_definition">cursor</span>
+</p>
+
+<div class="attribute_description">This attribute is the read only position of the cursor, in character
+coordinates.  Character (0,0) is the top left, with the horizontal
+component first, and the vertical second.  Assigning to the attribute
+does not cause an error, but has no effect.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector2.html">Vector2</a>
+</td></tr>
+</table>
+</p>
+
+<a name="editCallback"></a><p class="attribute_definition">
+<span class="attribute_definition">editCallback</span>
+</p>
+
+<div class="attribute_description">This attribute is a callback function that gets called when the user
+presses enter when editing.  The function should take one argument
+which is set to the editString as it was when the enter key was
+pressed.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Callable Python object, which takes one argument
+</td></tr>
+</table>
+</p>
+
+<a name="editCol"></a><p class="attribute_definition">
+<span class="attribute_definition">editCol</span>
+</p>
+
+<div class="attribute_description">This attribute is the vertical position of the cursor, in character
+coordinates.  Zero means the leftmost column of the screen, increasing
+editRow values refer to positions further to the right.
+<br><br>
+Assigning to this attribute moves the cursor to the specified column.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="editColour"></a><p class="attribute_definition">
+<span class="attribute_definition">editColour</span>
+</p>
+
+<div class="attribute_description">This attribute sets the edit line colour.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Write-Only <a href="Vector2.html">Vector2</a>
+</td></tr>
+</table>
+</p>
+
+<a name="editEnable"></a><p class="attribute_definition">
+<span class="attribute_definition">editEnable</span>
+</p>
+
+<div class="attribute_description">This attribute enables editing on the console.  If it is non-zero
+(true) then the cursor is displayed, and user input is accepted.  If it
+is set to zero (false), then the cursor is hidden and user input is not
+accepted.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer (treated as boolean)
+</td></tr>
+</table>
+</p>
+
+<a name="editLineLength"></a><p class="attribute_definition">
+<span class="attribute_definition">editLineLength</span>
+</p>
+
+<div class="attribute_description">This represents the maximum length of the edit string.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="editPrompt"></a><p class="attribute_definition">
+<span class="attribute_definition">editPrompt</span>
+</p>
+
+<div class="attribute_description">This attribute is the prompt that will be displayed before the edit
+line of the console.  The user is not able to move the cursor into the
+prompt.
+<br><br>
+Edits to this attribute are effected immediately, changing the prompt
+on the current edit line.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="editRow"></a><p class="attribute_definition">
+<span class="attribute_definition">editRow</span>
+</p>
+
+<div class="attribute_description">This attribute is the vertical position of the cursor, in character
+coordinates.  Zero means the top row of the screen, increasing editRow
+values refer to positions further down the screen.
+<br><br>
+Assigning to this attribute moves the cursor to the specified row.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="editText"></a><p class="attribute_definition">
+<span class="attribute_definition">editText</span>
+</p>
+
+<div class="attribute_description">This is the text that is currently being edited.  It is displayed in
+the console immediately to the right of the editPrompt.  On assignment
+the text is immediately changed on the screen, moving the editCursor
+to the end of the string.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="lineColour"></a><p class="attribute_definition">
+<span class="attribute_definition">lineColour</span>
+</p>
+
+<div class="attribute_description">This write-only attribute is used to set the colour
+of the line of text specified by the editRow attribute. It
+takes a <a href="Vector4.html">Vector4</a>, interpreted as (red, green, blue alpha),
+where each number should be between 0. and 255.0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Write-Only <a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

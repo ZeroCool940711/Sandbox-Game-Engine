@@ -1,0 +1,934 @@
+<html>
+<head>
+<title>Matrix - BigWorld base Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Matrix Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Math.html" class="module_h1">Math Module</a>]</span></p><p>Matrix is part of the <a href="Math.html">Math</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Math</pre>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#applyPoint" class="function_list" >applyPoint</a>( self, point ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#applyToAxis" class="function_list" >applyToAxis</a>( self, axis ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#applyToOrigin" class="function_list" >applyToOrigin</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#applyV4Point" class="function_list" >applyV4Point</a>( self, point ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#applyVector" class="function_list" >applyVector</a>( self, vec ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#get" class="function_list" >get</a>( self, row, col ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#invert" class="function_list" >invert</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#lookAt" class="function_list" >lookAt</a>( self, pos, direction, up ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#orthogonalProjection" class="function_list" >orthogonalProjection</a>( self, width, height, near, far ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#perspectiveProjection" class="function_list" >perspectiveProjection</a>( self, fov, aspect, near, far ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#postMultiply" class="function_list" >postMultiply</a>( self, pre ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#preMultiply" class="function_list" >preMultiply</a>( self, pre ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#set" class="function_list" >set</a>( self, m ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setElement" class="function_list" >setElement</a>( self, row, col, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setIdentity" class="function_list" >setIdentity</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setRotateX" class="function_list" >setRotateX</a>( self, rot ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setRotateY" class="function_list" >setRotateY</a>( self, rot ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setRotateYPR" class="function_list" >setRotateYPR</a>( self, ypr ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setRotateZ" class="function_list" >setRotateZ</a>( self, rot ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setScale" class="function_list" >setScale</a>( self, scales ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setTranslate" class="function_list" >setTranslate</a>( self, translations ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setZero" class="function_list" >setZero</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#determinant" class="attribute_list" >determinant</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#isMirrored" class="attribute_list" >isMirrored</a></td><td>&nbsp; Read-Only Integer (as boolean)
+</td></tr>
+
+<tr valign=top><td><a href="#pitch" class="attribute_list" >pitch</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#roll" class="attribute_list" >roll</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#translation" class="attribute_list" >translation</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#yaw" class="attribute_list" >yaw</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="Matrix.html">Matrix</a> class is a 4x4 matrix.  It inherits from <a href="MatrixProvider.html">MatrixProvider</a>.
+<br><br>
+A <a href="Matrix.html">Matrix</a> can be created using the <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>() function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="applyPoint"></a><p class="function_definition">
+<span class="function_definition">def applyPoint( <i>self, point</i> ):</span>
+</p>
+
+<div class="function_description">This function applies the matrix to the specified point.  The point
+should be a <a href="Vector3.html">Vector3</a>, but will be treated as if it were a <a href="Vector4.html">Vector4</a> with the
+fourth component being 1.0.
+<br><br>
+For example:
+
+<pre>>>>	m = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>>	m.setTranlate( (2,4,8) )
+>>> v = <a href="Math.html">Math</a>.<a href="Vector3.html">Vector3</a>( 1,2,3 )
+>>> m.applyPoint( v )
+(3.000, 6.000, 11.000)
+</pre>
+The example applies a translation matrix to the point (1,2,3)
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>point</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> which is the point to be transformed.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Vector3.html">Vector3</a> which is the transformed point.
+</td></tr>
+</table>
+</p>
+
+<a name="applyToAxis"></a><p class="function_definition">
+<span class="function_definition">def applyToAxis( <i>self, axis</i> ):</span>
+</p>
+
+<div class="function_description">This function applies the matrix to the specified axis.  The axis is
+specified using an integer between 0 and 2, with 0 corresponding to the
+x-axis, 1 to the y-axis and 2 to the z-axis.
+Numbers above 2 have undefined results.
+<br><br>
+For example:
+
+<pre>>>>	m = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>> m.setRotateY( 3.1415 / 2 )
+>>>	m.applyToAxis( 2 )
+(1.00, 0.00, 0.00)
+</pre>
+This example rotates the z-axis through 90 degrees around the y-axis
+leaving it lined up with the old x-axis.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>axis</i></span></td><td><span class="function_parameter_description">&nbsp;an Ingeger between 0 and 2, specifying the axis to transform
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a <a href="Vector3.html">Vector3</a>, which is the transformed axis.
+</td></tr>
+</table>
+</p>
+
+<a name="applyToOrigin"></a><p class="function_definition">
+<span class="function_definition">def applyToOrigin( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function applies the matrix to the origin.  This is exactly the same
+as calling the applyPoint function on the point (0,0,0), or the
+applyV4Point function on (0,0,0,1).  It is also the same as the
+translation attribute.
+<br><br>
+For example:
+
+<pre>>>>	m = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>> m.setTranlation( (1,2,3) )
+>>>	m.applyToOrigin()
+(1.00, 2.00, 3.00)
+</pre>
+This example applies a translation matrix to the origin.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a <a href="Vector3.html">Vector3</a> which is the transformed origin.
+</td></tr>
+</table>
+</p>
+
+<a name="applyV4Point"></a><p class="function_definition">
+<span class="function_definition">def applyV4Point( <i>self, point</i> ):</span>
+</p>
+
+<div class="function_description">This function applies the matrix to the specified point.  In this case
+a point is <a href="Vector4.html">Vector4</a>, with the 4th component being w.
+<br><br>
+For example:
+
+<pre>>>>	m = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>>	m.setTranlate( (2,4,8) )
+>>> v = <a href="Math.html">Math</a>.<a href="Vector4.html">Vector4</a>( 1,2,3,1 )
+>>> m.applyPoint( v )
+(3.000, 6.000, 11.000, 1.000)
+</pre>
+The example applies a translation matrix to the point (1,2,3,1)
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>point</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector4.html">Vector4</a> which is the point to be transformed.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Vector4.html">Vector4</a> which is the transformed point.
+</td></tr>
+</table>
+</p>
+
+<a name="applyVector"></a><p class="function_definition">
+<span class="function_definition">def applyVector( <i>self, vec</i> ):</span>
+</p>
+
+<div class="function_description">This function applies the matrix to the specified vector.  The vector
+is a <a href="Vector3.html">Vector3</a>, and the last row of the matrix is ignored in the
+calculations.
+<br><br>
+For example:
+
+<pre>>>>	m = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>>	m.setTranlate( (2,4,8) )
+>>> v = <a href="Math.html">Math</a>.<a href="Vector3.html">Vector3</a>( 1,2,3 )
+>>> m.applyVector( v )
+(1.000, 2.000, 3.000)
+</pre>
+The example applies a translation matrix to the <a href="Vector3.html">Vector3</a> (1,2,3)
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>vec</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> which is the <a href="Vector3.html">Vector3</a> to be transformed.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Vector3.html">Vector3</a> which is the transformed <a href="Vector3.html">Vector3</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="get"></a><p class="function_definition">
+<span class="function_definition">def get( <i>self, row, col</i> ):</span>
+</p>
+
+<div class="function_description">This method gets the value of a specified element of the matrix.
+<br><br>
+For example:
+
+<pre>>>> m = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>>	m.setTranslate( (1.0, 2.0, 3.0) )
+>>> m.get( 3, 0 )
+1.0
+>>>	m.get( 3, 1 )
+2.0
+>>>	m.get( 3, 2 )
+3.0
+</pre>
+The example sets a translation matrix, and then obtains the components
+one by one.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>row</i></span></td><td><span class="function_parameter_description">&nbsp;An integer between 0 and 3.  This is the row that is
+				being returned.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>col</i></span></td><td><span class="function_parameter_description">&nbsp;An integer between 0 and 3.  This is the column that is
+				being returned.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A float.  This is the value of the specified element.
+</td></tr>
+</table>
+</p>
+
+<a name="invert"></a><p class="function_definition">
+<span class="function_definition">def invert( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method inverts the matrix. Inverting a matrix is only defined if
+the determinant is non-zero.  If this method is called on a matrix with
+zero determinant, then the matrix is set to the identity matrix.
+<br><br>
+In terms of transformations, inverting a matrix "undoes" its transform.
+<br><br>
+For example:
+
+<pre>>>> m = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>> m.setTranslate( (1.0, 2.0, 3.0 ) )
+>>> m.invert()
+>>> m.tranlation
+(-1.000, -2.000, -3.000)
+>>> m1 = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>> m1.setRotateY( 1.0 )
+>>> m1.invert()
+>>> m1.yaw
+-1.0000
+</pre>
+The example shows how inverting the matrix "undoes" the translation for
+m, and the rotation for m1.  The same holds for composite transformations.
+</div>
+
+<a name="lookAt"></a><p class="function_definition">
+<span class="function_definition">def lookAt( <i>self, pos, direction, up</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the matrix up to transform by a specified position,
+looking in a given direction with the z-axis and with the specified
+vertical.
+<br><br>
+For example:
+
+<pre>modelMat = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+modelMat.setTranslate( (0,0,0) )
+cameraMat = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+pos = <a href="Math.html">Math</a>.<a href="Vector3.html">Vector3</a>( 0, 0, -10 )
+cameraMat.lookAt( pos, modelMat.applyToOrigin() - pos, (0,1,0) )
+</pre>
+This example sets up the camera matrix to be positioned at (0,0,-10)
+and to be looking at the model which is placed at the origin. The
+cameras up direction will be the same as the worlds.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pos</i></span></td><td><span class="function_parameter_description">&nbsp;The position to set the matrix translation to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>direction</i></span></td><td><span class="function_parameter_description">&nbsp;The direction to orient the "look at" matrix.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>up</i></span></td><td><span class="function_parameter_description">&nbsp;The vertical axis for the camera.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="orthogonalProjection"></a><p class="function_definition">
+<span class="function_definition">def orthogonalProjection( <i>self, width, height, near, far</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the matrix to a left-handed orthogonal projection
+matrix.  It can be used for a projection matrix on a camera to give
+a non-perspective (orthogonal) view on the world.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>width</i></span></td><td><span class="function_parameter_description">&nbsp;a Float, the width of the viewport.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>height</i></span></td><td><span class="function_parameter_description">&nbsp;a Float, the height of the viewport.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>near</i></span></td><td><span class="function_parameter_description">&nbsp;a Float, the distance to the near clipping plane.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>far</i></span></td><td><span class="function_parameter_description">&nbsp;a Float, the distance to the far clipping plane.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="perspectiveProjection"></a><p class="function_definition">
+<span class="function_definition">def perspectiveProjection( <i>self, fov, aspect, near, far</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the matrix to a left-handed perspective projection
+matrix. This can be used as the projection matrix on a camera to give
+a perspective view on the world.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fov</i></span></td><td><span class="function_parameter_description">&nbsp;A Float, the field of view.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>aspect</i></span></td><td><span class="function_parameter_description">&nbsp;A Float, the aspect ratio (ratio of the width to the height).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>near</i></span></td><td><span class="function_parameter_description">&nbsp;A Float, the distance to the near clipping plane.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>far</i></span></td><td><span class="function_parameter_description">&nbsp;A Float, the distance to the far clipping plane.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="postMultiply"></a><p class="function_definition">
+<span class="function_definition">def postMultiply( <i>self, pre</i> ):</span>
+</p>
+
+<div class="function_description">This method post multiplies this matrix by the specified matrix.
+Post-multiplication means that the specified matrix is on the right of the
+multiplication operator.  In transformation terms, the specified matrix
+is applied AFTER this matrix.
+<br><br>
+For example:
+
+<pre>>>> tr = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>> tr.setTranslate( (1,0,0) )
+>>> ro = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>> ro.setRotateY( 3.14159 / 2 )
+>>> out = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>> out.set(ro)
+>>> out.postMultiply(tr)
+>>> out.translation
+(1.000, 0.000, 0.000)
+>>> out.yaw
+-1.5707
+</pre>
+This example shows that post-multiplying the rotation by the translation
+applies the translation second, after rotation.  This results in
+the initial frame being rotated, and then translated, resulting in
+an unaltered translation.  Compare this to the result from
+pre-multiplication.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pre</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Matrix.html">Matrix</a> which is the matrix to post-multiply by.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="preMultiply"></a><p class="function_definition">
+<span class="function_definition">def preMultiply( <i>self, pre</i> ):</span>
+</p>
+
+<div class="function_description">This method pre multiplies this matrix by the specified matrix.
+Pre-multiplication means that the specified matrix is on the left of the
+multiplication operator.  In transformation terms, the specified matrix
+is applied BEFORE this matrix.
+<br><br>
+For example:
+
+<pre>>>> tr = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>> tr.setTranslate( (1,0,0) )
+>>>	ro = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>> ro.setRotateY( 3.14159 / 2 )
+>>> out = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>>	out.set(ro)
+>>> out.preMultiply(tr)
+>>>	out.translation
+(0.000, 1.000, 0.000)
+>>>	out.yaw
+-1.5707
+</pre>
+This example shows that pre-multiplying the rotation by the translation
+applies the translation first, and then the rotation.  This results in
+the transformed position being rotated, resulting in it being in a
+different position.  Compare this to the results in the example on
+post-multiplication.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pre</i></span></td><td><span class="function_parameter_description">&nbsp;a <a href="Matrix.html">Matrix</a> which is the matrix to pre-multiply by.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="set"></a><p class="function_definition">
+<span class="function_definition">def set( <i>self, m</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the matrix to be the same as the supplied matrix.  It
+has the same effect as assignment.
+<br><br>
+For example:
+
+<pre>m1.set( m2 ) # sets matrix m1 equal to matrix m2.
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>m</i></span></td><td><span class="function_parameter_description">&nbsp;the matrix to set this matrix equal to.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setElement"></a><p class="function_definition">
+<span class="function_definition">def setElement( <i>self, row, col, val</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the specified element of the matrix to the specified
+value.  The element is specified by the first two arguments, which are
+the row and the column respectively.
+<br><br>
+For example:
+
+<pre>>>> m = <a href="Math.html">Math</a>.<a href="Matrix.html">Matrix</a>()
+>>> m.setElement( 3, 0, 1.0 )
+>>> m.setElement( 3, 1, 2.0 )
+>>> m.setElement( 3, 2, 4.0 )
+>>> m.translation
+(1.0, 2.0, 4.0)
+</pre>
+The example sets the translation components of the matrix, element by
+element.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>row</i></span></td><td><span class="function_parameter_description">&nbsp;An integer between 0 and 3.  This is the row that is
+				being set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>col</i></span></td><td><span class="function_parameter_description">&nbsp;An integer between 0 and 3.  This is the column that is
+				being set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;A float. The value to set the element to.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setIdentity"></a><p class="function_definition">
+<span class="function_definition">def setIdentity( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the matrix to the identity matrix (with 1s down the
+main diagonal, and zeros elsewhere).
+<br><br>
+The important property of the identity matrix is that if it is
+multiplied by another matrix, the product is that other matrix.
+<br><br>
+For example:
+
+<pre>>>> matI.setIdentity() # sets the matrix mat to be the identity matrix.
+>>> matNew = matOther.preMultiply( matI )
+>>>	matNew == matOther
+1
+</pre>
+The example shows setting a matrix to the identity matrix and then
+multiplying it by another matrix, which results in the same matrix
+as before.
+</div>
+
+<a name="setRotateX"></a><p class="function_definition">
+<span class="function_definition">def setRotateX( <i>self, rot</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the matrix to rotate around the x-axis by the
+specified amount.  Zero rotation is specified along the z-axis, with
+positive rotation being clockwise.
+<br><br>
+The translation and rotations around the y and z axes are cleared.
+<br><br>
+For example:
+
+<pre># sets the matrix to rotate by 1.0 radians clockwise about the x-axis.
+mat.setRotateX( 1.0 )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>rot</i></span></td><td><span class="function_parameter_description">&nbsp;The size of the rotation.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setRotateY"></a><p class="function_definition">
+<span class="function_definition">def setRotateY( <i>self, rot</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the matrix to rotate around the y-axis by the
+specified amount.  Zero rotation is specified along the z-axis, with
+positive rotation being anti-clockwise.
+<br><br>
+The translation and rotations around the x and z axes are cleared.
+<br><br>
+For example:
+
+<pre># sets the matrix to rotate by 1.0 radians anti-clockwise about the y-axis.
+mat.setRotateY( 1.0 )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>rot</i></span></td><td><span class="function_parameter_description">&nbsp;The size of the rotation.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setRotateYPR"></a><p class="function_definition">
+<span class="function_definition">def setRotateYPR( <i>self, ypr</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the rotation about all three axes with one function
+call.  It takes a <a href="Vector3.html">Vector3</a>, the components of which specify the yaw
+(rotation about y, with 0 along the z-axis, increasing anti-clockwise),
+pitch ( rotation about x, with 0 along the z-axis, increasing
+clockwise), and roll (rotation about z, with 0 along the x-axis,
+increasing clockwise).
+<br><br>
+The translation is cleared.
+<br><br>
+For example:
+
+<pre>mat.setRotateYPR( (1.0, 2.0, 3.0) )
+</pre>
+sets the matrix to have yaw 1.0, pitch of 2.0 and roll of 3.0,
+applied in that order.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>ypr</i></span></td><td><span class="function_parameter_description">&nbsp;a <a href="Vector3.html">Vector3</a> specifying the yaw, pitch and roll.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setRotateZ"></a><p class="function_definition">
+<span class="function_definition">def setRotateZ( <i>self, rot</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the matrix to rotate around the z-axis by the
+specified amount.  Zero rotation is specified along the x-axis, with
+positive rotation being clockwise.
+<br><br>
+The translation and rotations around the x and y axes are cleared.
+<br><br>
+For example:
+
+<pre># sets the matrix to rotate by 1.0 radians clockwise about the z-axis.
+mat.setRotateZ( 1.0 )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>rot</i></span></td><td><span class="function_parameter_description">&nbsp;The size of the rotation.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setScale"></a><p class="function_definition">
+<span class="function_definition">def setScale( <i>self, scales</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the matrix to be a scale matrix, with the specified
+<a href="Vector3.html">Vector3</a> scaling along the x, y and z axes.
+<br><br>
+For example:
+
+<pre># set the matrix mat to scale 2 times along the x-axis, 3 times along
+# the y-axis and 4 times along the z-axis.
+mat.setScale( (2, 3, 4) )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>scales</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a>, with the each component being the scale
+				along the corresponding axis.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setTranslate"></a><p class="function_definition">
+<span class="function_definition">def setTranslate( <i>self, translations</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the matrix to be a translation matrix, with the
+specified <a href="Vector3.html">Vector3</a> being the translations along the x, y and z axes.
+<br><br>
+For example:
+
+<pre># set the matrix to translate by 4 along the x-axis, 5 along the y-axis
+# and 6 along the z-axis.
+mat.setTranslate( (4, 5, 6) )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>translations</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a>, with each component being the translation
+						along the corresponding axis.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setZero"></a><p class="function_definition">
+<span class="function_definition">def setZero( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the matrix to the zero matrix (with all elements equal
+to zero).
+<br><br>
+For example:
+
+<pre># sets the matrix mat to be the zero matrix.
+mat.setZero()
+</pre>
+</div>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="determinant"></a><p class="attribute_definition">
+<span class="attribute_definition">determinant</span>
+</p>
+
+<div class="attribute_description">This attribute returns the determinant of the matrix.
+<br><br>
+The determinant of a matrix has many mathematical uses.  In the context
+of a 3d engine the most likely use is to compare it to zero.  If the
+determinant of a matrix is zero, then the matrix cannot be inverted.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="isMirrored"></a><p class="attribute_definition">
+<span class="attribute_definition">isMirrored</span>
+</p>
+
+<div class="attribute_description">This attribute is non-zero(true) if the matrix is mirrored, and zero
+(false) if the matrix is non mirrored.  This is derived from the
+elements of the matrix.
+<br><br>
+If a matrix, when applied to a coordinate system, changes it from a
+left hand system to a right hand system, then the matrix is described
+as mirrored.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer (as boolean)
+</td></tr>
+</table>
+</p>
+
+<a name="pitch"></a><p class="attribute_definition">
+<span class="attribute_definition">pitch</span>
+</p>
+
+<div class="attribute_description">This attribute is the rotation specified by the matrix around the
+x-axis.  Zero pitch is along the z-axis with increase in pitch
+rotating clockwise when looking along the x-axis.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="roll"></a><p class="attribute_definition">
+<span class="attribute_definition">roll</span>
+</p>
+
+<div class="attribute_description">This attribute is the rotation specified by the matrix around the
+z-axis.  Zero pitch is along the x-axis with increase in roll
+rotating clockwise when looking along the z-axis.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="translation"></a><p class="attribute_definition">
+<span class="attribute_definition">translation</span>
+</p>
+
+<div class="attribute_description">This attribute is the translation component of the matrix.  Unlike the
+pitch, yaw and roll attributes, it is both read and write.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="yaw"></a><p class="attribute_definition">
+<span class="attribute_definition">yaw</span>
+</p>
+
+<div class="attribute_description">This attribute is the rotation specified by the matrix around the
+y-axis.  Zero yaw is along the z-axis, with increase in yaw rotating
+anti-clockwise when looking along the y-axis.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

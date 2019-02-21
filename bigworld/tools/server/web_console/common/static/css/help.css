@@ -1,0 +1,494 @@
+/*----- MAIN CONTENT PANEL -----*/
+.helpmainpanel td.spaced
+{
+	padding: 3pt 0 0 0;
+	
+}
+
+/*----- NAVMENU -----*/
+
+.helpnavmenu
+{
+	padding: 	0px;
+	width:		16em;
+}
+
+#navigation
+{
+	width:	195px;
+}
+
+.helpnavmenu ul
+{
+	list-style: none;
+	margin: 	0;
+	padding: 	0;
+	border: 	0; 
+}
+
+.helpnavmenu a
+{
+	text-decoration: none;
+}
+
+.helpnavmenu a:hover
+{
+	text-decoration: 	underline;
+	color: 				#16A5DD;
+}
+
+.helpnavmenu img
+{
+	border: 			0;
+	margin-top:			-5px;
+	padding-right: 		5px;
+	float: 				left;
+}
+
+/* LEVEL-ONE */
+.helpnavmenu ul.level-one a 
+{
+	display: 				block;
+	padding: 				8px 0px 8px 24px;
+	margin: 				0 2px -12px 0; 
+	color: 					#FFFFFF;
+	font-variant: 			small-caps;
+	background-color:		#1284C0;
+	background-image: 		url( /static/images/navmenu_arrow_off.png );
+	background-position:	right;
+	background-repeat: 		no-repeat;
+}
+
+.helpnavmenu ul.level-one a:hover 
+{
+	background-image: 		url( /static/images/navmenu_arrow_on.png );
+	background-color:		#FF8000;
+	color: 					#FFFFFF;
+}
+
+.level-one li > a:first-child
+{ 
+	/* counter work against IE for inserting extra space after display block */
+	margin-bottom:	4px;
+}
+
+/* LEVEL-ONE-HELP */
+.helpnavmenu ul.level-one-help a 
+{
+	display: 				block;
+	padding: 				6px 4px 5px 6px;
+	margin-left: 			5px;
+	margin-right:			0px;
+	color: 					#FFFFFF;
+	font-variant: 			normal;
+	background-color:		#1284C0;
+	background-image: 		url( /static/images/navmenu_arrow_off.png );
+	background-position: 	right;
+	background-repeat: 		no-repeat;
+}
+
+.helpnavmenu ul.level-one-help a:hover 
+{
+	background-image: 		url( /static/images/navmenu_arrow_on.png );
+	background-color:		#FF8000;
+	color: 					#FFFFFF;
+}
+
+.helpnavmenu .current
+{
+	font-weight: bold;
+}
+
+.helpnavmenu .not-current
+{
+	font-weight: normal;
+}
+
+/* LEVEL-TWO */
+.helpnavmenu ul.level-two
+{
+	margin-top: 10px;
+}
+
+.helpnavmenu ul.level-two li:first-child a
+{
+	border-top:		0;
+	padding-top: 	0;
+}
+
+.helpnavmenu ul.level-two a
+{
+	background-image: 	none;
+	background-color: 	transparent;
+	display: 			block; 
+	border: 			0;
+	border-bottom: 		1px solid #65BFEF;
+	margin-left: 		1em;
+	margin-right: 		0em;
+	color: 				#104D8C;
+	padding: 			4px 0px 5px 12px;
+	font-variant: 		normal;
+	clear:				both;
+}
+
+.helpnavmenu ul.level-two a:link, .helpnavmenu ul.level-two a:visited
+{
+	color: #104D8C;
+}
+
+.helpnavmenu ul.level-two a:hover
+{
+	color: 				#FF8000;
+	background-image: 	none;
+	background-color:	transparent;
+}
+
+/* LEVEL-TWO-HELP */
+.helpnavmenu ul.level-two-help
+{
+	margin-top: 5px;
+}
+
+.helpnavmenu ul.level-two-help a
+{
+	background-image: 		url( /static/images/bullet.bmp );
+	background-position: 	left;
+	background-repeat: 		no-repeat;
+	background-color: 		transparent;
+	display: 				block; 
+	border: 				0;
+	margin-left: 			0.9em;
+	margin-right: 			0em;
+	margin-bottom:			3px;
+	color: 					#000000;
+	padding: 				1px 0px 0px 10px;
+	font-variant: 			normal;
+	font-size:				90%;
+	clear:					both;
+}
+
+.helpnavmenu ul.level-two-help a:link, .helpnavmenu ul.level-two-help a:visited
+{
+	color: #000000;
+}
+
+.helpnavmenu ul.level-two-help a:hover
+{
+	color: 					#FF8000;
+	background-image: 		none;
+	background-color:		transparent;
+}
+
+/* LEVEL-THREE-HELP */
+.helpnavmenu ul.level-three-help
+{
+	margin-top: 0px;
+}
+
+.helpnavmenu ul.level-three-help li:first-child a
+{
+	border-top:		0;
+	padding-top: 	0;
+}
+
+.helpnavmenu ul.level-three-help a
+{
+	background-image: 		url( /static/images/bullet.bmp );
+	background-position: 	left;
+	background-repeat: 		no-repeat;
+	background-color: 		transparent;
+	display: 				block; 
+	border: 				0;
+	margin-left: 			1.7em;
+	margin-right: 			0em;
+	color: 					#000000;
+	padding: 				0px 0px 0px 10px;
+	font-variant: 			normal;
+	clear:					both;
+	font-size:				90%
+}
+
+.helpnavmenu ul.level-three-help a:link, 
+	.helpnavmenu ul.level-three-help a:visited
+{
+	color: #000000;
+}
+
+.helpnavmenu ul.level-three-help a:hover
+{
+	color: 				#FF8000;
+	background-image: 	none;
+	background-color:	transparent;
+}
+
+/* LEVEL-FOUR-HELP */
+.helpnavmenu ul.level-four-help
+{
+	margin-top: 0px;
+}
+
+.helpnavmenu ul.level-four-help li:first-child a
+{
+	border-top:		0;
+	padding-top: 	0;
+}
+
+.helpnavmenu ul.level-four-help a
+{
+	background-image: 		url( /static/images/bullet.bmp );
+	background-position:	left;
+	background-repeat:		no-repeat;
+	background-color: 		transparent;
+	display: 				block; 
+	border: 				0;
+	margin-left: 			2.6em;
+	margin-right: 			0em; 
+	color: 					#000000;
+	padding: 				0px 0px 0px 10px;
+	font-variant: 			normal;
+	clear:					both;
+	font-size:				90%
+}
+
+.helpnavmenu ul.level-four-help a:link, 
+	.helpnavmenu ul.level-four-help a:visited
+{
+	color: #000000;
+}
+
+.helpnavmenu ul.level-four-help a:hover
+{
+	color: 				#FF8000;
+	background-image: 	none;
+	background-color:	transparent;
+}
+
+.helpnavmenu .top-level 
+{
+	margin-bottom:	6px;
+}
+
+.helpnavmenu li 
+{
+	line-height:	100%;
+}
+
+/*----- BODY ----*/
+body.helpTopPane 
+{ 
+	padding-top: 5px;
+}
+
+div.help 
+{
+	max-width:	600px;
+}
+
+/*----- BASIC PARAGRAPH  -----*/
+.help p      
+{
+	margin-top:		6pt;
+	margin-left:	0pt;
+	margin-bottom:	6pt;
+}
+
+
+/*----- HEADINGS -----*/
+.helpTopPane h1 
+{
+	margin-left: 			3pt;
+	margin-top: 			0pt;
+	margin-right:			12pt;
+	margin-bottom: 			0pt;
+	font-size: 				14.0pt;
+	font-family: 			Arial;
+	padding-left: 			2pt;
+	padding-top: 			6pt;
+	padding-bottom: 		3pt;
+	color:					white;
+	background:				steelblue;
+	border:					none;
+	background-image:		url( /static/images/h1_bkg.jpg );
+	background-position:	right;
+	background-repeat: 		no-repeat;
+}
+
+.help h2 
+{
+	margin-left:	0pt;
+	margin-top:		12.0pt;
+	margin-right:	00pt;
+	margin-bottom:	12pt;
+	font-size:		12.0pt;
+	font-family:	Arial;
+	padding-left:	2pt;
+	padding-top:	2pt;
+	padding-bottom:	2pt;
+	border-bottom:	2pt solid black;
+}
+
+.help h3 
+{
+	margin-left:	0pt;
+	margin-top:		12.0pt;
+	margin-right:	0pt;
+	margin-bottom:	3pt;
+	font-size:		11.0pt;
+	font-family:	Arial;
+	padding-left:	2pt;
+	padding-top:	2pt;
+	padding-bottom:	2pt;
+	border-bottom:	1pt solid black;
+}
+
+.help h4 
+{
+	margin-left:	0pt;
+	margin-top:		12.0pt;
+	margin-right:	0pt;
+	margin-bottom:	3pt;
+	font-size:		9.0pt;
+	font-family:	Arial;
+	padding-left:	2pt;
+	padding-top:	2pt;
+	padding-bottom:	2pt;
+	border-bottom:	1pt solid black;
+}
+
+/*----- LISTS -----*/
+.help li  
+{ 
+	list-style-type:	square;
+	margin-left:		-10pt;
+	margin-top:			05pt;
+	margin-bottom:		03pt;
+}
+
+/*----- ALTERNATE TABLE -----*/
+.help table.alternate
+{
+	font-size:			90%; 
+	margin-left:		12pt; 
+	margin-right:		0pt; 
+	border:				none; 
+	width:				95%; 
+}
+
+.help table.alternate th
+{
+	padding:			3.0pt; 
+	font-weight:		bold; 
+	color:				white; 
+	background:			black; 
+	border:				none; 
+}
+
+.help table.alternate th.FirstCol
+{
+	padding:			3.0pt; 
+	font-weight:		bold; 
+	color:				white; 
+	background:			black; 
+	border:				none; 
+	border-right:		1pt solid white;
+}
+
+.help table.alternate th.MidCol
+{
+	padding:			3.0pt; 
+	font-weight:		bold; 
+	color:				white; 
+	background:			black; 
+	border:				none; 
+	border-right:		1pt solid white;
+}
+
+.help table.alternate td.oddRow
+{
+	vertical-align:		top; 
+	padding:			3.0pt; 
+	background:			white;   
+	border-top:			none; 
+	border-left:		none;            
+	border-bottom:		1pt solid black; 
+	border-right:		1pt solid black;
+}
+
+.help table.alternate td.oddRow1stCol
+{
+	vertical-align:		top; 
+	padding:			3.0pt; 
+	background:			white;   
+	border-top:			none; 
+	border-left:		1pt solid black; 
+	border-bottom:		1pt solid black; 
+	border-right:		1pt solid black;
+}
+
+.help table.alternate td.evnRow
+{
+	vertical-align:		top; 
+	padding:			3.0pt; 
+	background:			#E6F1FE; 
+	border-top:			none; 
+	border-left:		none;            
+	border-bottom:		1pt solid black; 
+	border-right:		1pt solid black;
+}
+
+.help table.alternate td.evnRow1stCol
+{
+	vertical-align:		top; 
+	padding:			3.0pt; 
+	background:			#E6F1FE; 
+	border-top:			none; 
+	border-left:		1pt solid black; 
+	border-bottom:		1pt solid black; 
+	border-right:		1pt solid black;
+}
+
+.help table.alternate td
+{
+	font-size:	90%; 
+}
+
+.help table.alternate td p
+{
+	margin-left:	0.0pt; 
+	margin-top:		3.0pt; 
+	margin-bottom:	0.0pt;
+}
+
+.help table.alternate td p.lvl2
+{
+	font-size:		100%; 
+	margin-left:	6.0pt; 
+	margin-top:		3.0pt; 
+	margin-bottom:	0.0pt;
+}
+
+.help table.alternate td ul
+{
+	margin-top:		0pt; 
+	margin-bottom:	1pt; 
+}
+
+/*----- ALTERNATE TABLE INSIDE ALTERNATE TABLE -----*/
+.help table.alternate table.alternate
+{
+	font-size:		100%; 
+	margin-top:		3.0pt; 
+}
+
+.help table.alternate table.alternate td
+{
+	font-size:	100%; 
+}
+
+.help table.alternate table.alternate td p.lvl2
+{
+	font-size:	100%; 
+}
+
+
+

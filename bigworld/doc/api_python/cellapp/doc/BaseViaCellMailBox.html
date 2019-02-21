@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>BaseViaCellMailBox - BigWorld cell Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BaseViaCellMailBox Class Reference</h1>
+<p><b>BaseViaCellMailBox</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+<a href="CellEntityMailBox.html">CellEntityMailBox</a>
+ &rarr; <a href="ServerEntityMailBox.html">ServerEntityMailBox</a>
+ &rarr; PyEntityMailBox
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="BaseViaCellMailBox.html">BaseViaCellMailBox</a> inherits from <a href="CellEntityMailBox.html">CellEntityMailBox</a>.
+<br><br>
+A <a href="BaseViaCellMailBox.html">BaseViaCellMailBox</a> is used to communicate with a Cell entity's associated
+Base entity with communication passing through the Cell entity. This kind
+of mailbox may be returned when referencing another Cell entity through a
+mailbox, and then requesting it's Base mailbox.
+<br><br>
+The <a href="BaseViaCellMailBox.html">BaseViaCellMailBox</a> is used as an optimisation within <a href="BigWorld.html">BigWorld</a> to avoid
+having to perform a Base entity lookup from the calling entity.
+<br><br>
+These mailboxes have the same restrictions as Cell mailboxes and should not
+be stored, they should be used immediately then discarded.
+
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

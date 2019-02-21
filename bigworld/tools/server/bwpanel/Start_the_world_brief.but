@@ -1,0 +1,5 @@
+#!/bin/sh
+#BWPANEL 0.1 "Start the World - Brief"
+cd $MF_ROOT/bigworld/tools/server/misc
+export SINGLE_WORLD_TERMINAL=1
+./startsingle.sh

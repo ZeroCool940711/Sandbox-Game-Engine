@@ -1,0 +1,677 @@
+<html>
+<head>
+<title>Base - BigWorld base Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Base Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Base is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addTimer" class="function_list" >addTimer</a>( self, initialOffset, repeatOffset=0, userArg=0 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createCellEntity" class="function_list" >createCellEntity</a>( self, cellEntityMB ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createInDefaultSpace" class="function_list" >createInDefaultSpace</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createInNewSpace" class="function_list" >createInNewSpace</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delTimer" class="function_list" >delTimer</a>( self, id ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#deregisterGlobally" class="function_list" >deregisterGlobally</a>( self, name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#destroy" class="function_list" >destroy</a>( self, deleteFromDB, writeToDB ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#destroyCellEntity" class="function_list" >destroyCellEntity</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#registerGlobally" class="function_list" >registerGlobally</a>( self, key, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#teleport" class="function_list" >teleport</a>( self, baseEntityMB ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeToDB" class="function_list" >writeToDB</a>( self, callback, shouldAutoLoad, shouldWriteToPrimary ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'callbacks' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Callback Methods</a></h2>
+<table id="callbacks" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#onCreateCellFailure" class="function_list" >onCreateCellFailure</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onDestroy" class="function_list" >onDestroy</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onGetCell" class="function_list" >onGetCell</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLoseCell" class="function_list" >onLoseCell</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onPreArchive" class="function_list" >onPreArchive</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onRestore" class="function_list" >onRestore</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onTimer" class="function_list" >onTimer</a>( self, timerHandle, userData ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onWindowOverflow" class="function_list" >onWindowOverflow</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onWriteToDB" class="function_list" >onWriteToDB</a>( self, cellData ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#baseType" class="attribute_list" >baseType</a></td><td>&nbsp; Read-only int32
+</td></tr>
+
+<tr valign=top><td><a href="#cell" class="attribute_list" >cell</a></td><td>&nbsp; Read-only <a href="CellEntityMailBox.html">CellEntityMailBox</a>
+</td></tr>
+
+<tr valign=top><td><a href="#cellData" class="attribute_list" >cellData</a></td><td>&nbsp; <a href="PyCellData.html">PyCellData</a>
+</td></tr>
+
+<tr valign=top><td><a href="#className" class="attribute_list" >className</a></td><td>&nbsp; Read-only string
+</td></tr>
+
+<tr valign=top><td><a href="#databaseID" class="attribute_list" >databaseID</a></td><td>&nbsp; Read-only int64
+</td></tr>
+
+<tr valign=top><td><a href="#hasCell" class="attribute_list" >hasCell</a></td><td>&nbsp; Read-only bool
+</td></tr>
+
+<tr valign=top><td><a href="#id" class="attribute_list" >id</a></td><td>&nbsp; Read-only int32
+</td></tr>
+
+<tr valign=top><td><a href="#isDestroyed" class="attribute_list" >isDestroyed</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#shouldAutoArchive" class="attribute_list" >shouldAutoArchive</a></td><td>&nbsp; True, False or <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#NEXT_ONLY>NEXT_ONLY</a>
+</td></tr>
+
+<tr valign=top><td><a href="#shouldAutoBackup" class="attribute_list" >shouldAutoBackup</a></td><td>&nbsp; True, False or <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#NEXT_ONLY>NEXT_ONLY</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The class <a href="Base.html">Base</a> represents an entity residing on a base application. <a href="Base.html">Base</a>
+entities can be created via the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createBase>createBase</a> function (and functions
+with createBase prefix). An base entity instance can also be created from a
+remote cellApp <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createEntityOnBaseApp>createEntityOnBaseApp</a> function call.
+<br><br>
+A base entity can be linked to an entity within one of the active cells,
+and can be used to create an associated entity on an appropriate cell. The
+functionality of this class allows you to create and destroy the entity on
+existing cells, register a timer callback function to be called on the base
+entity, access contact information for this object,	and also access a
+<a href="CellEntityMailBox.html">CellEntityMailBox</a> through which the base entity can	communicate with its cell
+entity (the associated cell entity can move to different cells as a result
+of movement of the cell entity, or load balancing).
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addTimer"></a><p class="function_definition">
+<span class="function_definition">def addTimer( <i>self, initialOffset, repeatOffset=0, userArg=0</i> ):</span>
+</p>
+
+<div class="function_description">The <i>onTimer</i> function
+must be defined in the base entity's class and accept 2 arguments; the
+internal id of the timer (useful to remove the timer via the "delTimer"
+method), and the optional user supplied integer "userArg".
+<br><br>
+Example:
+
+<pre><pre># this provides an example of the usage of addTimer
+import <a href="BigWorld.html">BigWorld</a>
+&nbsp;
+class MyBaseEntity( <a href="BigWorld.html">BigWorld</a>.<a href="Base.html">Base</a> ):
+&nbsp;
+    def __init__( self ):
+        <a href="BigWorld.html">BigWorld</a>.<a href="Base.html">Base</a>.__init__( self )
+&nbsp;
+        # add a timer that is called after 5 seconds, and then every
+        # second with custom user data of 9
+        self.addTimer( 5, 1, 9 )
+&nbsp;
+        # add a timer that is called once after a second, with custom
+        # user data defaulting to 0
+        self.addTimer( 1 )
+&nbsp;
+    # timers added on a <a href="Base.html">Base</a> have "onTimer" called as their timer function
+    def onTimer( self, id, userArg ):
+        print "MyBaseEntity.onTimer called: id %i, userArg: %i" % ( id, userArg )
+        # if this is a repeating timer then call:
+        #     self.delTimer( id )
+        # to remove the timer when it is no longer needed</pre>
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>initialOffset</i></span></td><td><span class="function_parameter_description">&nbsp;initialOffset is a float and specifies the
+interval (in seconds) between registration of the timer, and the time of
+first call.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>repeatOffset</i></span></td><td><span class="function_parameter_description">&nbsp;repeatOffset is an optional float and
+specifies the interval (in seconds) between repeated executions after
+the first execution. The delTimer method must be used to remove the
+timer or this will repeat continuously. Values less than 0 are ignored.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userArg</i></span></td><td><span class="function_parameter_description">&nbsp;userArg is an optional integer which specifies an
+optional user supplied value to be passed to the "onTimer" method of
+the base entity.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer. This function returns the internal id of the timer.
+This can be used with delTimer method to remove the timer.
+</td></tr>
+</table>
+</p>
+
+<a name="createCellEntity"></a><p class="function_definition">
+<span class="function_definition">def createCellEntity( <i>self, cellEntityMB</i> ):</span>
+</p>
+
+<div class="function_description">The information used to create the cell entity is stored in the
+cellData property of this entity. This property is a dictionary
+corresponding to the values in the entity's .def file plus a
+"position", "direction" and "spaceID" entries for the entity's position
+and (roll, pitch, yaw) direction.
+<br><br>
+If cellEntityMB is not passed in, the "spaceID" entry in cellData is
+used to indicate which space to create the cell entity in.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>cellEntityMB</i></span></td><td><span class="function_parameter_description">&nbsp;an optional <a href="CellEntityMailBox.html">CellEntityMailBox</a> argument
+which is used to indicate which space to create the cell entity in.
+Ideally, the two entities are near so that it is likely that the correct
+cell will be found immediately.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="createInDefaultSpace"></a><p class="function_definition">
+<span class="function_definition">def createInDefaultSpace( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">The information used to create the cell entity are stored
+in the cellData property of this entity. This property is a dictionary
+corresponding to the values in the entity's .def file plus a "position",
+"direction" and "spaceID" entries ("spaceID" entry is not referenced in
+this method) for the entity's position and (roll, pitch, yaw) direction.
+<br><br>
+This method is only available if useDefaultSpace is set to true in the
+server's configuration file.
+</div>
+
+<a name="createInNewSpace"></a><p class="function_definition">
+<span class="function_definition">def createInNewSpace( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">The information used to create the cell entity are stored
+in the cellData property of this entity. This property is a dictionary
+corresponding to the values in the entity's	.def file plus a
+"position", "direction" and "spaceID" entries("spaceID" entry is not
+referenced in this method) for the entity's position and
+(roll, pitch, yaw) direction.
+</div>
+
+<a name="delTimer"></a><p class="function_definition">
+<span class="function_definition">def delTimer( <i>self, id</i> ):</span>
+</p>
+
+<div class="function_description">See <a href="Base.html">Base</a>.<a href=Base.html#addTimer>addTimer</a> for an example of timer usage.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;id is an integer that specifies the internal id of the timer
+to be removed.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="deregisterGlobally"></a><p class="function_definition">
+<span class="function_definition">def deregisterGlobally( <i>self, name</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;the global name (a string) by which this base is currently
+known.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="destroy"></a><p class="function_definition">
+<span class="function_definition">def destroy( <i>self, deleteFromDB, writeToDB</i> ):</span>
+</p>
+
+<div class="function_description">It may be convenient to call self.destroy in the onLoseCell callback.
+This causes the base entity to be destroyed whenever the cell entity is
+destroyed.
+<br><br>
+This method has two keyword argument:
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>deleteFromDB</i></span></td><td><span class="function_parameter_description">&nbsp;If True, the entry in the database associated with
+	this entity is deleted. This defaults to False.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>writeToDB</i></span></td><td><span class="function_parameter_description">&nbsp;If True, the properties associated with this entity are
+	written to the database. This only occurs if this entity was read
+	from the database or has previously been written with
+	<a href="Base.html">Base</a>.<a href=Base.html#writeToDB>writeToDB</a>. This defaults to True but is ignored if deleteFromDB
+	is True.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="destroyCellEntity"></a><p class="function_definition">
+<span class="function_definition">def destroyCellEntity( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="registerGlobally"></a><p class="function_definition">
+<span class="function_definition">def registerGlobally( <i>self, key, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;The global key by which this base is to be known. This key
+	can be any Python type that can be pickled and hashed. Typically
+	this would be a string or a tuple of basic types.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;A callback that is called when registration completes.
+The callback is called with True (succeeded) or False (failed).
+Failure is usually due to an existing global base with the given name.
+The callback argument is not optional.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="teleport"></a><p class="function_definition">
+<span class="function_definition">def teleport( <i>self, baseEntityMB</i> ):</span>
+</p>
+
+<div class="function_description">On arrival in the new space, Entity.onTeleportSuccess is called. This
+can be used to move the entity to the appropriate position within that
+space.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>baseEntityMB</i></span></td><td><span class="function_parameter_description">&nbsp;The base mailbox of the entity that this entity
+should be moved to. The cell entity associated with this argument will
+be passed into Entity.onTeleportSuccess on success.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="writeToDB"></a><p class="function_definition">
+<span class="function_definition">def writeToDB( <i>self, callback, shouldAutoLoad, shouldWriteToPrimary</i> ):</span>
+</p>
+
+<div class="function_description">Entities can also be marked as auto-loaded, so that subsequent server
+start-ups will recreate this entity automatically. This auto-load data
+can be cleared from the database using the clear_auto_load tool. See
+the Server Operations Guide -> MySQL Support -> The clear_auto_load
+tool for more details.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;This optional argument is a callable object that will be
+called when the response from the database is received. It takes
+two arguments. The first is a boolean indicating success or failure
+and the second is the base entity.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>shouldAutoLoad</i></span></td><td><span class="function_parameter_description">&nbsp;This optional argument specifies whether this
+entity should be loaded from the database when the server starts up.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>shouldWriteToPrimary</i></span></td><td><span class="function_parameter_description">&nbsp;This optional argument specifies whether
+this write should be sent to the primary database instead of the
+secondary database (defaults to False).
+</span></td></tr>
+
+</table>
+</p>
+
+<hr>
+<h2>Callback Method Documentation</h2>
+
+<a name="onCreateCellFailure"></a><p class="function_definition">
+<span class="function_definition">def onCreateCellFailure( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onDestroy"></a><p class="function_definition">
+<span class="function_definition">def onDestroy( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onGetCell"></a><p class="function_definition">
+<span class="function_definition">def onGetCell( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onLoseCell"></a><p class="function_definition">
+<span class="function_definition">def onLoseCell( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onPreArchive"></a><p class="function_definition">
+<span class="function_definition">def onPreArchive( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onRestore"></a><p class="function_definition">
+<span class="function_definition">def onRestore( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onTimer"></a><p class="function_definition">
+<span class="function_definition">def onTimer( <i>self, timerHandle, userData</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>timerHandle</i></span></td><td><span class="function_parameter_description">&nbsp;The id of the timer.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userData</i></span></td><td><span class="function_parameter_description">&nbsp;The integer user data passed into <a href="Base.html">Base</a>.<a href=Base.html#addTimer>addTimer</a>.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onWindowOverflow"></a><p class="function_definition">
+<span class="function_definition">def onWindowOverflow( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="onWriteToDB"></a><p class="function_definition">
+<span class="function_definition">def onWriteToDB( <i>self, cellData</i> ):</span>
+</p>
+
+<div class="function_description">Note that calling writeToDB during this callback can lead to an infinite
+loop.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>cellData</i></span></td><td><span class="function_parameter_description">&nbsp;cellData contains cell properties that are going to be
+stored in database. cellData is dictionary.
+</span></td></tr>
+
+</table>
+</p>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="baseType"></a><p class="attribute_definition">
+<span class="attribute_definition">baseType</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only int32
+</td></tr>
+</table>
+</p>
+
+<a name="cell"></a><p class="attribute_definition">
+<span class="attribute_definition">cell</span>
+</p>
+
+<div class="attribute_description">Note that there can be a period of time when the entity has a cell
+mailbox but it does not yet point to the correct CellApp. This is in
+the time period where <a href="Base.html">Base</a>.<a href=Base.html#createCellEntity>createCellEntity</a>() has been called but
+the <a href="Base.html">Base</a>.<a href=Base.html#onGetCell>onGetCell</a>() callback has yet to be called. In this state, the
+mailbox can stil be used to send from the base entity directly but
+cannot be used, for example, as an argument to
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createCellEntity>createCellEntity</a>().
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only <a href="CellEntityMailBox.html">CellEntityMailBox</a>
+</td></tr>
+</table>
+</p>
+
+<a name="cellData"></a><p class="attribute_definition">
+<span class="attribute_definition">cellData</span>
+</p>
+
+<div class="attribute_description">If the cell entity is created, these values are used and the cellData
+property is deleted. Besides the cell entity properties specified in the
+entity's type's definition, it also contains position, direction and
+spaceID.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="PyCellData.html">PyCellData</a>
+</td></tr>
+</table>
+</p>
+
+<a name="className"></a><p class="attribute_definition">
+<span class="attribute_definition">className</span>
+</p>
+
+<div class="attribute_description">The class name of the Entity.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only string
+</td></tr>
+</table>
+</p>
+
+<a name="databaseID"></a><p class="attribute_definition">
+<span class="attribute_definition">databaseID</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only int64
+</td></tr>
+</table>
+</p>
+
+<a name="hasCell"></a><p class="attribute_definition">
+<span class="attribute_definition">hasCell</span>
+</p>
+
+<div class="attribute_description">This property can be used to decide whether <a href="Base.html">Base</a>.<a href=Base.html#destroyCellEntity>destroyCellEntity</a>()
+should be called instead of <a href="Base.html">Base</a>.<a href=Base.html#destroy>destroy</a>().
+<br><br>
+Note that this property is also True when this <a href="Base.html">Base</a> entity is in the
+process of getting a cell entity. For example, when
+<a href="Base.html">Base</a>.<a href=Base.html#createCellEntity>createCellEntity</a> has been called but the <a href="Base.html">Base</a>.<a href=Base.html#onGetCell>onGetCell</a>() callback
+has yet to be called.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only bool
+</td></tr>
+</table>
+</p>
+
+<a name="id"></a><p class="attribute_definition">
+<span class="attribute_definition">id</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only int32
+</td></tr>
+</table>
+</p>
+
+<a name="isDestroyed"></a><p class="attribute_definition">
+<span class="attribute_definition">isDestroyed</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="shouldAutoArchive"></a><p class="attribute_definition">
+<span class="attribute_definition">shouldAutoArchive</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True, False or <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#NEXT_ONLY>NEXT_ONLY</a>
+</td></tr>
+</table>
+</p>
+
+<a name="shouldAutoBackup"></a><p class="attribute_definition">
+<span class="attribute_definition">shouldAutoBackup</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True, False or <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#NEXT_ONLY>NEXT_ONLY</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

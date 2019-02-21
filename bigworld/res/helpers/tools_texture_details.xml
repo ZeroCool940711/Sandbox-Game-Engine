@@ -1,0 +1,9 @@
+<root>
+	<detailLevel>
+		<prefix>resources/maps/gizmo</prefix>
+		<prefix>resources/maps/gui</prefix>
+		<prefix>helpers/maps</prefix>
+		<lodMode> 0 </lodMode>
+		<format> A8R8G8B8 </format>
+	</detailLevel>
+</root>

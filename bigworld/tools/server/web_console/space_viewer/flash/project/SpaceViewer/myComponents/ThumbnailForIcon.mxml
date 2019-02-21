@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+    horizontalAlign="center"
+    verticalGap="0" borderStyle="none" backgroundColor="white" >
+
+    <mx:Image id="image" width="16" height="16" maintainAspectRatio="false" source="{data.path}"/>
+    <mx:Label text="{data.name}" width="50" textAlign="center" fontFamily="Arial" fontSize="13"/>
+</mx:VBox>
+

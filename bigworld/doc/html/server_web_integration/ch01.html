@@ -1,0 +1,98 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;1.&nbsp;Overview</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Web Integration Guide">
+      <link rel="up" href="index.html" title="Server Web Integration Guide">
+      <link rel="prev" href="index.html" title="Server Web Integration Guide">
+      <link rel="next" href="pt01.html" title="Part&nbsp;I.&nbsp;Exposing the BigWorld Server as a Web Service">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_web_integration/ch01.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;1.&nbsp;Overview</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="index.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="pt01.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;1.&nbsp;Overview">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Web_Integration_Reference"></a>Chapter&nbsp;1.&nbsp;Overview
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <p>This document describes how a web interface can be constructed that
+               accesses script-level BigWorld functionality. Web browsers, smart phones and
+               other web-aware devices can then be used to access game functionality. It
+               also demonstrates how to provide a lower level web service interface to the
+                 game server that can be used by other services.
+            </p>
+            <p>This document is broken up into three parts:</p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p>Exposing the BigWorld server as a web service: this section
+                              explains the core elements of BigWorld that are used as the basis for
+                              web integration. Web integration is usually implemented using a Service
+                              running on ServiceApps. Twisted.Web is used to provide a HTTP interface
+                              for making script calls on the server.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>Using the web service from Apache: this section describes using
+                              PHP to implement a website that interfaces with the BigWorld
+                              server.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>Web integration example: this section details the implementation
+                              of an Auction House in FantasyDemo. It is intended to be used to
+                              demonstrate a website integrated with BigWorld.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+            <p>Note that while Apache and PHP are used for the implementation of
+                 these examples, it is possible to use other languages or servers to
+                 implement web integration.
+            </p>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="index.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="pt01.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Server Web Integration Guide&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Part&nbsp;I.&nbsp;Exposing the BigWorld Server as a Web Service</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

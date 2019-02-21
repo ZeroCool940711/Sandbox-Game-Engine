@@ -1,0 +1,741 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Appendix&nbsp;A.&nbsp;Source files</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="How To Move Entities">
+      <link rel="up" href="index.html" title="How To Move Entities">
+      <link rel="prev" href="ch05.html" title="Chapter&nbsp;5.&nbsp;How to Move Client-Controlled Entities">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/howto_move_entities/apa.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Appendix&nbsp;A.&nbsp;Source files</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch05.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;</td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="appendix" title="Appendix&nbsp;A.&nbsp;Source files">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Source_Files"></a>Appendix&nbsp;A.&nbsp;Source files
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="apa.html#d0e621">A.1. <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/cell/RandomNavigator.py</span></a></span></dt>
+                  <dt><span class="section"><a href="apa.html#d0e629">A.2. <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/client/RandomNavigator.py</span></a></span></dt>
+                  <dt><span class="section"><a href="apa.html#d0e637">A.3. <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/base/RandomNavigator.py</span></a></span></dt>
+                  <dt><span class="section"><a href="apa.html#d0e645">A.4. <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/editor/RandomNavigator.py</span></a></span></dt>
+                  <dt><span class="section"><a href="apa.html#d0e653">A.5. <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/entity_defs/RandomNavigator.def</span></a></span></dt>
+                  <dt><span class="section"><a href="apa.html#d0e661">A.6. <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/base/ElPolloDiablo.py</span></a></span></dt>
+                  <dt><span class="section"><a href="apa.html#d0e669">A.7. <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/client/ElPolloDiablo.py</span></a></span></dt>
+                  <dt><span class="section"><a href="apa.html#d0e677">A.8. <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/entity_defs/ElPolloDiablo.def</span></a></span></dt>
+                  <dt><span class="section"><a href="apa.html#d0e685">A.9. <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/cell/ElPolloDiablo.py</span> - Before</a></span></dt>
+                  <dt><span class="section"><a href="apa.html#d0e694">A.10. <span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/cell/ElPolloDiablo.py</span> - After</a></span></dt>
+               </dl>
+            </div>
+            <div class="section" title="A.1.&nbsp;<res&gt;/scripts/cell/RandomNavigator.py">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e621"></a>A.1.&nbsp;<span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/cell/RandomNavigator.py</span></h2>
+                     </div>
+                  </div>
+               </div><pre class="programlisting">import BigWorld
+import math
+import random
+import Math
+
+
+class RandomNavigator( BigWorld.Entity ):
+
+    TIMER_WAITING_FOR_NAVMESH = 1
+    
+    #---------------------------------------------------------------------
+    # Constructor.
+    #---------------------------------------------------------------------
+    def __init__( self ):
+        BigWorld.Entity .__init__( self )
+        self.destination = self.position
+        self.addTimer( 5.0, 0, RandomNavigator.TIMER_WAITING_FOR_NAVMESH )
+
+    #---------------------------------------------------------------------
+    # This method is called when a timer expires.
+    #---------------------------------------------------------------------
+    def onTimer(self, timerId, userId):
+        if userId == RandomNavigator.TIMER_WAITING_FOR_NAVMESH:
+            if self.canNavigateTo( self.position ) == None:
+                self.addTimer( 5.0, 0, RandomNavigator.TIMER_WAITING_FOR_NAVMESH )
+            else:
+                self.navigateStep( self.destination, 5.0, 10.0 )
+
+
+    #---------------------------------------------------------------------
+    # This method is called when we've finished moving to a point.
+    #---------------------------------------------------------------------
+    def onMove(self, controllerId, userId):
+        if ( self.position - self.destination ).length &gt; 0.1:
+            self.navigateStep( self.destination, 5.0, 10.0 )
+        else:
+            self.destination = None
+            while self.destination == None:
+                randomDestination = ( 
+                    self.position.x + random.randrange(-400, 400, 1.0),
+                    self.position.y,
+                    self.position.z + random.randrange(-400, 400, 1.0) )
+                self.destination = self.canNavigateTo( randomDestination )
+
+            self.navigateStep( self.destination, 5.0, 10.0 )
+
+# RandomNavigator.py</pre></div>
+            <div class="section" title="A.2.&nbsp;<res&gt;/scripts/client/RandomNavigator.py">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e629"></a>A.2.&nbsp;<span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/client/RandomNavigator.py</span></h2>
+                     </div>
+                  </div>
+               </div><pre class="programlisting">import math
+import BigWorld
+from keys import *
+
+
+# --------------------------------------------------------------------------
+# Section: class RandomNavigator
+# --------------------------------------------------------------------------
+
+
+class RandomNavigator( BigWorld.Entity ):
+    stdModel = 'characters/avatars/base/base.model'
+
+    def __init__( self ):
+        BigWorld.Entity.__init__( self )
+
+
+    def prerequisites( self ):
+        return [ RandomNavigator.stdModel ]
+
+
+    def enterWorld( self ):
+        self.model = BigWorld.Model( RandomNavigator.stdModel )
+        BigWorld.addShadowEntity( self )
+        self.targetCaps = [ CAP_CAN_HIT , CAP_CAN_USE ]
+        self.filter = BigWorld.AvatarDropFilter()
+        
+
+    def leaveWorld( self ):
+        BigWorld.delShadowEntity( self )
+        self.model = None
+
+
+    def use( self ):
+        pass
+
+
+#RandomNavigator.py</pre></div>
+            <div class="section" title="A.3.&nbsp;<res&gt;/scripts/base/RandomNavigator.py">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e637"></a>A.3.&nbsp;<span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/base/RandomNavigator.py</span></h2>
+                     </div>
+                  </div>
+               </div><pre class="programlisting">import FantasyDemo
+
+# --------------------------------------------------------------------------
+# Section: class RandomNavigator
+# --------------------------------------------------------------------------
+
+class RandomNavigator( FantasyDemo.Base ):
+
+    def __init__( self ):
+        FantasyDemo.Base.__init__( self )
+
+
+# RandomNavigator.py  </pre></div>
+            <div class="section" title="A.4.&nbsp;<res&gt;/scripts/editor/RandomNavigator.py">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e645"></a>A.4.&nbsp;<span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/editor/RandomNavigator.py</span></h2>
+                     </div>
+                  </div>
+               </div><pre class="programlisting">class RandomNavigator:
+    def modelName( self, props ):
+        return 'characters/avatars/base/base.model'
+
+# RandomNavigator.py</pre></div>
+            <div class="section" title="A.5.&nbsp;<res&gt;/scripts/entity_defs/RandomNavigator.def">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e653"></a>A.5.&nbsp;<span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/entity_defs/RandomNavigator.def</span></h2>
+                     </div>
+                  </div>
+               </div><pre class="programlisting">&lt;root&gt;
+    &lt;Volatile&gt;
+        &lt;position/&gt;
+        &lt;yaw/&gt;
+    &lt;/Volatile&gt;
+
+    &lt;Properties&gt;
+
+        &lt;destination&gt;
+            &lt;Type&gt;            PYTHON                &lt;/Type&gt;
+            &lt;Flags&gt;            CELL_PRIVATE        &lt;/Flags&gt;
+        &lt;/destination&gt;
+
+    &lt;/Properties&gt;
+
+    &lt;ClientMethods&gt;
+    &lt;/ClientMethods&gt;
+
+    &lt;CellMethods&gt;
+    &lt;/CellMethods&gt;
+&lt;/root&gt;</pre></div>
+            <div class="section" title="A.6.&nbsp;<res&gt;/scripts/base/ElPolloDiablo.py">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e661"></a>A.6.&nbsp;<span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/base/ElPolloDiablo.py</span></h2>
+                     </div>
+                  </div>
+               </div><pre class="programlisting"> import FantasyDemo
+
+# -------------------------------------------------------------------
+# Section: class ElPolloDiablo
+# -------------------------------------------------------------------
+
+class ElPolloDiablo( FantasyDemo.Base ):
+	pass
+
+# ElPolloDiablo.py</pre></div>
+            <div class="section" title="A.7.&nbsp;<res&gt;/scripts/client/ElPolloDiablo.py">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e669"></a>A.7.&nbsp;<span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/client/ElPolloDiablo.py</span></h2>
+                     </div>
+                  </div>
+               </div><pre class="programlisting">import BigWorld
+
+MODEL = "characters/npc/chicken/chicken.model"
+
+# -------------------------------------------------------------------
+# Class ElPolloDiablo:
+#
+# ElPolloDiablo follows an entity, or wanders between two patrol nodes
+# -------------------------------------------------------------------
+class ElPolloDiablo(BigWorld.Entity):
+
+	# -----------------------------------------------------------------
+	# Method: __init__
+	# Description:
+	#	- Defines all variables used by the entity. This includes
+	#	  setting variables to None.
+	#	- Does not call any of the accessor methods. Any variables set are
+	#	  for the purposes of stability.
+	# ------------------------------------------------------------------
+	def __init__( self ):
+		BigWorld.Entity.__init__( self )
+		self.filter = BigWorld.AvatarDropFilter()
+		self.model = None
+
+
+	# ------------------------------------------------------------------
+	# Method: prerequisites
+	# Description:
+	#	- Return a list of the resources that we want loaded in the background
+	#	for us before onEnterWorld() is called.
+	# ------------------------------------------------------------------
+	def prerequisites( self ):
+		return [ MODEL ]
+
+
+	# ------------------------------------------------------------------
+	# Method: onEnterWorld
+	# Description:
+	#	- Creates a model for the ElPolloDiablo.
+	# ------------------------------------------------------------------
+	def onEnterWorld( self, prereqs ):
+		self.model = prereqs[ MODEL ]
+		self.model.scale = (4.0, 4.0, 4.0)
+
+
+	# ------------------------------------------------------------------
+	# This method is called when the entity leaves the world
+	# ------------------------------------------------------------------
+	def onLeaveWorld( self ):
+		self.model = None
+
+
+	# ------------------------------------------------------------------
+	# Method: name
+	# Description:
+	#	- Part of the entity interface: This allows the client to get a string
+	#	  name for the entity.
+	# ------------------------------------------------------------------
+	def name( self ):
+		return "El Pollo Diablo"
+
+#ElPolloDiablo.py</pre></div>
+            <div class="section" title="A.8.&nbsp;<res&gt;/scripts/entity_defs/ElPolloDiablo.def">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e677"></a>A.8.&nbsp;<span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/entity_defs/ElPolloDiablo.def</span></h2>
+                     </div>
+                  </div>
+               </div><pre class="programlisting">&lt;root&gt;
+	&lt;Volatile&gt;
+		&lt;position/&gt;
+		&lt;yaw/&gt;
+	&lt;/Volatile&gt;
+
+	&lt;Implements&gt;
+		&lt;Interface&gt; BaseAndCell &lt;/Interface&gt;
+	&lt;/Implements&gt;
+
+	&lt;Properties&gt;
+		&lt;!-- 0 is wander, 1 is follow targetID --&gt;
+		&lt;mode&gt;
+			&lt;Type&gt;		INT32		&lt;/Type&gt;
+			&lt;Flags&gt;		CELL_PRIVATE		&lt;/Flags&gt;
+			&lt;Persistent&gt;	false		&lt;/Persistent&gt;
+			&lt;Default&gt;	0		&lt;/Default&gt;
+		&lt;/mode&gt;
+
+		&lt;targetID&gt;
+			&lt;Type&gt;		OBJECT_ID		&lt;/Type&gt;
+			&lt;Flags&gt;		CELL_PRIVATE		&lt;/Flags&gt;
+			&lt;Persistent&gt;	false		&lt;/Persistent&gt;
+		&lt;/targetID&gt;
+
+		&lt;nextNode&gt;
+			&lt;Type&gt;		PATROL_NODE		&lt;/Type&gt;
+			&lt;Flags&gt;		CELL_PRIVATE		&lt;/Flags&gt;
+			&lt;Persistent&gt;	false		&lt;/Persistent&gt;
+		&lt;/nextNode&gt;
+
+		&lt;prevNode&gt;
+			&lt;Type&gt;		PATROL_NODE		&lt;/Type&gt;
+			&lt;Flags&gt;		CELL_PRIVATE		&lt;/Flags&gt;
+			&lt;Persistent&gt;	false		&lt;/Persistent&gt;
+		&lt;/prevNode&gt;
+	&lt;/Properties&gt;
+
+	&lt;ClientMethods&gt;
+	&lt;/ClientMethods&gt;
+
+	&lt;CellMethods&gt;
+		&lt;startFollow&gt;
+			&lt;Args&gt;
+				&lt;id&gt;		OBJECT_ID		&lt;/id&gt;	&lt;!-- EntityID --&gt;
+			&lt;/Args&gt;
+		&lt;/startFollow&gt;
+
+		&lt;stopFollow&gt;
+		&lt;/stopFollow&gt;
+	&lt;/CellMethods&gt;
+
+	&lt;BaseMethods&gt;
+	&lt;/BaseMethods&gt;
+
+&lt;/root&gt;</pre></div>
+            <div class="section" title="A.9.&nbsp;<res&gt;/scripts/cell/ElPolloDiablo.py - Before">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e685"></a>A.9.&nbsp;<span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/cell/ElPolloDiablo.py</span> - Before
+                        </h2>
+                     </div>
+                  </div>
+               </div><pre class="programlisting">"This module implements the ElPolloDiablo entity."
+
+# BigWorld Modules
+import BigWorld
+
+# Python modules
+import random
+import math
+
+#todo: replace this with math module
+def distance(v1, v2):
+	"Returns the distance between two 3d vectors"
+	x = v2[0] - v1[0]
+	z = v2[2] - v1[2]
+	#ignore y value due to the current 13k hack
+	return math.sqrt(x * x + z * z)
+
+
+# ----------------------------------------------------------------------------
+# Section: class ElPolloDiablo
+# ----------------------------------------------------------------------------
+class ElPolloDiablo( BigWorld.Entity ):
+	"An ElPolloDiablo entity."
+
+	PATROL_MODE		= 0
+	FOLLOW_MODE		= 1
+
+	VELOCITY		= 20
+
+	PATROL_DISTANCE		= 2
+
+	FOLLOW_DISTANCE		= 10
+	FOLLOW_ANGLE		= math.pi
+
+	#------------------------------------------------------------------------
+	# Constructor
+	#------------------------------------------------------------------------
+
+	def __init__( self ):
+		BigWorld.Entity.__init__( self )
+
+		# random yaw
+		yaw = random.uniform(-math.pi, math.pi)
+
+		self.direction = (0.0, 0.0, yaw)
+
+		if self.mode == ElPolloDiablo.PATROL_MODE:
+			self.stopFollow()
+		else:
+			self.startFollow( self.targetID )
+
+	def onTimer( self, controllerID, userData ):
+		self.think()
+
+	def startFollow( self, targetID ):
+		self.mode = ElPolloDiablo.FOLLOW_MODE
+		self.targetID = targetID
+		self.cancel( "Movement" )
+		self.think()
+
+	def stopFollow( self ):
+		self.mode = ElPolloDiablo.PATROL_MODE
+		self.nextNode = None
+		self.cancel( "Movement" )
+		self.think()
+
+	def think( self ):
+		if self.mode == ElPolloDiablo.PATROL_MODE:
+			self.patrol()
+		else:
+			self.follow()
+
+
+	# Patrol brain
+	def patrol( self ):
+		# If we haven't got any nodes, find a pair
+		if self.nextNode is None:
+			self.setupNodes()
+		if self.nextNode is None:
+			# If we can't find a pair of nodes, wait 5 seconds and try again
+			self.cancel( "Movement" )
+			self.addTimer( 5 )
+			return
+
+		# If we've arrived, turn around
+		if self.closeEnoughToNode():
+			self.swapNodes()
+
+		# Navigate to slightly closer than self.closeEnoughToNode()
+		self.navigate( self.nextNode.position, ElPolloDiablo.VELOCITY, True, 500, 0.5, ElPolloDiablo.PATROL_DISTANCE * 0.8 )
+
+	def closeEnoughToNode( self ):
+		target = self.nextNode
+		return distance( self.position, target.position ) &lt;= ElPolloDiablo.PATROL_DISTANCE
+
+	def setupNodes( self ):
+		self.prevNode = None
+		self.nextNode = None
+		closest = None
+		dist = 500
+		for i in BigWorld.userDataObjects.values():
+			if i.__class__.__name__ != "PatrolNode" or len(i.patrolLinks) == 0:
+				continue
+			if distance( self.position, i.position ) &lt; dist:
+				closest = i
+				dist = distance( self.position, i.position )
+		if closest is not None:
+			after = closest.patrolLinks[ 0 ]
+			while distance( closest.position, after.position ) &lt; ElPolloDiablo.PATROL_DISTANCE * 3:
+				after = after.patrolLinks[ 0 ]
+				if after is None or after.uuid == closest.uuid:
+					after = None
+					break
+			if after is not None:
+				self.prevNode = closest
+				self.nextNode = after
+
+	def swapNodes( self ):
+		temp = self.nextNode
+		self.nextNode = self.prevNode
+		self.prevNode = temp
+
+	def onNavigate( self, controllerID, userData ):
+		# Arrived. Turn around.
+		self.swapNodes()
+		self.think()
+		
+	def onNavigateFailed( self, controllerID, userData ):
+		# Can't get there. Turn around
+		self.swapNodes()
+		self.think()
+
+
+	# Follow brain
+	def follow( self ):
+		# If self.targetID doesn't exist, switch to patrol mode
+		if not BigWorld.entities.has_key( self.targetID ):
+			self.stopFollow()
+			return
+
+		# If target isn't in this space, switch to patrol mode
+		target = BigWorld.entities[ self.targetID ]
+		if target.spaceID != self.spaceID:
+			self.stopFollow()
+			return
+
+		# If we've arrived, wait here for target to move away
+		if self.closeEnoughToTarget():
+			self.cancel( "Movement" )
+			self.addTimer( 5 )
+			return
+
+		# Follow our target
+		target = BigWorld.entities[ self.targetID ]
+		try:
+			self.navigateFollow( target, ElPolloDiablo.FOLLOW_ANGLE, ElPolloDiablo.FOLLOW_DISTANCE, ElPolloDiablo.VELOCITY, 500, 500, True, 0.5 )
+		except ValueError, e:
+			# No path found
+			self.cancel( "Movement" )
+			self.addTimer( 5 )
+
+	def closeEnoughToTarget( self ):
+		target = BigWorld.entities[ self.targetID ]
+		return distance( self.position, target.position ) &lt;= ElPolloDiablo.FOLLOW_DISTANCE
+
+	def onMove( self, controllerID, userData ):
+		self.think()
+
+# ElPolloDiablo.py</pre></div>
+            <div class="section" title="A.10.&nbsp;<res&gt;/scripts/cell/ElPolloDiablo.py - After">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e694"></a>A.10.&nbsp;<span class="literal"><em class="replaceable"><code>&lt;res&gt;</code></em>/scripts/cell/ElPolloDiablo.py</span> - After
+                        </h2>
+                     </div>
+                  </div>
+               </div><pre class="programlisting">"This module implements the ElPolloDiablo entity."
+
+# BigWorld Modules
+import BigWorld
+
+# Python modules
+import random
+import math
+
+#todo: replace this with math module
+def distance(v1, v2):
+	"Returns the distance between two 3d vectors"
+	x = v2[0] - v1[0]
+	z = v2[2] - v1[2]
+	#ignore y value due to the current 13k hack
+	return math.sqrt(x * x + z * z)
+
+
+# ----------------------------------------------------------------------------
+# Section: class ElPolloDiablo
+# ----------------------------------------------------------------------------
+class ElPolloDiablo( BigWorld.Entity ):
+	"An ElPolloDiablo entity."
+
+	PATROL_MODE		= 0
+	FOLLOW_MODE		= 1
+
+	VELOCITY		= 20
+
+	PATROL_DISTANCE		= 2
+
+	FOLLOW_DISTANCE		= 10
+	FOLLOW_ANGLE		= math.pi
+
+	#------------------------------------------------------------------------
+	# Constructor
+	#------------------------------------------------------------------------
+
+	def __init__( self ):
+		BigWorld.Entity.__init__( self )
+
+		# random yaw
+		yaw = random.uniform(-math.pi, math.pi)
+
+		self.direction = (0.0, 0.0, yaw)
+
+		if self.mode == ElPolloDiablo.PATROL_MODE:
+			self.stopFollow()
+		else:
+			self.startFollow( self.targetID )
+
+	def onTimer( self, controllerID, userData ):
+		self.think()
+
+	def startFollow( self, targetID ):
+		self.mode = ElPolloDiablo.FOLLOW_MODE
+		self.targetID = targetID
+		self.cancel( "Movement" )
+		self.think()
+
+	def stopFollow( self ):
+		self.mode = ElPolloDiablo.PATROL_MODE
+		self.nextNode = None
+		self.cancel( "Movement" )
+		self.think()
+
+	def think( self ):
+		if self.mode == ElPolloDiablo.PATROL_MODE:
+			self.patrol()
+		else:
+			self.follow()
+
+
+	# Patrol brain
+	def patrol( self ):
+		# If we haven't got any nodes, find a pair
+		if self.nextNode is None:
+			self.setupNodes()
+		if self.nextNode is None:
+			# If we can't find a pair of nodes, wait 5 seconds and try again
+			self.cancel( "Movement" )
+			self.addTimer( 5 )
+			return
+
+		# If we've arrived, turn around
+		if self.closeEnoughToNode():
+			self.swapNodes()
+
+		# Navigate towards self.nextNode.position
+		dest = self.canNavigateTo( self.nextNode.position, 500, 0.5 )
+		if dest is None:
+			# No path found
+			self.cancel( "Movement" )
+			self.addTimer( 5 )
+			return
+		self.navigateStep( dest, ElPolloDiablo.VELOCITY, 500, 500, True, 0.5 )
+
+	def closeEnoughToNode( self ):
+		target = self.nextNode
+		return distance( self.position, target.position ) &lt;= ElPolloDiablo.PATROL_DISTANCE
+
+	def setupNodes( self ):
+		self.prevNode = None
+		self.nextNode = None
+		closest = None
+		dist = 500
+		for i in BigWorld.userDataObjects.values():
+			if i.__class__.__name__ != "PatrolNode" or len(i.patrolLinks) == 0:
+				continue
+			if distance( self.position, i.position ) &lt; dist:
+				closest = i
+				dist = distance( self.position, i.position )
+		if closest is not None:
+			after = closest.patrolLinks[ 0 ]
+			while distance( closest.position, after.position ) &lt; ElPolloDiablo.PATROL_DISTANCE * 3:
+				after = after.patrolLinks[ 0 ]
+				if after is None or after.uuid == closest.uuid:
+					after = None
+					break
+			if after is not None:
+				self.prevNode = closest
+				self.nextNode = after
+
+	def swapNodes( self ):
+		temp = self.nextNode
+		self.nextNode = self.prevNode
+		self.prevNode = temp
+
+	def onMoveFailure( self, controllerID, userData ):
+		# Can't get there. Turn around
+		self.swapNodes()
+		self.think()
+
+	# Follow brain
+	def follow( self ):
+		# If self.targetID doesn't exist, switch to patrol mode
+		if not BigWorld.entities.has_key( self.targetID ):
+			self.stopFollow()
+			return
+
+		# If target isn't in this space, switch to patrol mode
+		target = BigWorld.entities[ self.targetID ]
+		if target.spaceID != self.spaceID:
+			self.stopFollow()
+			return
+
+		# If we've arrived, wait here for target to move away
+		if self.closeEnoughToTarget():
+			self.cancel( "Movement" )
+			self.addTimer( 5 )
+			return
+
+		# Follow our target
+		yaw = target.yaw + ElPolloDiablo.FOLLOW_ANGLE
+		offset = ( ElPolloDiablo.FOLLOW_DISTANCE * math.sin( yaw ), 0, ElPolloDiablo.FOLLOW_DISTANCE * math.cos( yaw ) )
+		dest = self.canNavigateTo( target.position + offset, 500, 0.5 )
+		if dest is None:
+			# No path found
+			self.cancel( "Movement" )
+			self.addTimer( 5 )
+			return
+		self.navigateStep( dest, ElPolloDiablo.VELOCITY, 500, 500, True, 0.5 )
+
+	def closeEnoughToTarget( self ):
+		target = BigWorld.entities[ self.targetID ]
+		return distance( self.position, target.position ) &lt;= ElPolloDiablo.FOLLOW_DISTANCE
+
+	def onMove( self, controllerID, userData ):
+		self.think()
+
+# ElPolloDiablo.py</pre></div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch05.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;5.&nbsp;How to Move Client-Controlled Entities&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

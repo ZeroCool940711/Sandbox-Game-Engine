@@ -1,0 +1,174 @@
+<html>
+<head>
+<title>Vector4Animation - BigWorld base Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Vector4Animation Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Math.html" class="module_h1">Math Module</a>]</span></p><p>Vector4Animation is part of the <a href="Math.html">Math</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Math</pre>
+<h2>Parent Classes</h2>
+<a href="Vector4Provider.html">Vector4Provider</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#duration" class="attribute_list" >duration</a></td><td>&nbsp; Read-Write float
+</td></tr>
+
+<tr valign=top><td><a href="#keyframes" class="attribute_list" >keyframes</a></td><td>&nbsp; Read-Write list of tuples containing a float and a <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#time" class="attribute_list" >time</a></td><td>&nbsp; Read-Write float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This is a subclass of <a href="Vector4Provider.html">Vector4Provider</a>. This animates between the values
+provided by a number of <a href="Vector4Provider.html">Vector4Provider</a> objects.
+<br><br>
+Keyframe values are specified as a list of tuples containing a time and a
+<a href="Vector4Provider.html">Vector4Provider</a>. These are assumed to be in ascending order, so if a
+keyframe has a time which is before that of the previous keyframe, the
+<a href="Vector4.html">Vector4</a> which is provided will insantly snap to the new value, rather than
+transitioning smoothly. Also, the <a href="Vector4Animation.html">Vector4Animation</a> object will have a value
+equal to that of the first keyframe from the start of each cycle until the
+first keyframe has been hit. Similarly, a <a href="Vector4Animation.html">Vector4Animation</a> object's value
+will be equal to that of the last keyframe, between the time of the last
+keyframe, and the end of the cycle.
+<br><br>
+Code Example:
+
+<pre># This example creates four PyChunkLight objects which demonstrate the
+# use of <a href="Vector4Animation.html">Vector4Animation</a> objects by using them to supply colour
+# information to the lights.
+
+# Import <a href="Math.html">Math</a> module
+import <a href="Math.html">Math</a>
+
+# Create the lights at positions ( 0, 10, 0 ), ( 20, 10, 0 ),
+# ( 40, 10, 0 ), ( 60, 10, 0 ).
+lights = []
+for i in range( 4 ):
+    newLight = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PyChunkLight>PyChunkLight</a>()
+    newLight.position = ( i * 20, 10, 0 )
+    newLight.outerRadius = 10
+    newLight.visible = 1
+    lights.append( newLight )
+
+# Set up the first <a href="Vector4Animation.html">Vector4Animation</a>, & apply it to the first light.
+# This simply demonstrates how to set up a <a href="Vector4Animation.html">Vector4Animation</a> which
+# smoothly transitions across keyframes and loops without snapping.
+# The light should start red, fade to green, fade to blue, then fade
+# back to red again.
+fadeV4 = <a href="Math.html">Math</a>.<a href=Math.html#Vector4Animation><a href="Vector4Animation.html">Vector4Animation</a></a>()
+fadeV4.duration = 1.5
+fadeV4.keyframes = [ ( 0.0, ( 200, 0, 0, 0 ) ),    # red at 0.0s
+                     ( 0.5, ( 0, 200, 0, 0 ) ),    # green at 0.5s
+                     ( 1.0, ( 0, 0, 200, 0 ) ),    # blue at 1.0s
+                     ( 1.5, ( 200, 0, 0, 0 ) ) ]   # red at 1.5s
+lights[0].shader = fadeV4
+
+# Set up the second <a href="Vector4Animation.html">Vector4Animation</a>, & apply it to the second light.
+# This shows how keyframes are treated when they're not listed in ascending
+# order. The light should flash red, green, and blue, without transitioning
+# smoothly.
+flashV4 = <a href="Math.html">Math</a>.<a href=Math.html#Vector4Animation><a href="Vector4Animation.html">Vector4Animation</a></a>()
+flashV4.duration = 1.5
+flashV4.keyframes = [ ( 0.5, ( 200, 0, 0, 0 ) ),    # red at 0.5s
+                      ( 0.1, ( 0, 200, 0, 0 ) ),    # green at 0.1s
+                      ( 1.0, ( 0, 200, 0, 0 ) ),    # green at 1.0s
+                      ( 0.1, ( 0, 0, 200, 0 ) ) ]   # blue at 0.1s
+lights[1].shader = flashV4
+
+# Set up the third <a href="Vector4Animation.html">Vector4Animation</a>, & apply it to the third light.
+# This shows how the value provided by a <a href="Vector4Animation.html">Vector4Animation</a> remains static
+# between the start of a cycle and the first keyframe, and between the last
+# keyframe and the end of a cycle. The light should hold red, smoothly
+# transition to blue, hold blue, then snap instantly back to red at the
+# beginning of the next cycle.
+endSnapV4 = <a href="Math.html">Math</a>.<a href=Math.html#Vector4Animation><a href="Vector4Animation.html">Vector4Animation</a></a>()
+endSnapV4.duration = 1.5
+endSnapV4.keyframes = [ ( 0.5, ( 200, 0, 0, 0 ) ),    # red at 0.5s
+                        ( 1.0, ( 0, 0, 200, 0 ) ) ]   # blue at 1.0s
+lights[2].shader = endSnapV4
+
+# Set up the fourth <a href="Vector4Animation.html">Vector4Animation</a>, & apply it to the fourth light.
+# This shows how dynamic <a href="Vector4Provider.html">Vector4Provider</a> objects can be used to provide the
+# keyframes used by a <a href="Vector4Animation.html">Vector4Animation</a>. The light should transition between
+# off, flashing white, and solid white.
+offV4 = ( 0, 0, 0, 0 )           # off keyframe
+flashWhiteV4 = <a href="Math.html">Math</a>.<a href=Math.html#Vector4LFO><a href="Vector4LFO.html">Vector4LFO</a></a>() # flashing white keyframe
+flashWhiteV4.period = 0.2
+flashWhiteV4.waveform = "SINE"
+flashWhiteV4.phase = 0
+flashWhiteV4.amplitude = 200
+onV4 = ( 200, 200, 200, 200 )    # on keyframe
+flashFadeV4 = <a href="Math.html">Math</a>.<a href=Math.html#Vector4Animation><a href="Vector4Animation.html">Vector4Animation</a></a>()
+flashFadeV4.duration = 6.0
+flashFadeV4.keyframes = [ ( 0.0, offV4 ),        # off at 0.0s
+                          ( 2.0, flashWhiteV4 ), # flashing white at 2.0s
+                          ( 4.0, onV4 ),         # on 4.0s
+                          ( 6.0, offV4 ) ]       # off 6.0s
+lights[3].shader = flashFadeV4
+</pre>
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="duration"></a><p class="attribute_definition">
+<span class="attribute_definition">duration</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float
+</td></tr>
+</table>
+</p>
+
+<a name="keyframes"></a><p class="attribute_definition">
+<span class="attribute_definition">keyframes</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write list of tuples containing a float and a <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="time"></a><p class="attribute_definition">
+<span class="attribute_definition">time</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

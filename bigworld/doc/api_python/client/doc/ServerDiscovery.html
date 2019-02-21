@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>ServerDiscovery - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ServerDiscovery Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>ServerDiscovery is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#changeNotifier" class="attribute_list" >changeNotifier</a></td><td>&nbsp; Callback Function (python function object, or an instance of a python
+</td></tr>
+
+<tr valign=top><td><a href="#searching" class="attribute_list" >searching</a></td><td>&nbsp; Integer. Default is 0.
+</td></tr>
+
+<tr valign=top><td><a href="#servers" class="attribute_list" >servers</a></td><td>&nbsp; Read-only list of <a href="ServerDiscovery.html">ServerDiscovery</a> objects
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class defines an object which can be used to locate <a href="BigWorld.html">BigWorld</a> servers
+on a local area network and obtain information regarding their current
+status. An instance of this class is automatically created by <a href="BigWorld.html">BigWorld</a> as
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#serverDiscovery>serverDiscovery</a>, and no further instances can be created by
+script. When the searching attribute is set to a value other than 0, where
+previously it had been equal to 0, the <a href="ServerDiscovery.html">ServerDiscovery</a> broadcasts a request
+on the LAN for servers to provide it with their details. These details are
+not received all at once, and may be updated periodically. Each time
+details are received or updated the function assigned to the changeNotifier
+attribute is called. This continues to collect server details until the
+searching attribute is set to 0. When the searching attribute is assigned
+to  0 all of the server details which have been collected are discarded. As
+this can only be used over a LAN it would not be very useful for a live
+MMOG, however it is very useful during testing and development.
+<br><br>
+Code Example:
+
+<pre># This example prints out the list of known server host names each time
+# the list is updated.
+
+# imports
+import <a href="BigWorld.html">BigWorld</a>
+
+# print the host names of all the known servers
+def listServers():
+    print "\nServers:"   # print header
+    for s in <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#serverDiscovery>serverDiscovery</a>.servers:
+        print s.hostName   # print entry
+
+# set the server list callback function
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#serverDiscovery>serverDiscovery</a>.changeNotifier = listServers
+
+# initiate the search for servers
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#serverDiscovery>serverDiscovery</a>.searching = 1
+</pre>
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="changeNotifier"></a><p class="attribute_definition">
+<span class="attribute_definition">changeNotifier</span>
+</p>
+
+<div class="attribute_description">The changeNotifier attribute is a Python function object which will be
+called every time a ServerDiscovery::Details object is created or updated
+in the servers attribute list. It is called with no arguments.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Callback Function (python function object, or an instance of a python
+</td></tr>
+</table>
+</p>
+
+<a name="searching"></a><p class="attribute_definition">
+<span class="attribute_definition">searching</span>
+</p>
+
+<div class="attribute_description">This attribute can be used to initiate a search for <a href="BigWorld.html">BigWorld</a> servers on
+the LAN. When this is set to 1 it initiates a search, and when it is set to
+0 it stops the current search and clears the servers attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer. Default is 0.
+</td></tr>
+</table>
+</p>
+
+<a name="servers"></a><p class="attribute_definition">
+<span class="attribute_definition">servers</span>
+</p>
+
+<div class="attribute_description">This is a list of ServerDiscovery::Details objects which contain status
+information for each of the servers that the <a href="ServerDiscovery.html">ServerDiscovery</a> object has
+found.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-only list of <a href="ServerDiscovery.html">ServerDiscovery</a> objects
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

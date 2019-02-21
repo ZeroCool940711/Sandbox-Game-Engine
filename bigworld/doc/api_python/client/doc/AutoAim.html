@@ -1,0 +1,425 @@
+<html>
+<head>
+<title>AutoAim - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>AutoAim Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>AutoAim is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#adhesionDistance" class="attribute_list" >adhesionDistance</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#adhesionFalloffDistance" class="attribute_list" >adhesionFalloffDistance</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#adhesionHorizontalAngle" class="attribute_list" >adhesionHorizontalAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#adhesionHorizontalFalloffAngle" class="attribute_list" >adhesionHorizontalFalloffAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#adhesionPitchToYawRatio" class="attribute_list" >adhesionPitchToYawRatio</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#adhesionVerticalAngle" class="attribute_list" >adhesionVerticalAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#adhesionVerticalFalloffAngle" class="attribute_list" >adhesionVerticalFalloffAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#forwardAdhesion" class="attribute_list" >forwardAdhesion</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#friction" class="attribute_list" >friction</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#frictionDistance" class="attribute_list" >frictionDistance</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#frictionFalloffDistance" class="attribute_list" >frictionFalloffDistance</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#frictionHorizontalAngle" class="attribute_list" >frictionHorizontalAngle</a></td><td>&nbsp; int
+</td></tr>
+
+<tr valign=top><td><a href="#frictionHorizontalFalloffAngle" class="attribute_list" >frictionHorizontalFalloffAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#frictionMinimumDistance" class="attribute_list" >frictionMinimumDistance</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#frictionVerticalAngle" class="attribute_list" >frictionVerticalAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#frictionVerticalFalloffAngle" class="attribute_list" >frictionVerticalFalloffAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#reverseAdhesionStyle" class="attribute_list" >reverseAdhesionStyle</a></td><td>&nbsp; int
+</td></tr>
+
+<tr valign=top><td><a href="#strafeAdhesion" class="attribute_list" >strafeAdhesion</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#turnAdhesion" class="attribute_list" >turnAdhesion</a></td><td>&nbsp; float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="AutoAim.html">AutoAim</a> is made up of essentially two components.  The first is friction and defines to
+what degree a Camera will 'stick' to its target and the second is adhesion, which describes
+to what degree the target reticle (eg, crosshairs, target box, etc) will follow the target.
+Each has a field of view where the friction and adhesion will be the maximum specified and
+a falloff field of view, where the values linearly blend to 0.
+<br><br>
+The object is contained within the <a href="BigWorld.html">BigWorld</a>.<a href="Targeting.html">Targeting</a> object. Defaults for any number of
+values can be provided in engine_config.xml under &lt;targeting&gt;/&lt;autoAim&gt;, eg;
+<br><br>
+
+<pre>&lt;root&gt;
+	...
+	&lt;targeting&gt;
+		...
+		&lt;autoAim&gt;
+			...
+			&lt;friction&gt; .5 &lt;/friction&gt;
+			...
+		&lt;/autoAim&gt;
+		...
+	&lt;/targeting&gt;
+	...
+&lt;/root&gt;
+
+<pre>
+<a href="AutoAim.html">AutoAim</a> Object can be accessed through <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#autoAim>autoAim</a> function.
+Note that this is only valid for hand-held controllers...
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="adhesionDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">adhesionDistance</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the distance within which the adhesion
+will be the maximum specified for the current movement.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="adhesionFalloffDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">adhesionFalloffDistance</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the distance outside which the adhesion will be 0.
+The adhesion will linearly deplete from adhesionDistance to adhesionFalloffDistance.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="adhesionHorizontalAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">adhesionHorizontalAngle</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the left and right field of view angles, in radians, within which the adhesion
+will be the maximum specified for the current movement.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="adhesionHorizontalFalloffAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">adhesionHorizontalFalloffAngle</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the left and right field of view angles, in radians, outside which the adhesion
+will be 0.  The adhesion will linearly deplete from adhesionHorizontalAngle to adhesionHorizontalFalloffAngle.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="adhesionPitchToYawRatio"></a><p class="attribute_definition">
+<span class="attribute_definition">adhesionPitchToYawRatio</span>
+</p>
+
+<div class="attribute_description">This value is used in calculations to handle pitch and yaw.  Defaults to 0.5.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="adhesionVerticalAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">adhesionVerticalAngle</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the upper and lower field of view angles, in radians, within which the adhesion
+will be the maximum specified for the current movement.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="adhesionVerticalFalloffAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">adhesionVerticalFalloffAngle</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the upper and lower field of view angles, in radians, outside which the adhesion
+will be 0.  The adhesion will linearly deplete from adhesionVerticalAngle to adhesionVerticalFalloffAngle.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="forwardAdhesion"></a><p class="attribute_definition">
+<span class="attribute_definition">forwardAdhesion</span>
+</p>
+
+<div class="attribute_description">This describes to what degree the target reticle will 'stick' to a target as the targeter moves forward.
+The value is between 0.0 and 1.0. 0 would mean the target reticle is not affected, whereas 1 would cause
+the target reticle to follow the target until it slides out of view.  Defaults to 0.05.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="friction"></a><p class="attribute_definition">
+<span class="attribute_definition">friction</span>
+</p>
+
+<div class="attribute_description">This describes to what degree the Camera will 'stick' to a target.  It is on a scale from 0.0 to 1.0.
+A value of 0.0 would mean there was no friction at all, so the camera would move freely when a target
+is present and a value of 1.0 would mean that the camera would lock onto the target until it reaches the
+friction falloff angle/distance.  Defaults to 0.5.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="frictionDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">frictionDistance</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the distance within which the friction will be maximum specified by friction.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="frictionFalloffDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">frictionFalloffDistance</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the distance outside which the friction will be 0.
+The friction will linearly deplete from frictionDistance to frictionFalloffDistance.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="frictionHorizontalAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">frictionHorizontalAngle</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the left and right field of view angles, in radians, within which the friction
+will be the maximum specified by friction.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>int
+</td></tr>
+</table>
+</p>
+
+<a name="frictionHorizontalFalloffAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">frictionHorizontalFalloffAngle</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the left and right field of view angles, in radians, outside which the friction
+will be 0.  The friction will linearly deplete from frictionHorizontalAngle to frictionHorizontalFalloffAngle.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="frictionMinimumDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">frictionMinimumDistance</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the distance before friction will come into effect,
+ie, if the target is too close, 0 friction will be used...
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="frictionVerticalAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">frictionVerticalAngle</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the upper and lower field of view angles, in radians, within which the friction
+will be maximum specified by friction.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="frictionVerticalFalloffAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">frictionVerticalFalloffAngle</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the upper and lower field of view angles, in radians, outside which the friction
+will be 0.  The friction will linearly deplete from frictionVerticalAngle to frictionVerticalFalloffAngle.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="reverseAdhesionStyle"></a><p class="attribute_definition">
+<span class="attribute_definition">reverseAdhesionStyle</span>
+</p>
+
+<div class="attribute_description">Adjusts the forwardAdhesion for backwards movement.  The default, -1 will perform the usually desired
+effect, 0 will deactivate it.  Other values will adjust it proportionally.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>int
+</td></tr>
+</table>
+</p>
+
+<a name="strafeAdhesion"></a><p class="attribute_definition">
+<span class="attribute_definition">strafeAdhesion</span>
+</p>
+
+<div class="attribute_description">This describes to what degree the target reticle will 'stick' to a target as the targeter moves sideways.
+The value is between 0.0 and 1.0. 0 would mean the target reticle is not affected, whereas 1 would cause
+the target reticle to follow the target until it slides out of view.  Defaults to 0.2.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="turnAdhesion"></a><p class="attribute_definition">
+<span class="attribute_definition">turnAdhesion</span>
+</p>
+
+<div class="attribute_description">This describes to what degree the target reticle will 'stick' to a target as the targeter turns.
+The value is between 0.0 and 1.0. 0 would mean the target reticle is not affected, whereas 1 would cause
+the target reticle to follow the target until it slides out of view.  Defaults to 0.1.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

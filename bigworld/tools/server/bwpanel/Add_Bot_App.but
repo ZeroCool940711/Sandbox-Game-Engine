@@ -1,0 +1,7 @@
+#!/bin/sh
+#BWPANEL 1A ""
+# start the cell up in a terminal.
+cd $MF_ROOT/bigworld/tools/server/misc
+./start.sh term bots -
+# sudo ./renice_all.sh -19 cellapp
+

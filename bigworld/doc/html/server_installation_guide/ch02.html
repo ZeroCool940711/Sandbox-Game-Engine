@@ -1,0 +1,804 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;2.&nbsp;Simple Installation</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Installation Guide">
+      <link rel="up" href="index.html" title="Server Installation Guide">
+      <link rel="prev" href="ch01.html" title="Chapter&nbsp;1.&nbsp;Overview">
+      <link rel="next" href="ch03.html" title="Chapter&nbsp;3.&nbsp;Server First Run">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_installation_guide/ch02.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;2.&nbsp;Simple Installation</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch01.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch03.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;2.&nbsp;Simple Installation">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Simple_Installation"></a>Chapter&nbsp;2.&nbsp;Simple Installation
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch02.html#xref_Recommended_Setup">2.1. Recommended Setup</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#d0e150">2.1.1. Supported Distributions</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch02.html#d0e173">2.2. Preparation</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#d0e197">2.2.1. Installing CentOS</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#xref_Installing_EPEL">2.2.2. Installing the EPEL Repository</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#xref_Installing_Configuring_And_Starting_MySQL">2.2.3. Installing, Configuring and Starting MySQL</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch02.html#d0e564">2.3. Installing the BigWorld Technology Server package</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#d0e585">2.3.1. BWMachineD</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e608">2.3.2. BigWorld Server</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#xref_Simple_Installation_BigWorld_Server_Tools">2.3.3. BigWorld Server Tools</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e704">2.3.4. Customising your installation</a></span></dt>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+            <p>Installing the BigWorld server consists of installing 3 separate
+                 components:
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p>BigWorld Machine Daemon (BWMachineD)</p>
+                  </li>
+                  <li class="listitem">
+                     <p>BigWorld Server (BaseApp, CellApp, DbMgr, etc)</p>
+                  </li>
+                  <li class="listitem">
+                     <p>BigWorld Server Tools (MessageLogger, WebConsole, etc)</p>
+                  </li>
+               </ul>
+            </div>
+            <p>BWMachineD is required by both the BigWorld server and the BigWorld
+                 server tools, however both the server and server tools can run independantly
+                 of one another and are commonly installed on separate machines to avoid load
+                 issues of one service interfering with another.
+            </p>
+            <p>The simplest path to installing the server and tools is to use the
+                 pre-generated RPM packages which are tested and known to work on the
+                 supported Linux distributions.
+            </p>
+            <div class="section" title="2.1.&nbsp;Recommended Setup">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Recommended_Setup"></a>2.1.&nbsp;Recommended Setup
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The recommended system configuration for a scalable BigWorld server
+                      environment is to separate the BigWorld server from the machine that will
+                      run the BigWorld server tools.
+               </p>
+               <p>The isolation of the server tools on a separate machine is
+                      recommended in order to ensure that if high load situations occur on any
+                      cluster machines, the associated increase in logging and monitoring tasks
+                      performed by the server tools do not further degrade performance on any of
+                      the active cluster machines.
+               </p>
+               <p>Due to the potential for log files to grow quite drastically in both
+                      a development and a production environment it is recommended that, when
+                      creating partitions for the operating system installation, to create a
+                      separate partition or have an entirely separate hard disk dedicated for
+                      the BigWorld server logs.
+               </p>
+               <p>For the purposes of an initial installation or small scale
+                      development it is perfectly acceptable to install both the server and
+                      tools onto the same machine, and this installation guide will assume that
+                      the installation is being peformed on a single machine.
+               </p>
+               <div class="section" title="2.1.1.&nbsp;Supported Distributions">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e150"></a>2.1.1.&nbsp;Supported Distributions
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>BigWorld only officially supports the 64-bit CentOS
+                           5.<em class="replaceable"><code>x</code></em> and RedHat Enterprise Linux
+                           5.<em class="replaceable"><code>x</code></em> distributions.
+                  </p>
+                  <p>BigWorld has previously supported other Linux distributions,
+                           however in order to better support customers we have consolidated our
+                           support list to have a greater focus and reduce variability when
+                           resolving customer issues.
+                  </p>
+                  <p>CentOS can be downloaded from the <a class="ulink" href="http://www.centos.org/" target="_top">CentOS community portal</a>.
+                  </p>
+                  <p>RedHat Enterprise Linux is available from the <a class="ulink" href="http://www.redhat.com/" target="_top">RedHat website</a>.
+                  </p>
+               </div>
+            </div>
+            <div class="section" title="2.2.&nbsp;Preparation">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e173"></a>2.2.&nbsp;Preparation
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>As the BigWorld server is a complex set of programs with a number of
+                      dependencies, it is important to ensure that all your system has been
+                      installed correctly and prepared before continuing with the primary
+                      installation. A quick overview of what is required to install the BigWorld
+                      server and tools follows:
+               </p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>64 bit x86_64 hardware</p>
+                     </li>
+                     <li class="listitem">
+                        <p>CentOS<sup>[<a name="d0e185" href="#ftn.d0e185" class="footnote">1</a>]</sup> 5 64 bit
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>EPEL repository enabled</p>
+                     </li>
+                     <li class="listitem">
+                        <p>MySQL installed, configured and started</p>
+                     </li>
+                  </ul>
+               </div>
+               <p>The following sections will outline in more detail how to achieve a
+                      functional installation of CentOS ready for an installation of the
+                      BigWorld server.
+               </p>
+               <div class="section" title="2.2.1.&nbsp;Installing CentOS">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e197"></a>2.2.1.&nbsp;Installing CentOS
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>A guide on how to install Linux is out of the scope of this
+                           documentation as this process will commonly need to be tailored to your
+                           circumstances. We have however provided a rough overview of the CentOS
+                           installation process which outlines specific packages and configuration
+                           options that may be useful for a BigWorld server cluster machine. This
+                           overview can be found in <a class="xref" href="apb.html" title="Appendix&nbsp;B.&nbsp;Installing CentOS 5">Appendix&nbsp;B, <i>Installing CentOS 5</i></a>.
+                  </p>
+                  <div class="section" title="2.2.1.1.&nbsp;Update System Packages">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="xref_Update_System_Packages"></a>2.2.1.1.&nbsp;Update System Packages
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>After any system installation it is a good idea to update all
+                                the installed system packages as there may have been important
+                                security fixes or other bug fixes which can impact the performance and
+                                security of your system since the installation media used for your
+                                install was produced.
+                     </p>
+                     <p>Run the following command as root:</p><pre class="programlisting"># yum update</pre><p>After performing this update it is a good idea to reboot your
+                                computer to pick up any system changes such as kernel updates.
+                     </p>
+                  </div>
+               </div>
+               <div class="section" title="2.2.2.&nbsp;Installing the EPEL Repository">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Installing_EPEL"></a>2.2.2.&nbsp;Installing the EPEL Repository
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>In order to fully support the server tools under CentOS it is
+                           necessary to install some packages that are not available in the default
+                           CentOS installation. In order to facilitate this you must enable the
+                           <a class="ulink" href="http://fedoraproject.org/wiki/EPEL" target="_top">Extra Packages for
+                              Enterprise Linux (EPEL)</a> repository which is provided by the
+                           Fedora Project. The Fedora project manages this repository as they are
+                           the base distribution from which Red Hat and CentOS are forked
+                           from.
+                  </p>
+                  <p>To enable the EPEL repository use the following command:</p>
+                  <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+                     <h3 class="title">Note</h3>
+                     <p>The EPEL packages aren't kept as up to date as the official
+                                releases. If you have trouble downloading a version, try navigating to
+                                the directory and searching for the current version of the EPEL
+                                package. For example as of the CentOS 5.6 release the EPEL package
+                                still refers to 5.4.
+                     </p>
+                     <p>Please modify the following URL as required.</p>
+                  </div>
+                  <p>As root, run:</p><pre class="programlisting"># wget http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+# rpm -Uvh epel-release-5-4.noarch.rpm</pre><p>This step has now made the packages from the EPEL repository
+                           available to your CentOS installation which will be used when the
+                           BigWorld server RPMs are installed.
+                  </p>
+               </div>
+               <div class="section" title="2.2.3.&nbsp;Installing, Configuring and Starting MySQL">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Installing_Configuring_And_Starting_MySQL"></a>2.2.3.&nbsp;Installing, Configuring and Starting MySQL
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Both the BigWorld server and server tools can make use of MySQL
+                           for persistent data storage. In order to take advantage of MySQL it must
+                           be properly configured for each use case.
+                  </p>
+                  <p>To install the MySQL server, run the following command as
+                           root:
+                  </p><pre class="programlisting"># yum install mysql-server</pre><p>This will install the MySQL server only. In order to interact with
+                           the MySQL server to create initial databases and set user access
+                           privileges we need to install the MySQL client. To do this run the
+                           following command as root:
+                  </p><pre class="programlisting"># yum install mysql</pre><p>DBMgr requires that its tables use the InnoDB storage engine,
+                           which is not necessarily the default engine used by MySQL. To make
+                           InnoDB the default engine, edit the file
+                           <code class="filename">/etc/my.cnf</code>, and add the following entry in the
+                           <code class="code">[mysqld]</code> section:
+                  </p><pre class="programlisting">default-storage-engine=InnoDB</pre><div class="section" title="2.2.3.1.&nbsp;Start the MySQL server">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e259"></a>2.2.3.1.&nbsp;Start the MySQL server
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>After installing the MySQL server it is quite common to not have
+                                the actual MySQL server running or configured to restart after a
+                                reboot. As it is a core component in most environments it is important
+                                to check the MySQL server is setup correctly before proceeding.
+                     </p>
+                     <p>As root run:</p><pre class="programlisting"># /sbin/chkconfig --levels 345 mysqld on 
+# /etc/init.d/mysqld start</pre><p>This has ensured that the MySQL server will be running after the
+                                machine is rebooted, and starts up the MySQL server for immediate use.
+                                If you are new to Linux and are unfamiliar with the concept of
+                                <em class="emphasis">runlevels</em> it would be useful to gain a basic
+                                understanding of this concept if you intend to maintain a BigWorld
+                                server cluster. More information can be found on the <a class="ulink" href="http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/ch-services.html#s1-services-runlevels" target="_top">Red
+                                   Hat Documentation</a> website.
+                     </p>
+                  </div>
+                  <div class="section" title="2.2.3.2.&nbsp;MySQL Accounts">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e276"></a>2.2.3.2.&nbsp;MySQL Accounts
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>Both the BigWorld server and the BigWorld server tools have
+                                different requirements of the MySQL server as they are both performing
+                                unique tasks. As a result of this, we recommend that a seperate
+                                account is created for the BigWorld server tools, and for every user
+                                who will be running a BigWorld server.
+                     </p>
+                     <p>The default MySQL installation is configured with one user
+                                called <span class="literal">root</span>. This is not the same as the system
+                                root user. In order to create a new MySQL user we log in to MySQL
+                                using the MySQL <span class="literal">root</span> user account as
+                                follows:
+                     </p><pre class="programlisting">$ mysql -u root</pre><p>This command can be run as any user providing the MySQL root
+                                user account has no password set.
+                     </p>
+                     <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+                        <h3 class="title">Note</h3>
+                        <p>For detailed instructions on MySQL account creation and
+                                     management please refer to the <a class="ulink" href="http://dev.mysql.com/doc/" target="_top">MySQL documentation website</a>,
+                                     specifically the <em class="emphasis">MySQL Server Administration</em>
+                                     chapter, section <em class="emphasis">MySQL User Account
+                                        Management</em>.
+                        </p>
+                     </div>
+                     <div class="section" title="2.2.3.2.1.&nbsp;BigWorld Server Tools">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h5 class="title"><a name="xref_MySQL_Server_Tools_Account"></a>2.2.3.2.1.&nbsp;BigWorld Server Tools
+                                 </h5>
+                              </div>
+                           </div>
+                        </div>
+                        <p>The BigWorld Server Tools component StatLogger requires a
+                                     MySQL server to work, while WebConsole by default will use SQLite
+                                     but can be configured to use MySQL.
+                        </p>
+                        <p>The following example illustrates how to create a MySQL user
+                                     for the server tools with a username of <span class="literal">bwtools</span>
+                                     and a password of <span class="literal">bwtools_passwd</span> and assign the
+                                     required privileges to allow the server tools to operate
+                                     normally.
+                        </p>
+                        <p>To create a user and grant privileges, run the following
+                                     command:
+                        </p><pre class="programlisting">$ mysql -u root
+ mysql&gt; GRANT ALL PRIVILEGES ON *.* TO '<em class="emphasis">bwtools</em>'@'localhost' IDENTIFIED BY '<em class="emphasis">bwtools_passwd</em>';
+ mysql&gt; GRANT ALL PRIVILEGES ON *.* TO '<em class="emphasis">bwtools</em>'@'%' IDENTIFIED BY '<em class="emphasis">bwtools_passwd</em>';</pre></div>
+                     <div class="section" title="2.2.3.2.2.&nbsp;BigWorld Server User Account">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h5 class="title"><a name="d0e334"></a>2.2.3.2.2.&nbsp;BigWorld Server User Account
+                                 </h5>
+                              </div>
+                           </div>
+                        </div>
+                        <p>Every user in the network that will run their own BigWorld
+                                     server will need to have a MySQL account created for that server
+                                     instance. For example in a development environment with two server
+                                     developers, Alice and Bob, and a QA team that runs a single server,
+                                     three MySQL databases would need to be created and assigned to each
+                                     server user.
+                        </p>
+                        <p>It is considered good practice to limit the privileges of a
+                                     database user to the tasks they will be required to perform. As the
+                                     DBMgr process (and related tools) require less privileges than the
+                                     BigWorld server tools, when we create an account for the server we
+                                     will be more specific in regards to the privileges that user
+                                     has.
+                        </p>
+                        <p>We will need three pieces of information when creating a
+                                     database for use with the BigWorld server.
+                        </p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="disc">
+                              <li class="listitem">
+                                 <p>Username (set in <code class="filename">bw.xml</code> using
+                                                  <span class="literal">&lt;dbMgr&gt;&lt;username&gt;</span>)
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Password (set in <code class="filename">bw.xml</code> using
+                                                  <span class="literal">&lt;dbMgr&gt;&lt;password&gt;</span>)
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Database name (set in <code class="filename">bw.xml</code> using
+                                                  <span class="literal">&lt;dbMgr&gt;&lt;databaseName&gt;</span>)
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                        <p>If you are not yet familiar with the
+                                     <code class="filename">bw.xml</code> file, don't worry as this will be
+                                     covered in more detail later in this document.
+                        </p>
+                        <p>The following SQL commands provide the basic syntax to use
+                                     when creating a MySQL account for use with the BigWorld server.
+                                     Specific examples follow.
+                        </p><pre class="programlisting">$ mysql -u root <a class="co" name="co_mysql_grant_0" href="ch02.html#co_mysql_grant_0_desc"><img src="../images/callouts/1.png" alt="1" border="0"></a>
+GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, DROP, INDEX ON <em class="replaceable"><code><em class="emphasis">game_db_name</em></code></em>.* TO '<em class="replaceable"><code><em class="emphasis">username</em></code></em>'@'localhost' IDENTIFIED BY '<em class="replaceable"><code><em class="emphasis">password</em></code></em>'; <a class="co" name="co_mysql_grant_1" href="ch02.html#co_mysql_grant_1_desc"><img src="../images/callouts/2.png" alt="2" border="0"></a>
+
+GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, DROP, INDEX ON <em class="replaceable"><code><em class="emphasis">game_db_name</em></code></em>.* TO '<em class="replaceable"><code><em class="emphasis">username</em></code></em>'@'%' IDENTIFIED BY '<em class="replaceable"><code><em class="emphasis">password</em></code></em>'; <a class="co" name="co_mysql_grant_2" href="ch02.html#co_mysql_grant_2_desc"><img src="../images/callouts/3.png" alt="3" border="0"></a>
+
+GRANT RELOAD ON *.* TO '<em class="replaceable"><code><em class="emphasis">username</em></code></em>'@'localhost' IDENTIFIED BY '<em class="replaceable"><code><em class="emphasis">password</em></code></em>'; <a class="co" name="co_mysql_grant_3" href="ch02.html#co_mysql_grant_3_desc"><img src="../images/callouts/4.png" alt="4" border="0"></a>
+
+GRANT RELOAD ON *.* TO '<em class="replaceable"><code><em class="emphasis">username</em></code></em>'@'%' IDENTIFIED BY '<em class="replaceable"><code><em class="emphasis">password</em></code></em>'; <a class="co" name="co_mysql_grant_4" href="ch02.html#co_mysql_grant_4_desc"><img src="../images/callouts/5.png" alt="5" border="0"></a></pre><div class="calloutlist">
+                           <table border="0" summary="Callout list">
+                              <tr>
+                                 <td width="5%" valign="top" align="left">
+                                    <p><a name="co_mysql_grant_0_desc"></a><a href="#co_mysql_grant_0"><img src="../images/callouts/1.png" alt="1" border="0"></a> 
+                                    </p>
+                                 </td>
+                                 <td valign="top" align="left">
+                                    <p>Connect to the MySQL server using the MySQL
+                                                     <span class="literal">root</span> account. By default no password is
+                                                     required to use this account.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td width="5%" valign="top" align="left">
+                                    <p><a name="co_mysql_grant_1_desc"></a><a href="#co_mysql_grant_1"><img src="../images/callouts/2.png" alt="2" border="0"></a> 
+                                    </p>
+                                 </td>
+                                 <td valign="top" align="left">
+                                    <p>Grant access for the database table operations SELECT,
+                                                     INSERT, UPDATE, DELETE, ALTER, CREATE and INDEX to the database
+                                                     named <em class="emphasis">game_db_name</em> for the user
+                                                     <em class="emphasis">username</em> using the password
+                                                     <em class="emphasis">password</em> when connecting to the MySQL
+                                                     server from the localmachine (ie:
+                                                     <em class="emphasis">localhost</em>).
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td width="5%" valign="top" align="left">
+                                    <p><a name="co_mysql_grant_2_desc"></a><a href="#co_mysql_grant_2"><img src="../images/callouts/3.png" alt="3" border="0"></a> 
+                                    </p>
+                                 </td>
+                                 <td valign="top" align="left">
+                                    <p>This is the same as the previous GRANT command, however
+                                                     this rule is to give access for the user when connecting to the
+                                                     MySQL server from a remote machine (ie: not connecting from
+                                                     <em class="emphasis">localhost</em>). It is possible to restrict the
+                                                     machines from which the user can connect by specifying a more
+                                                     restrictive pattern after the <span class="literal">@</span>
+                                                     symbol.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td width="5%" valign="top" align="left">
+                                    <p><a name="co_mysql_grant_3_desc"></a><a href="#co_mysql_grant_3"><img src="../images/callouts/4.png" alt="4" border="0"></a> 
+                                    </p>
+                                 </td>
+                                 <td valign="top" align="left">
+                                    <p>Grant access for the RELOAD capability on all databases
+                                                     from the local machine.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td width="5%" valign="top" align="left">
+                                    <p><a name="co_mysql_grant_4_desc"></a><a href="#co_mysql_grant_4"><img src="../images/callouts/5.png" alt="5" border="0"></a> 
+                                    </p>
+                                 </td>
+                                 <td valign="top" align="left">
+                                    <p>This is the same as the previous GRANT, however as before
+                                                     this rule grants the privilege when connecting from a remote
+                                                     machine.
+                                    </p>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                        <div class="section" title="2.2.3.2.2.1.&nbsp;Use Case">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h6 class="title"><a name="d0e466"></a>2.2.3.2.2.1.&nbsp;Use Case
+                                    </h6>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>In our use case office there are two server developers,
+                                          Alice and Bob. Alice is involved in the development on a new game
+                                          project, Parrot Attack and an existing game project Chickens Fight
+                                          Back. Bob on the other hand is only involved in the development of
+                                          the new Parrot Attack game.
+                           </p>
+                           <p>Alice will need two databases created for her, one for each
+                                          project she is working on, and Bob will only need a single
+                                          database for his own development purposes. The following table
+                                          outlines the information that will be used by the database
+                                          administrator in order to create the required MySQL database
+                                          accounts.
+                           </p>
+                           <div class="altrow">
+                              <table border="1" width="75%">
+                                 <colgroup>
+                                    <col width="33%">
+                                    <col width="33%">
+                                    <col width="34%">
+                                 </colgroup>
+                                 <thead>
+                                    <tr>
+                                       <th>Database Name</th>
+                                       <th>Username</th>
+                                       <th>Password</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>alice_parrot_attack</td>
+                                       <td>alice</td>
+                                       <td>1234567</td>
+                                    </tr>
+                                    <tr>
+                                       <td>alice_chickens_fight_back</td>
+                                       <td>alice</td>
+                                       <td>1234567</td>
+                                    </tr>
+                                    <tr>
+                                       <td>bob_parrot_attack</td>
+                                       <td>bob</td>
+                                       <td>bobs secret password1</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <p>You can see from this table that both Alice and Bob have
+                                          been assigned their own database for each game project they are
+                                          working on. This is to ensure that the when Alice starts her own
+                                          BigWorld server, she doesn't impact any work that Bob may be
+                                          currently involved in.
+                           </p>
+                           <p>Using Bob's example above we would create an account for Bob
+                                          giving him privileges on his own Parrot Attack database as
+                                          follows:
+                           </p><pre class="programlisting">$ mysql -u root
+<em class="emphasis">mysql&gt;</em> GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, DROP, INDEX ON <em class="emphasis">bob_parrot_attack</em>.* TO '<em class="emphasis">bob</em>'@'localhost' IDENTIFIED BY '<em class="emphasis">bobs secret password1</em>'; 
+  <em class="emphasis">Query OK, 0 rows affected (0.08 sec)</em>
+  
+<em class="emphasis">mysql&gt;</em> GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, DROP, INDEX ON <em class="emphasis">bob_parrot_attack</em>.* TO '<em class="emphasis">bob</em>'@'%' IDENTIFIED BY '<em class="emphasis">bobs secret password1</em>'; 
+  <em class="emphasis">Query OK, 0 rows affected (0.00 sec)</em>
+  
+<em class="emphasis">mysql&gt;</em> GRANT RELOAD ON *.* TO '<em class="emphasis">bob</em>'@'localhost' IDENTIFIED BY '<em class="emphasis">bobs secret password1</em>'; 
+  <em class="emphasis">Query OK, 0 rows affected (0.00 sec)</em>
+  
+mysql&gt; GRANT RELOAD ON *.* TO '<em class="emphasis">bob</em>'@'%' IDENTIFIED BY '<em class="emphasis">bobs secret password1</em>';
+  Query OK, 0 rows affected (0.00 sec)</pre></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="2.3.&nbsp;Installing the BigWorld Technology Server package">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e564"></a>2.3.&nbsp;Installing the BigWorld Technology Server package
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>Now your system should be ready to install the RPM packages
+                      contained in the <code class="filename">rpm</code> directory of
+                      your downloaded package. This guide will assume that you have copied the
+                      RPM files into your root user's home directory <code class="filename">/root</code>. If you are uncertain of how to
+                      transfer your files from a Windows machine to your newly installed Linux
+                      machine please refer to <a class="xref" href="apc.html" title="Appendix&nbsp;C.&nbsp;Copying files to Linux">Appendix&nbsp;C, <i>Copying files to Linux</i></a>.
+               </p>
+               <p>These instructions assume that you are operating on a Linux command
+                      line, either via a text based login, or via a Console or Terminal opened
+                      through your Window Manager.
+               </p>
+               <p>We will start by illustrating a basic office installation</p>
+               <div class="informalfigure">
+                  <div class="mediaobject" align="center"><img src="images/small_office_installation.png" align="middle"></div>
+               </div>
+               <div class="section" title="2.3.1.&nbsp;BWMachineD">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e585"></a>2.3.1.&nbsp;BWMachineD
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The BigWorld Machine Daemon is required on all machines in a
+                           server cluster that will run BigWorld processes. As such this is the
+                           first program we will install.
+                  </p><pre class="programlisting"># cd /root <a class="co" name="co_inst_bwmd_0" href="ch02.html#co_inst_bwmd_0_desc"><img src="../images/callouts/1.png" alt="1" border="0"></a>
+# yum install --nogpgcheck <em class="replaceable"><code>bigworld-bwmachined-2.1.0.x86_64.rpm</code></em> <a class="co" name="co_inst_bwmd_1" href="ch02.html#co_inst_bwmd_1_desc"><img src="../images/callouts/2.png" alt="2" border="0"></a></pre><div class="calloutlist">
+                     <table border="0" summary="Callout list">
+                        <tr>
+                           <td width="5%" valign="top" align="left">
+                              <p><a name="co_inst_bwmd_0_desc"></a><a href="#co_inst_bwmd_0"><img src="../images/callouts/1.png" alt="1" border="0"></a> 
+                              </p>
+                           </td>
+                           <td valign="top" align="left">
+                              <p>We first change to the directory to which the RPM files were
+                                           copied. In this section we assume this is the <code class="filename">/root</code> directory (adjust this as
+                                           nescessary).
+                              </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td width="5%" valign="top" align="left">
+                              <p><a name="co_inst_bwmd_1_desc"></a><a href="#co_inst_bwmd_1"><img src="../images/callouts/2.png" alt="2" border="0"></a> 
+                              </p>
+                           </td>
+                           <td valign="top" align="left">
+                              <p>Install the bwmachined package, making sure to replace the
+                                           package name with the correct filename if the version numbers are
+                                           different.
+                              </p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+               <div class="section" title="2.3.2.&nbsp;BigWorld Server">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e608"></a>2.3.2.&nbsp;BigWorld Server
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Installing the BigWorld server is trivial. As root, run:</p><pre class="programlisting"># cd /root
+# yum install --nogpgcheck <em class="replaceable"><code>bigworld-server</code></em>-2.1.0.x86_64.rpm</pre><p>Although the BigWorld server should now be successfully installed,
+                           there are still a two steps remaining before a BigWorld server instance
+                           can be run. The first step requires us to install the BigWorld server
+                           tools which provides you with the ability to start, stop, and interact
+                           with a BigWorld server instance. Installing the server tools is discussed
+                           in more detail in the following section <a class="xref" href="ch02.html#xref_Simple_Installation_BigWorld_Server_Tools" title="2.3.3.&nbsp;BigWorld Server Tools">BigWorld Server Tools</a>.
+                  </p>
+                  <p>A user account also needs to be correctly configured so the server
+                           tools are able to locate the appropriate executables and game resources
+                           for when starting a BigWorld server instance. This is discussed in
+                           passing in <a class="xref" href="ch03.html#xref_Create_A_New_Project" title="3.2.&nbsp;Create a new project">Create a new project</a>, and in more
+                           detail in <a class="xref" href="ape.html" title="Appendix&nbsp;E.&nbsp;Understanding the BigWorld Machine Daemon (BWMachineD)">Appendix&nbsp;E, <i>Understanding the BigWorld Machine Daemon (BWMachineD)</i></a>.
+                  </p>
+               </div>
+               <div class="section" title="2.3.3.&nbsp;BigWorld Server Tools">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Simple_Installation_BigWorld_Server_Tools"></a>2.3.3.&nbsp;BigWorld Server Tools
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>You should now be able to succesfully install the BigWorld server
+                           tools. Perform the following commands as root:
+                  </p><pre class="programlisting"># cd /root
+# yum install --nogpgcheck <em class="replaceable"><code>bigworld-tools-2.1.0.x86_64.rpm</code></em></pre><p>With the server tools installed there are two more tasks left to
+                           do. Firstly we need to configure StatLogger to use our local MySQL
+                           server, and secondly we will test that the WebConsole has been started
+                           correctly.
+                  </p>
+                  <div class="section" title="2.3.3.1.&nbsp;Configuring StatLogger">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="xref_Configuring_StatLogger"></a>2.3.3.1.&nbsp;Configuring StatLogger
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>StatLogger currently only works with a MySQL database and as
+                                such requires a MySQL account to be configured in order to operate.
+                                When installing StatLogger from an RPM the preferences file that
+                                StatLogger uses will automatically be placed on your filesystem as
+                                <code class="filename">/etc/bigworld/stat_logger.xml</code>. To set your
+                                account details you will need to edit this file as the root user and
+                                change the <span class="literal">&lt;dbUser&gt;</span> and
+                                <span class="literal">&lt;dbPass&gt;</span> elements.
+                     </p>
+                     <p>To illustrate how these values would be modified we will use the
+                                MySQL account details that were created in <a class="xref" href="ch02.html#xref_MySQL_Server_Tools_Account" title="2.2.3.2.1.&nbsp;BigWorld Server Tools">BigWorld Server Tools</a>. Using this information we
+                                would change the <code class="filename">stat_logger.xml</code> file entries as
+                                follows:
+                     </p><pre class="programlisting">&lt;?xml version="1.0"?&gt;
+&lt;preferences&gt;
+        &lt;!--General options--&gt;
+        &lt;options&gt;
+                &lt;dbHost&gt;localhost&lt;/dbHost&gt;
+                &lt;dbUser&gt;<em class="emphasis">bwtools</em>&lt;/dbUser&gt;
+                &lt;dbPass&gt;<em class="emphasis">bwtools_passwd</em>&lt;/dbPass&gt;
+                &lt;dbPort&gt;3306&lt;/dbPort&gt;</pre><p>After configuring StatLogger with your local database account
+                                information you will need to start StatLogger and restart WebConsole
+                                as follows:
+                     </p><pre class="programlisting"># /etc/init.d/bw_stat_logger start
+Starting bw_stat_logger:                                   [  OK  ]
+# /etc/init.d/bw_web_console restart
+Stopping web_console:                                      [  OK  ]
+Starting bw_web_console:                                   [  OK  ]</pre></div>
+                  <div class="section" title="2.3.3.2.&nbsp;Confirm tools are running">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e672"></a>2.3.3.2.&nbsp;Confirm tools are running
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>With the server tools installed on your tools machine it is
+                                worthwhile ensuring that they have started correctly so that you can be
+                                sure nothing has gone awry in the initial part of your installation. To
+                                do this we simply run the startup scripts with a
+                                <span class="literal">status</span> command to ensure they are working as
+                                expected.
+                     </p>
+                     <p>As root run the following commands:</p><pre class="programlisting"># /etc/init.d/bw_stat_logger status
+Status of stat_logger: running 
+# /etc/init.d/bw_message_logger status
+Status of message_logger: running
+# /etc/init.d/bw_web_console status
+Status of web_console: running</pre></div>
+                  <div class="section" title="2.3.3.3.&nbsp;Connecting to WebConsole">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e684"></a>2.3.3.3.&nbsp;Connecting to WebConsole
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>With the server tools installed you should now be able to see
+                                the WebConsole page by simply connecting a web browser to it. The URL
+                                of WebConsole is the hostname of the machine on which it has been
+                                installed at port 8080. For example:
+                     </p><pre class="programlisting">http://<em class="replaceable"><code>localhost</code></em>:8080</pre><p>When connected you should be presented with a page similar to
+                                the following:
+                     </p>
+                     <div class="informalfigure">
+                        <div class="mediaobject" align="center"><img src="images/web_console_login.png" align="middle"></div>
+                     </div>
+                     <p>Creating a WebConsole account will be discussed in more detail
+                                in <a class="xref" href="ch03.html" title="Chapter&nbsp;3.&nbsp;Server First Run"><i>Server First Run</i></a>.
+                     </p>
+                  </div>
+               </div>
+               <div class="section" title="2.3.4.&nbsp;Customising your installation">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e704"></a>2.3.4.&nbsp;Customising your installation
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>As development environments progress or a game starts to reach the
+                           release stage of its production cycle it may become nescessary to
+                           customise your installation of BigWorld to your own environment. If this
+                           is the case, please refer to <a class="xref" href="apd.html" title="Appendix&nbsp;D.&nbsp;Creating a custom BigWorld server installation">Appendix&nbsp;D, <i>Creating a custom BigWorld server installation</i></a> for more information.
+                  </p>
+               </div>
+            </div>
+            <div class="footnotes"><br><hr width="100" align="left">
+               <div class="footnote">
+                  <p><sup>[<a id="ftn.d0e185" href="#d0e185" class="para">1</a>] </sup>Anywhere CentOS is mentioned, Red Hat Enterprise Linux may
+                                 be substituted.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch01.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch03.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;1.&nbsp;Overview&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;3.&nbsp;Server First Run</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

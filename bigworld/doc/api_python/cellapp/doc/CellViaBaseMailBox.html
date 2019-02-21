@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>CellViaBaseMailBox - BigWorld cell Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>CellViaBaseMailBox Class Reference</h1>
+<p><b>CellViaBaseMailBox</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+CommonBaseEntityMailBox
+ &rarr; <a href="ServerEntityMailBox.html">ServerEntityMailBox</a>
+ &rarr; PyEntityMailBox
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="CellViaBaseMailBox.html">CellViaBaseMailBox</a> inherits from <a href="BaseEntityMailBox.html">BaseEntityMailBox</a>.
+<br><br>
+A <a href="CellViaBaseMailBox.html">CellViaBaseMailBox</a> is used to communicate with a Cell entity channeling
+the communication through the associated Base entity. This may occur
+when a Cell entity, entity A, has another Cell entity's, entity B,
+associated Base mailbox and uses this mailbox to reference the associated
+Cell entity. For example:
+<br><br>
+class EntityA( ... ):
+   ...
+<br><br>
+   def example( self ):
+      ...
+      entityB_BaseMailbox.cell.doSomething()
+<br><br>
+It is important to note that there are some <a href="BigWorld.html">BigWorld</a> methods that will
+not accept a CellViaBaseMailbox in place of a regular cell mailbox.
+For an example of how to work around this issue, please refer to the
+BaseApp Python API documention for the Base.createCellEntity() method.
+<br><br>
+Unlike direct Cell entity mailboxes, these mailboxes may be stored and used
+later.
+
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

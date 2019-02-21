@@ -1,0 +1,68 @@
+<root>
+	<Dock>
+		<visible>	true	</visible>
+		<Panel>
+			<lastX>	300	</lastX>
+			<lastY>	200	</lastY>
+			<lastWidth>	370	</lastWidth>
+			<lastHeight>	942	</lastHeight>
+			<expanded>	true	</expanded>
+			<expandedSize>	100	</expandedSize>
+			<floating>	false	</floating>
+			<Tab>
+				<visible>	true	</visible>
+				<contentID>	PageActions1ID	</contentID>
+				<ContentData>	</ContentData>
+			</Tab>
+		</Panel>
+		<Panel>
+			<lastX>	300	</lastX>
+			<lastY>	200	</lastY>
+			<lastWidth>	1539	</lastWidth>
+			<lastHeight>	214	</lastHeight>
+			<expanded>	true	</expanded>
+			<expandedSize>	100	</expandedSize>
+			<floating>	false	</floating>
+			<Tab>
+				<visible>	true	</visible>
+				<contentID>	UAL	</contentID>
+				<ContentData>
+					<lastLanguage>	en_	</lastLanguage>
+					<shortCaption>	Assets	</shortCaption>
+					<longCaption>	Asset Browser	</longCaption>
+					<initialTreeSize>	164	</initialTreeSize>
+					<layoutVertical>	false	</layoutVertical>
+					<filtersVisible>	false	</filtersVisible>
+					<vfolderOrder>	All;Favourites;History;Particles;Textures;Visuals;MFMs	</vfolderOrder>
+				</ContentData>
+			</Tab>
+		</Panel>
+		<Tree>
+			<Splitter>
+				<layoutVertical>	false	</layoutVertical>
+				<Left>
+					<size>	1539	</size>
+					<Splitter>
+						<layoutVertical>	true	</layoutVertical>
+						<Left>
+							<size>	721	</size>
+							<MainView>	Main Application View Window	</MainView>
+						</Left>
+						<Right>
+							<size>	214	</size>
+							<DockedPanel>
+								<index>	1	</index>
+							</DockedPanel>
+						</Right>
+					</Splitter>
+				</Left>
+				<Right>
+					<size>	370	</size>
+					<DockedPanel>
+						<index>	0	</index>
+					</DockedPanel>
+				</Right>
+			</Splitter>
+		</Tree>
+	</Dock>
+</root>

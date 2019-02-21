@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>PyTextureProvider - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyTextureProvider Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyTextureProvider is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#height" class="attribute_list" >height</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#name" class="attribute_list" >name</a></td><td>&nbsp; Read-Only String
+</td></tr>
+
+<tr valign=top><td><a href="#owner" class="attribute_list" >owner</a></td><td>&nbsp; Read-Only Object
+</td></tr>
+
+<tr valign=top><td><a href="#width" class="attribute_list" >width</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class exposes a texture.  There are several instances where a
+texture is required, for example by <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  This has
+two attributes, one called textureName, which takes the filepath of a
+texture file, the other called texture, which accepts a <a href="PyTextureProvider.html">PyTextureProvider</a>.
+<br><br>
+A <a href="PyTextureProvider.html">PyTextureProvider</a> can be created using the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PyTextureProvider><a href="PyTextureProvider.html">PyTextureProvider</a></a>
+function, which creates a <a href="PyTextureProvider.html">PyTextureProvider</a> from a texture file.  This can
+be useful if a class requires a <a href="PyTextureProvider.html">PyTextureProvider</a>, rather than a texture
+name.
+<br><br>
+Several classes (for example <a href="PyModelRenderer.html">PyModelRenderer</a> and <a href="PySceneRenderer.html">PySceneRenderer</a>)
+have an attribute which exposes a <a href="PyTextureProvider.html">PyTextureProvider</a>.  This allows them
+to expose a dynamic texture, which gets updated on a tick by tick basis.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="height"></a><p class="attribute_definition">
+<span class="attribute_definition">height</span>
+</p>
+
+<div class="attribute_description">This attribute is the texel height of the texture referenced by the
+<a href="PyTextureProvider.html">PyTextureProvider</a>.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="name"></a><p class="attribute_definition">
+<span class="attribute_definition">name</span>
+</p>
+
+<div class="attribute_description">This attribute is the resource ID of the texture referenced by the
+<a href="PyTextureProvider.html">PyTextureProvider</a>.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only String
+</td></tr>
+</table>
+</p>
+
+<a name="owner"></a><p class="attribute_definition">
+<span class="attribute_definition">owner</span>
+</p>
+
+<div class="attribute_description">This attribute is the owner of the <a href="PyTextureProvider.html">PyTextureProvider</a>.  In the case
+of a <a href="PyTextureProvider.html">PyTextureProvider</a> created directly using the
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PyTextureProvider><a href="PyTextureProvider.html">PyTextureProvider</a></a> function, this is None. In the case of
+an object which exposes a <a href="PyTextureProvider.html">PyTextureProvider</a>, such as a <a href="PyModelRenderer.html">PyModelRenderer</a>,
+the owner is the object which does the exposing.
+<br><br>
+For example:
+
+<pre>>>>	mod = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Model>Model</a>( "models/man.model" )
+>>>	modRend = <a href="BigWorld.html">BigWorld</a>.<a href="PyModelRenderer.html">PyModelRenderer</a>(100, 100)
+>>>	modRend.models = [ mod ]
+>>>	tex = modRend.texture
+>>>	tex.owner
+PyModelRender at 0x00ff4565
+</pre>
+This example gets the <a href="PyTextureProvider.html">PyTextureProvider</a> out of a <a href="PyModelRenderer.html">PyModelRenderer</a>
+and checks its owner, which is the <a href="PyModelRenderer.html">PyModelRenderer</a>.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Object
+</td></tr>
+</table>
+</p>
+
+<a name="width"></a><p class="attribute_definition">
+<span class="attribute_definition">width</span>
+</p>
+
+<div class="attribute_description">This attribute is the texel width of the texture referenced by the
+<a href="PyTextureProvider.html">PyTextureProvider</a>.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

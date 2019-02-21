@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>PyAmpParticleRenderer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyAmpParticleRenderer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyAmpParticleRenderer is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemRenderer.html">PyParticleSystemRenderer</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#circular" class="attribute_list" >circular</a></td><td>&nbsp; Integer as boolean. 0 or 1. Default is false (0).
+</td></tr>
+
+<tr valign=top><td><a href="#height" class="attribute_list" >height</a></td><td>&nbsp; Float. Default is 1.0.
+</td></tr>
+
+<tr valign=top><td><a href="#steps" class="attribute_list" >steps</a></td><td>&nbsp; Float. Default is 1.0.
+</td></tr>
+
+<tr valign=top><td><a href="#textureName" class="attribute_list" >textureName</a></td><td>&nbsp; String. Default is "".
+</td></tr>
+
+<tr valign=top><td><a href="#useFog" class="attribute_list" >useFog</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#variation" class="attribute_list" >variation</a></td><td>&nbsp; Float. Default is 1.0.
+</td></tr>
+
+<tr valign=top><td><a href="#width" class="attribute_list" >width</a></td><td>&nbsp; Float. Default is 0.25.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+AmpPartileRenderer is a ParticleRenderer that renders segmented lines
+from the particle position back to the origin of the particle system. It
+can be used for effects such as electricty.
+<br><br>
+Eg. (bad ascii art warning) 3 line segments from start point (s) to end
+point (e)
+
+<pre>  /\
+ /  \
+s    \  e
+      \/
+</pre>
+<br><br>
+The origin referred to below is either the source position of the
+particle system (in the case of a non-circular AmpParticleRenderer)
+or the position of the previous particle (ordered by the age of the
+particle - in the case of a circular AmpParticleRenderer).
+<br><br>
+A new <a href="PyAmpParticleRenderer.html">PyAmpParticleRenderer</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#AmpParticleRenderer>AmpParticleRenderer</a>
+function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="circular"></a><p class="attribute_definition">
+<span class="attribute_definition">circular</span>
+</p>
+
+<div class="attribute_description">Circular determines whether the origin is the source position of the
+particle system, or the position of the previous particles (ordered by
+age).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1. Default is false (0).
+</td></tr>
+</table>
+</p>
+
+<a name="height"></a><p class="attribute_definition">
+<span class="attribute_definition">height</span>
+</p>
+
+<div class="attribute_description">Height is applied as a division to the length of the line, to determine
+texture repeat along the u coordinate in uv texture coordinate space.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 1.0.
+</td></tr>
+</table>
+</p>
+
+<a name="steps"></a><p class="attribute_definition">
+<span class="attribute_definition">steps</span>
+</p>
+
+<div class="attribute_description">Steps is the number of lines drawn between the start of the line
+(origin) and the end of the line (particle position).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 1.0.
+</td></tr>
+</table>
+</p>
+
+<a name="textureName"></a><p class="attribute_definition">
+<span class="attribute_definition">textureName</span>
+</p>
+
+<div class="attribute_description">Name of the texture used to render the lines.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String. Default is "".
+</td></tr>
+</table>
+</p>
+
+<a name="useFog"></a><p class="attribute_definition">
+<span class="attribute_definition">useFog</span>
+</p>
+
+<div class="attribute_description">Specifies whether the renderer should enable scene fogging or not.  You
+may want to turn off scene fogging if you are using particle systems in
+the sky box, or if you want to otherwise explicitly control the amount
+of fogging via the tint shader fog blend control.
+</div>
+
+<a name="variation"></a><p class="attribute_definition">
+<span class="attribute_definition">variation</span>
+</p>
+
+<div class="attribute_description">Variation is a scaling factor for random variation of the segment
+positions when the number of steps is > 1. The default random factor
+is 0 to 1 scaled by this value and function ofthe line length.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 1.0.
+</td></tr>
+</table>
+</p>
+
+<a name="width"></a><p class="attribute_definition">
+<span class="attribute_definition">width</span>
+</p>
+
+<div class="attribute_description">Width is the thickness of the lines drawn.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0.25.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

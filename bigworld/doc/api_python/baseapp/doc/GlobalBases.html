@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>GlobalBases - BigWorld base Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>GlobalBases Class Reference</h1>
+<p><b>GlobalBases</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#get" class="function_list" >get</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#has_key" class="function_list" >has_key</a>( self, key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#items" class="function_list" >items</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#keys" class="function_list" >keys</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#values" class="function_list" >values</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+An instance of this class emulates a dictionary of bases or base mailboxes.
+<br><br>
+Code Example:
+
+<pre>globalBases = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalBases>globalBases</a>
+print "The main mission entity is", globalBases[ "MainMission" ]
+print "There are", len( globalBases ), "global bases."
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="get"></a><p class="function_definition">
+<span class="function_definition">def get( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A base (or base mailbox) or the default value if not found.
+</td></tr>
+</table>
+</p>
+
+<a name="has_key"></a><p class="function_definition">
+<span class="function_definition">def has_key( <i>self, key</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;key is the string key to be searched for.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A boolean. True if the key was found, false if it was not.
+</td></tr>
+</table>
+</p>
+
+<a name="items"></a><p class="function_definition">
+<span class="function_definition">def items( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A list containing all of the (ID, entity) pairs, represented as
+tuples containing an string label and an base (or base mailbox).
+</td></tr>
+</table>
+</p>
+
+<a name="keys"></a><p class="function_definition">
+<span class="function_definition">def keys( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A list containing all of the keys.
+</td></tr>
+</table>
+</p>
+
+<a name="values"></a><p class="function_definition">
+<span class="function_definition">def values( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A list containing all of the bases (or base mailboxes).
+</td></tr>
+</table>
+</p>
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

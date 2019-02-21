@@ -1,0 +1,1069 @@
+<html>
+<head>
+<title>PyModel - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyModel Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyModel is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyAttachment.html">PyAttachment</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#action" class="function_list" >action</a>( self, actionName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addMotor" class="function_list" >addMotor</a>( self, motor ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#alignTriangle" class="function_list" >alignTriangle</a>( self, vertex0, vertex1, vertex2, randomYaw ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#cue" class="function_list" >cue</a>( self, identifier, function ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delMotor" class="function_list" >delMotor</a>( self, motor ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getSound" class="function_list" >getSound</a>( self, s ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#node" class="function_list" >node</a>( self, nodeName, local ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#origin" class="function_list" >origin</a>( self, nodeName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#playSound" class="function_list" >playSound</a>( self, s ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#reflectOffTriangle" class="function_list" >reflectOffTriangle</a>( self, vertex0, vertex1, vertex2, fwd ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#restoreActionQueue" class="function_list" >restoreActionQueue</a>( self, state ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#rotate" class="function_list" >rotate</a>( self, angle, vAxis, vCentre ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#saveActionQueue" class="function_list" >saveActionQueue</a>( self, state ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#straighten" class="function_list" >straighten</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#zoomExtents" class="function_list" >zoomExtents</a>( self, upperFrontFlushness, xzMultiplier ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#actionScale" class="attribute_list" >actionScale</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#bounds" class="attribute_list" >bounds</a></td><td>&nbsp; Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#height" class="attribute_list" >height</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#inWorld" class="attribute_list" >inWorld</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#motors" class="attribute_list" >motors</a></td><td>&nbsp; List of Motors
+</td></tr>
+
+<tr valign=top><td><a href="#moveAttachments" class="attribute_list" >moveAttachments</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#moveScale" class="attribute_list" >moveScale</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#outsideOnly" class="attribute_list" >outsideOnly</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#position" class="attribute_list" >position</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#queue" class="attribute_list" >queue</a></td><td>&nbsp; Read-Only List of Strings
+</td></tr>
+
+<tr valign=top><td><a href="#root" class="attribute_list" >root</a></td><td>&nbsp; Read-Only <a href="PyModelNode.html">PyModelNode</a>
+</td></tr>
+
+<tr valign=top><td><a href="#scale" class="attribute_list" >scale</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#shimmer" class="attribute_list" >shimmer</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#sources" class="attribute_list" >sources</a></td><td>&nbsp; Read-Only List of Strings
+</td></tr>
+
+<tr valign=top><td><a href="#stipple" class="attribute_list" >stipple</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#stopSoundsOnDestroy" class="attribute_list" >stopSoundsOnDestroy</a></td><td>&nbsp; bool
+</td></tr>
+
+<tr valign=top><td><a href="#tossCallback" class="attribute_list" >tossCallback</a></td><td>&nbsp; Function object
+</td></tr>
+
+<tr valign=top><td><a href="#unitRotation" class="attribute_list" >unitRotation</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#visible" class="attribute_list" >visible</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#visibleAttachments" class="attribute_list" >visibleAttachments</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#yaw" class="attribute_list" >yaw</a></td><td>&nbsp; Float;
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+PyModels are renderable objects which can be moved around the world,
+animated, dyed (have materials programatically assigned) and attached to.
+<br><br>
+PyModels are constructed using the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Model>Model</a> function, which takes the
+resource id of one or more .model files. Each of these individual models is
+loaded, and combined into a supermodel, which is the <a href="PyModel.html">PyModel</a>.
+<br><br>
+For example, to load a body and a head model into one supermodel:
+<br><br>
+
+<pre>model = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Model>Model</a>( "models/body.model", "models/head.model" )
+</pre>
+<br><br>
+Models which are attached to entities can have Motors.  These are objects
+which control how the model moves in response to its parent entity moving.
+The default <a href="Motor.html">Motor</a> for a <a href="PyModel.html">PyModel</a> is an <a href="ActionMatcher.html">ActionMatcher</a> which also takes care
+of synchronising animations with the movement of the model (for example,
+playing Idle when it stands still, and Walk when it moves at walking
+speed).
+<br><br>
+In order to animate a <a href="PyModel.html">PyModel</a>, you play actions on it.  You do this by
+calling an <a href="ActionQueuer.html">ActionQueuer</a> object.  These are available as named attributes from the
+<a href="PyModel.html">PyModel</a>, as well as by using the action function to look up the name.
+<br><br>
+For example:
+
+<pre>ac1 = model.Walk
+ac2 = model.action("Walk")
+</pre>
+both obtain the same <a href="ActionQueuer.html">ActionQueuer</a> object.  The action can be played by
+calling the object, as follows:
+
+<pre>model.Walk()
+</pre>
+<br><br>
+Actions are defined in the .model file.
+<br><br>
+A <a href="PyModel.html">PyModel</a> can also have one or more instances of <a href="PyDye.html">PyDye</a>.  These are
+available as named attributes, in exactly the same way that actions are.
+The <a href="PyDye.html">PyDye</a> can be assigned a string which names a particular tint, which
+will change the material which is applied to a particular piece of geometry
+on the model.
+<br><br>
+For example:
+
+<pre># Apply the Red tint (which is defined in the .model file) to the Chest
+# <a href="PyDye.html">PyDye</a>.
+model.Chest = "Red"
+</pre>
+<br><br>
+In addition, a <a href="PyModel.html">PyModel</a> can have hardpoints.  A hardpoint is a node
+that has a prefix of "HP_" on its name.  This is defined in the .model file.
+A <a href="PyAttachment.html">PyAttachment</a> can be attached to a hardpoint by assigning it to an attribute
+with that hardpoints name.
+<br><br>
+For example, if there were a node named HP_RightHand:
+
+<pre># attach the sword model to the biped's right hand
+biped.RightHand = sword
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="action"></a><p class="function_definition">
+<span class="function_definition">def action( <i>self, actionName</i> ):</span>
+</p>
+
+<div class="function_description">This method looks up an action by name from an internal list of actions and
+returns an <a href="ActionQueuer.html">ActionQueuer</a> object if it finds it.  Otherwise a Python type error is thrown.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>actionName</i></span></td><td><span class="function_parameter_description">&nbsp;A string which is the name of the action to search
+						for.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The <a href="ActionQueuer.html">ActionQueuer</a> object named actionName.
+</td></tr>
+</table>
+</p>
+
+<a name="addMotor"></a><p class="function_definition">
+<span class="function_definition">def addMotor( <i>self, motor</i> ):</span>
+</p>
+
+<div class="function_description">This method adds the specified object to the model's list of Motors.
+All motors in this list are able to influence the movement and animation of
+the model based on the state of the entity which owns it.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>motor</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Motor.html">Motor</a> which is to be added to the model
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="alignTriangle"></a><p class="function_definition">
+<span class="function_definition">def alignTriangle( <i>self, vertex0, vertex1, vertex2, randomYaw</i> ):</span>
+</p>
+
+<div class="function_description">This method aligns a model to the given triangle (specified as three points
+in world space, taken in a clockwise direction).  The resultant world
+matrix will be in the middle of the triangle, with its z-axis along the
+triangles normal.  If randomYaw is true, The model's y-axis will be random;
+otherwise it will be along the world's positive y-axis if the y component
+of the triangle's normal (in world space) is less than 0.95; otherwise
+along the world's positive x-axis.
+<br><br>
+For example:
+
+<pre>m.alignTriangle( (1, 0, 0), (-1, 0, 0), (0,0,1), 0)
+</pre>
+results in the model lying on its back, with its head pointing along the
+world's positive x-axis.
+Wheras
+
+<pre>m.alignTriangle( (1, 0, 0), (-1, 0, 0), (0,1,0), 0)
+</pre>
+results in the model standing upright, facing in the world's negative
+z-axis.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>vertex0</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> specifying the first point of the triangle to
+					align to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>vertex1</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> specifying the second point of the triangle to
+					align to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>vertex2</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> specifying the third point of the triangle to
+					align to
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>randomYaw</i></span></td><td><span class="function_parameter_description">&nbsp;A boolean specifying whether or not to apply a random
+					yaw to the model.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="cue"></a><p class="function_definition">
+<span class="function_definition">def cue( <i>self, identifier, function</i> ):</span>
+</p>
+
+<div class="function_description">This method is not yet supported.
+<br><br>
+This method sets the default response for the given cue identifier.
+<br><br>
+A cue is a named frame inside an animation, that is exported with
+the model.  If this function is used to set up a callback function
+then anytime that named frame gets played, the function will be
+called.
+<br><br>
+For example, assuming that there was a cue named Impact in the swordSwing
+animation, which is played using the SwordSwing <a href="ActionQueuer.html">ActionQueuer</a>, then the
+following example will print "Sword hit target" at that point in the
+animation.
+<br><br>
+
+<pre>def onImpact( t ):  print "Sword hit target at time", t
+biped.cue( "Impact", onImpact )
+biped.SwordSwing()
+</pre>
+<br><br>
+It raises a TypeError if the given function parameter is not callable. It
+raises a ValueError if the identifier is unknown.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>identifier</i></span></td><td><span class="function_parameter_description">&nbsp;A String.  The cue identifier we are setting a
+					response for.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>function</i></span></td><td><span class="function_parameter_description">&nbsp;A callable object.  The callback for that cue
+					identifier.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delMotor"></a><p class="function_definition">
+<span class="function_definition">def delMotor( <i>self, motor</i> ):</span>
+</p>
+
+<div class="function_description">This method removes the specified object to the models list of Motors.
+All motors in this list are able to influence the movement and animation of
+the model based on the state of the entity which owns it.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>motor</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Motor.html">Motor</a> which is to be removed from the model
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="getSound"></a><p class="function_definition">
+<span class="function_definition">def getSound( <i>self, s</i> ):</span>
+</p>
+
+<div class="function_description">Returns a PySound for a 3D sound event at the location of the model.  The
+sound can subsequently be played by calling its play() method.
+<br><br>
+For sound naming semantics, please see <a href="FMOD.html">FMOD</a>.<a href=FMOD.html#playSound>playSound</a>().
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>s</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the sound
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The PySound for this sound event
+</td></tr>
+</table>
+</p>
+
+<a name="node"></a><p class="function_definition">
+<span class="function_definition">def node( <i>self, nodeName, local</i> ):</span>
+</p>
+
+<div class="function_description">Returns the named node.  If the name is empty string, the root node is
+returned.  If the named node doesn't exist then an exception is generated.
+Using this method is not valid for blank models and will raise an exception.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>nodeName</i></span></td><td><span class="function_parameter_description">&nbsp;A string specifying the name of the node to look up.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>local</i></span></td><td><span class="function_parameter_description">&nbsp;(optional) A local transform for the node.  This is a
+					matrix provider that premultiplies itself with the
+					node's world transform, effectively creating a new
+					node to attach things to.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The node with the specified name. ValueError is raised
+					if the node does not exist.
+</td></tr>
+</table>
+</p>
+
+<a name="origin"></a><p class="function_definition">
+<span class="function_definition">def origin( <i>self, nodeName</i> ):</span>
+</p>
+
+<div class="function_description">Make the named node the origin of the model's coordinate system, if a node
+with that name exists.  If it does, return 1, otherwise 0.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>nodeName</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the node to make the origin
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="playSound"></a><p class="function_definition">
+<span class="function_definition">def playSound( <i>self, s</i> ):</span>
+</p>
+
+<div class="function_description">Plays a 3D sound at the location of the model.
+<br><br>
+For sound naming semantics, please see <a href="FMOD.html">FMOD</a>.<a href=FMOD.html#playSound>playSound</a>().
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>s</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the sound
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The PySound for this sound event
+</td></tr>
+</table>
+</p>
+
+<a name="reflectOffTriangle"></a><p class="function_definition">
+<span class="function_definition">def reflectOffTriangle( <i>self, vertex0, vertex1, vertex2, fwd</i> ):</span>
+</p>
+
+<div class="function_description">This method reflects the <a href="Vector3.html">Vector3</a> specified by the fwd argument off the
+specified triangle, and places the model in the centre of the triangle
+facing in the direction of the reflected vector.  The model's vertical will
+be will be along the world's positive y-axis if the new unit forward vector
+has a world space y component less than 0.95, otherwise along the world's
+positive z-axis.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>vertex0</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> specifying the first point, in world space,
+					of the triangle to align to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>vertex1</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> specifying the second point, in world space,
+					of the triangle to align to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>vertex2</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> specifying the third point, in world space,
+					of the triangle to align to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>fwd</i></span></td><td><span class="function_parameter_description">&nbsp;The vector, in world space, to reflect off the
+					triangle, giving the new forward direction for the
+					model.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Vector3.html">Vector3</a>, which is the new forward direction for the
+					model in world space.
+</td></tr>
+</table>
+</p>
+
+<a name="restoreActionQueue"></a><p class="function_definition">
+<span class="function_definition">def restoreActionQueue( <i>self, state</i> ):</span>
+</p>
+
+<div class="function_description">This function is used to restore the state of the pyModel's action queue.
+This useful when doing a change to the pyModel's supermodel which would involve
+reloading the supermodel and its animation and action states.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>state</i></span></td><td><span class="function_parameter_description">&nbsp;DataSectionPtr to restore the state from.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Returns True (1) whether the restore operation was able to completely restore the previous
+		state of the action queue, False (0) otherwise. The restore operation may fail if an action that was in
+		the actionQueue is no longer part of the refreshed supermodel.
+</td></tr>
+</table>
+</p>
+
+<a name="rotate"></a><p class="function_definition">
+<span class="function_definition">def rotate( <i>self, angle, vAxis, vCentre</i> ):</span>
+</p>
+
+<div class="function_description">This method rotates a model about an arbitrary axis (and optionally an
+arbitrary centre).  A centre may be specified, otherwise it defaults to
+(0,0,0).  The centre is relative to the origin of the model.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>angle</i></span></td><td><span class="function_parameter_description">&nbsp;The angle to rotate the model through.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>vAxis</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> axis about which to rotate the model.  This
+					axis will pass through vCentre.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>vCentre</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="Vector3.html">Vector3</a> through which vAxis passes, when the rotation
+					about it is applied.  It defaults to (0,0,0).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="saveActionQueue"></a><p class="function_definition">
+<span class="function_definition">def saveActionQueue( <i>self, state</i> ):</span>
+</p>
+
+<div class="function_description">This function is used to save the state of the pyModel's action queue.
+This useful when doing a change to the pyModel's supermodel which would involve
+reloading the supermodel and its animation and action states.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>state</i></span></td><td><span class="function_parameter_description">&nbsp;DataSectionPtr to save the state to.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="straighten"></a><p class="function_definition">
+<span class="function_definition">def straighten( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method straightens a model, i.e. removes all rotations (including yaw)
+from it.  It also removes any scaling effects, leaving nothing but the
+translation part of the world matrix.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="zoomExtents"></a><p class="function_definition">
+<span class="function_definition">def zoomExtents( <i>self, upperFrontFlushness, xzMultiplier</i> ):</span>
+</p>
+
+<div class="function_description">This method places the model at the origin, scaled to fit within a 1 metre
+cube; that is, its longest dimension will be exactly 1 metre.  Its
+placement within the cube depends on upperFrontFlushness. If
+upperFrontFlushness is non-zero it moves the model to be flush with the top
+front of the cube, rather than the bottom.
+<br><br>
+You have the option of placing a model in a box is wider than it is tall.
+To do this, set the xzMultiplier to the (width / height) of the box.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>upperFrontFlushness</i></span></td><td><span class="function_parameter_description">&nbsp;Whether to align with the top-front or the
+		bottom-rear.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>xzMultiplier</i></span></td><td><span class="function_parameter_description">&nbsp;( default 1.0 ) for placing a model in a non-cubic box.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="actionScale"></a><p class="attribute_definition">
+<span class="attribute_definition">actionScale</span>
+</p>
+
+<div class="attribute_description">This attribute sets the model's action's animation speed scale.
+The higher the actionScale the faster the model's actions are played.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="bounds"></a><p class="attribute_definition">
+<span class="attribute_definition">bounds</span>
+</p>
+
+<div class="attribute_description">This read-only attribute gives the bounding box for the model.  It
+returns a <a href="MatrixProvider.html">MatrixProvider</a>.  The matrix specifies what transformation
+would need to be applied to a 1x1x1 cube placed at the
+world-space origin to scale, rotate and translate it to bound the
+model.  The bounds themselves are read in from the &lt;boundingBox>
+property of the .visual file that was used to create the model,
+and don't update to reflect the current pose of the model.
+<br><br>
+This <a href="MatrixProvider.html">MatrixProvider</a> can be used with the <a href="BoundingBoxGUIComponent.html">BoundingBoxGUIComponent</a> to
+find the smallest bounding rectangle of the model, in relation to the
+current viewport on the world.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="height"></a><p class="attribute_definition">
+<span class="attribute_definition">height</span>
+</p>
+
+<div class="attribute_description">This is the height of the bounding box used for collision detection.
+Changing this variable sets the top of the bounding box to height above
+the existing bottom of the bounding box.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="inWorld"></a><p class="attribute_definition">
+<span class="attribute_definition">inWorld</span>
+</p>
+
+<div class="attribute_description">This attribute is used to determine whether the model has been added to
+the world.  It is read only, and is set to 1 if the Model is in the
+world, 0 otherwise.  In order to add a model to the world, you can
+attach it to another model, or set the model attribute of an entity to
+this <a href="PyModel.html">PyModel</a>.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="motors"></a><p class="attribute_definition">
+<span class="attribute_definition">motors</span>
+</p>
+
+<div class="attribute_description">This attribute is the list of motors which affect the position and
+rotation of the model, based on the position and rotation of the owning
+entity.  It is generally manipulated using the addMotor and delMotor
+functions on the model.  On creation, an entity's model has an
+<a href="ActionMatcher.html">ActionMatcher</a> as its only motor.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>List of Motors
+</td></tr>
+</table>
+</p>
+
+<a name="moveAttachments"></a><p class="attribute_definition">
+<span class="attribute_definition">moveAttachments</span>
+</p>
+
+<div class="attribute_description">This attribute can be set to allow motors to function on attached objects.
+By default this flag is turned off, because calling move on all known nodes
+on all PyModels can take a measurable amount of time, even if there are no
+motors attached.
+Note the action matcher is a motor, turn this flag on to allow the action
+matcher to apply to attached objects.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="moveScale"></a><p class="attribute_definition">
+<span class="attribute_definition">moveScale</span>
+</p>
+
+<div class="attribute_description">This attribute sets the model's actions's movement speed scale.
+The higher the moveScale the faster the model moves.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="outsideOnly"></a><p class="attribute_definition">
+<span class="attribute_definition">outsideOnly</span>
+</p>
+
+<div class="attribute_description">Indicates that this model is only ever positioned in outside chunks.
+This allows the engine to optimise processing on this model.
+There are extra processing steps that need to be done if  this model is
+capable of being inside.  If it is only ever going to be outside, then
+optimise by setting this attribute to 1. By default it is 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="position"></a><p class="attribute_definition">
+<span class="attribute_definition">position</span>
+</p>
+
+<div class="attribute_description">The position of the model within the world, as a 3d vector.  This is in
+theory write as well as read, however if there are motors attached to
+the model, then those motors will often update the models position
+every tick, at which point any data written will be overwritten before
+it gets rendered at the new position.  In a model with no motors
+though, you can set the models position by writing to this attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="queue"></a><p class="attribute_definition">
+<span class="attribute_definition">queue</span>
+</p>
+
+<div class="attribute_description">This read only attribute is a list of the names of the actions which
+have been queued up to play.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only List of Strings
+</td></tr>
+</table>
+</p>
+
+<a name="root"></a><p class="attribute_definition">
+<span class="attribute_definition">root</span>
+</p>
+
+<div class="attribute_description">This read-only attribute is the root node of the model.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="PyModelNode.html">PyModelNode</a>
+</td></tr>
+</table>
+</p>
+
+<a name="scale"></a><p class="attribute_definition">
+<span class="attribute_definition">scale</span>
+</p>
+
+<div class="attribute_description">Used to scale the model in each of the 3 dimensions.  Takes a vector3,
+each component of which specifies the scale for the model in the
+corresponding dimension.  This only effects the rendering of the model,
+not its bounding box for collision tests
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="shimmer"></a><p class="attribute_definition">
+<span class="attribute_definition">shimmer</span>
+</p>
+
+<div class="attribute_description">This attribute ovverides the model's shaders and draws all opaque
+pixels into the shimmer channel.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="sources"></a><p class="attribute_definition">
+<span class="attribute_definition">sources</span>
+</p>
+
+<div class="attribute_description">This read-only attribute is a list of the resource ids of all the
+models that make up the super model.  In the case of a simple model
+this is a list of just one resource id.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only List of Strings
+</td></tr>
+</table>
+</p>
+
+<a name="stipple"></a><p class="attribute_definition">
+<span class="attribute_definition">stipple</span>
+</p>
+
+<div class="attribute_description">This attribute sets the model and its attachments into stipple mode,
+meaning the model is drawn with a screen-based mask that only allows
+drawing on every other pixel.  It can be used as a cheap invisibility
+or transparency effect.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="stopSoundsOnDestroy"></a><p class="attribute_definition">
+<span class="attribute_definition">stopSoundsOnDestroy</span>
+</p>
+
+<div class="attribute_description">Controls whether or not sounds attached to this model are stopped when
+this model is destroyed.  This attribute is set to True by default,
+however you may want to set this to False if you have a special effect
+whose model may disappear before its sound events have finished playing.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool
+</td></tr>
+</table>
+</p>
+
+<a name="tossCallback"></a><p class="attribute_definition">
+<span class="attribute_definition">tossCallback</span>
+</p>
+
+<div class="attribute_description">This attribute is the callback function that gets called every time the
+model moves from one chunk to another.  There are no specific arguments
+supplied to the function.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Function object
+</td></tr>
+</table>
+</p>
+
+<a name="unitRotation"></a><p class="attribute_definition">
+<span class="attribute_definition">unitRotation</span>
+</p>
+
+<div class="attribute_description">This attribute allows scripts to access the difference in yaw between
+the model and the direction the <a href="ActionMatcher.html">ActionMatcher</a> (if one is present) is
+matching to.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="visible"></a><p class="attribute_definition">
+<span class="attribute_definition">visible</span>
+</p>
+
+<div class="attribute_description">This attribute controls whether or not the model is rendered.  If it is
+set to 0, the model is not rendered, anything else and it is rendered.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="visibleAttachments"></a><p class="attribute_definition">
+<span class="attribute_definition">visibleAttachments</span>
+</p>
+
+<div class="attribute_description">This attribute can be set to allow hiding of model but update of animation and drawing
+of attachments (or allowing selective control of their individual visibility). Only meaningful
+when visible flag is set to false.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="yaw"></a><p class="attribute_definition">
+<span class="attribute_definition">yaw</span>
+</p>
+
+<div class="attribute_description">The rotation of the model about its own (rather than the world's)
+y-axis.  This is, in theory, write as well as read, however if there
+are motors attached to the model, then those motors will often update
+the models yaw every tick, at which point any data written will be
+overwritten before it gets rendered at the new yaw.  In a model with no
+motors though, you can set the models yaw by writing to this attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float;
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

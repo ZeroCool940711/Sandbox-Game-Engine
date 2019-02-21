@@ -1,0 +1,246 @@
+<html>
+<head>
+<title>LinearHomer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>LinearHomer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>LinearHomer is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="Motor.html">Motor</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#acceleration" class="attribute_list" >acceleration</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#align" class="attribute_list" >align</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#blendOutTime" class="attribute_list" >blendOutTime</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#offsetProvider" class="attribute_list" >offsetProvider</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#pitchRollBlendInTime" class="attribute_list" >pitchRollBlendInTime</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#proximity" class="attribute_list" >proximity</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#proximityCallback" class="attribute_list" >proximityCallback</a></td><td>&nbsp; CallbackFunction
+</td></tr>
+
+<tr valign=top><td><a href="#revDelay" class="attribute_list" >revDelay</a></td><td>&nbsp; int
+</td></tr>
+
+<tr valign=top><td><a href="#target" class="attribute_list" >target</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#up" class="attribute_list" >up</a></td><td>&nbsp; 3-tuple
+</td></tr>
+
+<tr valign=top><td><a href="#velocity" class="attribute_list" >velocity</a></td><td>&nbsp; 3-tuple
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="LinearHomer.html">LinearHomer</a> is a <a href="Motor.html">Motor</a> that accelerates a model towards a target (<a href="MatrixProvider.html">MatrixProvider</a>).
+Additionally an optional proximity callback can be set for the <a href="LinearHomer.html">LinearHomer</a> to
+call once the model it is moving gets within a specified (proximity) distance
+of its target.  It has a different set of features to a <a href="Homer.html">Homer</a> <a href="Motor.html">Motor</a>.
+<br><br>
+A new <a href="LinearHomer.html">LinearHomer</a> <a href="Motor.html">Motor</a> is created using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#LinearHomer><a href="LinearHomer.html">LinearHomer</a></a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="acceleration"></a><p class="attribute_definition">
+<span class="attribute_definition">acceleration</span>
+</p>
+
+<div class="attribute_description">The attribute acceleration specifies the rate of acceleration at which the 
+<a href="LinearHomer.html">LinearHomer</a> will move the model towards its destination.  Default is 0.1
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="align"></a><p class="attribute_definition">
+<span class="attribute_definition">align</span>
+</p>
+
+<div class="attribute_description">If provided, aligns this motor to the given matrix.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="blendOutTime"></a><p class="attribute_definition">
+<span class="attribute_definition">blendOutTime</span>
+</p>
+
+<div class="attribute_description">Time in seconds it should take to blend out pitch and roll animations.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="offsetProvider"></a><p class="attribute_definition">
+<span class="attribute_definition">offsetProvider</span>
+</p>
+
+<div class="attribute_description">If provided, this will offset <a href="Motor.html">Motor</a> from the Model by the given amount
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="pitchRollBlendInTime"></a><p class="attribute_definition">
+<span class="attribute_definition">pitchRollBlendInTime</span>
+</p>
+
+<div class="attribute_description">Time in seconds it should take to blend in pitch and roll animations.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="proximity"></a><p class="attribute_definition">
+<span class="attribute_definition">proximity</span>
+</p>
+
+<div class="attribute_description">Proximity specifies how close to the "target" the model must get before
+the <a href="Homer.html">Homer</a> <a href="Motor.html">Motor</a> calls proximityCallback.  Default is 0.1
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="proximityCallback"></a><p class="attribute_definition">
+<span class="attribute_definition">proximityCallback</span>
+</p>
+
+<div class="attribute_description">The attribute proximityCallback is used to assign a callback function
+to the <a href="LinearHomer.html">LinearHomer</a> <a href="Motor.html">Motor</a> that is triggered once the model that the <a href="LinearHomer.html">LinearHomer</a>
+is moving gets within "proximity" distance of "target".  Default is None.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>CallbackFunction
+</td></tr>
+</table>
+</p>
+
+<a name="revDelay"></a><p class="attribute_definition">
+<span class="attribute_definition">revDelay</span>
+</p>
+
+<div class="attribute_description">Provides an initial delay for the motor in ticks.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>int
+</td></tr>
+</table>
+</p>
+
+<a name="target"></a><p class="attribute_definition">
+<span class="attribute_definition">target</span>
+</p>
+
+<div class="attribute_description">This attribute specifies a target <a href="MatrixProvider.html">MatrixProvider</a>. The <a href="Homer.html">Homer</a> <a href="Motor.html">Motor</a> will
+trigger an optional callback when the model comes within proximity
+distance of the target.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="up"></a><p class="attribute_definition">
+<span class="attribute_definition">up</span>
+</p>
+
+<div class="attribute_description">Specifies which axis is up.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>3-tuple
+</td></tr>
+</table>
+</p>
+
+<a name="velocity"></a><p class="attribute_definition">
+<span class="attribute_definition">velocity</span>
+</p>
+
+<div class="attribute_description">Velocity is the current direction and speed of the Model the <a href="Motor.html">Motor</a> is driving.
+Changing the velocity will cause a change in momentum.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>3-tuple
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

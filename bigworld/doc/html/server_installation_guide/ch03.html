@@ -1,0 +1,557 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;3.&nbsp;Server First Run</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Installation Guide">
+      <link rel="up" href="index.html" title="Server Installation Guide">
+      <link rel="prev" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Simple Installation">
+      <link rel="next" href="ch04.html" title="Chapter&nbsp;4.&nbsp;Cluster Configuration">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_installation_guide/ch03.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;3.&nbsp;Server First Run</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;3.&nbsp;Server First Run">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_First_Run_Server"></a>Chapter&nbsp;3.&nbsp;Server First Run
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch03.html#xref_Creating_Developer_Account">3.1. Creating a Developer Account</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch03.html#d0e759">3.1.1. Account creation example</a></span></dt>
+                        <dt><span class="section"><a href="ch03.html#d0e775">3.1.2. Common Mistakes</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch03.html#xref_Create_A_New_Project">3.2. Create a new project</a></span></dt>
+                  <dt><span class="section"><a href="ch03.html#d0e929">3.3. Package specific key generation</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch03.html#d0e934">3.3.1. LoginApp Keypair</a></span></dt>
+                        <dt><span class="section"><a href="ch03.html#d0e973">3.3.2. Customer Server Key</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch03.html#d0e989">3.4. Managing the BigWorld Server</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch03.html#xref_WebConsole_Admin_Add_New_User">3.4.1. Adding A New User</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch03.html#d0e1097">3.5. Login to WebConsole</a></span></dt>
+                  <dt><span class="section"><a href="ch03.html#d0e1115">3.6. Starting a BigWorld server</a></span></dt>
+               </dl>
+            </div>
+            <p>This <em class="emphasis">First Run</em> section assumes that the user is
+                 completely new to a BigWorld server setup and is working on a freshly
+                 installed machine. As such we will step through some basic setup steps such
+                 as creating a new user account for the developer to run a BigWorld server
+                 with. Feel free to step over any steps you already feel confident
+                 with.
+            </p>
+            <p>The following procedures will also assume that the operations will be
+                 performed using a Linux console or terminal. While there are graphical
+                 alternatives available for users that have chosen a GUI installation, by
+                 describing the text based alternatives we are able to simplify the steps to
+                 the core behaviour being performed.
+            </p>
+            <div class="section" title="3.1.&nbsp;Creating a Developer Account">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Creating_Developer_Account"></a>3.1.&nbsp;Creating a Developer Account
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title">Note</h3>
+                  <p>If you are working in a large office environment you may wish to
+                           talk to your Systems Administrator about the user configuration
+                           mechanism that is already in place in the office. The approach described
+                           below may conflict with other distributed account mangement systems such
+                           as LDAP or NIS.
+                  </p>
+               </div>
+               <p>Each developer that will need to run their own server must have a
+                      Linux user account created for them. This is to enable them to have a
+                      location that stores their individual development files and the
+                      configuration files which determine how their server instance will be
+                      started.
+               </p>
+               <p>The following command which is run as the root user is used to
+                      create a new user account in Linux.
+               </p><pre class="programlisting"># useradd <em class="emphasis"><em class="replaceable"><code>username</code></em></em></pre><p>Upon issuing this command a new user home directory will be created
+                      by default as <code class="filename">/home/<em class="replaceable"><code>username</code></em></code>.
+               </p>
+               <p>With the user directory created we now need to set a password for
+                      the user to ensure they are the only one who is allowed to login. To do
+                      this issue the following command as root:
+               </p><pre class="programlisting"># passwd <em class="emphasis"><em class="replaceable"><code>username</code></em></em>
+Changing password for user <em class="replaceable"><code>username</code></em>.
+New UNIX password:
+Retype new UNIX password: 
+passwd: all authentication tokens updated successfully.</pre><p>With these two steps completed you now have a new user account that
+                      you should be able to login with and continue the <em class="emphasis">First
+                         Run</em> steps.
+               </p>
+               <div class="section" title="3.1.1.&nbsp;Account creation example">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e759"></a>3.1.1.&nbsp;Account creation example
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>To fully illustrate the steps described above we will show the
+                           entire process of creating a new user account for a new server developer
+                           called <span class="literal">Alice</span>.
+                  </p><pre class="programlisting"># useradd <em class="emphasis">alice</em>
+# passwd <em class="emphasis">alice</em>
+Changing password for user alice.
+New UNIX password:
+Retype new UNIX password: 
+passwd: all authentication tokens updated successfully.</pre></div>
+               <div class="section" title="3.1.2.&nbsp;Common Mistakes">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e775"></a>3.1.2.&nbsp;Common Mistakes
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>While we haven't discussed multiple computer installations in much
+                           detail up to this point, one of the most common mistakes with user
+                           accounts can occur when a user account is created on different machines
+                           in the network with different numerical user IDs (UID). For example,
+                           suppose we had two server machines <span class="literal">host-A</span> and
+                           <span class="literal">host-B</span> and we performed the following
+                           operations:
+                  </p><pre class="programlisting"># On host-<em class="emphasis">A</em>
+useradd alice
+useradd bob
+
+# On host-<em class="emphasis">B</em>
+useradd bob
+useradd alice</pre><p>Notice that the sequence of operations has been reversed on
+                           <span class="literal">host-B</span> compared with what was performed on
+                           <span class="literal">host-A</span>. As a result the UID that is created for the
+                           user <span class="literal">bob</span> on <span class="literal">host-B</span> may be the same
+                           as user <span class="literal">alice</span> on <span class="literal">host-A</span>. If the
+                           UIDs conflict for two users, there will be issues with server management
+                           and server monitoring.
+                  </p>
+                  <p>There are a number of alternatives you can use to resolve this
+                           potential issue which will depend on how many machines you will need to
+                           use in your network. The most simple approach is to specify a UID when
+                           you create the accounts, such as:
+                  </p><pre class="programlisting">$ useradd <em class="emphasis">-u <em class="replaceable"><code>6001</code></em></em> <em class="replaceable"><code>username</code></em></pre><p>In this example the UID of 6001 was specified as the user was
+                           created, which allows us to specify the same UID when we create the
+                           account on another machine. This approach however becomes unfeasible
+                           when dealing with a large number of machines, in which case we may look
+                           to use a centralised account management solution such as LDAP or NIS.
+                           These approaches are more complex and are out of the scope of this
+                           document. There are numerous online resources that will guide you
+                           through the process of setting up these account management
+                           solutions.
+                  </p>
+               </div>
+            </div>
+            <div class="section" title="3.2.&nbsp;Create a new project">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Create_A_New_Project"></a>3.2.&nbsp;Create a new project
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>With your user account created you can now login and start your
+                      first project which will enable you to start a server. Once you have a
+                      terminal logged in to your newly setup machine as the user created in
+                      <a class="xref" href="ch03.html#xref_Creating_Developer_Account" title="3.1.&nbsp;Creating a Developer Account">Creating a Developer Account</a> creating an initial
+                      example project is quite simple. As part of the server installation a
+                      program called <span class="literal">bw_configure</span> was installed which is used
+                      to assist in configuring your user account to run a BigWorld server. By
+                      running this script with a new project name it will both create a new
+                      project as well as set our configuration file that is used to start a
+                      server.
+               </p>
+               <p>To create a new project run the following command, replacing the
+                      string <em class="replaceable"><code>project_name</code></em> with the name of your own
+                      project:
+               </p><pre class="programlisting">$ bw_configure <em class="emphasis"><em class="replaceable"><code>project_name</code></em></em></pre><p>For example if the server developer Alice were to create a new
+                      project called '<span class="literal">bigworld_first_run</span>' she would see the
+                      following output:
+               </p><pre class="programlisting">$ bw_configure <em class="emphasis">bigworld_first_run</em>
+'bigworld_first_run' project directory not found.
+Create 'bigworld_first_run' with tutorial resources [y/N]? y
+Creating new project at /home/alice/bigworld_first_run
+Generating for chapter 6 - BASIC_NPC
+    from /opt/bigworld/2.1/server/bin/res
+    to /home/alice/bigworld_first_run/res
+
+Writing /home/alice/bigworld_first_run/run.bat
+Writing to /home/alice/.bwmachined.conf succeeded
+
+Installation root : /opt/bigworld/current/server
+BigWorld resources: /opt/bigworld/current/server/res
+Game resources    : bigworld_first_run</pre><p>This command will create a directory that is populated with the
+                      resources from the <a href="../bigworld_tutorial/index.html" class="olink">Tutorial</a>. It will also
+                      create a new configuration file in your home directory called
+                      <code class="filename">.bwmachined.conf</code>. As a starting point it is useful to
+                      understand the basic breakdown of the
+                      <code class="filename">.bwmachined.conf</code> file in case you need to modify it
+                      at a later stage.
+               </p>
+               <p>The <code class="filename">.bwmachined.conf</code> file is a file that
+                      contains a single line that is used by the bwmachined process on each
+                      machine to determine how to start server processes for a user. The
+                      information contained inside this file then has to point to the server
+                      binaries to be used as well as the game resources. The breakdown of the
+                      file is as follows:
+               </p><pre class="programlisting"><em class="replaceable"><code>server_binary_directory</code></em>:<em class="replaceable"><code>game_res_directory</code></em>[;<em class="replaceable"><code>secondary_res_directory</code></em>]</pre><p>In the <code class="filename">.bwmachined.conf</code> file that was created
+                      for you by the <span class="command"><strong>bw_configure</strong></span> program the three paths
+                      mentioned above will be set as follows:
+               </p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p><span class="literal"><em class="replaceable"><code>server_binary_directory</code></em></span>
+                                   is automatically filled in with the installation path of the BigWorld
+                                   server binaries.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal"><em class="replaceable"><code>game_res_directory</code></em></span>
+                                   will most likely be filled out with a directory path that resembles
+                                   <span class="literal">/home/<em class="replaceable"><code>username</code></em>/<em class="replaceable"><code>project_name</code></em>/res.</span>
+                                   This <span class="literal"><em class="replaceable"><code>project_name</code></em></span>
+                                   directory will be where all your additions and modifications will
+                                   occur: it is where your game will be implemented.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p><span class="literal"><em class="replaceable"><code>secondary_res_directory</code></em></span>
+                                   is automatically filled in with the BigWorld resource directory. The
+                                   BigWorld resource directory is generally required for all games as it
+                                   contains default configuration files and Python libraries that are
+                                   used by the server processes.
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <p>For more details on the <code class="filename">.bwmachined.conf</code> file,
+                      please refer to <a class="xref" href="ape.html" title="Appendix&nbsp;E.&nbsp;Understanding the BigWorld Machine Daemon (BWMachineD)">Appendix&nbsp;E, <i>Understanding the BigWorld Machine Daemon (BWMachineD)</i></a>.
+               </p>
+            </div>
+            <div class="section" title="3.3.&nbsp;Package specific key generation">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e929"></a>3.3.&nbsp;Package specific key generation
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>Both the Indie and non-Indie BigWorld server packages require some
+                      key files to be generated and placed in the correct location in order to
+                      work correctly. Please refer to the section below that is relevant to your
+                      package.
+               </p>
+               <div class="section" title="3.3.1.&nbsp;LoginApp Keypair">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e934"></a>3.3.1.&nbsp;LoginApp Keypair
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>In order to ensure that a Client is connecting to an authentic
+                           game server and the username / password sent by the Client are not able
+                           to be intercepted from a public network, the initial communication with
+                           the BigWorld server to the LoginApp is encrypted using a public
+                           keypair.
+                  </p>
+                  <p>The BigWorld Technology package ships with a default LoginApp
+                           keypair, however since all customers receive the same keypair it is
+                           strongly recommended to create your own keypair from the start of your
+                           project and store it in your game resource directory rather than in the
+                           BigWorld resource directory.
+                  </p>
+                  <p>For information on how to go about creating your own custom game
+                           keypair please see the <a href="../server_programming_guide/index.html" class="olink">Server Programming Guide</a>
+                           section <a href="../server_programming_guide/ch29.html#xref_Generating_RSA_Keypair" class="olink">Generating your own RSA keypair</a>. Once you have created your
+                           keypair, place it into your game resource directory that was created in
+                           <a class="xref" href="ch03.html#xref_Create_A_New_Project" title="3.2.&nbsp;Create a new project">Create a new project</a>. For example the
+                           <code class="filename">loginapp.privkey</code> would be placed in <code class="filename">/home/<em class="replaceable"><code>username</code></em>/<em class="replaceable"><code>project_name</code></em>/res/server</code>
+                           while the <code class="filename">loginapp.pubkey</code> would be placed in the
+                           directory <code class="filename">/home/<em class="replaceable"><code>username</code></em>/<em class="replaceable"><code>project_name</code></em>/res</code>.
+                  </p>
+               </div>
+               <div class="section" title="3.3.2.&nbsp;Customer Server Key">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e973"></a>3.3.2.&nbsp;Customer Server Key
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Customers must place the <code class="filename">bigworld.key</code> file
+                           that was provided in the initial package notification email into their
+                           game resource tree. This file should be placed either in <code class="filename">bigworld/res/server</code> or <code class="filename"><em class="replaceable"><code>project_res</code></em>/server</code>.
+                  </p>
+               </div>
+            </div>
+            <div class="section" title="3.4.&nbsp;Managing the BigWorld Server">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e989"></a>3.4.&nbsp;Managing the BigWorld Server
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>With a project created and with all the relevant configuration files
+                      set, we can look to start our server. In order to interact with a BigWorld
+                      server cluster we provide both a web interface and a set of command line
+                      tools. For most server interacts we recommend using the web interface and
+                      we will describe this approach here.
+               </p>
+               <p>The web interface to the BigWorld server is called WebConsole. It
+                      provides a number of features for interacting with a BigWorld server
+                      cluster that are more fully outlined in the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s chapter <a href="../server_operations_guide/ch03.html" class="olink"><i>Cluster Administration Tools</i></a>.
+               </p>
+               <p>WebConsole is automatically started and runs on port 8080 of the
+                      machine on which the <span class="literal">bigworld-tools</span> RPM was installed.
+                      To connect to the WebConsole we would then use a URL such as
+                      <span class="literal">http://<em class="replaceable"><code>hostname</code></em>:8080/</span>
+                      replacing <em class="replaceable"><code>hostname</code></em> with either the IP address
+                      of the machine or its hostname depending on how the other machines in your
+                      network have been configured. To avoid confusion when testing WebConsole
+                      for the first time we recommend using the IP address of the WebConsole
+                      machine to confirm that any issues aren't related to hostname or DNS
+                      resolution problems.
+               </p>
+               <p>When connecting for the first time you should be presented with a
+                      screen similar to the following:
+               </p>
+               <div class="informalfigure">
+                  <div class="mediaobject" align="center"><img src="images/web_console_login.png" align="middle"></div>
+               </div>
+               <p>The user accounts on the WebConsole now need to be created and the
+                      default administration login password changed. To do this, log in with
+                      username <span class="literal">admin</span>, password
+                      <span class="literal">admin</span>.
+               </p>
+               <div class="section" title="3.4.1.&nbsp;Adding A New User">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_WebConsole_Admin_Add_New_User"></a>3.4.1.&nbsp;Adding A New User
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>To add a new user, click on the "Add New User" menu item on the left
+                       hand side of the page. You will then be presented with a form to input as
+                       follows:
+                  </p>
+                  <div class="informalfigure">
+                     <div class="mediaobject" align="center"><img src="images/webconsole_admin_add_user.png" align="middle"></div>
+                  </div>
+                  <p>The table below summarises the input fields providing sample
+                       input:
+                  </p>
+                  <div class="altrow">
+                     <table border="1" width="75%">
+                        <colgroup>
+                           <col width="33%">
+                           <col width="67%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <th>Field</th>
+                              <th>Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>Username</td>
+                              <td>The username that for the new user.</td>
+                           </tr>
+                           <tr>
+                              <td>Password</td>
+                              <td>The password with which the new user will log in.</td>
+                           </tr>
+                           <tr>
+                              <td>Confirm Password</td>
+                              <td>The password from the previous field, retyped to ensure no
+                                           mistake was made on entry.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Server User</td>
+                              <td>
+                                 <p>The Linux user this account will be associated with.
+                                              This will be the Linux user that the BigWorld server processes will
+                                              be run as.
+                                 </p> 
+                                 <p>If you are uncertain of this field, please
+                                              talk to your system administrator to find out what your Linux user
+                                              account is.
+                                 </p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <p>The following image shows a new user account <span class="literal">AliceB</span>
+                       being created and associated with the Linux user account
+                       <span class="literal">alice</span>:
+                  </p>
+                  <div class="informalfigure">
+                     <div class="mediaobject" align="center"><img src="images/webconsole_admin_add_user_alice.png" align="middle"></div>
+                  </div>
+                  <p>Once all the user information has been entered, simply click the
+                       <span class="guibutton">Add User</span> button and you will be returned to the main
+                       user listing, which will include the new user:
+                  </p>
+                  <div class="informalfigure">
+                     <div class="mediaobject" align="center"><img src="images/webconsole_admin_main_alice.png" align="middle"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="3.5.&nbsp;Login to WebConsole">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e1097"></a>3.5.&nbsp;Login to WebConsole
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>Now that a WebConsole user account has been created, you can login
+                      and start your first BigWorld server instance. To do this, return to the
+                      WebConsole login screen, enter the username and password that you created
+                      in the previous section, and press the <span class="literal">Log In</span> button.
+                      You should now be presented with a screen similar to the following:
+               </p>
+               <div class="informalfigure">
+                  <div class="mediaobject" align="center"><img src="images/web_console_cluster_control_trim.png" align="middle"></div>
+               </div>
+               <p>Each blue bar on the left hand side of the page contains a
+                      collection of loosely related functionality for interacting with a
+                      BigWorld server cluster. For information about each section refer to the
+                      'Help' menu option in each module. For example, in the default display the
+                      help option is located as follows:
+               </p>
+               <div class="informalfigure">
+                  <div class="mediaobject" align="center"><img src="images/web_console_cluster_control_help.png" align="middle"></div>
+               </div>
+            </div>
+            <div class="section" title="3.6.&nbsp;Starting a BigWorld server">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e1115"></a>3.6.&nbsp;Starting a BigWorld server
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>With all the hard work out of the way, you are now only a few mouse
+                      clicks away from having your first server up and running. From
+                      WebConsole's Cluster Control<span class="symbol">&#8594;</span>Manage Servers
+                      module click the <em class="emphasis">Start the server</em> link:
+               </p>
+               <div class="informalfigure">
+                  <div class="mediaobject" align="center"><img src="images/web_console_cluster_control_start.png" align="middle"></div>
+               </div>
+               <p>You should now be presented with a web page outlining your user
+                      information, the separate components of the
+                      <code class="filename">.bwmachined.conf</code> file, and a list of machines on
+                      which you can start the server:
+               </p>
+               <div class="informalfigure">
+                  <div class="mediaobject" align="center"><img src="images/web_console_start_server.png" align="middle"></div>
+               </div>
+               <p>The purpose of this page is to allow you to review both your
+                      configuration settings and the machine (or machines) on which you would
+                      like to start the server prior to launching the cluster. For our purposes
+                      we will use the default settings which should launch the server on a
+                      single machine, identified using either your hostname or the IP address of
+                      your local machine. To start the server simply press the 'Go!' button. You
+                      should now see an interim web page that automatically updates as each
+                      server process starts:
+               </p>
+               <div class="informalfigure">
+                  <div class="mediaobject" align="center"><img src="images/web_console_server_starting.png" align="middle"></div>
+               </div>
+               <p>The above image shows us all the server processes except the BaseApp
+                      and CellApp have started running and are operational. The BaseApp and
+                      CellApp processes are the last to start as they rely on all the other
+                      server processes to operate correctly.
+               </p>
+               <p>You should now have an active server instance which presents you
+                      with a web page similar to the following:
+               </p>
+               <div class="informalfigure">
+                  <div class="mediaobject" align="center"><img src="images/web_console_server_running.png" align="middle"></div>
+               </div>
+               <p>At this point you should be ready to move on to the <a href="../bigworld_tutorial/index.html" class="olink">Tutorial</a> which will start to lead you through the
+                      process of creating your own game and understanding the programming
+                      concepts involved in interacting with BigWorld.
+               </p>
+               <p>Good luck with your development!</p>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;2.&nbsp;Simple Installation&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;4.&nbsp;Cluster Configuration</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

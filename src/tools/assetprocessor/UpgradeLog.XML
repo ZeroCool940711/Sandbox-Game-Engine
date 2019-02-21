@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="asset_processor">
+</Property><Property Name="Archivo de la solución" Value="D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\assetprocessor\asset_processor.sln">
+</Property><Property Name="Archivo de opciones de usuario" Value="D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\assetprocessor\asset_processor.suo">
+</Property><Property Name="Date" Value="Monday, October 8, 2018">
+</Property><Property Name="Time" Value="20:00 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="asset_processor.sln" Description="La copia D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\assetprocessor\asset_processor.sln.old del archivo se ha realizado correctamente">
+</Event><Event ErrorLevel="0" Project="" Source="asset_processor.suo" Description="La copia D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\assetprocessor\asset_processor.suo.old del archivo se ha realizado correctamente">
+</Event><Event ErrorLevel="0" Project="AssetProcessor" Source="AssetProcessor.vcproj" Description="Ya no se permite la implementación web en el servidor de IIS local. La herramienta de generación de implementación web se ha quitado de la configuración del proyecto.">
+</Event><Event ErrorLevel="1" Project="AssetProcessor" Source="AssetProcessor.vcproj" Description="Esta aplicación se ha actualizado para incluir la configuración relacionada con la característica Control de cuentas de usuario (UAC) de Windows Vista. De manera predeterminada, cuando se ejecuta en Windows Vista con el Control de cuentas de usuario habilitado, la aplicación está marcada para que se ejecute con los mismos privilegios que el proceso que la inició y para que no pueda ejecutarse con virtualización. Puede cambiar la configuración relativa al Control de cuentas de usuario desde las páginas de propiedades del proyecto.">
+</Event><Event ErrorLevel="0" Project="AssetProcessor" Source="AssetProcessor.vcproj" Description="Se realizó correctamente la copia de seguridad del archivo de proyecto 'D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\tools\assetprocessor\AssetProcessor.vcproj.8.00.old'.">
+</Event><Event ErrorLevel="0" Project="AssetProcessor" Source="AssetProcessor.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="AssetProcessor" Source="AssetProcessor.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="moo2005" Source="..\..\lib\moo\moo2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="moo2005" Source="..\..\lib\moo\moo2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="resmgr2005" Source="..\..\lib\resmgr\resmgr2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="resmgr2005" Source="..\..\lib\resmgr\resmgr2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="math3d2005" Source="..\..\lib\math\math3d2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="math3d2005" Source="..\..\lib\math\math3d2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="pyscript2005" Source="..\..\lib\pyscript\pyscript2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="pyscript2005" Source="..\..\lib\pyscript\pyscript2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="physics22005" Source="..\..\lib\physics2\physics22005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="physics22005" Source="..\..\lib\physics2\physics22005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="zip2005" Source="..\..\lib\zip\zip2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="zip2005" Source="..\..\lib\zip\zip2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="romp2005" Source="..\..\lib\romp\romp2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="romp2005" Source="..\..\lib\romp\romp2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="terrain2005" Source="..\..\lib\terrain\terrain2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="terrain2005" Source="..\..\lib\terrain\terrain2005.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="libpng" Source="..\..\lib\png\projects\visualc71\libpng.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="libpng" Source="..\..\lib\png\projects\visualc71\libpng.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="asset_processor.sln" Description="La solución se convirtió correctamente">
+</Event><Event ErrorLevel="3" Project="" Source="asset_processor.sln" Description="Converted">
+</Event></UpgradeLog>

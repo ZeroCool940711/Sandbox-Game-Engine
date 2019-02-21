@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>PyDye - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyDye Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyDye is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyFashion.html">PyFashion</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#matter" class="attribute_list" >matter</a></td><td>&nbsp; Read-Only String
+</td></tr>
+
+<tr valign=top><td><a href="#tint" class="attribute_list" >tint</a></td><td>&nbsp; Read-Only String
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A dye is used to apply a particular material to a piece of geometry in a
+model.  Dyes are specified in the .model file(s) which the <a href="PyModel.html">PyModel</a> was
+created from.
+<br><br>
+In the model file, a &lt;dye> section is given a &lt;matter> name, which
+creates an extra attribute for the <a href="PyModel.html">PyModel</a> in python of that name.  It also
+contains a &lt;replaces> which should be the name of a particular
+primitiveGroup in the .visual file. The &lt;dye> section also contains a
+list of &lt;tints>, which have a &lt;name> and a &lt;material> section.  By
+assigning the name (as a string) to the models named attribute
+that material is applied to the &lt;replaces> geometry of the model.
+<br><br>
+Dye attributes are special, in that when written to, they accept a string,
+which is the name of a tint.  On reading them, they return a <a href="PyDye.html">PyDye</a> object,
+which has a tint attribute with the name that was written.
+<br><br>
+This class inherits from <a href="PyFashion.html">PyFashion</a>.
+<br><br>
+For example, the if the following is an extract from the model file:
+<br><br>
+
+<pre>&lt;dye>
+    &lt;matter> Chest &lt;/matter>
+    &lt;replaces>	Torso &lt;/replaces>
+    &lt;tint>
+        &lt;name>	Blue &lt;/name>
+        &lt;material>
+            &lt;diffuseTexture>	bluetex.dds	&lt;/diffuseTexture>
+        &lt;/material>
+    &lt;/tint>
+    &lt;tint>
+        &lt;name>	Red &lt;/name>
+        &lt;material>
+            &lt;diffuseTexture>	redtex.dds	&lt;/diffuseTexture>
+        &lt;/material>
+    &lt;/tint>
+&lt;/dye>
+</pre>
+<br><br>
+This assumes that somewhere in the .visual file is a primitivegroup called
+Torso ( the <replaces> field ).
+<br><br>
+This creates a named attribute on the <a href="PyModel.html">PyModel</a> called chest, which can be
+assigned either "Red" or "Blue".  This assignment has the effect of
+applying either the redtex.dds diffuse texture, or the bluetex.dds,
+respectively.
+<br><br>
+Then, in python, if M contains the model object created from this .model
+file, then the following would be a possible console example:
+<br><br>
+
+<pre>>>> d = M.Chest
+>>> d
+<a href="PyDye.html">PyDye</a> at 0x0b771f770
+>>> dir(d)
+[ 'matter', 'tint' ]
+>>> d.matter
+'Chest'
+>>> d.tint
+'Default'
+>>> M.Chest = "Red" # applies redtex.dds to the model's Torso
+>>> d = M.Chest
+>>> d
+<a href="PyDye.html">PyDye</a> at 0x0b771f850
+>>> d.matter
+'Chest'
+>>> d.tint
+'Red'
+</pre>
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="matter"></a><p class="attribute_definition">
+<span class="attribute_definition">matter</span>
+</p>
+
+<div class="attribute_description">The name of the attribute within the model file that this dye will
+apply to.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only String
+</td></tr>
+</table>
+</p>
+
+<a name="tint"></a><p class="attribute_definition">
+<span class="attribute_definition">tint</span>
+</p>
+
+<div class="attribute_description">The name of the tint that specifies which material this dye will apply
+to the geometry.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only String
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

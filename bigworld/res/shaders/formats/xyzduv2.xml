@@ -1,0 +1,14 @@
+<xyzduv2.xml>
+	<POSITION/>
+	<COLOR>
+		<type> D3DCOLOR </type>
+	</COLOR>
+	<TEXCOORD>
+		0
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+	<TEXCOORD>
+		1
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+</xyzduv2.xml>

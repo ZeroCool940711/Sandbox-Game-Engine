@@ -1,0 +1,6 @@
+Threads
+* stat_logger.py (idles waiting for Gather to finish)
+  |
+  -> gather.py - Gather  (contacts components / machines for stats)
+                 |
+                 -> StatDumper (deals with DB storage / cleanup)

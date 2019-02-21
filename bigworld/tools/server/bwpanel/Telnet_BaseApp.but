@@ -1,0 +1,3 @@
+#!/bin/sh
+#BWPANEL 7.6 "Telnet to BaseApp"
+xterm -T 'BaseApp Python console' -e $MF_ROOT/bigworld/tools/server/control_cluster.py pyconsole baseapp

@@ -1,0 +1,187 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;3.&nbsp;Remote Methods, Arguments and Return Values</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Web Integration Guide">
+      <link rel="up" href="pt01.html" title="Part&nbsp;I.&nbsp;Exposing the BigWorld Server as a Web Service">
+      <link rel="prev" href="ch02.html" title="Chapter&nbsp;2.&nbsp;The TwistedWeb Service">
+      <link rel="next" href="ch04.html" title="Chapter&nbsp;4.&nbsp;Keep-alive Messages">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_web_integration/ch03.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;3.&nbsp;Remote Methods, Arguments and Return Values</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">Part&nbsp;I.&nbsp;Exposing the BigWorld Server as a Web Service</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;3.&nbsp;Remote Methods, Arguments and Return Values">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Remote_Methods_With_Return_Values"></a>Chapter&nbsp;3.&nbsp;Remote Methods, Arguments and Return Values
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch03.html#d0e369">3.1. Method calls</a></span></dt>
+                  <dt><span class="section"><a href="ch03.html#d0e385">3.2. Arguments</a></span></dt>
+                  <dt><span class="section"><a href="ch03.html#d0e437">3.3. Return Values</a></span></dt>
+                  <dt><span class="section"><a href="ch03.html#d0e457">3.4. One way calls</a></span></dt>
+                  <dt><span class="section"><a href="ch03.html#d0e464">3.5. Errors</a></span></dt>
+               </dl>
+            </div>
+            <p>The <span class="literal">TwistedWeb</span> service allows calls to one-way and
+                 two-way methods on game entities. These can be made using the request paths
+                 as described above.
+            </p>
+            <p>This chapter gives more details about format of the arguments in the
+                 query string, the returned results and the supported types.
+            </p>
+            <div class="section" title="3.1.&nbsp;Method calls">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e369"></a>3.1.&nbsp;Method calls
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>Any method of a base entity can be called whether it is exposed to
+                      clients using the <span class="literal">&lt;Exposed/&gt;</span> tag or not. The
+                      method name is the last part of the URL before the parameter list (i.e.
+                      before any <span class="literal">?</span> character). Care must be taken to ensure
+                      that general access to call methods on the <span class="literal">TwistedWeb</span>
+                      service is not given.
+               </p>
+               <p>To call a method on a cell entity, first call a method on a base
+                      entity that returns the result of a call on the cell entity.
+               </p>
+            </div>
+            <div class="section" title="3.2.&nbsp;Arguments">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e385"></a>3.2.&nbsp;Arguments
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The arguments are passed as URL parameters. All arguments are named
+                      and so must be named in the entity's <code class="filename">.def</code> file.
+               </p>
+               <p>Not all types are supported. Supported types include:</p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>All integer types - INT8, INT16, INT32, INT64, UINT8, UINT16,
+                                   UINT32 and UINT64
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>All float types - FLOAT32 and FLOAT64</p>
+                     </li>
+                     <li class="listitem">
+                        <p>All string types - STRING, UNICODE_STRING and BLOB</p>
+                     </li>
+                     <li class="listitem">
+                        <p>VECTOR2, VECTOR3 and VECTOR4</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Sequence types - ARRAY and TUPLE of these types except for other
+                                   sequence types
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <p>UNICODE_STRING parameters should be percent-encoded for UTF-8, such
+                      as:
+               </p><pre class="programlisting">myString=Japanese%20translation%3A%20%E6%96%87%E5%AD%97%E5%8C%96%E3%81%91</pre><p>This string will result in the argument:</p><pre class="programlisting">Japanese translation: <span class="japanese">&#25991;&#23383;&#21270;&#12369;</span></pre><p>BLOB parameters should be passed as a hexidecimal representation,
+                      for example:
+               </p><pre class="programlisting">myBLOB=aca3a6</pre><p>VECTOR2, VECTOR3 and VECTOR4 should be passed as a comma separated
+                      sequence of floats, for example:
+               </p><pre class="programlisting">myVector=0.1,3.5,-6</pre><p>Sequences can be passed in two ways - either as repeated
+                      arguments:
+               </p><pre class="programlisting">myArray=4&amp;myArray=53</pre><p>or as indexed arguments:</p><pre class="programlisting">myArray[0]=4&amp;myArray[1]=53</pre></div>
+            <div class="section" title="3.3.&nbsp;Return Values">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e437"></a>3.3.&nbsp;Return Values
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>Return values are returned as a JSON document of name/value pairs.
+                      These are encoded using the Python <span class="literal">json</span> module. Any
+                      type that can be converted with this module can be used. Additionally
+                      <code class="code">Vector2</code>, <code class="code">Vector3</code>, <code class="code">Vector4</code> and
+                      <code class="code">PyArrayDataInstance</code> data types are converted to Python lists
+                      before this conversion.
+               </p>
+            </div>
+            <div class="section" title="3.4.&nbsp;One way calls">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e457"></a>3.4.&nbsp;One way calls
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>It is also possible to call one-way methods. On success, the
+                      following object is always returned.
+               </p><pre class="programlisting">{"message": "One way call made"}</pre></div>
+            <div class="section" title="3.5.&nbsp;Errors">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e464"></a>3.5.&nbsp;Errors
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>Errors are returned as a specially formatted JSON object with an
+                      "excType" attribute. Refer to <a class="xref" href="ch02.html#xref_TwistedWebErrorHandling" title="2.7.&nbsp;TwistedWeb Error handling">TwistedWeb Error handling</a> for more information.
+               </p>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center"><a accesskey="u" href="pt01.html">Up</a></td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;2.&nbsp;The TwistedWeb Service&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;4.&nbsp;Keep-alive Messages</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

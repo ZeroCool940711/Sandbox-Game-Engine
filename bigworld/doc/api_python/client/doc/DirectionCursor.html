@@ -1,0 +1,445 @@
+<html>
+<head>
+<title>DirectionCursor - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>DirectionCursor Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>DirectionCursor is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+InputCursor
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#forceLookSpring" class="function_list" >forceLookSpring</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#yawPitch" class="function_list" >yawPitch</a>( self, yaw, pitch ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#invertVerticalMovement" class="attribute_list" >invertVerticalMovement</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#lookSpring" class="attribute_list" >lookSpring</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#lookSpringIdleTime" class="attribute_list" >lookSpringIdleTime</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#lookSpringOnMove" class="attribute_list" >lookSpringOnMove</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#lookSpringRate" class="attribute_list" >lookSpringRate</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#matrix" class="attribute_list" >matrix</a></td><td>&nbsp; Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#maxPitch" class="attribute_list" >maxPitch</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#maxYaw" class="attribute_list" >maxYaw</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#minPitch" class="attribute_list" >minPitch</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#minYaw" class="attribute_list" >minYaw</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#mouseHVBias" class="attribute_list" >mouseHVBias</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#mouseSensitivity" class="attribute_list" >mouseSensitivity</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#pitch" class="attribute_list" >pitch</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#roll" class="attribute_list" >roll</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#yaw" class="attribute_list" >yaw</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#yawReference" class="attribute_list" >yawReference</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="DirectionCursor.html">DirectionCursor</a> object acts as a view target for the player entity.  It
+accepts	mouse events and represents its direction based on the update.  It
+is represented as a direction vector from the origin intersecting a point
+on a sphere centered on the origin.
+<br><br>
+The origin represents the observer's eyes in local coordinate space. The
+direction represents the line of sight along observer's view direction.
+<br><br>
+The attributes of the direction cursor receive their default values from
+the &lt;directioncursor> section of engine_config.xml.
+<br><br>
+You can obtain the direction cursor using the function <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#dcursor>dcursor</a>()
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="forceLookSpring"></a><p class="function_definition">
+<span class="function_definition">def forceLookSpring( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function forces a return to a neutral pitch
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+<a name="yawPitch"></a><p class="function_definition">
+<span class="function_definition">def yawPitch( <i>self, yaw, pitch</i> ):</span>
+</p>
+
+<div class="function_description">This function gets and optionally sets the yaw and pitch of the direction
+cursor.  It takes 0, 1 or 2 arguments.  If one argument is supplied, it
+is the new yaw.  If Two arguments are supplied, they are the yaw and pitch.
+It returns a list of the yaw and the pitch in all cases.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>yaw</i></span></td><td><span class="function_parameter_description">&nbsp;(optional) The new yaw for the direction cursor
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>pitch</i></span></td><td><span class="function_parameter_description">&nbsp;(optional) The new pitch for the direction cursor
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a list with the first element being the yaw, and the second
+				being the pitch
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="invertVerticalMovement"></a><p class="attribute_definition">
+<span class="attribute_definition">invertVerticalMovement</span>
+</p>
+
+<div class="attribute_description">If this attribute is set to 0, then moving the mouse upward causes the
+pitch of the <a href="DirectionCursor.html">DirectionCursor</a> to increase (ie look upwards more), and
+down causes it to decrease.  For any other value, moving the mouse up
+causes the pitch of the <a href="DirectionCursor.html">DirectionCursor</a> to decrease (ie look downwards
+more), and down to increase.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="lookSpring"></a><p class="attribute_definition">
+<span class="attribute_definition">lookSpring</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not the pitch reverts to 0 once
+lookSpringIdleTime has elapsed, with no further changes to the
+<a href="DirectionCursor.html">DirectionCursor</a>.  If it is set non-zero, then, once lookSpringIdleTime
+has elapsed, it will move towards zero at lookSpringRate.  If it is
+zero, then the <a href="DirectionCursor.html">DirectionCursor</a>'s pitch will remain where it was set,
+unless lookSpringOnMove is non-zero at which point, the pitch reverts
+to zero.
+<br><br>
+Like all <a href="DirectionCursor.html">DirectionCursor</a> attributes, its default is read in from
+engine_config.xml.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="lookSpringIdleTime"></a><p class="attribute_definition">
+<span class="attribute_definition">lookSpringIdleTime</span>
+</p>
+
+<div class="attribute_description">This is the time (in seconds) that the rotation of the <a href="DirectionCursor.html">DirectionCursor</a>
+must remain unchanged before it starts restoring its pitch
+to zero.  This will only happen if the lookSpring flag is non-zero.
+<br><br>
+Like all <a href="DirectionCursor.html">DirectionCursor</a> attributes, its default is read in from
+engine_config.xml.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="lookSpringOnMove"></a><p class="attribute_definition">
+<span class="attribute_definition">lookSpringOnMove</span>
+</p>
+
+<div class="attribute_description">If this attribute is set to true, then if the origin of the
+<a href="DirectionCursor.html">DirectionCursor</a> is changed, the pitch will start moving towards zero at
+lookSpringRate radians per second.
+<br><br>
+Like all <a href="DirectionCursor.html">DirectionCursor</a> attributes, its default is read in from
+engine_config.xml.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="lookSpringRate"></a><p class="attribute_definition">
+<span class="attribute_definition">lookSpringRate</span>
+</p>
+
+<div class="attribute_description">This attribute is the rate (in radians per second) at which the pitch
+of the <a href="DirectionCursor.html">DirectionCursor</a> restores itself to zero, if it decides to do
+lookSpring behaviour.  This will happen either if lookSpring is true,
+and lookSpringIdleTime has elapsed, or if lookSpringOnMove is true, and
+the <a href="DirectionCursor.html">DirectionCursor</a>'s origin is changed.
+<br><br>
+Like all <a href="DirectionCursor.html">DirectionCursor</a> attributes, its default is read in from
+engine_config.xml.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="matrix"></a><p class="attribute_definition">
+<span class="attribute_definition">matrix</span>
+</p>
+
+<div class="attribute_description">The transformation matrix which sums up the location and orientation of
+the direction cursor.  The pitch, yaw and roll, as well as the origin
+are all stored inside this.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="maxPitch"></a><p class="attribute_definition">
+<span class="attribute_definition">maxPitch</span>
+</p>
+
+<div class="attribute_description">This is an upper bound for pitch.  It is only checked when a mouse
+movement attempts to change the pitch.  That is, if maxPitch is
+assigned to be less than the current pitch, then pitch will not
+automatically change to be within bounds.  Similarly, if pitch is
+assigned a value above maxPitch, the limit will not be applied until
+the user moves the mouse.
+<br><br>
+Like all <a href="DirectionCursor.html">DirectionCursor</a> attributes, its default is read in from
+engine_config.xml.  However, in the cofig file, it is specified in degrees,
+while in python, it is in radians.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="maxYaw"></a><p class="attribute_definition">
+<span class="attribute_definition">maxYaw</span>
+</p>
+
+<div class="attribute_description">This attribute is the maximum yaw that the direction cursor will
+go to. Only checked if yawReference is set. Positive yaw values are
+on the right of yawReference as seen from above.
+</div>
+
+<a name="minPitch"></a><p class="attribute_definition">
+<span class="attribute_definition">minPitch</span>
+</p>
+
+<div class="attribute_description">This is a lower bound for pitch.  It is only checked when a mouse
+movement attempts to change the pitch.  That is, if minPitch is
+assigned to be greater than the current pitch, then pitch will not
+automatically change to be within bounds.  Similarly, if pitch is
+assigned a value below minPitch, the limit will not be applied until
+the user moves the mouse.
+<br><br>
+Like all <a href="DirectionCursor.html">DirectionCursor</a> attributes, its default is read in from
+engine_config.xml.  However, in the cofig file, it is specified in degrees,
+while in python, it is in radians.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="minYaw"></a><p class="attribute_definition">
+<span class="attribute_definition">minYaw</span>
+</p>
+
+<div class="attribute_description">This attribute is the minimum yaw that the direction cursor will
+go to. Only checked if yawReference is set. Negative yaw values are
+on the left of yawReference as seen from above.
+</div>
+
+<a name="mouseHVBias"></a><p class="attribute_definition">
+<span class="attribute_definition">mouseHVBias</span>
+</p>
+
+<div class="attribute_description">This effects whether the mouse is more sensitive in the Horizontal or
+Vertical directions.  It is clamped to be between 0 and 1, with 1
+meaning horizontal motion is greatest, and vertical is completely
+disregarded, and 0 meaning vertical motion is most sensative, with
+horizontal being disregarded.  To make both axes more
+sensitive use the mouseSensitivity attribute.
+<br><br>
+Like all <a href="DirectionCursor.html">DirectionCursor</a> attributes, its default is read in from
+engine_config.xml
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="mouseSensitivity"></a><p class="attribute_definition">
+<span class="attribute_definition">mouseSensitivity</span>
+</p>
+
+<div class="attribute_description">How sensitive the <a href="DirectionCursor.html">DirectionCursor</a> is to mouse movements.  Higher
+numbers mean more sensative.  This effects both horizontal and vertical
+sensitivity.  In order to change the ratio of sensativity between
+horizontal and vertical, use the mouseHVBias.
+<br><br>
+Like all <a href="DirectionCursor.html">DirectionCursor</a> attributes, its default is read in from
+engine_config.xml
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="pitch"></a><p class="attribute_definition">
+<span class="attribute_definition">pitch</span>
+</p>
+
+<div class="attribute_description">The pitch (whether it is tipped up or down) of the direction cursor.
+Positive numbers are looking upwards, negative are looking downwards.
+If this is set, then the direction cursor moves to the new pitch at 0.5
+radians per second, rather than just popping.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="roll"></a><p class="attribute_definition">
+<span class="attribute_definition">roll</span>
+</p>
+
+<div class="attribute_description">The roll (whether it is tipped to the left or the right) of the
+direction cursor.  If this is set, then the direction cursor moves to
+the new pitch at 0.5 radians per second, rather than just popping.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="yaw"></a><p class="attribute_definition">
+<span class="attribute_definition">yaw</span>
+</p>
+
+<div class="attribute_description">The yaw (rotation around the Y-axis) of the direction cursor.
+If this is set, then the direction cursor moves to the new pitch at 0.5
+radians per second, rather than just popping.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="yawReference"></a><p class="attribute_definition">
+<span class="attribute_definition">yawReference</span>
+</p>
+
+<div class="attribute_description">This attribute is the matrix whose direction is used as a reference
+when enforcing the min/max yaw limits.
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

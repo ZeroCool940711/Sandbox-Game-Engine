@@ -1,0 +1,320 @@
+<html>
+<head>
+<title>FlexiCam - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>FlexiCam Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>FlexiCam is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="BaseCamera.html">BaseCamera</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#actualDir" class="attribute_list" >actualDir</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#actualPos" class="attribute_list" >actualPos</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#positionAcceleration" class="attribute_list" >positionAcceleration</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#preferredPitch" class="attribute_list" >preferredPitch</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#preferredPos" class="attribute_list" >preferredPos</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#preferredYaw" class="attribute_list" >preferredYaw</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#target" class="attribute_list" >target</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#timeMultiplier" class="attribute_list" >timeMultiplier</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#trackingAcceleration" class="attribute_list" >trackingAcceleration</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#uprightDir" class="attribute_list" >uprightDir</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#viewOffset" class="attribute_list" >viewOffset</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The camera object that follows a particular target. The camera has an
+actual position and a preferred position relative to the target. The
+camera's preferred viewing direction is centered on the target minus
+some offset vector. There is also a current viewing direction for the
+camera.
+<br><br>
+As the camera's view and position are not immediately bound to the
+preferred position and direction, they have accelerations associated with
+them. These values can also be adjusted.
+<br><br>
+The default position is the default preferred position for the camera
+when at rest, that is, it is not being influenced by the character turning
+or looking around.
+<br><br>
+A new <a href="FlexiCam.html">FlexiCam</a> is created using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#FlexiCam><a href="FlexiCam.html">FlexiCam</a></a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="actualDir"></a><p class="attribute_definition">
+<span class="attribute_definition">actualDir</span>
+</p>
+
+<div class="attribute_description">This attribute is the forward direction, in world coordinates, that the
+camera is facing at the current moment.  If it is set, then
+the camera will move back to pointing at the target (modified by the
+viewOffset) with a half life of trackingAcceleration.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="actualPos"></a><p class="attribute_definition">
+<span class="attribute_definition">actualPos</span>
+</p>
+
+<div class="attribute_description">This attribute specifies where, in world coordinates the camera is
+at the current time.  If it is assigned to, it moves the camera to
+the specified position.
+<br><br>
+The camera will not neccessarily remain at this position, as it moves
+towards the position specified by preferredPos relative to its target.
+It will move at a rate specified by positionAcceleration.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="positionAcceleration"></a><p class="attribute_definition">
+<span class="attribute_definition">positionAcceleration</span>
+</p>
+
+<div class="attribute_description">This attribute is the half-life for movement from the camera's
+actualPos to it's desiredPos.  That is, it will move half the
+distance remaining in this time, causing it to slow down as it
+approaches its desiredPos.
+<br><br>
+If this is set to zero, then actualPos is always at the desired
+position.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="preferredPitch"></a><p class="attribute_definition">
+<span class="attribute_definition">preferredPitch</span>
+</p>
+
+<div class="attribute_description">This read-only attribute specifies the camera's preferred pitch,
+relative to its target.  This is calculated directly from the
+preferredPos attribute.
+<br><br>
+For example:
+
+<pre>>>>	flex.preferredPos = (0,1,-1)
+>>>	flex.preferredPitch
+-0.78539816339
+</pre>
+In the example, we place the camera one unit above and one unit behind
+ the target, which gives it a pitch of -pi/4.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="preferredPos"></a><p class="attribute_definition">
+<span class="attribute_definition">preferredPos</span>
+</p>
+
+<div class="attribute_description">This attribute specifies where the camera positions itself, relative
+to the targets frame of reference.  It is a <a href="Vector3.html">Vector3</a>.  Positive
+x-component places the camera to the right of the target, negative to
+the left.  Positive y component places the camera above the target
+negative below.  Positive z component places the camera in front of
+the target, negative behind.  Where ever the camera is positioned,
+it will orient itself to point towards the target.
+<br><br>
+This attrtibute specifies the camera's "preferred" position.  If
+the target suddenly moves, or preferred position is assigned to,
+it will move towards this position over positionAcceleration seconds.
+<br><br>
+Its actual position at all times, whether in the preferred position
+or not, is specified by actualPos.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="preferredYaw"></a><p class="attribute_definition">
+<span class="attribute_definition">preferredYaw</span>
+</p>
+
+<div class="attribute_description">This read-only attribute specifies the camera's preferred yaw, relative
+to its target.  This is calculated directly from the preferredPos
+attribute.
+<br><br>
+For example:
+
+<pre>>>>	flex.preferredPos = (0,1,-1)
+>>>	flex.preferredYaw
+0.0
+</pre>
+In the example, we place the camera one unit above and one unit behind
+ the target, which gives it a yaw of zero when looking at the target.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="target"></a><p class="attribute_definition">
+<span class="attribute_definition">target</span>
+</p>
+
+<div class="attribute_description">This attribute is the the <a href="MatrixProvider.html">MatrixProvider</a> that specifies what position
+in world coordinates that the <a href="FlexiCam.html">FlexiCam</a> should look at, and also specifies
+the frame of reference that the preferredPos is specified in.
+<br><br>
+The camera actually looks at the point specified by viewOffset, relative
+to target.
+<br><br>
+If the target <a href="MatrixProvider.html">MatrixProvider</a> is updated, then the camera will move from
+its actualPos to its preferred position with a half life of
+positionAcceleration seconds.  If it needs to turn to look at the target
+it will turn with a half life of trackingAcceleration seconds.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="timeMultiplier"></a><p class="attribute_definition">
+<span class="attribute_definition">timeMultiplier</span>
+</p>
+
+<div class="attribute_description">Before the <a href="FlexiCam.html">FlexiCam</a> is updated, the time delta is scaled by this
+attribute.  This scales the speed at which the camera moves and turns.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="trackingAcceleration"></a><p class="attribute_definition">
+<span class="attribute_definition">trackingAcceleration</span>
+</p>
+
+<div class="attribute_description">This attribute is the half-life for turning towards the target point.
+The target point is specified by viewOffset, interpreted in the
+frame of reference specified by the target attribute.
+<br><br>
+Half life means that it turns half the angle between its current
+direction and the desired direction in this time.  This causes it to
+slow its rate of turn as it approaches the desired direction.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="uprightDir"></a><p class="attribute_definition">
+<span class="attribute_definition">uprightDir</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the axis, in world coordinates that will be
+vertical on the camera.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="viewOffset"></a><p class="attribute_definition">
+<span class="attribute_definition">viewOffset</span>
+</p>
+
+<div class="attribute_description">This attribute is the offset from target, specified in target coordinates,
+that the camera moves towards looking at.
+<br><br>
+It turns towards this target, if it is moved away, with a half-life of
+trackingAcceleration seconds.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

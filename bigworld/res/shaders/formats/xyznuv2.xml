@@ -1,0 +1,12 @@
+<xyznuv2.xml>
+	<POSITION/> 
+	<NORMAL/>
+	<TEXCOORD>
+		0
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+	<TEXCOORD>
+		1
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+</xyznuv2.xml>

@@ -1,0 +1,29 @@
+1. Firstly, you should use the "EnvironmentTransform" automatic variable to perform projection,
+and then set the z to the w value to ensure all vertices draw at exactly the far plane.
+
+<code>
+float4x4 environmentTransform : EnvironmentTransform;
+...
+o.pos = mul(input.pos, environmentTransform);
+o.pos.z = o.pos.w;
+</code>
+
+2. Secondly, the effect should have two sets of shaders, performing a switch in the technique
+based on the "occlusionTesting" automatic constant.
+
+<code>
+int occlusionTest : EnvironmentOcclusionTest;
+</code>
+
+3. if occlusionTesting is true, the effect, must
+	- perform an alpha-tested view of the object, and use the "EnvironmentOcclusionAlphaRef" automatic variable.
+	- not read from the z-buffer <- especially important, as the code fudges the transforms.
+
+This is used to see if that environment object occludes the sun or not.  Note that the code calling the effect will adjust the scissors rectangle to limit the fillrate used (not much fillrate is used for these tests)
+
+
+4. sky boxes should not set COLORWRITEENABLE in their effects, these are set to 
+	- RED | GREEN | BLUE for the normal draw pass
+	- NONE for the occlusion test pass
+
+5. Since Sky box shaders set the position in the vertex shader to components .xyww of the "EnvironmentTransform", in order to preview or edit models that use these shaders in ModelEditor you will need to add a bool automatic variable called "isBWSkyBox" and set it to true. This allows ModelEditor to optimise the render states for SkyBoxes to ensure they are correctly rendered. For an example of this simply read any of the shaders in this folder.

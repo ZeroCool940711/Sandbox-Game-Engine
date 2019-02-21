@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Filter - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Filter Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Filter is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#reset" class="function_list" >reset</a>( self, time ):</span>
+</td></tr>
+
+</table>
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This is the abstract base class for all <a href="Filter.html">Filter</a> objects.  Filters are used
+to interpolate volatile data of entities (the position and the orientation)
+between server updates of these variables.
+<br><br>
+The only functionality defined in the base class is the reset function,
+which resets the filter to have its current time set to the specified time.
+<br><br>
+Every entity has a filter attribute.  Assigning a filter to that attribute
+sets that entity to be the owner of the specified filter.  This will make
+the filter process server updates for that entity.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="reset"></a><p class="function_definition">
+<span class="function_definition">def reset( <i>self, time</i> ):</span>
+</p>
+
+<div class="function_description">This function resets the current time for the filter to the specified
+time.
+<br><br>
+Filters use the current time to interpolate forwards the last update of
+the volatile data from the server.  Setting this time to a different
+value will move all entities to the place the filter thinks they should
+be at that specified time.
+<br><br>
+As a general rule this shouldn't need to be called.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>time</i></span></td><td><span class="function_parameter_description">&nbsp;a Float the time to set the filter to.
+</span></td></tr>
+
+</table>
+</p>
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

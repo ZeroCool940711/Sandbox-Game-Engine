@@ -1,0 +1,2220 @@
+<html>
+<head>
+<title>DataSection - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>DataSection Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="ResMgr.html" class="module_h1">ResMgr Module</a>]</span></p><p>DataSection is part of the <a href="ResMgr.html">ResMgr</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import ResMgr</pre>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#child" class="function_list" >child</a>( self, index ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#childName" class="function_list" >childName</a>( self, index ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#cleanName" class="function_list" >cleanName</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#copy" class="function_list" >copy</a>( self, source ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#copyToZip" class="function_list" >copyToZip</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createSection" class="function_list" >createSection</a>( self, sectionPath ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createSectionFromString" class="function_list" >createSectionFromString</a>( self, string ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#deleteSection" class="function_list" >deleteSection</a>( self, section ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#has_key" class="function_list" >has_key</a>( self, key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isNameClean" class="function_list" >isNameClean</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#items" class="function_list" >items</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#keys" class="function_list" >keys</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readBlob" class="function_list" >readBlob</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readBool" class="function_list" >readBool</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readFloat" class="function_list" >readFloat</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readFloats" class="function_list" >readFloats</a>( self, sectionName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readInt" class="function_list" >readInt</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readInt64" class="function_list" >readInt64</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readInts" class="function_list" >readInts</a>( self, sectionName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readMatrix" class="function_list" >readMatrix</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readString" class="function_list" >readString</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readStrings" class="function_list" >readStrings</a>( self, sectionName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readVector2" class="function_list" >readVector2</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readVector2s" class="function_list" >readVector2s</a>( self, sectionName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readVector3" class="function_list" >readVector3</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readVector3s" class="function_list" >readVector3s</a>( self, sectionName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readVector4" class="function_list" >readVector4</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readVector4s" class="function_list" >readVector4s</a>( self, sectionName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readWideString" class="function_list" >readWideString</a>( self, sectionName, defaultVal ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#readWideStrings" class="function_list" >readWideStrings</a>( self, sectionName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#save" class="function_list" >save</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#values" class="function_list" >values</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#write" class="function_list" >write</a>( self, sectionName, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeBlob" class="function_list" >writeBlob</a>( self, sectionName, text ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeBool" class="function_list" >writeBool</a>( self, sectionName, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeFloat" class="function_list" >writeFloat</a>( self, sectionName, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeFloats" class="function_list" >writeFloats</a>( self, sectionName, values ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeInt" class="function_list" >writeInt</a>( self, sectionName, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeInt64" class="function_list" >writeInt64</a>( self, sectionName, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeInts" class="function_list" >writeInts</a>( self, sectionName, values ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeMatrix" class="function_list" >writeMatrix</a>( self, sectionName, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeString" class="function_list" >writeString</a>( self, sectionName, text ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeStrings" class="function_list" >writeStrings</a>( self, sectionName, values ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeVector2" class="function_list" >writeVector2</a>( self, sectionName, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeVector2s" class="function_list" >writeVector2s</a>( self, sectionName, values ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeVector3" class="function_list" >writeVector3</a>( self, sectionName, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeVector3s" class="function_list" >writeVector3s</a>( self, sectionName, values ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeVector4" class="function_list" >writeVector4</a>( self, sectionName, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeVector4s" class="function_list" >writeVector4s</a>( self, sectionName, values ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeWideString" class="function_list" >writeWideString</a>( self, sectionName, text ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#writeWideStrings" class="function_list" >writeWideStrings</a>( self, sectionName, values ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#asBinary" class="attribute_list" >asBinary</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#asBlob" class="attribute_list" >asBlob</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#asBool" class="attribute_list" >asBool</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#asFloat" class="attribute_list" >asFloat</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#asInt" class="attribute_list" >asInt</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#asInt64" class="attribute_list" >asInt64</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#asMatrix" class="attribute_list" >asMatrix</a></td><td>&nbsp; <a href="Matrix.html">Matrix</a>
+</td></tr>
+
+<tr valign=top><td><a href="#asString" class="attribute_list" >asString</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#asVector2" class="attribute_list" >asVector2</a></td><td>&nbsp; <a href="Vector2.html">Vector2</a>
+</td></tr>
+
+<tr valign=top><td><a href="#asVector3" class="attribute_list" >asVector3</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#asVector4" class="attribute_list" >asVector4</a></td><td>&nbsp; <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+<tr valign=top><td><a href="#asWideString" class="attribute_list" >asWideString</a></td><td>&nbsp; Wide String
+</td></tr>
+
+<tr valign=top><td><a href="#name" class="attribute_list" >name</a></td><td>&nbsp; Read-Only String
+</td></tr>
+
+<tr valign=top><td><a href="#name" class="attribute_list" >name</a></td><td>&nbsp; Read-Only String
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="DataSection.html">DataSection</a> controls the reading and writing of xml data sections.
+New DataSections can be created via <a href="ResMgr.html">ResMgr</a>.<a href="DataSection.html">DataSection</a>().  In this
+case section cannot be saved because it has no file system association.
+To open an existing <a href="DataSection.html">DataSection</a>, use <a href="ResMgr.html">ResMgr</a>.<a href=ResMgr.html#openSection>openSection</a>().
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="child"></a><p class="function_definition">
+<span class="function_definition">def child( <i>self, index</i> ):</span>
+</p>
+
+<div class="function_description">This method returns the child at the given index.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>index</i></span></td><td><span class="function_parameter_description">&nbsp;the index to look up the child subsection at.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the child at the specified index.
+</td></tr>
+</table>
+</p>
+
+<a name="childName"></a><p class="function_definition">
+<span class="function_definition">def childName( <i>self, index</i> ):</span>
+</p>
+
+<div class="function_description">This method returns the name of the child at the given index.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>index</i></span></td><td><span class="function_parameter_description">&nbsp;the index to look up the child subsection at.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the child at the specified index.
+</td></tr>
+</table>
+</p>
+
+<a name="cleanName"></a><p class="function_definition">
+<span class="function_definition">def cleanName( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method cleans xml section names by replacing spaces with double
+periods and puts "id." in front of xml section names that begin with
+numbers.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A boolean indicating that a change took place in the name.
+</td></tr>
+</table>
+</p>
+
+<a name="copy"></a><p class="function_definition">
+<span class="function_definition">def copy( <i>self, source</i> ):</span>
+</p>
+
+<div class="function_description">This function makes this <a href="DataSection.html">DataSection</a> into a copy of the specified
+<a href="DataSection.html">DataSection</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>source</i></span></td><td><span class="function_parameter_description">&nbsp;the section to copy this one from.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="copyToZip"></a><p class="function_definition">
+<span class="function_definition">def copyToZip( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function makes takes this <a href="DataSection.html">DataSection</a> and copies it
+into a new <a href="DataSection.html">DataSection</a> as well as converting it to a zip
+if possible.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A 2-tuple with the new data section and a boolean
+			to indicate if the conversion was successful.
+</td></tr>
+</table>
+</p>
+
+<a name="createSection"></a><p class="function_definition">
+<span class="function_definition">def createSection( <i>self, sectionPath</i> ):</span>
+</p>
+
+<div class="function_description">This method creates the section specified by the input path, as a
+subsection of the parent.  It will always create a new subsection, even if
+a section of the same name already exists.  The path can contain slashes,
+which will allow for the creation of subsection within subsection.  The
+path will be evaluated through the first section that has that name, and,
+if the whole path already exists, only the innermost section will be
+duplicated.
+<br><br>
+For example, if ds represents the following piece of xml:
+<br><br>
+
+<pre>	&lt;red>
+		&lt;green>
+			&lt;blue>&lt;/blue>
+		&lt;/green>
+	&lt;/red>
+	&lt;red>
+		&lt;green>
+			&lt;blue>&lt;/blue>
+		&lt;/green>
+	&lt;/red>
+</pre>
+<br><br>
+and then the following code is executed:
+<br><br>
+
+<pre>ds.createSection( "red/green/blue" )
+</pre>
+<br><br>
+then the following will be the resultant xml represented by ds:
+<br><br>
+
+<pre>	&lt;red>
+		&lt;green>
+			&lt;blue>&lt;/blue>
+			&lt;blue>&lt;/blue>
+		&lt;/green>
+	&lt;/red>
+	&lt;red>
+		&lt;green>
+			&lt;blue>&lt;/blue>
+		&lt;/green>
+	&lt;/red>
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionPath</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the section to create.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was created.
+</td></tr>
+</table>
+</p>
+
+<a name="createSectionFromString"></a><p class="function_definition">
+<span class="function_definition">def createSectionFromString( <i>self, string</i> ):</span>
+</p>
+
+<div class="function_description">This method creates the section represented by the input string, as a
+subsection of the parent.
+<br><br>
+For example, if ds represents the following piece of xml:
+<br><br>
+
+<pre>	&lt;red>
+		&lt;green>
+			&lt;blue>&lt;/blue>
+		&lt;/green>
+	&lt;/red>
+</pre>
+<br><br>
+and then the following code is executed:
+<br><br>
+
+<pre>string = "&lt;red>&lt;green>&lt;blue>&lt;/blue>&lt;/green>&lt;/red>"
+ds.createSectionFromString( string )
+</pre>
+<br><br>
+then the following will be the resultant xml represented by ds:
+<br><br>
+
+<pre>	&lt;red>
+		&lt;green>
+			&lt;blue>&lt;/blue>
+		&lt;/green>
+	&lt;/red>
+	&lt;red>
+		&lt;green>
+			&lt;blue>&lt;/blue>
+		&lt;/green>
+	&lt;/red>
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>string</i></span></td><td><span class="function_parameter_description">&nbsp;the xml string to create the section from.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was created.
+</td></tr>
+</table>
+</p>
+
+<a name="deleteSection"></a><p class="function_definition">
+<span class="function_definition">def deleteSection( <i>self, section</i> ):</span>
+</p>
+
+<div class="function_description">This method deletes a section referenced either by a PyDataSection or an input string path.
+in the case of input string path,if more than one section is addressed by the path,
+then only the first one is deleted.
+It returns 1 if the section was successfully deleted, 0 otherwise.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>section</i></span></td><td><span class="function_parameter_description">&nbsp;can be either a PyDataSection or a string path of the section to delete
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>1 if it was deleted, 0 otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="has_key"></a><p class="function_definition">
+<span class="function_definition">def has_key( <i>self, key</i> ):</span>
+</p>
+
+<div class="function_description">This method checks if one of the subsections within this data section has
+the specified name, and returns 1 if it does, 0 otherwise.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;A string containing the name of the section to check for.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>An integer: 1 if the section exists, 0 otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isNameClean"></a><p class="function_definition">
+<span class="function_definition">def isNameClean( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method returns whether the section name is valid.  XML can be a little
+more strict about allowed names.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A boolean indicating whether the name is clean.
+</td></tr>
+</table>
+</p>
+
+<a name="items"></a><p class="function_definition">
+<span class="function_definition">def items( <i>self</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The list of (name, <a href="DataSection.html">DataSection</a>) tuples of this section's
+			children.
+</td></tr>
+</table>
+</p>
+
+<a name="keys"></a><p class="function_definition">
+<span class="function_definition">def keys( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method returns a list of all the subsection names, in the order in
+which they appear in the xml code.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The list of the names (strings)
+</td></tr>
+</table>
+</p>
+
+<a name="readBlob"></a><p class="function_definition">
+<span class="function_definition">def readBlob( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified,
+interpreted as a Blob string.  It performs a trim (drop off leading and trailing
+white space) on the text immediately following the opening tag, and
+preceding the first open tag for a subsection.
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the string from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the string contained in the specified section,
+						or the default value (if specified),
+						an empty string otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readBool"></a><p class="function_definition">
+<span class="function_definition">def readBool( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified,
+parsed as a boolean.
+<br><br>
+If it contains the string "true", with any capitalisation, then it returns
+1, otherwise, it returns 0.
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the boolean from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the boolean (integer) contained in the specified
+					section, or the default value (if specified),
+					false otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readFloat"></a><p class="function_definition">
+<span class="function_definition">def readFloat( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified
+parsed as a floating point number.
+<br><br>
+It performs a trim (drop off leading and trailing white space) on the text
+immediately following the opening tag, and preceding the first open tag for
+a subsection.  It tries to parse a float at the front of the resulting
+string, returning the integer if the parse succeeds, 0 otherwise.
+<br><br>
+If the sectionName specified doesn't match any sections, then 0 is returned.
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the float from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the float contained in the specified section,
+						or the default value (if specified),
+						0 otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readFloats"></a><p class="function_definition">
+<span class="function_definition">def readFloats( <i>self, sectionName</i> ):</span>
+</p>
+
+<div class="function_description">This function reads the contents of any subsections of the current section
+with the specified name, and returns the results as tuple of floats.  It
+tries to parse the contents of each subsection as a float, using that
+float if the parse is sucessful, otherwise 0.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsections from which floats will be
+		parsed.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a tuple of the floats from the named subsections.
+</td></tr>
+</table>
+</p>
+
+<a name="readInt"></a><p class="function_definition">
+<span class="function_definition">def readInt( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified
+parsed as an integer.
+<br><br>
+It performs a trim (drop off leading and trailing white space) on the text
+immediately following the opening tag, and preceding the first open tag for
+a subsection.  It tries to parse an integer at the front of the resulting
+string, returning the integer if the parse succeeds, 0 otherwise.
+<br><br>
+If the sectionName specified doesn't match any sections, then 0 is returned.
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the int from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the int contained in the specified section,
+						or the default value (if specified),
+						0 otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readInt64"></a><p class="function_definition">
+<span class="function_definition">def readInt64( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified
+parsed as an integer.
+<br><br>
+It performs a trim (drop off leading and trailing white space) on the text
+immediately following the opening tag, and preceding the first open tag for
+a subsection.  It tries to parse an integer at the front of the resulting
+string, returning the integer if the parse succeeds, 0 otherwise.
+<br><br>
+If the sectionName specified doesn't match any sections, then 0 is returned.
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the int from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the int contained in the specified section,
+						or the default value (if specified),
+						0 otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readInts"></a><p class="function_definition">
+<span class="function_definition">def readInts( <i>self, sectionName</i> ):</span>
+</p>
+
+<div class="function_description">This function reads the contents of any subsections of the current section
+with the specified name, and returns the results as tuple of integers.  It
+tries to parse the contents of each subsection as an integer, using that
+integer if the parse is sucessful, otherwise 0.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsections from which integers will be
+					parsed.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a tuple of the integers from the named subsections.
+</td></tr>
+</table>
+</p>
+
+<a name="readMatrix"></a><p class="function_definition">
+<span class="function_definition">def readMatrix( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified
+parsed as a <a href="Matrix.html">Matrix</a>.
+<br><br>
+It expects there there to be four subsections, called
+<code>&lt;row0&gt;</code>, <code>&lt;row1&gt;</code>,
+<code>&lt;row2&gt;</code> and <code>&lt;row3&gt;</code>. Each of these
+should have three floats separated by white space. If these conditions
+are met, a <a href="Matrix.html">Matrix</a> will be read in from the four rows otherwise, a <a href="Matrix.html">Matrix</a>
+with all zeros will be created.
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the <a href="Matrix.html">Matrix</a> from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="Matrix.html">Matrix</a> contained in the specified section,
+						or the default value (if specified), a
+						Null <a href="Matrix.html">Matrix</a> otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readString"></a><p class="function_definition">
+<span class="function_definition">def readString( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified,
+interpreted as a string.  It performs a trim (drop off leading and trailing
+white space) on the text immediately following the opening tag, and
+preceding the first open tag for a subsection.
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the string from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the string contained in the specified section,
+						or the default value (if specified),
+						an empty string otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readStrings"></a><p class="function_definition">
+<span class="function_definition">def readStrings( <i>self, sectionName</i> ):</span>
+</p>
+
+<div class="function_description">This function reads the contents of any subsections of the current section
+with the specified name, and returns the results as tuple of strings.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsections from which strings will be
+		extracted.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a tuple of the strings from the named subsections.
+</td></tr>
+</table>
+</p>
+
+<a name="readVector2"></a><p class="function_definition">
+<span class="function_definition">def readVector2( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified
+parsed as a <a href="Vector2.html">Vector2</a>.
+<br><br>
+It expects two floating point numbers, separated by white space, at the
+beginning of the text for the named section.  Any trailing text is ignored.
+If it gets this, it returns the two floats as a <a href="Vector2.html">Vector2</a>, otherwise it
+returns (0, 0).
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the <a href="Vector2.html">Vector2</a> from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="Vector2.html">Vector2</a> contained in the specified section,
+						or the default value (if specified),
+						(0, 0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readVector2s"></a><p class="function_definition">
+<span class="function_definition">def readVector2s( <i>self, sectionName</i> ):</span>
+</p>
+
+<div class="function_description">This function reads the contents of any subsections of the current section
+with the specified name, and returns the results as tuple of Vector2s.  It
+tries to parse the contents of each subsection as two floats, separated by
+whitespace.  If the parse is successful, then these two floats are
+interepreted as a <a href="Vector2.html">Vector2</a> and added to the tupple, otherwise the <a href="Vector2.html">Vector2</a>
+(0,0) is used instead.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsections from which Vector2s will be
+					parsed.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a tuple of the Vector2s from the named subsections.
+</td></tr>
+</table>
+</p>
+
+<a name="readVector3"></a><p class="function_definition">
+<span class="function_definition">def readVector3( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified
+parsed as a <a href="Vector3.html">Vector3</a>.
+<br><br>
+It expects three floating point numbers, separated by white space, at the
+beginning of the text for the named section.  Any trailing text is ignored.
+If it gets this, it returns the three floats as a <a href="Vector3.html">Vector3</a>, otherwise it
+returns (0, 0, 0).
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the <a href="Vector3.html">Vector3</a> from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="Vector3.html">Vector3</a> contained in the specified section,
+						or the default value (if specified),
+						(0, 0, 0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readVector3s"></a><p class="function_definition">
+<span class="function_definition">def readVector3s( <i>self, sectionName</i> ):</span>
+</p>
+
+<div class="function_description">This function reads the contents of any subsections of the current section
+with the specified name, and returns the results as tuple of Vector3s.  It
+tries to parse the contents of each subsection as three floats, separated
+by whitespace.  If the parse is successful, then these three floats are
+interepreted as a <a href="Vector3.html">Vector3</a> and added to the tupple, otherwise the <a href="Vector3.html">Vector3</a>
+(0,0,0) is used instead.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsections from which Vector3s will be
+					parsed.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a tuple of the Vector3s from the named subsections.
+</td></tr>
+</table>
+</p>
+
+<a name="readVector4"></a><p class="function_definition">
+<span class="function_definition">def readVector4( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified
+parsed as a <a href="Vector4.html">Vector4</a>.
+<br><br>
+It expects four floating point numbers, separated by white space, at the
+beginning of the text for the named section.  Any trailing text is ignored.
+If it gets this, it returns the four floats as a <a href="Vector4.html">Vector4</a>, otherwise it
+returns (0, 0, 0, 0).
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the <a href="Vector4.html">Vector4</a> from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="Vector4.html">Vector4</a> contained in the specified section,
+						or the default value (if specified),
+						(0, 0, 0, 0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readVector4s"></a><p class="function_definition">
+<span class="function_definition">def readVector4s( <i>self, sectionName</i> ):</span>
+</p>
+
+<div class="function_description">This function reads the contents of any subsections of the current section
+with the specified name, and returns the results as tuple of Vector4s.  It
+tries to parse the contents of each subsection as four floats, separated by
+whitespace.  If the parse is successful, then these four floats are
+interepreted as a <a href="Vector4.html">Vector4</a> and added to the tupple, otherwise the <a href="Vector4.html">Vector4</a>
+(0,0,0,0) is used instead.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsections from which Vector4s will be
+					parsed.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a tuple of the Vector4s from the named subsections.
+</td></tr>
+</table>
+</p>
+
+<a name="readWideString"></a><p class="function_definition">
+<span class="function_definition">def readWideString( <i>self, sectionName, defaultVal</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the contents of the section with the name specified,
+assuming that the contents are a wide string.
+It performs a trim (drop off leading and trailing white space) on the text
+immediately following the opening tag, and preceding the first open tag for
+a subsection.
+<br><br>
+Most wide strings in text xml files are encoded as base64.  However, you
+can create readable wide strings in xml by hand, simply by prefixing a
+standard ascii string with an exclamation mark.
+<br><br>
+If there is more than one section with the specified name, then only the
+first one is used.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the section to get the wide string from.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>defaultVal</i></span></td><td><span class="function_parameter_description">&nbsp;the default value should an error occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the string contained in the specified section,
+						or the default value (if specified),
+						an empty string otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="readWideStrings"></a><p class="function_definition">
+<span class="function_definition">def readWideStrings( <i>self, sectionName</i> ):</span>
+</p>
+
+<div class="function_description">This function reads the contents of any subsections of the current section
+with the specified name, and returns the results as tuple of wide strings.
+It assumes that the contents of those subsections were in wide string
+format.
+<br><br>
+Most wide strings in text xml files are encoded as base64.  However, you
+can create readable wide strings in xml by hand, simply by prefixing a
+standard ascii string with an exclamation mark.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsections from which wide strings
+		will be extracted.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a tuple of the wide strings from the named
+					subsections.
+</td></tr>
+</table>
+</p>
+
+<a name="save"></a><p class="function_definition">
+<span class="function_definition">def save( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method saves the data section back to its underlying file.  If called
+on a <a href="DataSection.html">DataSection</a> which does not correspond to a file, then it causes an
+IO error.
+</div>
+
+<a name="values"></a><p class="function_definition">
+<span class="function_definition">def values( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method returns a list of all child sections, in the order in which
+they appear in the XML.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a list of DataSections
+</td></tr>
+</table>
+</p>
+
+<a name="write"></a><p class="function_definition">
+<span class="function_definition">def write( <i>self, sectionName, value</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name.  It creates the
+section if it does not already exist.  If one or more sections of that name
+already exist, then it modifies the first one.  It writes whatever value
+it was given as its second argument as the contents for the named section.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to write to.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;the value to write to the named section.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeBlob"></a><p class="function_definition">
+<span class="function_definition">def writeBlob( <i>self, sectionName, text</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified BLOB string.  If one or more subsections with that name already exist,
+then the value of the first one is replaced with the specified string.
+This will not effect any subsections of the named subsection, only its
+actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>text</i></span></td><td><span class="function_parameter_description">&nbsp;the text to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeBool"></a><p class="function_definition">
+<span class="function_definition">def writeBool( <i>self, sectionName, val</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified integer as a string.  If the integer is zero, 'false' is written,
+otherwise 'true'. If one or more subsections with that name already exist,
+then the value of the first one is replaced with the specified boolean.
+This will not effect any subsections of the named subsection, only its
+actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the integer to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeFloat"></a><p class="function_definition">
+<span class="function_definition">def writeFloat( <i>self, sectionName, val</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified float as a string.  If one or more subsections with that name
+already exist, then the value of the first one is replaced with the
+specified float.  This will not effect any subsections of the named
+subsection, only its actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the float to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeFloats"></a><p class="function_definition">
+<span class="function_definition">def writeFloats( <i>self, sectionName, values</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a subsection of the specified name for each element
+of the supplied sequence, writing the corresponding float from the sequence
+as the contents of that subsection.
+<br><br>
+For example, the following statement:
+<br><br>
+
+<pre>ds.writeInts( "sect", ( 123.4, 456.7 ) )
+</pre>
+<br><br>
+would result in the generation of the following xml
+<br><br>
+
+<pre>	&lt;sect> 123.4 &lt;/sect>
+	&lt;sect> 456.7 &lt;/sect>
+</pre>
+<br><br>
+This function has no effect on existing subsections of the same name.  A
+new subsection is always created for each element in the sequence.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>values</i></span></td><td><span class="function_parameter_description">&nbsp;the sequence of floats to use as values for the new
+					subsections.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="writeInt"></a><p class="function_definition">
+<span class="function_definition">def writeInt( <i>self, sectionName, val</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified integer as a string.  If one or more subsections with that name
+already exist, then the value of the first one is replaced with the
+specified integer.  This will not effect any subsections of the named
+subsection, only its actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the integer to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeInt64"></a><p class="function_definition">
+<span class="function_definition">def writeInt64( <i>self, sectionName, val</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified 64-bit integer. If one or more subsections with that name alreadycl
+exist, then the value of the first one is replaced with the specified value.
+This will not affect any subsections of the named *	subsection, only its actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the integer to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeInts"></a><p class="function_definition">
+<span class="function_definition">def writeInts( <i>self, sectionName, values</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a subsection of the specified name for each element
+of the supplied sequence, writing the corresponding integer from the
+sequence as the contents of that subsection.
+<br><br>
+For example, the following statement:
+<br><br>
+
+<pre>ds.writeInts( "sect", ( 123, 456 ) )
+</pre>
+<br><br>
+would result in the generation of the following xml
+<br><br>
+
+<pre>	&lt;sect> 123 &lt;/sect>
+	&lt;sect> 456 &lt;/sect>
+</pre>
+<br><br>
+This function has no effect on existing subsections of the same name.  A
+new subsection is always created for each element in the sequence.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>values</i></span></td><td><span class="function_parameter_description">&nbsp;the sequence of integers to use as values for the new
+					subsections.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="writeMatrix"></a><p class="function_definition">
+<span class="function_definition">def writeMatrix( <i>self, sectionName, val</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified <a href="Matrix.html">Matrix</a>. If one or more subsections with that name already exist,
+then the value of the first one is replaced with the specified value.
+This will not effect any subsections of the named subsection, only its
+actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="Matrix.html">Matrix</a> to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeString"></a><p class="function_definition">
+<span class="function_definition">def writeString( <i>self, sectionName, text</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified string.  If one or more subsections with that name already exist,
+then the value of the first one is replaced with the specified string.
+This will not effect any subsections of the named subsection, only its
+actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>text</i></span></td><td><span class="function_parameter_description">&nbsp;the text to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeStrings"></a><p class="function_definition">
+<span class="function_definition">def writeStrings( <i>self, sectionName, values</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a subsection of the specified name for each element
+of the supplied list, writing the corresponding string from the list as the
+contents of that subsection.
+<br><br>
+For example, the following statement:
+<br><br>
+
+<pre>ds.writeStrings( "sect", ( "str1", "str2" ) )
+</pre>
+<br><br>
+would result in the generation of the following xml:
+<br><br>
+
+<pre>	&lt;sect> str1 &lt;/sect>
+	&lt;sect> str2 &lt;/sect>
+</pre>
+<br><br>
+This function has no effect on existing subsections of the same name.  A
+new subsection is always created for each list element.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>values</i></span></td><td><span class="function_parameter_description">&nbsp;the list of strings to use as values for the new
+					subsections.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="writeVector2"></a><p class="function_definition">
+<span class="function_definition">def writeVector2( <i>self, sectionName, val</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified <a href="Vector2.html">Vector2</a> as a string, consisting of two floats, separated by white
+space.  If one or more subsections with that name already exist, then the
+value of the first one is replaced with the specified <a href="Vector2.html">Vector2</a>.
+This will not effect any subsections of the named subsection, only its
+actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="Vector2.html">Vector2</a> to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeVector2s"></a><p class="function_definition">
+<span class="function_definition">def writeVector2s( <i>self, sectionName, values</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a subsection of the specified name for each element
+of the supplied sequence, writing the corresponding <a href="Vector2.html">Vector2</a> from the
+sequence as the contents of that subsection.
+<br><br>
+For example, the following statement:
+<br><br>
+
+<pre>ds.writeVector2s( "sect", ( (1.1, 2.2) , (3.3, 4.4) ) )
+</pre>
+<br><br>
+would result in the generation of the following xml
+<br><br>
+
+<pre>	&lt;sect> 1.100000 2.200000 &lt;/sect>
+	&lt;sect> 3.300000 4.400000 &lt;/sect>
+</pre>
+<br><br>
+This function has no effect on existing subsections of the same name.  A
+new subsection is always created for each element in the sequence.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>values</i></span></td><td><span class="function_parameter_description">&nbsp;the sequence of Vector2s to use as values for the new
+					subsections.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="writeVector3"></a><p class="function_definition">
+<span class="function_definition">def writeVector3( <i>self, sectionName, val</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified <a href="Vector3.html">Vector3</a> as a string, consisting of three floats, separated by
+white space.  If one or more subsections with that name already exist,
+then the value of the first one is replaced with the specified <a href="Vector3.html">Vector3</a>.
+This will not effect any subsections of the named subsection, only its
+actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="Vector3.html">Vector3</a> to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeVector3s"></a><p class="function_definition">
+<span class="function_definition">def writeVector3s( <i>self, sectionName, values</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a subsection of the specified name for each element
+of the supplied sequence, writing the corresponding <a href="Vector3.html">Vector3</a> from the
+sequence as the contents of that subsection.
+<br><br>
+For example, the following statement:
+<br><br>
+
+<pre>ds.writeVector3s( "sect", ( (1.1, 2.2, 3.3) , (3.3, 4.4, 5.5) ) )
+</pre>
+<br><br>
+would result in the generation of the following xml
+<br><br>
+
+<pre>	&lt;sect> 1.100000 2.200000 3.300000 &lt;/sect>
+	&lt;sect> 3.300000 4.400000 5.500000 &lt;/sect>
+</pre>
+<br><br>
+This function has no effect on existing subsections of the same name.  A
+new subsection is always created for each element in the sequence.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>values</i></span></td><td><span class="function_parameter_description">&nbsp;the sequence of Vector3s to use as values for the new
+					subsections.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="writeVector4"></a><p class="function_definition">
+<span class="function_definition">def writeVector4( <i>self, sectionName, val</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified <a href="Vector4.html">Vector4</a> as a string, consisting of four floats, separated by
+white space.  If one or more subsections with that name already exist,
+then the value of the first one is replaced with the specified <a href="Vector4.html">Vector4</a>.
+This will not effect any subsections of the named subsection, only its
+actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="Vector4.html">Vector4</a> to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeVector4s"></a><p class="function_definition">
+<span class="function_definition">def writeVector4s( <i>self, sectionName, values</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a subsection of the specified name for each element
+of the supplied sequence, writing the corresponding <a href="Vector4.html">Vector4</a> from the
+sequence as the contents of that subsection.
+<br><br>
+For example, the following statement:
+<br><br>
+
+<pre>ds.writeVector3s( "sect", ( (1.1, 2.2, 3.3, 4.4) , (3.3, 4.4, 5.5, 6.6) ) )
+</pre>
+<br><br>
+would result in the generation of the following xml
+<br><br>
+
+<pre>	&lt;sect> 1.100000 2.200000 3.300000 4.400000 &lt;/sect>
+	&lt;sect> 3.300000 4.400000 5.500000 6.600000 &lt;/sect>
+</pre>
+<br><br>
+This function has no effect on existing subsections of the same name.  A
+new subsection is always created for each element in the sequence.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>values</i></span></td><td><span class="function_parameter_description">&nbsp;the sequence of Vector4s to use as values for the new
+					subsections.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="writeWideString"></a><p class="function_definition">
+<span class="function_definition">def writeWideString( <i>self, sectionName, text</i> ):</span>
+</p>
+
+<div class="function_description">This function writes a subsection with the specified name, writing the
+specified wide string.  If one or more subsections with that name already
+exist, then the value of the first one is replaced with the specified wide
+string.  This will not effect any subsections of the named subsection, only
+its actual contents.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create or overwrite.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>text</i></span></td><td><span class="function_parameter_description">&nbsp;the text to replace the subsection contents with.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was written to.
+</td></tr>
+</table>
+</p>
+
+<a name="writeWideStrings"></a><p class="function_definition">
+<span class="function_definition">def writeWideStrings( <i>self, sectionName, values</i> ):</span>
+</p>
+
+<div class="function_description">This function creates a subsection of the specified name for each element
+of the supplied list, writing the corresponding wide string from the list
+as the contents of that subsection.
+<br><br>
+This function has no effect on existing subsections of the same name.  A
+new subsection is always created for each list element.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;the name of the subsection to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>values</i></span></td><td><span class="function_parameter_description">&nbsp;the list of wide strings to use as values for the new
+					subsections.
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="asBinary"></a><p class="attribute_definition">
+<span class="attribute_definition">asBinary</span>
+</p>
+
+<div class="attribute_description">This attribute is the underlying binary data of this <a href="DataSection.html">DataSection</a>,
+encapsulated in a string.  On reading, it includes all the child
+sections.  On writing, it may invalidate previously accessed child
+sections.  Use with care.  It is better to use the 'copy' method to
+copy DataSections around than to use this attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="asBlob"></a><p class="attribute_definition">
+<span class="attribute_definition">asBlob</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as a
+BASE64 string.  When reading it, it doesn't include any of the child
+sections. Also on reading, the leading and trailing white space is
+trimmed off the string.  On writing, it doesn't effect any of the
+child nodes.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="asBool"></a><p class="attribute_definition">
+<span class="attribute_definition">asBool</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as a
+boolean.
+<br><br>
+On reading, if the text contains "true" in any capitalisation, it
+returns 1, otherwise it returns 0.
+<br><br>
+On writing, if it is given a 0, it writes "false" otherwise it writes
+"true".
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="asFloat"></a><p class="attribute_definition">
+<span class="attribute_definition">asFloat</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as an
+float.  On reading, it reads the string from the top level, and tries
+to parse a float off the front of it.  If this is successful, the float
+is returned, otherwise zero.
+<br><br>
+On writing, it doesn't effect any of the child nodes, but replaces the
+top level string with the string version of the float.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="asInt"></a><p class="attribute_definition">
+<span class="attribute_definition">asInt</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as an
+integer.  On reading, it reads the string from the top level, and tries
+to parse an integer off the front of it.  If this is successful, the
+integer is returned, otherwise zero.
+<br><br>
+On writing, it doesn't effect any of the child nodes, but replaces the
+top level string with the string version of the integer.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="asInt64"></a><p class="attribute_definition">
+<span class="attribute_definition">asInt64</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as a 64
+bit integer. On reading, it reads the string from the top level and
+tries to parse an integer off the front of it. If this is successful,
+the integer is returned, otherwise zero.
+<br><br>
+On writing, it doesn't effect any of the child nodes, but replaces the
+top level string with the string version of the integer.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="asMatrix"></a><p class="attribute_definition">
+<span class="attribute_definition">asMatrix</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as a
+<a href="Matrix.html">Matrix</a>.
+<br><br>
+On reading, it checks for four sub-sections, called <row0>, <row1>,
+<row2> and <row3>.  If each of these exist and contain three floats
+separated by whitespace, then they are interpreted as the four rows
+of a <a href="Matrix.html">Matrix</a>, which is created and returned.  Otherwise, the <a href="Matrix.html">Matrix</a>
+of all zeros is returned.
+<br><br>
+On Writing, it accepts a <a href="Matrix.html">Matrix</a>, and writes it out to the four
+sub-sections <row0>, <row1>, <row2> and <row3>, each of which will
+contain one row of the <a href="Matrix.html">Matrix</a> - three floats separated by white
+space.  This will not effect any top level text stored in this
+<a href="DataSection.html">DataSection</a>.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Matrix.html">Matrix</a>
+</td></tr>
+</table>
+</p>
+
+<a name="asString"></a><p class="attribute_definition">
+<span class="attribute_definition">asString</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as a
+string.  When reading it, it doesn't include any of the child sections.
+Also on reading, the leading and trailing white space is trimmed off
+the string.  On writing, it doesn't effect any of the child nodes.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="asVector2"></a><p class="attribute_definition">
+<span class="attribute_definition">asVector2</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as a
+<a href="Vector2.html">Vector2</a>.  On reading, it reads the string from the top level, and tries
+to parse it as two floats, separated by white space.  If this is
+successful, the <a href="Vector2.html">Vector2</a> of these floats is returned, otherwise the
+<a href="Vector2.html">Vector2</a> (0,0).
+<br><br>
+On writing, it doesn't effect any of the child nodes, but replaces the
+top level string with the string version of the two components of the
+<a href="Vector2.html">Vector2</a> as floats, separated by white space.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector2.html">Vector2</a>
+</td></tr>
+</table>
+</p>
+
+<a name="asVector3"></a><p class="attribute_definition">
+<span class="attribute_definition">asVector3</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as a
+<a href="Vector3.html">Vector3</a>.  On reading, it reads the string from the top level, and tries
+to parse it as three floats, separated by white space.  If this is
+successful, the <a href="Vector3.html">Vector3</a> of these floats is returned, otherwise the
+<a href="Vector3.html">Vector3</a> (0,0,0).
+<br><br>
+On writing, it doesn't effect any of the child nodes, but replaces the
+top level string with the string version of the three components of the
+<a href="Vector3.html">Vector3</a> as floats, separated by white space.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="asVector4"></a><p class="attribute_definition">
+<span class="attribute_definition">asVector4</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as a
+<a href="Vector4.html">Vector4</a>.  On reading, it reads the string from the top level, and tries
+to parse it as four floats, separated by white space.  If this is
+successful, the <a href="Vector4.html">Vector4</a> of these floats is returned, otherwise the
+<a href="Vector4.html">Vector4</a> (0,0,0,0).
+<br><br>
+On writing, it doesn't effect any of the child nodes, but replaces the
+top level string with the string version of the four components of the
+<a href="Vector4.html">Vector4</a> as floats, separated by white space.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<a name="asWideString"></a><p class="attribute_definition">
+<span class="attribute_definition">asWideString</span>
+</p>
+
+<div class="attribute_description">This attribute is the value of this <a href="DataSection.html">DataSection</a>, interpreted as a
+wide string.  When reading it, it doesn't include any of the child
+sections.  Also on reading, the leading and trailing white space is
+trimmed off the string.  On writing, it doesn't effect any of the
+child nodes.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Wide String
+</td></tr>
+</table>
+</p>
+
+<a name="name"></a><p class="attribute_definition">
+<span class="attribute_definition">name</span>
+</p>
+
+<div class="attribute_description">This attribute is the name of the data section.  It is read-only,
+and consists of the tag surrounding this particular section
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only String
+</td></tr>
+</table>
+</p>
+
+<a name="name"></a><p class="attribute_definition">
+<span class="attribute_definition">name</span>
+</p>
+
+<div class="attribute_description">This attribute is the name of the data section.  It is read-only,
+and consists of the tag surrounding this particular section
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only String
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

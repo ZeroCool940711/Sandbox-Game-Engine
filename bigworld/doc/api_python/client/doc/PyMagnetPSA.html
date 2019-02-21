@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>PyMagnetPSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyMagnetPSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyMagnetPSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#minDist" class="attribute_list" >minDist</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#source" class="attribute_list" >source</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>.
+</td></tr>
+
+<tr valign=top><td><a href="#strength" class="attribute_list" >strength</a></td><td>&nbsp; Float.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="PyMagnetPSA.html">PyMagnetPSA</a> <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> sets up an acceleration on particles
+towards a particular point (magnitude based upon the square of the distance
+from that point).
+<br><br>
+A new <a href="PyMagnetPSA.html">PyMagnetPSA</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#MagnetPSA>MagnetPSA</a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="minDist"></a><p class="attribute_definition">
+<span class="attribute_definition">minDist</span>
+</p>
+
+<div class="attribute_description">minDist exists to avoid singularity type effects when a particle
+approaches the source of the attraction. It is used when calculating
+attraction instead of the particles distance to the source, when the
+particles distance to the source < minDist. Default value is 1.0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="source"></a><p class="attribute_definition">
+<span class="attribute_definition">source</span>
+</p>
+
+<div class="attribute_description">Source is a <a href="MatrixProvider.html">MatrixProvider</a> specifying the point to which particles
+are attracted. Default value is the origin of the ParticleSystem to
+which this ParticleSystemAction is attached.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="strength"></a><p class="attribute_definition">
+<span class="attribute_definition">strength</span>
+</p>
+
+<div class="attribute_description">The strength attribute is applied as a scaling factor to force of
+attraction between particles, and the MagnetPSA's source. Default value
+is 1.0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

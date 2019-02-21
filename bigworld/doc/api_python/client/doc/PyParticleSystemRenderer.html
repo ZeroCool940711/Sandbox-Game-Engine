@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>PyParticleSystemRenderer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyParticleSystemRenderer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyParticleSystemRenderer is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#local" class="attribute_list" >local</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+<tr valign=top><td><a href="#viewDependent" class="attribute_list" >viewDependent</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+ParticleSystemRenderer is an abstract base class for <a href="PyParticleSystem.html">PyParticleSystem</a>
+renderers.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="local"></a><p class="attribute_definition">
+<span class="attribute_definition">local</span>
+</p>
+
+<div class="attribute_description">If local is set to true, the coordinates of the particle system are in
+local space rather than world space.  The viewDependant flag will be
+false if local set to true.  If both are false, implies particle system
+will be rendered in world space.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<a name="viewDependent"></a><p class="attribute_definition">
+<span class="attribute_definition">viewDependent</span>
+</p>
+
+<div class="attribute_description">If viewDependent is set to true, the coordinates of the particle system
+are in camera space rather than world space (ie, dependant on view).
+The local flag will be false if viewDependant set to true.  If both are
+false, implies particle system will be rendered in world space.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

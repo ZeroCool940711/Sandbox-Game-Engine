@@ -1,0 +1,240 @@
+<html>
+<head>
+<title>GraphGUIComponent - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>GraphGUIComponent Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>GraphGUIComponent is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#frequency" class="attribute_list" >frequency</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#gridColour" class="attribute_list" >gridColour</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#gridSpacing" class="attribute_list" >gridSpacing</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#input" class="attribute_list" >input</a></td><td>&nbsp; <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#lineColours" class="attribute_list" >lineColours</a></td><td>&nbsp; list of <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+<tr valign=top><td><a href="#maxY" class="attribute_list" >maxY</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#minY" class="attribute_list" >minY</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#nPoints" class="attribute_list" >nPoints</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#showGrid" class="attribute_list" >showGrid</a></td><td>&nbsp; float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="GraphGUIComponent.html">GraphGUIComponent</a> is a <a href="GUI.html">GUI</a> component used to display
+a line graph of a <a href="Vector4Provider.html">Vector4Provider</a> on the screen.
+<br><br>
+A new <a href="GraphGUIComponent.html">GraphGUIComponent</a> is created using <a href="GUI.html">GUI</a>.<a href=GUI.html#Graph>Graph</a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="frequency"></a><p class="attribute_definition">
+<span class="attribute_definition">frequency</span>
+</p>
+
+<div class="attribute_description">This specifies the rate at which the graph will be updated.
+If frequency is less than 0, the update rate will be in frames (ticks).
+If it is greater than 0, it will be in seconds.
+Defaults to 0.033
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="gridColour"></a><p class="attribute_definition">
+<span class="attribute_definition">gridColour</span>
+</p>
+
+<div class="attribute_description">Specifies the colour to use when drawing the background grid.
+Defaults to (255, 255, 255, 255).
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="GraphGUIComponent.html">GraphGUIComponent</a>.<a href="GraphGUIComponent.html#showGrid">showGrid</a><br><a href="GraphGUIComponent.html">GraphGUIComponent</a>.<a href="GraphGUIComponent.html#gridSpacing">gridSpacing</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="gridSpacing"></a><p class="attribute_definition">
+<span class="attribute_definition">gridSpacing</span>
+</p>
+
+<div class="attribute_description">Specifies the grid spacing for the background grid, in pixels. 
+Defaults to 10.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="GraphGUIComponent.html">GraphGUIComponent</a>.<a href="GraphGUIComponent.html#showGrid">showGrid</a><br><a href="GraphGUIComponent.html">GraphGUIComponent</a>.<a href="GraphGUIComponent.html#gridColour">gridColour</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="input"></a><p class="attribute_definition">
+<span class="attribute_definition">input</span>
+</p>
+
+<div class="attribute_description">This stores the information to be displayed on the screen.
+The <a href="Vector4Provider.html">Vector4Provider</a> is represented as 4 line graphs, one for
+each of the x,y,z,w components.
+<br><br>
+Example:
+
+<pre>import <a href="GUI.html">GUI</a>
+import <a href="Math.html">Math</a>
+g = <a href="GUI.html">GUI</a>.<a href=GUI.html#Graph>Graph</a>( "" )
+<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>(g)
+g.input = <a href="Math.html">Math</a>.<a href=Math.html#Vector4Product><a href="Vector4Product.html">Vector4Product</a></a>()
+g.input.a = <a href="Math.html">Math</a>.<a href=Math.html#Vector4LFO><a href="Vector4LFO.html">Vector4LFO</a></a>()
+g.input.b = ( 1.0, 0.8, 0.4, 0.2 )
+g.frequency = 0.015
+g.nPoints = 100
+g.size = (1.5, 1.5)
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="lineColours"></a><p class="attribute_definition">
+<span class="attribute_definition">lineColours</span>
+</p>
+
+<div class="attribute_description">This list configures the colours used to display each
+line in the graph (maximum of four lines).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>list of <a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<a name="maxY"></a><p class="attribute_definition">
+<span class="attribute_definition">maxY</span>
+</p>
+
+<div class="attribute_description">Specifies the maximum height that the graph will be displayed on the screen.
+Value should be between minY and 1.0 (top of screen).
+Defaults to 1.0
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="minY"></a><p class="attribute_definition">
+<span class="attribute_definition">minY</span>
+</p>
+
+<div class="attribute_description">Specifies the minimum height that the graph will be displayed on the screen.
+Value should be between maxY and 0.0 (bottom of screen).
+Defaults to 0.0
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="nPoints"></a><p class="attribute_definition">
+<span class="attribute_definition">nPoints</span>
+</p>
+
+<div class="attribute_description">This stores the number of points that will be displayed in the graph.
+Defaults to 25.
+</div>
+
+<a name="showGrid"></a><p class="attribute_definition">
+<span class="attribute_definition">showGrid</span>
+</p>
+
+<div class="attribute_description">Toggles the display of a background grid. Defaults to False.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="GraphGUIComponent.html">GraphGUIComponent</a>.<a href="GraphGUIComponent.html#gridSpacing">gridSpacing</a><br><a href="GraphGUIComponent.html">GraphGUIComponent</a>.<a href="GraphGUIComponent.html#gridColour">gridColour</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

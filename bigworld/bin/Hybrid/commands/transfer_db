@@ -1,0 +1,333 @@
+#!/usr/bin/env python
+
+# This script is used by the data consolidation tool and the snapshot tool
+# to transfer databases to another machine. It has three main functions:
+#	1. Transferring a secondary database for data consolidation.
+#	2. Transferring a secondary database for a snapshot.
+#	3. Transferring the primary database for a snapshot.
+# 
+# This script is invoked via bwmachined.
+
+import sys
+import socket
+import struct
+import os
+import commands
+import tempfile
+import MySQLdb
+
+import bwsetup
+bwsetup.addPath( "../../../tools/server" )
+
+from pycommon import bwconfig
+from pycommon import cluster
+from pycommon import uid as uidmodule
+from pycommon import log
+
+snapshot_helper = bwsetup.appdir + "/../../../tools/server/snapshot/snapshot_helper"
+
+#--------------------------------------------------------------------------
+# Subsection: Primary database snapshot
+#--------------------------------------------------------------------------
+
+def transferPrimaryDBForSnapshot( args ):
+	dstIP = args[2]
+	dstPath = args[3]
+	bwLimit = args[4]
+
+	dbUser = bwconfig.get( "dbMgr/username" )
+	dbPass = bwconfig.get( "dbMgr/password" )
+
+	c = cluster.Cluster()
+	me = c.getUser( uidmodule.getuid() )
+
+	lvSnapshot = ""
+	dataDir = ""
+
+	isOK = True
+
+	# Test snapshot_helper
+	if os.system( snapshot_helper ) != 0:
+		me.log( "Snapshot: snapshot_helper could not setuid to root" )
+		return -1
+
+	# Create snapshot
+	cmd = "%s acquire-snapshot %s %s" % (snapshot_helper, dbUser, dbPass)
+	(status, output) = commands.getstatusoutput( cmd )
+	if status == 0:
+		srcPath = output.split( "\n" )[-1]
+	else:
+		me.log( "Snapshot: snapshot_helper could not acquire snapshot" )
+		me.log( "Snapshot: %s" % output )
+		isOK = False
+
+	# Send snapshot
+	if isOK:
+		( status, output ) = send( srcPath, dstIP, dstPath, bwLimit, "mysql.sock" )
+		if status != 0:
+			me.log( "Snapshot: transfer_db could not send [%s]" % output )
+			isOK = False
+
+	# Remove snapshot
+	(status, output) = commands.getstatusoutput( snapshot_helper + " release-snapshot" )
+	if status != 0:
+		me.log( "Snapshot: snapshot_helper could not release snapshot" )
+		me.log( "Snapshot: %s" % output )
+		isOK = False
+
+	if isOK:
+		return 0
+	else:
+		return -1
+
+
+#--------------------------------------------------------------------------
+# Subsection: Secondary database snapshot
+#--------------------------------------------------------------------------
+
+def transferSecondaryDBForSnapshot( args ):
+	filename = args[2]
+	dstIP = args[3]
+	dstPath = args[4]
+	bwLimit = args[5]
+
+	c = cluster.Cluster()
+	me = c.getUser( uidmodule.getuid() )
+
+	tempdir = tempfile.mkdtemp()
+	snapshot = tempdir + os.sep + os.path.split( filename )[1]
+
+	# Dump contents into a snapshot
+	cmd = "sqlite3 %s .dump | sqlite3 %s" % (filename, snapshot)
+
+	if os.system( cmd ) != 0:
+		me.log( "Snapshot: transfer_db could not snapshot secondary " \
+				"database [%s]" % cmd )
+		return -1
+
+    # Send to destination
+	( status, output ) = send( snapshot, dstIP, dstPath, bwLimit )
+	if status != 0:
+		me.log( "Snapshot: transfer_db could not send [%s]" % output )
+		return -1
+
+	os.remove( snapshot )
+
+	return 0
+
+
+#--------------------------------------------------------------------------
+# Subsection: Secondary database consolidate
+#--------------------------------------------------------------------------
+
+# Generator for reading an entire file
+def fileContents( file ):
+	READ_SIZE = 1024;
+
+	while True:
+		data = file.read( READ_SIZE )
+		yield data
+		if (len( data ) < READ_SIZE):
+			break;
+
+# Helper method to log an error
+def logError( message ):
+	print message
+
+	c = cluster.Cluster()
+	me = c.getUser( uidmodule.getuid() )
+	me.log( "%s: %s" % (__file__, message) , "ERROR" )
+
+def transferSecondaryDBForConsolidation( args ):
+    # TODO: Handle errors
+	filename = args[2]
+	ip,portStr = args[3].split( ':', 2 );
+
+	try:
+		port = int( portStr, 10 )
+	except ValueError, message:
+		logError( message )
+		return -1
+
+	error = None
+
+	# Check receiver exists
+	sock = None
+	try:
+		s = socket.socket( socket.AF_INET, socket.SOCK_STREAM )
+		s.connect( (ip, port) )
+		sock = s
+	except socket.error, (errno, string):
+		logError( "socket.error %d: %s" % (errno, string) )
+	except socket.herror, (h_errno, string):
+		logError( "socket.herror %d: %s" % (h_errno, string) )
+	except socket.gaierror, (error, string):
+		logError( "socket.gaierror %d: %s" % (errno, string) )
+
+	if not sock:
+		return -1
+
+	print "Connected to %s:%s" % (ip,portStr)
+	
+	# Check file exists. 
+	# sqlite3.connect() actually creates the file if it doesn't exist.
+	try:
+		stat = os.stat( filename )
+	except Exception, e:
+		msgStr = str( e )
+		sock.sendall( struct.pack( '=cH', 'e', len(msgStr) ) )
+		sock.sendall( msgStr )
+		return -1
+
+	# Check that we have sqlite3 library
+	importErrorStr = None
+	try:
+		import sqlite3
+	except Exception, e:
+		importErrorStr = str( e )
+	
+	if (importErrorStr):
+		# Work-around for pre-Python 2.5 
+		importErrorStr = None
+		try:
+			from pysqlite2 import dbapi2 as sqlite3
+		except Exception, e:
+			importErrorStr = str( e )
+
+	if (importErrorStr):
+		importErrorStr += '\nPlease install python-pysqlite2 or upgrade '\
+							'to Python 2.5 on this machine'
+		sock.sendall( struct.pack( '=cH', 'e', len(importErrorStr) ) )
+		sock.sendall( importErrorStr )
+		return -1
+		
+	try:
+		# Open and close the database to get rid of any journal files.
+		connection = sqlite3.connect( filename )
+		cursor = connection.cursor()
+		cursor.execute( "SELECT * FROM tbl_checksum" )
+		connection.close()
+	except Exception, e:
+		msgStr = str( e )
+		sock.sendall( struct.pack( '=cH', 'e', len(msgStr) ) )
+		sock.sendall( msgStr )
+		return -1
+
+	# Open file for reading
+	file = None
+	try:
+		file = open( filename, "rb" )
+	except IOError, message:
+		msgStr = str( message )
+		sock.sendall( struct.pack( '=cH', 'e', len(msgStr) ) )
+		sock.sendall( msgStr )
+
+	if not file:
+		return -1;
+
+	print "Sending file", filename
+
+	# Send filename
+	sock.sendall( struct.pack( '=cH', 'n', len(filename) ) )
+	sock.sendall( filename )
+
+	# Send file length
+	file.seek( 0, 2 )	# Seek to end
+	sock.sendall( struct.pack( 'I', file.tell()) )
+	file.seek( 0, 0 )	# Seek to beginning
+
+	# Send file
+	for data in fileContents( file ):
+		sock.sendall( data )
+
+	file.close()
+
+	# Wait for command to delete file
+	command = sock.recv( 1 )
+	if command == 'd':
+		try:
+			os.remove( filename )
+			print "Deleted file", filename
+		except OSError, message:
+			logError( "Failed to delete file %s: %s" % (filename, str(message)))
+			return -1
+	else:
+		logError( "Received invalid command: %s" % (command,) )
+		return -1
+
+	return 0
+
+
+#--------------------------------------------------------------------------
+# Subsection: Helpers
+#--------------------------------------------------------------------------
+
+def send( src, ip, path, bwLimit, excludePattern = None ):
+	# Remove trailing '/' as we rsync the directory as well
+	if src.endswith( '/' ):
+		src = src[:-1]
+
+	dst = "%s:%s" % (ip, path)
+
+	# Send via rsync
+	cmd = "rsync -a %s %s" % ( src, dst )
+
+	if bwLimit != "0":
+		cmd = cmd + " --bwlimit=%s" % bwLimit
+
+	if excludePattern:
+		cmd = cmd + " --exclude=\"%s\"" % excludePattern
+
+	(status, output) = commands.getstatusoutput( cmd )
+	if status != 0:
+		return ( status, output )
+
+	# Send complete indicator
+	src = "/tmp/" + src.split( os.sep )[-1]
+	open( "%s.complete" % src, "w" ).close()
+	cmd = "rsync %s.complete %s" % ( src, dst )
+	os.system( cmd )
+	os.remove( "%s.complete" % src )
+
+	return ( 0, None )
+
+#--------------------------------------------------------------------------
+# Subsection: Main
+#--------------------------------------------------------------------------
+
+def main():
+    # Remove --res argument
+	args = sys.argv
+	if ('--res' in args):
+		resIdx = args.index( '--res' )
+		del args[ resIdx:resIdx+2 ]
+
+	# Transfer secondary for consolidation
+	if args[1] == "consolidate":
+		if len( args ) == 4:
+			return transferSecondaryDBForConsolidation( args )
+		else:
+			print "transfer_db consolidate <sqlitefile> "	\
+		   		"<reciever_ip>:<receiver_port>"
+
+	# Transfer primary for snapshot.py
+	if args[1] == "snapshotprimary":
+		if len( args ) == 5: 
+			return transferPrimaryDBForSnapshot( args )
+		else:
+			print "transfer_db snapshotprimary <dst_ip> <dst_path> "	\
+			   "<bwlimit_kbps>"
+
+	# Transfer secondary for snapshot.py
+	if args[1] == "snapshotsecondary":
+		if len( args ) == 6:
+			return transferSecondaryDBForSnapshot( args )
+		else:
+			print "transfer_db snapshotsecondary <sqlitefile> "	\
+				"<dst_ip> <dst_path> <bwlimit_kbps>"
+
+	return -1
+
+
+if __name__ == "__main__":
+	sys.exit( main() )

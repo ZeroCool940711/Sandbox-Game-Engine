@@ -1,0 +1,8 @@
+<root>
+	<materialNames>	</materialNames>
+	<visibilityBox>
+		<min>	-19.999998 2.645000 -19.999998	</min>
+		<max>	20.000002 2.645000 20.000002	</max>
+	</visibilityBox>
+	<nodelessVisual>	system/models/overhead02	</nodelessVisual>
+</root>

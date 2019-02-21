@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="s_server2005">
+</Property><Property Name="Archivo de la solución" Value="D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\lib\server\s_server2005.sln">
+</Property><Property Name="Date" Value="Monday, October 8, 2018">
+</Property><Property Name="Time" Value="20:12:27 PM">
+</Property></Properties><Event ErrorLevel="1" Project="s_server2005" Source="s_server2005.vcproj" Description="Esta aplicación se ha actualizado para incluir la configuración relacionada con la característica Control de cuentas de usuario (UAC) de Windows Vista. De manera predeterminada, cuando se ejecuta en Windows Vista con el Control de cuentas de usuario habilitado, la aplicación está marcada para que se ejecute con los mismos privilegios que el proceso que la inició y para que no pueda ejecutarse con virtualización. Puede cambiar la configuración relativa al Control de cuentas de usuario desde las páginas de propiedades del proyecto.">
+</Event><Event ErrorLevel="0" Project="s_server2005" Source="s_server2005.vcproj" Description="Se realizó correctamente la copia de seguridad del archivo de proyecto 'D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\lib\server\s_server2005.vcproj.8.00.old'.">
+</Event><Event ErrorLevel="0" Project="s_server2005" Source="s_server2005.vcproj" Description="Proyecto actualizado correctamente.">
+</Event><Event ErrorLevel="3" Project="s_server2005" Source="s_server2005.vcproj" Description="Converted">
+</Event></UpgradeLog>

@@ -1,0 +1,401 @@
+<html>
+<head>
+<title>PyTarget - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyTarget Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyTarget is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#__call__" class="function_list" >__call__</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#caps" class="function_list" >caps</a>( self, cap ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#clear" class="function_list" >clear</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#debugLock" class="function_list" >debugLock</a>( self, pEntity ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#deselectionFov" class="attribute_list" >deselectionFov</a></td><td>&nbsp; Read-Write float
+</td></tr>
+
+<tr valign=top><td><a href="#entity" class="attribute_list" >entity</a></td><td>&nbsp; Read-Only <a href="Entity.html">Entity</a>.
+</td></tr>
+
+<tr valign=top><td><a href="#exclude" class="attribute_list" >exclude</a></td><td>&nbsp; Read-Write <a href="Entity.html">Entity</a>
+</td></tr>
+
+<tr valign=top><td><a href="#isEnabled" class="attribute_list" >isEnabled</a></td><td>&nbsp; Read-Write Boolean.
+</td></tr>
+
+<tr valign=top><td><a href="#isFull" class="attribute_list" >isFull</a></td><td>&nbsp; Read-Only Boolean.
+</td></tr>
+
+<tr valign=top><td><a href="#isHeld" class="attribute_list" >isHeld</a></td><td>&nbsp; Read-Write Boolean.
+</td></tr>
+
+<tr valign=top><td><a href="#isHidden" class="attribute_list" >isHidden</a></td><td>&nbsp; Read-Only Boolean.
+</td></tr>
+
+<tr valign=top><td><a href="#maxDistance" class="attribute_list" >maxDistance</a></td><td>&nbsp; Read-Write float
+</td></tr>
+
+<tr valign=top><td><a href="#noPartial" class="attribute_list" >noPartial</a></td><td>&nbsp; Read-Write bool
+</td></tr>
+
+<tr valign=top><td><a href="#selectionFov" class="attribute_list" >selectionFov</a></td><td>&nbsp; Read-Write float
+</td></tr>
+
+<tr valign=top><td><a href="#skeletonCheckEnabled" class="attribute_list" >skeletonCheckEnabled</a></td><td>&nbsp; Read-Write Boolean.
+</td></tr>
+
+<tr valign=top><td><a href="#source" class="attribute_list" >source</a></td><td>&nbsp; Read-Write MatrixProviderPtr
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The interface to the <a href="BigWorld.html">BigWorld</a> targeting system.
+All targeting operations are accessed through an instance of this class.
+An instance of this class is automatically created by the engine as
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#target>target</a>.
+<br><br>
+The <a href="BigWorld.html">BigWorld</a> targeting system will choose from a list of potential targets
+using the following criteria (in order of precedence):
+
+<pre>	capabilities
+	distance
+	field of view
+	line of sight
+</pre>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="__call__"></a><p class="function_definition">
+<span class="function_definition">def __call__( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">When called, a <a href="PyTarget.html">PyTarget</a> returns the currently targeted entity.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The currently targeted entity if it satisfies all capability
+requirements and is not hidden, otherwise None.
+</td></tr>
+</table>
+</p>
+
+<a name="caps"></a><p class="function_definition">
+<span class="function_definition">def caps( <i>self, cap</i> ):</span>
+</p>
+
+<div class="function_description">This method sets the capability requirements that entities must meet in 
+order to be targetted. This method takes 0 or more arguments.
+<br><br>
+<br><br>
+Examples:
+<br><br>
+# any entity may be targetted.
+caps()
+<br><br>
+# only entities with capability 5 may be targetted.
+caps( 5 )
+<br><br>
+# only entities without capability 5 may be targetted.
+caps( -5 )
+<br><br>
+# only entities with capability 2, capability 3, and not capability 4 may
+# be targeted.
+caps( 2, 3, -4 )
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>cap</i></span></td><td><span class="function_parameter_description">&nbsp;A capability requirement of an entity for it to be targetted.
+		If cap > 0, entities must have capability cap on.
+		If cap < 0, entities must have capability -cap off.
+		Including the cap 0 means match none.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None.
+</td></tr>
+</table>
+</p>
+
+<a name="clear"></a><p class="function_definition">
+<span class="function_definition">def clear( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Set the current target to None.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None.
+</td></tr>
+</table>
+</p>
+
+<a name="debugLock"></a><p class="function_definition">
+<span class="function_definition">def debugLock( <i>self, pEntity</i> ):</span>
+</p>
+
+<div class="function_description">Set the current target to pEntity (this is useful for debugging).
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pEntity</i></span></td><td><span class="function_parameter_description">&nbsp;The entity to target.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None.
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="deselectionFov"></a><p class="attribute_definition">
+<span class="attribute_definition">deselectionFov</span>
+</p>
+
+<div class="attribute_description">This is the vertical angle in degrees outside of which the currently 
+targetted Enitity will be automatically deselcted.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float
+</td></tr>
+</table>
+</p>
+
+<a name="entity"></a><p class="attribute_definition">
+<span class="attribute_definition">entity</span>
+</p>
+
+<div class="attribute_description">This provides the current target, which may not be visible or a "full" 
+target (that is, a target that satisfies the capabilities requirements set
+via caps()).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="Entity.html">Entity</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="exclude"></a><p class="attribute_definition">
+<span class="attribute_definition">exclude</span>
+</p>
+
+<div class="attribute_description">This is the entity that is to be excluded from targeting operations.  Usually 
+this is the Player <a href="Entity.html">Entity</a>, however need not be, eg, remote turret, etc...
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="Entity.html">Entity</a>
+</td></tr>
+</table>
+</p>
+
+<a name="isEnabled"></a><p class="attribute_definition">
+<span class="attribute_definition">isEnabled</span>
+</p>
+
+<div class="attribute_description">This stores whether the targetting system is allowed to select new targets.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Boolean.
+</td></tr>
+</table>
+</p>
+
+<a name="isFull"></a><p class="attribute_definition">
+<span class="attribute_definition">isFull</span>
+</p>
+
+<div class="attribute_description">This stores whether or not the current entity is a "full" target.
+That is, a target that satisfies the capabilities requirements set via
+caps().
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Boolean.
+</td></tr>
+</table>
+</p>
+
+<a name="isHeld"></a><p class="attribute_definition">
+<span class="attribute_definition">isHeld</span>
+</p>
+
+<div class="attribute_description">This stores whether to try to hold on to the current target entity.
+If the value is true, the target is kept kept while the
+entity is within the deselection frustrum and is not hidden for longer
+than maxHiddenTime_ (see EntityPicker::maxHiddenTime_ in entity_picker.hpp).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Boolean.
+</td></tr>
+</table>
+</p>
+
+<a name="isHidden"></a><p class="attribute_definition">
+<span class="attribute_definition">isHidden</span>
+</p>
+
+<div class="attribute_description">This shows whether the target is currently held but cannot currently be 
+seen.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Boolean.
+</td></tr>
+</table>
+</p>
+
+<a name="maxDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">maxDistance</span>
+</p>
+
+<div class="attribute_description">This is the distance beyond which Entities will not be considered as potential targets.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float
+</td></tr>
+</table>
+</p>
+
+<a name="noPartial"></a><p class="attribute_definition">
+<span class="attribute_definition">noPartial</span>
+</p>
+
+<div class="attribute_description">When set, the entity picker will only allow full locks.  This can be used to prevent 
+targeting friendlies and buttons, etc, when in a combative state.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write bool
+</td></tr>
+</table>
+</p>
+
+<a name="selectionFov"></a><p class="attribute_definition">
+<span class="attribute_definition">selectionFov</span>
+</p>
+
+<div class="attribute_description">This is the vertical angle in degrees within which Enitities may be 
+considered as a new target.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float
+</td></tr>
+</table>
+</p>
+
+<a name="skeletonCheckEnabled"></a><p class="attribute_definition">
+<span class="attribute_definition">skeletonCheckEnabled</span>
+</p>
+
+<div class="attribute_description">This stores whether the targetting system should try to use the
+skeleton collider method as a selection criterion.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write Boolean.
+</td></tr>
+</table>
+</p>
+
+<a name="source"></a><p class="attribute_definition">
+<span class="attribute_definition">source</span>
+</p>
+
+<div class="attribute_description">This is the matrix that the targeting system will use to identify the location of the Player <a href="Entity.html">Entity</a>.
+This will correspond to <a href="PlayerMProv.html">PlayerMProv</a> if targeting from the player's current position.  Otherwise, it
+will be the location from which all targeting should be performed, eg, remote turret, etc...
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write MatrixProviderPtr
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

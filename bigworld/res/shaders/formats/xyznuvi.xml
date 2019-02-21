@@ -1,0 +1,10 @@
+<xyznuvi.xml>
+	<POSITION/> 
+	<NORMAL/>
+	<TEXCOORD>
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+	<BLENDINDICES>
+		<type> FLOAT1 </type>
+	</BLENDINDICES>
+</xyznuvi.xml>

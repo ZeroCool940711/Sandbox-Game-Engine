@@ -1,0 +1,2067 @@
+<html>
+<head>
+<title>SimpleGUIComponent - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>SimpleGUIComponent Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>SimpleGUIComponent is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+PyObjectPlusWithWeakReference
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addChild" class="function_list" >addChild</a>( self, child, name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addShader" class="function_list" >addShader</a>( self, shader, name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delChild" class="function_list" >delChild</a>( self, child ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delShader" class="function_list" >delShader</a>( self, shader ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleAxisEvent" class="function_list" >handleAxisEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleDragEnterEvent" class="function_list" >handleDragEnterEvent</a>( self, component, position, dragged ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleDragLeaveEvent" class="function_list" >handleDragLeaveEvent</a>( self, component, position, dragged ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleDragStartEvent" class="function_list" >handleDragStartEvent</a>( self, component, position ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleDragStopEvent" class="function_list" >handleDragStopEvent</a>( self, component, position ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleDropEvent" class="function_list" >handleDropEvent</a>( self, component, position, dropped ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleKeyEvent" class="function_list" >handleKeyEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseButtonEvent" class="function_list" >handleMouseButtonEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseClickEvent" class="function_list" >handleMouseClickEvent</a>( self, component ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseEnterEvent" class="function_list" >handleMouseEnterEvent</a>( self, component, position ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseEvent" class="function_list" >handleMouseEvent</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#handleMouseLeaveEvent" class="function_list" >handleMouseLeaveEvent</a>( self, component, position ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#hasChild" class="function_list" >hasChild</a>( self, child, deepSearch ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#hitTest" class="function_list" >hitTest</a>( self, mousePos ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#localToScreen" class="function_list" >localToScreen</a>( self, event ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#reSort" class="function_list" >reSort</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#save" class="function_list" >save</a>( self, resourceID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#screenToLocal" class="function_list" >screenToLocal</a>( self, event ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'callbacks' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Callback Methods</a></h2>
+<table id="callbacks" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#onBound" class="function_list" >onBound</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onDelete" class="function_list" >onDelete</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLoad" class="function_list" >onLoad</a>( self, ds ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onSave" class="function_list" >onSave</a>( self, ds ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#angle" class="attribute_list" >angle</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#children" class="attribute_list" >children</a></td><td>&nbsp; Read-Only List of (name, <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>) tuples.
+</td></tr>
+
+<tr valign=top><td><a href="#colour" class="attribute_list" >colour</a></td><td>&nbsp; Colour
+</td></tr>
+
+<tr valign=top><td><a href="#crossFocus" class="attribute_list" >crossFocus</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#dragFocus" class="attribute_list" >dragFocus</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#dropFocus" class="attribute_list" >dropFocus</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#filterType" class="attribute_list" >filterType</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#flip" class="attribute_list" >flip</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#focus" class="attribute_list" >focus</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#height" class="attribute_list" >height</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#heightMode" class="attribute_list" >heightMode</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#heightRelative" class="attribute_list" >heightRelative</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#horizontalAnchor" class="attribute_list" >horizontalAnchor</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#horizontalPositionMode" class="attribute_list" >horizontalPositionMode</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#mapping" class="attribute_list" >mapping</a></td><td>&nbsp; 4-tuple of Vector2s.
+</td></tr>
+
+<tr valign=top><td><a href="#materialFX" class="attribute_list" >materialFX</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#mouseButtonFocus" class="attribute_list" >mouseButtonFocus</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#moveFocus" class="attribute_list" >moveFocus</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#parent" class="attribute_list" >parent</a></td><td>&nbsp; weakref proxy to <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+</td></tr>
+
+<tr valign=top><td><a href="#pixelSnap" class="attribute_list" >pixelSnap</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#position" class="attribute_list" >position</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#script" class="attribute_list" >script</a></td><td>&nbsp; Object
+</td></tr>
+
+<tr valign=top><td><a href="#shaders" class="attribute_list" >shaders</a></td><td>&nbsp; List of (name, Shader) tuples.
+</td></tr>
+
+<tr valign=top><td><a href="#size" class="attribute_list" >size</a></td><td>&nbsp; <a href="Vector2.html">Vector2</a>
+</td></tr>
+
+<tr valign=top><td><a href="#texture" class="attribute_list" >texture</a></td><td>&nbsp; <a href="PyTextureProvider.html">PyTextureProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#textureName" class="attribute_list" >textureName</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#tileHeight" class="attribute_list" >tileHeight</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#tileWidth" class="attribute_list" >tileWidth</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#tiled" class="attribute_list" >tiled</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#verticalAnchor" class="attribute_list" >verticalAnchor</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#verticalPositionMode" class="attribute_list" >verticalPositionMode</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#visible" class="attribute_list" >visible</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#visibleInAppFocusOnly" class="attribute_list" >visibleInAppFocusOnly</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#width" class="attribute_list" >width</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#widthMode" class="attribute_list" >widthMode</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#widthRelative" class="attribute_list" >widthRelative</a></td><td>&nbsp; Boolean
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is the base <a href="GUI.html">GUI</a> component that by default displays a textured
+rectangle.  It can also use more sophisticated PyTextureProviders to
+render animations.
+All other <a href="GUI.html">GUI</a> Components are derived from this class.
+<br><br>
+A new <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> is created using the <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a> function.  This
+takes a string argument, which is the filepath of a texture to display
+on the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.
+<br><br>
+Once the component is created, it can have its texture attribute set to
+any <a href="PyTextureProvider.html">PyTextureProvider</a>, which supplies either a static or dynamic texture
+to be mapped across the components rectangle.
+<br><br>
+The <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> can have one or more GUIShaders applied to it,
+which affect the way it is rendered.  It can also be resized, tiled,
+remapped, repositioned and moved.
+<br><br>
+Children can be added to the component.  However, this isn't a full
+windowing system.  The position and orientation of children are specified
+relative to the screen, not to the parent.  However, any shaders
+which are applied to the parent apply to the children as well.
+<br><br>
+For example:
+
+<pre>c = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "maps/myPicture.bmp" )
+<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>( c )
+c.size = (2,2)
+</pre>
+This example creates a <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> which covers the entire screen
+and displays myPicture.bmp.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addChild"></a><p class="function_definition">
+<span class="function_definition">def addChild( <i>self, child, name</i> ):</span>
+</p>
+
+<div class="function_description">This function adds a <a href="GUI.html">GUI</a> Component as a child of the current <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  This child will
+depth sort above its new parent, and sort with its siblings according to the depth component of
+its position attribute.  The other components of its position are relative to the screen, rather than its
+parent <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  Additionally, any shaders applied to the parent also get applied to the child.
+<br><br>
+If a name is not supplied when adding it, then a random name is generated.  The child can be addressed
+by the name as a property of parent.  For example
+<br><br>
+
+<pre>>>>	import <a href="GUI.html">GUI</a>
+>>>	parent = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "parent.dds" )
+>>>	child = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "child.dds" )
+>>>	parent.addChild( child, "myChild" )
+>>>	sameChild = parent.myChild
+</pre>
+<br><br>
+At this point, sameChild and child refer to the same object
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>child</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="GUI.html">GUI</a> component to be added as a child
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;(optional) the name to insert the child under
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addShader"></a><p class="function_definition">
+<span class="function_definition">def addShader( <i>self, shader, name</i> ):</span>
+</p>
+
+<div class="function_description">This function adds a <a href="GUIShader.html">GUIShader</a> to the current <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  Shaders 
+can be used to do things such as change the color and alpha of a component,
+or clip it, or transform it.
+<br><br>
+If the optional name is not supplied when adding it, then a random name is
+generated.  In addition to appearing in the shaders attribute, this shader
+will also be available using the name as an attribute of the component.
+<br><br>
+For example:
+<br><br>
+
+<pre>>>>	import <a href="GUI.html">GUI</a>
+>>>	component = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "component.dds" )
+>>>	shader = <a href="GUI.html">GUI</a>.<a href=GUI.html#ColourShader>ColourShader</a>()
+>>>	component.addShader( shader, "myShader" )
+>>>	sameShader = component.myShader
+</pre>
+<br><br>
+In this code, shader and myShader will refer to the same object
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>shader</i></span></td><td><span class="function_parameter_description">&nbsp;The shader to add
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;(optional) The string giving the name to add it under.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delChild"></a><p class="function_definition">
+<span class="function_definition">def delChild( <i>self, child</i> ):</span>
+</p>
+
+<div class="function_description">This function removes a child from the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>child</i></span></td><td><span class="function_parameter_description">&nbsp;The <a href="GUI.html">GUI</a> Component to remove
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delShader"></a><p class="function_definition">
+<span class="function_definition">def delShader( <i>self, shader</i> ):</span>
+</p>
+
+<div class="function_description">This function removes a shader from the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>shader</i></span></td><td><span class="function_parameter_description">&nbsp;A shader object to remove
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="handleAxisEvent"></a><p class="function_definition">
+<span class="function_definition">def handleAxisEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This method handles axis events for the gui system. If this component
+doesn't have focus, then it returns 0, meaning it hasnt handled the event.
+Otherwise, it gives its children a chance to handle the event.  If they
+don't, then it checks if it has an attached script object, and gives that a
+chance to handle the event.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;a axisEvent is a 3-tuple of one integer and two floats, as
+				follows: (axis, value, dTime) - axis is one of AXIS_LX,
+				AXIS_LY, AXIS_RX, AXIS_RY, with the first letter being L or
+				R meaning left thumbstick or right thumbstick, the second,
+				X or Y being the direction.  value is the position of that
+				axis, between -1 and 1. 	dTime is the time since that
+				axis was last processed.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it wasn't.
+</td></tr>
+</table>
+</p>
+
+<a name="handleDragEnterEvent"></a><p class="function_definition">
+<span class="function_definition">def handleDragEnterEvent( <i>self, component, position, dragged</i> ):</span>
+</p>
+
+<div class="function_description">This event handler is triggered when a dragged component enters the 
+quad defined by the four corners of a drop accepting component. To have
+this handler triggered, a component must have dropFocus enabled.
+<br><br>
+The value returned by the handleDragEnterEvent method will be used to
+determine if the drop target is willing to accept the component being
+dragged. That is, the handleDropEvent will not be generated if the
+handleDragEnterEvent call that preceeded it returned false.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;The drop target component.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;mouse position, 2-tuple (x, y).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dragged</i></span></td><td><span class="function_parameter_description">&nbsp;The component being dragged.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the component is willing to accept the dropped item.
+</td></tr>
+</table>
+</p>
+
+<a name="handleDragLeaveEvent"></a><p class="function_definition">
+<span class="function_definition">def handleDragLeaveEvent( <i>self, component, position, dragged</i> ):</span>
+</p>
+
+<div class="function_description">This event handler is triggered when a dragged component leaves the 
+quad defined by the four corners of a drop accepting component. To have
+this handler triggered, a component must have dropFocus enabled.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;The drop target component.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;mouse position, 2-tuple (x, y).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dragged</i></span></td><td><span class="function_parameter_description">&nbsp;The component being dragged.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it wasn't.
+</td></tr>
+</table>
+</p>
+
+<a name="handleDragStartEvent"></a><p class="function_definition">
+<span class="function_definition">def handleDragStartEvent( <i>self, component, position</i> ):</span>
+</p>
+
+<div class="function_description">This event handler is triggered when a draggable component is first 
+detected as being dragged. A component is detected as being dragged
+when a left mouse button down event is generated on it and the mouse
+cursor travels more and the minimun drag distance before the left
+button is released (see <a href="GUI.html">GUI</a>.<a href=GUI.html#setDragDistance>setDragDistance</a>). To have this handler
+triggered, a component must have dragFocus enabled.
+<br><br>
+Because a drag is always preceeded by a mouse button press, a mouse
+button down event will always be triggered on the clicked component.
+Some times, it may be necessary to implement the handleMouseButtonEvent
+and have it to return True in order to prevent the mouse down event to
+be propagated further to the game scripts.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;The component being dragged.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;mouse position of first button down, 2-tuple (x, y).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the component is willing to be dragged.
+</td></tr>
+</table>
+</p>
+
+<a name="handleDragStopEvent"></a><p class="function_definition">
+<span class="function_definition">def handleDragStopEvent( <i>self, component, position</i> ):</span>
+</p>
+
+<div class="function_description">This event handler is triggered when a drag operation has finished.
+The drag operation finishes when the left mouse button is released.
+To have this handler triggered, a component must have dragFocus enabled.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;The component being dragged.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;mouse position, 2-tuple (x, y).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the return value is always ignored. 
+</td></tr>
+</table>
+</p>
+
+<a name="handleDropEvent"></a><p class="function_definition">
+<span class="function_definition">def handleDropEvent( <i>self, component, position, dropped</i> ):</span>
+</p>
+
+<div class="function_description">This event handler is triggered a dragged component is dropped overa drop 
+accepting component. To have this handler triggered, a component must have
+dropFocus enabled.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;The drop target component.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;mouse position, 2-tuple (x, y).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dropped</i></span></td><td><span class="function_parameter_description">&nbsp;The dragged component being dropped.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the return value is always ignored. 
+</td></tr>
+</table>
+</p>
+
+<a name="handleKeyEvent"></a><p class="function_definition">
+<span class="function_definition">def handleKeyEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This method handles key events from the gui system. If this component 
+doesn't have focus, it exits immediatly, ignoring the event and returning
+false. Otherwise, it gives to each of its children a chance to handle the
+event. If they don't, then it checks if it has an attached script object,
+and gives that a chance to handle the event. Last, if the key event is
+still unhandled, if it is a mouse button event, and if the mouse cursor
+is active, it tries to forward the event to handleMouseButtonEvent method
+of the script object, if one is attached.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyKeyEvent.html">PyKeyEvent</a> containing information about this key event.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it wasn't
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseButtonEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseButtonEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This method handles mouse button events from the gui system.
+This is similar to
+handleKeyEvent, however it is only for mouse buttons and will only get posted
+to a component if the mouse cursor is within the region of the component.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyKeyEvent.html">PyKeyEvent</a> containing information about this mouse
+	button event.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it wasn't
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseClickEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseClickEvent( <i>self, component</i> ):</span>
+</p>
+
+<div class="function_description">This event handler is triggered when the a left mouse click occurs.
+A click is defined by a mouse button down, followed by a button up
+over the same component. To have this handler triggered, a component
+must have focus enabled.
+<br><br>
+A button down followed by a button up may not be detected as a click
+if the component has dragFocus enabled and the distance from the
+position of press to that of the release is more than the minimum
+drag distance (see <a href="GUI.html">GUI</a>.<a href=GUI.html#setDragDistance>setDragDistance</a>).
+<br><br>
+Because a click is always preceeded by a mouse button press, a mouse
+button down event will always be triggered on the clicked component.
+Sometimes, it may be necessary to implement the handleMouseButtonEvent
+and have it to return True in order to prevent the mouse down event to
+be propagated to the game scripts.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;The component being clicked.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it wasn't.
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseEnterEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseEnterEvent( <i>self, component, position</i> ):</span>
+</p>
+
+<div class="function_description">This event handler is triggered when the mouse cursor enters the 
+quad defined by the four corners of the component. To have this
+handler triggered, the component must have crossFocus enabled.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;The component which the mouse point is entering.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;mouse position, 2-tuple (x, y).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it wasn't.
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseEvent( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This method handles mouse events for the gui system. If this component 
+doesn't have focus, then it returns 0, meaning it hasnt handled the event.
+Otherwise, it gives its children a chance to handle the event. If none of
+it's children consumes the event, it checks if it has an attached script
+object, and gives that a chance to handle the event.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;A <a href="PyMouseEvent.html">PyMouseEvent</a> object.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it wasn't.
+</td></tr>
+</table>
+</p>
+
+<a name="handleMouseLeaveEvent"></a><p class="function_definition">
+<span class="function_definition">def handleMouseLeaveEvent( <i>self, component, position</i> ):</span>
+</p>
+
+<div class="function_description">This event handler is triggered when the mouse cursor leaves the 
+quad defined by the four corners of the component. To have this
+handler triggered, the component must have crossFocus enabled.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;The component which the mouse point is leaving.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>position</i></span></td><td><span class="function_parameter_description">&nbsp;mouse position, 2-tuple (x, y).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the event was handled, False if it wasn't.
+</td></tr>
+</table>
+</p>
+
+<a name="hasChild"></a><p class="function_definition">
+<span class="function_definition">def hasChild( <i>self, child, deepSearch</i> ):</span>
+</p>
+
+<div class="function_description">This function determines whether or not this component has the given 
+component as a child. If deepSearch is True, then it will search the
+children of children right down to the leaves of the <a href="GUI.html">GUI</a> tree.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>child</i></span></td><td><span class="function_parameter_description">&nbsp;The <a href="GUI.html">GUI</a> Component to look for.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>deepSearch</i></span></td><td><span class="function_parameter_description">&nbsp;A boolean specifying whether or not to 
+					perform a deep search.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Whether or not this component has the given child.
+</td></tr>
+</table>
+</p>
+
+<a name="hitTest"></a><p class="function_definition">
+<span class="function_definition">def hitTest( <i>self, mousePos</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>mousePos</i></span></td><td><span class="function_parameter_description">&nbsp;the position to test
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if the position is over the component. False otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="localToScreen"></a><p class="function_definition">
+<span class="function_definition">def localToScreen( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This method converts the given local coordinates
+(i.e. relative to the bounds)
+of this component into clip space of the screen. The units for the input
+depends on the current width and height modes.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;a <a href="Vector2.html">Vector2</a> containing the position relative this
+				component.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Vector2.html">Vector2</a> containing the screen space clip position.
+</td></tr>
+</table>
+</p>
+
+<a name="reSort"></a><p class="function_definition">
+<span class="function_definition">def reSort( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function reSorts the children of this component according to the
+third (depth) component of their
+position attributes.  Changing this depth value in a child doesn't
+automatically reorder the children.
+An explicit call to this function is required.
+If all gui components on the screen require reordering
+then <a href="GUI.html">GUI</a>.<a href=GUI.html#reSort>reSort</a>() can be called instead.
+</div>
+
+<a name="save"></a><p class="function_definition">
+<span class="function_definition">def save( <i>self, resourceID</i> ):</span>
+</p>
+
+<div class="function_description">This method persists the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> as an xml data section.
+The method takes a resourceID
+as an argument, which must end in ".gui".
+It creates or overwrites the named file.  This can then be
+loaded later using the load method, allowing a quick recreation of the
+current object.
+<br><br>
+For example:
+
+<pre># first create a new component and configure it.  This can be done
+# interactively at the console.
+c = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "maps/myPicture.bmp" )
+c.colour = (255,0,0,0)  # tint the component red
+c.save( "gui/myGui.xml" )
+
+# now create a new component, and load it
+cnew = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "maps/someplaceholderimage.bmp" )
+cnew.load( "gui/myGui.xml" )
+</pre>
+This example creates and saves a gui, and then loads that gui into a new
+component.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>resourceID</i></span></td><td><span class="function_parameter_description">&nbsp;the filename to save to.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="screenToLocal"></a><p class="function_definition">
+<span class="function_definition">def screenToLocal( <i>self, event</i> ):</span>
+</p>
+
+<div class="function_description">This method converts the given position in clip space into the local space
+relative to the bounds of this component. The units that it is returned in
+depends on the current width and height modes. If the width or height mode
+is CLIP, then the corresponding component is returned in clip space of the
+component (i.e. 0,0 is the center of the component, -1,1 is the top left and
+1,-1 is the bottom right).
+<br><br>
+If the width or height mode is PIXEL, then the coresponding component is
+returned in pixels relative to the top left of the component.
+<br><br>
+If the width or height mode is LEGACY, then the corresponding component is
+returned such that the position is relative to the center of the component,
+however the left side of the component is the negative distance from the
+center of the component in the clip space of the screen. Similarly, the
+right hand side is the positive distance, the bottom is the negative distance
+and the top is the positive distance.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>event</i></span></td><td><span class="function_parameter_description">&nbsp;a <a href="Vector2.html">Vector2</a> containing the position in the clip space of 
+				the screen.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="Vector2.html">Vector2</a> containing the local space position.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<h2>Callback Method Documentation</h2>
+
+<a name="onBound"></a><p class="function_definition">
+<span class="function_definition">def onBound( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method is called when the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> has finished
+loading itself and its children.
+No parameters are passed into this method.
+<br><br>
+To process script before the children have loaded, use the
+onLoad callback method instead.
+</div>
+
+<a name="onDelete"></a><p class="function_definition">
+<span class="function_definition">def onDelete( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method is called when the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> is deleted,
+if the component has an associated script object.  It has no
+parameters passed in, and expects no return value.
+<br><br>
+NOTE: Since the component is about to be deleted, extreme care
+should be taken to avoid adding any references to the component
+which is about to die.
+</div>
+
+<a name="onLoad"></a><p class="function_definition">
+<span class="function_definition">def onLoad( <i>self, ds</i> ):</span>
+</p>
+
+<div class="function_description">This method is called when the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> is loaded,
+before any of its children are loaded.
+<br><br>
+The data section that contains custom script properties is passed
+to this callback method.  This is the same data section that is passed
+to the save callback method.
+<br><br>
+To process script upon completion of the load process, use
+the onBind callback method instead.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>ds</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="DataSection.html">DataSection</a> containing the script properties
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onSave"></a><p class="function_definition">
+<span class="function_definition">def onSave( <i>self, ds</i> ):</span>
+</p>
+
+<div class="function_description">This method is called when the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> is saving.
+The data section used for saving is passed into the method.
+<a href="GUI.html">GUI</a> Scripts should save their persistent data into this data section.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>ds</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="DataSection.html">DataSection</a> to be used to write script properties
+</span></td></tr>
+
+</table>
+</p>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="angle"></a><p class="attribute_definition">
+<span class="attribute_definition">angle</span>
+</p>
+
+<div class="attribute_description">This attribute determines the rotation of the component.  It only
+stores the following values: 0, 90, 180, 270.  The angle is measured
+in degrees, and is measured in a clockwise direction, with 0 being the
+default	the initial position.  Also note that if the component is
+rectangular, rotating it doesn't automatically rescale it, so the image
+is likely to be distorted in a sideways rotation.
+<br><br>
+This attribute is applied after the flip attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="children"></a><p class="attribute_definition">
+<span class="attribute_definition">children</span>
+</p>
+
+<div class="attribute_description">This attribute is the list of all children of the current component.
+All children are drawn after their parent.  However, note that the
+position of the children is specified relative to the screen, not
+relative to their parent.  If you want children to inherit the position
+of the parent, then the parent should be a Window component.
+<br><br>
+Any shaders which are part of a parent are also applied to children.
+<br><br>
+In normal usage, this list is not manipulated directly, instead the
+addChild and delChild functions are called on the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> to
+add and remove children.
+<br><br>
+Note there is a special python syntax implemented that helps setting
+and getting children - you can set children directly as attributes.
+For example :
+Example:
+
+<pre>#Set / Get / Del children using special syntax
+s = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "gui/maps/myGui.dds" )
+parent = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "" )
+parent.child = s
+child = parent.child
+parent.child = None
+
+#Set / Get / Del children using method calls.
+#This is functionally equivalent to the example above.
+s = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "gui/maps/myGui.dds" )
+parent = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "" )
+parent.addChild( s, "child" )
+child = parent.getChild( "child" )
+parent.delChild( child )
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only List of (name, <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>) tuples.
+</td></tr>
+</table>
+</p>
+
+<a name="colour"></a><p class="attribute_definition">
+<span class="attribute_definition">colour</span>
+</p>
+
+<div class="attribute_description">This attribute is the colour of the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  This colour is
+a <a href="Vector4.html">Vector4</a>, with components ranging between 0 and 255.  The components
+are (Red, Green, Blue, Alpha).  The numbers are scaled to the 0-1
+range, and then each pixel's colour (also in the 0-1 range) is
+multiplied by the colour.
+<br><br>
+Note the Australian spelling of the word colour
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Colour
+</td></tr>
+</table>
+</p>
+
+<a name="crossFocus"></a><p class="attribute_definition">
+<span class="attribute_definition">crossFocus</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not this <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+will receive mouse cross (enter and leave) events.
+<br><br>
+Enter events are generated when the mouse cursor enters the quad
+defined by the four corners of the component. Leave events are
+generated when the mouse cursor leaves this same quad.
+<br><br>
+If focus is False, the mouse cross event handling functions in the
+attached script object will not be called. If it is True, the
+mouse cross event handling functions in the attached script object
+will be called.
+<br><br>
+When this attribute is set or cleared, the crossFocus method on the
+attached script object (see the script attribute) gets called, with
+one argument, which is the new value of the focus attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="dragFocus"></a><p class="attribute_definition">
+<span class="attribute_definition">dragFocus</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not this <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+is a candidate for dragging. When dragged, components will receive
+drag start and grad stop events.
+<br><br>
+Drag start events are generated when the dragging operation is
+first detected (see <a href="GUI.html">GUI</a>.<a href=GUI.html#setDragDistance>setDragDistance</a>). Drag stop events are
+generated when the mouse left button is release during the drag
+operation.
+<br><br>
+If focus is False, the component will not be available for dragging,
+and the drag event handling functions in the attached script object
+will not be called. If it is True, the component will be available
+for dragging, and the drag event handling functions in the attached
+script object will be called.
+<br><br>
+When this attribute is set or cleared, the dragFocus method on the
+attached script object (see the script attribute) gets called, with
+one argument, which is the new value of the focus attribute.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#script">script</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="dropFocus"></a><p class="attribute_definition">
+<span class="attribute_definition">dropFocus</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not this <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+can have a dragged component dropped over it. When receiving dragged
+component, drop target components will receive drag enter, drag
+leave and drop events.
+<br><br>
+Drag enter events are generated when a dragged component enters
+the quad defined by the four corners of a component that has dropFocus
+enabled. Drag leave events are generated when a dragged component
+leaves this same quad. Drop events are generated when a dragged
+component is dropped over a drop accepting component.
+<br><br>
+The value returned by the drag enter event handler method will be
+used to determine if the drop target will accept the dragged
+component. That is, the drop event will not be generated when the
+left mouse button is release if the earlier enter handler returned
+false (but the drag stop will always be. See dragFocus).
+<br><br>
+If focus is False, the component will not accept dropping, and the
+drag enter/leav and drop event handling functions in the attached
+script object will not be called. If it is True, the component
+will accept dropping and the drag enter/leave and drop event handling
+functions in the attached script object will be called.
+<br><br>
+When this attribute is set or cleared, the dropFocus method on the
+attached script object (see the script attribute) gets called, with
+one argument, which is the new value of the focus attribute.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#dragFocus">dragFocus</a><br><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#script">script</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="filterType"></a><p class="attribute_definition">
+<span class="attribute_definition">filterType</span>
+</p>
+
+<div class="attribute_description">This attribute determines what texture filtering is to be to render 
+the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  Possible values are "POINT", when the texel
+with coordinates nearest to the desired pixel value is used, and "LINEAR",
+when a weighted average of a 2 x 2 area of texels surrounding the desired
+pixel is used. Default value is "LINEAR".
+<br><br>
+Possible values are POINT and LINEAR
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="flip"></a><p class="attribute_definition">
+<span class="attribute_definition">flip</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not to flip the component in the
+horizontal direction.  If it is zero, then no flipping occurs,
+otherwise the component is flipped.  This attribute is applied before
+the angle attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="focus"></a><p class="attribute_definition">
+<span class="attribute_definition">focus</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not this <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+responds to input events.  If focus is False, then no response
+will be made to the input events, and the event handling functions
+in the script object will not be called.  If it is True,
+it will respond to events, and event handling functions in the script
+object will be called.
+<br><br>
+When this attribute is set or cleared, the focus method on the attached
+script object (see the script attribute) gets called, with
+one argument, which is the new value of the focus attribute.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#script">script</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="height"></a><p class="attribute_definition">
+<span class="attribute_definition">height</span>
+</p>
+
+<div class="attribute_description">The height of the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>. Its interpretation depends on the
+heightMode attribute. If heightMode is "PIXELS", then height is
+interpreted as pixels. If heightMode is "CLIP", then it is interpreted
+as clip-space coordinates so that the height of the screen or the parent
+<a href="WindowGUIComponent.html">WindowGUIComponent</a> is exactly 2.0. If widthMode is "LEGACY" then it is
+interpreted similarly to "CLIP", however 2.0 is ALWAYS the width of the
+screen (even if it is a child of a <a href="WindowGUIComponent.html">WindowGUIComponent</a>).
+<br><br>
+If the tiled attribute is False, then changing the height scales height
+of the texture to match.  Otherwise it just changes the height of the
+component, and the texture tiles to cover the entire surface.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="heightMode"></a><p class="attribute_definition">
+<span class="attribute_definition">heightMode</span>
+</p>
+
+<div class="attribute_description">This attribute determines how the height attribute is interpreted. 
+Possible values are "CLIP", "PIXEL", and "LEGACY". See
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href=SimpleGUIComponent.html#height>height</a> for details on the meaning of these values.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#height">height</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="heightRelative"></a><p class="attribute_definition">
+<span class="attribute_definition">heightRelative</span>
+</p>
+
+<div class="attribute_description">This attribute determines how the height attribute is interpreted.
+This attribute has been deprecated, use heightMode instead.
+<br><br>
+Setting this to True is equivalent to setting heightMode to "LEGACY",
+and setting this to False is equivalent to setting heightMode to
+"PIXEL".
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#height">height</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="horizontalAnchor"></a><p class="attribute_definition">
+<span class="attribute_definition">horizontalAnchor</span>
+</p>
+
+<div class="attribute_description">This attribute specifies which part of the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> is
+located by the position attribute, in a horizontal direction.
+Possible values are "LEFT", "CENTER" and "RIGHT".  The default is
+"CENTER".
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="horizontalPositionMode"></a><p class="attribute_definition">
+<span class="attribute_definition">horizontalPositionMode</span>
+</p>
+
+<div class="attribute_description">Determines the units used by position.x. See the documentation
+for <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href=SimpleGUIComponent.html#position>position</a> for details on how it is interpreted.
+<br><br>
+Possible values are "CLIP", "PIXEL", "LEGACY". Defaults to "LEGACY".
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="mapping"></a><p class="attribute_definition">
+<span class="attribute_definition">mapping</span>
+</p>
+
+<div class="attribute_description">This attribute governs the mapping between  the corners of the
+component, and the texture.  It consists of 4-tuple of Vector2s.  The
+first component is the top left, second is the bottom left, third is
+the bottom right and the fourth is the top right.
+<br><br>
+Each <a href="Vector2.html">Vector2</a> specifies the texture address to use for that corner,
+with (0,0) being topleft, and (1,1) being bottom right.  It is
+acceptable to use numbers outside of 0-1.  In this case texture is not
+tiled.  The component is interpolated between these 4 points.
+<br><br>
+Setting the flip or angle attributes sets the mapping attribute
+appropriately.  However, setting mapping doesn't reset the flip and
+angle attributes.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>4-tuple of Vector2s.
+</td></tr>
+</table>
+</p>
+
+<a name="materialFX"></a><p class="attribute_definition">
+<span class="attribute_definition">materialFX</span>
+</p>
+
+<div class="attribute_description">This attribute determines what operation is used to render the
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a> onto the background.  Possible values are "BLEND",
+which applies the alpha channel transparency, "SOLID" which ignores the
+alpha channel and overwrites the background, and "ADD" which just adds
+the colour to the existing background colour, making the component look
+like it is transparent and glowing.	The default is "ADD".
+Note that ADD_SIGNED is a fudge, it basically performs a MOD2 blend
+with the frame buffer.  For most situations this should be fine.
+<br><br>
+Possible values are ADD, BLEND, BLEND_COLOUR, BLEND_INVERSE_COLOUR,
+SOLID, MODULATE2X, ALPHA_TEST, BLEND_INVERSE_ALPHA, BLEND2X, ADD_SIGNED
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="mouseButtonFocus"></a><p class="attribute_definition">
+<span class="attribute_definition">mouseButtonFocus</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not this <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+will receive mouse button events. This is different to the
+focus property in that mouse button events are only posted when
+the mouse cursor is within the region defined by the component,
+and will post to the top most component at the mouse position first.
+<br><br>
+When this attribute is set or cleared, the mouseButtonFocus method
+on the attached	script object (see the script attribute) gets called,
+with one argument, which is the new value of the focus attribute.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#script">script</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="moveFocus"></a><p class="attribute_definition">
+<span class="attribute_definition">moveFocus</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not this <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+will receive mouse move events.
+<br><br>
+Mouse move events are generated when the mouse cursor moves inside
+the quad defined by the four corners of the component.
+<br><br>
+If focus is False, the mouse move event handling functions in the
+attached script object will not be called. If it is True, the
+mouse move event handling functions in the attached script object
+will be called.
+<br><br>
+When this attribute is set or cleared, the moveFocus method on the
+attached script object (see the script attribute) gets called, with
+one argument, which is the new value of the focus attribute.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#script">script</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="parent"></a><p class="attribute_definition">
+<span class="attribute_definition">parent</span>
+</p>
+
+<div class="attribute_description">Stores a weak reference to this component's parent component.
+It is None if there is no parent.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>weakref proxy to <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+</td></tr>
+</table>
+</p>
+
+<a name="pixelSnap"></a><p class="attribute_definition">
+<span class="attribute_definition">pixelSnap</span>
+</p>
+
+<div class="attribute_description">Toggles on/off pixel snapping. Pixel snapping will, at the vertex shader
+level, cause the component to the drawn on the nearest pixel boundary.
+This is useful to avoid filtering issues when trying to achieve
+1-1 mapping between
+<a href="GUI.html">GUI</a> artwork and the screen.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="position"></a><p class="attribute_definition">
+<span class="attribute_definition">position</span>
+</p>
+
+<div class="attribute_description">The position of the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  This is a <a href="Vector3.html">Vector3</a>.  The first
+two numbers are the horizontal and vertical positions, the third is the
+depth sort value.
+<br><br>
+The units used by the horizontal and vertical positions depends on the
+current values of the horizontalPositionMode and verticalPositionMode
+attributes.
+<br><br>
+If the position mode is "CLIP", then the position component is defined
+in clip space. Note that if the component is a child of a
+<a href="WindowGUIComponent.html">WindowGUIComponent</a>, then the clip coordinates are relative to the
+dimensions of that parent (e.g. x = -1 would cause the child of the
+window to be aligned to the left edge of the window). (-1,-1) is the
+bottom left of the screen/window,
+(1,1) is the top right of the screen/window.
+(0,0) is the centre of the screen/window.
+<br><br>
+If the position mode is "PIXEL", then the coordinate is defined to be
+in pixels, relative to the top left of the screen (or parent window,
+if the component is the child of a <a href="WindowGUIComponent.html">WindowGUIComponent</a>).
+<br><br>
+For backwards compatability with old behaviour, a "LEGACY"
+position mode is provided. In this mode the position is taken to be in
+clip space as in "CLIP", however if it is a child of a
+<a href="WindowGUIComponent.html">WindowGUIComponent</a> it will will NOT be relative to that window. Newly
+created components are created in "LEGACY" mode by default, however
+this may change in a future release.
+<br><br>
+The horizontalAnchor and verticalAnchor settings impact on the final
+screen position of the component. horizontalAnchor can either be "LEFT",
+"CENTER" or "RIGHT", verticalAnchor can be either "TOP", "CENTER" or
+"BOTTOM".  The anchor attributes determine which part of the gui is
+located by the position attribute. For example, if horizontalAnchor is
+"CENTER" and position is (0,0,0) in clip space, then the component is
+horizontally centred on the screen.	If horizontalAnchor were "LEFT"
+then the left of the component would be	centred on the screen.
+<br><br>
+The depth sort value is used to sort between various <a href="GUI.html">GUI</a> components
+with the same parent.  The lower numbered components appear on top of
+higher numbered components.  Changing the depth of one component
+doesn't automatically re-order all other children at the same level of
+the tree however.  The reSort() method needs to be called on the
+parent, or on <a href="GUI.html">GUI</a> if you've changed the position of a root component,
+to force this.
+<br><br>
+Note that depth values should be kept between 0 and 1, since some video
+cards will automatically clip away triangles with z-values outside this
+range, even if the z-buffer is disabled.
+<br><br>
+This defaults to (0,0,1)
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="script"></a><p class="attribute_definition">
+<span class="attribute_definition">script</span>
+</p>
+
+<div class="attribute_description">This attribute associates a class with the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  This can
+contain functions for handling input events.  It should define the
+following functions, even if simply to stub them out:
+<br><br>
+
+<pre>	def handleKeyEvent( self, event ):
+	def handleAxisEvent( self, event ):
+	def handleMouseButtonEvent( self, comp, event ):
+	def handleMouseClickEvent( self, comp ):
+	def handleMouseEnterEvent( self, comp ):
+	def handleMouseLeaveEvent( self, comp ):
+	def handleMouseEvent( self, comp, event ):
+	def handleDragStartEvent( self, comp ):
+	def handleDragStopEvent( self, comp ):
+	def handleDragEnterEvent( self, comp ):
+	def handleDragLeaveEvent( self, comp ):
+	def handleDropEvent( self, comp, dropped ):
+	def handleLangChangeEvent( self ):
+	def focus( self, state ):
+	def mouseButtonFocus( self, state ):
+	def crossFocus( self, state ):
+	def moveFocus( self, state ):
+	def dragFocus( self, state ):
+	def dropFocus( self, state ):
+	def imeFocus( self, state ):
+	def onLoad( self, dataSection ):
+	def onSave( self, dataSection ):
+	def onBound( self ):
+</pre>
+<br><br>
+The handle event functions are called whenever the
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a> receives the corresponding event. The focus methods
+are called whenever the SimpleGUIComponents focus attributes are
+assigned to.
+<br><br>
+onLoad is called just after the basic attributes have been loaded, but
+before any children are attached or shaders specified.
+<br><br>
+onSave is called just after the basic attributes have been saved.
+<br><br>
+onBound is called after loading and all children and shaders are bound.
+<br><br>
+If a script is associated with a gui component, then that class must
+have a class member "factoryString" describing how to create it.
+<br><br>
+The factoryString which is stored in your .gui file is read in at load
+time and executed using "Script::runString".
+This means that the name of the class to construct must be imported
+into the global namespace. As an example, in FantasyDemo we put all our
+python gui scripts into the "PyGUI" module, and make sure the PyGUI
+module is imported into the global namespace in the personality script
+via the following code :
+
+<pre>from Helpers import PyGUI
+__import__('__main__').PyGUI = PyGUI
+</pre>
+<br><br>
+Please see the FantasyDemo personality script for an example of this.
+Please see the script fantasydemo/res/client/Helpers/PyGUI.py for
+examples of gui python scripts.
+Please see the gui files in fantasdemo/res/gui for examples of gui
+files containing these factory strings.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Object
+</td></tr>
+</table>
+</p>
+
+<a name="shaders"></a><p class="attribute_definition">
+<span class="attribute_definition">shaders</span>
+</p>
+
+<div class="attribute_description">This attribute is the list of all shaders which are applied to this
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a> and to its children.  A shader is used to modify the
+way in which the component is rendered.  There are several different
+shader types: ColourShaders, ClipShaders, MatrixShaders.
+<br><br>
+This list is not normally manipulated directly, instead the addShader
+and delShader functions are called on the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> to add or
+remove shaders.  However, it is possible to perform direct manipulation
+on it if you like.
+<br><br>
+Note there is a special python syntax implemented that helps setting
+and getting shaders - you can set shaders directly as attributes.
+For example :
+Example:
+
+<pre>#Set / Get / Del shaders using special syntax
+s = <a href="GUI.html">GUI</a>.<a href=GUI.html#ClipShader>ClipShader</a>()
+parent = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "" )
+parent.shader = s
+shader = parent.shader
+parent.shader = None
+
+#Set / Get / Del shaders using method calls.
+#This is functionally equivalent to the example above.
+s = <a href="GUI.html">GUI</a>.<a href=GUI.html#ClipShader>ClipShader</a>()
+parent = <a href="GUI.html">GUI</a>.<a href=GUI.html#Simple>Simple</a>( "" )
+parent.addShader( s, "shader" )
+shader = parent.getChild( "shader" )
+parent.delShader( shader )
+</pre>
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>List of (name, Shader) tuples.
+</td></tr>
+</table>
+</p>
+
+<a name="size"></a><p class="attribute_definition">
+<span class="attribute_definition">size</span>
+</p>
+
+<div class="attribute_description">This <a href="Vector2.html">Vector2</a> is the width and height of the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>,
+contained in one attribute. Changing either of those attributes will
+change this, and vice versa.  The interpretation of its two attributes
+depends on widthMode and heightMode. See the documentation for width
+and height for details on how the size modes affect these values.
+<br><br>
+Setting the first (width) and/or second (height) component of the
+passed <a href="Vector2.html">Vector2</a> to zero has special meaning. Setting only one of them
+to zero tells the component to fill-up that zeroed attribute with a
+value that will preserve the aspect ratio of the assigned texture.
+Setting both to zero, tells the component to fill-up both width and
+height attributes with the width and height of the texture, so that
+one texel on the texture gets mapped to one pixel on the screen.
+This special semantic only exists when setting the with and height
+of a component at once, by using the size attribute. Also note that
+a valid texture must be assigned to the component for the width and
+height values to be automatically adjusted.
+<br><br>
+If the tiled attribute is False, then changing the size scales size of
+the texture to match.  Otherwise it just changes the size of the
+component, and the texture tiles to cover the entire surface.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#width">width</a><br><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#height">height</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector2.html">Vector2</a>
+</td></tr>
+</table>
+</p>
+
+<a name="texture"></a><p class="attribute_definition">
+<span class="attribute_definition">texture</span>
+</p>
+
+<div class="attribute_description">This attribute allows any <a href="PyTextureProvider.html">PyTextureProvider</a> object to be assigned to
+the component.  This allows	an object which dynamically updates its
+texture, for example a PyModelRenderer to supply a texture to the
+component.
+<br><br>
+The other way of setting a <a href="PyTextureProvider.html">PyTextureProvider</a> is to set the textureName
+attribute, which creates a new <a href="PyTextureProvider.html">PyTextureProvider</a> which exposes
+the named texture.
+<br><br>
+This attribute may be None, if the component has an empty texture
+name string.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="PyTextureProvider.html">PyTextureProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="textureName"></a><p class="attribute_definition">
+<span class="attribute_definition">textureName</span>
+</p>
+
+<div class="attribute_description">The resource ID of the texture displayed in the component.  If this is
+set to a new texture resource ID (string specifying the fileName of the
+texture) then the new texture will be loaded.
+<br><br>
+If it is set to an empty string then the component will be invisible,
+but its children will be drawn.  Note that this is intentionally
+different to setting the visible flag to false; resetting the visible
+flag will mean the entire tree underneath the component will also not
+draw.
+<br><br>
+Using a gui component with an empty textureName string is useful for
+creating dummy nodes in the <a href="GUI.html">GUI</a> hierarchy, to aid organisation.
+<br><br>
+Setting this creates a new <a href="PyTextureProvider.html">PyTextureProvider</a> which is assigned to the
+texture attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="tileHeight"></a><p class="attribute_definition">
+<span class="attribute_definition">tileHeight</span>
+</p>
+
+<div class="attribute_description">The height the texture should be scaled to, in pixels, before it is
+tiled.  This attribute is only meaningful if the tiled attribute is set
+to True.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="tileWidth"></a><p class="attribute_definition">
+<span class="attribute_definition">tileWidth</span>
+</p>
+
+<div class="attribute_description">The width the texture should be scaled to, in pixels, before it is
+tiled.  This attribute is only meaningful if the tiled attribute is set
+to True.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="tiled"></a><p class="attribute_definition">
+<span class="attribute_definition">tiled</span>
+</p>
+
+<div class="attribute_description">If this attribute is False, then the texture will be mapped across the
+entire region of the component (see the mapping attribute).  If this
+attribute is True, then the texture will be mapped to an area which
+is tileWidth wide, and tileHeight high, and then tiled all over the
+component.  Tiling starts with the top left corner of the texture in
+the top left of the component.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#mapping">mapping</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="verticalAnchor"></a><p class="attribute_definition">
+<span class="attribute_definition">verticalAnchor</span>
+</p>
+
+<div class="attribute_description">This attribute specifies which part of the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> is
+located by the position attribute, in a vertical direction.
+Possibe values are "TOP", "CENTER" and "BOTTOM".  The default is
+"CENTER".
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="verticalPositionMode"></a><p class="attribute_definition">
+<span class="attribute_definition">verticalPositionMode</span>
+</p>
+
+<div class="attribute_description">Determines the units used by position.y. See the documentation
+for <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href=SimpleGUIComponent.html#position>position</a> for details on how it is interpreted.
+<br><br>
+Possible values are "CLIP", "PIXEL", "LEGACY". Defaults to "LEGACY".
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="visible"></a><p class="attribute_definition">
+<span class="attribute_definition">visible</span>
+</p>
+
+<div class="attribute_description">This attribute determines whether or not the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a> is
+rendered or not.  If it is False, then it will not be rendered,
+otherwise it will.  It defaults to True.  Setting visible to false
+will also implicitly hide all children of the component.  If you
+want to disable rendering of a parent component but still have its
+children drawn, then set the textureName of the parent to "", an
+empty string.  Note that Simple <a href="GUI.html">GUI</a> Components constructed with
+empty strings are often used as dummy nodes in a <a href="GUI.html">GUI</a> tree.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="visibleInAppFocusOnly"></a><p class="attribute_definition">
+<span class="attribute_definition">visibleInAppFocusOnly</span>
+</p>
+
+<div class="attribute_description">When this attribute is set to true the component will only be drawn when
+the application is in focus. Useful for cursors or other components that
+indicate an input focus to the user.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="width"></a><p class="attribute_definition">
+<span class="attribute_definition">width</span>
+</p>
+
+<div class="attribute_description">The width of the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>. Its interpretation depends on the
+widthMode attribute. If widthMode is "PIXELS", then width is
+interpreted as pixels. If widthMode is "CLIP", then it is interpreted
+as clip-space coordinates so that the width of the screen or the parent
+<a href="WindowGUIComponent.html">WindowGUIComponent</a> is exactly 2.0. If widthMode is "LEGACY" then it is
+interpreted similarly to "CLIP", however 2.0 is ALWAYS the width of the
+screen (even if it is a child of a <a href="WindowGUIComponent.html">WindowGUIComponent</a>).
+<br><br>
+If the tiled attribute is False, then changing the width scales width of
+the texture to match.  Otherwise it just changes the width of the
+component, and the texture tiles to cover the entire surface.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="widthMode"></a><p class="attribute_definition">
+<span class="attribute_definition">widthMode</span>
+</p>
+
+<div class="attribute_description">This attribute determines how the width attribute is interpreted. 
+Possible values are "CLIP", "PIXEL", and "LEGACY". See
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href=SimpleGUIComponent.html#width>width</a> for details on the meaning of these values.
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#width">width</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="widthRelative"></a><p class="attribute_definition">
+<span class="attribute_definition">widthRelative</span>
+</p>
+
+<div class="attribute_description">This attribute determines how the width attribute is interpreted. 
+This attribute has been deprecated, use widthMode instead.
+<br><br>
+Setting this to True is equivalent to setting widthMode to "LEGACY",
+and setting this to False is equivalent to setting widthMode to
+"PIXEL".
+</div>
+
+<p>
+<span class="attribute_links"><b>See:</b></span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href="SimpleGUIComponent.html#width">width</a><br></td></tr>
+</table>
+</p>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

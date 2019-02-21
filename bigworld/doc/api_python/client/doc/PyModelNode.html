@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>PyModelNode - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyModelNode Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>PyModelNode is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+MatrixProviderLiaison
+ &rarr; <a href="MatrixProvider.html">MatrixProvider</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#attach" class="function_list" >attach</a>( self, attachment ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#detach" class="function_list" >detach</a>( self, attachment ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#attachments" class="attribute_list" >attachments</a></td><td>&nbsp; List of PyAttachments
+</td></tr>
+
+<tr valign=top><td><a href="#inWorld" class="attribute_list" >inWorld</a></td><td>&nbsp; Read-Only Integer
+</td></tr>
+
+<tr valign=top><td><a href="#local" class="attribute_list" >local</a></td><td>&nbsp; Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#name" class="attribute_list" >name</a></td><td>&nbsp; Read-Only String
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="PyModelNode.html">PyModelNode</a> is a <a href="MatrixProvider.html">MatrixProvider</a>
+which is weighted with other nodes to calculate the transformation matrix
+for a particular piece of geometry.  In a biped for example, "biped Spine",
+"biped Spine1" and "biped Pelvis" are all nodes which are used to transform
+the torso geometry.
+<br><br>
+PyAttachments can be attached to PyModelNodes, which will store them in the
+attachments attribute.
+<br><br>
+PyModelNodes cannot be created dynamically, but are part of a <a href="PyModel.html">PyModel</a>, which
+is loaded from a .model file. They can be accessed using the node function,
+which obtains the <a href="PyModelNode.html">PyModelNode</a> of the specified name from a model.
+<br><br>
+A <a href="PyModelNode.html">PyModelNode</a>'s matrix is only updated after the owning model's nodes are
+updated, which is at draw time.  This means that from script the very first
+time you create a <a href="PyModelNode.html">PyModelNode</a> referece it's internal transform wil not
+yet be set.  You will have to wait until the owning model updates and draws
+at least once before accessing the node's matrix.
+<br><br>
+For example:
+
+<pre>myNode = model.node( "biped Head" )
+</pre>
+obtains the head node of the model.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="attach"></a><p class="function_definition">
+<span class="function_definition">def attach( <i>self, attachment</i> ):</span>
+</p>
+
+<div class="function_description">This function takes a <a href="PyAttachment.html">PyAttachment</a> and attaches it to the node.  The
+attachment must not already be attached to something. Attaching it causes
+the attachment to appear with its root node with the same position and
+rotation as this node. It also sets the attachments inWorld attribute to
+the inWorld Attribute of this <a href="PyModelNode.html">PyModelNode</a>.
+<br><br>
+Examples of things which can be attached are models and particle systems.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>attachment</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="PyAttachment.html">PyAttachment</a> to be attached to this node.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="detach"></a><p class="function_definition">
+<span class="function_definition">def detach( <i>self, attachment</i> ):</span>
+</p>
+
+<div class="function_description">This function takes a <a href="PyAttachment.html">PyAttachment</a>, and tries to detach it from this node.
+This will fail and error if the attachment wasn't attached to this node
+when the call was made.
+<br><br>
+Raises a ValueError if the given attachment is not attached to this node.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>attachment</i></span></td><td><span class="function_parameter_description">&nbsp;the <a href="PyAttachment.html">PyAttachment</a> to be detached from this node.
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="attachments"></a><p class="attribute_definition">
+<span class="attribute_definition">attachments</span>
+</p>
+
+<div class="attribute_description">This attribute is the list of all PyAttachments which are attached to
+this node.  PyAttachments can be added and removed from the list using
+the attach and detach functions.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>List of PyAttachments
+</td></tr>
+</table>
+</p>
+
+<a name="inWorld"></a><p class="attribute_definition">
+<span class="attribute_definition">inWorld</span>
+</p>
+
+<div class="attribute_description">This attribute is used to determine whether the parent model has been
+added to the world.  It is read only, and is set to 1 if the Model is
+in the world, 0 otherwise.  In order to add a model to the world, you
+can attach it to another model, or set the model property of an entity
+to this Model.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Integer
+</td></tr>
+</table>
+</p>
+
+<a name="local"></a><p class="attribute_definition">
+<span class="attribute_definition">local</span>
+</p>
+
+<div class="attribute_description">This attribute is the local transform for the node.  The local transform
+is pre-multiplied to the node matrix and affects every attached object.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="name"></a><p class="attribute_definition">
+<span class="attribute_definition">name</span>
+</p>
+
+<div class="attribute_description">This attribute is the name of the node
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only String
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>PyCollidePSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyCollidePSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyCollidePSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#elasticity" class="attribute_list" >elasticity</a></td><td>&nbsp; Float. Recommend values are 0.0 to 1.0.
+</td></tr>
+
+<tr valign=top><td><a href="#maxAddedRotation" class="attribute_list" >maxAddedRotation</a></td><td>&nbsp; Float. Recommend values are 0.0 to 1.0.
+</td></tr>
+
+<tr valign=top><td><a href="#minAddedRotation" class="attribute_list" >minAddedRotation</a></td><td>&nbsp; Float. Recommend values are 0.0 to 1.0.
+</td></tr>
+
+<tr valign=top><td><a href="#soundEnabled" class="attribute_list" >soundEnabled</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#soundSrcIdx" class="attribute_list" >soundSrcIdx</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#soundTag" class="attribute_list" >soundTag</a></td><td>&nbsp; </td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PyCollidePSA.html">PyCollidePSA</a> is a <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> that collides particles with the
+collision scene, based upon their position and velocity.
+<br><br>
+A new <a href="PyCollidePSA.html">PyCollidePSA</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#CollidePSA>CollidePSA</a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="elasticity"></a><p class="attribute_definition">
+<span class="attribute_definition">elasticity</span>
+</p>
+
+<div class="attribute_description">This sets the amount of elasticity in the collision. 0 indicates no
+reflection of velocity in the direction of the collision normal. 1
+indicates full reflection of velocity in the direction of collision
+normal. The default value is 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Recommend values are 0.0 to 1.0.
+</td></tr>
+</table>
+</p>
+
+<a name="maxAddedRotation"></a><p class="attribute_definition">
+<span class="attribute_definition">maxAddedRotation</span>
+</p>
+
+<div class="attribute_description">This specifies the maximum amount of spin added to the particle
+when it collides ( dynamically scaled by velocity ).
+The actual value varies randomly between min and max added rotation.
+The value is interpreted as an absolute amount, so a particle that
+is not currently spinning can begin spinning upon a collision.
+If negative, the spin will decrease / be dampened.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Recommend values are 0.0 to 1.0.
+</td></tr>
+</table>
+</p>
+
+<a name="minAddedRotation"></a><p class="attribute_definition">
+<span class="attribute_definition">minAddedRotation</span>
+</p>
+
+<div class="attribute_description">This specifies the minimum amount of spin added to the particle
+when it collides ( dynamically scaled by velocity ).
+The actual value varies randomly between min and max added rotation.
+The value is interpreted as an absolute amount, so a particle that
+is not currently spinning can begin spinning upon a collision.
+If negative, the spin will decrease / be dampened.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Recommend values are 0.0 to 1.0.
+</td></tr>
+</table>
+</p>
+
+<a name="soundEnabled"></a><p class="attribute_definition">
+<span class="attribute_definition">soundEnabled</span>
+</p>
+
+<div class="attribute_description">Not supported.
+</div>
+
+<a name="soundSrcIdx"></a><p class="attribute_definition">
+<span class="attribute_definition">soundSrcIdx</span>
+</p>
+
+<div class="attribute_description">Not supported.
+</div>
+
+<a name="soundTag"></a><p class="attribute_definition">
+<span class="attribute_definition">soundTag</span>
+</p>
+
+<div class="attribute_description">Not supported.
+</div>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

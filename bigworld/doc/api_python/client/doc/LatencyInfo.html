@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>LatencyInfo - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>LatencyInfo Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>LatencyInfo is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="Vector4Provider.html">Vector4Provider</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="LatencyInfo.html">LatencyInfo</a> class is a sub class of <a href="Vector4Provider.html">Vector4Provider</a> that has an
+overloaded value attribute. This attribute
+is overloaded to return a 4 float sequence consisting of
+( 1, minimum latency, maximum latency, average latency ) if the client is
+connected to a server. If the client is not connected to the server then
+the value attribute returns ( 0, 0, 0, 0 ).
+<br><br>
+Call the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#LatencyInfo><a href="LatencyInfo.html">LatencyInfo</a></a> function to create an instance of a
+<a href="LatencyInfo.html">LatencyInfo</a> object.
+
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

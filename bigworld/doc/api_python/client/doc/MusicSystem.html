@@ -1,0 +1,316 @@
+<html>
+<head>
+<title>MusicSystem - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>MusicSystem Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="FMOD.html" class="module_h1">FMOD Module</a>]</span></p><p>MusicSystem is part of the <a href="FMOD.html">FMOD</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import FMOD</pre>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#freeSoundData" class="function_list" >freeSoundData</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getParameterValue" class="function_list" >getParameterValue</a>( self, name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#loadSoundData" class="function_list" >loadSoundData</a>( self, blocking ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#promptCue" class="function_list" >promptCue</a>( self, name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#reset" class="function_list" >reset</a>( self, type, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setCallback" class="function_list" >setCallback</a>( self, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setParameterValue" class="function_list" >setParameterValue</a>( self, name, value ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#memoryUsed" class="attribute_list" >memoryUsed</a></td><td>&nbsp; Unsigned Int
+</td></tr>
+
+<tr valign=top><td><a href="#muted" class="attribute_list" >muted</a></td><td>&nbsp; Bool
+</td></tr>
+
+<tr valign=top><td><a href="#paused" class="attribute_list" >paused</a></td><td>&nbsp; Bool
+</td></tr>
+
+<tr valign=top><td><a href="#volume" class="attribute_list" >volume</a></td><td>&nbsp; Float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="MusicSystem.html">MusicSystem</a> provides access to the FMOD::<a href="MusicSystem.html">MusicSystem</a>
+Please refer to "fmodex.chm" in your <a href="FMOD.html">FMOD</a> install directory
+for more information.
+<br><br>
+The <a href="MusicSystem.html">MusicSystem</a> singleton can be accessed via the
+<a href="FMOD.html">FMOD</a>.<a href=FMOD.html#getMusicSystem>getMusicSystem</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="freeSoundData"></a><p class="function_definition">
+<span class="function_definition">def freeSoundData( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Frees sound data for the music system.  
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Nothing.
+</td></tr>
+</table>
+</p>
+
+<a name="getParameterValue"></a><p class="function_definition">
+<span class="function_definition">def getParameterValue( <i>self, name</i> ):</span>
+</p>
+
+<div class="function_description">Gets the value of a given music system parameter.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the parameter.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="loadSoundData"></a><p class="function_definition">
+<span class="function_definition">def loadSoundData( <i>self, blocking</i> ):</span>
+</p>
+
+<div class="function_description">Loads sound data for the music system.  
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>blocking</i></span></td><td><span class="function_parameter_description">&nbsp;Whether the loading should block or be asynchronous.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Nothing.
+</td></tr>
+</table>
+</p>
+
+<a name="promptCue"></a><p class="function_definition">
+<span class="function_definition">def promptCue( <i>self, name</i> ):</span>
+</p>
+
+<div class="function_description">Triggers an instantaneous cue. 
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the cue.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Nothing.
+</td></tr>
+</table>
+</p>
+
+<a name="reset"></a><p class="function_definition">
+<span class="function_definition">def reset( <i>self, type, callback</i> ):</span>
+</p>
+
+<div class="function_description">Resets the music system.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>type</i></span></td><td><span class="function_parameter_description">&nbsp;The type of callback "SEGMENT_START", "SEGMENT_END", "RESET" or "BEAT".
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;The python method to call.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Nothing.
+</td></tr>
+</table>
+</p>
+
+<a name="setCallback"></a><p class="function_definition">
+<span class="function_definition">def setCallback( <i>self, callback</i> ):</span>
+</p>
+
+<div class="function_description">Sets a callback so that when certain music behaviours happen, they
+ *  can be caught by the user.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;The callable python object, which will be called 
+					with a single parameter.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Nothing.
+</td></tr>
+</table>
+</p>
+
+<a name="setParameterValue"></a><p class="function_definition">
+<span class="function_definition">def setParameterValue( <i>self, name, value</i> ):</span>
+</p>
+
+<div class="function_description">Sets the value of a given music system parameter.  
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the parameter.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The value to set the parameter to.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Nothing.
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="memoryUsed"></a><p class="attribute_definition">
+<span class="attribute_definition">memoryUsed</span>
+</p>
+
+<div class="attribute_description">Memory used by this event group.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Unsigned Int
+</td></tr>
+</table>
+</p>
+
+<a name="muted"></a><p class="attribute_definition">
+<span class="attribute_definition">muted</span>
+</p>
+
+<div class="attribute_description">Mutes or unmutes the music system.  
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Bool
+</td></tr>
+</table>
+</p>
+
+<a name="paused"></a><p class="attribute_definition">
+<span class="attribute_definition">paused</span>
+</p>
+
+<div class="attribute_description">Pauses or unpauses the music system.  
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Bool
+</td></tr>
+</table>
+</p>
+
+<a name="volume"></a><p class="attribute_definition">
+<span class="attribute_definition">volume</span>
+</p>
+
+<div class="attribute_description">Volume of the music system
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

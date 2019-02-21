@@ -1,0 +1,1851 @@
+<html>
+<head>
+<title>BigWorld - BigWorld base Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BigWorld Module Reference</h1>
+The <a href="BigWorld.html">BigWorld</a> module provides python script access to parts of the <a href="Base.html">Base</a>.
+Specifically it provides timer callback function registration and removal,
+and <a href="Base.html">Base</a> creation.
+
+<h2><a href="#" onClick="obj=document.getElementById( 'classes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Class List</a></h2>
+<table id="classes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="class_list"><a href="Base.html" class="class_list" >Base</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="Proxy.html" class="class_list" >Proxy</a></span>
+</td></tr>
+
+<tr><td>
+<span class="class_list"><a href="Service.html" class="class_list" >Service</a></span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addEventListener" class="function_list" >addEventListener</a>( eventName, callback, level ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addFrequentTask" class="function_list" >addFrequentTask</a>( callback, level ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addFunctionWatcher" class="function_list" >addFunctionWatcher</a>( path, function, argumentList, exposedHint, desc ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addTimer" class="function_list" >addTimer</a>( callback, initialOffset, repeatOffset=0, userArg=0 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addWatcher" class="function_list" >addWatcher</a>( path, getFunction, setFunction ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#address" class="function_list" >address</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#authenticateAccount" class="function_list" >authenticateAccount</a>( username, password ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBase" class="function_list" >createBase</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseAnywhere" class="function_list" >createBaseAnywhere</a>( entityType, *params, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseAnywhereFromDB" class="function_list" >createBaseAnywhereFromDB</a>( entityType, identifier, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseAnywhereFromDBID" class="function_list" >createBaseAnywhereFromDBID</a>( entityType, dbID, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseFromDB" class="function_list" >createBaseFromDB</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseFromDBID" class="function_list" >createBaseFromDBID</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseLocally" class="function_list" >createBaseLocally</a>( entityType, *params ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseLocallyFromDB" class="function_list" >createBaseLocallyFromDB</a>( entityType, identifier, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseLocallyFromDBID" class="function_list" >createBaseLocallyFromDBID</a>( entityType, id, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseRemotely" class="function_list" >createBaseRemotely</a>( entityType, baseMB, *params, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseRemotelyFromDB" class="function_list" >createBaseRemotelyFromDB</a>( entityType, identifier, baseMB, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createBaseRemotelyFromDBID" class="function_list" >createBaseRemotelyFromDBID</a>( entityType, dbID, baseMB, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#createEntity" class="function_list" >createEntity</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delCellAppData" class="function_list" >delCellAppData</a>( key ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delTimer" class="function_list" >delTimer</a>( id ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delWatcher" class="function_list" >delWatcher</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#deleteBaseByDBID" class="function_list" >deleteBaseByDBID</a>( entityType, dbID, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#deregisterFileDescriptor" class="function_list" >deregisterFileDescriptor</a>( fileDescriptor ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#deregisterWriteFileDescriptor" class="function_list" >deregisterWriteFileDescriptor</a>( fileDescriptor ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#executeRawDatabaseCommand" class="function_list" >executeRawDatabaseCommand</a>( command, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#fetchDataSection" class="function_list" >fetchDataSection</a>( path, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#fetchEntitiesFromChunks" class="function_list" >fetchEntitiesFromChunks</a>( path, handler ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#fetchFromChunks" class="function_list" >fetchFromChunks</a>( matches, path, handler ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#fetchURL" class="function_list" >fetchURL</a>( url, callback, headers, timeout, method ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getLoad" class="function_list" >getLoad</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getWatcher" class="function_list" >getWatcher</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getWatcherDir" class="function_list" >getWatcherDir</a>( path ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#hasStarted" class="function_list" >hasStarted</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isNextTickPending" class="function_list" >isNextTickPending</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isShuttingDown" class="function_list" >isShuttingDown</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#lookUpBaseByDBID" class="function_list" >lookUpBaseByDBID</a>( entityType, dbID, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#lookUpBaseByName" class="function_list" >lookUpBaseByName</a>( entityType, name, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#lookUpBasesByIndex" class="function_list" >lookUpBasesByIndex</a>( entityType, callback, filter, sortProperty, sortAscending, limit, offset ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#lookUpDBIDByName" class="function_list" >lookUpDBIDByName</a>( entityType, name, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#quantumPassedPercent" class="function_list" >quantumPassedPercent</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#registerFileDescriptor" class="function_list" >registerFileDescriptor</a>( fileDescriptor, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#registerWriteFileDescriptor" class="function_list" >registerWriteFileDescriptor</a>( fileDescriptor, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#reloadScript" class="function_list" >reloadScript</a>( fullReload ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#removeEventListener" class="function_list" >removeEventListener</a>( eventName, callback ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setCellAppData" class="function_list" >setCellAppData</a>( key, value ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setWatcher" class="function_list" >setWatcher</a>( path, val ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#startService" class="function_list" >startService</a>( serviceName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#stopService" class="function_list" >stopService</a>( serviceName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#time" class="function_list" >time</a>(  ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#LOG_ON_ACCEPT" class="attribute_list" >LOG_ON_ACCEPT</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#LOG_ON_REJECT" class="attribute_list" >LOG_ON_REJECT</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#LOG_ON_WAIT_FOR_DESTROY" class="attribute_list" >LOG_ON_WAIT_FOR_DESTROY</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#NEXT_ONLY" class="attribute_list" >NEXT_ONLY</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#baseAppData" class="attribute_list" >baseAppData</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#component" class="attribute_list" >component</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#entities" class="attribute_list" >entities</a></td><td>&nbsp; <a href="PyBases.html">PyBases</a>
+</td></tr>
+
+<tr valign=top><td><a href="#globalBases" class="attribute_list" >globalBases</a></td><td>&nbsp; <a href="GlobalBases.html">GlobalBases</a>
+</td></tr>
+
+<tr valign=top><td><a href="#globalData" class="attribute_list" >globalData</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#isServiceApp" class="attribute_list" >isServiceApp</a></td><td>&nbsp; bool
+</td></tr>
+
+</table>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addEventListener"></a><p class="function_definition">
+<span class="function_definition">def addEventListener( <i>eventName, callback, level</i> ):</span>
+</p>
+
+<div class="function_description">The function addEventListener associates a callback with an event. The
+callback will be called whenever the event is triggered.
+<br><br>
+The events that can be listened to are all of the <a href="BWPersonality.html">BWPersonality</a> callbacks
+that do not have a return value. For example, "onInit", "onFini" etc.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>eventName</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the event to listen for.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;A callable object that will be called on this event.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>level</i></span></td><td><span class="function_parameter_description">&nbsp;An optional integer level. Listeners with a higher level are
+	called later. The default value is 0.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addFrequentTask"></a><p class="function_definition">
+<span class="function_definition">def addFrequentTask( <i>callback, level</i> ):</span>
+</p>
+
+<div class="function_description">The function addFrequentTask registers a callback function to be
+called periodically (at game tick frequency). If the callback ever
+returns True, it is deregistered and will not be called again.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the callable to be used. This is a function that
+takes no parameters.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>level</i></span></td><td><span class="function_parameter_description">&nbsp;Optional argument for the level to run the task at. This higher
+the level, the later the task is executed. Currently the only valid levels
+are 0 and 1.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addFunctionWatcher"></a><p class="function_definition">
+<span class="function_definition">def addFunctionWatcher( <i>path, function, argumentList, exposedHint, desc</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+creation of watcher variables.
+<br><br>
+The addFunctionWatcher function in Python allows the creation of a watcher
+path that can be queried as well as set with a variable length argument
+list.
+<br><br>
+For example:
+<br><br>
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addFunctionWatcher>addFunctionWatcher</a>( "command/addGuards", util.patrollingGuards,
+      [("Number of guards to add", int)], <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#EXPOSE_LEAST_LOADED>EXPOSE_LEAST_LOADED</a>,
+      "Add an arbitrary number of patrolling guards into the world.")
+<br><br>
+Raises a TypeError if the "function" argument is not callable.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path the watcher will be created as. Function watchers
+				are	generally placed under the "command/" path structure.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>function</i></span></td><td><span class="function_parameter_description">&nbsp;The function to call to with the provided argument list.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>argumentList</i></span></td><td><span class="function_parameter_description">&nbsp;The argument list (provided as a tuple) of types and
+						descriptions that the function accepts. See the
+						example for more details about its structure.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>exposedHint</i></span></td><td><span class="function_parameter_description">&nbsp;The default exposure hint to be used when forwarding
+                    the watcher call from Managers to Components.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>desc</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) A description of the function watcher behaviour
+				and usage. While this field is optional, it is strongly
+				recommended to provide this description in order to allow
+				usage through WebConsole to be more intuitive.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addTimer"></a><p class="function_definition">
+<span class="function_definition">def addTimer( <i>callback, initialOffset, repeatOffset=0, userArg=0</i> ):</span>
+</p>
+
+<div class="function_description">The function addTimer registers a function to be called after
+"initialOffset" seconds. Optionally it can be repeated every "repeatOffset"
+seconds, and have optional user data (an integer that is simply passed to
+the timer function) "userArg".
+<br><br>
+The callback function must accept 2 arguments; the internal id of the timer
+(useful to remove the timer via the "delTimer" method), and the optional
+user supplied integer "userArg".
+<br><br>
+Example:
+
+<pre>import <a href="BigWorld.html">BigWorld</a>
+
+# Callback function that accepts 2 parameters; the id of the timer,
+# and the specified user argument.
+
+# id is the internal id of the timer, and can be used to remove the
+# timer via the use of the <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#delTimer>delTimer</a> function
+def onTimer( self, id, userArg ):
+    print "onTimer called: id %i, userArg: %i" % ( id, userArg )
+    # if this is a repeating timer then call:
+    #     <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#delTimer>delTimer</a>( id )
+    # to remove the timer when it is no longer needed
+
+# call onTimer after 5 seconds, and then every 1 second with a userArg of 9
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addTimer>addTimer</a>( onTimer, 5, 1, 9 )
+
+# call onTimer after 1 second with no repeat and userArg defaulting to a
+# value of 0
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addTimer>addTimer</a>( onTimer, 1 )
+</pre>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the timer handler to be used. This is a function
+that takes 2 integer parameters.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>initialOffset</i></span></td><td><span class="function_parameter_description">&nbsp;initialOffset is a float and specifies the interval (in
+seconds) between registration of the timer, and the time of first execution.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>repeatOffset</i></span></td><td><span class="function_parameter_description">&nbsp;repeatOffset is an optional float and specifies the
+interval (in seconds) between repeated executions after the first execution.
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#delTimer>delTimer</a> must be used to remove the timer or this will repeat
+continuously.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>userArg</i></span></td><td><span class="function_parameter_description">&nbsp;userArg is an optional integer which specifies an optional
+user supplied value to be passed to the callback method.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer. This function returns the internal id of the timer. This
+can be used with <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#delTimer>delTimer</a> to remove the timer.
+</td></tr>
+</table>
+</p>
+
+<a name="addWatcher"></a><p class="function_definition">
+<span class="function_definition">def addWatcher( <i>path, getFunction, setFunction</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+creation of watcher variables.
+<br><br>
+The addWatcher function in Python allows the creation of a particular
+watcher variable.
+For example:
+<br><br>
+
+<pre>>>> maxBandwidth = 20000
+>>> def getMaxBps( ):
+>>>     return str(maxBandwidth)
+>>> def setMaxBps( bps ):
+>>>     maxBandwidth = int(bps)
+>>>     setBandwidthPerSecond( int(bps) )
+>>>
+>>> <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addWatcher>addWatcher</a>( "Comms/Max bandwidth per second", getMaxBps, setMaxBps )
+</pre>
+<br><br>
+This adds a watcher variable under "Comms" watcher directory. The function getMaxBps
+is called to obtain the watcher value and setMaxBps is called when the watcher is modified.
+<br><br>
+Raises a TypeError if getFunction or setFunction is not callable.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to create.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>getFunction</i></span></td><td><span class="function_parameter_description">&nbsp;the function to call when retrieving the watcher variable.
+					This function takes no argument and returns a string representing
+					the watcher value.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>setFunction</i></span></td><td><span class="function_parameter_description">&nbsp;(optional)the function to call when setting the watcher variable
+					This function takes a string argument as the new watcher value.
+					This function does not return a value. If this function does not
+					exist the created watcher is a read-only watcher variable.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="address"></a><p class="function_definition">
+<span class="function_definition">def address( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method returns the address of the internal network interface.
+</div>
+
+<a name="authenticateAccount"></a><p class="function_definition">
+<span class="function_definition">def authenticateAccount( <i>username, password</i> ):</span>
+</p>
+
+<div class="function_description">This method validates whether a username and password pair are valid. On
+success, the entity type and database id of the associated entity are
+returned to the Twisted Deferred.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>username</i></span></td><td><span class="function_parameter_description">&nbsp;The username to test.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>password</i></span></td><td><span class="function_parameter_description">&nbsp;The password to test.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A Twisted Deferred. On success, callback will be called with a
+	2-tuple containing the entity type and database id of the entity
+	associated with this account. On failure, errback is called with a
+	Failure object indicating the reason for failure.
+</td></tr>
+</table>
+</p>
+
+<a name="createBase"></a><p class="function_definition">
+<span class="function_definition">def createBase( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="createBaseAnywhere"></a><p class="function_definition">
+<span class="function_definition">def createBaseAnywhere( <i>entityType, *params, callback</i> ):</span>
+</p>
+
+<div class="function_description">This method should be preferred to <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createBaseLocally>createBaseLocally</a> and
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createBaseRemotely>createBaseRemotely</a> as the server has the flexibility to create
+the entity on an appropriately loaded BaseApp.
+<br><br>
+The function takes the name of the entity type to be created and optionally
+a Python dictionary or keyword arguments to be used to provide initial
+values for the entity.
+<br><br>
+Any values not provided will default to the entity's default value provided
+by the ".def" file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the type of base entity to be	created. It must be
+a string specifying the name of the entity type. Valid entity types are
+those listed in scripts/entities.xml that have a base entity component.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>*params</i></span></td><td><span class="function_parameter_description">&nbsp;The remaining, optional arguments. These arguments can be
+Python dictionaries, keyword arguments, or a <a href="DataSection.html">DataSection</a>. If a specified
+key is a <a href="Base.html">Base</a> property, its value will be used to initialise the <a href="Base.html">Base</a> entity
+property. If the key is a Cell property, it will be added into the
+'cellData' attribute on the base entity, which is a Python dictionary, and
+later be sent to initialise the cell entity properties.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;callback is an optional callable object that will be called
+when the entity has been created. It is called with one argument that is a
+mailbox to the new base entity on success and None on failure.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A mailbox to the new <a href="Base.html">Base</a> entity.
+</td></tr>
+</table>
+</p>
+
+<a name="createBaseAnywhereFromDB"></a><p class="function_definition">
+<span class="function_definition">def createBaseAnywhereFromDB( <i>entityType, identifier, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;This is a string specifying the type of <a href="Base.html">Base</a> entity to
+load. Entity types are listed in <res>/scripts/entities.xml.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>identifier</i></span></td><td><span class="function_parameter_description">&nbsp;This is a string specifying the unique identifier of
+                   the entity to load. The identifier property of an entity
+                   is specified by using the <Identifier> tag in the entity
+                   definition file.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;This is an optional callable object that will be called
+when operation completes. The callable object will be called with three
+arguments: baseRef, databaseID and wasActive. If the operation was
+successful then baseRef will be a mailbox or direct reference
+to the newly created base entity, databaseID will be the database ID of
+the entity and wasActive will indicate whether the entity was already
+active. If wasActive is true then baseRef is a reference to a pre-existing
+entity. If the operation failed, then baseRef will be None, databaseID will
+be 0 and wasActive will be false. The most common reason for failure is the
+that entity does not exist in the database but intermittent failures like
+timeouts or unable to allocate IDs may also occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="createBaseAnywhereFromDBID"></a><p class="function_definition">
+<span class="function_definition">def createBaseAnywhereFromDBID( <i>entityType, dbID, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;This is a string specifying the type of <a href="Base.html">Base</a> entity to
+load. Entity types are listed in <res>/scripts/entities.xml.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dbID</i></span></td><td><span class="function_parameter_description">&nbsp;This is a number specifying the database ID of the entity to
+create. The database ID of an entity is stored in the databaseID property
+of the entity.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;This is an optional callable object that will be called
+when operation completes. The callable object will be called with three
+arguments: baseRef, databaseID and wasActive. If the operation was
+successful then baseRef will be a mailbox or direct reference
+to the newly created base entity, databaseID will be the database ID of
+the entity and wasActive will indicate whether the entity was already
+active. If wasActive is true then baseRef is a reference to a pre-existing
+entity. If the operation failed, then baseRef will be None, databaseID will
+be 0 and wasActive will be false. The most common reason for failure is the
+that entity does not exist in the database but intermittent failures like
+timeouts or unable to allocate IDs may also occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="createBaseFromDB"></a><p class="function_definition">
+<span class="function_definition">def createBaseFromDB( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="createBaseFromDBID"></a><p class="function_definition">
+<span class="function_definition">def createBaseFromDBID( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="createBaseLocally"></a><p class="function_definition">
+<span class="function_definition">def createBaseLocally( <i>entityType, *params</i> ):</span>
+</p>
+
+<div class="function_description">Any values not provided will default to the entity's default value provided
+by the ".def" file.
+<br><br>
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createBaseAnywhere>createBaseAnywhere</a> should be preferred to this method and
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createBaseRemotely>createBaseRemotely</a> as the server has the flexibility to create the
+entity on an appropriately loaded BaseApp.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the type of base entity to be created. It
+must be a string specifying the name of the entity type. Valid entity types
+are those listed in scripts/entities.xml that have a base entity component.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>*params</i></span></td><td><span class="function_parameter_description">&nbsp;The remaining, optional arguments. These arguments can be
+Python dictionaries, keyword arguments, or a <a href="DataSection.html">DataSection</a>. If a specified
+key is a <a href="Base.html">Base</a> property, its value will be used to initialise the <a href="Base.html">Base</a> entity
+property. If the key is a Cell property, it will be added into the
+'cellData' attribute on the base entity, which is a Python dictionary, and
+later be sent to initialise the cell entity properties.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The newly created base entity (see <a href="Base.html">Base</a> for a description of the
+base entity returned).
+</td></tr>
+</table>
+</p>
+
+<a name="createBaseLocallyFromDB"></a><p class="function_definition">
+<span class="function_definition">def createBaseLocallyFromDB( <i>entityType, identifier, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;This is a string specifying the type of <a href="Base.html">Base</a> entity to
+load. Entity types are listed in <res>/scripts/entities.xml.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>identifier</i></span></td><td><span class="function_parameter_description">&nbsp;This is a string specifying the unique identifier of
+                   the entity to load. The identifier property of an entity
+                   is specified by using the <Identifier> tag in the entity
+                   definition file.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;This is an optional callable object that will be called
+when operation completes. The callable object will be called with three
+arguments: baseRef, databaseID and wasActive. If the operation was
+successful then baseRef will be a reference to the newly created <a href="Base.html">Base</a>
+entity, databaseID will be the database ID of the entity and wasActive will
+indicate whether the entity was already active. If wasExisting is true,
+then baseRef is referring to a pre-existing <a href="Base.html">Base</a> entity and may be a
+mailbox rather than a direct reference to a base entity. If the operation
+failed, then baseRef will be None, databaseID will be 0 and wasActive will
+be false. The most common reason for failure is the that entity does not
+exist in the database but intermittent failures like timeouts or unable to
+allocate IDs may also occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="createBaseLocallyFromDBID"></a><p class="function_definition">
+<span class="function_definition">def createBaseLocallyFromDBID( <i>entityType, id, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;This is a string specifying the type of <a href="Base.html">Base</a> entity to
+load. Entity types are listed in <res>/scripts/entities.xml.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;This is a number specifying the database ID of the entity to
+create. The database ID of an entity is stored in the databaseID property
+of the entity.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;This is an optional callable object that will be called
+when operation completes. The callable object will be called with three
+arguments: baseRef, databaseID and wasActive. If the operation was
+successful then baseRef will be a reference to the newly created <a href="Base.html">Base</a>
+entity, databaseID will be the database ID of the entity and wasActive will
+indicate whether the entity was already active. If wasExisting is true,
+then baseRef is referring to a pre-existing <a href="Base.html">Base</a> entity and may be a
+mailbox rather than a direct reference to a base entity. If the operation
+failed, then baseRef will be None, databaseID will be 0 and wasActive will
+be false. The most common reason for failure is the that entity does not
+exist in the database but intermittent failures like timeouts or unable to
+allocate IDs may also occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="createBaseRemotely"></a><p class="function_definition">
+<span class="function_definition">def createBaseRemotely( <i>entityType, baseMB, *params, callback</i> ):</span>
+</p>
+
+<div class="function_description"><a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createBaseAnywhere>createBaseAnywhere</a> should be preferred to this method and
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#createBaseLocally>createBaseLocally</a> as the server has the flexibility to create the
+entity on an appropriately loaded BaseApp.
+<br><br>
+Any values not provided will default to the entity's default value provided
+by the ".def" file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the type of base entity to be	created. It must be
+a string specifying the name of the entity type. Valid entity types are
+those listed in scripts/entities.xml that have a base entity component.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>baseMB</i></span></td><td><span class="function_parameter_description">&nbsp;This is a <a href="Base.html">Base</a> entity mailbox. The new base entity will be
+created on the same BaseApp as this base entity.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>*params</i></span></td><td><span class="function_parameter_description">&nbsp;The remaining, optional arguments. These arguments can be
+Python dictionaries, keyword arguments, or a <a href="DataSection.html">DataSection</a>. If a specified
+key is a <a href="Base.html">Base</a> property, its value will be used to initialise the <a href="Base.html">Base</a> entity
+property. If the key is a Cell property, it will be added into the
+'cellData' attribute on the base entity, which is a Python dictionary, and
+later be sent to initialise the cell entity properties.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;callback is an optional callable object that will be called
+when the entity has been created. It is called with one argument that is a
+mailbox to the new base entity on success and None on failure.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A mailbox to the new <a href="Base.html">Base</a> entity.
+</td></tr>
+</table>
+</p>
+
+<a name="createBaseRemotelyFromDB"></a><p class="function_definition">
+<span class="function_definition">def createBaseRemotelyFromDB( <i>entityType, identifier, baseMB, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;This is a string specifying the type of <a href="Base.html">Base</a> entity to
+load. Entity types are listed in <res>/scripts/entities.xml.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>identifier</i></span></td><td><span class="function_parameter_description">&nbsp;This is a string specifying the unique identifier of
+                   the entity to load. The identifier property of an entity
+                   is specified by using the <Identifier> tag in the entity
+                   definition file.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>baseMB</i></span></td><td><span class="function_parameter_description">&nbsp;This is a <a href="Base.html">Base</a> entity mailbox. The new base entity will be
+created on the same BaseApp as this base entity
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;This is an optional callable object that will be called
+when operation completes. The callable object will be called with three
+arguments: baseRef, databaseID and wasActive. If the operation was
+successful then baseRef will be a mailbox or direct reference
+to the newly created base entity, databaseID will be the database ID of
+the entity and wasActive will indicate whether the entity was already
+active. If wasActive is true then baseRef is a reference to a pre-existing
+entity. If the operation failed, then baseRef will be None, databaseID will
+be 0 and wasActive will be false. The most common reason for failure is the
+that entity does not exist in the database but intermittent failures like
+timeouts or unable to allocate IDs may also occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="createBaseRemotelyFromDBID"></a><p class="function_definition">
+<span class="function_definition">def createBaseRemotelyFromDBID( <i>entityType, dbID, baseMB, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;This is a string specifying the type of <a href="Base.html">Base</a> entity to
+load. Entity types are listed in <res>/scripts/entities.xml.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dbID</i></span></td><td><span class="function_parameter_description">&nbsp;This is a number specifying the database ID of the entity to
+create. The database ID of an entity is stored in the databaseID property
+of the entity.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>baseMB</i></span></td><td><span class="function_parameter_description">&nbsp;This is a <a href="Base.html">Base</a> entity mailbox. The new base entity will be
+created on the same BaseApp as this base entity
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;This is an optional callable object that will be called
+when operation completes. The callable object will be called with three
+arguments: baseRef, databaseID and wasActive. If the operation was
+successful then baseRef will be a mailbox or direct reference
+to the newly created base entity, databaseID will be the database ID of
+the entity and wasActive will indicate whether the entity was already
+active. If wasActive is true then baseRef is a reference to a pre-existing
+entity. If the operation failed, then baseRef will be None, databaseID will
+be 0 and wasActive will be false. The most common reason for failure is the
+that entity does not exist in the database but intermittent failures like
+timeouts or unable to allocate IDs may also occur.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="createEntity"></a><p class="function_definition">
+<span class="function_definition">def createEntity( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="delCellAppData"></a><p class="function_definition">
+<span class="function_definition">def delCellAppData( <i>key</i> ):</span>
+</p>
+
+<div class="function_description">This function deletes a data value that is accessible from all CellApps.
+This can be accessed on CellApps via <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#cellAppData>cellAppData</a>.
+<br><br>
+The CellAppMgr is the authoritative copy of this data. If two or more
+components try to set the same value, the last one to reach the CellAppMgr
+will be the one that is kept.
+<br><br>
+Note: Care should be taken using this functionality. It does not scale well
+and should be used sparingly.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;The key of the value to be deleted.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delTimer"></a><p class="function_definition">
+<span class="function_definition">def delTimer( <i>id</i> ):</span>
+</p>
+
+<div class="function_description">See <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addTimer>addTimer</a> for an example of timer usage.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>id</i></span></td><td><span class="function_parameter_description">&nbsp;id is an integer that specifies the internal id of the timer to
+be removed.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delWatcher"></a><p class="function_definition">
+<span class="function_definition">def delWatcher( <i>path</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path of the watcher to delete.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="deleteBaseByDBID"></a><p class="function_definition">
+<span class="function_definition">def deleteBaseByDBID( <i>entityType, dbID, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;entityType is a string that specifies the type of the
+entity to be deleted.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dbID</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the database ID of the entity to delete.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;callback is a callable object (e.g. a function) that takes
+one argument. If deletion is successful, the callback is called with the
+value True, if it is unsuccessful because the specified entry is currently
+checked out, it is called with the mailbox of that base entity, and if it
+is unsuccessful for any other reason (e.g. specified entry does not exist)
+then it is called with the value False.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="deregisterFileDescriptor"></a><p class="function_definition">
+<span class="function_definition">def deregisterFileDescriptor( <i>fileDescriptor</i> ):</span>
+</p>
+
+<div class="function_description">This function deregisters a callback that has been registered with
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#registerFileDescriptor>registerFileDescriptor</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fileDescriptor</i></span></td><td><span class="function_parameter_description">&nbsp;An object that has a fileno method such as a socket
+or file, or an integer representing a file descriptor.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="deregisterWriteFileDescriptor"></a><p class="function_definition">
+<span class="function_definition">def deregisterWriteFileDescriptor( <i>fileDescriptor</i> ):</span>
+</p>
+
+<div class="function_description">This function deregisters a callback that has been registered with
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#registerWriteFileDescriptor>registerWriteFileDescriptor</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fileDescriptor</i></span></td><td><span class="function_parameter_description">&nbsp;An object that has a fileno method such as a socket
+or file, or an integer representing a file descriptor.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="executeRawDatabaseCommand"></a><p class="function_definition">
+<span class="function_definition">def executeRawDatabaseCommand( <i>command, callback</i> ):</span>
+</p>
+
+<div class="function_description">Please note that the entity data in the database may not be up to date,
+especially when secondary databases are enabled. It is highly
+recommended that this function is not used to read or modify entity
+data.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>command</i></span></td><td><span class="function_parameter_description">&nbsp;The command string specific to the present database layer.
+For MySQL database it is an SQL query.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;The object to call back (e.g. a function) with the
+result of the command execution.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="fetchDataSection"></a><p class="function_definition">
+<span class="function_definition">def fetchDataSection( <i>path, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path to the data section to load.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;callback is a callable object (e.g. a function) that takes one
+	argument, the data section specified by path. If the data section could
+	not be loaded, the callback is called with None as the argument.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="fetchEntitiesFromChunks"></a><p class="function_definition">
+<span class="function_definition">def fetchEntitiesFromChunks( <i>path, handler</i> ):</span>
+</p>
+
+<div class="function_description">The onSection method will be called for each entity section encountered in
+the chunks. This method is called with two arguments. The first is the
+entity data section and the second is a matrix corresponding to the position
+of the entity. If the handler wants to pause processing until the next game
+tick, True should be returned from this function, otherwise None or False
+should be returned.
+<br><br>
+The onFinish method is called with no arguments when all chunks have been
+traversed.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path to the space that is to be loaded.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>handler</i></span></td><td><span class="function_parameter_description">&nbsp;A Python object with an onSection method and optionally an
+onFinish method.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="fetchFromChunks"></a><p class="function_definition">
+<span class="function_definition">def fetchFromChunks( <i>matches, path, handler</i> ):</span>
+</p>
+
+<div class="function_description">The onSection method will be called for each matched section encountered in
+the chunks. This method is called with two arguments. The first is the
+matched data section and the second is a matrix corresponding to the
+position of the section. If the handler wants to pause processing until the
+next game tick, True should be returned from this function, otherwise None
+or False should be returned.
+<br><br>
+The onFinish method is called with no arguments when all chunks have been
+traversed.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>matches</i></span></td><td><span class="function_parameter_description">&nbsp;If a string is passed in, sections named this are passed to the
+callback. If a sequence of strings is passed, any section with a name in the
+sequence is passed to the callback.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;The path to the space that is to be loaded.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>handler</i></span></td><td><span class="function_parameter_description">&nbsp;A Python object with an onSection method and optionally an
+onFinish method.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="fetchURL"></a><p class="function_definition">
+<span class="function_definition">def fetchURL( <i>url, callback, headers, timeout, method</i> ):</span>
+</p>
+
+<div class="function_description">Keyword arguments are supported for this function.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>url</i></span></td><td><span class="function_parameter_description">&nbsp;The URL to retrieve.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;The callable object that receives the response object. The
+	response object has <i>body</i> and <i>responseCode</i> properties.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>headers</i></span></td><td><span class="function_parameter_description">&nbsp;An optional sequence of strings to be added to the request's
+		HTTP headers.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>timeout</i></span></td><td><span class="function_parameter_description">&nbsp;Option argument for the number of seconds before this call
+		should time out.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>method</i></span></td><td><span class="function_parameter_description">&nbsp;"GET" or "PUT" to indicate the HTTP method.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="getLoad"></a><p class="function_definition">
+<span class="function_definition">def getLoad( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="getWatcher"></a><p class="function_definition">
+<span class="function_definition">def getWatcher( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+retrieval of watcher variables.
+<br><br>
+The watcher debugging system allows various variables to be displayed and
+updated from within the runtime.
+<br><br>
+Watchers are specified in the C-code using the MF_WATCH macro.  This takes
+three arguments, the first is a string specifying the path (parent groups
+followed by the item name, separated by forward slashes),
+the second is the expression to watch.  The third argument specifies such
+things as whether it is read only or not, and has a default of read-write.
+<br><br>
+The getWatcher function in Python allows the getting of a particular value.
+For example:
+<br><br>
+
+<pre>>>>	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#getWatcher>getWatcher</a>( "Client Settings/Terrain/draw" )
+1
+</pre>
+<br><br>
+Raises a TypeError if the watcher was not found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the value of that watcher variable.
+</td></tr>
+</table>
+</p>
+
+<a name="getWatcherDir"></a><p class="function_definition">
+<span class="function_definition">def getWatcherDir( <i>path</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+inspection of a directory watcher.
+<br><br>
+Raises a TypeError if not found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>a list containing an entry for each child watcher. Each
+				entry is a tuple of child type, label and value. The child
+				type is 1 for read-only, 2 for read-write and 3 for a
+				directory.
+</td></tr>
+</table>
+</p>
+
+<a name="hasStarted"></a><p class="function_definition">
+<span class="function_definition">def hasStarted( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="isNextTickPending"></a><p class="function_definition">
+<span class="function_definition">def isNextTickPending( <i></i> ):</span>
+</p>
+
+<div class="function_description">This can be controlled by the baseApp/reservedTickFraction setting in bw.xml.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>isNextTickPending returns True if the next tick is pending, False
+otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isShuttingDown"></a><p class="function_definition">
+<span class="function_definition">def isShuttingDown( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<a name="lookUpBaseByDBID"></a><p class="function_definition">
+<span class="function_definition">def lookUpBaseByDBID( <i>entityType, dbID, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;entityType is a string that specifies the type of the
+entity to look up.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>dbID</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the database ID of the entity to look up.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;callback is a callable object (e.g. a function) that takes
+one argument. If the lookup is successful, the callback is called with the
+base mailbox, if it is unsuccessful because the specified entry is not
+currently checked out, it is called with the value True, and if it
+is unsuccessful for any other reason (e.g. specified entry does not exist)
+then it is called with the value False.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="lookUpBaseByName"></a><p class="function_definition">
+<span class="function_definition">def lookUpBaseByName( <i>entityType, name, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;entityType is a string that specifies the type of the
+entity to look up.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the name of the entity to look up.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;callback is a callable object (e.g. a function) that takes
+one argument. If the lookup is successful, the callback is called with the
+base mailbox, if it is unsuccessful because the specified entry is not
+currently checked out, it is called with the value True, and if it
+is unsuccessful for any other reason (e.g. specified entry does not exist)
+then it is called with the value False.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="lookUpBasesByIndex"></a><p class="function_definition">
+<span class="function_definition">def lookUpBasesByIndex( <i>entityType, callback, filter, sortProperty, sortAscending, limit, offset</i> ):</span>
+</p>
+
+<div class="function_description">Perform an asynchronous look-up of persistent base entities stored in the
+primary database based on matching some of its properties. For efficiency,
+query properties should be an indexed property as defined in the entity
+definitions for the given entity type. They are specified in the search
+as keyword arguments to this method. The property matches are combined using
+the AND operator.
+<br><br>
+If successful, the callback argument is called with a list of pairs for
+each matching persistent entity:
+<br><br>
+[ (databaseID0, baseMailBox0), (databaseID1, baseMailBox1), ... ]
+<br><br>
+If the entity is currently checked out, the base mailbox is returned as the
+second element of the pair. If the entity is not current checked out, the
+second element of the pair will be None.
+<br><br>
+If the request resulted in a database error of some kind (this does not
+include the case where zero entities are matched), the callback argument
+will be called with None instead. Examples include if the property is of an
+inappropriate type to compare with a string (e.g. sequence and structured
+data types, PYTHON types, FLOAT* types).
+<br><br>
+Note that this method queries the primary database. If secondary databases
+are used, the data may be out-of-date with respect to what is contained in
+the secondary databases.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the entity type to query for.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;A callable object that is called back when matched
+						results are received.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>filter</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) One of the
+			<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#LOOK_UP_ENTITIES_FILTER_constants>LOOK_UP_ENTITIES_FILTER_constants</a>.
+			(default is	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#LOOK_UP_ENTITIES_FILTER_ALL>LOOK_UP_ENTITIES_FILTER_ALL</a>).
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>sortProperty</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) The property name to sort on.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>sortAscending</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) If True, sort in ascending or descending
+						order. Default True.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>limit</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) Limit for the number of results
+						returned, defaults to -1, indicating no limit.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>offset</i></span></td><td><span class="function_parameter_description">&nbsp;(Optional) Offset for the results returned,
+						defaults to 0.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="lookUpDBIDByName"></a><p class="function_definition">
+<span class="function_definition">def lookUpDBIDByName( <i>entityType, name, callback</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>entityType</i></span></td><td><span class="function_parameter_description">&nbsp;entityType is a string that specifies the type of the
+entity to look up.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;Specifies the name of the entity to look up.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;callback is a callable object (e.g. a function) that takes
+one argument: the database ID. If the specified entity does not exist then
+the database ID will be 0.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="quantumPassedPercent"></a><p class="function_definition">
+<span class="function_definition">def quantumPassedPercent( <i></i> ):</span>
+</p>
+
+<div class="function_description">The function quantumPassedPercent returns the percentage of execution time
+that the application is through the current tick. The returned value is an
+integer from 0 upwards, and could conceivably be larger than 100 if the
+current tick execution time is longer than the expected interval between
+ticks.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>quantumPassedPercent returns the percentage of execution time that
+the application is through the current tick as an integer, truncated to the
+nearest percent.
+</td></tr>
+</table>
+</p>
+
+<a name="registerFileDescriptor"></a><p class="function_definition">
+<span class="function_definition">def registerFileDescriptor( <i>fileDescriptor, callback</i> ):</span>
+</p>
+
+<div class="function_description">This function registers a callback that will be called whenever there is
+data for reading on the input file descriptor.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fileDescriptor</i></span></td><td><span class="function_parameter_description">&nbsp;An object that has a fileno method such as a socket
+or file, or an integer representing a file descriptor.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;A callable object that expects the fileDescriptor object as
+	its only argument.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="registerWriteFileDescriptor"></a><p class="function_definition">
+<span class="function_definition">def registerWriteFileDescriptor( <i>fileDescriptor, callback</i> ):</span>
+</p>
+
+<div class="function_description">This function registers a callback that will be called when the input file
+descriptor is available for writing.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fileDescriptor</i></span></td><td><span class="function_parameter_description">&nbsp;An object that has a fileno method such as a socket
+or file, or an integer representing a file descriptor.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;A callable object that expects the fileDescriptor object as
+	its only argument.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="reloadScript"></a><p class="function_definition">
+<span class="function_definition">def reloadScript( <i>fullReload</i> ):</span>
+</p>
+
+<div class="function_description">This method reloads Python modules related to entities and custom
+data types. The class of current entities are set to the newly loaded
+classes. This method should be used for development only and is not
+suitable for production use. The following points should be noted:
+<br><br>
+1) Scripts are only reloaded on the component baseapp that
+this method is called on. The user is responsible for making sure that
+reloadScript is called on all server components.
+<br><br>
+2) The client doesn't have equivalent functionality in Python. Each
+<a href="BigWorld.html">BigWorld</a> client needs to use CapsLock + F11 in order to reload the scripts.
+<br><br>
+3) Doesn't handle custom data types transparently. Instances of custom
+data types must have their __class__ reassigned to the proper class type
+after reloadScript() completes. For example, if we have a custom data type
+named "CustomClass":
+<br><br>
+
+<pre>for e in <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#entities>entities</a>.values():
+   if type( e ) is Avatar.Avatar:
+      e.customData.__class__ = CustomClass
+</pre>
+<a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onInit>onInit</a>( True ) is called when this method completes (where
+<a href="BWPersonality.html">BWPersonality</a> is the name of the personality module specified in
+&lt;root&gt;/&lt;personality&gt; in bw.xml).
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>fullReload</i></span></td><td><span class="function_parameter_description">&nbsp;Optional boolean parameter that specifies whether to
+reload entity definitions as well. If this parameter is False, then
+entities definitions are not reloaded. Default is True.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if reload successful, False otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="removeEventListener"></a><p class="function_definition">
+<span class="function_definition">def removeEventListener( <i>eventName, callback</i> ):</span>
+</p>
+
+<div class="function_description">The function removeEventListener removes an event listener associated with
+an event previously added using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#addEventListener>addEventListener</a>.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>eventName</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the event that was listened for.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>callback</i></span></td><td><span class="function_parameter_description">&nbsp;The callable object that should be removed.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setCellAppData"></a><p class="function_definition">
+<span class="function_definition">def setCellAppData( <i>key, value</i> ):</span>
+</p>
+
+<div class="function_description">This function sets a data value that is accessible from all CellApps. This
+can be accessed on CellApps via <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#cellAppData>cellAppData</a>.
+<br><br>
+The CellAppMgr is the authoritative copy of this data. If two or more
+components try to set the same value, the last one to reach the CellAppMgr
+will be the one that is kept.
+<br><br>
+Note: Care should be taken using this functionality. It does not scale well
+and should be used sparingly.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>key</i></span></td><td><span class="function_parameter_description">&nbsp;The key of the value to be set.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>value</i></span></td><td><span class="function_parameter_description">&nbsp;The new value.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="setWatcher"></a><p class="function_definition">
+<span class="function_definition">def setWatcher( <i>path, val</i> ):</span>
+</p>
+
+<div class="function_description">This function interacts with the watcher debugging system, allowing the
+setting of watcher variables.
+<br><br>
+The watcher debugging system allows various variables to be displayed and
+updated from within the runtime.
+<br><br>
+Watchers are specified in the C-code using the MF_WATCH macro.  This takes
+three arguments, the first is a string specifying the path (parent groups
+followed by the item name, separated by forward slashes), the second is the
+expression to watch.  The third argument specifies such things as whether
+it is read only or not, and has a default of read-write.
+<br><br>
+The setWatcher function in Python allows the setting of a particular
+read-write value.
+For example:
+<br><br>
+
+<pre>>>>	<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#setWatcher>setWatcher</a>( "Client Settings/Terrain/draw", 0 )
+</pre>
+<br><br>
+Raises a TypeError if the watcher failed to be set.
+Raises a TypeError if args cannot be converted into a string.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>path</i></span></td><td><span class="function_parameter_description">&nbsp;the path to the item to modify.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>val</i></span></td><td><span class="function_parameter_description">&nbsp;the new value for the item.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="startService"></a><p class="function_definition">
+<span class="function_definition">def startService( <i>serviceName</i> ):</span>
+</p>
+
+<div class="function_description">This method starts a service with the given name. If the service is already
+running, an exception is raised.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>serviceName</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the service to stop.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="stopService"></a><p class="function_definition">
+<span class="function_definition">def stopService( <i>serviceName</i> ):</span>
+</p>
+
+<div class="function_description">This method stops a service with the given name. If the service is not
+already running, an exception is raised.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>serviceName</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the service to stop.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="time"></a><p class="function_definition">
+<span class="function_definition">def time( <i></i> ):</span>
+</p>
+
+<div class="function_description">This method returns the current game time in seconds as a floating
+point number.
+<br><br>
+Game time is incremented with each game tick.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The current game time in seconds as a float.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="LOG_ON_ACCEPT"></a><p class="attribute_definition">
+<span class="attribute_definition">LOG_ON_ACCEPT</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<a name="LOG_ON_REJECT"></a><p class="attribute_definition">
+<span class="attribute_definition">LOG_ON_REJECT</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<a name="LOG_ON_WAIT_FOR_DESTROY"></a><p class="attribute_definition">
+<span class="attribute_definition">LOG_ON_WAIT_FOR_DESTROY</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<a name="NEXT_ONLY"></a><p class="attribute_definition">
+<span class="attribute_definition">NEXT_ONLY</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<a name="baseAppData"></a><p class="attribute_definition">
+<span class="attribute_definition">baseAppData</span>
+</p>
+
+<div class="attribute_description">For example:
+
+<pre><a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#baseAppData>baseAppData</a>[ "hello" ] = "there"
+</pre>
+<br><br>
+Another BaseApp can access this as follows:
+
+<pre>print <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#baseAppData>baseAppData</a>[ "hello" ]
+</pre>
+<br><br>
+The key and value can be any type that can be pickled and unpickled on all
+destination components.
+<br><br>
+When a value is changed or deleted, a callback function is called on all
+components.
+See: <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onBaseAppData>onBaseAppData</a> and <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onDelBaseAppData>onDelBaseAppData</a>.
+<br><br>
+NOTE: Only top-level values are propagated, if you have a value that is
+mutable (for example, a list) and it changed internally (for example,
+changing just one member), this information is NOT propagated.
+<br><br>
+Do NOT do the following:
+
+<pre><a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#baseAppData>baseAppData</a>[ "list" ] = [1, 2, 3]
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#baseAppData>baseAppData</a>[ "list" ][1] = 7
+</pre>
+Locally, this would look like [1, 7, 3] and remotely [1, 2, 3].
+</div>
+
+<a name="component"></a><p class="attribute_definition">
+<span class="attribute_definition">component</span>
+</p>
+
+<div class="attribute_description">This is the component that is executing the present python environment.
+Possible values are (so far) 'cell', 'base', 'client', 'database', 'bot'
+and 'editor'.
+</div>
+
+<a name="entities"></a><p class="attribute_definition">
+<span class="attribute_definition">entities</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="PyBases.html">PyBases</a>
+</td></tr>
+</table>
+</p>
+
+<a name="globalBases"></a><p class="attribute_definition">
+<span class="attribute_definition">globalBases</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="GlobalBases.html">GlobalBases</a>
+</td></tr>
+</table>
+</p>
+
+<a name="globalData"></a><p class="attribute_definition">
+<span class="attribute_definition">globalData</span>
+</p>
+
+<div class="attribute_description">For example:
+
+<pre><a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>[ "hello" ] = "there"
+</pre>
+<br><br>
+Another CellApp or BaseApp can access this as follows:
+
+<pre>print <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>[ "hello" ]
+</pre>
+<br><br>
+The key and value can be any type that can be pickled and unpickled on all
+destination components.
+<br><br>
+When a value is changed or deleted, a callback function is called on all
+components.
+See: <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onGlobalData>onGlobalData</a> and <a href="BWPersonality.html">BWPersonality</a>.<a href=BWPersonality.html#onDelGlobalData>onDelGlobalData</a>.
+<br><br>
+NOTE: Only top-level values are propagated, if you have a value that is
+mutable (for example, a list) and it changed internally (for example,
+changing just one member), this information is NOT propagated.
+<br><br>
+Do NOT do the following:
+
+<pre><a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>[ "list" ] = [1, 2, 3]
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#globalData>globalData</a>[ "list" ][1] = 7
+</pre>
+Locally, this would look like [1, 7, 3] and remotely [1, 2, 3].
+</div>
+
+<a name="isServiceApp"></a><p class="attribute_definition">
+<span class="attribute_definition">isServiceApp</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

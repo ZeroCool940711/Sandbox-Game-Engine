@@ -1,0 +1,5 @@
+#!/bin/sh
+#BWPANEL 9.4 "Stop Storm"
+
+BIN=$MF_ROOT/bigworld/tools/server
+$BIN/runscript -base -all $MF_ROOT/fantasydemo/res/server/scripts/killstorm.py

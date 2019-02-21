@@ -1,0 +1,293 @@
+<html>
+<head>
+<title>TextGUIComponent - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>TextGUIComponent Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>TextGUIComponent is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#reset" class="function_list" >reset</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#stringDimensions" class="function_list" >stringDimensions</a>( self, text ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#stringWidth" class="function_list" >stringWidth</a>( self, text ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#colourFormatting" class="attribute_list" >colourFormatting</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#explicitSize" class="attribute_list" >explicitSize</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#font" class="attribute_list" >font</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#multiline" class="attribute_list" >multiline</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#text" class="attribute_list" >text</a></td><td>&nbsp; String
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="TextGUIComponent.html">TextGUIComponent</a> is a <a href="GUI.html">GUI</a> component used to display text on the screen.
+It inherits from <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.
+<br><br>
+It can display text in various fonts, and can have its text assigned
+dynamically.
+<br><br>
+A new <a href="TextGUIComponent.html">TextGUIComponent</a> is created using the <a href="GUI.html">GUI</a>.<a href=GUI.html#Text>Text</a> function.
+<br><br>
+For example:
+
+<pre>tx = <a href="GUI.html">GUI</a>.<a href=GUI.html#Text>Text</a>( "hello there" )
+<a href="GUI.html">GUI</a>.<a href=GUI.html#addRoot>addRoot</a>( tx )
+tx.text = "goodbye"
+</pre>
+This example creates and displays a <a href="TextGUIComponent.html">TextGUIComponent</a> with the text
+"hello there", and then changes it to say "goodbye" immediately
+afterwards.
+<br><br>
+Note that setting the <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href=SimpleGUIComponent.html#texture>texture</a> and
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.<a href=SimpleGUIComponent.html#textureName>textureName</a> attributes is not supported on
+<a href="TextGUIComponent.html">TextGUIComponent</a>.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="reset"></a><p class="function_definition">
+<span class="function_definition">def reset( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This method redraws the <a href="TextGUIComponent.html">TextGUIComponent</a> if it has become dirty.  It
+shouldn't be neccessary to call this function.
+</div>
+
+<a name="stringDimensions"></a><p class="function_definition">
+<span class="function_definition">def stringDimensions( <i>self, text</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a 2-tuple containing the dimensions (in pixels) that 
+the specified string will take when rendered to the <a href="TextGUIComponent.html">TextGUIComponent</a> using
+its current font.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>text</i></span></td><td><span class="function_parameter_description">&nbsp;The string to measure the length and height of.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A 2-tuple of integers, the render width and height 
+			of the string in pixels.
+</td></tr>
+</table>
+</p>
+
+<a name="stringWidth"></a><p class="function_definition">
+<span class="function_definition">def stringWidth( <i>self, text</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the width (in pixels) that the specified string
+will take when rendered to the <a href="TextGUIComponent.html">TextGUIComponent</a> using its current font.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>text</i></span></td><td><span class="function_parameter_description">&nbsp;The string to measure the length of.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>An integer, the rendered width of the string in pixels.
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="colourFormatting"></a><p class="attribute_definition">
+<span class="attribute_definition">colourFormatting</span>
+</p>
+
+<div class="attribute_description">If set to True, the text component will look for colour formatting tags
+embedded within the text. Formatting tags are defined inline and a
+be of the form:
+<br><br>
+
+<pre>\cRRGGBBAA;
+</pre>
+<br><br>
+where RRGGBBAA is a 32-bit hex representation of the desired colour
+(which must include the alpha value). If a tag is not of this form
+then it is treated as visible text. Use \\ to escape a tag if neccessary
+(e.g. to sanitise user inputted text).
+<br><br>
+The colour property of the component will still be used, and will tint
+all text within the component by multiplying against the formatted
+vertex colour.
+<br><br>
+Note that formatting tags are also parsed when calculating text
+dimensions.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="explicitSize"></a><p class="attribute_definition">
+<span class="attribute_definition">explicitSize</span>
+</p>
+
+<div class="attribute_description">This attribute specifies whether the text component will resize itself
+to fit exactly within the given text dimensions, or whether the
+size of the component automatically resizes to reflect the best
+on-screen size (default)
+<br><br>
+If this flag is turned off (default) the text component resizes itself
+such that exactly one texel equals one pixel on-screen, for the
+clearest possible text.  In this instance, width and height are read-only
+properties, and are correct after the text label is set, or the
+screen resolution has changed.
+<br><br>
+If this flag is turned on, the text component will draw itself into
+the given dimensions.  This may result in text with an incorrect aspect
+ratio.  In this instance, width and height are read/write.
+<br><br>
+When the flag is turned on, setting either the width or the height to
+0 will maintain the correct aspect ratio.  After setting the width or
+height to 0, the width and height attributes will update to reflect
+the actual size of the text.
+<br><br>
+When the flag is turned on, setting both width and height to 0 will
+set the text to the optimal size (one texel = one pixel).  In order
+to do this, the width and height must be set at the same time, i.e.
+you must use textComponent.size = (0,0)
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="font"></a><p class="attribute_definition">
+<span class="attribute_definition">font</span>
+</p>
+
+<div class="attribute_description">This attribute specifies the path to the font file that is used to
+render the text.  Assigning to it causes the new font file to be
+loaded. If an invalid file is specified, then a Python Error occurs.
+<br><br>
+By convention, font files are stored in the fonts subdirectory.  They
+are an xml file describing which image to obtain the characters from,
+and the size and location of each character.
+<br><br>
+The default font is default_medium.font".
+<br><br>
+For example:
+
+<pre>tx = <a href="GUI.html">GUI</a>.<a href=GUI.html#Text>Text</a>( "test" )
+tx.font = "default_small.font"
+</pre>
+This example applies the default_small font to the text
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="multiline"></a><p class="attribute_definition">
+<span class="attribute_definition">multiline</span>
+</p>
+
+<div class="attribute_description">If set to True, the text component will consider all newline (\n) 
+characters contained within the 'text' property and wrap them
+accordingly when rendering and calculating text dimensions.
+<br><br>
+Newlines are treated as a line separator.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="text"></a><p class="attribute_definition">
+<span class="attribute_definition">text</span>
+</p>
+
+<div class="attribute_description">The text to be displayed in the component.  It will be rendered using
+the font specified in the font attribute.  The component will be
+resized to fit the text, if a new string is assigned to it.  It doesn't
+wrap text, so if the string is too long to fit on the screen it will
+just extend off the edges.
+<br><br>
+If multiple lines of text are desired, then multiple TextGUIComponents
+are required.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>BoundingBoxGUIComponent - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BoundingBoxGUIComponent Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>BoundingBoxGUIComponent is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#absoluteSubspace" class="attribute_list" >absoluteSubspace</a></td><td>&nbsp; integer
+</td></tr>
+
+<tr valign=top><td><a href="#alwaysDisplayChildren" class="attribute_list" >alwaysDisplayChildren</a></td><td>&nbsp; boolean (0 or 1)
+</td></tr>
+
+<tr valign=top><td><a href="#clipSpaceSource" class="attribute_list" >clipSpaceSource</a></td><td>&nbsp; boolean (0 or 1)
+</td></tr>
+
+<tr valign=top><td><a href="#clipToBox" class="attribute_list" >clipToBox</a></td><td>&nbsp; boolean (0 or 1)
+</td></tr>
+
+<tr valign=top><td><a href="#offsetSubspace" class="attribute_list" >offsetSubspace</a></td><td>&nbsp; tuple of size 3
+</td></tr>
+
+<tr valign=top><td><a href="#source" class="attribute_list" >source</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="BoundingBoxGUIComponent.html">BoundingBoxGUIComponent</a> is used to render a bounding image on the hud
+that surounds a Model displayed in the world.  It moves across the hud to
+stay bounding the model as either the camera or the model moves.
+<br><br>
+<a href="BoundingBoxGUIComponent.html">BoundingBoxGUIComponent</a> inherits from <a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  It is created by
+the <a href="GUI.html">GUI</a>.<a href=GUI.html#BoundingBox>BoundingBox</a> function, which takes the filepath to the image to use
+to render the corner of the bounding box.  The image is used unflipped in
+the bottom right hand corner of the bounding box.  It is flipped
+horizontally to give the bottom left corner. It is flipped vertically to
+give the the top right corner.  It is flipped horizontally and vertically
+to give the top left corner.
+<br><br>
+The outside of the corners line up with the outside of the bounding
+rectangle.  The images can be scaled using the functionality of
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>.  If they are too big, then they overlap.
+<br><br>
+The bounding components are also semi-constrained by the screen.
+For example, if the source matrix goes gradually off the left of the screen, then the
+two left hand corners will remain on the left hand edge of the screen until
+the right hand corners have followed the source off.  At this point, the left
+hand corners will gradually move off screen.  The same logic applies to the other
+screen edges.
+<br><br>
+In order to make the <a href="BoundingBoxGUIComponent.html">BoundingBoxGUIComponent</a> appear, it needs both to be
+added to the <a href="GUI.html">GUI</a> tree, and it needs	to have its source attribute assigned.
+This is normally set to the bounds attribute of the model the box is
+to surround.
+<br><br>
+The following example draws a bounding box around the player model:
+<br><br>
+
+<pre>bb = <a href="GUI.html">GUI</a>.<a href=GUI.html#BoundingBox>BoundingBox</a>( "maps/gui/select.dds" )
+model = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#player>player</a>().model
+bb.source = model.bounds
+</pre>
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="absoluteSubspace"></a><p class="attribute_definition">
+<span class="attribute_definition">absoluteSubspace</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>integer
+</td></tr>
+</table>
+</p>
+
+<a name="alwaysDisplayChildren"></a><p class="attribute_definition">
+<span class="attribute_definition">alwaysDisplayChildren</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>boolean (0 or 1)
+</td></tr>
+</table>
+</p>
+
+<a name="clipSpaceSource"></a><p class="attribute_definition">
+<span class="attribute_definition">clipSpaceSource</span>
+</p>
+
+<div class="attribute_description">Using this in conjunction with clipToBox and offsetSubspace allows the
+<a href="BoundingBoxGUIComponent.html">BoundingBoxGUIComponent</a> to be used to build almost any window-based widget,
+eg, scrolling lists of items, drop-down combo boxes, etc...
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>boolean (0 or 1)
+</td></tr>
+</table>
+</p>
+
+<a name="clipToBox"></a><p class="attribute_definition">
+<span class="attribute_definition">clipToBox</span>
+</p>
+
+<div class="attribute_description">Using this in conjunction with clipSpaceSource and offsetSubspace allows the
+<a href="BoundingBoxGUIComponent.html">BoundingBoxGUIComponent</a> to be used to build almost any window-based widget,
+eg, scrolling lists of items, drop-down combo boxes, etc...
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>boolean (0 or 1)
+</td></tr>
+</table>
+</p>
+
+<a name="offsetSubspace"></a><p class="attribute_definition">
+<span class="attribute_definition">offsetSubspace</span>
+</p>
+
+<div class="attribute_description">Using this in conjunction with clipSpaceSource and clipToBox allows the
+<a href="BoundingBoxGUIComponent.html">BoundingBoxGUIComponent</a> to be used to build almost any window-based widget,
+eg, scrolling lists of items, drop-down combo boxes, etc...
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>tuple of size 3
+</td></tr>
+</table>
+</p>
+
+<a name="source"></a><p class="attribute_definition">
+<span class="attribute_definition">source</span>
+</p>
+
+<div class="attribute_description">The source attribute specifies the matrix provider which gives the
+bounding box in world space.  This is normally set to the bounds
+attribute of the model the box is to draw a box around.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

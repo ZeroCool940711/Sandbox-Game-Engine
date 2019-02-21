@@ -1,0 +1,21 @@
+.dojoErrorDialog {
+	color: red;
+	border: 2px solid;
+	padding: 8px;
+	background-color: #FFFFFF;
+}
+
+.dojoInfoDialog {
+	color: #394E74;
+	border: 2px solid;
+	padding: 8px;
+	background-color: #FFFFFF;
+}
+
+.errorContent {
+	margin-bottom: 10px;
+}
+
+.errorHeader  {
+	font-weight: bold;
+}

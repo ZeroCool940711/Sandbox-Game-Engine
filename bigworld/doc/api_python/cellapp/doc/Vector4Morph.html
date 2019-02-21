@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>Vector4Morph - BigWorld cell Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Vector4Morph Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Math.html" class="module_h1">Math Module</a>]</span></p><p>Vector4Morph is part of the <a href="Math.html">Math</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Math</pre>
+<h2>Parent Classes</h2>
+<a href="Vector4Provider.html">Vector4Provider</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#duration" class="attribute_list" >duration</a></td><td>&nbsp; Read-Write float
+</td></tr>
+
+<tr valign=top><td><a href="#target" class="attribute_list" >target</a></td><td>&nbsp; Read-Write <a href="Vector4.html">Vector4</a>
+</td></tr>
+
+<tr valign=top><td><a href="#time" class="attribute_list" >time</a></td><td>&nbsp; Read-Write float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This is a subclass of <a href="Vector4Provider.html">Vector4Provider</a>. This provides a <a href="Vector4.html">Vector4</a>
+value that morphs from the current value to the target value, over
+the specified duration.
+You can query its current value using the value attribute.
+<br><br>
+<br><br>
+Code Example:
+
+<pre># This creates a <a href="Vector4.html">Vector4</a> that smoothly changes from value to value.
+
+# import the <a href="Math.html">Math</a> module
+import <a href="Math.html">Math</a>
+
+v = <a href="Math.html">Math</a>.<a href=Math.html#Vector4Morph><a href="Vector4Morph.html">Vector4Morph</a></a>()
+v.duration = 2.0
+
+print <a href="Math.html">Math</a>.<a href="Vector4.html">Vector4</a>(v)
+# '0, 0, 0, 0'
+
+v.target = (4,4,4,4)
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#callback>callback</a>( 1.0, partial( checkValue, v ) )
+
+def checkValue( v ):
+	print <a href="Math.html">Math</a>.<a href="Vector4.html">Vector4</a>(v)
+	# '2, 2, 2, 2'
+
+	v.target = (2,3,1,9)
+	v.time = v.duration
+	print v.current
+	# '2, 3, 1, 9'
+</pre>
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="duration"></a><p class="attribute_definition">
+<span class="attribute_definition">duration</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float
+</td></tr>
+</table>
+</p>
+
+<a name="target"></a><p class="attribute_definition">
+<span class="attribute_definition">target</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write <a href="Vector4.html">Vector4</a>
+</td></tr>
+</table>
+</p>
+
+<a name="time"></a><p class="attribute_definition">
+<span class="attribute_definition">time</span>
+</p>
+
+<div class="attribute_description"></div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Write float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

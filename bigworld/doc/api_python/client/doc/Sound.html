@@ -1,0 +1,344 @@
+<html>
+<head>
+<title>Sound - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Sound Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="FMOD.html" class="module_h1">FMOD Module</a>]</span></p><p>Sound is part of the <a href="FMOD.html">FMOD</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import FMOD</pre>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#getParentCategory" class="function_list" >getParentCategory</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getParentGroup" class="function_list" >getParentGroup</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#getParentProject" class="function_list" >getParentProject</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#param" class="function_list" >param</a>( self, name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#play" class="function_list" >play</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#setCallback" class="function_list" >setCallback</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#stop" class="function_list" >stop</a>( self ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#duration" class="attribute_list" >duration</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#isVirtual" class="attribute_list" >isVirtual</a></td><td>&nbsp; Bool
+</td></tr>
+
+<tr valign=top><td><a href="#muted" class="attribute_list" >muted</a></td><td>&nbsp; Bool
+</td></tr>
+
+<tr valign=top><td><a href="#name" class="attribute_list" >name</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#paused" class="attribute_list" >paused</a></td><td>&nbsp; Bool
+</td></tr>
+
+<tr valign=top><td><a href="#pitch" class="attribute_list" >pitch</a></td><td>&nbsp; Float in the range [0.0, 1.0]
+</td></tr>
+
+<tr valign=top><td><a href="#position" class="attribute_list" >position</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#state" class="attribute_list" >state</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#volume" class="attribute_list" >volume</a></td><td>&nbsp; Float in the range [0.0, 1.0]
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A <a href="Sound.html">Sound</a> is a handle to a sound event.  It can be used to play, stop,
+and adjust parameters on sounds.  It is basically an interface to
+FMOD::Event.  For more information about the concept of sound events and
+other API intricacies, please see the <a href="FMOD.html">FMOD</a> Ex API documentation, available
+from www.fmod.org.
+<br><br>
+The one major point of difference between a <a href="Sound.html">Sound</a> and an FMOD::Event is
+that a <a href="Sound.html">Sound</a> can be retriggered by calling play() without calling stop()
+in between.  What actually happens when you do this is determined by the
+"Max Playbacks" property of the particular underlying Event.  Method calls
+and/or attribute accesses (other than play()) on a <a href="Sound.html">Sound</a> will always refer
+to the most recently triggered Event; if you want to retain handles to
+multiple instances of the same Event, you will need to create multiple
+<a href="Sound.html">Sound</a> objects instead of triggering all the events from a single <a href="Sound.html">Sound</a>
+object.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="getParentCategory"></a><p class="function_definition">
+<span class="function_definition">def getParentCategory( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Returns the PyEventCategory which contains this <a href="Sound.html">Sound</a>.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A PyEventCategory object.
+</td></tr>
+</table>
+</p>
+
+<a name="getParentGroup"></a><p class="function_definition">
+<span class="function_definition">def getParentGroup( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Returns the <a href="EventProject.html">EventProject</a> which contains this <a href="Sound.html">Sound</a>.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A PyEventGroup object.
+</td></tr>
+</table>
+</p>
+
+<a name="getParentProject"></a><p class="function_definition">
+<span class="function_definition">def getParentProject( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Returns the <a href="EventProject.html">EventProject</a> which contains this <a href="Sound.html">Sound</a>.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A PyEventProject object.
+</td></tr>
+</table>
+</p>
+
+<a name="param"></a><p class="function_definition">
+<span class="function_definition">def param( <i>self, name</i> ):</span>
+</p>
+
+<div class="function_description">Returns the <a href="SoundParameter.html">SoundParameter</a> object corresponding to the parameter of
+the given name.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;The name of the parameter.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A <a href="SoundParameter.html">SoundParameter</a> object.
+</td></tr>
+</table>
+</p>
+
+<a name="play"></a><p class="function_definition">
+<span class="function_definition">def play( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Start playing the sound event.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A boolean indicating success.
+</td></tr>
+</table>
+</p>
+
+<a name="setCallback"></a><p class="function_definition">
+<span class="function_definition">def setCallback( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Set a callback to be triggered by the FMOD::Event
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Nothing.
+</td></tr>
+</table>
+</p>
+
+<a name="stop"></a><p class="function_definition">
+<span class="function_definition">def stop( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Stop the sound event.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A boolean indicating success.
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="duration"></a><p class="attribute_definition">
+<span class="attribute_definition">duration</span>
+</p>
+
+<div class="attribute_description">Returns the length of this sound event in seconds.  Will return < 0 on
+error, which can be caused by asking for the duration of a looping
+sound.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="isVirtual"></a><p class="attribute_definition">
+<span class="attribute_definition">isVirtual</span>
+</p>
+
+<div class="attribute_description">True if the sound has lost it's <a href="FMOD.html">FMOD</a> event handle. This usually occurs when
+ *  the max playbacks of the event has been exceeded and the handle has been
+ *  stolen. You can attemp to reset the sound to get a valid handle or release
+ *  it if you are finished with it. The properties of the sound cannot be
+ *  accessed when it is virtual.
+<br><br>
+ *  If the 'just fail if quietest' max playback behaviour is specified the
+ *  there is no need to reset the sound. <a href="BigWorld.html">BigWorld</a> will try to get a new event
+ *  handle every tick. The loudest instances of the event will always be valid.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Bool
+</td></tr>
+</table>
+</p>
+
+<a name="muted"></a><p class="attribute_definition">
+<span class="attribute_definition">muted</span>
+</p>
+
+<div class="attribute_description">True if the PySound is muted.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Bool
+</td></tr>
+</table>
+</p>
+
+<a name="name"></a><p class="attribute_definition">
+<span class="attribute_definition">name</span>
+</p>
+
+<div class="attribute_description">The name of the underlying FMOD::Event.
+</div>
+
+<a name="paused"></a><p class="attribute_definition">
+<span class="attribute_definition">paused</span>
+</p>
+
+<div class="attribute_description">True if the PySound is paused.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Bool
+</td></tr>
+</table>
+</p>
+
+<a name="pitch"></a><p class="attribute_definition">
+<span class="attribute_definition">pitch</span>
+</p>
+
+<div class="attribute_description">The volume that this sound is (or will be) playing at.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float in the range [0.0, 1.0]
+</td></tr>
+</table>
+</p>
+
+<a name="position"></a><p class="attribute_definition">
+<span class="attribute_definition">position</span>
+</p>
+
+<div class="attribute_description">Read-write access to the 3D position of this sound event.  Writing to
+this attribute will only have an effect if the event's mode has been set
+to 3D in the <a href="FMOD.html">FMOD</a> Designer tool.  Reading this attribute on a 2D sound
+will return (0,0,0).
+</div>
+
+<a name="state"></a><p class="attribute_definition">
+<span class="attribute_definition">state</span>
+</p>
+
+<div class="attribute_description">Read-only access to the <a href="FMOD.html">FMOD</a> state of this event.
+</div>
+
+<a name="volume"></a><p class="attribute_definition">
+<span class="attribute_definition">volume</span>
+</p>
+
+<div class="attribute_description">The volume that this sound is (or will be) playing at.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float in the range [0.0, 1.0]
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

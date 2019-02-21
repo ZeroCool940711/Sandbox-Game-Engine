@@ -1,0 +1,459 @@
+<html>
+<head>
+<title>Minimap - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Minimap Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="GUI.html" class="module_h1">GUI Module</a>]</span></p><p>Minimap is part of the <a href="GUI.html">GUI</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import GUI</pre>
+<h2>Parent Classes</h2>
+<a href="SimpleGUIComponent.html">SimpleGUIComponent</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#add" class="function_list" >add</a>( self, pMatrix, component ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addSimple" class="function_list" >addSimple</a>( self, MatrixProvider, colour ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addTextureLayer" class="function_list" >addTextureLayer</a>( self, Intenger, pTexture, Vector2, Vector2 ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delAllTextureLayers" class="function_list" >delAllTextureLayers</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#delTextureLayer" class="function_list" >delTextureLayer</a>( self, Integer ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#remove" class="function_list" >remove</a>( self, Intengeer ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#cellBounds" class="attribute_list" >cellBounds</a></td><td>&nbsp; List of Floats
+</td></tr>
+
+<tr valign=top><td><a href="#cellBoundsVisible" class="attribute_list" >cellBoundsVisible</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#currentRange" class="attribute_list" >currentRange</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#maskName" class="attribute_list" >maskName</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#mouseEntryPicking" class="attribute_list" >mouseEntryPicking</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#pointSizeScaling" class="attribute_list" >pointSizeScaling</a></td><td>&nbsp; <a href="Vector2.html">Vector2</a>
+</td></tr>
+
+<tr valign=top><td><a href="#range" class="attribute_list" >range</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#rotate" class="attribute_list" >rotate</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#simpleEntriesVisible" class="attribute_list" >simpleEntriesVisible</a></td><td>&nbsp; Boolean
+</td></tr>
+
+<tr valign=top><td><a href="#simpleEntryMap" class="attribute_list" >simpleEntryMap</a></td><td>&nbsp; String
+</td></tr>
+
+<tr valign=top><td><a href="#simpleEntrySize" class="attribute_list" >simpleEntrySize</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#viewpoint" class="attribute_list" >viewpoint</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#zoomSpeed" class="attribute_list" >zoomSpeed</a></td><td>&nbsp; Float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is a <a href="GUI.html">GUI</a> component that can display a
+scrolling map, with entries displayed on the map.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="add"></a><p class="function_definition">
+<span class="function_definition">def add( <i>self, pMatrix, component</i> ):</span>
+</p>
+
+<div class="function_description">Adds an entry to the minimap.  This function takes a <a href="MatrixProvider.html">MatrixProvider</a> and
+a <a href="GUI.html">GUI</a> component.  The <a href="GUI.html">GUI</a> component is rotated when its matrix rotates,
+so these minimap icons can represent the facing of the matrix.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pMatrix</i></span></td><td><span class="function_parameter_description">&nbsp;<a href="MatrixProvider.html">MatrixProvider</a>. <a href="Matrix.html">Matrix</a> Provider for the entry on the minimap.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>component</i></span></td><td><span class="function_parameter_description">&nbsp;<a href="GUI.html">GUI</a> Component.  A <a href="GUI.html">GUI</a> Component to draw on the minimap.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="addSimple"></a><p class="function_definition">
+<span class="function_definition">def addSimple( <i>self, MatrixProvider, colour</i> ):</span>
+</p>
+
+<div class="function_description">Adds an entry to the minimap.  This function takes a <a href="MatrixProvider.html">MatrixProvider</a> and
+a colour.  The entry is represented via the minimap's simple entry map,
+and all simple entries are drawn in a batch, i.e. with a single draw
+call.  This is a much faster way to draw a lot of entries in the minimap
+than by using the <a href="Minimap.html">Minimap</a>.<a href=Minimap.html#add>add</a> function.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>MatrixProvider</i></span></td><td><span class="function_parameter_description">&nbsp;pMatrix. <a href="Matrix.html">Matrix</a> Provider for the entry on the minimap.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>colour</i></span></td><td><span class="function_parameter_description">&nbsp;PyColour.  4-tuple (r,g,b,a) representing the colour to
+display for the entry.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer A handle used to identify this entry on the minimap, which
+can be used to remove the entry from the minimap.
+</td></tr>
+</table>
+</p>
+
+<a name="addTextureLayer"></a><p class="function_definition">
+<span class="function_definition">def addTextureLayer( <i>self, Intenger, pTexture, Vector2, Vector2</i> ):</span>
+</p>
+
+<div class="function_description">Adds a texture layer to the minimap.  You can overlay as many textures
+as you like to provide the map display.  They will be draw in order of
+layer, with a smaller layer number being draw behind a larger layer number.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Intenger</i></span></td><td><span class="function_parameter_description">&nbsp;Layer number.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>pTexture</i></span></td><td><span class="function_parameter_description">&nbsp;TextureProvider
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>Vector2</i></span></td><td><span class="function_parameter_description">&nbsp;World map dimensions (world width, world depth).
+The width and height is in metres, and for example this might be the
+width and depth of the entire space, for an outdoor minimap.
+You may set this to a negative value, as in some cases the texture map
+may be upside-down.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>Vector2</i></span></td><td><span class="function_parameter_description">&nbsp;World map anchor (where the centre of the texture is).
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="delAllTextureLayers"></a><p class="function_definition">
+<span class="function_definition">def delAllTextureLayers( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Delete all previously added texture layers from the minimap.
+</div>
+
+<a name="delTextureLayer"></a><p class="function_definition">
+<span class="function_definition">def delTextureLayer( <i>self, Integer</i> ):</span>
+</p>
+
+<div class="function_description">Delete a previously added texture layer from the minimap.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Integer</i></span></td><td><span class="function_parameter_description">&nbsp;Layer number.	 
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="remove"></a><p class="function_definition">
+<span class="function_definition">def remove( <i>self, Intengeer</i> ):</span>
+</p>
+
+<div class="function_description">Removes an entry from the minimap.  You must pass the minimap handle
+returned from either <a href="Minimap.html">Minimap</a>.<a href=Minimap.html#add>add</a> or <a href="Minimap.html">Minimap</a>.<a href=Minimap.html#addSimple>addSimple</a> in order to remove
+an entry from the minimap.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>Intengeer</i></span></td><td><span class="function_parameter_description">&nbsp;Handle. <a href="Minimap.html">Minimap</a> Handle returned from add or addSimple.	 
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="cellBounds"></a><p class="attribute_definition">
+<span class="attribute_definition">cellBounds</span>
+</p>
+
+<div class="attribute_description">Vector of floats, in groups of 4, representing all cell boundaries.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>List of Floats
+</td></tr>
+</table>
+</p>
+
+<a name="cellBoundsVisible"></a><p class="attribute_definition">
+<span class="attribute_definition">cellBoundsVisible</span>
+</p>
+
+<div class="attribute_description">Turn on or off the display of the cell bounds
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="currentRange"></a><p class="attribute_definition">
+<span class="attribute_definition">currentRange</span>
+</p>
+
+<div class="attribute_description">Actual range in metres the minimap shows around the camera, or
+the visible radius of the minimap.  Setting the current range
+will change the range immediately, but will not change the
+desired range.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="maskName"></a><p class="attribute_definition">
+<span class="attribute_definition">maskName</span>
+</p>
+
+<div class="attribute_description">Resource name of the texture that is used to mask out the
+minimap.  The alpha in the mask texture is multiplied over
+the map itself to stamp out an appropriate shaped border.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="mouseEntryPicking"></a><p class="attribute_definition">
+<span class="attribute_definition">mouseEntryPicking</span>
+</p>
+
+<div class="attribute_description">The minimap can check whether the mouse is hovering over entries,
+and give the minimap's gui script a callback when the selected
+entry has changed. If you enable mouseEntryPicking, you will receive
+one of two callback functions :
+<br><br>
+
+<pre>#Mouse is over a new entry
+def onEntryFocus( self, handle )
+#Mouse is no longer over an entry
+def onEntryBlur( self, handle )
+</pre>
+</div>
+
+<a name="pointSizeScaling"></a><p class="attribute_definition">
+<span class="attribute_definition">pointSizeScaling</span>
+</p>
+
+<div class="attribute_description">Linear equation to determine the size of the point sprites used
+to draw the simple entries.  The linear equation is of the form
+y = a + bx, and this attribute is a <a href="Vector2.html">Vector2</a> describing (a,b)
+Set to (0,0) to disable scaling, and enable use of the simpleEntrySize
+attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector2.html">Vector2</a>
+</td></tr>
+</table>
+</p>
+
+<a name="range"></a><p class="attribute_definition">
+<span class="attribute_definition">range</span>
+</p>
+
+<div class="attribute_description">Desired range in metres the minimap shows around the camera, or
+the visible radius of the minimap.  Setting the desired range
+will take zoomSpeed seconds to get there.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="rotate"></a><p class="attribute_definition">
+<span class="attribute_definition">rotate</span>
+</p>
+
+<div class="attribute_description">Whether the minimap should rotate so that the camera directio is always
+facing up on the map.  False (default) means North is always up.  True
+means the camera direction is always up.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="simpleEntriesVisible"></a><p class="attribute_definition">
+<span class="attribute_definition">simpleEntriesVisible</span>
+</p>
+
+<div class="attribute_description">Turn on or off the display of the simple entries.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Boolean
+</td></tr>
+</table>
+</p>
+
+<a name="simpleEntryMap"></a><p class="attribute_definition">
+<span class="attribute_definition">simpleEntryMap</span>
+</p>
+
+<div class="attribute_description">Resource name of the texture that is used to display
+simple entry, or, entries added with the addSimpleEntry
+function.
+Simple Entries are all drawn with a single
+texture map, and are batched for maximum drawing speed /
+minimum number of draw calls.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String
+</td></tr>
+</table>
+</p>
+
+<a name="simpleEntrySize"></a><p class="attribute_definition">
+<span class="attribute_definition">simpleEntrySize</span>
+</p>
+
+<div class="attribute_description">The size in pixels that simple entries should be drawn.
+Simple Entries are all drawn with a single
+texture map, and are batched for maximum drawing speed /
+minimum number of draw calls.
+This attribute is only used if pointSizeScaling == (0,0)
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="viewpoint"></a><p class="attribute_definition">
+<span class="attribute_definition">viewpoint</span>
+</p>
+
+<div class="attribute_description">Viewpoint from which the minimap sees the world.  It only
+uses the position if rotate is set to False, or it uses both the
+position and the forward vector if rotate is set to True.  If
+no viewpoint is provided, the camera matrix is used instead.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="zoomSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">zoomSpeed</span>
+</p>
+
+<div class="attribute_description">Time in seconds it takes for the minimap to zoom between
+one range and another.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

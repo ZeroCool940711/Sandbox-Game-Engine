@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>Weather - BigWorld worldeditor Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Weather Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Weather is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#windAverage" class="function_list" >windAverage</a>( self, xWind, zWind ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#windGustiness" class="function_list" >windGustiness</a>( self, gust ):</span>
+</td></tr>
+
+</table>
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class is used to control the weather in the clients world.
+<br><br>
+The weather object is used to set the wind speed
+and wind gustiness.
+The wind affects the rate at which clouds move across the sky,
+and the pertubations of detail objects such as grass.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="windAverage"></a><p class="function_definition">
+<span class="function_definition">def windAverage( <i>self, xWind, zWind</i> ):</span>
+</p>
+
+<div class="function_description">This function sets the average velocity of the wind, specified as
+x and z coordinates.  The wind on average blows at this velocity
+but deviates around it by a random amount which is capped at
+windGustiness.
+<br><br>
+The wind determines the direction and speed that clouds move across
+the sky.  This is important, because when weather systems are changed
+the changes appear 1000m upwind of the user, and are blown across the
+sky at a rate specified by the wind velocity.
+<br><br>
+If the wind is changed, then existing clouds continue with their existing
+velocities, and new clouds are produced with the new velocity, so that the
+weather gradually switches to blow from a different direction.
+<br><br>
+The wind velocity is also used to perturb the detail objects, allowing
+for swaying grass and the like.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>xWind</i></span></td><td><span class="function_parameter_description">&nbsp;a float.  The x component of the winds average velocity.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>zWind</i></span></td><td><span class="function_parameter_description">&nbsp;a float.  The z component of the winds average velocity.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="windGustiness"></a><p class="function_definition">
+<span class="function_definition">def windGustiness( <i>self, gust</i> ):</span>
+</p>
+
+<div class="function_description">This function specifies the gustiness of the wind.  This is the
+largest magnitude by which the actual wind speed can vary from that
+specified by windAverage, as it varies randomly.
+<br><br>
+The wind determines the direction and speed that clouds move across
+the sky.  This is important, because when weather systems are changed
+the changes appear 1000m upwind of the user, and are blown across the
+sky at a rate specified by the wind velocity.
+<br><br>
+The wind velocity is also used to perturb the detail objects, allowing
+for swaying grass and the like.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>gust</i></span></td><td><span class="function_parameter_description">&nbsp;a float.  The cap on the random speed of the wind.
+</span></td></tr>
+
+</table>
+</p>
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

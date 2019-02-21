@@ -1,0 +1,1491 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;12.&nbsp;Integrating With BigWorld Server</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Client Programming Guide">
+      <link rel="up" href="index.html" title="Client Programming Guide">
+      <link rel="prev" href="ch11.html" title="Chapter&nbsp;11.&nbsp;Animation System">
+      <link rel="next" href="ch13.html" title="Chapter&nbsp;13.&nbsp;Server Communications">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/client_programming_guide/ch12.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;12.&nbsp;Integrating With BigWorld Server</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch11.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch13.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;12.&nbsp;Integrating With BigWorld Server">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Integrating_With_BigWorld_Server"></a>Chapter&nbsp;12.&nbsp;Integrating With BigWorld Server
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch12.html#d0e4793">12.1. Overview</a></span></dt>
+                  <dt><span class="section"><a href="ch12.html#d0e4847">12.2. Generating Code With the ProcessDefs tool</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch12.html#d0e4878">12.2.1. ProcessDefs/GenerateCPlusPlus Operation</a></span></dt>
+                        <dt><span class="section"><a href="ch12.html#d0e4977">12.2.2. Generating C++ Code</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch12.html#d0e5194">12.3. Customising ProcessDefs Output</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch12.html#d0e5199">12.3.1. Modifying the Generated Code Templates</a></span></dt>
+                        <dt><span class="section"><a href="ch12.html#d0e5265">12.3.2. Implementing a New Processing Module</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch12.html#d0e5530">12.4. The <span class="literal">connection_model</span> Library</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch12.html#d0e5602">12.4.1. Dependencies</a></span></dt>
+                        <dt><span class="section"><a href="ch12.html#d0e5638">12.4.2. BWConnection</a></span></dt>
+                        <dt><span class="section"><a href="ch12.html#d0e5777">12.4.3. BWEntity</a></span></dt>
+                        <dt><span class="section"><a href="ch12.html#d0e5893">12.4.4. BWEntityFactory</a></span></dt>
+                        <dt><span class="section"><a href="ch12.html#d0e5923">12.4.5. BWEntitiesListener</a></span></dt>
+                        <dt><span class="section"><a href="ch12.html#d0e5949">12.4.6. Server Discovery</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch12.html#d0e6086">12.5. Example Clients</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch12.html#d0e6094">12.5.1. python/simple</a></span></dt>
+                        <dt><span class="section"><a href="ch12.html#d0e6101">12.5.2. c_plus_plus/sdl</a></span></dt>
+                        <dt><span class="section"><a href="ch12.html#d0e6159">12.5.3. c_plus_plus/ios</a></span></dt>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+            <div class="section" title="12.1.&nbsp;Overview">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e4793"></a>12.1.&nbsp;Overview
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>This chapter describes how to integrate arbitrary clients with the
+                      BigWorld Server.
+               </p>
+               <p>A tool called <span class="literal">ProcessDefs</span> parses the entity
+                      definitions and generates C++ code for interacting with a BigWorld server
+                      that uses those same entity definitions. The entity behaviour can then be
+                      implemented in C++, or glue code can be written to allow the entity
+                      behaviour to be implemented in another language, for example, Lua, or
+                      Objective-C. This allows for client applications that do not use Python as
+                      their game scripting language by generating code that contains all the
+                      entity type data (method calls and properties) that is normally read from
+                      the entity definitions files.
+               </p>
+               <p>To implement entity-specific behaviours, the generated stub classes
+                      for each entity type can be extended to provide the specific behaviours in
+                      response to method call requests or property updates from the server. More
+                      general behaviours common to all entity types can be implemented in the
+                      user-defined superclass that derives from BWEntity.
+               </p>
+               <div class="mediaobject"><img src="images/client_integration_class_diagram.png"></div>
+               <p>For example, the above class diagram shows an entity type called
+                      Avatar from a set of entity definitions. The code generator will generate
+                      stub files for the <code class="classname">Avatar_Stub</code>,
+                      <code class="classname">CellMB::Avatar</code> and
+                      <code class="classname">BaseMB::Avatar</code> classes, which encapsulate all the
+                      accessors and members for accessing properties and calling remote methods.
+                      Concrete implementations of the Avatar entity type on the client are
+                      implemented in the user-defined <code class="classname">Avatar</code> class (a
+                      template that can be used as a basis for this is also generated).
+               </p>
+               <p>All entity classes must have <code class="classname">BWEntity</code> as one
+                      of their inherited ancestor superclasses, but they can also inherit from a
+                      user-defined custom class that provides general game-specific
+                      functionality that is common to all entity classes. For example,
+                      <code class="classname">Avatar_Stub</code> derives from
+                      <code class="classname">MyEntity</code> instead of <code class="classname">BWEntity</code>
+                      in the above example, allowing for the <code class="classname">Avatar</code> class
+                      to use inherited member methods and data from
+                      <code class="classname">MyEntity</code> as well.
+               </p>
+               <p>The <span class="literal">connection</span> library provides C++ classes that
+                      can be used to connect and authenticate to the BigWorld Server. Once
+                      connected, volatile data, property updates, method calls can be sent and
+                      received between the client and server.
+               </p>
+            </div>
+            <div class="section" title="12.2.&nbsp;Generating Code With the ProcessDefs tool">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e4847"></a>12.2.&nbsp;Generating Code With the ProcessDefs tool
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>At the most basic level, the ProcessDefs command line tool parses a
+                      set of entity definition files and calls through to a processing function
+                      defined in a Python module with a data structure that represents the
+                      parsed entity definitions.
+               </p>
+               <p>By default, it will use the <span class="literal">ProcessDefs</span> Python
+                      module located in the same directory as the
+                      <code class="filename">process_defs</code> executable, which simply outputs the
+                      entity definitions to the standard output stream and exits.
+               </p>
+               <p>For generating C++ source files, the supplied
+                      <span class="literal">GenerateCPlusPlus</span> module is used.
+               </p>
+               <p>The desired Python module can be specifying the module name with the
+                      <span class="literal">-m</span> / <span class="literal">--module</span> switch. For example,
+                      for selecting the <span class="literal">GenerateCPlusPlus</span>
+                      module:
+               </p><pre class="programlisting">$ ./process_defs -m GenerateCPlusPlus ...</pre><div class="section" title="12.2.1.&nbsp;ProcessDefs/GenerateCPlusPlus Operation">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e4878"></a>12.2.1.&nbsp;ProcessDefs/GenerateCPlusPlus Operation
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Running the <code class="filename">process_defs</code> executable with the
+                           <span class="literal">--help</span> switch will give you general options as well
+                           as a list of module-specific options supported by the selected Python
+                           module.
+                  </p><pre class="programlisting">$ ./process_defs -m GenerateCPlusPlus --help
+usage: process_defs [OPTION] scriptArgs
+
+This program parses the BigWorld entity definition files. A Python object is
+then created representing the entity descriptions. This is passed to a Python
+callback moduleName.functionName. By default, this is ProcessDefs.process.
+
+This module (ProcessDefs.py) should be placed in modulePath. This is the
+current working directory by default.
+
+Options:
+  -r             directory     Specifies a resource path. Can be used
+                               multiple times, in order of deccreasing
+                               priority.
+  -f, --function funcName      The Python function to call. "process" by
+                               default.
+  -m, --module   moduleName    The Python module to load. "ProcessDefs"
+                               by default.
+  -p, --path     directory     The directory to find the module. Current 
+                               working directory by default.
+  -v, --verbose                Displays more verbose output.
+  -h, --help                   Displays this message.
+
+Script Options:
+  -h, --help            show this help message and exit
+  -o FILE, --output=FILE
+                        Directory to output generated files. Defaults to
+                        "GeneratedCPlusPlus".
+  --base-class-header=CLASS_NAME_INCLUDE_PATH
+                        Path to a header file containing the declaration for
+                        the base class for generated entity classes. Defaults
+                        to "connection/bw_entity.hpp".
+  -b CLASS_NAME, --base-class=CLASS_NAME
+                        The base class for generated entity classes. Defaults
+                        to "BWEntity".
+  --generated-header-path=HEADERPATH
+                        This indicates the directory of where to find the
+                        generated sources, and is used for generating the
+                        #include lines for generated headers. Defaults to
+                        "GeneratedEntities".
+  --entity-header-path=HEADERPATH
+                        This indicates the directory of where to find your
+                        entity class header files, and is used for generating
+                        the #include lines for entity header files. Defaults
+                        to "Entities"
+  --entity-template-source-extension=EXT
+                        Specifies the extension suffix given to generated
+                        entity stub and template C++ source files. Defaults to
+                        "cpp".</pre><p>ProcessDefs requires the location of the resource directories be
+                           specified as command line options, so it can find the relevant entity
+                           definition files to parse. The resource directories can be specified by
+                           using the <span class="literal">-r</span> option, followed by the path to the
+                           resource directory. To specify multiple directories, the option can be
+                           used multiple times, specifying resource paths in descending order of
+                           priority. Typically, the <code class="filename">bigworld/res</code> directory is
+                           specified as the last resource path.
+                  </p>
+                  <p>Typically, the generated sources are compiled as part of a larger
+                           project, and are placed in their own directory within the project
+                           directory structure. You can use the ProcessDefs tool to compile
+                           straight to their target directory by using the <span class="literal">-o</span> /
+                           <span class="literal">--output</span> command line option.
+                  </p>
+                  <p>Once the sources are in place, you will also need to include them
+                           into your project using a common include line path prefix. The generated
+                           source files will also include other generated header files, and so it
+                           is necessary to also add this common include line path prefix in the
+                           generated source files themselves. This prefix is specified using the
+                           <span class="literal">--generated-header-path</span> option, and is usually
+                           determined by where the output directory is in relation to your project
+                           source directories.
+                  </p>
+                  <p>Concrete entity implementations will typically be in their own
+                           directory. Since the generated source files require the inclusion of
+                           those entity class header files in order to construct them in the entity
+                           factory, the location of the entity class header files needs to be
+                           specified using the <span class="literal">--entity-header-path</span>
+                           option.
+                  </p>
+                  <p>It can be useful to also modify the file extension of the entity
+                           class template source files that are generated. For example,
+                           Objective-C++ requires its source files to have a <span class="literal">.mm</span>
+                           extension.This can be specified using the
+                           <span class="literal">--entity-template-source-extension</span> option.
+                  </p>
+                  <p>As an example, the <em class="emphasis">ios</em> client project
+                           directory (located at
+                           <code class="filename">bigworld/src/examples/client_integration/c_plus_plus/ios</code>)
+                           contains a <code class="filename">Classes</code> directory, which in turn
+                           contains an <code class="filename">Entities</code> directory, which in turn
+                           contains a <code class="filename">GeneratedSource</code> directory. The
+                           <code class="filename">Classes</code> directory contains source files for general
+                           game Objective-C and Objective-C++ classes, including the general
+                           <code class="classname">FDEntity</code> class which is used as the entity
+                           super-class, which implements functionality common to all entity
+                           classes. <code class="classname">FDEntity</code> itself derives from
+                           <code class="classname">BWEntity</code>.
+                  </p>
+                  <p>The <code class="filename">Entities</code> directory contains the
+                           implementation source files of the concrete entity classes. These
+                           classes derive directly from their corresponding stub classes, so for
+                           example, <code class="classname">Avatar</code> derives from
+                           <code class="classname">Avatar_Stub</code>.
+                  </p>
+                  <p>The <code class="filename">GeneratedSource</code> directory contains all
+                           the generated sources output from ProcessDefs. It contains the
+                           non-entity-specific source files, for example, the sources for generated
+                           <span class="literal">FIXED_DICT</span> types, as well as each entity type's stub
+                           class and the server-side entity classes.
+                  </p>
+                  <p>With these requirements in mind, we use the following command as
+                           part of the build process in XCode:
+                  </p><pre class="programlisting">./process_defs.macosx \
+        -r "${SRCROOT}/../../../../fantasydemo/res" \
+        -r "${SRCROOT}/../../../res" \
+        --module "GenerateCPlusPlus" \
+        --output "${SRCROOT}/Classes/Entities/GeneratedSource" \
+        --base-class "FDEntity" \
+        --base-class-header "FDEntity.h" \
+        --entity-header-path "Classes/Entities" \
+        --generated-header-path "Classes/Entities/GeneratedSource" \
+        --entity-template-source-extension "mm"</pre></div>
+               <div class="section" title="12.2.2.&nbsp;Generating C++ Code">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e4977"></a>12.2.2.&nbsp;Generating C++ Code
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The <span class="literal">GenerateCPlusPlus</span> module takes the entity
+                           definitions descriptor object and writes out several generated files
+                           that can be used for connecting to a server that runs those same entity
+                           definitions.
+                  </p>
+                  <p>For each entity type, the GenerateCPlusPlus module will generate a
+                           stub class which incorporates the entity type name in the class name.
+                           This stub class implements the entity property streaming and client-side
+                           method dispatch.
+                  </p>
+                  <p>The GenerateCPlusPlus module will also generate, if needed, remote
+                           entity classes used for calling remote methods on the server side, if
+                           they are defined in that entity type's definition file.
+                  </p>
+                  <p>The files generated are:</p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><code class="filename"><em class="replaceable"><code>Entity</code></em>_Stub.hpp</code>
+                                        and
+                                        <code class="filename"><em class="replaceable"><code>Entity</code></em>_Stub.cpp</code></p>
+                           <p>The <code class="classname">Avatar_Stub</code> class derives
+                                        indirectly from <code class="classname">BWEntity</code>, and contains
+                                        property member variables and accessors, as well as implementing the
+                                        streaming operators for each of its property members that are
+                                        populated from the server-side.
+                           </p>
+                           <p>It contains accessors to the cell and base (if applicable) via
+                                        a <code class="classname">ServerEntityMailBox</code> subclass, which
+                                        contains methods to call remote base and cell methods declared in
+                                        the entity definitions.
+                           </p>
+                           <p>It contains pure virtual method declarations of client-side
+                                        methods that can be remotely called from the server-side.
+                           </p>
+                           <p>The concrete <code class="classname">Avatar</code> class derives
+                                        directly from <code class="classname">Avatar_Stub</code>, and implements the
+                                        pure virtual methods and inherits the property accessors and the
+                                        base and cell remote entity handles.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="filename"><em class="replaceable"><code>Entity</code></em>_CellMB.hpp</code>
+                                        and
+                                        <code class="filename"><em class="replaceable"><code>Entity</code></em>_CellMB.cpp</code></p>
+                           <p>The <code class="classname">CellMB::Avatar</code> class implements the
+                                        remote method calls from the client-side to the cell entity on the
+                                        server-side. This may not be available if the entity definitions for
+                                        the <code class="classname">Avatar</code> entity type do not declare any
+                                        exposed <span class="literal">CellMethods</span>.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="filename"><em class="replaceable"><code>Entity</code></em>_BaseMB.hpp</code>
+                                        and
+                                        <code class="filename"><em class="replaceable"><code>Entity</code></em>_BaseMB.cpp</code></p>
+                           <p>The <code class="classname">BaseMB::Avatar</code> class implements the
+                                        remote method calls from the client-side to the base entity on the
+                                        server-side. This may not be available if the entity definitions for
+                                        the <code class="classname">Avatar</code> entity type do not declare any
+                                        exposed <span class="literal">BaseMethods</span>.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="filename"><em class="replaceable"><code>Entity</code></em>.hpp</code> and
+                                        <code class="filename"><em class="replaceable"><code>Entity</code></em>.cpp</code></p>
+                           <p>A template for the concrete <code class="classname">Avatar</code>
+                                        entity class will also be generated that can be used as a basis for
+                                        the actual concrete <code class="classname">Avatar</code> entity class
+                                        implementation. It provides empty implementations of required
+                                        client-side methods and property setter callbacks. These concrete
+                                        entity template sources are located in a sub-directory of the output
+                                        directory called <code class="filename">templates</code>.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>The <span class="literal">GenerateCPlusPlus</span> module will also output
+                           several general source files as listed below:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><code class="filename">DefsDigest.hpp</code> and
+                                        <code class="filename">DefsDigest.cpp</code></p>
+                           <p>The <span class="literal">DefsDigest</span> namespace holds a single
+                                        method that returns the string value of the digest of the entity
+                                        definitions. This digest value is used when logging into the server
+                                        to verify that the server entity definitions match the client's
+                                        entity definitions.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="filename">EntityFactory.hpp</code> and
+                                        <code class="filename">EntityFactory.cpp</code></p>
+                           <p>The <code class="classname">EntityFactory</code> class implements the
+                                        <code class="classname">BWEntityFactory</code> interface, and creates a new
+                                        instance of <code class="classname">BWEntity</code> that is named the same
+                                        as the entity type that the given entity type ID refers to (for
+                                        example, the <code class="classname">Account</code> class for the
+                                        <code class="classname">Account</code> entity type).
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="filename">GeneratedTypes.hpp</code> and
+                                        <code class="filename">GeneratedTypes.cpp</code></p>
+                           <p>This header and source file describe generated types that were
+                                        derived from <span class="literal">FIXED_DICT</span> data types. These are
+                                        labelled in the definition of the <span class="literal">FIXED_DICT</span> data
+                                        type where they appear in either the
+                                        <code class="filename">scripts/entity_defs/alias.xml</code> file or in the
+                                        <code class="filename"><em class="replaceable"><code>&lt;EntityType&gt;</code></em>.def</code>
+                                        file using the <span class="literal"><span class="literal">&lt;Label&gt;</span></span>
+                                        tag in order to name the generated class for that
+                                        <span class="literal">FIXED_DICT</span> type. For example:
+                           </p><pre class="programlisting">&lt;root&gt;
+...
+    &lt;InventoryEntry&gt; FIXED_DICT
+        <em class="emphasis">&lt;TypeName&gt; InventoryEntry &lt;/TypeName&gt;</em>
+        &lt;Properties&gt;
+            &lt;itemType&gt;
+                &lt;Type&gt; ITEMTYPE &lt;/Type&gt;
+            &lt;/itemType&gt;
+           &lt;serial&gt;
+                &lt;Type&gt; ITEMSERIAL &lt;/Type&gt;
+           &lt;/serial&gt;
+           &lt;lockHandle&gt;
+                &lt;Type&gt; LOCKHANDLE &lt;/Type&gt;
+           &lt;/lockHandle&gt;
+        &lt;/Properties&gt;
+    &lt;/InventoryEntry&gt;
+...</pre><p>The above example will result in a class called
+                                        <span class="literal">InventoryEntry</span> to be generated and used as the
+                                        type for member data in stub classes for entity types that have the
+                                        <span class="literal">InventoryEntry</span> type as a type for one of their
+                                        client-visible properties.
+                           </p>
+                           <p>It is important to label all <span class="literal">FIXED_DICT</span>
+                                        types, as failure to do so will cause issues due to the arbitrary
+                                        numeric label that is assigned to unlabelled
+                                        <span class="literal">FIXED_DICT</span> types (for example,
+                                        <code class="classname">FixedDict0</code>,
+                                        <code class="classname">FixedDict1</code>, and so on). If the parse order
+                                        changes at all, entity source files that refer to those unlablled
+                                        <span class="literal">FIXED_DICT</span> types may be referring to incorrect
+                                        types in the new parse order, causing compile errors when using
+                                        sub-property accessors.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="12.3.&nbsp;Customising ProcessDefs Output">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e5194"></a>12.3.&nbsp;Customising ProcessDefs Output
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>It may be necessary to change the generated code output to customise
+                      it for specific game development needs. This can be done by modifying the
+                      templates that the GenerateCPlusPlus module uses for generating source, or
+                      implementing a whole new processing module for the ProcessDefs
+                      tool.
+               </p>
+               <div class="section" title="12.3.1.&nbsp;Modifying the Generated Code Templates">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e5199"></a>12.3.1.&nbsp;Modifying the Generated Code Templates
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The GenerateCPlusPlus module uses the supplied jinja2 Python
+                           templating library to generate the code. The jinja templates are located
+                           inside the module directory under the directory called
+                           <code class="filename">templates</code>. The templates used are:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><code class="filename">DefsDigest.hpp</code> and
+                                          <code class="filename">DefsDigest.cpp</code></p>
+                           <p>Template used for generating the definitions digest accessor
+                                          function.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="filename">EntityFactory.hpp</code> and
+                                          <code class="filename">EntityFactory.cpp</code></p>
+                           <p>Template used for generating the entity factory
+                                          class.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="filename">EntityMailBoxTemplate.hpp</code> and
+                                          <code class="filename">EntityMailBoxTemplate.cpp</code></p>
+                           <p>Template used for generating the base and cell mailbox
+                                          objects, for calling remote methods on the server-side.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="filename">EntityStubTemplate.hpp</code> and
+                                          <code class="filename">EntityStubTemplate.cpp</code></p>
+                           <p>Template used for generating the entity stub classes that
+                                          implement the functionality for client-side entity method dispatch
+                                          and client-side entity property streaming.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="filename">EntityTemplate.hpp</code> and
+                                          <code class="filename">EntityTemplate.cpp</code></p>
+                           <p>Template used for generating the empty entity class
+                                          templates.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="filename">GeneratedTypes.hpp</code> and
+                                          <code class="filename">GeneratedTypes.cpp</code></p>
+                           <p>Template used for generating the
+                                          <span class="literal">FIXED_DICT</span> equivalent types.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="12.3.2.&nbsp;Implementing a New Processing Module">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e5265"></a>12.3.2.&nbsp;Implementing a New Processing Module
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>For ultimate control over the code generation process, a new
+                           processing module can be used with ProcessDefs.
+                  </p>
+                  <p>Each ProcessDefs processing module implements a function that is
+                           passed a data structure that describes the entity definitions that are
+                           parsed by ProcessDefs. The function is called
+                           <code class="methodname">process()</code> by default; a command line option on
+                           ProcessDefs can change which module function is called.
+                  </p>
+                  <p>The data structure passed to the processing function is a Python
+                           dictionary with the following keys:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal">constants</span></p>
+                           <p>This is a dictionary of constants used for connection to the
+                                          server. In particular, it contains:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><span class="literal">digest</span></p>
+                                    <p>This value is a string of the entity definitions
+                                                         digest, used to verify the client-side resources are
+                                                         consistent with those resources on the server.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">maxClientServerPropertyCount</span></p>
+                                    <p>This value is the maximum count of client-server
+                                                         properties across all entity types.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">maxExposedBaseMethodCount</span></p>
+                                    <p>This value is the maximum count of exposed base
+                                                         methods across all entity types.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">maxExposedCellMethodCount</span></p>
+                                    <p>This value is the maximum count of exposed cell
+                                                         methods across all entity types.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">maxExposedClientMethodCount</span></p>
+                                    <p>This value is the maximum count of client methods
+                                                         across all entity types.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">entityTypes</span></p>
+                           <p>This value is a sequence of dictionary objects, each of
+                                          which describes an entity type. Each entity type dictionary has
+                                          the following keys:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><span class="literal">clientMethods</span></p>
+                                    <p>This value contains a sequence of dictionaries
+                                                         describing each of the client methods for this entity
+                                                         type.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">baseMethods</span></p>
+                                    <p>This value contains a sequence of dictionaries
+                                                         describing each of the base methods for this entity
+                                                         type.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">cellMethods</span></p>
+                                    <p>This value contains a sequence of dictionaries
+                                                         describing each of the cell methods for this entity
+                                                         type.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">allProperties</span></p>
+                                    <p>This value contains a sequence of property description
+                                                         dictionaries for all properties.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">clientProperties</span></p>
+                                    <p>This value contains a sequence of property description
+                                                         dictionaries for all client-side properties propagated from
+                                                         the server.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">baseToClientProperties</span></p>
+                                    <p>This value contains a sequence of property description
+                                                         dictionaries for <span class="literal">BASE_AND_CLIENT</span>
+                                                         properties.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">cellToClientProperties</span></p>
+                                    <p>This value contains a sequence of property description
+                                                         dictionaries for <span class="literal">OWN_CLIENT</span>,
+                                                         <span class="literal">OTHER_CLIENT</span> and
+                                                         <span class="literal">ALL_CLIENT</span> properties.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>Each method description dictionary object contains the following
+                           keys:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal">name</span></p>
+                           <p>The name of the method.</p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isExposed</span></p>
+                           <p>Whether the method is exposed for client-side initiated
+                                          remote calls.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">internalIndex</span></p>
+                           <p>The internal index of the method - only important for
+                                          debugging.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">exposedIndex</span></p>
+                           <p>If this is an exposed method, this is the index used to
+                                          identify this method in communications between the server and
+                                          client. This value is set to -1 for non-exposed methods.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>Each property description dictionary object contains the following
+                           keys:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal">name</span></p>
+                           <p>The name of the property.</p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">index</span></p>
+                           <p>The index of the property - only important for
+                                          debugging.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">clientServerFullIndex</span></p>
+                           <p>The index of the property used to identify this property in
+                                          communications between the server and client.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isGhostedData</span></p>
+                           <p><span class="literal">ALL_CLIENTS</span>,
+                                          <span class="literal">OTHER_CLIENTS</span> or <span class="literal">CELL_PUBLIC</span>
+                                          properties have this value set to True, otherwise False.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isOtherClientData</span></p>
+                           <p><span class="literal">ALL_CLIENTS</span> and
+                                          <span class="literal">OTHER_CLIENTS</span> properties have this value set to
+                                          True, otherwise False.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isOwnClientData</span></p>
+                           <p><span class="literal">OWN_CLIENT</span> properties have this value set
+                                          to True, otherwise False.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isCellData</span></p>
+                           <p><span class="literal">ALL_CLIENT</span>,
+                                          <span class="literal">OWN_CLIENTS</span>, <span class="literal">OTHER_CLIENTS</span>,
+                                          <span class="literal">CELL_PRIVATE</span> and <span class="literal">CELL_PUBLIC</span>
+                                          properties have this value set to True, otherwise False.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isBaseData</span></p>
+                           <p><span class="literal">BASE</span> and
+                                          <span class="literal">BASE_AND_CLIENT</span> properties have this value set
+                                          to True, otherwise False.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isClientServerData</span></p>
+                           <p><span class="literal">BASE_AND_CLIENT</span>,
+                                          <span class="literal">ALL_CLIENTS</span>, <span class="literal">OTHER_CLIENTS</span>,
+                                          <span class="literal">OWN_CLIENT</span> properties have this value set to
+                                          True, otherwise False.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isPersistent</span></p>
+                           <p>If this is a persistent property, this value is set to True,
+                                          otherwise False.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isIdentifier</span></p>
+                           <p>If this property is the identifier property for its entity
+                                          type, this value is set to True, otherwise False.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isIndexed</span></p>
+                           <p>If this property is indexed in the database, this value is
+                                          set to True, otherwise False.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">isUnique</span></p>
+                           <p>If this property is marked as unique in the database, this
+                                          value is set to True, otherwise False.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="12.4.&nbsp;The connection_model Library">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e5530"></a>12.4.&nbsp;The <span class="literal">connection_model</span> Library
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The <span class="literal">connection_model</span> library contains classes for
+                      connecting to the BigWorld Server. It makes use of the lower-level
+                      <span class="literal">connection</span> library.
+               </p>
+               <p>The <code class="classname">BWConnection</code> class contains most of the
+                      functionality for connecting to a BigWorld server, and provides a simple
+                      API for connecting. Connections are performed asynchronously, and require
+                      that the connection object is ticked frequently (typically once per game
+                      tick), to process events from the network.
+               </p>
+               <p>The <code class="classname">BWEntity</code> class is the base class for
+                      entity types. Typically, a particular game will have its own base class
+                      that extends the <code class="classname">BWEntity</code> class, and each entity
+                      type will then further derive from the
+                      <code class="classname">BWEntity</code>-derived base class to implement
+                      entity-type-specific behaviours.
+               </p>
+               <p>For example, the example <span class="literal">sdl</span> client (located at
+                      <code class="filename">bigworld/src/examples/c_plus_plus/sdl</code>) contains a
+                      <code class="classname">MyEntity</code> class which derives from
+                      <code class="classname">BWEntity</code>. The <code class="classname">Account</code> entity
+                      class derives from <code class="classname">MyEntity</code>.
+               </p>
+               <p>A class implementing the <code class="classname">BWEntityFactory</code>
+                      interface is required when constructing a
+                      <code class="classname">BWConnection</code> instance. This factory is responsible
+                      for creating a new instance of <code class="classname">BWEntity</code> based on an
+                      entity type ID sent down from the server. The entity type ID reflects the
+                      order in which a particular entity type appears in the
+                      <code class="filename">entities.xml</code> file.
+               </p>
+               <p>When using code generation, a subclass of
+                      <code class="classname">BWEntityFactory</code> will be generated which contains
+                      the logic to instantiate the particular <code class="classname">BWEntity</code>
+                      class that is named after the entity type identified by the entity type
+                      ID.
+               </p>
+               <div class="section" title="12.4.1.&nbsp;Dependencies">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e5602"></a>12.4.1.&nbsp;Dependencies
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The <span class="literal">connection_model</span> library depends
+                           on:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p>The <span class="literal">connection</span> library, low-level classes
+                                          and interfaces for connecting to the server.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>The <span class="literal">cstdmf</span> library, a general utility
+                                          library used in BigWorld.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>The <span class="literal">network</span> library, a networking library
+                                          used to implement the Mercury protocol.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>The <span class="literal">math</span> library, a general math
+                                          library.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>The OpenSSL library</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="12.4.2.&nbsp;BWConnection">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e5638"></a>12.4.2.&nbsp;BWConnection
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>This class represents a connection to the server. The
+                           <code class="classname">BWConnection</code> class's simple interface allows
+                           applications to connect to a server and populate BWEntity objects with
+                           position and direction data, property updates and handling of remote
+                           method calls.
+                  </p>
+                  <div class="section" title="12.4.2.1.&nbsp;LoginApp Public Key">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e5646"></a>12.4.2.1.&nbsp;LoginApp Public Key
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>In order to communicate with the server, the public key used to
+                                encrypt login details for a server must be configured and set on the
+                                connection object. This is done via a call to either
+                                <code class="methodname">setLoginAppPublicKeyString()</code> or the
+                                <code class="methodname">setLoginAppPublicKeyPath()</code> method.
+                     </p>
+                     <p>The <code class="methodname">setLoginAppPublicKeyString()</code> method
+                                sets the LoginApp public key based on a string containing the public
+                                key. For example:
+                     </p><pre class="programlisting">static const char g_publicKeyString[] = "-----BEGIN PUBLIC KEY-----\n" \
+"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7/MNyWDdFpXhpFTO9LHz\n" \
+"CUQPYv2YP5rqJjUoxAFa3uKiPKbRvVFjUQ9lGHyjCmtixBbBqCTvDWu6Zh9Imu3x\n" \
+"KgCJh6NPSkddH3l+C+51FNtu3dGntbSLWuwi6Au1ErNpySpdx+Le7YEcFviY/ClZ\n" \
+"ayvVdA0tcb5NVJ4Axu13NvsuOUMqHxzCZRXCe6nyp6phFP2dQQZj8QZp0VsMFvhh\n" \
+"MsZ4srdFLG0sd8qliYzSqIyEQkwO8TQleHzfYYZ90wPTCOvMnMe5+zCH0iPJMisP\n" \
+"YB60u6lK9cvDEeuhPH95TPpzLNUFgmQIu9FU8PkcKA53bj0LWZR7v86Oco6vFg6V\n" \
+"sQIDAQAB\n"
+"-----END PUBLIC KEY-----\n"
+
+BWConnection connection( ... );
+
+connection.setLoginAppPublicKeyString( g_publicKeyString );</pre><p>The <code class="methodname">setLoginAppPublicKeyPath()</code> method
+                                sets the LoginApp public key based on a file located at the given
+                                path. The path itself is a normal file-system path; it is not resolved
+                                through the resource file system.
+                     </p>
+                     <p>Please refer to the <a href="../server_programming_guide/ch29.html" class="olink"><i>Encrypting Client-Server Traffic</i></a> for more
+                                information about the encryption used between the client and the
+                                server.
+                     </p>
+                  </div>
+                  <div class="section" title="12.4.2.2.&nbsp;Entity Definitions Digest">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e5673"></a>12.4.2.2.&nbsp;Entity Definitions Digest
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The entity definitions is required to be identical between the
+                                client and the server for methods and properties to be able to be
+                                streamed over the network. In order to guard against inconsistent
+                                entity definitions, the server and the client take a digest of the
+                                entity definitions, and the client sends its digest when logging in
+                                for the server to compare against.
+                     </p>
+                     <p>The <code class="classname">BWConnection</code> object requires that the
+                                digest be set using the <code class="methodname">setDigest()</code>
+                                method.
+                     </p>
+                     <p>When using ProcessDefs/GenerateCPlusPlus to generate code, the
+                                function <code class="function">DefsDigest::constants()</code>is generated,
+                                which returns a constants object that contains the definitions digest
+                                string, along with other constants important for streaming properties
+                                and methods.
+                     </p>
+                     <p>For example:</p><pre class="programlisting">#include "GeneratedSource/DefsDigest.hpp"
+
+#include "connection/bw_connection.hpp"
+
+...
+
+    BWConnection * pConnection = new Connection( *pEntityFactory, DefsDigest::constants() );</pre></div>
+                  <div class="section" title="12.4.2.3.&nbsp;Ticking the Connection Instance">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e5695"></a>12.4.2.3.&nbsp;Ticking the Connection Instance
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>Clients will generally have a render loop in which rendering
+                                occurs each frame. As part of each frame, the
+                                <code class="classname">BWConnection</code> instance should be ticked
+                                regularly, by calling the
+                                <code class="methodname">BWConnection::update()</code> method
+                                periodically.
+                     </p>
+                     <p>The <code class="methodname">update()</code> method requires that the
+                                amount of time elapsed since the last update be passed in.
+                     </p>
+                     <p>Under certain frameworks, timers may be set up to call
+                                <code class="methodname">update()</code>. For example, under Apple
+                                Objective-C under iOS, <code class="classname">NSTimer</code> can be used to
+                                tick the connection instance periodically. Cocos2D also has a similar
+                                timer.
+                     </p>
+                  </div>
+                  <div class="section" title="12.4.2.4.&nbsp;Logging Into a Server">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e5719"></a>12.4.2.4.&nbsp;Logging Into a Server
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>After setting up the LoginApp public key, the entity definitions
+                                digest and ticking the connection instance, the connection can be
+                                started by logging into the server using the
+                                <code class="methodname">logOnTo()</code> method.
+                     </p><pre class="programlisting">std::string serverAddress = "10.1.1.1";
+std::sttring username = "MyUser";
+std::string password = "pass";
+
+pConnection-&gt;logOnTo( serverAddress, username, password );</pre><p>The
+                                <em class="parameter"><code>serverAddress</code></em> string parameter specifies the
+                                address and port to connect to. If no port is specified, the default
+                                port of 20013 is assumed. To specify a port, use the
+                                <span class="literal"><em class="replaceable"><code>&lt;ip_address&gt;</code></em>:<em class="replaceable"><code>&lt;port&gt;</code></em></span>
+                                format.
+                     </p>
+                     <p>Log-on success, failures and disconnection events can be handled
+                                by setting a <code class="classname">ServerConnectionHandler</code> object on
+                                the connection. The <code class="classname">ServerConnectionHandler</code>
+                                interface in the <code class="classname">connection</code> library allows you
+                                to catch the following events:
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><code class="methodname">onLoggedOn()</code></p>
+                              <p>Called when a connection attempt succeeds.</p>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">onLoggedOff()</code></p>
+                              <p>Called when a connection has been disconnected.</p>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">onLogOnFailure()</code></p>
+                              <p>Called when a connection attempt fails. A string error
+                                               message is supplied as a parameter.
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                     <p>The handler can be set on a connection object before calling
+                                <code class="methodname">logOnTo()</code>:
+                     </p><pre class="programlisting">MyConnectionHandler handler;
+pConnection-&gt;setHandler( &amp;handler );</pre></div>
+               </div>
+               <div class="section" title="12.4.3.&nbsp;BWEntity">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e5777"></a>12.4.3.&nbsp;BWEntity
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The <code class="classname">BWEntity</code> class is the superclass of all
+                           entity classes. Instances of the <code class="classname">BWEntity</code> class
+                           are created using the <code class="classname">BWEntityFactory</code> instance
+                           registered with the <code class="classname">BWConnection</code> at construction
+                           time.
+                  </p>
+                  <div class="section" title="12.4.3.1.&nbsp;Avatar Filtering">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e5794"></a>12.4.3.1.&nbsp;Avatar Filtering
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>Each <code class="classname">BWEntity</code> instance can have an
+                                associated filter object that is used whenever position and direction
+                                data is received from the server. This filter object is then used to
+                                output positions and directions each frame based on the received
+                                inputs from the server.
+                     </p>
+                     <p>There are pre-defined filters that can be used, for example the
+                                <code class="classname">AvatarFilter</code> class, which is the generic filter
+                                used for most entities in the Windows-based BWClient. You can simply
+                                initialise the entity's filter object by calling the
+                                <code class="methodname">pFilter()</code> method.
+                     </p><pre class="programlisting">MyEntity::MyEntity() :
+...
+{
+    ...
+    this-&gt;pFilter( new AvatarFilter( environment ) );</pre><p>A filter environment object (deriving from the
+                                <code class="classname">FilterEnvironment</code> interface class) is required
+                                when constructing a <code class="classname">FilterBase</code> subclass. This
+                                is often engine-specific, and so a particular
+                                <code class="classname">FilterEnvironment</code> is required for each
+                                particular game engine.
+                     </p>
+                     <p>A <code class="classname">FilterEnvironment</code> (found in the
+                                <span class="literal">connection</span> library) implements these virtual
+                                methods:
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><code class="methodname">void updateCoordinateSystem( EntityBase *
+                                                  pEntity, SpaceID spaceID, EntityID vehicleID
+                                                  )</code></p>
+                              <p>This method is called whenever an entity has changed its
+                                               coordinate system, typically by boarding or alighting a vehicle.
+                                               It is also called when a player entity teleports and changes
+                                               space. This method is used to perform any bookkeeping on the
+                                               passed in entity in order to support the new updated coordinate
+                                               space, as well as handling the vehicle change.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">void transformIntoCommon( SpaceID spaceID,
+                                                  EntityID vehicleID, Position3D &amp; position, Vector3 &amp;
+                                                  direction )</code></p>
+                              <p><code class="methodname">void transformFromCommon( SpaceID spaceID,
+                                                  EntityID vehicleID, Position3D &amp; position, Vector3 &amp;
+                                                  direction )</code></p>
+                              <p>These two methods are used to transform coordinates from
+                                               vehicle-space coordinates to the common world-space
+                                               coordinates.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">bool filterDropPoint( EntityBase * pEntity,
+                                                  const Position3D &amp; fall, Position3D &amp; land, Vector3 *
+                                                  pGroundNormal )</code></p>
+                              <p>This method is used to getting the drop position onto the
+                                               closest terrain or other obstacle in the scene. The ground
+                                               normal should also be supplied in the
+                                               <em class="parameter"><code>pGroundNormal</code></em> parameter if it is
+                                               non-NULL.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">bool resolveOnGroundPosition( Position3D &amp;
+                                                  position, bool &amp; isOnGround )</code></p>
+                              <p>This method is used to determine whether a particular
+                                               point can be considered to be "on-ground". This is used to
+                                               optimise the network communication between the client and server
+                                               if both sides agree that a player entity is on the ground, as
+                                               this allows for the y-position to be omitted from
+                                               sending.
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                     <p>For creating new filters, new sub-classes of the FilterBase
+                                interface class can be implemented. Each filter object is required to
+                                implement the following methods:
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><code class="methodname">void input( double time, SpaceID spaceID,
+                                                  EntityID vehicleID, const Position3D &amp; position, const
+                                                  Vector3 &amp; positionError, float * auxFiltered
+                                                  )</code></p>
+                              <p>This method is called to receive a position and direction
+                                               update from the server, specific to a particular time. The
+                                               <em class="parameter"><code>auxFiltered</code></em> parameter points to a
+                                               3-element array containing the yaw, pitch and roll
+                                               respectively.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">void output( double time )</code></p>
+                              <p>This method is called to set the filter's best estimate
+                                               for the position and direction of an entity for the given time.
+                                               This is typically called each frame to set the entity position
+                                               before it is visually rendered.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">void reset()</code></p>
+                              <p>This method is called when a filter state needs to be
+                                               reset. This is typically when an entity first comes into the
+                                               area of interest, or when it has teleported.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">void getLastInput()</code></p>
+                              <p>This method is called to retrieve the last input that was
+                                               received from the server.
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="section" title="12.4.4.&nbsp;BWEntityFactory">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e5893"></a>12.4.4.&nbsp;BWEntityFactory
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Subclasses of the <code class="classname">BWEntityFactory</code> interface
+                           class are responsible for creating instances of
+                           <code class="classname">BWEntity</code> that are appropriate to the entity type
+                           ID given to the creation method.
+                  </p>
+                  <p>Generated code will include a concrete class that implements
+                           <code class="classname">BWEntityFactory</code>, called
+                           <code class="classname">EntityFactory</code>, which creates the appropriate
+                           concrete <code class="classname">BWEntity</code> class that has the same name as
+                           the entity type name.
+                  </p>
+                  <p>A <code class="classname">BWEntityFactory</code> instance is required to
+                           construct a <code class="classname">BWConnection</code> instance.
+                  </p>
+               </div>
+               <div class="section" title="12.4.5.&nbsp;BWEntitiesListener">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e5923"></a>12.4.5.&nbsp;BWEntitiesListener
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>When the player is inside a space, entities in that space will
+                           enter and leave the client's area of interest, and the server will
+                           inform the client when this occurs. It is useful to catch when this
+                           happens, and so <code class="classname">BWConnection</code> allows for a
+                           <code class="classname">BWEntitiesListener</code> object to be registered which
+                           receives entity enter and leave events.
+                  </p>
+                  <p>A BWEntitiesListener subclass implements the following
+                           methods:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><code class="methodname">void onEntityEnter( BWEntity * pEntity
+                                             )</code></p>
+                           <p>This is called when an entity has entered the client's
+                                          AoI.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="methodname">void onEntityLeave( BWEntity * pEntity
+                                             )</code></p>
+                           <p>This is called when an entity has left the client's
+                                          AoI.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="12.4.6.&nbsp;Server Discovery">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e5949"></a>12.4.6.&nbsp;Server Discovery
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Server discovery is used during development to find a locally
+                           running server on the same LAN segment and get details for starting a
+                           connection. It is not intended to be used for production clients.
+                  </p>
+                  <p>A subclass of the abstract <code class="classname">ServerFinder</code>
+                           class is used for this purpose. By implementing a new concrete subclasss
+                           of <code class="classname">ServerFinder</code>, instantiating it and passing it
+                           to <code class="classname">BWConnection</code>'s
+                           <code class="methodname">findServers()</code> method, a search for locally
+                           running servers will be performed. The <em class="parameter"><code>timeout</code></em>
+                           parameter in <code class="methodname">findServers()</code> can be used to set
+                           the time-out duration for searches; it defaults to 10 seconds.
+                  </p>
+                  <p>Virtual method callbacks are called when servers are found, when
+                           the search is completed or has timed out.
+                           <code class="classname">ServerFinder</code> subclasses should implement the
+                           following methods:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><code class="methodname">onServerFound()</code> is called when a
+                                          single server has been found. It is passed a
+                                          <code class="classname">ServerInfo</code> object, which contains an
+                                          address and port for connection, as well as the Unix user ID of
+                                          the user running the server.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="methodname">onFinished()</code> is called when the
+                                          search process has completed successfully.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><code class="methodname">onRelease()</code> is called when the
+                                          search is completed or when it has timed out. This is typically
+                                          used to clean up the object.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="section" title="12.4.6.1.&nbsp;Probing a Running Server">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e5999"></a>12.4.6.1.&nbsp;Probing a Running Server
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The information from ServerFinder only gives you numeric address
+                                and port to pass into
+                                <code class="methodname">BWConnection::logOnTo()</code>, and the numeric Unix
+                                user ID of the user running the server instance. It is possible to
+                                probe the server to provide more information, such as the name of the
+                                machine running LoginApp, and the username of the user running the
+                                server. This can be done by sending a server probe using the
+                                <code class="classname">ServerFinder</code>'s
+                                <code class="methodname">sendProbe()</code> method.
+                     </p>
+                     <p>Server probe results are handled by a subclass of the
+                                <code class="classname">ServerProbeHandler</code> interface class. The
+                                relevant virtual methods to implement are:
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><code class="methodname">onKeyValue()</code></p>
+                              <p>This is used to get results for a particular key-value
+                                               result from the probe. Keys are:
+                              </p>
+                              <div class="itemizedlist">
+                                 <ul class="itemizedlist" type="circle">
+                                    <li class="listitem">
+                                       <p><span class="literal">hostName</span></p>
+                                       <p>The name of the LoginApp machine.</p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><span class="literal">ownerName</span></p>
+                                       <p>The name of the user running the server
+                                                            instance.
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><span class="literal">usersCount</span></p>
+                                       <p>The number of successful logins processed by this
+                                                            LoginApp.
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><span class="literal">universeName</span></p>
+                                       <p>Not used, present for backwards compatibility.</p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><span class="literal">spaceName</span></p>
+                                       <p>Not used, present for backwards compatibility.</p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><span class="literal">binaryID</span></p>
+                                       <p>Not used, present for backwards compatibility.</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">onSuccess()</code></p>
+                              <p>This is called when the probe has completed
+                                               successfully.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">onFailure()</code></p>
+                              <p>This is called when the probe has timed out or otherwise
+                                               failed.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p><code class="methodname">onFinished()</code></p>
+                              <p>This method is called after either
+                                               <code class="methodname">onSuccess()</code> or
+                                               <code class="methodname">onFailure()</code> is called, and should be
+                                               used to clean up the probe handler object.
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="12.5.&nbsp;Example Clients">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e6086"></a>12.5.&nbsp;Example Clients
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>BigWorld provides example source code to illustrate how to integrate
+                      with the BigWorld server from other client applications. These example
+                      clients are found in the
+                      <code class="filename">bigworld/src/examples/client_integration</code>
+                      directory.
+               </p>
+               <div class="section" title="12.5.1.&nbsp;python/simple">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e6094"></a>12.5.1.&nbsp;python/simple
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>This example client is a barebone application that connects to a
+                           BigWorld server, and illustrates a minimal amount of effort required to
+                           connect to the server and send player movement, and how to apply
+                           property updates to Python-based entities.
+                  </p>
+                  <p>This example is compilable under Linux and Windows.</p>
+               </div>
+               <div class="section" title="12.5.2.&nbsp;c_plus_plus/sdl">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e6101"></a>12.5.2.&nbsp;c_plus_plus/sdl
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The SDL example is a simple client that provides a top-down GUI
+                           using the Simple Directmedia Library library (<a class="ulink" href="http://www.libsdl.org" target="_top">http://www.libsdl.org</a>) to connect to
+                           a FantasyDemo server.
+                  </p>
+                  <p>It uses the ProcessDefs tool to generate entity code.</p>
+                  <p>This example is compilable under Linux and Mac OS X. It requires
+                           the <code class="code">SDL</code> and <code class="code">SDL_image</code> libraries.
+                  </p>
+                  <p>Under CentOS Linux, these libraries can be installed by installing
+                           the <code class="code">SDL-devel</code> and <code class="code">SDL_image-devel</code>
+                           packages.
+                  </p>
+                  <p>Mac OS X framework libraries for <code class="code">SDL</code> and
+                           <code class="code">SDL_image</code> and instructions on how to install them can be
+                           found at on the SDL site.
+                  </p>
+                  <p>In order to run the example, the resource paths for FantasyDemo
+                           need to be specified on the command line as well as the server address,
+                           for example:
+                  </p><pre class="programlisting">$ ./client_integration -r ../../../../fantasydemo/res -r ../../../res -s localhost</pre><p>When running under Xcode, you will need to set these command line
+                           arguments in the <code class="code">client_integration</code> scheme
+                           <em class="emphasis">Run</em> <span class="symbol">&#8594;</span>
+                           <em class="emphasis">Arguments</em> <span class="symbol">&#8594;</span>
+                           <em class="emphasis">Arguments Passed On Launch</em>.
+                  </p>
+               </div>
+               <div class="section" title="12.5.3.&nbsp;c_plus_plus/ios">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e6159"></a>12.5.3.&nbsp;c_plus_plus/ios
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>This example is a simple iOS client that connects to a FantasyDemo
+                           server, and offers a top-down GUI to visualise the client-side area of
+                           interest.
+                  </p>
+                  <p>The project file is located in
+                           <code class="filename">bigworld/src/examples/client_integration/c_plus_plus/ios/FantasyDemo.xcodeproj</code>.
+                           It requires XCode 4.3 and above, and the installation of the optional
+                           XCode Command Line Tools. To install, go to
+                           <em class="emphasis">Preferences</em> <span class="symbol">&#8594;</span>
+                           <em class="emphasis">Downloads</em> <span class="symbol">&#8594;</span>
+                           <em class="emphasis">Components</em>, and install the <em class="emphasis">Command Line
+                              Tools</em> component.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch11.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch13.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;11.&nbsp;Animation System&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;13.&nbsp;Server Communications</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

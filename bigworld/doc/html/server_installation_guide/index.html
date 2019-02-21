@@ -1,0 +1,247 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Server Installation Guide</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Installation Guide">
+      <link rel="next" href="ch01.html" title="Chapter&nbsp;1.&nbsp;Overview">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_installation_guide/index.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Server Installation Guide</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left">&nbsp;</td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch01.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="book" title="Server Installation Guide">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h1 class="title"><a name="Server_Installation_Guide"></a>Server Installation Guide
+                     </h1>
+                  </div>
+                  <div>
+                     <p class="releaseinfo">BigWorld Technology 2.1. Released 2012.</p>
+                  </div>
+                  <div>
+                     <p class="copyright">Copyright &copy; 1999-2012 BigWorld Pty Ltd. All rights reserved. </p>
+                  </div>
+                  <div>
+                     <div class="legalnotice" title="Legal Notice"><a name="d0e17"></a><p>This document is proprietary commercial in confidence and access
+                           is restricted to authorised users. This document is protected by
+                           copyright laws of Australia, other countries and international treaties.
+                           Unauthorised use, reproduction or distribution of this document, or any
+                             portion of this document, may result in the imposition of civil and
+                             criminal penalties as provided by law.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <hr>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="chapter"><a href="ch01.html">1. Overview</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch01.html#d0e32">1.1. Requirements</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch01.html#d0e35">1.1.1. Hardware Requirements</a></span></dt>
+                              <dt><span class="section"><a href="ch01.html#d0e62">1.1.2. Software Requirements</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="ch01.html#d0e71">1.2. Reading this document</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="chapter"><a href="ch02.html">2. Simple Installation</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#xref_Recommended_Setup">2.1. Recommended Setup</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch02.html#d0e150">2.1.1. Supported Distributions</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="ch02.html#d0e173">2.2. Preparation</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch02.html#d0e197">2.2.1. Installing CentOS</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#xref_Installing_EPEL">2.2.2. Installing the EPEL Repository</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#xref_Installing_Configuring_And_Starting_MySQL">2.2.3. Installing, Configuring and Starting MySQL</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="ch02.html#d0e564">2.3. Installing the BigWorld Technology Server package</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch02.html#d0e585">2.3.1. BWMachineD</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e608">2.3.2. BigWorld Server</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#xref_Simple_Installation_BigWorld_Server_Tools">2.3.3. BigWorld Server Tools</a></span></dt>
+                              <dt><span class="section"><a href="ch02.html#d0e704">2.3.4. Customising your installation</a></span></dt>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+                  <dt><span class="chapter"><a href="ch03.html">3. Server First Run</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch03.html#xref_Creating_Developer_Account">3.1. Creating a Developer Account</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch03.html#d0e759">3.1.1. Account creation example</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#d0e775">3.1.2. Common Mistakes</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="ch03.html#xref_Create_A_New_Project">3.2. Create a new project</a></span></dt>
+                        <dt><span class="section"><a href="ch03.html#d0e929">3.3. Package specific key generation</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch03.html#d0e934">3.3.1. LoginApp Keypair</a></span></dt>
+                              <dt><span class="section"><a href="ch03.html#d0e973">3.3.2. Customer Server Key</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="ch03.html#d0e989">3.4. Managing the BigWorld Server</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ch03.html#xref_WebConsole_Admin_Add_New_User">3.4.1. Adding A New User</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="ch03.html#d0e1097">3.5. Login to WebConsole</a></span></dt>
+                        <dt><span class="section"><a href="ch03.html#d0e1115">3.6. Starting a BigWorld server</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="chapter"><a href="ch04.html">4. Cluster Configuration</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch04.html#xref_Cluster_Configuration_Security">4.1. Security</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#xref_Cluster_Configuration_Routing">4.2. Routing</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#xref_Cluster_Configuration_Buffer_Sizes">4.3. Buffer sizes</a></span></dt>
+                        <dt><span class="section"><a href="ch04.html#xref_Disabling_Cron_Jobs">4.4. Disabling <span class="command"><strong>cron</strong></span> jobs</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="appendix"><a href="apa.html">A. Hardware Requirements</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="apa.html#d0e1430">A.1. CPU Specifications</a></span></dt>
+                        <dt><span class="section"><a href="apa.html#d0e1441">A.2. Duals/Single/Quad/Blades</a></span></dt>
+                        <dt><span class="section"><a href="apa.html#d0e1487">A.3. Network Interface Cards</a></span></dt>
+                        <dt><span class="section"><a href="apa.html#d0e1492">A.4. Disk Storage</a></span></dt>
+                        <dt><span class="section"><a href="apa.html#d0e1499">A.5. Power Supplies</a></span></dt>
+                        <dt><span class="section"><a href="apa.html#d0e1504">A.6. Memory</a></span></dt>
+                        <dt><span class="section"><a href="apa.html#d0e1521">A.7. NOC Bandwidth</a></span></dt>
+                        <dt><span class="section"><a href="apa.html#d0e1526">A.8. VMWare</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="appendix"><a href="apb.html">B. Installing CentOS 5</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="apb.html#xref_Install_OS_Installing">B.1. Installing</a></span></dt>
+                        <dt><span class="section"><a href="apb.html#xref_Post_Installation_Setup">B.2. Post-installation Setup</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="apb.html#d0e1712">B.2.1. Install updates</a></span></dt>
+                              <dt><span class="section"><a href="apb.html#d0e1719">B.2.2. Configure services</a></span></dt>
+                              <dt><span class="section"><a href="apb.html#d0e1733">B.2.3. Install build tools</a></span></dt>
+                              <dt><span class="section"><a href="apb.html#d0e1740">B.2.4. MySQL server and development libraries</a></span></dt>
+                              <dt><span class="section"><a href="apb.html#d0e1757">B.2.5. Changing UIDs</a></span></dt>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+                  <dt><span class="appendix"><a href="apc.html">C. Copying files to Linux</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="apc.html#d0e1910">C.1. USB Thumb Drive / External Hard Disk</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="apc.html#xref_Installing_NTFS_Packages">C.1.1. Installing NTFS Support</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="apc.html#d0e1933">C.2. Python <code class="classname">SimpleHTTPServer</code> hosted on
+                                     Windows</a></span></dt>
+                        <dt><span class="section"><a href="apc.html#d0e1964">C.3. Windows network share</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="appendix"><a href="apd.html">D. Creating a custom BigWorld server installation</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="apd.html#d0e1990">D.1. Customising RPMs</a></span></dt>
+                        <dt><span class="section"><a href="apd.html#d0e2004">D.2. Manual Installation</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="apd.html#d0e2007">D.2.1. BWMachined</a></span></dt>
+                              <dt><span class="section"><a href="apd.html#d0e2058">D.2.2. Server</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="apd.html#d0e2074">D.3. Server Tools</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="apd.html#xref_Requirements_And_Caveats">D.3.1. Requirements and Caveats</a></span></dt>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+                  <dt><span class="appendix"><a href="ape.html">E. Understanding the BigWorld Machine Daemon (BWMachineD)</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ape.html#d0e2202">E.1. How BWMachined Works</a></span></dt>
+                        <dt><span class="section"><a href="ape.html#xref_Configuring_BWMachined">E.2. Configuring BWMachined</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="ape.html#d0e2239">E.2.1. Creating <code class="filename">~/.bwmachined.conf</code></a></span></dt>
+                              <dt><span class="section"><a href="ape.html#d0e2342">E.2.2. Creating <code class="filename">/etc/bwmachined.conf</code></a></span></dt>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </dd>
+                  <dt><span class="appendix"><a href="apf.html">F. Troubleshooting</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="apf.html#xref_Check_BWMachined_Running">F.1. Check That BWMachined is Running</a></span></dt>
+                        <dd>
+                           <dl>
+                              <dt><span class="section"><a href="apf.html#xref_Troubleshooting_BWMachined">F.1.1. Troubleshooting BWMachined</a></span></dt>
+                           </dl>
+                        </dd>
+                        <dt><span class="section"><a href="apf.html#xref_Troubleshooting_StatLogger">F.2. StatLogger</a></span></dt>
+                        <dt><span class="section"><a href="apf.html#d0e2577">F.3. BigWorld Support</a></span></dt>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left">&nbsp;</td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch01.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">&nbsp;</td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;1.&nbsp;Overview</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

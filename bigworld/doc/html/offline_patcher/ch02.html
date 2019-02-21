@@ -1,0 +1,837 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;2.&nbsp;Operation</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Offline Patching">
+      <link rel="up" href="index.html" title="Offline Patching">
+      <link rel="prev" href="ch01.html" title="Chapter&nbsp;1.&nbsp;Introduction">
+      <link rel="next" href="ch03.html" title="Chapter&nbsp;3.&nbsp;Application Programmers Interface">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/offline_patcher/ch02.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;2.&nbsp;Operation</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ch01.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch03.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;2.&nbsp;Operation">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="d0e303"></a>Chapter&nbsp;2.&nbsp;Operation
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch02.html#xref_MakePatch">2.1. MakePatch</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#d0e326">2.1.1. Command-line usage</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e472">2.1.2. Patch archives</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e519">2.1.3. Multi-source support</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e530">2.1.4. Example usage</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch02.html#xref_ApplyPatch">2.2. ApplyPatch</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#d0e608">2.2.1. Command line usage</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e694">2.2.2. Example usage</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch02.html#xref_CheckVersion">2.3. CheckVersion</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch02.html#d0e766">2.3.1. Command line usage</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#xref_Versions_File">2.3.2. Versions file</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e863">2.3.3. State file</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e894">2.3.4. Deployment notes</a></span></dt>
+                        <dt><span class="section"><a href="ch02.html#d0e913">2.3.5. Patch transport schemes</a></span></dt>
+                     </dl>
+                  </dd>
+               </dl>
+            </div>
+            <div class="section" title="2.1.&nbsp;MakePatch">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_MakePatch"></a>2.1.&nbsp;MakePatch
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>This tool is located at
+                      <span class="literal">bigworld/tools/misc/offline_patcher/make_patch.py</span>.
+               </p>
+               <p>MakePatch builds patches which can be used for ApplyPatch to patch
+                      <em class="emphasis">targets</em>, and supports multi-versioned patch files
+                      (for details on ApplyPatch, see <a class="xref" href="ch02.html#xref_ApplyPatch" title="2.2.&nbsp;ApplyPatch">ApplyPatch</a>).
+               </p>
+               <p>Both MakePatch and ApplyPatch have their implementations as part of
+                      the <span class="literal">patcherlib.command_line</span> module.
+               </p>
+               <div class="section" title="2.1.1.&nbsp;Command-line usage">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e326"></a>2.1.1.&nbsp;Command-line usage
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The syntax for invoking MakePatch via the command line is
+                           described below:
+                  </p><pre class="programlisting">make_patch.py [<em class="replaceable"><code>options</code></em>] <em class="replaceable"><code>&lt;source-path&gt;</code></em> <em class="replaceable"><code>&lt;dest-path&gt;</code></em> <em class="replaceable"><code>&lt;patch-output-path&gt;</code></em></pre><p>The three required arguments (one source path for each source
+                           version that the patch will support) are described below:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal"><em class="replaceable"><code>&lt;source-path&gt;</code></em></span></p>
+                           <p>The source tree path. This can be either a directory or a ZIP
+                                        file archive.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal"><em class="replaceable"><code>&lt;dest-path&gt;</code></em></span></p>
+                           <p>The destination tree path. This can be either a directory or a
+                                        ZIP file archive.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal"><em class="replaceable"><code>&lt;patch-output-path&gt;</code></em></span></p>
+                           <p>The patch output path.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>The available
+                           <span class="literal"><em class="replaceable"><code>options</code></em></span> are described
+                           below:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal">-h</span>, <span class="literal">--help</span></p>
+                           <p>Displays the help page.</p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">--debug-level=<em class="replaceable"><code>LOGLEVEL</code></em></span></p>
+                           <p>Specifies the debug level of MakePatch -
+                                        <span class="literal"><em class="replaceable"><code>LOGLEVEL</code></em></span> must have one
+                                        of the following values: <span class="literal">DEBUG</span>,
+                                        <span class="literal">INFO</span>, <span class="literal">WARNING</span>,
+                                        <span class="literal">CRITICAL</span>, or <span class="literal">ERROR</span>.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">--source-version=<em class="replaceable"><code>SOURCEVERSION</code></em></span></p>
+                           <p>Specifies the label for the source version - the default value
+                                        is the basename of the
+                                        <span class="literal"><em class="replaceable"><code>&lt;source_path&gt;</code></em></span>
+                                        argument.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">--use-checksums-if-unmodified</span></p>
+                           <p>Specifies that MakePatch should use checksums for unmodified
+                                        files as well as modified files - the default is to not use checksum
+                                        for unmodified files.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">--ignore-patterns=<em class="replaceable"><code>IGNOREPATTERNS</code></em></span></p>
+                           <p>Specifies the patterns to ignore when traversing the directory
+                                        hierarchy - the default is
+                                        <span class="literal">/CVS$|/\.svn$|/\.#[^/]+$</span>.
+                           </p>
+                           <p>Uses commas to delimit the patterns, and use the backlash
+                                        character to escape the comma character in a pattern
+                                        (<em class="emphasis">i.e.</em>, <span class="literal">'\,')</span>.
+                           </p>
+                           <p>By default, certain file patterns are not considered when
+                                        traversing the hierarchies looking for changes. Files matching the
+                                        ignored patterns are not considered when computing the difference
+                                        between the two trees. If directories match the ignored file
+                                        patterns, then the entire tree is culled from the search space.
+                                        These file patterns (as regular expressions) are:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="circle">
+                                 <li class="listitem">
+                                    <p><span class="literal">/CVS$</span></p>
+                                    <p>This pattern matches CVS control directories.</p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">/\.svn$</span></p>
+                                    <p>This pattern matches Subversion control
+                                                     directories.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p><span class="literal">/\.#[^/]+$</span></p>
+                                    <p>This pattern matches <span class="literal">.#</span> files that are
+                                                     a result of CVS updates.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="2.1.2.&nbsp;Patch archives">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e472"></a>2.1.2.&nbsp;Patch archives
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The MakePatch tool generates a patch archive, which is a tarfile
+                           with the following:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p>The changes between the source directory tree and a
+                                        destination directory tree.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>A manifest file.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>The directory tree versions are given names indicating their
+                           version (<em class="emphasis">e.g.</em>, <span class="literal">bw_res-1.9.0</span>).
+                           The only requirement for a version is that they be a string - they do
+                           not have to conform to any convention, but it may be wise to have some
+                           scheme where the target trees are identified by name and a version
+                           string appended to the target name.
+                  </p>
+                  <p>Currently, you can specify more than one source version to provide
+                           changes against the destination version. This could be used to make a
+                           patch multi-versioned, that is, supporting multiple released versions by
+                           combining their changes from each supported source version into a single
+                           patch archive. However, this is discouraged, as it is much better for
+                           the CheckVersion script or equivalent to handle selection of individual
+                           patches to download from the <em class="emphasis">versions file</em> (for
+                           details on CheckVersion, see <a class="xref" href="ch02.html#xref_CheckVersion" title="2.3.&nbsp;CheckVersion">CheckVersion</a>).
+                  </p>
+                  <p>The changes for a particular version consist of the
+                           following:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p>New files added in the destination version.</p>
+                        </li>
+                        <li class="listitem">
+                           <p>Binary delta patches to existing files.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>The <em class="emphasis">manifest file</em> contains instructions on
+                           which files to add, modify or delete, as well as checksum information.
+                           By default, checksums are generated for modified files only. However,
+                           you can use the <span class="literal">--use-checksums-if-unmodified</span> option
+                           to have checksums generated for every file encountered in the source
+                           directory tree. If checksums are present in the manifest file, then they
+                           will each be checked.
+                  </p>
+                  <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+                     <h3 class="title">Note</h3>
+                     <p>ZIP file archives inside ZIP archives have their files
+                                  extracted and the deltas generated based on the contents of the
+                                  files contained inside the ZIP archive, rather than on the ZIP
+                                  archive files themselves.
+                     </p>
+                  </div>
+               </div>
+               <div class="section" title="2.1.3.&nbsp;Multi-source support">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e519"></a>2.1.3.&nbsp;Multi-source support
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>MakePatch supports patch files that contain changes for multiple
+                           sources, intended against either multiple targets and/or
+                           versions.
+                  </p>
+                  <p>This means that for a group of targets, changes for each target
+                           from one version to another can be bundled into the same patch
+                           archive.
+                  </p>
+                  <p>This also means that for a particular target the changes for
+                           multiple versions of that target can be contained within the same patch
+                           archive. Typically, however, it is more advantageous to have a
+                           single-version patch files for each released version, and rely on
+                           VersionCheck and the versions file to drive the patching client to
+                           download a single-version patch. This is more flexible and saves on
+                           download bandwidth.
+                  </p>
+                  <p>Changes for multiple sources can be added at the archive creation,
+                           or they can be added to an existing patch archive by re-running
+                           MakePatch with the same patch archive as the patch output path.
+                  </p>
+               </div>
+               <div class="section" title="2.1.4.&nbsp;Example usage">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e530"></a>2.1.4.&nbsp;Example usage
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="section" title="2.1.4.1.&nbsp;Creating a single-source patch archive">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e533"></a>2.1.4.1.&nbsp;Creating a single-source patch archive
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The example below creates a patch archive between the source
+                                tree with path <span class="literal">1.8.0/bigworld/res</span> (labelled
+                                <span class="literal">bw_res-1.8.0</span>) and
+                                <span class="literal">1.9.0/bigworld/res</span> (labelled
+                                <span class="literal">bw_res-1.9.0</span>), and outputs it to a patch archive
+                                file called
+                                <span class="literal">bw_res-1.8.0-1.9.0.patch</span>.
+                     </p><pre class="programlisting">$ python make_patch.py --source-version=bw_res-1.8.0 \
+  1.8.0/bigworld/res     1.9.0/bigworld/res     bw_res-1.8.0-1.9.0.patch</pre></div>
+                  <div class="section" title="2.1.4.2.&nbsp;Creating a multiple-source patch archive">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e555"></a>2.1.4.2.&nbsp;Creating a multiple-source patch archive
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The example below creates a patch archive between source
+                                trees:
+                     </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p>Path <span class="literal">1.8.0/fantasydemo/res</span> (labelled
+                                               <span class="literal">fantasydemo_res-1.8.0</span>) and path
+                                               <span class="literal">1.9.0/fantasydemo/res</span></p>
+                           </li>
+                           <li class="listitem">
+                              <p>Path <span class="literal">1.8.0/fantasydemo/game</span> (labelled
+                                               <span class="literal">fantasydemo_game-1.8.0</span>) and path
+                                               <span class="literal">1.9.0/fantasydemo/game</span></p>
+                           </li>
+                        </ul>
+                     </div>
+                     <p>These two sets of changes are packaged into a patch
+                                archive file called
+                                <span class="literal">fantasydemo-1.8.0-1.9.0.patch</span>.
+                     </p><pre class="programlisting">$ python make_patch.py --source-version=fantasydemo_res-1.8.0
+  1.8.0/fantasydemo/res     1.9.0/fantasydemo/res     fantasydemo-1.8.0-1.9.0.patch
+...
+
+$ python make_patch.py --source-version=fantasydemo_game-1.8.0
+  1.8.0/fantasydemo/game    1.9.0/fantasydemo/game    fantasydemo-1.8.0-1.9.0.patch</pre></div>
+               </div>
+            </div>
+            <div class="section" title="2.2.&nbsp;ApplyPatch">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_ApplyPatch"></a>2.2.&nbsp;ApplyPatch
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>This tool is located at
+                      <span class="literal">bigworld/tools/misc/offline_patcher/apply_patch.py</span>. It
+                      complements the MakePatch tool by applying patches made by it to a
+                      directory tree or ZIP archive. The ApplyPatch tool relies on functions
+                      exposed by the <span class="literal">patcherlib.patch_apply</span> module (for
+                      details, see <a class="xref" href="ch03.html#xref_patch_apply_Module" title="3.1.2.&nbsp;The patch_apply module">The <span class="literal">patch_apply</span> module</a>).
+               </p>
+               <p>Both MakePatch and ApplyPatch have their implementations as part of
+                      the <span class="literal">patcherlib.command_line</span> module.
+               </p>
+               <div class="section" title="2.2.1.&nbsp;Command line usage">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e608"></a>2.2.1.&nbsp;Command line usage
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The syntax for invoking ApplyPatch via the command line is
+                           described below:
+                  </p><pre class="programlisting">apply_patch.py [<em class="replaceable"><code>options</code></em>] <em class="replaceable"><code>&lt;patch-path&gt;</code></em> <em class="replaceable"><code>&lt;target-path&gt;</code></em> <em class="replaceable"><code>&lt;target-version&gt;</code></em>
+
+-h, --help            show this help message and exit
+--debug-level=LOGLEVEL one of DEBUG, INFO, WARNING, CRITICAL, ERROR</pre><p>The three required arguments are described below:</p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal"><em class="replaceable"><code>&lt;patch-path&gt;</code></em></span></p>
+                           <p>The path to the patch archive.</p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal"><em class="replaceable"><code>&lt;target-path&gt;</code></em></span></p>
+                           <p>The destination tree path.</p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal"><em class="replaceable"><code>&lt;target_version&gt;</code></em></span></p>
+                           <p>The target version before patching.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>The available
+                           <span class="literal"><em class="replaceable"><code>options</code></em></span> are described
+                           below:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal">-h</span>, <span class="literal">--help</span></p>
+                           <p>Displays the help page.</p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">--debug-level=<em class="replaceable"><code>LOGLEVEL</code></em></span></p>
+                           <p>Specifies the debug level of ApplyPatch -
+                                        <span class="literal"><em class="replaceable"><code>LOGLEVEL</code></em></span> must have one
+                                        of the following values: <span class="literal">DEBUG</span>,
+                                        <span class="literal">INFO</span>, <span class="literal">WARNING</span>,
+                                        <span class="literal">CRITICAL</span>, or <span class="literal">ERROR</span>.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="section" title="2.2.2.&nbsp;Example usage">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e694"></a>2.2.2.&nbsp;Example usage
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="section" title="2.2.2.1.&nbsp;Patching against a directory tree with a patch file">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e697"></a>2.2.2.1.&nbsp;Patching against a directory tree with a patch file
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>The example below applies a patch archive on to a source tree
+                                with path <span class="literal">./res</span> and version
+                                <span class="literal">bw_res-1.8.0</span>, and outputs it to a patch archive
+                                file at <span class="literal">downloads/bw_res-1.8.0-1.9.0.patch</span>.
+                     </p><pre class="programlisting">$ python apply_patch.py downloads/bw_res-1.8.0-1.9.0.patch bigworld/res bw_res-1.8.0 </pre></div>
+               </div>
+            </div>
+            <div class="section" title="2.3.&nbsp;CheckVersion">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_CheckVersion"></a>2.3.&nbsp;CheckVersion
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>CheckVersion is a command line tool that implements a minimal
+                      patching client. As input, it takes the following configuration
+                      files:
+               </p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>A <em class="emphasis">state file</em>.
+                        </p>
+                        <p>Contains the state of targets for that end-user's
+                                     distribution. The default is <span class="literal">state.xml</span>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>A <em class="emphasis">versions file</em>.
+                        </p>
+                        <p>Contains upgrade paths for possible release versions. This is
+                                     retrieved from a remote server via HTTP. An example is supplied in
+                                     <code class="filename">bigworld/tools/misc/offline_patcher/examples/versions.xml</code>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>A general game configuration file.</p>
+                        <p>Contains the URL to retrieve the versions file from. The
+                                     default is <span class="literal">patcher_config.xml</span>, and an example is
+                                     supplied in
+                                     <code class="filename">bigworld/tools/misc/offline_patcher/examples/patcher_config.xml</code>.
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <p>CheckVersion gets from the general game configuration the URL for
+                      the versions file, then retrieves its contents and parses it. It then
+                      compares its local version from the local state with this remote version
+                      specified in the versions file, and determines an upgrade path if
+                      necessary from the versions file. It then downloads each patch archive,
+                      and applies them using the functionality provided in the
+                      <span class="literal">patcherlib.patch_apply</span> module (for details on this
+                      module, see <a class="xref" href="ch03.html#xref_patch_apply_Module" title="3.1.2.&nbsp;The patch_apply module">The <span class="literal">patch_apply</span> module</a>).
+               </p>
+               <p>This script is intended as a bare-bones update client, and it is
+                      expected that game developers implement their own custom launcher
+                      application incorporating an update client that may reuse the
+                      functionality provided in the CheckVersion script. For example, a UI
+                      update client could be implemented which utilises progress bar widgets,
+                      HTML display of release notes, and so on.
+               </p>
+               <p>The CheckVersion script is driven by the retrieved versions file
+                      (for details on this file, see <a class="xref" href="ch02.html#xref_Versions_File" title="2.3.2.&nbsp;Versions file">Versions file</a>).
+               </p>
+               <div class="section" title="2.3.1.&nbsp;Command line usage">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e766"></a>2.3.1.&nbsp;Command line usage
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The syntax for invoking CheckVersion via the command line is
+                           described below:
+                  </p><pre class="programlisting">usage: check_version.py [options]
+
+options:
+-h, --help            show this help message and exit
+-c CONFIGPATH, --config=CONFIGPATH
+                      The patcher configuration file that contains the
+                      versions.xml URL. Defaults to "patcher_config.xml".
+-s STATEPATH, --state=STATEPATH
+                      The state file. Defaults to "state.xml".
+--debug-level=DEBUGLEVEL
+                      The logging debug level. Defaults to "INFO".
+</pre></div>
+               <div class="section" title="2.3.2.&nbsp;Versions file">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Versions_File"></a>2.3.2.&nbsp;Versions file
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>This file contains upgrade paths for past released versions to
+                           upgrade to the current version. Functionality for parsing this XML
+                           document is supplied via the <code class="classname">VersionsXML</code> class
+                           (for details, see <a class="xref" href="ch03.html#xref_The_Versions_Module" title="3.2.1.&nbsp;The versions module">The <span class="literal">versions</span> module</a>).
+                  </p>
+                  <p>The versions file is downloaded from a URL contained within the
+                           configuration file, defaulting to a
+                           <code class="filename">patcher_config.xml</code> in the current working
+                           directory, and is parsed using the simple <span class="literal">Config</span>
+                           class in <span class="literal">check_versions.py</span>. Developers may wish to
+                           change this scheme when developing their own update client.
+                  </p>
+                  <p>An example versions file is supplied in
+                           <code class="filename">bigworld/tools/misc/offline_patcher/examples/versions.xml</code>.
+                  </p>
+                  <p>The example file below describes an upgrade path from a past
+                           released version of a theoretical game from an initial version 1.0 to a
+                           new current version 1.1. In the example, there are three targets for
+                           which there are patches for:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal">your_game_res</span></p>
+                           <p>Refers to a ZIP archive of the packed game resources
+                                        (<em class="emphasis">e.g..</em>, res-packed tree of the contents of
+                                        <code class="filename">your_game/res</code>).
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">your_game_bin</span></p>
+                           <p>The game executable directory, designed for patching against
+                                        the game executable and any other binaries, such as DLLs needed by
+                                        the executable, as well as configuration files needed by the game,
+                                        such as <code class="filename">paths.xml</code>.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">bw_res</span></p>
+                           <p>Refers to a ZIP archive of the packed BigWorld base resources
+                                        (<em class="emphasis">i.e.</em>, res-packed tree of the contents of
+                                        <code class="filename">bigworld/res</code>).
+                           </p>
+                        </li>
+                     </ul>
+                  </div><pre class="programlisting">&lt;?xml version="1.0"?&gt;
+&lt;root&gt;
+  &lt;currentVersion&gt;1.1&lt;/currentVersion&gt;
+  &lt;property name="baseURL"&gt;http://update.yourgame.com/downloads&lt;/property&gt;
+  &lt;supportedVersions&gt;
+      &lt;version&gt;
+          &lt;name&gt;1.0&lt;/name&gt;
+          &lt;property name="updateInfoURL"&gt;info/test.php&lt;/property&gt;
+          &lt;targets&gt;
+              &lt;target&gt;
+                  &lt;name&gt;your_game_res&lt;/name&gt;
+                  &lt;path&gt;../your_game_res.zip&lt;/path&gt;
+                  &lt;sourceVersion&gt;1.0&lt;/sourceVersion&gt;
+                  &lt;destVersion&gt;1.1&lt;/destVersion&gt;
+                  &lt;patch&gt;
+                      &lt;transferType&gt;http&lt;/transferType&gt;
+                      &lt;name&gt;your_game_res.1.0-1.1.patch&lt;/name&gt;
+                      &lt;property name="url"&gt;patches/your_game_res.1.0-1.1.patch&lt;/property&gt;
+                      &lt;property name="md5sum"&gt;00112233445566778899aabbccddeeff&lt;/property&gt;
+                  &lt;/patch&gt;
+              &lt;/target&gt;
+              &lt;target&gt;
+                  &lt;name&gt;your_game_bin&lt;/name&gt;
+                  &lt;path&gt;.&lt;/path&gt;
+                  &lt;sourceVersion&gt;1.0&lt;/sourceVersion&gt;
+                  &lt;destVersion&gt;1.1&lt;/destVersion&gt;
+                  &lt;patch&gt;
+                      &lt;transferType&gt;http&lt;/transferType&gt;
+                      &lt;name&gt;your_game_bin.1.0-1.1.patch&lt;/name&gt;
+                      &lt;property name="url"&gt;patches/your_game_bin.1.0-1.1.patch&lt;/property&gt;
+                      &lt;property name="md5sum"&gt;00112233445566778899aabbccddeeff&lt;/property&gt;
+                  &lt;/patch&gt;
+              &lt;/target&gt;
+              &lt;target&gt;
+                  &lt;name&gt;bigworld_res&lt;/name&gt;
+                  &lt;path&gt;../bw_res.zip&lt;/path&gt;
+                  &lt;sourceVersion&gt;1.9.3.0&lt;/sourceVersion&gt;
+                  &lt;destVersion&gt;1.9.4&lt;/destVersion&gt;
+                  &lt;patch&gt;
+                      &lt;transferType&gt;http&lt;/transferType&gt;
+                      &lt;name&gt;bw_res.1.9.3.0-1.9.4.patch&lt;/name&gt;
+                      &lt;property name="url"&gt;patches/bw_res.1.9.3.0-1.9.4.patch&lt;/property&gt;
+                      &lt;property name="md5sum"&gt;00112233445566778899aabbccddeeff&lt;/property&gt;
+                  &lt;/patch&gt;
+              &lt;/target&gt;
+          &lt;/targets&gt;
+      &lt;/version&gt;
+  &lt;/supportedVersions&gt;
+&lt;/root&gt;
+</pre><p><span class="citetitle">Example versions file</span></p>
+                  <p>Note that version 1.1 of the overall game uses 1.9.4 BigWorld
+                           resources over version 1.0's usage of 1.9.3 BigWorld resources. This
+                           illustrates that the versioning of the individual targets is independent
+                           from the overall game versioning.
+                  </p>
+                  <p>This is only an example layout for a theoretical game. Game
+                           developers must take into account the requirements of their game when
+                           partitioning their resources into suitable resource trees.
+                  </p>
+                  <div class="section" title="2.3.2.1.&nbsp;Properties">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e844"></a>2.3.2.1.&nbsp;Properties
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <p>Properties are used to store specific details about some part of
+                                the patching process. For example, you might have a URL to a web page
+                                for each upgrade path containing the release notes that you wish to
+                                have displayed while the patching process is running. Custom transfer
+                                handlers can utilise the property mechanism to get details about how
+                                to retrieve a patch. Properties can be defined at the root level, at
+                                the upgrade path level (that is, under the <span class="literal">version</span>
+                                element), or at the patch level (under the <span class="literal">patch</span>
+                                element).
+                     </p>
+                     <p>Properties are key-value pairs, described as in the
+                                following:
+                     </p><pre class="programlisting">&lt;property name="key_name"&gt;value&lt;/property&gt;</pre><p>The combined properties from root-level, upgrade path-level to
+                                patch-level are passed to the constructor of any transfer handler as
+                                keyword arguments. Properties at lower levels override properties at
+                                higher levels.
+                     </p>
+                     <p>For example, the versionslib.transfer module defines the HTTP
+                                transfer method in the class HTTPTransferHandler. The constructor to
+                                HTTPTransferHandler has a baseURL property which, in the example
+                                above, is described at the root level. However, it could also be
+                                described per-upgrade path, so that each upgrade path has a different
+                                base URL.
+                     </p>
+                  </div>
+               </div>
+               <div class="section" title="2.3.3.&nbsp;State file">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e863"></a>2.3.3.&nbsp;State file
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The state file specifies for each target which version is
+                           currently installed on the end-user's distribution. This is only a
+                           simple implementation - developers may choose to implement persistence
+                           of target state in another way as part of their launcher process
+                           (<em class="emphasis">e.g.</em>, Windows Registry keys). Other
+                           implementations should implement the Python State interface for reusing
+                           the rest of the CheckVersions script and the
+                           <span class="literal">versionslib</span> library.
+                  </p>
+                  <p>An example state file is supplied in
+                           bigworld/tools/misc/offline_patcher/examples/state.xml. It corresponds
+                           to the supplied example versions.xml versions file.
+                  </p>
+                  <p>Functionality for parsing the state XML file is supplied in the
+                           form of the <span class="literal">StateXML</span> class defined in the
+                           <span class="literal">versionslib.state</span> module (for details on this class,
+                           see <a class="xref" href="ch03.html#xref_The_State_Module" title="3.2.2.&nbsp;The state module">The <span class="literal">state</span> module</a>).
+                  </p>
+                  <div class="section" title="2.3.3.1.&nbsp;Example state file">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e886"></a>2.3.3.1.&nbsp;Example state file
+                              </h4>
+                           </div>
+                        </div>
+                     </div><pre class="programlisting">&lt;?xml version="1.0"?&gt;
+&lt;root&gt;
+  &lt;currentVersion&gt; 1.0 &lt;/currentVersion&gt;
+  &lt;targets&gt;
+      &lt;target name="your_game_res"&gt; 1.0 &lt;/target&gt;
+      &lt;target name="your_game_bin"&gt; 1.0 &lt;/target&gt;
+      &lt;target name="bigworld_res"&gt; 1.9.4.0 &lt;/target&gt;
+  &lt;/targets&gt;
+&lt;/root&gt;
+</pre><p><span class="citetitle">Example state file</span></p>
+                  </div>
+               </div>
+               <div class="section" title="2.3.4.&nbsp;Deployment notes">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e894"></a>2.3.4.&nbsp;Deployment notes
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The CheckVersion script relies on <span class="literal">patcherlib</span>
+                           for applying patches to targets. Deploying this may involve compiling
+                           all the <span class="literal">.py</span> files to <span class="literal">.pyc</span> or
+                           <span class="literal">.pyo</span> files, then adding them in a ZIP archive and
+                           placing in the Python library path.
+                  </p>
+                  <p>The game launcher must run script methods for checking against a
+                           versions file to verify that its version is up-to-date. This requires
+                           that a Python interpreter be involved at some point in the game launch
+                           process, which implies that the launcher is itself a Python script or an
+                           executable that is linked against the Python runtime library.
+                  </p>
+               </div>
+               <div class="section" title="2.3.5.&nbsp;Patch transport schemes">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="d0e913"></a>2.3.5.&nbsp;Patch transport schemes
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>There is currently only one method of transport for patches: HTTP.
+                           However, the versions file syntax can allow for more transport schemes
+                           (such as BitTorrent, for example). Transport schemes are specified as
+                           part of the delivery element in the versions document -
+                           <em class="emphasis">e.g.</em>, consider the following example versions file
+                           fragment:
+                  </p><pre class="programlisting">&lt;patch&gt;
+ &lt;transferType&gt;           http                             &lt;/transferType&gt;
+ &lt;name&gt;                   bw_res-1.9.4.0-1.9.x.ypatch         &lt;/name&gt;
+ &lt;property name="url"&gt;    patches/bw_res-1.9.4.0-1.9.x.y.patch &lt;/property&gt;
+ &lt;property name="md5sum"&gt; c166772f145bcc59ac714b7995e52c2a &lt;/property&gt;
+&lt;/patch&gt;</pre><p>The transferType tags describes how to download a patch file from
+                           a URL via HTTP. This transfer handler supports resuming of partial
+                           downloads with a small amount of rollback, that is, resuming will occur
+                           at a point (by default 4K) before the end of the received file fragment.
+                           In order to detect possible file corruption, the newly downloaded
+                           portion corresponding to the rollback amount is checked against what was
+                           downloaded previously, and the download will restart from the beginning
+                           if corruption is detected.
+                  </p>
+                  <p>Properties for a patch transfer are specified using the
+                           <span class="literal">property</span> tags. The HTTP transfer type defines the
+                           following properties:
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p><span class="literal">url</span></p>
+                           <p>The URL from which to retrieve the patch file. If a relative
+                                        URL is given, then it is relative to the base of the version file
+                                        URL.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p><span class="literal">md5sum</span></p>
+                           <p>The MD5 sum of the retrieved patch file.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>You can add your own transfer type by specifying properties that
+                           describe how to retrieve a patch file. You will need to modify the
+                           CheckVersions script and create and register a new
+                           <span class="literal">PatchTransferHandler</span> class.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ch01.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch03.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Chapter&nbsp;1.&nbsp;Introduction&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;3.&nbsp;Application Programmers Interface</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,8 @@
+<root>
+	<nodelessVisual>	resources/models/floating_platform_stop	</nodelessVisual>
+	<materialNames>	</materialNames>
+	<visibilityBox>
+		<min>	-2.584100 0.000000 -2.573300	</min>
+		<max>	2.567900 0.340800 2.578800	</max>
+	</visibilityBox>
+</root>

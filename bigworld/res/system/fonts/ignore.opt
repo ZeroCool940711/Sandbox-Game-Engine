@@ -1,0 +1,5 @@
+<ignore.opt>
+	<ignore>	*.font	</ignore>
+	<!-- must unfortunate, but necessary because .font file is both
+		written and read by client during dev time -->
+</ignore.opt>

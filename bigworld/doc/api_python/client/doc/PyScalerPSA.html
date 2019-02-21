@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>PyScalerPSA - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyScalerPSA Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyScalerPSA is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemAction.html">PyParticleSystemAction</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#rate" class="attribute_list" >rate</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#size" class="attribute_list" >size</a></td><td>&nbsp; Float.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+<a href="PyScalerPSA.html">PyScalerPSA</a> is a <a href="PyParticleSystemAction.html">PyParticleSystemAction</a> that scales a particle over time.
+All particles eventually end up at the specified size, and the rate
+determines the speed at which they converge linearly to this size.
+<br><br>
+A new <a href="PyScalerPSA.html">PyScalerPSA</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#ScalerPSA>ScalerPSA</a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="rate"></a><p class="attribute_definition">
+<span class="attribute_definition">rate</span>
+</p>
+
+<div class="attribute_description">Rate per second at which particles scale towards the value size.
+Default is 0.0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="size"></a><p class="attribute_definition">
+<span class="attribute_definition">size</span>
+</p>
+
+<div class="attribute_description">Eventual size of the particles as a scaling factor. It's effect is
+dependant upon the ParticleSystemRenderer. For a SpriteParticleRenderer
+the size is applied to the width and height of the sprites. Particles
+are scaled up or down linearly over time to reach this value.
+Default is 0.0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

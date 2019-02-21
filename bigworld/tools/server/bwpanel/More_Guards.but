@@ -1,0 +1,4 @@
+#!/bin/sh
+#BWPANEL 5 "100 More Guards"
+$MF_ROOT/bigworld/tools/server/runscript -base $MF_ROOT/fantasydemo/res/server/scripts/moreGuards.py
+

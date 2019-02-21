@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>PyEntities - BigWorld bots Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyEntities Class Reference</h1>
+<p><b>PyEntities</b> is an <a href="NoModule.html">actualised class</a>. It is not bound to any module and cannot be directly instantiated.</p>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+A class which emulates a dictionary of PyEntity objects indexed by their id
+attributes. Instances of this class do not support item assignment, but can
+be used with the subscript operator. Note that the key must be an integer,
+and that a key error will be thrown if the key given does not exist in the
+dictionary. Instances of this class are used by the engine to present lists
+of entities to script. They cannot be created via script, nor can they be
+modified.
+<br><br>
+Example:
+
+<pre>bot = <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#bots>bots</a>[332] #assume client with id 332 exists
+e = bot.entities # this is a <a href="PyEntities.html">PyEntities</a> object
+e[ 100 ] # returns the entity with ID 100
+len( e ) # returns the number of entities in this dictionary
+</pre>
+
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

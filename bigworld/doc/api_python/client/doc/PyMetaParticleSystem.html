@@ -1,0 +1,260 @@
+<html>
+<head>
+<title>PyMetaParticleSystem - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyMetaParticleSystem Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyMetaParticleSystem is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyAttachment.html">PyAttachment</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#addSystem" class="function_list" >addSystem</a>( self, particle_system ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#clear" class="function_list" >clear</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#duration" class="function_list" >duration</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#force" class="function_list" >force</a>( self, num ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#load" class="function_list" >load</a>( self, name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#nSystems" class="function_list" >nSystems</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#removeAllSystems" class="function_list" >removeAllSystems</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#removeSystem" class="function_list" >removeSystem</a>( self, particle_system ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#render" class="function_list" >render</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#save" class="function_list" >save</a>( self, name ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#system" class="function_list" >system</a>( self, particle_system ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#update" class="function_list" >update</a>( self, dt ):</span>
+</td></tr>
+
+</table>
+
+
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="PyMetaParticleSystem.html">PyMetaParticleSystem</a> can contain several <a href="PyParticleSystem.html">PyParticleSystem</a> objects,
+allowing them to function as a single object. As a <a href="PyAttachment.html">PyAttachment</a>,
+the <a href="PyMetaParticleSystem.html">PyMetaParticleSystem</a> can be attached to other <a href="BigWorld.html">BigWorld</a> objects.
+<br><br>
+A new <a href="PyMetaParticleSystem.html">PyMetaParticleSystem</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#MetaParticleSystem>MetaParticleSystem</a>
+function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="addSystem"></a><p class="function_definition">
+<span class="function_definition">def addSystem( <i>self, particle_system</i> ):</span>
+</p>
+
+<div class="function_description">This function adds a ParticleSystem to the MetaParticleSystem container.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>particle_system</i></span></td><td><span class="function_parameter_description">&nbsp;The ParticleSystem to add to this container.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="clear"></a><p class="function_definition">
+<span class="function_definition">def clear( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function calls the clear method of each contained ParticleSystem
+(effectively removes all particles from all contained
+ParticleSystems).
+</div>
+
+<a name="duration"></a><p class="function_definition">
+<span class="function_definition">def duration( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function looks for a sink in each contained ParticleSystem and
+returns the maximum age of each particle system, returns -1 if no
+sinks are found
+</div>
+
+<a name="force"></a><p class="function_definition">
+<span class="function_definition">def force( <i>self, num</i> ):</span>
+</p>
+
+<div class="function_description">This method forces each ParticleSystem contained within the
+MetaParticleSystem to forcibly create num units of particles. The
+number of particles created by each unit are dependant upon the
+individual ParticleSystems forcedUnitSize in an attached source
+ParticleSystemAction (see SourcePSA).
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>num</i></span></td><td><span class="function_parameter_description">&nbsp;An integer representing the number of units to force on
+the SourcePSA of all contained ParticleSystems.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="load"></a><p class="function_definition">
+<span class="function_definition">def load( <i>self, name</i> ):</span>
+</p>
+
+<div class="function_description">This function loads a saved MetaParticleSystem definition from an XML
+file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;Name of the XML file to load.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="nSystems"></a><p class="function_definition">
+<span class="function_definition">def nSystems( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function returns the number of ParticleSystems contained within this MetaParticleSystem.
+</div>
+
+<a name="removeAllSystems"></a><p class="function_definition">
+<span class="function_definition">def removeAllSystems( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function removes all ParticleSystems from the MetaParticleSystem
+container.
+</div>
+
+<a name="removeSystem"></a><p class="function_definition">
+<span class="function_definition">def removeSystem( <i>self, particle_system</i> ):</span>
+</p>
+
+<div class="function_description">This function removes a ParticleSystem from the MetaParticleSystem
+container.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>particle_system</i></span></td><td><span class="function_parameter_description">&nbsp;Either a string containing the name of the
+ParticleSystem or a reference to the ParticleSystem to be removed.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="render"></a><p class="function_definition">
+<span class="function_definition">def render( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Draws all ParticleSystems contained within this MetaParticleSystem.
+<i>You do not need to call this method.</i>
+</div>
+
+<a name="save"></a><p class="function_definition">
+<span class="function_definition">def save( <i>self, name</i> ):</span>
+</p>
+
+<div class="function_description">This functions saves a MetaParticleSystem definition to an XML file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>name</i></span></td><td><span class="function_parameter_description">&nbsp;Name of the XML file to save to.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="system"></a><p class="function_definition">
+<span class="function_definition">def system( <i>self, particle_system</i> ):</span>
+</p>
+
+<div class="function_description">This function returns a reference to a ParticleSystem within the
+container, or None if no matching ParticleSystem is found.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>particle_system</i></span></td><td><span class="function_parameter_description">&nbsp;String containing the name of the ParticleSystem
+to return.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="update"></a><p class="function_definition">
+<span class="function_definition">def update( <i>self, dt</i> ):</span>
+</p>
+
+<div class="function_description">Updates all particle systems contained within this MetaParticleSystem by
+the specified time slice dt. <i>You do not need to call this method.</i>
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>dt</i></span></td><td><span class="function_parameter_description">&nbsp;Time interval to update particle system by (in seconds).
+</span></td></tr>
+
+</table>
+</p>
+
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

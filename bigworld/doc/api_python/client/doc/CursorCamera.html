@@ -1,0 +1,453 @@
+<html>
+<head>
+<title>CursorCamera - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>CursorCamera Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>CursorCamera is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="BaseCamera.html">BaseCamera</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#shake" class="function_list" >shake</a>( self, duration, amount ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#firstPerson" class="attribute_list" >firstPerson</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#inaccuracyProvider" class="attribute_list" >inaccuracyProvider</a></td><td>&nbsp; <a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#limitVelocity" class="attribute_list" >limitVelocity</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#maxDistHalfLife" class="attribute_list" >maxDistHalfLife</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#maxVelocity" class="attribute_list" >maxVelocity</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#movementHalfLife" class="attribute_list" >movementHalfLife</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#pivotMaxDist" class="attribute_list" >pivotMaxDist</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#pivotMinDist" class="attribute_list" >pivotMinDist</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#pivotPosition" class="attribute_list" >pivotPosition</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+<tr valign=top><td><a href="#reverseView" class="attribute_list" >reverseView</a></td><td>&nbsp; Integer
+</td></tr>
+
+<tr valign=top><td><a href="#source" class="attribute_list" >source</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#target" class="attribute_list" >target</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+
+<tr valign=top><td><a href="#targetMaxDist" class="attribute_list" >targetMaxDist</a></td><td>&nbsp; Read-Only Float
+</td></tr>
+
+<tr valign=top><td><a href="#terrainMinDist" class="attribute_list" >terrainMinDist</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#turningHalfLife" class="attribute_list" >turningHalfLife</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#uprightDirection" class="attribute_list" >uprightDirection</a></td><td>&nbsp; <a href="Vector3.html">Vector3</a>
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="CursorCamera.html">CursorCamera</a> is a camera that looks at a particular object (specified
+by the target <a href="MatrixProvider.html">MatrixProvider</a> attribute), looking in a direction specfied
+by the source <a href="MatrixProvider.html">MatrixProvider</a> atrribute.  The camera's desired position is
+pivotMaxDistance behind the target offset by pivotPosition, which is a <a href="Vector3.html">Vector3</a>
+which gets interpreted in the source-space.  After the
+desired position has been offset by pivotPosition, it is then clipped to
+the geometry, and moved forwards along the source z-axis if necessary to give
+it a clear line of site to the target position.
+<br><br>
+The desired position is where the camera will move towards being.  If
+either the target moves, or one	of the parameters to the <a href="CursorCamera.html">CursorCamera</a>
+change, then it may no longer be in this position, at that point, it will
+start moving towards it.  If the maxVelocity attribute is non-zero, then
+its movement speed is limited to be no more than maxVelocity.  In addition
+the movementHalfLife attribute specifies how long it will take to move half
+the distance from its current position to the desired position.  Thus, it
+will slow down as it approaches the desired position, approaching it
+smoothely.
+<br><br>
+It is also possible to set the camera to firstPerson mode, where it
+sits exactly on the target position and looks in the source direction.
+<br><br>
+A new <a href="CursorCamera.html">CursorCamera</a> is created using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#CursorCamera><a href="CursorCamera.html">CursorCamera</a></a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="shake"></a><p class="function_definition">
+<span class="function_definition">def shake( <i>self, duration, amount</i> ):</span>
+</p>
+
+<div class="function_description">This function causes the camera to start shaking for the specified period.
+The amount vector specifies the direction and magnitude (in source space)
+to move the camera.
+<br><br>
+If shake is called before a previous shake has finished, it overwrites the
+existing shake.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>duration</i></span></td><td><span class="function_parameter_description">&nbsp;a float specifying the time (in seconds) to shake for.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>amount</i></span></td><td><span class="function_parameter_description">&nbsp;a vector3 specifying the direction and magnitude of the
+					shaking.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>None
+</td></tr>
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="firstPerson"></a><p class="attribute_definition">
+<span class="attribute_definition">firstPerson</span>
+</p>
+
+<div class="attribute_description">If this is set to non-zero, then the camera will sit at the target
+position, rather than behind it.  This will make it look like first
+person view, rather than the usual third person.  It defaults to 0
+(third person view).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="inaccuracyProvider"></a><p class="attribute_definition">
+<span class="attribute_definition">inaccuracyProvider</span>
+</p>
+
+<div class="attribute_description">If this is set to non-NULL, then the camera will tick the given
+<a href="Vector4Provider.html">Vector4Provider</a> and use the x,y values as yaw,pitch adjustments.
+an example use for this is implementing an unsteady sniper rifle scope.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector4Provider.html">Vector4Provider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="limitVelocity"></a><p class="attribute_definition">
+<span class="attribute_definition">limitVelocity</span>
+</p>
+
+<div class="attribute_description">This attribute, if set to non-zero prevents the camera moving faster
+than maxVelocity when trying to return to its desired position.  Once
+it reaches its desired position, limitVelocity is automatically set to
+0.
+<br><br>
+The movementHalfLife attribute specifies how long the camera should take
+to move half the distance between its current position and its desired
+position.  As long as this gives a speed which is less than
+maxVelocity then limitVelocity has no efect.  However, if the
+limitVelocity is non-zero, and maxVelocity is less than this desired speed,
+then the camera speed will be limited to maxVelocity.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="maxDistHalfLife"></a><p class="attribute_definition">
+<span class="attribute_definition">maxDistHalfLife</span>
+</p>
+
+<div class="attribute_description">This attribute is the half life with which the difference between
+targetMaxDist and pivotMaxDist is decayed.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="maxVelocity"></a><p class="attribute_definition">
+<span class="attribute_definition">maxVelocity</span>
+</p>
+
+<div class="attribute_description">The maximum speed that the camera can move at when trying to return
+to its desired position.  This is only used if limitVelocity is
+non-zero.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="movementHalfLife"></a><p class="attribute_definition">
+<span class="attribute_definition">movementHalfLife</span>
+</p>
+
+<div class="attribute_description">The time it takes for the camera to move half the distance from its
+current position to its desired position.  This is used every tick to
+update the velocity the camera is moving at so that it slows down as it
+approaches its desired position.
+<br><br>
+The desired position is pivotMaxDistance behind the target back along
+the direction specified by source.  This point is offset by
+pivotPosition, and then clipped to geometry, and moved forwards
+along the z-axis if neccessary to give a clear view of the target
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="pivotMaxDist"></a><p class="attribute_definition">
+<span class="attribute_definition">pivotMaxDist</span>
+</p>
+
+<div class="attribute_description">This attribute specifies how far behind the target the camera wants to
+sit.  It is measured backwards along the line specified by the source
+attribute. When it is set to a new value, that value will not actually
+be reached immediately, rather it will be smoothly approached with a
+half life of maxDistHalfLife.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="pivotMinDist"></a><p class="attribute_definition">
+<span class="attribute_definition">pivotMinDist</span>
+</p>
+
+<div class="attribute_description">This attribute has been deprecated, and no longer performs a useful
+function.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="pivotPosition"></a><p class="attribute_definition">
+<span class="attribute_definition">pivotPosition</span>
+</p>
+
+<div class="attribute_description">The pivotPosition is an offset from the position pivotMaxDistance
+behind the target on the  source line.  The calculation of the desired
+camera position is done as follows.  The source <a href="MatrixProvider.html">MatrixProvider</a>
+specifies a direction.  If pivotPosition is (0,0,0) then the camera
+position is pivotMaxDistance back along this direction from the target.
+If pivotPosition in something else, then it is used as an offset from
+this point, with increasing x moving it to the right of the target,
+increasing y moving it up from the target and increasing z moving it
+towards the target.
+<br><br>
+After the desired position has been offset by pivotPosition, it is then
+clipped to the geometry, and moved forwards along the z-axis if necessary
+to give it a clear line of site to the target position.
+<br><br>
+The desired position is where the camera will move towards being.  If
+either the target moves, or one of the parameters to the <a href="CursorCamera.html">CursorCamera</a>
+change, then it may no longer be in this position, at that point, it
+will start moving towards it.  If the maxVelocity attribute is
+non-zero, then its movement speed is limited to be no more than
+maxVelocity.  In addition the movementHalfLife attribute specifies how
+long it will take to move half the distance from its current position
+to the desired position.  Thus, it will slow down as it approaches the
+desired position, approaching it smoothely.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<a name="reverseView"></a><p class="attribute_definition">
+<span class="attribute_definition">reverseView</span>
+</p>
+
+<div class="attribute_description">If this is set to non-zero, then the camera will be in front of the
+target looking backwards, rather than behind looking forwards.  It
+defaults to zero.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer
+</td></tr>
+</table>
+</p>
+
+<a name="source"></a><p class="attribute_definition">
+<span class="attribute_definition">source</span>
+</p>
+
+<div class="attribute_description">The source is a <a href="MatrixProvider.html">MatrixProvider</a>, which supplies the direction for the
+camera to look in.  It will look at the position specified in the
+target attribute, along the orientation specified in this attribute.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="target"></a><p class="attribute_definition">
+<span class="attribute_definition">target</span>
+</p>
+
+<div class="attribute_description">The target is a <a href="MatrixProvider.html">MatrixProvider</a>, which supplies the location of the
+object to look at.  The rest of the matrix is not used, only the
+position components.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>
+</td></tr>
+</table>
+</p>
+
+<a name="targetMaxDist"></a><p class="attribute_definition">
+<span class="attribute_definition">targetMaxDist</span>
+</p>
+
+<div class="attribute_description">This attribute returns the target maximum distance from the pivot,
+set the last time that pivotMaxDist was changed.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Read-Only Float
+</td></tr>
+</table>
+</p>
+
+<a name="terrainMinDist"></a><p class="attribute_definition">
+<span class="attribute_definition">terrainMinDist</span>
+</p>
+
+<div class="attribute_description">This attribute has been deprecated, and no longer performs a useful
+function.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="turningHalfLife"></a><p class="attribute_definition">
+<span class="attribute_definition">turningHalfLife</span>
+</p>
+
+<div class="attribute_description">The time in seconds it takes for the camera to turn half the angle from its
+current line behind the target to the line specified by source.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="uprightDirection"></a><p class="attribute_definition">
+<span class="attribute_definition">uprightDirection</span>
+</p>
+
+<div class="attribute_description">The direction which the camera treats as up, relative to the source
+frame of reference.  By default it is (0,1,0).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="Vector3.html">Vector3</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

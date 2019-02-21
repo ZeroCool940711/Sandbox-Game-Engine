@@ -1,0 +1,228 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Appendix&nbsp;F.&nbsp;Troubleshooting</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Server Installation Guide">
+      <link rel="up" href="index.html" title="Server Installation Guide">
+      <link rel="prev" href="ape.html" title="Appendix&nbsp;E.&nbsp;Understanding the BigWorld Machine Daemon (BWMachineD)">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/server_installation_guide/apf.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Appendix&nbsp;F.&nbsp;Troubleshooting</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="ape.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;</td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="appendix" title="Appendix&nbsp;F.&nbsp;Troubleshooting">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Server_Installation_Troubleshooting"></a>Appendix&nbsp;F.&nbsp;Troubleshooting
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="apf.html#xref_Check_BWMachined_Running">F.1. Check That BWMachined is Running</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="apf.html#xref_Troubleshooting_BWMachined">F.1.1. Troubleshooting BWMachined</a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="apf.html#xref_Troubleshooting_StatLogger">F.2. StatLogger</a></span></dt>
+                  <dt><span class="section"><a href="apf.html#d0e2577">F.3. BigWorld Support</a></span></dt>
+               </dl>
+            </div>
+            <p>While we attempt to prevent problems from occuring duting the
+                 installation process, some will inevitably arise. This appendix aims to
+                 outline some of the more common failure cases that can occur when installing
+                 the BigWorld server and tools.
+            </p>
+            <div class="section" title="F.1.&nbsp;Check That BWMachined is Running">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Check_BWMachined_Running"></a>F.1.&nbsp;Check That BWMachined is Running
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>To check if the daemon is running, use
+                                   <span class="command"><strong>control_cluster.py</strong></span><sup>[<a name="d0e2495" href="#ftn.d0e2495" class="footnote">3</a>]</sup> utility. To use <span class="command"><strong>control_cluster.py</strong></span> to
+                                   check the status of BWMachined, issue the following command:
+                        </p><pre class="programlisting">$ bigworld/tools/server/control_cluster.py cinfo</pre><p>The machines correctly running BWMachined should be displayed,
+                                   as in the example below:
+                        </p><pre class="programlisting">shire       10.40.3.37      0 processes   0%, 0% of 2000MHz (4% mem)</pre><p>Make sure that the process has an address that is on the
+                                   internal network. If it does not, make sure that your broadcast route
+                                   is set correctly.
+                        </p>
+                        <p>If your machine is not listed, but has BWMachined running, then
+                                   you might need to check your firewall rules. For more details, see
+                                   section <a class="xref" href="ch04.html#xref_Cluster_Configuration_Security" title="4.1.&nbsp;Security">Security</a> in this
+                                   document.
+                        </p>
+                        <p>You can also run the following command to check the relationship
+                                   between bwmachined processes in the cluster.
+                        </p><pre class="programlisting">$ bigworld/tools/server/control_cluster.py checkring</pre></li>
+                  </ul>
+               </div>
+               <div class="section" title="F.1.1.&nbsp;Troubleshooting BWMachined">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h3 class="title"><a name="xref_Troubleshooting_BWMachined"></a>F.1.1.&nbsp;Troubleshooting BWMachined
+                           </h3>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Some of the most common problems that can occur when installing a
+                           BigWorld service are a result of BWMachined not running after the
+                           initial installation. The following outlines the most common issues
+                           encountered and how to resolve these problems. These steps should be
+                           checked in order.
+                  </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                           <p>Is BWMachined running?</p><pre class="programlisting">/sbin/service bwmachined2 status</pre><p>If BWMachined is running, you may have to adjust firewall
+                                        rules in order to allow UDP broadcast messages to be sent and
+                                        received around the server cluster. For more information please
+                                        refer to <a class="xref" href="ch04.html#xref_Cluster_Configuration_Security" title="4.1.&nbsp;Security">Security</a>.
+                           </p>
+                           <p>If BWMachined is not running, continue with the following
+                                        step.
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>Was BWMachined able to start at all?</p>
+                           <p>BWMachined is quite often able to successfully startup but
+                                        will then fail when attempting to send broadcast messages out to the
+                                        network. In order to determine what happened on startup we need to
+                                        investigate the system logs (syslog) which can be found by default
+                                        in <code class="filename">/var/log/messages</code>. Output from a successful
+                                        startup should appear as follows:
+                           </p><pre class="programlisting">/opt/bigworld/2.1/bwmachined/sbin/bwmachined2: --- BWMachined start ---
+/opt/bigworld/2.1/bwmachined/sbin/bwmachined2: Host architecture: 64 bit.
+/opt/bigworld/2.1/bwmachined/sbin/bwmachined2: Using gettime timing
+/opt/bigworld/2.1/bwmachined/sbin/bwmachined2: Broadcast discovery receipt from 10.40.3.145.
+/opt/bigworld/2.1/bwmachined/sbin/bwmachined2: Confirmed 10.40.3.145 (eth0) as default broadcast route interface.</pre><p>The key line here is the final line that confirms the default
+                                        broadcast route. If you do not see this line and in its place see an
+                                        error message you will most likely need to adjust the default
+                                        broadcast routing rules. For more details see <a class="xref" href="ch04.html#xref_Cluster_Configuration_Routing" title="4.2.&nbsp;Routing">Routing</a>.
+                           </p>
+                           <p>If you are having trouble finding BWMachined output in your
+                                        syslogs, try restarting BWMachined which should generate new logs as
+                                        it starts.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="F.2.&nbsp;StatLogger">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Troubleshooting_StatLogger"></a>F.2.&nbsp;StatLogger
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>Some of the most common issues encountered with StatLogger
+                      include:
+               </p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>Incorrect or no MySQL database connection info provided.</p>
+                        <p>This can be resolved by following the instructions outlined in
+                                   <a class="xref" href="ch02.html#xref_Configuring_StatLogger" title="2.3.3.1.&nbsp;Configuring StatLogger">Configuring StatLogger</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Old versions of Python MySQLdb module being used.</p>
+                        <p>This issue will generally manifest itself as StatLogger failing
+                                   to reconnect to the MySQL server overnight when the StatLogger service
+                                   is not being heavily loaded.
+                        </p>
+                        <p>This issue can be resolved by installing the Python MySQLdb module
+                                   provided by BigWorld as outlined in <a class="xref" href="ch02.html#xref_Simple_Installation_BigWorld_Server_Tools" title="2.3.3.&nbsp;BigWorld Server Tools">BigWorld Server Tools</a>.
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="section" title="F.3.&nbsp;BigWorld Support">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="d0e2577"></a>F.3.&nbsp;BigWorld Support
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>When all else fails and you are uncertain of how to procede,
+                      contacting BigWorld support is the next step. BigWorld provides a number
+                      of support methods.
+               </p>
+               <p>For Indie package customers, using the forums is the best place to
+                      ask questions. The forums are located at <a class="ulink" href="https://forum.bigworldtech.com" target="_top">https://forum.bigworldtech.com</a>. These forums are a community
+                      interaction with other Indie customers who have most likely encountered
+                      the same issues as you. BigWorld staff do monitor and respond to these
+                      forums.
+               </p>
+               <p>For non-Indie customers, using the PerlDesk ticket system available
+                      at <a class="ulink" href="http://support.bigworldtech.com" target="_top">http://support.bigworldtech.com</a> is the recommended
+                      method of asking questions. This ticketing system allows us to track
+                      questions and ensure that they are responded to in a timely manner.
+               </p>
+            </div>
+            <div class="footnotes"><br><hr width="100" align="left">
+               <div class="footnote">
+                  <p><sup>[<a id="ftn.d0e2495" href="#d0e2495" class="para">3</a>] </sup>For more details, see the <a href="../server_operations_guide/index.html" class="olink">Server Operations Guide</a>'s section <a href="../server_operations_guide/ch03.html#xref_Server_Command_Line_Utilities" class="olink">Server Command-Line Utilities</a>.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="ape.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Appendix&nbsp;E.&nbsp;Understanding the BigWorld Machine Daemon (BWMachineD)&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

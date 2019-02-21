@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>PySpriteParticleRenderer - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PySpriteParticleRenderer Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PySpriteParticleRenderer is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyParticleSystemRenderer.html">PyParticleSystemRenderer</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#frameCount" class="attribute_list" >frameCount</a></td><td>&nbsp; Integer.
+</td></tr>
+
+<tr valign=top><td><a href="#frameRate" class="attribute_list" >frameRate</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#materialFX" class="attribute_list" >materialFX</a></td><td>&nbsp; String.
+</td></tr>
+
+<tr valign=top><td><a href="#textureName" class="attribute_list" >textureName</a></td><td>&nbsp; String.
+</td></tr>
+
+<tr valign=top><td><a href="#useFog" class="attribute_list" >useFog</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#viewDependent" class="attribute_list" >viewDependent</a></td><td>&nbsp; Integer as boolean. 0 or 1.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+SpriteParticleRenderer is a ParticleSystemRenderer which renders each
+particle as a single spin to face polygon.
+<br><br>
+A new <a href="PySpriteParticleRenderer.html">PySpriteParticleRenderer</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#SpriteRenderer>SpriteRenderer</a>
+function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="frameCount"></a><p class="attribute_definition">
+<span class="attribute_definition">frameCount</span>
+</p>
+
+<div class="attribute_description">Specifies the number of frames of animation in the texture. Default is 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer.
+</td></tr>
+</table>
+</p>
+
+<a name="frameRate"></a><p class="attribute_definition">
+<span class="attribute_definition">frameRate</span>
+</p>
+
+<div class="attribute_description">Specifies the number of frames of animation per second of particle age.
+Default is 0.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="materialFX"></a><p class="attribute_definition">
+<span class="attribute_definition">materialFX</span>
+</p>
+
+<div class="attribute_description">Specifies the MaterialFX to use to draw the sprites into the scene.
+Each value specifies either a special effect, or a source and destination
+alpha-blend setting for the material. If no value is specified, materialFX
+defaults to 'BLENDED'. The possible values are listed below:
+<br><br>
+ADDITIVE: alpha blended. source = SRC_ALPHA, destination = ONE
+<br><br>
+ADDITIVE_ALPHA: alpha blended. source = ONE, destination = INV_SRC_ALPHA
+<br><br>
+BLENDED: alpha blended. source = SRC_ALPHA, destination = INV_SRC_ALPHA
+<br><br>
+BLENDED_COLOUR: alpha blended. source = SRC_COLOUR, destination = INV_SRC_COLOUR
+<br><br>
+BLENDED_INVERSE_COLOUR: alpha blended. source = INV_SRC_COLOUR, destination = SRC_COLOUR
+<br><br>
+SOLID: alpha blended. source = ONE, destination = ZERO
+<br><br>
+SHIMMER: special effect not implemented on PC
+<br><br>
+Refer to the DirectX documentation for a description of how material
+settings affect alpha blending.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String.
+</td></tr>
+</table>
+</p>
+
+<a name="textureName"></a><p class="attribute_definition">
+<span class="attribute_definition">textureName</span>
+</p>
+
+<div class="attribute_description">Texture file name of the sprite.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>String.
+</td></tr>
+</table>
+</p>
+
+<a name="useFog"></a><p class="attribute_definition">
+<span class="attribute_definition">useFog</span>
+</p>
+
+<div class="attribute_description">Specifies whether the renderer should enable scene fogging or not.  You
+may want to turn off scene fogging if you are using particle systems in
+the sky box, or if you want to otherwise explicitly control the amount
+of fogging via the tint shader fog blend control.
+</div>
+
+<a name="viewDependent"></a><p class="attribute_definition">
+<span class="attribute_definition">viewDependent</span>
+</p>
+
+<div class="attribute_description">Specifies whether the coordinates of the particle system are in camera space (true)
+rather than world space (false). Default is 0 (false - world space).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Integer as boolean. 0 or 1.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<xyznuv2tb_d.xml>
+	<POSITION/> 
+	<NORMAL/>
+	<TEXCOORD>
+		0
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+	<TEXCOORD>
+		1
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+	<TANGENT/>
+	<BINORMAL/>
+	<COLOR>
+		<stream> 1 </stream>
+		<offset> 0 </offset>
+		<type> D3DCOLOR </type>
+	</COLOR>
+	<alias> xyznuv2_d </alias>
+</xyznuv2tb_d.xml>

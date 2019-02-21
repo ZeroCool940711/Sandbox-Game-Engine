@@ -1,0 +1,186 @@
+<html>
+<head>
+<title>Targeting - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Targeting Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Targeting is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#autoAim" class="attribute_list" >autoAim</a></td><td>&nbsp; <a href="AutoAim.html">AutoAim</a>
+</td></tr>
+
+<tr valign=top><td><a href="#autoAimOn" class="attribute_list" >autoAimOn</a></td><td>&nbsp; boolean (0 or 1)
+</td></tr>
+
+<tr valign=top><td><a href="#defaultDeselectionAngle" class="attribute_list" >defaultDeselectionAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#defaultSelectionAngle" class="attribute_list" >defaultSelectionAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#defaultSelectionDistance" class="attribute_list" >defaultSelectionDistance</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#deselectionAngle" class="attribute_list" >deselectionAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#selectionAngle" class="attribute_list" >selectionAngle</a></td><td>&nbsp; float
+</td></tr>
+
+<tr valign=top><td><a href="#selectionDistance" class="attribute_list" >selectionDistance</a></td><td>&nbsp; float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class manages the field of view in which an <a href="Entity.html">Entity</a> can become a potential target for any given client.
+Default values can be specified in engine_config.xml in the &lt;targeting&gt; data section.
+See <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#PyTarget><a href="PyTarget.html">PyTarget</a></a> to see how potential targets are used to select the final target.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="autoAim"></a><p class="attribute_definition">
+<span class="attribute_definition">autoAim</span>
+</p>
+
+<div class="attribute_description">This attribute provides access to the <a href="BigWorld.html">BigWorld</a> <a href="AutoAim.html">AutoAim</a> object, which
+is used to define how a camera will behave when a target is in view.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="AutoAim.html">AutoAim</a>
+</td></tr>
+</table>
+</p>
+
+<a name="autoAimOn"></a><p class="attribute_definition">
+<span class="attribute_definition">autoAimOn</span>
+</p>
+
+<div class="attribute_description">If true, <a href="AutoAim.html">AutoAim</a> settings will be used when a target is in view, otherwise,
+camera behaviour will be as normal, regardless of current target status.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>boolean (0 or 1)
+</td></tr>
+</table>
+</p>
+
+<a name="defaultDeselectionAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">defaultDeselectionAngle</span>
+</p>
+
+<div class="attribute_description">This is the default angle, in degrees, in the field of view at which a potential target will
+no longer be considered viable.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="defaultSelectionAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">defaultSelectionAngle</span>
+</p>
+
+<div class="attribute_description">This is the default field of view angle, in degrees, at which an <a href="Entity.html">Entity</a> will become a potential target.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="defaultSelectionDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">defaultSelectionDistance</span>
+</p>
+
+<div class="attribute_description">The default distance at which an <a href="Entity.html">Entity</a> can form a potential target.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="deselectionAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">deselectionAngle</span>
+</p>
+
+<div class="attribute_description">This is the angle, in degrees, in the field of view at which a potential target will no longer be
+considered viable.  Lower values will provide a tighter fov, whilst higher values will keep more targets.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="selectionAngle"></a><p class="attribute_definition">
+<span class="attribute_definition">selectionAngle</span>
+</p>
+
+<div class="attribute_description">This is the field of view angle, in degrees, at which an <a href="Entity.html">Entity</a> will become a potential target.
+Lower values will provide a tighter fov, whilst higher values will capture more targets.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<a name="selectionDistance"></a><p class="attribute_definition">
+<span class="attribute_definition">selectionDistance</span>
+</p>
+
+<div class="attribute_description">The distance at which an <a href="Entity.html">Entity</a> can form a potential target.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

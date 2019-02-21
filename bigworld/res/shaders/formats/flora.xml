@@ -1,0 +1,11 @@
+<flora.xml>
+	<POSITION>
+		<type> FLOAT3 </type>
+	</POSITION>
+	<TEXCOORD>
+		<type> SHORT2 </type>
+	</TEXCOORD>		
+	<BLENDWEIGHT>
+		<type> SHORT2 </type>
+	</BLENDWEIGHT>	
+</flora.xml>

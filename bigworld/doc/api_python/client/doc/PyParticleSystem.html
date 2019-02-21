@@ -1,0 +1,419 @@
+<html>
+<head>
+<title>PyParticleSystem - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>PyParticleSystem Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="Pixie.html" class="module_h1">Pixie Module</a>]</span></p><p>PyParticleSystem is part of the <a href="Pixie.html">Pixie</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import Pixie</pre>
+<h2>Parent Classes</h2>
+<a href="PyAttachment.html">PyAttachment</a>
+ &rarr; PyObjectPlusWithWeakReference
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#action" class="function_list" >action</a>( self, index ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#addAction" class="function_list" >addAction</a>( self, action ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#clear" class="function_list" >clear</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#duration" class="function_list" >duration</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#force" class="function_list" >force</a>( self, num ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#load" class="function_list" >load</a>( self, filename ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#removeAction" class="function_list" >removeAction</a>( self, action ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#render" class="function_list" >render</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#save" class="function_list" >save</a>( self, filename ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#size" class="function_list" >size</a>( self ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#update" class="function_list" >update</a>( self, dt ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#actions" class="attribute_list" >actions</a></td><td>&nbsp; List of ParticleSystemAction.
+</td></tr>
+
+<tr valign=top><td><a href="#capacity" class="attribute_list" >capacity</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#explicitDirection" class="attribute_list" >explicitDirection</a></td><td>&nbsp; Tuple of 3 float values.
+</td></tr>
+
+<tr valign=top><td><a href="#explicitPosition" class="attribute_list" >explicitPosition</a></td><td>&nbsp; Tuple of 3 float values.
+</td></tr>
+
+<tr valign=top><td><a href="#fixedFrameRate" class="attribute_list" >fixedFrameRate</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#maxLod" class="attribute_list" >maxLod</a></td><td>&nbsp; Float.
+</td></tr>
+
+<tr valign=top><td><a href="#renderer" class="attribute_list" >renderer</a></td><td>&nbsp; ParticleSystemRenderer.
+</td></tr>
+
+<tr valign=top><td><a href="#windFactor" class="attribute_list" >windFactor</a></td><td>&nbsp; Float value containing the windHalfLife.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+The <a href="PyParticleSystem.html">PyParticleSystem</a> class provides a base particle system to manage
+particles. A particle system must have particle system actions attached to
+it to specify how the particle system evolves over time.
+<br><br>
+A particle system must have at least a souce particle generator (SourcePSA)
+and a renderer specified for it to be able to generate particles. The two
+main types of particle renderers are SpriteParticleRenderer and
+MeshParticleRenderer.
+<br><br>
+A new <a href="PyParticleSystem.html">PyParticleSystem</a> is created using <a href="Pixie.html">Pixie</a>.<a href=Pixie.html#ParticleSystem>ParticleSystem</a> function.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="action"></a><p class="function_definition">
+<span class="function_definition">def action( <i>self, index</i> ):</span>
+</p>
+
+<div class="function_description">Returns an action from the particle system.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>index</i></span></td><td><span class="function_parameter_description">&nbsp;An index to the type of action. This is the id of the type
+of ParticleSystemAction you are looking for (see ParticleSystemAction
+for these values).
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>A reference to the action if found (to the first created if
+multiple actions of that type exisit in the particle system) or None if
+none of that type of action belongs in the particle system.
+</td></tr>
+</table>
+</p>
+
+<a name="addAction"></a><p class="function_definition">
+<span class="function_definition">def addAction( <i>self, action</i> ):</span>
+</p>
+
+<div class="function_description">Adds a particle system action to the particle system.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>action</i></span></td><td><span class="function_parameter_description">&nbsp;A reference to an instance of <a href="PyParticleSystemAction.html">PyParticleSystemAction</a>.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="clear"></a><p class="function_definition">
+<span class="function_definition">def clear( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Removes all particles from the particle system.
+</div>
+
+<a name="duration"></a><p class="function_definition">
+<span class="function_definition">def duration( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">This function looks for a sink in each contained ParticleSystem and
+returns the maximum age of each particle system, returns -1 if no
+sinks are found
+</div>
+
+<a name="force"></a><p class="function_definition">
+<span class="function_definition">def force( <i>self, num</i> ):</span>
+</p>
+
+<div class="function_description">Forces particle system to spawn num particles.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>num</i></span></td><td><span class="function_parameter_description">&nbsp;The number of particle to spawn (default num = 1).
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="load"></a><p class="function_definition">
+<span class="function_definition">def load( <i>self, filename</i> ):</span>
+</p>
+
+<div class="function_description">Loads a particle system definition from an XML file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>filename</i></span></td><td><span class="function_parameter_description">&nbsp;name of the XML file to read from.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="removeAction"></a><p class="function_definition">
+<span class="function_definition">def removeAction( <i>self, action</i> ):</span>
+</p>
+
+<div class="function_description">Removes a particle system action from the particle system.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>action</i></span></td><td><span class="function_parameter_description">&nbsp;Either an index to the type of action to be removed (the
+first will be removed if there is more than one of that type) or a
+reference to an instance of ParticleSystemAction. The index is the id
+of the type of ParticleSystemAction you want to remove (see
+ParticleSystemAction for these values).
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="render"></a><p class="function_definition">
+<span class="function_definition">def render( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Draws the particle system. You do not need to call this method.
+</div>
+
+<a name="save"></a><p class="function_definition">
+<span class="function_definition">def save( <i>self, filename</i> ):</span>
+</p>
+
+<div class="function_description">Saves a particle system definition to an XML file.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>filename</i></span></td><td><span class="function_parameter_description">&nbsp;name of the XML file to write to.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="size"></a><p class="function_definition">
+<span class="function_definition">def size( <i>self</i> ):</span>
+</p>
+
+<div class="function_description">Retrieves the number of currently active particles.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The number of currently active particles.
+</td></tr>
+</table>
+</p>
+
+<a name="update"></a><p class="function_definition">
+<span class="function_definition">def update( <i>self, dt</i> ):</span>
+</p>
+
+<div class="function_description">Updates the particle system by the specified time slice dt. You do
+not need to call this method.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>dt</i></span></td><td><span class="function_parameter_description">&nbsp;Time interval to update particle system by (in seconds).
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="actions"></a><p class="attribute_definition">
+<span class="attribute_definition">actions</span>
+</p>
+
+<div class="attribute_description">This contains a list of actions acting on the Particle System.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>List of ParticleSystemAction.
+</td></tr>
+</table>
+</p>
+
+<a name="capacity"></a><p class="attribute_definition">
+<span class="attribute_definition">capacity</span>
+</p>
+
+<div class="attribute_description">This specifies the maximum number of particles that can be present in
+the particle system.
+</div>
+
+<a name="explicitDirection"></a><p class="attribute_definition">
+<span class="attribute_definition">explicitDirection</span>
+</p>
+
+<div class="attribute_description">This sets the particle system to always use this direction as its
+direction (ignore world transform). Default is ( 0, 0, 1 ) and is not
+active. Setting either explicitPosition or explicitDirection sets a flag
+internal to the particle system to use the explicit values (this is off
+by default, and cannot be turned off once turned on).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Tuple of 3 float values.
+</td></tr>
+</table>
+</p>
+
+<a name="explicitPosition"></a><p class="attribute_definition">
+<span class="attribute_definition">explicitPosition</span>
+</p>
+
+<div class="attribute_description">Set the particle system to always use this location as its position
+(ignore world space). Default is ( 0, 0, 0 ) and is not active. Setting
+either explicitPosition or explicitDirection sets a flag internal to the
+particle system to use the explicit values (this is off by default, and
+cannot be turned off once turned on).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Tuple of 3 float values.
+</td></tr>
+</table>
+</p>
+
+<a name="fixedFrameRate"></a><p class="attribute_definition">
+<span class="attribute_definition">fixedFrameRate</span>
+</p>
+
+<div class="attribute_description">Simulates a fixed frame rate for particle systems.  If the value is > 0,
+this indicates the desired frame rate.  If &lt;=0 then the current frame rate is used.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="maxLod"></a><p class="attribute_definition">
+<span class="attribute_definition">maxLod</span>
+</p>
+
+<div class="attribute_description">This specifies the maxLod property. The distance from the camera beyond
+which the particle system will not be drawn.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float.
+</td></tr>
+</table>
+</p>
+
+<a name="renderer"></a><p class="attribute_definition">
+<span class="attribute_definition">renderer</span>
+</p>
+
+<div class="attribute_description">Renderer for the ParticleSystem. This can be used to set the
+ParticleSystemRenderer for the ParticleSystem or to access it.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>ParticleSystemRenderer.
+</td></tr>
+</table>
+</p>
+
+<a name="windFactor"></a><p class="attribute_definition">
+<span class="attribute_definition">windFactor</span>
+</p>
+
+<div class="attribute_description">Specifies how much effect the wind has on the particles velocity.
+Best values are from 0 to 1 and any negative value is treated as
+the wind having no effect on the particles. Values are treated as
+an exponential decay to the wind speed.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float value containing the windHalfLife.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

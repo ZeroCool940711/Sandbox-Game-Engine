@@ -1,0 +1,300 @@
+<html>
+<head>
+<title>ResMgr - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ResMgr Module Reference</h1>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'classes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Class List</a></h2>
+<table id="classes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="class_list"><a href="DataSection.html" class="class_list" >DataSection</a></span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#DataSection" class="function_list" >DataSection</a>( sectionName ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isDir" class="function_list" >isDir</a>( pathname ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#isFile" class="function_list" >isFile</a>( pathname ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#localise" class="function_list" >localise</a>( string, params ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#openSection" class="function_list" >openSection</a>( resourceID, newSection ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#purge" class="function_list" >purge</a>( resourceID, recurse ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#resolveToAbsolutePath" class="function_list" >resolveToAbsolutePath</a>(  ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#save" class="function_list" >save</a>( resourceID ):</span>
+</td></tr>
+
+</table>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#root" class="attribute_list" >root</a></td><td>&nbsp; <a href="DataSection.html">DataSection</a>
+</td></tr>
+
+</table>
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="DataSection"></a><p class="function_definition">
+<span class="function_definition">def DataSection( <i>sectionName</i> ):</span>
+</p>
+
+<div class="function_description">This module function constructs a blank data section.  It can be optionally
+supplied with a new name.  This <a href="DataSection.html">DataSection</a> will not be savable using the
+save function, as it has no file system association.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>sectionName</i></span></td><td><span class="function_parameter_description">&nbsp;Optional name for the new section
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the section that was created
+</td></tr>
+</table>
+</p>
+
+<a name="isDir"></a><p class="function_definition">
+<span class="function_definition">def isDir( <i>pathname</i> ):</span>
+</p>
+
+<div class="function_description">This function returns true if the specified path name is a directory,
+false otherwise.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pathname</i></span></td><td><span class="function_parameter_description">&nbsp;The path name to check.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True (1) if it is a directory, false (0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="isFile"></a><p class="function_definition">
+<span class="function_definition">def isFile( <i>pathname</i> ):</span>
+</p>
+
+<div class="function_description">This function returns true if the specified path name is a file,
+false otherwise.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>pathname</i></span></td><td><span class="function_parameter_description">&nbsp;The path name to check.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True (1) if it is a file, false (0) otherwise.
+</td></tr>
+</table>
+</p>
+
+<a name="localise"></a><p class="function_definition">
+<span class="function_definition">def localise( <i>string, params</i> ):</span>
+</p>
+
+<div class="function_description">This function localises a string and expand its params
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>string</i></span></td><td><span class="function_parameter_description">&nbsp;The string to localise
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>params</i></span></td><td><span class="function_parameter_description">&nbsp;The params used to expand
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>localised and expanded string
+</td></tr>
+</table>
+</p>
+
+<a name="openSection"></a><p class="function_definition">
+<span class="function_definition">def openSection( <i>resourceID, newSection</i> ):</span>
+</p>
+
+<div class="function_description">This function opens the specified resource as a <a href="DataSection.html">DataSection</a>.  If the
+resource is not found, then it returns None. A new section can optionally
+be created by specifying true in the optional second argument.
+<br><br>
+Resources live in a res tree and include directories, xml files, xml nodes,
+normal data files, binary section data file nodes, etc.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>resourceID</i></span></td><td><span class="function_parameter_description">&nbsp;the id of the resource to open.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>newSection</i></span></td><td><span class="function_parameter_description">&nbsp;Boolean value indicating whether to create this
+					as a new section, default is False.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>the <a href="DataSection.html">DataSection</a> that was loaded, or None if the
+					id was not found.
+</td></tr>
+</table>
+</p>
+
+<a name="purge"></a><p class="function_definition">
+<span class="function_definition">def purge( <i>resourceID, recurse</i> ):</span>
+</p>
+
+<div class="function_description">This function purges the previously loaded section with the specified
+path from the cache and census. Optionally, all child sections can also
+be purged (only useful if the resource is a DirSection), by specifying
+true in the optional second argument.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>resourceID</i></span></td><td><span class="function_parameter_description">&nbsp;the id of the resource to purge.
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>recurse</i></span></td><td><span class="function_parameter_description">&nbsp;Boolean value indicating whether to recursively
+					purge any subsections. default is False.
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="resolveToAbsolutePath"></a><p class="function_definition">
+<span class="function_definition">def resolveToAbsolutePath( <i></i> ):</span>
+</p>
+
+<div class="function_description">This function resolves a path relative to the res tree to an absolute path.
+If the file does not exist in any of the resource paths, then it will be
+resolved against the first resource path.
+</div>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>The absolute path
+</td></tr>
+</table>
+</p>
+
+<a name="save"></a><p class="function_definition">
+<span class="function_definition">def save( <i>resourceID</i> ):</span>
+</p>
+
+<div class="function_description">This function saves the previously loaded section with the specified
+path.  If no section with that id is still in memory, then an IO error
+occurs, otherwise, the section is saved.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>resourceID</i></span></td><td><span class="function_parameter_description">&nbsp;the filepath of the <a href="DataSection.html">DataSection</a> to save.
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>True if successful, False otherwise.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="root"></a><p class="attribute_definition">
+<span class="attribute_definition">root</span>
+</p>
+
+<div class="attribute_description">This is the root data section of the resource tree.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="DataSection.html">DataSection</a>
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

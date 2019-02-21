@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>ProjectionAccess - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>ProjectionAccess Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>ProjectionAccess is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#rampFov" class="function_list" >rampFov</a>( self, newFov, time ):</span>
+</td></tr>
+
+</table>
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#farPlane" class="attribute_list" >farPlane</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#fov" class="attribute_list" >fov</a></td><td>&nbsp; Float
+</td></tr>
+
+<tr valign=top><td><a href="#nearPlane" class="attribute_list" >nearPlane</a></td><td>&nbsp; Float
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+This class exposes the projection matrix, and allows manipulation of the
+clipping planes and the field of view.
+<br><br>
+There is one projection matrix for the client, which is accessed using
+<a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#projection>projection</a>().  This is automatically created by <a href="BigWorld.html">BigWorld</a>.
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="rampFov"></a><p class="function_definition">
+<span class="function_definition">def rampFov( <i>self, newFov, time</i> ):</span>
+</p>
+
+<div class="function_description">This function changes from the current fov (field of view, in radians) to
+the specified one over the specified time period.  It does this
+using linear interpolation.  Note the fov is measured vertically.
+</div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>newFov</i></span></td><td><span class="function_parameter_description">&nbsp;The fov to move toward
+</span></td></tr>
+
+<tr valign=top><td><span class="function_parameter_name"><i>time</i></span></td><td><span class="function_parameter_description">&nbsp;The time in seconds to take to move between the current
+					fov and the specified fov
+</span></td></tr>
+
+</table>
+</p>
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="farPlane"></a><p class="attribute_definition">
+<span class="attribute_definition">farPlane</span>
+</p>
+
+<div class="attribute_description">This attribute is the distance to the far clipping plane for the
+current camera.  All geometry further from the eye than this will be
+clipped out.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="fov"></a><p class="attribute_definition">
+<span class="attribute_definition">fov</span>
+</p>
+
+<div class="attribute_description">The vertical field of view of the current camera, measured in radians. This
+number must be between 0 and pi.  Setting to a number outside of this
+is likely to cause video driver crashes.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<a name="nearPlane"></a><p class="attribute_definition">
+<span class="attribute_definition">nearPlane</span>
+</p>
+
+<div class="attribute_description">This attribute is the distance to the near clipping plane for the
+current camera.  All geometry closer to the	eye than this will be
+clipped out.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

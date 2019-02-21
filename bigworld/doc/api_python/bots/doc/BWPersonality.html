@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>BWPersonality - BigWorld bots Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>BWPersonality Module Reference</h1>
+The name of this module is specified by the personality option in
+the configuration file. This module should be implemented by the user.
+It should contain callback methods that will be called by the server at
+specific events.
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'functions' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Member Functions</a></h2>
+<table id="functions" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr><td>
+<span class="function_list">def <a href="#onClientAppDestroy" class="function_list" >onClientAppDestroy</a>( playerID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onLoseConnection" class="function_list" >onLoseConnection</a>( playerID ):</span>
+</td></tr>
+
+<tr><td>
+<span class="function_list">def <a href="#onTick" class="function_list" >onTick</a>(  ):</span>
+</td></tr>
+
+</table>
+
+
+<hr>
+<h2>Member Function Documentation</h2>
+
+<a name="onClientAppDestroy"></a><p class="function_definition">
+<span class="function_definition">def onClientAppDestroy( <i>playerID</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>playerID</i></span></td><td><span class="function_parameter_description">&nbsp;the ID of simulated client (and its player entity)
+</span></td></tr>
+
+</table>
+</p>
+
+<a name="onLoseConnection"></a><p class="function_definition">
+<span class="function_definition">def onLoseConnection( <i>playerID</i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+<p>
+<span class="function_parameter">Parameters:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><span class="function_parameter_name"><i>playerID</i></span></td><td><span class="function_parameter_description">&nbsp;the ID of simulated client (and its player entity)
+</span></td></tr>
+
+</table>
+</p>
+
+<p>
+<span class="function_return">Returns:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>boolean
+</td></tr>
+</table>
+</p>
+
+<a name="onTick"></a><p class="function_definition">
+<span class="function_definition">def onTick( <i></i> ):</span>
+</p>
+
+<div class="function_description"></div>
+
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

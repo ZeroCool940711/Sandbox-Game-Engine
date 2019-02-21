@@ -1,0 +1,299 @@
+<html>
+<head>
+<title>Orbitor - BigWorld client Documentation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td align=left style="background:#0F5286"> <img src="../bwlogo_bluebkg.png"> </td></tr>
+</table> <hr>
+<h1>Orbitor Class Reference</h1>
+<p style="text-align: center;"><span class="module_h1">[<a href="BigWorld.html" class="module_h1">BigWorld Module</a>]</span></p><p>Orbitor is part of the <a href="BigWorld.html">BigWorld</a> module. <a href="#detailed_description">More...</a></p><p></p><pre>import BigWorld</pre>
+<h2>Parent Classes</h2>
+<a href="Motor.html">Motor</a>
+ &rarr; <a href="PyObjectPlus.html">PyObjectPlus</a>
+<br>
+
+
+
+<h2><a href="#" onClick="obj=document.getElementById( 'attributes' );vis = (obj.style.display == 'none') ? 'block' : 'none'; obj.style.display = vis; return false;" class="h2">Attributes</a></h2>
+<table id="attributes" cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+
+<tr valign=top><td><a href="#distanceScaler" class="attribute_list" >distanceScaler</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#endSpeed" class="attribute_list" >endSpeed</a></td><td>&nbsp; Float. Default is 4.0
+</td></tr>
+
+<tr valign=top><td><a href="#maxAccel" class="attribute_list" >maxAccel</a></td><td>&nbsp; Float. Default is 5.0
+</td></tr>
+
+<tr valign=top><td><a href="#maxSpeed" class="attribute_list" >maxSpeed</a></td><td>&nbsp; Float. Default is 4.0
+</td></tr>
+
+<tr valign=top><td><a href="#proximity" class="attribute_list" >proximity</a></td><td>&nbsp; Float. Default is 0.1.
+</td></tr>
+
+<tr valign=top><td><a href="#proximityCallback" class="attribute_list" >proximityCallback</a></td><td>&nbsp; Callback Function (python function model, or an instance of a
+</td></tr>
+
+<tr valign=top><td><a href="#slowHeigth" class="attribute_list" >slowHeigth</a></td><td>&nbsp; Float. Default is 2.0.
+</td></tr>
+
+<tr valign=top><td><a href="#speed" class="attribute_list" >speed</a></td><td>&nbsp; Float (units/s). Default is 0.1.
+</td></tr>
+
+<tr valign=top><td><a href="#spinRadius" class="attribute_list" >spinRadius</a></td><td>&nbsp; Float. Default is 5.0.
+</td></tr>
+
+<tr valign=top><td><a href="#startSpin" class="attribute_list" >startSpin</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#target" class="attribute_list" >target</a></td><td>&nbsp; <a href="MatrixProvider.html">MatrixProvider</a>.
+</td></tr>
+
+<tr valign=top><td><a href="#weightingFunction" class="attribute_list" >weightingFunction</a></td><td>&nbsp; </td></tr>
+
+<tr valign=top><td><a href="#wobble" class="attribute_list" >wobble</a></td><td>&nbsp; bool. Default is true.
+</td></tr>
+
+<tr valign=top><td><a href="#wobbleFreq" class="attribute_list" >wobbleFreq</a></td><td>&nbsp; Float. Default is 1.0.
+</td></tr>
+
+<tr valign=top><td><a href="#wobbleMax" class="attribute_list" >wobbleMax</a></td><td>&nbsp; Float. Default is 0.5.
+</td></tr>
+
+</table>
+
+<hr>
+<a name="detailed_description"></a><h2>Detailed Description</h2>
+An <a href="Orbitor.html">Orbitor</a> is a <a href="Motor.html">Motor</a> that moves a model towards a target (<a href="MatrixProvider.html">MatrixProvider</a>) and
+when within a certain distance starts to move towards an orbiting path around the
+target. Additionally an optional proximity callback can be set for the <a href="Orbitor.html">Orbitor</a> to call
+once the model it is moving gets within a specified (proximity) distance of
+its target.
+<br><br>
+A new <a href="Orbitor.html">Orbitor</a> <a href="Motor.html">Motor</a> is created using <a href="BigWorld.html">BigWorld</a>.<a href=BigWorld.html#Orbitor><a href="Orbitor.html">Orbitor</a></a> function.
+
+
+
+<hr>
+<h2>Attribute Documentation</h2>
+
+<a name="distanceScaler"></a><p class="attribute_definition">
+<span class="attribute_definition">distanceScaler</span>
+</p>
+
+<div class="attribute_description">The attribute distanceScaler used in comination with a weigthng function
+to change relative weigths of spin and attraction with distance, can be used
+to create a spiriling effect around the target.
+</div>
+
+<a name="endSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">endSpeed</span>
+</p>
+
+<div class="attribute_description">The attribute specifies the end speed that the motor will travel (when spinning).
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 4.0
+</td></tr>
+</table>
+</p>
+
+<a name="maxAccel"></a><p class="attribute_definition">
+<span class="attribute_definition">maxAccel</span>
+</p>
+
+<div class="attribute_description">The attribute specifies the maximum acceleration of the motor
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 5.0
+</td></tr>
+</table>
+</p>
+
+<a name="maxSpeed"></a><p class="attribute_definition">
+<span class="attribute_definition">maxSpeed</span>
+</p>
+
+<div class="attribute_description">The attribute specifies the maximum speed that the motor will travel
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 4.0
+</td></tr>
+</table>
+</p>
+
+<a name="proximity"></a><p class="attribute_definition">
+<span class="attribute_definition">proximity</span>
+</p>
+
+<div class="attribute_description">Proximity specifies how close to the "target" the model must get before
+the <a href="Orbitor.html">Orbitor</a> <a href="Motor.html">Motor</a> calls proximityCallback.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0.1.
+</td></tr>
+</table>
+</p>
+
+<a name="proximityCallback"></a><p class="attribute_definition">
+<span class="attribute_definition">proximityCallback</span>
+</p>
+
+<div class="attribute_description">The attribute proximityCallback is used to assign a callback function
+to the <a href="Orbitor.html">Orbitor</a> <a href="Motor.html">Motor</a> that is triggered once the model that the <a href="Orbitor.html">Orbitor</a>
+is moving gets within "proximity" distance of "target".
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Callback Function (python function model, or an instance of a
+</td></tr>
+</table>
+</p>
+
+<a name="slowHeigth"></a><p class="attribute_definition">
+<span class="attribute_definition">slowHeigth</span>
+</p>
+
+<div class="attribute_description">The slowHeight Attribute sets a verticle distance at which the verticle motion
+towards a target becomes damped and slows to zero
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 2.0.
+</td></tr>
+</table>
+</p>
+
+<a name="speed"></a><p class="attribute_definition">
+<span class="attribute_definition">speed</span>
+</p>
+
+<div class="attribute_description">The attribute speed specifies the speed at which the <a href="Orbitor.html">Orbitor</a> will move the
+model towards its destination.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float (units/s). Default is 0.1.
+</td></tr>
+</table>
+</p>
+
+<a name="spinRadius"></a><p class="attribute_definition">
+<span class="attribute_definition">spinRadius</span>
+</p>
+
+<div class="attribute_description">The attribute spinRadius specifies the orbit radius of the object controlled
+by the motor
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 5.0.
+</td></tr>
+</table>
+</p>
+
+<a name="startSpin"></a><p class="attribute_definition">
+<span class="attribute_definition">startSpin</span>
+</p>
+
+<div class="attribute_description">The attribute startSpin specifies the distance from the orbiting radius 
+when the trajectory starts to move into an orbiting path.
+</div>
+
+<a name="target"></a><p class="attribute_definition">
+<span class="attribute_definition">target</span>
+</p>
+
+<div class="attribute_description">This attribute specifies a target <a href="MatrixProvider.html">MatrixProvider</a>. The <a href="Orbitor.html">Orbitor</a> <a href="Motor.html">Motor</a> will
+trigger an optional callbacks when the model comes within proximity
+distance of the target.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td><a href="MatrixProvider.html">MatrixProvider</a>.
+</td></tr>
+</table>
+</p>
+
+<a name="weightingFunction"></a><p class="attribute_definition">
+<span class="attribute_definition">weightingFunction</span>
+</p>
+
+<div class="attribute_description">The attribute weightingFunction is an index that selects from a list of
+possible functions that define how the orbitors behaviour moves from
+purely linear to orbiting. Mainly for testing.
+</div>
+
+<a name="wobble"></a><p class="attribute_definition">
+<span class="attribute_definition">wobble</span>
+</p>
+
+<div class="attribute_description">The attribute wobble is a bool that determines weaher orbitor will
+oscillate in the verticle axis.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>bool. Default is true.
+</td></tr>
+</table>
+</p>
+
+<a name="wobbleFreq"></a><p class="attribute_definition">
+<span class="attribute_definition">wobbleFreq</span>
+</p>
+
+<div class="attribute_description">The attribute wobbleFreq sets the frequency of oscillation.
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 1.0.
+</td></tr>
+</table>
+</p>
+
+<a name="wobbleMax"></a><p class="attribute_definition">
+<span class="attribute_definition">wobbleMax</span>
+</p>
+
+<div class="attribute_description">The attribute wobbleMax sets the maximum vertcle heigth of oscillation
+</div>
+
+<p>
+<span class="attribute_type">Type:</span>
+<table border=0 cellpadding=0 cellspacing=3 style="margin-left: 20px;">
+<tr><td>Float. Default is 0.5.
+</td></tr>
+</table>
+</p>
+
+<hr>
+<p class="copyrightFooter">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.</p>
+</body>
+</html>

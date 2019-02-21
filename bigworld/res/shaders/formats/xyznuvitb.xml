@@ -1,0 +1,13 @@
+<xyznuvitb.xml>
+	<POSITION/> 
+	<NORMAL/>
+	<TEXCOORD>
+		<type> FLOAT2 </type>
+	</TEXCOORD>
+	<BLENDINDICES>
+		<type> FLOAT1 </type>
+	</BLENDINDICES>
+	<TANGENT/>
+	<BINORMAL/>
+	<alias> xyznuvi </alias>
+</xyznuvitb.xml>

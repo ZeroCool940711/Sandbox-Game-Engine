@@ -1,0 +1,1029 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;1.&nbsp;BigWorld Technology Client &amp; Tools Build Instructions</title>
+      <link rel="stylesheet" type="text/css" href="../css/bigworld.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+      <link rel="home" href="index.html" title="Client and Tools Build Guide">
+      <link rel="up" href="index.html" title="Client and Tools Build Guide">
+      <link rel="prev" href="index.html" title="Client and Tools Build Guide">
+      <link rel="next" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Additional Information and Troubleshooting">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="bigworld-header"><img src="http://try.bigworldtech.com/bigworld/image.php?img=bigworld_logo.gif&amp;svn=$HeadURL: http://patchsvn/svn/evaluation/official/IndiePackage/2.1/current/bigworld/doc/html/client_and_tools_build_guide/ch01.html $" alt="bw logo"></div>
+      <div id="content">
+         <div class="navheader">
+            <table width="95%" align="center" summary="Navigation header">
+               <tr>
+                  <th colspan="3" align="center">Chapter&nbsp;1.&nbsp;BigWorld Technology Client &amp; Tools Build Instructions</th>
+               </tr>
+               <tr>
+                  <td width="20%" align="left"><a accesskey="p" href="index.html">Prev</a>&nbsp;
+                  </td>
+                  <th width="55%" align="center">&nbsp;</th>
+                  <td width="20%" align="right">&nbsp;<a accesskey="n" href="ch02.html">Next</a></td>
+               </tr>
+            </table>
+            <hr class="navheaderline">
+         </div>
+         <div class="chapter" title="Chapter&nbsp;1.&nbsp;BigWorld Technology Client &amp; Tools Build Instructions">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title"><a name="xref_Build_Instructions"></a>Chapter&nbsp;1.&nbsp;BigWorld Technology Client &amp; Tools Build Instructions
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="toc">
+               <p><b>Table of Contents</b></p>
+               <dl>
+                  <dt><span class="section"><a href="ch01.html#xref_Overview">1.1. Overview</a></span></dt>
+                  <dt><span class="section"><a href="ch01.html#xref_Client_Requirements">1.2. Client and Tools Machine Requirements</a></span></dt>
+                  <dd>
+                     <dl>
+                        <dt><span class="section"><a href="ch01.html#xref_Client_Tools_Requirements">1.2.1. </a></span></dt>
+                     </dl>
+                  </dd>
+                  <dt><span class="section"><a href="ch01.html#xref_Client_Tools_System_Requirements">1.3. Client and Tools Build Requirements</a></span></dt>
+                  <dt><span class="section"><a href="ch01.html#xref_Installing_BigWorld">1.4. Installing BigWorld Client and Tools</a></span></dt>
+                  <dt><span class="section"><a href="ch01.html#xref_Installing_Dependencies">1.5. Installing and Configuring Required Software</a></span></dt>
+                  <dt><span class="section"><a href="ch01.html#xref_Compiling_Client">1.6. Compiling the Client</a></span></dt>
+                  <dt><span class="section"><a href="ch01.html#xref_Compiling_Tools">1.7. Compiling the Tools</a></span></dt>
+               </dl>
+            </div>
+            <div class="section" title="1.1.&nbsp;Overview">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Overview"></a>1.1.&nbsp;Overview
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>
+                        This document describes how to set up the BigWorld Technology
+                        build environment, and build the client and tools.
+                      
+               </p>
+            </div>
+            <div class="section" title="1.2.&nbsp;Client and Tools Machine Requirements">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Client_Requirements"></a>1.2.&nbsp;Client and Tools Machine Requirements
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>System requirements for running the client and tools.</p>
+               <div class="section" title="1.2.1.&nbsp;">
+                  <div class="titlepage"></div>
+                  <div class="section" title="1.2.1.1.&nbsp;Client using New Terrain">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e36"></a>1.2.1.1.&nbsp;Client using New Terrain
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="altrow">
+                        <table border="0">
+                           <colgroup>
+                              <col width="28%" class="col1">
+                              <col width="36%" class="col2">
+                              <col width="36%" class="col3">
+                           </colgroup>
+                           <thead>
+                              <tr>
+                                 <th>&nbsp;</th>
+                                 <th>Minimum</th>
+                                 <th>Recommended</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Graphics</td>
+                                 <td>
+                                                  Shader model 2.0
+                                                  
+                                    <div class="itemizedlist">
+                                       <ul class="itemizedlist" type="disc">
+                                          <li class="listitem">GeForce 6600 128Mb</li>
+                                          <li class="listitem">Radeon 9600 128Mb</li>
+                                       </ul>
+                                    </div>
+                                                
+                                 </td>
+                                 <td>
+                                                  Shader model 3.0
+                                                  
+                                    <div class="itemizedlist">
+                                       <ul class="itemizedlist" type="disc">
+                                          <li class="listitem">GeForce 7600</li>
+                                          <li class="listitem">Radeon x1600</li>
+                                       </ul>
+                                    </div>
+                                                
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>CPU</td>
+                                 <td>2 GHz</td>
+                                 <td>2 GHz</td>
+                              </tr>
+                              <tr>
+                                 <td>Physical RAM</td>
+                                 <td>512 MB</td>
+                                 <td>1 GB</td>
+                              </tr>
+                              <tr>
+                                 <td>Operating System</td>
+                                 <td>Windows XP Home 32-bit</td>
+                                 <td>Windows 7 32-bit</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+                  <div class="section" title="1.2.1.2.&nbsp;Client using Classic Terrain">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e92"></a>1.2.1.2.&nbsp;Client using Classic Terrain
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="altrow">
+                        <table border="0">
+                           <colgroup>
+                              <col width="28%" class="col1">
+                              <col width="36%" class="col2">
+                              <col width="36%" class="col3">
+                           </colgroup>
+                           <thead>
+                              <tr>
+                                 <th>&nbsp;</th>
+                                 <th>Minimum</th>
+                                 <th>Recommended</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Graphics</td>
+                                 <td>
+                                                  Fixed function
+                                                  
+                                    <div class="itemizedlist">
+                                       <ul class="itemizedlist" type="disc">
+                                          <li class="listitem">GeForce4 MX</li>
+                                          <li class="listitem">Radeon 7 Series</li>
+                                       </ul>
+                                    </div>
+                                                
+                                 </td>
+                                 <td>
+                                                  Shader model 1.1
+                                                  
+                                    <div class="itemizedlist">
+                                       <ul class="itemizedlist" type="disc">
+                                          <li class="listitem">GeForce4 Ti</li>
+                                          <li class="listitem">Radeon 9500</li>
+                                       </ul>
+                                    </div>
+                                                
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>CPU</td>
+                                 <td>2 GHz</td>
+                                 <td>2 GHz</td>
+                              </tr>
+                              <tr>
+                                 <td>Physical RAM</td>
+                                 <td>512 MB</td>
+                                 <td>1 GB</td>
+                              </tr>
+                              <tr>
+                                 <td>Operating System</td>
+                                 <td>Windows XP Home 32-bit</td>
+                                 <td>Windows 7 32-bit</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+                  <div class="section" title="1.2.1.3.&nbsp;Tools">
+                     <div class="titlepage">
+                        <div>
+                           <div>
+                              <h4 class="title"><a name="d0e148"></a>1.2.1.3.&nbsp;Tools
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="altrow">
+                        <table border="0">
+                           <colgroup>
+                              <col width="28%" class="col1">
+                              <col width="36%" class="col2">
+                              <col width="36%" class="col3">
+                           </colgroup>
+                           <thead>
+                              <tr>
+                                 <th>&nbsp;</th>
+                                 <th>Minimum</th>
+                                 <th>Recommended</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Graphics</td>
+                                 <td>
+                                                  Shader Model 3.0
+                                                  
+                                    <div class="itemizedlist">
+                                       <ul class="itemizedlist" type="disc">
+                                          <li class="listitem">GeForce 7900 GT</li>
+                                          <li class="listitem">Radeon X1800 XT</li>
+                                       </ul>
+                                    </div>
+                                                
+                                 </td>
+                                 <td>
+                                                  Shader Model 3.0+
+                                                  
+                                    <div class="itemizedlist">
+                                       <ul class="itemizedlist" type="disc">
+                                          <li class="listitem">GeForce 8800 GTX</li>
+                                          <li class="listitem">Radeon HD 3870</li>
+                                       </ul>
+                                    </div>
+                                                
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>CPU</td>
+                                 <td>
+                                    <p>Athlon 64-bit 3800+ Dual Core</p>
+                                    <p>Pentium D
+                                                   820
+                                    </p>
+                                 </td>
+                                 <td>
+                                    <p>Athlon 64-bit 4200+ Dual Core</p>
+                                    <p>Pentium
+                                                   T4200
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>Physical RAM</td>
+                                 <td>2 GB DDR2</td>
+                                 <td>2 GB DDR2</td>
+                              </tr>
+                              <tr>
+                                 <td>Operating System</td>
+                                 <td>Windows XP Professional 32-bit</td>
+                                 <td>Windows 7 64-bit</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="section" title="1.3.&nbsp;Client and Tools Build Requirements">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Client_Tools_System_Requirements"></a>1.3.&nbsp;Client and Tools Build Requirements
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <p>The minimum requirements for building the client are:
+                    
+               </p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>
+                                   Visual Studio 2005 or Visual Studio 2008
+                                 
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>
+                                   DirectX 9 SDK &#8211; the February 2010 release was the last release to
+                                   support Visual Studio 2005
+                                 
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>
+                                   Platform SDK 6.0 or newer
+                                 
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <p>
+                    
+               </p>
+               <p>The minimum requirements for building the tools are:
+                    
+               </p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>
+                                   Visual Studio 2005 or Visual Studio 2008
+                                 
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>
+                                   DirectX 9 SDK &#8211; the February 2010 release was the last release to
+                                   support Visual Studio 2005
+                                 
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>
+                                   Platform SDK 6.0 or newer
+                                 
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>
+                                   3ds Max 2008/2009/2010/2011 SDK &#8211; required to build the
+                                   Max exporters
+                                 
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>
+                                   Maya 2008/2009/2010/2011 SDK &#8211; required to build the
+                                   Maya exporters
+                                 
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <p>
+                    
+               </p>
+            </div>
+            <div class="section" title="1.4.&nbsp;Installing BigWorld Client and Tools">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Installing_BigWorld"></a>1.4.&nbsp;Installing BigWorld Client and Tools
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>Check out the BigWorld package from the official Subversion
+                                   repository.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>If running on a machine without developer tools installed,
+                                 be sure to install DirectX and Visual C++ runtimes which can be found
+                                 in the BigWorld package:
+                        </p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>
+                                                  <span class="literal">PackageRoot\vc80-redist\vcredist_x86.exe</span>
+                                                
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                  <span class="literal">PackageRoot\directx-redist\DXSETUP.exe</span>
+                                                
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+               <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title">Note</h3>
+                        For Vista &#8211; If you are changing operating system
+                        (for example, going from Windows XP to Vista),
+                        and leaving the old build folders in place,
+                        then be sure to completely clean all previous
+                        output files (.OBJ) and executables from the output folders.
+                        You should also remove all
+                        previous compiled FX files (.FXO) from the RES path of your project.
+                      
+               </div>
+            </div>
+            <div class="section" title="1.5.&nbsp;Installing and Configuring Required Software">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Installing_Dependencies"></a>1.5.&nbsp;Installing and Configuring Required Software
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title">Note</h3>
+                        Some instructions refer to Visual Studio 2005 but
+                        are equally applicable to Visual Studio 2008. Be sure to substitute references to
+                        <span class="literal">*2005.sln</span> to <span class="literal">*2008.sln</span>.
+                      
+               </div>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>Install Visual Studio 2005</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Install Visual Studio 2005 Service Pack 1.</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Vista only: Install Visual Studio 2005 Service Pack 1
+                                                Update for Windows Vista.
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Install Visual Studio 2008</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Install Visual Studio 2008 Service Pack 1.</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Install Visual C++ 2008 feature pack</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Install the DirectX SDK.</p>
+                        <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+                           <h3 class="title">Note</h3>
+                                     It is recommended to use the February 2010 release as it was the last
+                                     release to support Visual Studio 2005.
+                                   
+                        </div>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Make sure that the DirectX SDK's
+                                                <span class="literal">include</span> directory is added to Visual Studio's C++
+                                                <span class="literal">includes</span>
+                                                search path (see below).
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Make sure that the DirectX SDK's
+                                                <span class="literal">library</span> directory is added to Visual Studio's
+                                                C++ <span class="literal">libraries</span>
+                                                search path (see below).
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>If you have installed MSVC++ after installing DirectX,
+                                                then make sure that
+                                                the DirectX folders are listed before the other default folders
+                                                in the <span class="literal">include</span> and
+                                                <span class="literal">link</span> lists, to give them preference during
+                                                compiling and linking.
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Install the Windows Platform SDK version 6.0 or later,
+                                   and make sure this has been added to
+                                   Visual Studio's C++ <span class="literal">includes</span> and
+                                   <span class="literal">libraries</span> paths at a higher priority
+                                   than the standard Visual Studio paths.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>
+                                     BigWorld's source code ships with support for
+                                     <em class="emphasis">SpeedTree</em>, <em class="emphasis">Umbra</em>
+                                     and other third-party libraries turned off by default.
+                                     In order to turn support on in BigWorld's game client and tools,
+                                     see the <a href="../thirdparty_integrations/index.html" class="olink">Third-Party Integrations</a> document.
+                                   
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>To add a directory to Visual Studio's C++
+                                   <span class="literal">includes</span> and <span class="literal">libraries</span>
+                                   search paths, follow the steps below:
+                        </p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>
+                                                  Select menu item <em class="emphasis">Tools<span class="symbol">&#8594;</span>Options</em>.
+                                                
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>In the <em class="emphasis">Options</em> dialog, select
+                                                 <em class="emphasis">Projects and Solutions</em>
+                                                 (or <em class="emphasis">Projects</em>, in earlier versions) list
+                                                 item, then <em class="emphasis">VC++ Directories</em>.
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>In the <em class="emphasis">Show Directories For</em>
+                                                 drop-down list box, select
+                                                 <em class="emphasis">Include files</em> or
+                                                 <em class="emphasis">Library files</em>.
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Add the required directories to the list.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Install the 3ds Max SDK.</p>
+                        <p>The 3ds Max visual and animation exporters make use of the
+                                   <span class="literal">3dsMax_sdk/samples/modifiers/morpher/resource.h</span>
+                                   header file in order to expose the morpher modifier. 
+                                   A small edit must be made in order for
+                                   the exporters to compile without errors.
+                                   Since this file forms part of the 3dsMaxSDK, it
+                                   do not form part of the BigWorld distributable.
+                                   The required edit is as follows:
+                        </p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Comment the following line in
+                                                  <span class="literal">maxsdk/samples/modifiers/morpher/resource.h</span>
+                                                  <em class="emphasis">(line 5)</em>:
+                                 </p>
+                                 <p><em class="emphasis">From:</em>
+                                                      <span class="literal">005 #define IDS_LIBDESCRIPTION 1</span></p>
+                                 <p><em class="emphasis">To:</em>
+                                                      <span class="literal">005 //#define IDS_LIBDESCRIPTION 1</span></p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Make sure that in the VC++ options,
+                                                  the DirectX SDK folders are listed
+                                                  higher up than the 3ds Max ones.
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="section" title="1.6.&nbsp;Compiling the Client">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Compiling_Client"></a>1.6.&nbsp;Compiling the Client
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>In Visual Studio, load
+                                   <span class="literal">bigworld/src/client/bwclient2005.sln</span>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Set the <span class="literal">bwclient</span>
+                                   project as the startup project.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Build the <span class="literal">bwclient</span> project.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Set the <em class="emphasis">Solution Configuration</em>
+                                   to <span class="literal">Release</span>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>
+                                     To test the client, run <span class="literal">bigworld/bin/bwclient.exe</span>.
+                                   
+                        </p>
+                        <p>
+                                     If you are running the game from within Visual Studio, then set
+                                     the working folder to <span class="literal">bigworld/bin/client</span>.
+                                   
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title">Note</h3>
+                        The client can also be compiled as a Python extension module.
+                        For more information on how to do this, please refer to the section on
+                        <em class="emphasis">Interactive debugging</em> in the
+                        <a href="../client_programming_guide/ch25.html#xref_Script_Interactive_Debugging" class="olink">Script interactive debugging</a>.
+                      
+               </div>
+            </div>
+            <div class="section" title="1.7.&nbsp;Compiling the Tools">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title" style="clear: both"><a name="xref_Compiling_Tools"></a>1.7.&nbsp;Compiling the Tools
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" type="disc">
+                     <li class="listitem">
+                        <p>Compile Model Editor</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Open Visual Studio 2005</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                  Load
+                                                  <span class="literal">bigworld/src/tools/modeleditor/modeleditor2005.sln</span>.
+                                                
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Select the <em class="emphasis">Editor Hybrid Win32</em>
+                                                solution configuration.
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Select <em class="emphasis">Build All</em>
+                                                (<span class="literal">SHIFT+CTRL+B</span>).
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>The executable <span class="literal">modeleditor.exe</span> is created in
+                                                <span class="literal">bigworld\tools\modeleditor</span>.
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Compile World Editor</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Open Visual Studio 2005</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Load
+                                                   <span class="literal">bigworld/src/tools/worldeditor/worldeditor2005.sln</span>.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select the <em class="emphasis">Editor Hybrid Win32</em> solution
+                                                   configuration.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Select <em class="emphasis">Build All</em>
+                                                 (<span class="literal">SHIFT+CTRL+B</span>).
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   The executable <span class="literal">worldeditor.exe</span>
+                                                   is created in <span class="literal">bigworld\tools\worldeditor</span>.
+                                                 
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Compile Particle Editor</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Open Visual Studio 2005.</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Load
+                                                   <span class="literal">bigworld/src/tools/particle_editor/particle_editor2005.sln</span>.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select the <em class="emphasis">Editor Hybrid Win32</em>
+                                                   solution configuration (only Editor configurations are
+                                                   supported).
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select <span class="literal">Build All</span>
+                                                   (<span class="literal">SHIFT+CTRL+B</span>).
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                    The executable <span class="literal">particleeditor.exe</span> is created in
+                                                   <span class="literal">bigworld\tools\particleeditor</span>.
+                                                  
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Compile the Animation Exporter</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Open Visual Studio 2005</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Load
+                                                   <span class="literal">bigworld/src/tools/animationexporter/animationexporter.sln</span>
+                                                   or
+                                                   <span class="literal">bigworld/src/tools/animationexporter/animationexporter_2005.sln</span>.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select the appropriate solution configuration depending on
+                                                   which version of Max you are building for, i.e.
+                                                   <em class="emphasis">Max2011 Release</em>.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Make sure the maxsdk <span class="literal">include</span> and
+                                                   <span class="literal">library</span> folders are set up properly for the
+                                                   configuration.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Select <span class="literal">Build All</span>
+                                                 (<span class="literal">SHIFT+CTRL+B</span>).
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Compile the Visual Exporter</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Open Visual Studio 2005</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Load
+                                                   <span class="literal">bigworld/src/tools/visualexporter/visualexporter.sln</span>
+                                                   or
+                                                   <span class="literal">bigworld/src/tools/visualexporter/visualexporter_2005.sln</span>
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Set <span class="literal">visualexporter</span> as the startup project.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select the appropriate solution configuration depending on
+                                                   which version of Max you are building for, i.e.
+                                                   <em class="emphasis">Max2011 Release</em>.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Make sure the maxsdk <span class="literal">include</span> and
+                                                   <span class="literal">library</span> folders are set up properly for
+                                                   the configuration.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select <span class="literal">Build All</span>
+                                                   (<span class="literal">SHIFT+CTRL+B</span>).
+                                                 
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Compile the Maya Visual Exporter</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Open Visual Studio 2005</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Load
+                                                   <span class="literal">bigworld/src/tools/mayavisualexporter/mayavisualexporter.sln</span>
+                                                   or
+                                                   <span class="literal">bigworld/src/tools/mayavisualexporter/mayavisualexporter_2005.sln</span>.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Set <span class="literal">visualexporter</span> as the startup project.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select the appropriate solution configuration depending on
+                                                   which version of Maya you are building for, i.e.
+                                                   <em class="emphasis">Maya 2011 Release</em>.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Make sure the Maya <span class="literal">include</span> and
+                                                   <span class="literal">library</span> folders are set up properly for the
+                                                   configuration.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select <span class="literal">Build All</span>
+                                                   (<span class="literal">SHIFT+CTRL+B</span>).
+                                                 
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Compile NavGen</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>Open Visual Studio 2005</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Load
+                                                   <span class="literal">bigworld/src/tools/navgen/navgen.sln</span>.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select the <em class="emphasis">Hybrid Win32</em> solution
+                                                   configuration.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select <span class="literal">Build All</span>
+                                                   (<span class="literal">SHIFT+CTRL+B</span>).
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   The executable <span class="literal">navgen.exe</span> is created in
+                                                   <span class="literal">bigworld/src/tools/misc</span>.
+                                                 
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Compile the collada converter</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="circle">
+                              <li class="listitem">
+                                 <p>
+                                                   Open Visual Studio 2008
+                                                   
+                                 </p>
+                                 <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+                                    <h3 class="title">Note</h3>
+                                                     The collada converter can only be built with
+                                                     Visual Studio 2008
+                                                   
+                                 </div>
+                                 <p>
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Load
+                                                   <span class="literal">bigworld/src/tools/dae2bigworld/dae2bigworld2008.sln</span>.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select the <em class="emphasis">Release</em> solution configuration.
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   Select <span class="literal">Build All</span>
+                                                   (<span class="literal">SHIFT+CTRL+B</span>).
+                                                 
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>
+                                                   The executable <span class="literal">dae2bigworld.exe</span>
+                                                   is created in
+                                                   <span class="literal">bigworld/src/tools/collada_converter</span>.
+                                                 
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>
+                                     To test the tools, run the executables in the appropriate folder
+                                     under <span class="literal">bigworld/tools</span>.
+                                   
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="navfooter">
+            <hr class="navheaderline">
+            <table width="95%" align="center" summary="Navigation footer">
+               <tr>
+                  <td width="38%" align="left"><a accesskey="p" href="index.html">Prev</a>&nbsp;
+                  </td>
+                  <td width="20%" align="center">&nbsp;</td>
+                  <td width="37%" align="right">&nbsp;<a accesskey="n" href="ch02.html">Next</a></td>
+               </tr>
+               <tr>
+                  <td width="40%" align="left" valign="top">Client and Tools Build Guide&nbsp;</td>
+                  <td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+                  <td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;2.&nbsp;Additional Information and Troubleshooting</td>
+               </tr>
+               <tr>
+                  <td colspan="3">Copyright 1999-2012 BigWorld Pty. Ltd. All rights reserved. Proprietary commercial in confidence.
+                     		   
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>
