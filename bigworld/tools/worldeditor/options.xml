@@ -20,9 +20,9 @@
 	<space>
 		<folder>	spaces	</folder>
 		<folder>	sets	</folder>
-		<mru0>	spaces/test1	</mru0>
-		<mru1>	spaces/test3	</mru1>
-		<mru2>	spaces/test2	</mru2>
+		<mru0>	spaces/test2	</mru0>
+		<mru1>	spaces/test1	</mru1>
+		<mru2>	spaces/test3	</mru2>
 		<mru3>	spaces/ulgrim	</mru3>
 		<mru4>	spaces/ulgrim3	</mru4>
 		<mru5>	spaces/akihabara_test2	</mru5>
@@ -41,7 +41,7 @@
 		<shadows>	true	</shadows>
 		<cameraHeight>	54.000000	</cameraHeight>
 		<farclip>	5000	</farclip>
-		<timeofday>	211	</timeofday>
+		<timeofday>	100	</timeofday>
 	</graphics>
 	<input>
 		<exclusive>	false	</exclusive>
@@ -58,7 +58,7 @@
 		<timeScale>	1.000000	</timeScale>
 	</app>
 	<itemEditor>
-		<browsePath>	speedtree/Divinity2EcoDraconis/_AllTrees/BTB_PinkMaple_01.spt	</browsePath>
+		<browsePath>	speedtree/shrubs_flowers/american_boxwood/AmericanBoxwood_RT.spt	</browsePath>
 		<lastY>	-2.771484	</lastY>
 	</itemEditor>
 	<tools>
@@ -178,7 +178,7 @@
 			<spaceMapAlpha>	1.000000	</spaceMapAlpha>
 		</project>
 		<chunk>
-			<vizMode>	1	</vizMode>
+			<vizMode>	0	</vizMode>
 		</chunk>
 		<useUmbra>	1	</useUmbra>
 		<drawChunkFlares>	true	</drawChunkFlares>
@@ -212,10 +212,10 @@
 			<staticLightProxys>	1	</staticLightProxys>
 		</proxys>
 		<height>
-			<maskBottomRight>	10.000000 0.000000	</maskBottomRight>
-			<maskTopLeft>	0.000000 10.000000	</maskTopLeft>
-			<selBottomRight>	10.000000 0.000000	</selBottomRight>
-			<selTopLeft>	0.000000 10.000000	</selTopLeft>
+			<maskBottomRight>	1.000000 0.000000	</maskBottomRight>
+			<maskTopLeft>	0.000000 1.000000	</maskTopLeft>
+			<selBottomRight>	1.000000 0.000000	</selBottomRight>
+			<selTopLeft>	0.000000 1.000000	</selTopLeft>
 		</height>
 	</render>
 	<terrain>
@@ -229,7 +229,7 @@
 			<maxstrength>	100.000000	</maxstrength>
 			<minstrengthlimit>	1	</minstrengthlimit>
 			<minstrength>	1.000000	</minstrength>
-			<strength>	60.000000	</strength>
+			<strength>	100.000000	</strength>
 			<lodregentime>	1.000000	</lodregentime>
 			<maskoverlay>	0	</maskoverlay>
 		</texture>
@@ -292,7 +292,7 @@
 		<showDate>	0	</showDate>
 		<showTime>	0	</showTime>
 		<showPriority>	1	</showPriority>
-		<errorMsgs>	0	</errorMsgs>
+		<errorMsgs>	1	</errorMsgs>
 		<warningMsgs>	1	</warningMsgs>
 		<noticeMsgs>	0	</noticeMsgs>
 		<infoMsgs>	0	</infoMsgs>

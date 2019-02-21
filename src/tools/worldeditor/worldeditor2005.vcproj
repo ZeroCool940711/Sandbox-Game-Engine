@@ -18,7 +18,7 @@
 	<Configurations>
 		<Configuration
 			Name="Editor_Hybrid|Win32"
-			ConfigurationType="1"
+			ConfigurationType="2"
 			InheritedPropertySheets="..\..\lib\cstdmf\bw_vs80_tool_defaults.vsprops;..\..\lib\cstdmf\bw_vs80_defaults_editor_hybrid.vsprops"
 			UseOfMFC="2"
 			CharacterSet="2"
