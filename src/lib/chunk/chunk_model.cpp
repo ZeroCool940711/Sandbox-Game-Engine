@@ -82,7 +82,7 @@ ChunkModel::ChunkModel() :
 	pAnimation_( NULL ),
 	animRateMultiplier_( 1.f ),
 	transform_( Matrix::identity ),
-	reflectionVisible_( false )
+	reflectionVisible_( true )
 #if UMBRA_ENABLE	
 	,umbraOccluder_( false )
 #endif

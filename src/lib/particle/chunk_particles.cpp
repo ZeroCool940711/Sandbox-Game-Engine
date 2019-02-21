@@ -54,7 +54,7 @@ static BasicAutoConfig<int> s_staggerInterval( "environment/chunkParticleStagger
 ChunkParticles::ChunkParticles() :
 	seedTime_( 0.1f ),	
 	staggerIdx_( s_staggerIdx++ ),
-	reflectionVisible_( false )
+	reflectionVisible_( true )
 {
 	ParticleSystemManager::init();
 }

@@ -48,7 +48,7 @@ int s_numTris = 0;
 bool s_debugBB = false;
 bool s_debugStatus = false;
 int s_allowedBlockMovesPerFrame = 10;
-float s_alphaTestDistance = 25.f;	//I.E. < 25 metres
+float s_alphaTestDistance = 50.f;	//I.E. < 25 metres
 float s_alphaBlendDistance = 0.f;	//I.E. > 0 metres
 //float s_alphaTestDistance = -50.f;	//I.E. < 50 metres
 //float s_alphaBlendDistance = 0.f;	//I.E. > 0 metres
@@ -58,7 +58,7 @@ float s_alphaBlendFadePct = 70.f;
 uint32 s_alphaTestRef = 0x00000080;	//128 DEC
 //uint32 s_floraAlphaTestRef = 0x000000FE;	//254 DEC
 uint32 s_shadowAlphaTestRef = 0x00000046;	//70 DEC
-uint32 s_maxVBSize = 10485760;
+uint32 s_maxVBSize = 20485760;
 
 } // anonymous
 
@@ -1058,7 +1058,7 @@ void Flora::initialiseOffsetTable( float blur /* = 2.f */ )
 {
 	srand(0); // Ensure that we will always created the same random tables
 	
-	float radius = BLOCK_WIDTH / 2.f;
+	float radius = BLOCK_WIDTH / 4.f;
 	radius = sqrtf( 2.f * (radius * radius) );
 
 	for ( int i=0; i<LUT_SIZE; i++ )

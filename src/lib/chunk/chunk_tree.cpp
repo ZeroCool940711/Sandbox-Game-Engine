@@ -42,7 +42,7 @@ PROFILER_DECLARE( ChunkTree_draw, "ChunkTree Draw" );
 ChunkTree::ChunkTree() :
 	BaseChunkTree(),
 	tree_(NULL),
-	reflectionVisible_(false),
+	reflectionVisible_(true),
 	errorInfo_(NULL)
 {}
 
