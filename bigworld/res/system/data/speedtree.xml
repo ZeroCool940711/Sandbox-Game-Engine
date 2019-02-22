@@ -1,5 +1,5 @@
 <speedtree.xml>
-	<lodMode> -2 </lodMode>
+	<lodMode> -1 </lodMode>
 	<!-- lodMode to use:
 		-1: dynamic (near and far LOD defined per tree using speedtreeCAD defined values);
 		-2: dynamic (use global near and far LOD values);
