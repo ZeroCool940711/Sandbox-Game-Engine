@@ -1058,7 +1058,7 @@ void Flora::initialiseOffsetTable( float blur /* = 2.f */ )
 {
 	srand(0); // Ensure that we will always created the same random tables
 	
-	float radius = BLOCK_WIDTH / 4.f;
+	float radius = BLOCK_WIDTH / 2.f;
 	radius = sqrtf( 2.f * (radius * radius) );
 
 	for ( int i=0; i<LUT_SIZE; i++ )
