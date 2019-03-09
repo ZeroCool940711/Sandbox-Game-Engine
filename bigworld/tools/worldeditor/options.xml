@@ -20,8 +20,8 @@
 	<space>
 		<folder>	spaces	</folder>
 		<folder>	sets	</folder>
-		<mru0>	spaces/test2	</mru0>
-		<mru1>	spaces/test1	</mru1>
+		<mru0>	spaces/test1	</mru0>
+		<mru1>	spaces/test2	</mru1>
 		<mru2>	spaces/test3	</mru2>
 		<mru3>	spaces/ulgrim	</mru3>
 		<mru4>	spaces/ulgrim3	</mru4>
@@ -224,12 +224,12 @@
 			<maxsize>	800.000000	</maxsize>
 			<minsizelimit>	0.3	</minsizelimit>
 			<minsize>	1.000000	</minsize>
-			<size>	7.900000	</size>
+			<size>	9.800000	</size>
 			<maxstrengthlimit>	100	</maxstrengthlimit>
 			<maxstrength>	100.000000	</maxstrength>
 			<minstrengthlimit>	1	</minstrengthlimit>
 			<minstrength>	1.000000	</minstrength>
-			<strength>	100.000000	</strength>
+			<strength>	50.000000	</strength>
 			<lodregentime>	1.000000	</lodregentime>
 			<maskoverlay>	0	</maskoverlay>
 		</texture>
