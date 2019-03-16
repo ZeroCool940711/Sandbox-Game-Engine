@@ -157,7 +157,7 @@ bool ChunkItemMatrix::setMatrix( const Matrix & m )
 	pItem_->edBounds(bbox);
 	bbox.transformBy( newTransform );
 	Vector3 boxVolume = bbox.maxBounds() - bbox.minBounds();
-	static const float maxLengthLimit = 100.f;
+	static const float maxLengthLimit = 1000.f;
 	static const float minLengthLimit = 0.001f;
 
 	bool result = false;
