@@ -22,7 +22,7 @@ criminal penalties as provided by law.
 #define MIN_MAP_SIZE 16
 #define MIN_HOLE_MAP_SIZE 3
 #define MAX_MAP_SIZE 1024
-#define MAX_NO_RESPONDING_TIME 2000
+#define MAX_NO_RESPONDING_TIME 200
 
 /**
  *	This turns off version control support in WorldEditor.
