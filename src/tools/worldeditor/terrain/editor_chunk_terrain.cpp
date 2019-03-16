@@ -47,12 +47,12 @@ DECLARE_DEBUG_COMPONENT2( "EditorChunkTerrain", 2 );
 
 
 //These are all helpers to debug / change the shadow calculation rays.
-static bool                 s_debugShadowRays   = false;
+static bool                 s_debugShadowRays   = true;
 static bool                 s_debugShadowPoles  = false;
 static std::vector<Vector3> s_lines;
 static std::vector<Vector3> s_lineEnds;
 static int                  s_collType          = -1;
-static float                s_raySubdivision    = 32.f;
+static float                s_raySubdivision    = 8.f;
 static float                s_rayDisplacement   =  1.5f;
 
 
@@ -65,7 +65,7 @@ namespace
 
 	const float SHADOW_RAY_ERROR_OFFSET	= 0.001f;
 	const int	SHADOW_MAX_VALUE		= 65535;
-	const int	SHADOW_MAX_CALC_RAYS	= 256;
+	const int	SHADOW_MAX_CALC_RAYS	= 512;
 	const int	SHADOW_MAX_CALC_RAY_VAL	= SHADOW_MAX_CALC_RAYS - 1;
 
 	class ShadowObstacleCatcher : public CollisionCallback
@@ -98,9 +98,9 @@ namespace
 
 				// Make sure it's a model, ie, we don't want entities casting
 				// shadows
-				/*DataSectionPtr ds = obstacle.pItem()->pOwnSect();
+				DataSectionPtr ds = obstacle.pItem()->pOwnSect();
 				if (!ds || ds->sectionName() != "model")
-					return COLLIDE_ALL;*/
+					return COLLIDE_ALL;
 
 				if( !obstacle.pItem()->edAffectShadow() )
 					return COLLIDE_ALL;
