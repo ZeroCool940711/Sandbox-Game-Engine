@@ -8,16 +8,16 @@
 	<intensity> 0.4 </intensity>
 	<!-- Max Shadow intensity -->
 
-	<distance> 10.0 </distance>
+	<distance> 500.0 </distance>
 	<!-- Shadow cutoff distance -->
 
-	<fadeStart> 9.0 </fadeStart>
+	<fadeStart> 250.0 </fadeStart>
 	<!-- Shadows fade out from this distance to the cutoff distance -->
 
 	<bufferSize> 1024 </bufferSize>
 	<!-- Size of the shadow texture -->
 
-	<maxCount> 64 </maxCount>
+	<maxCount> 256 </maxCount>
 	<!-- Max number of entity shadows. This is the default value, but it 
 	is possible to set a smaller ammount via graphics settings. The options 
 	available are derived by bit shifting this value towards zero. -->

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="9.00"
 	Name="chunk"
 	ProjectGUID="{B5F7425C-71CE-4E69-9EB7-C1F68823C677}"
 	RootNamespace="chunk"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform

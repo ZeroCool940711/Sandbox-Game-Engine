@@ -3,7 +3,7 @@
 // d:\alejandro\programs\editores\juegos\bigworld_python_engine\bw191\src\lib\web_render\hybrid_vc2005\shdocvw.tlh
 //
 // C++ source equivalent of Win32 type library shdocvw.dll
-// compiler-generated file created 10/08/18 at 19:53:25 - DO NOT EDIT!
+// compiler-generated file created 03/09/19 at 19:57:33 - DO NOT EDIT!
 
 #pragma once
 #pragma pack(push, 8)
@@ -59,6 +59,8 @@ struct __declspec(uuid("60e567c8-9573-4ab2-a264-637c6c161cb1"))
 /* dual interface */ IShellUIHelper7;
 struct __declspec(uuid("66debcf2-05b0-4f07-b49b-b96241a65db2"))
 /* dual interface */ IShellUIHelper8;
+struct __declspec(uuid("6cdf73b0-7f2f-451f-bc0f-63e0f3284e54"))
+/* dual interface */ IShellUIHelper9;
 struct /* coclass */ ShellUIHelper;
 struct __declspec(uuid("55136806-b2de-11d1-b9f2-00a0c98bc547"))
 /* dispinterface */ DShellNameSpaceEvents;
@@ -90,6 +92,7 @@ _COM_SMARTPTR_TYPEDEF(IShellUIHelper5, __uuidof(IShellUIHelper5));
 _COM_SMARTPTR_TYPEDEF(IShellUIHelper6, __uuidof(IShellUIHelper6));
 _COM_SMARTPTR_TYPEDEF(IShellUIHelper7, __uuidof(IShellUIHelper7));
 _COM_SMARTPTR_TYPEDEF(IShellUIHelper8, __uuidof(IShellUIHelper8));
+_COM_SMARTPTR_TYPEDEF(IShellUIHelper9, __uuidof(IShellUIHelper9));
 _COM_SMARTPTR_TYPEDEF(DShellNameSpaceEvents, __uuidof(DShellNameSpaceEvents));
 _COM_SMARTPTR_TYPEDEF(IShellFavoritesNameSpace, __uuidof(IShellFavoritesNameSpace));
 _COM_SMARTPTR_TYPEDEF(IShellNameSpace, __uuidof(IShellNameSpace));
@@ -1356,9 +1359,26 @@ IShellUIHelper8 : IShellUIHelper7
         /*[in]*/ BSTR bstrUrl ) = 0;
 };
 
+struct __declspec(uuid("6cdf73b0-7f2f-451f-bc0f-63e0f3284e54"))
+IShellUIHelper9 : IShellUIHelper8
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    unsigned long GetOSSku ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_GetOSSku (
+        /*[out,retval]*/ unsigned long * pdwResult ) = 0;
+};
+
 struct __declspec(uuid("64ab4bb7-111e-11d1-8f79-00c04fc2fbe1"))
 ShellUIHelper;
-    // [ default ] interface IShellUIHelper8
+    // [ default ] interface IShellUIHelper9
 
 struct __declspec(uuid("55136806-b2de-11d1-b9f2-00a0c98bc547"))
 DShellNameSpaceEvents : IDispatch

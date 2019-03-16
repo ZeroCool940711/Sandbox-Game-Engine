@@ -2,12 +2,13 @@
 	<texture>	system/maps/sky_gradient_blue.tga	</texture>
 	<light_map>
 		<material>	system/materials/sky_light_map.mfm	</material>
-		<width>	512	</width>
-		<height>	512	</height>
+		<width>	1024	</width>
+		<height>	1024	</height>
 		<timeToleranceSecs>	0	</timeToleranceSecs>
 		<textureFeedName>	skyLightMap	</textureFeedName>
 		<effectTextureName>	SkyLightMap	</effectTextureName>
 		<effectTransformName>	SkyLightMapTransform	</effectTransformName>
+		<maxDarkness>	1	</maxDarkness>
 	</light_map>
 	<mieAmount>	0.100000	</mieAmount>
 	<turbidityOffset>	0.170000	</turbidityOffset>
@@ -23,75 +24,51 @@
 		<starttime>	15.450000	</starttime>
 		<lightkey>
 			<time>	0.000000	</time>
-			<colour>	46.000000 51.000000 110.000000	</colour>
+			<colour>	43.000000 112.000000 168.000000	</colour>
 		</lightkey>
 		<lightkey>
-			<time>	3.096774	</time>
-			<colour>	28.000002 81.000000 110.000008	</colour>
+			<time>	4.020000	</time>
+			<colour>	28.000000 81.000000 110.000000	</colour>
 		</lightkey>
 		<lightkey>
-			<time>	4.258064	</time>
-			<colour>	57.000004 81.000000 110.000008	</colour>
+			<time>	5.070000	</time>
+			<colour>	57.000000 81.000000 110.000000	</colour>
 		</lightkey>
 		<lightkey>
-			<time>	5.419354	</time>
-			<colour>	223.000000 182.000000 77.000000	</colour>
+			<time>	6.400000	</time>
+			<colour>	207.000000 157.000000 90.000000	</colour>
 		</lightkey>
 		<lightkey>
-			<time>	6.580646	</time>
-			<colour>	251.000000 233.000000 219.000000	</colour>
+			<time>	9.300000	</time>
+			<colour>	246.000000 195.000000 157.000000	</colour>
 		</lightkey>
 		<lightkey>
-			<time>	12.483871	</time>
-			<colour>	252.000000 249.000000 225.000000	</colour>
+			<time>	16.950001	</time>
+			<colour>	246.000000 195.000000 157.000000	</colour>
 		</lightkey>
 		<lightkey>
-			<time>	17.516129	</time>
-			<colour>	251.000000 229.000000 213.000000	</colour>
-		</lightkey>
-		<lightkey>
-			<time>	19.161289	</time>
-			<colour>	244.000015 124.000008 4.000000	</colour>
-		</lightkey>
-		<lightkey>
-			<time>	20.870001	</time>
-			<colour>	88.000000 137.000000 212.000000	</colour>
+			<time>	17.870001	</time>
+			<colour>	244.000000 124.000000 4.000000	</colour>
 		</lightkey>
 		<ambientkey>
 			<time>	0.000000	</time>
-			<colour>	47.000000 62.000000 76.000000	</colour>
-		</ambientkey>
-		<ambientkey>
-			<time>	2.806451	</time>
 			<colour>	21.000000 81.000000 130.000000	</colour>
 		</ambientkey>
 		<ambientkey>
-			<time>	4.161290	</time>
-			<colour>	104.000000 97.000000 78.000000	</colour>
+			<time>	5.670000	</time>
+			<colour>	21.000000 81.000000 130.000000	</colour>
 		</ambientkey>
 		<ambientkey>
-			<time>	5.516129	</time>
-			<colour>	120.000000 120.000000 120.000000	</colour>
+			<time>	8.470000	</time>
+			<colour>	64.000000 64.000000 32.000000	</colour>
 		</ambientkey>
 		<ambientkey>
-			<time>	9.677419	</time>
-			<colour>	91.000000 91.000000 91.000000	</colour>
+			<time>	11.370000	</time>
+			<colour>	64.000000 64.000000 32.000000	</colour>
 		</ambientkey>
 		<ambientkey>
-			<time>	12.774193	</time>
-			<colour>	107.000000 107.000000 107.000000	</colour>
-		</ambientkey>
-		<ambientkey>
-			<time>	16.645161	</time>
-			<colour>	174.000000 165.000000 165.000000	</colour>
-		</ambientkey>
-		<ambientkey>
-			<time>	17.903225	</time>
-			<colour>	101.000000 89.000000 75.000000	</colour>
-		</ambientkey>
-		<ambientkey>
-			<time>	18.967741	</time>
-			<colour>	100.645164 100.225807 120.774193	</colour>
+			<time>	18.000000	</time>
+			<colour>	69.000000 77.000000 82.000000	</colour>
 		</ambientkey>
 	</day_night_cycle>
 </sky.xml>

@@ -284,7 +284,7 @@
 		</Configuration>
 		<Configuration
 			Name="PyModule_Hybrid|Win32"
-			ConfigurationType="4"
+			ConfigurationType="2"
 			InheritedPropertySheets="..\..\..\src\lib\cstdmf\bw_vs80_defaults_pymodule_hybrid.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
@@ -312,7 +312,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..;../../../src/lib;../../../src/lib/fmod/api/inc;../../../src/lib/fmod/fmoddesignerapi/api/inc;../../../src/lib/umbra/interface;../../../src/lib/third_party/openssl/inc32"
+				AdditionalIncludeDirectories="D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\src\lib\python\include;..;../../../src/lib;../../../src/lib/fmod/api/inc;../../../src/lib/fmod/fmoddesignerapi/api/inc;../../../src/lib/umbra/interface;../../../src/lib/third_party/openssl/inc32"
 				PreprocessorDefinitions=""
 				AssemblerListingLocation=""
 			/>
@@ -328,11 +328,15 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
-				AdditionalLibraryDirectories=""
+				Name="VCLinkerTool"
+				SubSystem="2"
+				EntryPointSymbol="D:\Alejandro\Programs\Editores\Juegos\BigWorld_Python_Engine\BW191\fantasydemo\src\client\winmain.cpp"
 			/>
 			<Tool
 				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -343,6 +347,9 @@
 			/>
 			<Tool
 				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"

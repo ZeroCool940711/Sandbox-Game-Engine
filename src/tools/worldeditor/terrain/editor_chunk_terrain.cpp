@@ -51,9 +51,9 @@ static bool                 s_debugShadowRays   = true;
 static bool                 s_debugShadowPoles  = false;
 static std::vector<Vector3> s_lines;
 static std::vector<Vector3> s_lineEnds;
-static int                  s_collType          = -1;
-static float                s_raySubdivision    = 8.f;
-static float                s_rayDisplacement   =  1.5f;
+static int                  s_collType          = 1;
+static float                s_raySubdivision    = 32.f;
+static float                s_rayDisplacement   =  2.5f;
 
 
 bool EditorChunkTerrain::s_shouldDraw_ = true;

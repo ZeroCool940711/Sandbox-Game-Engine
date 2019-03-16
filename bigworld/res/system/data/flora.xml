@@ -31,10 +31,10 @@
 		<material> system/materials/light_map2.mfm </material>
 		<!-- Path to effect material.  Must be valid.-->
 
-		<width>			512	</width>
+		<width>			1024	</width>
 		<!-- Width in pixels of the light map. -->
 
-		<height>		512	</height>	
+		<height>		1024	</height>	
 		<!-- Height in pixels of the light map.
 		     For best results, set to same as width. -->
 
