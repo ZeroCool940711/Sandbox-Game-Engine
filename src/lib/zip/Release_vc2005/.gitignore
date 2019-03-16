@@ -4,3 +4,4 @@
 *.bsc
 *.pdb
 /BuildLog.htm
+*.lib
