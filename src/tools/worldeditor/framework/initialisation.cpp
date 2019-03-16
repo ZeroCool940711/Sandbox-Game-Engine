@@ -211,7 +211,7 @@ bool Initialisation::initGraphics( HINSTANCE hInstance, HWND hWnd )
 	uint32 deviceIndex = 0;
 
 	// Uncomment this to enable
-/*
+
 	for (uint32 i = 0; i < Moo::rc().nDevices(); i++)
 	{
 		std::string description 
@@ -223,7 +223,7 @@ bool Initialisation::initGraphics( HINSTANCE hInstance, HWND hWnd )
 			break;
 		}
 	}
-*/
+
 	// Initialise the directx device with the settings from the options file.
 	if (!Moo::rc().createDevice( hWnd, deviceIndex, modeIndex, !fullScreen, useShadows, Vector2(0, 0), false ))
 	{
