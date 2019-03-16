@@ -1,2 +1,4 @@
 *.sbr
 *.idb
+*.lib
+*.pdb
