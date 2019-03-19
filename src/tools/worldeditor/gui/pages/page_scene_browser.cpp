@@ -119,7 +119,7 @@ ListSceneBrowser::~ListSceneBrowser()
 
 
 void ListSceneBrowser::setSearchString( const CString searchString ){
-	MessageBox(searchString);
+	//MessageBox(searchString);
 }
 
 void ListSceneBrowser::setGroupByString( const CString groupBy ){
@@ -141,7 +141,7 @@ void ListSceneBrowser::Draw(){
 	}
 	std::stringstream st;
 	st<<cont;
-	MessageBox(st.str().c_str());
+	//MessageBox(st.str().c_str());
 	for(std::vector<GroupItem*>::iterator it=group.begin();it != group.end();++it){
 		int index = InsertString( -1, "" );
 		SetItemDataPtr(index, *it);
@@ -682,7 +682,7 @@ void PageSceneBrowser::OnStnClickedCancelSearch()
 void PageSceneBrowser::OnStnClickedSearchIcon()
 {
 	// TODO: It is executed when user press search incon
-	MessageBox("OnStnClickedSearchIcon");
+	//MessageBox("OnStnClickedSearchIcon");
 }
 
 void PageSceneBrowser::OnEnUpdateSearch()

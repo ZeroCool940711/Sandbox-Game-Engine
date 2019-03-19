@@ -808,6 +808,12 @@
           <SHORT_NAME>Tool: Mesh</SHORT_NAME>
           <LONG_NAME>Tool Options: Terrain Mesh Cut/Repair</LONG_NAME>
         </PAGE_TERRAIN_MESH>
+
+        <PAGE_SCENE_BROWSER>
+          <SHORT_NAME>Tool: SceneBrowser</SHORT_NAME>
+          <LONG_NAME>Tool Options: Scene Browser</LONG_NAME>
+        </PAGE_SCENE_BROWSER>
+        
         <PAGE_TERRAIN_TEXTURE>
           <SHORT_NAME>Tool: Texture</SHORT_NAME>
           <LONG_NAME>Tool Options: Terrain Texturing</LONG_NAME>
@@ -1297,7 +1303,7 @@
             <CHUNK>chunk</CHUNK>
           </ITEM_EDITOR>
           <ITEM_PROPERTIES>
-          	<ITEM_TOO_BIG>You cannot scale this item to larger than 100m in x or z direction.</ITEM_TOO_BIG>
+          	<ITEM_TOO_BIG>You cannot scale this item to larger than 1000m in x or z direction.</ITEM_TOO_BIG>
           </ITEM_PROPERTIES>
           <STATION_NODE_LINK_PROXY>
             <LINK_ENTITY_TO_GRAPH>Link entity to graph</LINK_ENTITY_TO_GRAPH>

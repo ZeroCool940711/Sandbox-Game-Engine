@@ -42,6 +42,7 @@ criminal penalties as provided by law.
 #include "common/cooperative_moo.hpp"
 #include "common/user_messages.hpp"
 
+#include "worldeditor/gui/pages/page_scene_browser.h"
 
 BW_SINGLETON_STORAGE( PanelManager )
 
@@ -194,6 +195,8 @@ bool PanelManager::initPanels()
 	this->panels().registerFactory( new PageTerrainMeshFactory() );
     this->panels().registerFactory( new PageTerrainImportFactory() );
 	this->panels().registerFactory( new PageProjectFactory() );
+	//created for our team @author:Gustavo García González
+	this->panels().registerFactory( new PageSceneBrowserFactory() );
 
 	this->panels().registerFactory( new PagePropertiesFactory() );
 	this->panels().registerFactory( new PageChunkTextureFactory() );
@@ -270,7 +273,10 @@ bool PanelManager::loadDefaultPanels( GUI::ItemPtr item )
 	p = this->panels().insertPanel( PageOptionsWeather::contentID, GUITABS::TAB, p );
     p = this->panels().insertPanel( PageOptionsEnvironment::contentID, GUITABS::TAB, p );
 	p = this->panels().insertPanel( PageOptionsHistogram::contentID, GUITABS::TAB, p );
-	p = this->panels().insertPanel( PageMessages::contentID, GUITABS::TAB, p );
+	p = this->panels().insertPanel( PageMessages::contentID, GUITABS::TAB, p );	
+
+	p = this->panels().insertPanel( PageSceneBrowser::contentID, GUITABS::TAB, p );
+
 	if (Options::getOptionBool("panels/chunkWatcher", false))
 		p = this->panels().insertPanel( PageChunkWatcher::contentID, GUITABS::TAB, p );
 
