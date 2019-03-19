@@ -16,14 +16,15 @@
 	</ToolFiles>
 	<Configurations>
 		<Configuration
-			Name="Release|Win32"
-			ConfigurationType="4"
-			InheritedPropertySheets="..\..\..\cstdmf\bw_vs80_lib_defaults.vsprops;..\..\..\cstdmf\bw_vs80_defaults_release.vsprops"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
+			Name="DLL Release|Win32"
+			OutputDirectory=".\Win32_DLL_Release"
+			IntermediateDirectory=".\Win32_DLL_Release"
+			ConfigurationType="2"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="copy ..\..\scripts\pnglibconf.h.prebuilt ..\..\pnglibconf.h"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -39,24 +40,41 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..;..\..\..\"
-				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough=""
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				PreprocessorDefinitions="WIN32;NDEBUG;PNG_BUILD_DLL;ZLIB_DLL;_CRT_SECURE_NO_WARNINGS"
+				StringPooling="true"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="pngpriv.h"
+				WarningLevel="3"
+				CompileAs="0"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1033"
+				AdditionalIncludeDirectories="..\..;..\..\..\zlib;$(IntDir)"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/libpng16.dll"
+				LinkIncremental="1"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -68,17 +86,22 @@
 				Name="VCFxCopTool"
 			/>
 			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
-			Name="Debug|Win32"
-			ConfigurationType="4"
-			InheritedPropertySheets="..\..\..\cstdmf\bw_vs80_lib_defaults.vsprops;..\..\..\cstdmf\bw_vs80_defaults_debug.vsprops"
-			CharacterSet="2"
+			Name="DLL Debug|Win32"
+			OutputDirectory=".\Win32_DLL_Debug"
+			IntermediateDirectory=".\Win32_DLL_Debug"
+			ConfigurationType="2"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="copy ..\..\scripts\pnglibconf.h.prebuilt ..\..\pnglibconf.h"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -94,24 +117,41 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..;..\..\..\"
-				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough=""
+				Optimization="0"
+				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				PreprocessorDefinitions="WIN32;_DEBUG;DEBUG;PNG_DEBUG=1;PNG_BUILD_DLL;ZLIB_DLL;_CRT_SECURE_NO_WARNINGS"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="pngpriv.h"
+				WarningLevel="3"
+				DebugInformationFormat="4"
+				CompileAs="0"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG,PNG_DEBUG=1"
+				Culture="1033"
+				AdditionalIncludeDirectories="..\..;..\..\..\zlib;$(IntDir)"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/libpng16d.dll"
+				GenerateDebugInformation="true"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -123,17 +163,22 @@
 				Name="VCFxCopTool"
 			/>
 			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
-			Name="Static_Release|Win32"
-			ConfigurationType="4"
-			InheritedPropertySheets="..\..\..\cstdmf\bw_vs80_lib_defaults.vsprops;..\..\..\cstdmf\bw_vs80_defaults_release.vsprops"
-			CharacterSet="2"
+			Name="DLL VB|Win32"
+			OutputDirectory=".\Win32_DLL_VB"
+			IntermediateDirectory=".\Win32_DLL_VB"
+			ConfigurationType="2"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="copy ..\..\scripts\pnglibconf.h.prebuilt ..\..\pnglibconf.h"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -149,10 +194,94 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..;..\..\..\"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				PreprocessorDefinitions="WIN32;NDEBUG;PNG_BUILD_DLL;ZLIB_DLL;PNGAPI=__stdcall;PNG_NO_MODULEDEF;PNG_LIBPNG_SPECIALBUILD;PNG_USER_PRIVATEBUILD;_CRT_SECURE_NO_WARNINGS"
+				StringPooling="true"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="pngpriv.h"
+				WarningLevel="3"
+				CompileAs="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				AdditionalOptions="/d PNG_NO_PEDANTIC_WARNINGS /d PNG_LIBPNG_DLLFNAME_POSTFIX=&quot;&quot;&quot;&quot;VB&quot;&quot;&quot;&quot; /d PNG_LIBPNG_SPECIALBUILD=&quot;&quot;&quot;&quot;__stdcall calling convention used for exported functions&quot;&quot;&quot;&quot;"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1033"
+				AdditionalIncludeDirectories="..\..;..\..\..\zlib;$(IntDir)"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/libpng16vb.dll"
+				LinkIncremental="1"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="LIB Release|Win32"
+			OutputDirectory=".\Win32_LIB_Release"
+			IntermediateDirectory=".\Win32_LIB_Release"
+			ConfigurationType="4"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="copy ..\..\scripts\pnglibconf.h.prebuilt ..\..\pnglibconf.h"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CRT_SECURE_NO_WARNINGS"
+				StringPooling="true"
 				RuntimeLibrary="0"
-				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough=""
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="pngpriv.h"
+				WarningLevel="3"
+				CompileAs="0"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -165,6 +294,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)/libpng.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -183,13 +313,15 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Hybrid|Win32"
+			Name="LIB Debug|Win32"
+			OutputDirectory=".\Win32_LIB_Debug"
+			IntermediateDirectory=".\Win32_LIB_Debug"
 			ConfigurationType="4"
-			InheritedPropertySheets="..\..\..\cstdmf\bw_vs80_lib_defaults.vsprops;..\..\..\cstdmf\bw_vs80_defaults_hybrid.vsprops"
-			CharacterSet="2"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="copy ..\..\scripts\pnglibconf.h.prebuilt ..\..\pnglibconf.h"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -205,9 +337,16 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..;..\..\..\"
-				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough=""
+				Optimization="0"
+				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				PreprocessorDefinitions="WIN32;_DEBUG;DEBUG;PNG_DEBUG=1;_CRT_SECURE_NO_WARNINGS"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="pngpriv.h"
+				WarningLevel="3"
+				DebugInformationFormat="4"
+				CompileAs="0"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -220,337 +359,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="PyModule_Hybrid|Win32"
-			ConfigurationType="4"
-			InheritedPropertySheets="..\..\..\cstdmf\bw_vs80_lib_defaults.vsprops;..\..\..\cstdmf\bw_vs80_defaults_pymodule_hybrid.vsprops"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..;..\..\..\"
-				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough=""
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Consumer_Release|Win32"
-			ConfigurationType="4"
-			InheritedPropertySheets="..\..\..\cstdmf\bw_vs80_lib_defaults.vsprops;..\..\..\cstdmf\bw_vs80_defaults_consumer_release.vsprops"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..;..\..\..\"
-				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough=""
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Editor_Hybrid|Win32"
-			ConfigurationType="4"
-			InheritedPropertySheets="..\..\..\cstdmf\bw_vs80_lib_defaults.vsprops;..\..\..\cstdmf\bw_vs80_defaults_editor_hybrid.vsprops"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..;..\..\..\"
-				UsePrecompiledHeader="0"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Editor_Debug|Win32"
-			ConfigurationType="4"
-			InheritedPropertySheets="..\..\..\cstdmf\bw_vs80_lib_defaults.vsprops;..\..\..\cstdmf\bw_vs80_defaults_editor_debug.vsprops"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..;..\..\..\"
-				UsePrecompiledHeader="0"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Exporter_Debug|Win32"
-			ConfigurationType="4"
-			InheritedPropertySheets="..\..\..\cstdmf\bw_vs80_lib_defaults.vsprops;..\..\..\cstdmf\bw_vs80_defaults_exporter_debug.vsprops"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..;..\..\..\"
-				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough=""
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Exporter_Release|Win32"
-			OutputDirectory="$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="4"
-			InheritedPropertySheets="..\..\..\cstdmf\bw_vs80_lib_defaults.vsprops;..\..\..\cstdmf\bw_vs80_defaults_exporter_release.vsprops"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..;..\..\..\"
-				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough=""
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)/libpngd.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -580,7 +389,7 @@
 				RelativePath="..\..\png.c"
 				>
 				<FileConfiguration
-					Name="Release|Win32"
+					Name="DLL Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -588,7 +397,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
+					Name="DLL Debug|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -596,7 +405,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Static_Release|Win32"
+					Name="DLL VB|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -604,7 +413,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Exporter_Debug|Win32"
+					Name="LIB Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -612,7 +421,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Exporter_Release|Win32"
+					Name="LIB Debug|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -624,7 +433,7 @@
 				RelativePath="..\..\pngerror.c"
 				>
 				<FileConfiguration
-					Name="Release|Win32"
+					Name="DLL Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -632,7 +441,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
+					Name="DLL Debug|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -640,7 +449,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Static_Release|Win32"
+					Name="DLL VB|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -648,7 +457,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Exporter_Debug|Win32"
+					Name="LIB Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -656,7 +465,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Exporter_Release|Win32"
+					Name="LIB Debug|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -701,94 +510,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\pngvcrd.c"
-				>
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Static_Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Exporter_Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Exporter_Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\..\scripts\pngw32.def"
-				>
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Static_Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Exporter_Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Exporter_Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
 				RelativePath="..\..\pngwio.c"
 				>
 			</File>
@@ -817,16 +538,20 @@
 				RelativePath="..\..\pngconf.h"
 				>
 			</File>
+			<File
+				RelativePath="..\..\pngpriv.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
 			>
 			<File
-				RelativePath="..\..\scripts\pngw32.rc"
+				RelativePath="..\..\scripts\pngwin.rc"
 				>
 				<FileConfiguration
-					Name="Release|Win32"
+					Name="LIB Release|Win32"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -834,31 +559,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCResourceCompilerTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Static_Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCResourceCompilerTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Exporter_Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCResourceCompilerTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Exporter_Release|Win32"
+					Name="LIB Debug|Win32"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -870,6 +571,36 @@
 		<File
 			RelativePath=".\PRJ0041.mak"
 			>
+			<FileConfiguration
+				Name="DLL Release|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="Create dummy include files to prevent &quot;Cannot find missing dependency...&quot; warnings."
+					CommandLine="nmake -f PRJ0041.mak IntDir=$(IntDir)&#x0D;&#x0A;"
+					Outputs="$(IntDir)\alloc.h;$(IntDir)\fp.h;$(IntDir)\m68881.h;$(IntDir)\mem.h;$(IntDir)\pngusr.h;$(IntDir)\strings.h;$(IntDir)\unistd.h;$(IntDir)\unixio.h"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="DLL Debug|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="Create dummy include files to prevent &quot;Cannot find missing dependency...&quot; warnings."
+					CommandLine="nmake -f PRJ0041.mak IntDir=$(IntDir)&#x0D;&#x0A;"
+					Outputs="$(IntDir)\alloc.h;$(IntDir)\fp.h;$(IntDir)\m68881.h;$(IntDir)\mem.h;$(IntDir)\pngusr.h;$(IntDir)\strings.h;$(IntDir)\unistd.h;$(IntDir)\unixio.h"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="DLL VB|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="Create dummy include files to prevent &quot;Cannot find missing dependency...&quot; warnings."
+					CommandLine="nmake -f PRJ0041.mak IntDir=$(IntDir)&#x0D;&#x0A;"
+					Outputs="$(IntDir)\alloc.h;$(IntDir)\fp.h;$(IntDir)\m68881.h;$(IntDir)\mem.h;$(IntDir)\pngusr.h;$(IntDir)\strings.h;$(IntDir)\unistd.h;$(IntDir)\unixio.h"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="README.txt"

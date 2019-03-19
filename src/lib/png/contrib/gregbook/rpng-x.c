@@ -25,10 +25,14 @@
     - 1.13:  fixed XFreeGC() crash bug (thanks to Patrick Welche)
     - 1.14:  added support for X resources (thanks to Gerhard Niklasch)
     - 2.00:  dual-licensed (added GNU GPL)
+    - 2.01:  fixed improper display of usage screen on PNG error(s)
+    - 2.02:  Added "void(argc);" statement to quiet pedantic compiler warnings
+             about unused variable (GR-P)
+    - 2.03:  check for integer overflow (Glenn R-P)
 
   ---------------------------------------------------------------------------
 
-      Copyright (c) 1998-2007 Greg Roelofs.  All rights reserved.
+      Copyright (c) 1998-2008, 2017 Greg Roelofs.  All rights reserved.
 
       This software is provided "as is," without warranty of any kind,
       express or implied.  In no event shall the author or contributors
@@ -79,9 +83,9 @@
 
 #define PROGNAME  "rpng-x"
 #define LONGNAME  "Simple PNG Viewer for X"
-#define VERSION   "2.00 of 2 June 2007"
-#define RESNAME   "rpng"	/* our X resource application name */
-#define RESCLASS  "Rpng"	/* our X resource class name */
+#define VERSION   "2.02 of 15 June 2014"
+#define RESNAME   "rpng"        /* our X resource application name */
+#define RESCLASS  "Rpng"        /* our X resource class name */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -251,8 +255,8 @@ int main(int argc, char **argv)
             else {
                 bgstr = *argv;
                 if (strlen(bgstr) != 7 || bgstr[0] != '#')
-                    ++error; 
-                else 
+                    ++error;
+                else
                     have_bg = TRUE;
             }
         } else {
@@ -265,9 +269,35 @@ int main(int argc, char **argv)
         }
     }
 
-    if (!filename) {
+    if (!filename)
         ++error;
-    } else if (!(infile = fopen(filename, "rb"))) {
+
+
+    /* print usage screen if any errors up to this point */
+
+    if (error) {
+        fprintf(stderr, "\n%s %s:  %s\n", PROGNAME, VERSION, appname);
+        readpng_version_info();
+        fprintf(stderr, "\n"
+          "Usage:  %s [-display xdpy] [-gamma exp] [-bgcolor bg] file.png\n"
+          "    xdpy\tname of the target X display (e.g., ``hostname:0'')\n"
+          "    exp \ttransfer-function exponent (``gamma'') of the display\n"
+          "\t\t  system in floating-point format (e.g., ``%.1f''); equal\n",
+          PROGNAME, default_display_exponent);
+
+        fprintf(stderr, "\n"
+          "\t\t  to the product of the lookup-table exponent (varies)\n"
+          "\t\t  and the CRT exponent (usually 2.2); must be positive\n"
+          "    bg  \tdesired background color in 7-character hex RGB format\n"
+          "\t\t  (e.g., ``#ff7700'' for orange:  same as HTML colors);\n"
+          "\t\t  used with transparent images\n"
+          "\nPress Q, Esc or mouse button 1 (within image window, after image\n"
+          "is displayed) to quit.\n");
+        exit(1);
+    }
+
+
+    if (!(infile = fopen(filename, "rb"))) {
         fprintf(stderr, PROGNAME ":  can't open PNG file [%s]\n", filename);
         ++error;
     } else {
@@ -280,8 +310,7 @@ int main(int argc, char **argv)
                     break;
                 case 2:
                     fprintf(stderr, PROGNAME
-                      ":  [%s] has bad IHDR (libpng longjmp)\n",
-                      filename);
+                      ":  [%s] has bad IHDR (libpng longjmp)\n", filename);
                     break;
                 case 4:
                     fprintf(stderr, PROGNAME ":  insufficient memory\n");
@@ -306,25 +335,9 @@ int main(int argc, char **argv)
     }
 
 
-    /* usage screen */
-
     if (error) {
-        fprintf(stderr, "\n%s %s:  %s\n", PROGNAME, VERSION, appname);
-        readpng_version_info();
-        fprintf(stderr, "\n"
-          "Usage:  %s [-display xdpy] [-gamma exp] [-bgcolor bg] file.png\n"
-          "    xdpy\tname of the target X display (e.g., ``hostname:0'')\n"
-          "    exp \ttransfer-function exponent (``gamma'') of the display\n"
-          "\t\t  system in floating-point format (e.g., ``%.1f''); equal\n"
-          "\t\t  to the product of the lookup-table exponent (varies)\n"
-          "\t\t  and the CRT exponent (usually 2.2); must be positive\n"
-          "    bg  \tdesired background color in 7-character hex RGB format\n"
-          "\t\t  (e.g., ``#ff7700'' for orange:  same as HTML colors);\n"
-          "\t\t  used with transparent images\n"
-          "\nPress Q, Esc or mouse button 1 (within image window, after image\n"
-          "is displayed) to quit.\n"
-          "\n", PROGNAME, default_display_exponent);
-        exit(1);
+        fprintf(stderr, PROGNAME ":  aborting.\n");
+        exit(2);
     }
 
 
@@ -410,6 +423,8 @@ int main(int argc, char **argv)
     /* OK, we're done:  clean up all image and X resources and go away */
 
     rpng_x_cleanup();
+
+    (void)argc; /* Unused */
 
     return 0;
 }
