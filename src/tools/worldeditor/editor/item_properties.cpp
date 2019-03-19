@@ -243,7 +243,7 @@ float ChunkItemPositionProperty::length( ChunkItemPtr item )
 	if( bb.insideOut() )
 		return 0.f;
 	float length = ( bb.maxBounds() - bb.minBounds() ).length() * 10.f;
-	length = Math::clamp( 10.f, length, 200.f );
+	length = Math::clamp( 10.f, length, 1000.f );
 	return length;
 }
 
