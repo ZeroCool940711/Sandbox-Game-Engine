@@ -1,6 +1,6 @@
-	This file lists the changes made by BigWorld to the LibPNG distribution:
+This file lists the changes made by BigWorld to the LibPNG distribution:
 
-1.  In pngstruct.h the line:
+1.  In png.h the line:
 
 	#include "zlib.h"
 
